@@ -1,0 +1,5 @@
+jupyter-book==1.0.4
+JupyterQuiz==2.8.*
+matplotlib
+numpy
+sparqlkernel
