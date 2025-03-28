@@ -149,7 +149,5 @@ lang: de-DE
 
 Wir danken folgenden Gruppen, Institutionen und Einrichtungen für die Nachnutzung ihrer Werke:
 
-- <a href="https://www.bildungsbericht.de/de/autor-innengruppe-bildungsbericht/autorengruppe" target="_blank">Autor:innengruppe Bildungsbericht</a>  
-- <a href="https://www.fdm-bayern.org/" target="_blank">Forschungsdatenmanagement Bayern</a>  
-- <a href="https://fair-office.at/" target="_blank">Go Fair Austria</a>  
-- <a href="https://odis-berlin.de/" target="_blank">Open Data Informationsstelle Berlin</a>  
+- <a href="https://www.giessdenkiez.de/" target="_blank">Gieß den Kiez/a>  
+
