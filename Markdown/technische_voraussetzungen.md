@@ -44,7 +44,7 @@ Interface von RStudio.
 
 **R Skript:**  
 Im R Skript werden Befehle eingegeben, die **R** ausführen soll.
-Um einen Befehl auszuführen, drücken Sie `Strg + Enter`, um eine einzelne Zeile zu starten, oder markieren Sie den gewünschten Code-Abschnitt und drücke erneut `Strg + Enter`, um mehrere Zeilen gleichzeitig auszuführen. Alternativ können Sie den Run-App-Button in der oberen rechten Ecke des Fensters nutzen.
+Um einen Befehl auszuführen, drücken Sie `Strg + Enter`, um eine einzelne Zeile zu starten, oder markieren Sie den gewünschten Code-Abschnitt und drücke erneut `Strg + Enter`, um mehrere Zeilen gleichzeitig auszuführen. Alternativ können Sie den Run-App-Button in der oberen rechten Ecke des Fensters nutzen oder die Tastenkombination `Strg + Shift + S` verwenden.
 Ein Beispielbefehl ist das vorab eingetragene Skript, das automatisch beim Erstellen einer neuen Shiny-Web-App generiert wird.
 Das Skript kann gespeichert und später erneut geöffnet werden.
 
