@@ -17,14 +17,14 @@ chapters:
     - file: Markdown/05_Übung_Dashboard
     - file: Markdown/06_Übung_Histogramm
 
-  - file: Markdown/08_Dateninterpretation
+  - file:  Markdown/08_Dateninterpretation
 
   - file: Markdown/UX_von_Dashboards
     sections:
     - file: Markdown/09_UX_von_Dashboards
     - file: Markdown/Übung_UX
 
-    - file: Markdown/Zusammenfassung
+  - file: Markdown/Zusammenfassung
   
   - file: Markdown/Epilog
     sections:
