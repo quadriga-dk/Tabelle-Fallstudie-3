@@ -149,5 +149,6 @@ lang: de-DE
 
 Wir danken folgenden Gruppen, Institutionen und Einrichtungen für die Nachnutzung ihrer Werke:
 
-- <a href="https://citylab-berlin.org/de/start/" target="_blank">CityLab Berlin/>  
+- <a href="https://citylab-berlin.org/de/start/" target="_blank">CityLab Berlin</a>  
+
 
