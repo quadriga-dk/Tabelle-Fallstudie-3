@@ -19,6 +19,7 @@ chapters:
       file: Markdown/Übung
       sections:
         - file: Markdown/Übung_Startseite
+        - file: Markdown/Übung_Karte
 
   - file:  Markdown/08_Dateninterpretation
 
