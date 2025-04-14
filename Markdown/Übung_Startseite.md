@@ -1,3 +1,4 @@
+# Übung Startseite
 Das Ziel dieses Abschnitts ist es, eine Startseite für ein Dashboard zu erstellen, das wichtige Informationen über die Baum-Bewässerung in verschiedenen Berliner Bezirken anzeigt. Dabei geht es darum, eine übersichtliche, interaktive Ansicht zu bauen, die Folgendes ermöglicht:
 
 - Zentrale Kennzahlen anzeigen, etwa wie viele Bäume gegossen wurden oder wie viel Wasser verbraucht wurde.
