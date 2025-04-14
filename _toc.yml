@@ -14,8 +14,11 @@ chapters:
   - file: Markdown/Datenvisualierung_durch_interaktive_Dashboards
     sections:
     - file: Markdown/04_Umsetzung_mit_rshiny
-    - file: Markdown/05_Übung_Dashboard
-    - file: Markdown/06_Übung_Histogramm
+    - file: Markdown/Alternative_Lösungen
+    - title: Übung
+      file: Markdown/Übung
+      sections:
+        - file: Markdown/Übung_Startseite
 
   - file:  Markdown/08_Dateninterpretation
 
