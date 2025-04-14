@@ -20,6 +20,7 @@ chapters:
       sections:
         - file: Markdown/Übung_Startseite
         - file: Markdown/Übung_Karte
+        - file: Markdown/Übung_Baumstatistik
 
   - file:  Markdown/08_Dateninterpretation
 
