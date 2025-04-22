@@ -1,5 +1,7 @@
 # Karte verbesseren
 
+#### Ausgangssituation
+
 ```{figure} _images/R_Karte.png
 ---
 name: screenshot der Karte
@@ -8,29 +10,49 @@ alt: Ein Screenshot, der die Karte des Dashboards zeigt.
 Dashboard Karte.
 ```
 
-verbesserungen: 
-Was wir einbauen wollen um das Dashboard zu verbessern: 
-- Layout ändern
-- Baumbestand mit einbinden
+#### Geplante Verbesserungen
 
+**Ziele:**
+- Verbessertes Layout für Filter
+- Baumbestand einbinden (vollständige Darstellung aller relevanten Bäume)
+- Farbliche Anpassung der Marker basierend auf der Gesamtbewässerung (Orange → Blau)
+- Popup-Erweiterung um zusätzliche Baumdaten (Gattung, Standort, Intervall)
+- Performanceoptimierung beim Datenladen und Filtern
+
+#### Layout-Anpassung der Filter
+
+**Vorher:**
 
 ```bash
-      tabItem(tabName = "map",
-              fluidRow(
-                box(title = "Filter", status = "primary", solidHeader = TRUE, width = 12,
-                    selectInput("map_bezirk", "Bezirk auswählen:", choices = c("Alle", unique(df$bezirk)), selected = "Alle", multiple = TRUE),
-                   
-                    selectInput("map_year", "Jahr auswählen:", choices = c("2020-2024",unique(year(df_clean$timestamp))), selected = "2020-2024", multiple = TRUE),
-
-                    selectInput("map_saison", "Saison auswählen:", choices = c("Alle", "Winter", "Frühling", "Sommer", "Herbst"), selected = "Alle", multiple = TRUE),
-                    
-                    selectInput("map_baumgattung", "Baumgattung auswählen:", choices = c("Alle", unique(df$gattung_deutsch)), selected = "Alle", multiple = TRUE)  
-                )
-              ),
-              leafletOutput("map", height = "800px")
-      ),
+fluidRow(
+  box(title = "Filter", ...,
+    selectInput(...),
+    selectInput(...),
+    ...
+  )
+)
 ```
 
+**Nachher – Neue Struktur mit Spalten:**
+
+```bash
+fluidRow(
+  box(title = "Filter", status = "primary", solidHeader = TRUE, width = 12,
+    column(width = 6,
+      selectInput("map_bezirk", "Bezirk auswählen:", ...)
+    ),
+    column(width = 6,
+      selectInput("map_year", "Jahr auswählen:", ...)
+    ),
+    column(width = 6,
+      selectInput("map_saison", "Saison auswählen:", ...)
+    ),
+    column(width = 6,
+      selectInput("map_baumgattung", "Baumgattung auswählen:", ...)
+    )
+  )
+)
+```
 
 ```{figure} _images/R_Karte_Layout_ändern.png
 ---
@@ -39,8 +61,7 @@ alt: Ein Screenshot, der die Karteseite des Dashboards zeigt mit geändertem Lay
 ---
 Dashboard Karteseite mit geändertem Layout.
 ```
-
-ändern zu das: 
+Gesamter Codeabschnitt zur Kontrolle: 
 
 ```bash
       tabItem(tabName = "map",
@@ -63,6 +84,203 @@ Dashboard Karteseite mit geändertem Layout.
               leafletOutput("map", height = "800px")
       ),
 ```
+
+#### Baumbestand + neue Darstellung
+
+Neuer Datenfilter mit vollständigem Baumbestand:
+```bash
+df_merged_sum <- df_merged %>%
+  group_by(pitid) %>%
+  summarise(
+    gesamt_bewaesserung = sum(bewaesserungsmenge_in_liter, na.rm = TRUE),
+    .groups = "drop"
+  ) %>%
+  left_join(df_merged, by = "pitid")
+
+```
+
+Reaktive Filterfunktion filtered_data_map:
+- Berücksichtigt Bezirk, Baumgattung, Jahr, Saison
+- Entfernt Datensätze ohne Koordinaten
+
+```bash
+filtered_data_map <- reactive({
+    data <- df_merged_sum
+    
+    # Bezirk
+    if (!is.null(input$map_bezirk) && !("Alle" %in% input$map_bezirk)) {
+      data <- data %>% filter(bezirk %in% input$map_bezirk)
+    }
+    
+    # Baumgattung
+    if (!is.null(input$map_baumgattung) && !("Alle" %in% input$map_baumgattung)) {
+      data <- data %>% filter(gattung_deutsch %in% input$map_baumgattung)
+    }
+    
+    # Jahr (nur wenn timestamp vorhanden und als Date/Year formatiert)
+    if (!is.null(input$map_year) && !("2020-2024" %in% input$map_year)) {
+      data$timestamp <- as.Date(data$timestamp)
+      data <- data %>%
+        filter(lubridate::year(timestamp) %in% as.numeric(input$map_year))
+    }
+    
+    # Saison
+    if (!is.null(input$map_saison) && !("Alle" %in% input$map_saison)) {
+      data$monat <- lubridate::month(as.Date(data$timestamp))
+      data$saison <- case_when(
+        data$monat %in% c(12, 1, 2) ~ "Winter",
+        data$monat %in% c(3, 4, 5) ~ "Frühling",
+        data$monat %in% c(6, 7, 8) ~ "Sommer",
+        data$monat %in% c(9, 10, 11) ~ "Herbst",
+        TRUE ~ "Unbekannt"
+      )
+      data <- data %>% filter(saison %in% input$map_saison)
+    }
+    
+    # Koordinaten check
+    data <- data %>% filter(!is.na(lat), !is.na(lng))
+    
+    return(data)
+  })
+  
+  output$map <- renderLeaflet({
+    color_palette <- colorNumeric(palette = "Blues", domain = c(0, max(df_merged_sum$gesamt_bewaesserung, na.rm = TRUE)))
+    
+    data <- filtered_data_map()
+    
+    leaflet(data = data) %>%
+      addTiles() %>% 
+      addCircleMarkers(
+        lng = ~lng,
+        lat = ~lat,
+        radius = 4,
+        stroke = FALSE,
+        fillOpacity = 0.7,
+        color = ~color_palette(gesamt_bewaesserung),
+        popup = ~paste0(
+          "<strong>Baumart: </strong>", art_dtsch, "<br>",
+          "<strong>Gattung: </strong>", gattung_deutsch, "<br>",
+          "<strong>Standort: </strong>", strname, " ", hausnr, "<br>",
+          "<strong>Gesamtbewässerung: </strong>", round(gesamt_bewaesserung, 1), " Liter"
+        )
+      ) %>%
+      addLegend(
+        "bottomright",
+        pal = color_palette,
+        values = data$gesamt_bewaesserung,
+        title = "Gesamtbewässerung (Liter)",
+        opacity = 1
+      )
+  })
+```
+
+#### Neue Farbskala: Orange → Blau
+
+```bash
+color_palette <- colorNumeric(
+  palette = colorRampPalette(c("#FFA500", "#0000FF"))(100),  # Orange → Blau
+  domain = c(0, 2500),
+  na.color = "#CCCCCC"
+)
+```
+
+Legende anpassen:
+
+```bash
+addLegend(
+  position = "bottomright",
+  pal = color_palette,
+  values = c(0, 2500),
+  title = "Gesamtbewässerung (Liter)",
+  labFormat = labelFormat(suffix = " L", digits = 0),
+  opacity = 1
+)
+```
+
+**Hinweis zur Skalierung:**
+
+Bei Farbzuweisungen außerhalb des definierten Bereichs (domain) erscheint die Warnung:
+
+Some values were outside the color scale...
+
+Lösung: Deckeln mit pmin(...):
+
+```bash
+color = ~color_palette(pmin(gesamt_bewaesserung, 2500))
+```
+
+```{figure} _images/R_Karte_mit_Baumbestand_und_Farbe.png
+---
+name: screenshot der Kartes mit erweitertem Baumbestand und anderem Farbverlauf
+alt: Ein Screenshot, der die Karteseite mit dem erweitertem Baumbestand und anderem Farbverlauf zeigt.
+---
+Dashboard Karteseite mit erweitertem Baumbestand und anderem Farbverlauf.
+```
+
+#### Performanceoptimierung
+
+CSV effizienter laden mit fread():
+```bash
+library(data.table)
+df_merged <- fread("data/df_merged.csv", sep = ";", encoding = "UTF-8")
+````
+
+Nur relevante Spalten laden:
+
+```bash
+df_merged <- df_merged[, .(pitid, lat, lng, gattung_deutsch, art_dtsch, hausnr, strname,
+                           bewässerungsmenge_in_liter, bezirk, timestamp, pflanzjahr)]
+```
+
+#### Intervallberechnung für jeden Baum
+
+```bash
+# 1. Intervall berechnen
+bewässerungs_frequenz <- df_merged %>%
+  group_by(pitid) %>%
+  filter(n() > 1) %>%
+  arrange(pitid, timestamp) %>%
+  mutate(differenz = as.numeric(difftime(timestamp, lag(timestamp), units = "days"))) %>%
+  summarise(durchschnitts_intervall = mean(differenz, na.rm = TRUE)) %>%
+  ungroup()
+
+# 2. Zusammenführen
+df_merged <- df_merged %>%
+  left_join(bewässerungs_frequenz, by = "pitid")
+
+# 3. Inf für fehlende Daten
+df_merged$durchschnitts_intervall[is.na(df_merged$durchschnitts_intervall)] <- Inf
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
