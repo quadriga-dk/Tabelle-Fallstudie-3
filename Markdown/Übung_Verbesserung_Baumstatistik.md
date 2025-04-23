@@ -263,3 +263,85 @@ alt: Ein Screenshot, der mit einem Tortendiagramm welches die am häufigsten geg
 ---
 Tortendiagramm welches die am häufigsten gegossenen Baumarten im Verhältnis zu ihrem Vorkommen zeigt
 ```
+
+```bash
+Warnung: Error in summarise: ℹ In argument: `tree_count = n_distinct(id)`.
+ℹ In group 1: `bezirk = "Charlottenburg-Wilmersdorf"`.
+Caused by error in `n_distinct()`:
+! `..1` must be a vector, not a function.
+  128: <Anonymous>
+  127: signalCondition
+  126: signal_abort
+  125: abort
+  124: handler
+  123: <Anonymous>
+  122: signalCondition
+  121: signal_abort
+  120: abort
+  119: stop_vctrs
+  118: stop_scalar_type
+  117: df_list
+  116: n_distinct
+  115: eval
+  114: mask$eval_all_summarise
+  113: FUN
+  112: lapply
+  111: map
+  109: summarise_cols
+  108: summarise.grouped_df
+  107: summarise
+  106: %>%
+  105: renderPlotly [C:\Users\cem67098\Documents\Rshiny\dashboard/server.R#127]
+  104: func
+  101: shinyRenderWidget
+  100: func
+   87: renderFunc
+   86: output$tree_distribution
+    1: runApp
+Warnung in RColorBrewer::brewer.pal(10, "Set2")
+  n too large, allowed maximum for palette Set2 is 8
+Returning the palette you asked for with that many colors
+
+Input to asJSON(keep_vec_names=TRUE) is a named vector. In a future version of jsonlite, this option will not be supported, and named vectors will be translated into arrays instead of objects. If you want JSON object output, please use a named list instead. See ?toJSON.
+```
+Lösung der Fehlermeldung: 
+
+```bash
+  output$tree_distribution <- renderPlotly({
+    
+    # Jahresauswahl übernehmen
+    selected_years <- if (is.null(input$stats_baumvt_year) || "2020-2024" %in% input$stats_baumvt_year) {
+      2020:2024
+    } else {
+      as.numeric(input$stats_baumvt_year)
+    }
+    
+    # Timestamp vorbereiten
+    df_clean$timestamp <- as.Date(df_clean$timestamp)
+    
+    # Nach Jahr filtern
+    df_filtered <- df_clean %>%
+      filter(lubridate::year(timestamp) %in% selected_years)
+    
+    # Baumanzahl je Bezirk berechnen
+    baumanzahl_filtered <- df_filtered %>%
+      group_by(bezirk) %>%
+      summarise(tree_count = n_distinct(pitid))
+    
+    # Baumdichte mit den gefilterten Daten kombinieren
+    baum_dichte_filtered <- baum_dichte %>%
+      filter(bezirk %in% baumanzahl_filtered$bezirk) %>%
+      left_join(baumanzahl_filtered, by = "bezirk")
+    
+    # Plot erstellen
+    plot <- ggplot(baum_dichte_filtered, aes(x = reorder(bezirk, tree_count), y = tree_count, fill = baeume_pro_ha)) +
+      geom_bar(stat = "identity", position = "dodge") +
+      scale_fill_gradient(low = "lightblue", high = "darkblue", name = "Baumdichte (Bäume/ha)") +  # Baumdichte als Farbskala
+      coord_flip() +
+      labs(title = "Baumverteilung im Verhältnis zur Bezirkfläche", x = "Bezirk", y = "Anzahl gegossener Bäume") +
+      theme_minimal() +
+      theme(legend.position = "right")
+    
+    ggplotly(plot, tooltip = c("x", "y", "fill"))
+  })
+```

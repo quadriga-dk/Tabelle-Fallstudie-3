@@ -144,3 +144,52 @@ df_clean <- df %>% drop_na(lng, lat, bewaesserungsmenge_in_liter)  %>%
   filter(strname != "Undefined" & strname != "" & !str_detect(gattung_deutsch, "[0-9]")) 
 
 ```
+
+
+#### Fehlermeldung lösen
+
+```bash
+Input to asJSON(keep_vec_names=TRUE) is a named vector. In a future version of jsonlite, this option will not be supported, and named vectors will be translated into arrays instead of objects. If you want JSON object output, please use a named list instead. See ?toJSON.
+Warnung: There was 1 warning in `mutate()`.
+ℹ In argument: `timestamp = ymd_hms(timestamp)`.
+Caused by warning:
+!  3074 failed to parse.
+```
+Hier die Lösung: 
+```bash
+df_clean <- df_merged %>%
+  filter(str_detect(timestamp, "^\\d{4}-\\d{2}-\\d{2}")) %>%  # Nur gültige ISO-Formate
+  mutate(timestamp = ymd_hms(timestamp)) %>%
+  drop_na(lat, lng) %>%
+  filter(strname != "Undefined" & strname != "" & !str_detect(gattung_deutsch, "[0-9]"))
+
+  filtered_trend_data <- reactive({
+    df_agg <- df_clean %>%
+      mutate(timestamp = ymd_hms(timestamp),
+             year = year(timestamp),
+             month = lubridate::month(timestamp, label = TRUE)) %>%
+      filter(
+        (input$trend_mode == "month" & year == input$trend_year_ts) | 
+          (input$trend_mode == "year" & year >= 2020 & year <= 2024),
+        (input$trend_bezirk == "Alle" | bezirk %in% input$trend_bezirk),
+        (input$trend_baumgattung == "Alle" | gattung_deutsch %in% input$trend_baumgattung)
+      ) %>%
+      group_by(!!sym(input$trend_mode)) %>%
+      summarise(total_water = sum(bewaesserungsmenge_in_liter, na.rm = TRUE)) %>%
+      mutate(total_water = as.numeric(total_water)) %>%  
+      arrange(!!sym(input$trend_mode))
+    
+    # Einheit berechnen (mit Absicherung)
+    max_value <- ifelse(all(is.na(df_agg$total_water)), 0, max(df_agg$total_water, na.rm = TRUE))
+    conversion_result <- convert_units(max_value)
+    
+    df_agg <- df_agg %>%
+      mutate(
+        converted_value = total_water / ifelse(conversion_result$unit == "ML", 1e6,
+                                               ifelse(conversion_result$unit == "m³", 1e3, 1)),
+        unit = conversion_result$unit
+      )
+    
+    return(df_agg)
+  })
+```
