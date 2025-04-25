@@ -52,6 +52,9 @@ pumpen_mit_bezirk <- pumpen_mit_bezirk %>%
 # Ergebnisse als GeoJSON speichern (optional)
 st_write(pumpen_mit_bezirk, "data/pumpen_mit_bezirk.geojson", driver = "GeoJSON", delete_dsn = TRUE)
 ```
+**Erklärung:** 
+- ``st_join()`` verknüpft zwei Geodatensätze – hier wird jede Pumpe mit dem Bezirk verbunden, in dem sie sich befindet.
+- ``left = TRUE`` bedeutet: alle Pumpen bleiben erhalten, auch wenn keine passende Bezirkseintragung gefunden wird.
 
 ### Gießverhalten-Daten bereinigen und verknüpfen
 - Gießdaten enthalten häufig Koordinaten als Text mit Kommas. Diese müssen in numerische Werte umgewandelt werden.
@@ -96,6 +99,13 @@ library(tidyr)
 
 ```
 
+**Erklärung:**
+- ``mutate()`` verändert oder erstellt Spalten.
+- ``str_replace()`` ersetzt Zeichen – hier das Komma durch einen Punkt, damit wir korrekt mit Zahlen rechnen können.
+- ``st_distance()`` berechnet Distanzen zwischen allen Punkten.
+- ``apply(..., min)`` nimmt jeweils den kleinsten Abstand (zur nächsten Pumpe).
+
+
 ### Pumpen im 100 m Umkreis zählen
 Um den Einfluss der Pumpendichte auf das Gießverhalten genauer zu untersuchen, ermitteln wir, wie viele Pumpen sich in einem Umkreis von 100 Metern um jeden Gießpunkt befinden.
 
@@ -122,6 +132,9 @@ df_merged_sum_mit_distanzen <- read.csv("data/df_merged_sum_mit_distanzen.csv", 
   write.csv2(df_merged_sum_mit_distanzen, "data/df_merged_sum_mit_distanzen_mit_umkreis.csv", row.names = FALSE)
 
 ```
+**Erklärung:**
+- ``st_buffer()`` erzeugt eine Art "Zone" (Kreis) um jeden Punkt.
+- ``st_intersects()`` prüft, welche Pumpen in diesen Zonen liegen.
 
 ### Bezirk-Flächen zur Berechnung der Pumpendichte
 Um die Pumpendichte zu berechnen, benötigen wir die Fläche jedes Bezirks in Hektar (ha).
@@ -215,6 +228,11 @@ pumpendichte <- pumpen_pro_bezirk %>%
   mutate(pumpen_pro_ha = pumpenanzahl / flaeche_ha)
 
 ```
+**Erklärung:**
+- ``group_by():`` Gruppiert die Daten nach Bezirk.
+- ``summarise()``: Zählt die Anzahl Pumpen.
+- ``left_join()``: Fügt die Flächen-Daten hinzu (eine Art „Verschmelzen“ der Tabellen).
+- ``mutate()``: Rechnet die Dichte aus.
 
 ### Gießverhalten pro Bezirk zusammenfassen und mit Pumpendichte verbinden
 
