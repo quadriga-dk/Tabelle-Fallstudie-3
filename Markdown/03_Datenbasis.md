@@ -16,6 +16,15 @@ Jeder Eintrag ist einem bestimmten Baum zugeordnet (zu erkennen durch die Id) un
 
 Diese Daten ermöglichen Rückschlüsse auf Engagementsmuster der Bevölkerung in dem Zeitraum 2020-2024 und versorgen die Visualisierung mit räumlich und zeitlich differenzierten Informationen zur städtischen Baumbewässerung.
 
+
+```{figure} _images/Karte_mit_Personen.png
+---
+name: Karte_mit_Personen
+alt: Ein Screenshot, der ein comicartiges Bild einer Berlin-Karte zeigt, auf der Bäume von Personen gegossen werden.
+---
+Karte mit Personen darauf.
+```
+
 ## Baumbestandsdaten (Berlin Open Data)
 
 Die Baumbestandsdaten stammen aus dem Berliner Open-Data-Portal und umfassen sowohl Straßenbäume als auch Anlagebäume. Die Daten liegen im WFS-Format vor. 
