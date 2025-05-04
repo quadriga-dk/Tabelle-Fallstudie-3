@@ -1,20 +1,20 @@
 (Datenbasis)=
 # Datenbasis: 
 
-Im Rahmen dieser Fallstudie beschäftigen wir uns mit der Datenvisualisierung in R Shiny. Dabei nutzen wir drei zentrale Datensätze: Zum einen die Bewässerungsdaten des Projekts <a href="https://citylab-berlin.org/en/projects/giessdenkiez/">Gieß den Kiez</a>, die wir ergänzen, um fehlende Baumdaten auszugleichen. Ergänzend verwenden wir den Berliner Baumbestand sowie Informationen zu öffentlichen Wasserpumpen, um die Visualisierungsergebnisse besser einordnen und vergleichend darstellen zu können. Diese Datengrundlage ermöglicht eine fundierte Analyse der urbanen Bewässerungsinfrastruktur in Berlin.
+Im Rahmen dieser Fallstudie beschäftigen wir uns unter anderem mit der Datenvisualisierung in R Shiny. Dabei nutzen wir drei zentrale Datensätze: Zum einen die Bewässerungsdaten des Projekts <a href="https://citylab-berlin.org/en/projects/giessdenkiez/" class="external-link" target="_blank">Gieß den Kiez</a>, die wir ergänzen, um fehlende Baumdaten auszugleichen. Ergänzend verwenden wir den Berliner Baumbestand sowie Informationen zu öffentlichen Wasserpumpen, um die Visualisierungsergebnisse besser einordnen und vergleichend darstellen zu können. Diese Datengrundlage ermöglicht eine fundierte Analyse der urbanen Bewässerungsinfrastruktur in Berlin.
 
 ## Gieß den Kiez – Bewässerungsdaten (Govdata)
 
-Die Datenplattform <a href="https://www.govdata.de/suche/daten/giess-den-kiez-nutzungsdaten" target="_blank"> Gieß den Kiez</a> dokumentiert die freiwillige Bewässerung städtischer Bäume durch Bürger:innen. Der Datensatz enthält Informationen über einzelne Bewässerungsvorgänge.
-Jeder Eintrag ist einem bestimmten Baum zugeordnet (zu erkennen durch die Id) und umfasst unter anderem:
+Die Datenplattform <a href="https://www.govdata.de/suche/daten/giess-den-kiez-nutzungsdaten" class="external-link" target="_blank">Gieß den Kiez</a> dokumentiert die freiwillige Bewässerung städtischer Bäume durch Bürger:innen. Der Datensatz enthält Informationen über einzelne Bewässerungsvorgänge.
+Jeder Eintrag ist einem bestimmten Baum zugeordnet (zu erkennen durch die ID) und umfasst unter anderem:
 
 - Geokoordinaten (Längengrad: ``lng``, Breitengrad: ``lat``)
 - Baumart: ``art_dtsch`` und Gattung: ``gattung_deutsch``
-- Pflanzjahr`: ``pflanzjahr``, Straßenname: ``strname`` und Bezirk: ``bezirk``
-- Zeitpunkt: ``timestamp`` der letzten Bewässerung
+- Pflanzjahr: ``pflanzjahr``, Straßenname: ``strname`` und Bezirk: ``bezirk``
+- Zeitpunkt der letzten Bewässerung: ``timestamp`` 
 - Menge der Bewässerung in Litern: ``bewaesserungsmenge_in_liter``
 
-Diese Daten ermöglichen Rückschlüsse auf Engagementsmuster der Bevölkerung in dem Zeitraum 2020-2024 und versorgen die Visualisierung mit räumlich und zeitlich differenzierten Informationen zur städtischen Baumbewässerung.
+Diese Daten ermöglichen Rückschlüsse auf Muster im Gießverhalten der Bevölkerung in dem Zeitraum 2020-2024 und versorgen die Visualisierung mit räumlich und zeitlich differenzierten Informationen zur städtischen Baumbewässerung.
 
 
 ```{figure} _images/Karte_mit_Personen.png
@@ -27,20 +27,28 @@ Karte mit Personen darauf.
 
 ## Baumbestandsdaten (Berlin Open Data)
 
-Die Baumbestandsdaten stammen aus dem Berliner Open-Data-Portal und umfassen sowohl Straßenbäume als auch Anlagebäume. Die Daten liegen im WFS-Format vor. 
+````{margin}
+```{admonition}
+:class: hinweis
+WFS steht für Web Feature Service, also einen Zugriff auf Geo-Objekte über eine definierte Schnittstelle. Dabei werden in der Regel Vektordaten mit Sachinformationen abgefragt (s. beispielsweise den entsprechenden <a href="https://de.wikipedia.org/wiki/Web_Feature_Service" class="external-link" target="_blank">Wikipedia-Artikel</a> oder die Anleitung von <a href="https://offenedaten-koeln.de/blog/anleitung-zur-nutzung-von-geodatendiensten-wie-wms-und-wfs" class="external-link" target="_blank">Open Data Köln</a>).
+```
+````
+Die Baumbestandsdaten stammen aus dem <a href="https://daten.berlin.de/" class="external-link" target="_blank">Berliner Open-Data-Portal</a> und umfassen sowohl Straßenbäume als auch Anlagebäume. Die Daten liegen im WFS-Format vor. 
 
 Die Datensätze enthalten unter anderem Informationen zu:
-- Identificatoren wie ```gml_id`` (ermöglicht unterscheidung zwischen Anlagen- und Straßenbäumen), ``gisid`` und ``pitid``, Kennzeichen: ``kennzeichen``
-- Botanische Klassifikation (Art: ``art_dtsch``, ``art_bot``, Gattung: ``gattung_deutsch``, ``gattung``, Gruppe: ``art_gruppe``)
-- Standortmerkmale (Straße: ``strname``, Hausnummer: ``hausnr``, Zusatz: ``zusatz`` Bezirk: ``bezirk`` , Geometrie: ``geom`` enthält Längen- und Breitengrad in anderem Format, Standortnummer: ``standortnr``)
-- Baummaße (Kronendurchmesser: ``kronedurch``, Stammumfang: ``stammumfg``, Höhe: ``baumhoehe``)
-- Eigentumsverhältnisse: ``eigentuemer`` und Pflanzjahr: ``pflanzjahr``
+- Identifikatoren wie ``gml_id`` (ermöglicht Unterscheidung zwischen Anlagen- und Straßenbäumen), ``gisid`` und ``pitid``
+- Kennzeichen: ``kennzeichen``
+- Botanische Klassifikation, z. B. Baumart: ``art_dtsch``, ``art_bot``, Gattung: ``gattung_deutsch``, ``gattung`` und Gruppe: ``art_gruppe``)
+- Standortmerkmale wie Straße: ``strname``, Hausnummer: ``hausnr``, Zusatz: ``zusatz``, Bezirk: ``bezirk``, Geometrie: ``geom`` (enthält Längen- und Breitengrad in anderem Format) und Standortnummer: ``standortnr``
+- Baummaße, z. B. Kronendurchmesser: ``kronedurch``, Stammumfang: ``stammumfg`` und Höhe: ``baumhoehe``
+- Eigentumsverhältnisse: ``eigentuemer``
+- Pflanzjahr: ``pflanzjahr``
 
 Sie dienen dazu, die Struktur des städtischen Baumbestands besser zu verstehen und mit den Gießdaten in Beziehung zu setzen.
 
 ## Öffentliche Pumpen (OpenStreetMap via Overpass API)
 
-Zur Identifikation potenzieller Wasserquellen für die Baumgießung wurden Daten zu öffentlichen Wasserpumpen aus <a href="https://overpass-turbo.eu/" target="_blank">Overpass Turbo</a> extrahiert. Mithilfe einer Abfrage im OpenStreetMap-Tagging-Schema "man_made"="water_well" 
+Zur Identifikation potenzieller Wasserquellen für die Baumgießung wurden Daten zu öffentlichen Wasserpumpen aus <a href="https://overpass-turbo.eu/" class="external-link" target="_blank">Overpass Turbo</a> extrahiert. Dabei handelt es sich um ein Daten-Filterungs-Werkzeug für <a href="https://www.openstreetmap.org/" class="external-link" target="_blank">OpenStreetMap</a> (OSM). Mithilfe einer Abfrage im OpenStreetMap-Tagging-Schema "man_made"="water_well" 
 
 ```bash
 [out:json][timeout:60];
@@ -67,7 +75,7 @@ wurde eine umfangreiche Sammlung relevanter Pumpenstandorte generiert. Die resul
 
 ## Bezirksgrenzen (Berlin Open Data)
 
-Zur geografischen besseren Einordnung der Pumpen wurde zusätzlich der Datensatz zu den <a href="https://daten.odis-berlin.de/de/dataset/bezirksgrenzen/"> Berliner Bezirksgrenzen </a> genutzt. Dieser enthält die polygonalen Abgrenzungen aller Berliner Bezirke im GeoJson-Format und ermöglicht damit eine präzise räumliche Zuordnung von Punktdaten und enthalten pro Bezirk unter anderem folgende Attribute:
+Zur besseren geografischen Einordnung der Pumpen wurde zusätzlich der Datensatz zu den <a href="https://daten.odis-berlin.de/de/dataset/bezirksgrenzen/" class="external-link" target="_blank">Berliner Bezirksgrenzen</a> genutzt. Dieser enthält die polygonalen Abgrenzungen aller Berliner Bezirke im <a href="https://de.wikipedia.org/wiki/GeoJSON" class="external-link" target="_blank">GeoJson-Format</a> und ermöglicht damit eine präzise räumliche Zuordnung von Punktdaten und enthalten pro Bezirk unter anderem folgende Attribute:
 - ``Gemeinde_name``: Name des Bezirks (z. B. Reinickendorf)
 - ``Gemeinde_schluessel``: Dreistelliger Schlüssel des Bezirks
 - ``Land_name`` und ``Land_schluessel``: Verwaltungszuordnung zu Berlin
