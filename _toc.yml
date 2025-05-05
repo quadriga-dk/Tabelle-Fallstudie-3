@@ -31,6 +31,10 @@ chapters:
     - file: Markdown/09_UX_von_Dashboards
     - file: Markdown/Übung_UX
 
+  - file: Markdown/Vergleich_mit_anderen_Visualisierungstools
+    sections:
+    - file: Markdown/Vergleich
+
   - file: Markdown/Zusammenfassung
   
   - file: Markdown/Epilog
