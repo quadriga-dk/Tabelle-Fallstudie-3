@@ -65,7 +65,7 @@ Dieser Schritt sorgt dafür, dass die Tabelle wirklich nur vollständige und sin
 
 - `mutate(...)`: Vereinheitlicht die Straßennamen:
 
-    - Alles wird klein geschrieben, Leerzeichen am Rand entfernt und dann korrekt formatiert, z. B. aus „ ALTENALLEE “ wird „Altenallee“.
+    - Alles wird klein geschrieben, Leerzeichen am Rand entfernt und dann korrekt formatiert, z. B. aus „ MUSTERALLEE “ wird „Musterallee“.
 
 - `filter(...)`: Entfernt unbrauchbare Einträge:
 
