@@ -6,7 +6,7 @@ Der Vergleich zwischen R Shiny und anderen Visualisierungswerkzeugen wie Python 
 
 Im Folgenden werden die jeweiligen Werkzeuge und ihre Besonderheiten näher erläutert und miteinander verglichen.
 
-### Erläuterung der ausgewählten Visualisierungswerkzeugen
+## Erläuterung der ausgewählten Visualisierungswerkzeugen
 
 <u>R Shiny:</u>  R Shiny ist ein Open-Source-Web-Anwendungs-Framework für R, welches von RStudio entwickelt worden ist. Das Shiny Framework ermöglicht es R-Nutzern, webbasierte grafische Benutzeroberflächen (GUIs) mit den dazugehörigen R-Analysen und Visualisierungen zu entwickeln.  (Quelle: s40980-016-0029-1.pdf)
 
@@ -18,7 +18,7 @@ Der Hauptzweck von Shiny ist es, diese erstellten Benutzeroberflächen zu veröf
 
 <u>Tableau:</u> Bei Tableau handelt es sich um eine Software für die Erstellung von Visualisierungen.  Entwickelt wurde Tableau von Tableau Inc. als Visualisierungstool für die Erstellung oder Programmierung von Dashboards im Business-Intelligence-Bereich. Die Besonderheit an Tableau ist, dass die Verwendung durch die GUI mit drag and drop relativ unkompliziert ist.  
 
-### Vergleich im Überblick
+## Vergleich im Überblick
 
 Um die unterschiedlichen Stärken und Einsatzbereiche der vier Tools noch klarer zu machen, zeigt die folgende Tabelle einen systematischen Vergleich entlang relevanter Kriterien:
 
@@ -109,7 +109,7 @@ Auch <u>Power BI</u> und <u>Tableau</u> bieten Interaktivität, dies jedoch inne
 
 <u>Tableau</u>  erlaubt ebenso eine Vielzahl an Datenanbindungen. Es unterstützt strukturierte Daten aus Datenbanken (z. B. MySQL, PostgreSQL, Snowflake) sowie Daten aus Cloud-Diensten und unstrukturierte Quellen wie Excel oder Textdateien.
 
-### Fazit
+## Fazit
 Die vier ausgewählten Visualisierungstools - R Shiny, Python Dash, Power BI und Tableau - wurden methodisch analysiert und verglichen, um zu zeigen, dass jedes von ihnen einzigartige Vorteile, Anwendungsbereiche und Zielgruppen hat. Zwei starke Open-Source-Programme, die sich durch ein hohes Maß an Flexibilität, Erweiterbarkeit und Interaktivität auszeichnen, sind R Shiny und Dash. Beide Frameworks erleichtern die Erstellung von dynamischen, anpassungsfähigen Webanwendungen und basieren auf einem reaktiven Programmierparadigma. Aufgrund dieser Eigenschaften sind sie besonders attraktiv für datengesteuerte Projekte und die wissenschaftliche Gemeinschaft, wo komplizierte Visualisierungen und analytische Interaktionen im Vordergrund stehen. Die Einstiegshürde wird dadurch erhöht, dass tiefgreifende Kenntnisse der entsprechenden Programmiersprachen (Python oder R) erforderlich sind.
 Allerdings richtet sich Power BI und Tableau hauptsächlich an den Unternehmenssektor, in dem die Benutzer oft keine Programmierkenntnisse besitzen.  Aus diesem Grund verfügen diese Werkzeuge über eine grafische Benutzeroberfläche im Drag-and-Drop-Stil, die das einfache und zügige Erstellen von Visualisierungen ermöglicht.  Allerdings bringt die Benutzerfreundlichkeit einen Nachteil in Form von fehlender Flexibilität mit sich: Power BI und Tableau sind im Vergleich zu Dash oder Shiny vor allem standardisierte Softwareprodukte, weshalb komplexe Interaktionen und maßgeschneiderte Anpassungen nur eingeschränkt realisierbar sind.  Sie bieten jedoch eine Vielzahl von Konnektoren und Integrationen an, insbesondere Power BI, das sich nahtlos in das Microsoft-Ökosystem einfügt.
 
