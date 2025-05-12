@@ -34,6 +34,7 @@ chapters:
   - file: Markdown/Vergleich_mit_anderen_Visualisierungstools
     sections:
     - file: Markdown/Vergleich
+  - file: Markdown/Data_Story
 
   - file: Markdown/Zusammenfassung
   
