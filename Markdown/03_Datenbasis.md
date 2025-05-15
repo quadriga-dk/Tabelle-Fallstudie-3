@@ -1,98 +1,86 @@
 (Datenbasis)=
 # Datenbasis: 
 
-Beschreibung des Datensatzes <a href="https://www.govdata.de/suche/daten/giess-den-kiez-nutzungsdaten" target="_blank">"Nutzungsdaten Gieß den Kiez"</a>
-Der Datensatz enthält Informationen über die Bewässerung von Bäumen in Berlin durch das Projekt "Gieß den Kiez". Jede Zeile repräsentiert einen Bewässerungseintrag für einen bestimmten Baum mit den folgenden Spalten:
+Im Rahmen dieser Fallstudie beschäftigen wir uns unter anderem mit der Datenvisualisierung in R Shiny. Dabei nutzen wir drei zentrale Datensätze: Zum einen die Bewässerungsdaten des Projekts <a href="https://citylab-berlin.org/en/projects/giessdenkiez/" class="external-link" target="_blank">Gieß den Kiez</a>, die wir ergänzen, um fehlende Baumdaten auszugleichen. Ergänzend verwenden wir den Berliner Baumbestand sowie Informationen zu öffentlichen Wasserpumpen, um die Visualisierungsergebnisse besser einordnen und vergleichend darstellen zu können. Diese Datengrundlage ermöglicht eine fundierte Analyse der urbanen Bewässerungsinfrastruktur in Berlin.
 
-- id: Eine eindeutige ID für den Baum.
+## Gieß den Kiez – Bewässerungsdaten (Govdata)
 
-- lng, lat: Geokoordinaten des Baumes (Längengrad und Breitengrad).
+Die Datenplattform <a href="https://www.govdata.de/suche/daten/giess-den-kiez-nutzungsdaten" class="external-link" target="_blank">Gieß den Kiez</a> dokumentiert die freiwillige Bewässerung städtischer Bäume durch Bürger:innen. Der Datensatz enthält Informationen über einzelne Bewässerungsvorgänge.
+Jeder Eintrag ist einem bestimmten Baum zugeordnet (zu erkennen durch die ID) und umfasst unter anderem:
 
-- bezirk: Der Stadtbezirk, in dem der Baum steht.
+- Geokoordinaten (Längengrad: ``lng``, Breitengrad: ``lat``)
+- Baumart: ``art_dtsch`` und Gattung: ``gattung_deutsch``
+- Pflanzjahr: ``pflanzjahr``, Straßenname: ``strname`` und Bezirk: ``bezirk``
+- Zeitpunkt der letzten Bewässerung: ``timestamp`` 
+- Menge der Bewässerung in Litern: ``bewaesserungsmenge_in_liter``
 
-- art_dtsch: Der deutsche Name der Baumart.
+Diese Daten ermöglichen Rückschlüsse auf Muster im Gießverhalten der Bevölkerung in dem Zeitraum 2020-2024 und versorgen die Visualisierung mit räumlich und zeitlich differenzierten Informationen zur städtischen Baumbewässerung.
 
-- gattung_deutsch: Die botanische Gattung des Baumes.
 
-- strname: Straßenname, in der der Baum gepflanzt wurde (falls vorhanden).
-
-- pflanzjahr: Das Jahr, in dem der Baum gepflanzt wurde (falls bekannt).
-
-- timestamp: Zeitpunkt der letzten Bewässerung.
-
-- bewaesserungsmenge_in_liter: Die in Litern dokumentierte Bewässerungsmenge.
-
-## Vorbereitung der Daten: Einlesen und Bereinigung
-
-Nachdem die Datenbasis bekannt ist, beginnt der erste praktische Schritt in der Datenverarbeitung: Das Einlesen der Datei in R und das Vorbereiten der Daten für eine spätere Analyse oder Visualisierung, z. B. auf einer Karte.
-
-**CSV-Datei in R einlesen**
-
-```bash
-    df <- read.csv("data/giessdenkiez_bewässerungsdaten.csv", sep = ";", stringsAsFactors = FALSE, fileEncoding = "UTF-8")
+```{figure} _images/Karte_mit_Personen.png
+---
+name: Karte_mit_Personen
+alt: Ein Screenshot, der ein comicartiges Bild einer Berlin-Karte zeigt, auf der Bäume von Personen gegossen werden.
+---
+Karte mit Personen darauf.
 ```
 
-Mit diesem Befehl wird die heruntergeladene CSV-Datei in das Programm geladen. Sie wird in einer Tabelle namens `df` gespeichert, vergleichbar mit einem Arbeitsblatt in Excel.
-Wichtig dabei:
+## Baumbestandsdaten (Berlin Open Data)
 
-- Die Spalten in der Datei sind durch Semikolons (;) getrennt.
+````{margin}
+```{admonition}
+:class: hinweis
+WFS steht für Web Feature Service, also einen Zugriff auf Geo-Objekte über eine definierte Schnittstelle. Dabei werden in der Regel Vektordaten mit Sachinformationen abgefragt (s. beispielsweise den entsprechenden <a href="https://de.wikipedia.org/wiki/Web_Feature_Service" class="external-link" target="_blank">Wikipedia-Artikel</a> oder die Anleitung von <a href="https://offenedaten-koeln.de/blog/anleitung-zur-nutzung-von-geodatendiensten-wie-wms-und-wfs" class="external-link" target="_blank">Open Data Köln</a>).
+```
+````
+Die Baumbestandsdaten stammen aus dem <a href="https://daten.berlin.de/" class="external-link" target="_blank">Berliner Open-Data-Portal</a> und umfassen sowohl Straßenbäume als auch Anlagebäume. Die Daten liegen im WFS-Format vor. 
 
-- Texte sollen nicht automatisch in spezielle „Kategorien“ umgewandelt werden (stringsAsFactors = FALSE).
+Die Datensätze enthalten unter anderem Informationen zu:
+- Identifikatoren wie ``gml_id`` (ermöglicht Unterscheidung zwischen Anlagen- und Straßenbäumen), ``gisid`` und ``pitid``
+- Kennzeichen: ``kennzeichen``
+- Botanische Klassifikation, z. B. Baumart: ``art_dtsch``, ``art_bot``, Gattung: ``gattung_deutsch``, ``gattung`` und Gruppe: ``art_gruppe``)
+- Standortmerkmale wie Straße: ``strname``, Hausnummer: ``hausnr``, Zusatz: ``zusatz``, Bezirk: ``bezirk``, Geometrie: ``geom`` (enthält Längen- und Breitengrad in anderem Format) und Standortnummer: ``standortnr``
+- Baummaße, z. B. Kronendurchmesser: ``kronedurch``, Stammumfang: ``stammumfg`` und Höhe: ``baumhoehe``
+- Eigentumsverhältnisse: ``eigentuemer``
+- Pflanzjahr: ``pflanzjahr``
 
-- Die Kodierung UTF-8 sorgt dafür, dass Umlaute und Sonderzeichen korrekt gelesen werden.
+Sie dienen dazu, die Struktur des städtischen Baumbestands besser zu verstehen und mit den Gießdaten in Beziehung zu setzen.
 
-**Datentypen anpassen**
+## Öffentliche Pumpen (OpenStreetMap via Overpass API)
 
-Manche Spalten, etwa das Pflanzjahr und die bewässerte Menge in Litern, wurden beim Einlesen als Text erkannt. Damit man damit rechnen oder sie filtern kann, müssen sie als Zahlen vorliegen. Mit diesen Befehlen wird das sichergestellt.
+Zur Identifikation potenzieller Wasserquellen für die Baumgießung wurden Daten zu öffentlichen Wasserpumpen aus <a href="https://overpass-turbo.eu/" class="external-link" target="_blank">Overpass Turbo</a> extrahiert. Dabei handelt es sich um ein Daten-Filterungs-Werkzeug für <a href="https://www.openstreetmap.org/" class="external-link" target="_blank">OpenStreetMap</a> (OSM). Mithilfe einer Abfrage im OpenStreetMap-Tagging-Schema "man_made"="water_well" 
 
 ```bash
-    df$pflanzjahr <- as.numeric(df$pflanzjahr)
-    df$bewaesserungsmenge_in_liter <- as.numeric(df$bewaesserungsmenge_in_liter)
+[out:json][timeout:60];
+// Berliner Stadtgrenze (Relation)
+{{geocodeArea:Berlin}}->.searchArea;
+
+// Suche nach Wasserpumpen innerhalb Berlins
+(
+  node["man_made"="water_well"](area.searchArea);
+  way["man_made"="water_well"](area.searchArea);
+  relation["man_made"="water_well"](area.searchArea);
+);
+out body;
+>;
+out skel qt;
 ```
 
-**Was sind „NA“-Werte?**
+wurde eine umfangreiche Sammlung relevanter Pumpenstandorte generiert. Die resultierenden Daten enthalten zahlreiche Attribute, von denen besonders relevant sind:
 
-In echten Datensätzen fehlen oft einzelne Angaben – z. B. eine Koordinate oder ein Zahlenwert. In R werden solche fehlenden Werte mit dem Kürzel „NA“ (Not Available) dargestellt.
+- Geolokation (Punktgeometrie: ``geometry``)
+- Zugänglichkeit (``access``)
+- Pumpentyp und Stil (``pump.status``, ``pump.style``, Pumpenbedinung: ``pump``)
+- Identifikator(``id``)
 
-Beispiel:
+## Bezirksgrenzen (Berlin Open Data)
 
-Wenn bei einem Baum die Wassermenge nicht eingetragen wurde, steht dort „NA“.
+Zur besseren geografischen Einordnung der Pumpen wurde zusätzlich der Datensatz zu den <a href="https://daten.odis-berlin.de/de/dataset/bezirksgrenzen/" class="external-link" target="_blank">Berliner Bezirksgrenzen</a> genutzt. Dieser enthält die polygonalen Abgrenzungen aller Berliner Bezirke im <a href="https://de.wikipedia.org/wiki/GeoJSON" class="external-link" target="_blank">GeoJson-Format</a> und ermöglicht damit eine präzise räumliche Zuordnung von Punktdaten und enthalten pro Bezirk unter anderem folgende Attribute:
+- ``Gemeinde_name``: Name des Bezirks (z. B. Reinickendorf)
+- ``Gemeinde_schluessel``: Dreistelliger Schlüssel des Bezirks
+- ``Land_name`` und ``Land_schluessel``: Verwaltungszuordnung zu Berlin
+- ``Schluessel_gesamt``: Vollständiger Gebietsschlüssel
+- ``geometry``: Geometrische Beschreibung der Bezirksgrenzen als Multi-Polygon
 
-Warum sind NA-Werte problematisch?
+Konkret wurden die Bezirksgrenzen verwendet, um die Lage der Wasserpumpen innerhalb des Stadtgebiets einzelnen Bezirken zuzuweisen. Dies ist insbesondere für die Analyse lokaler Versorgungsdichten, infrastruktureller Ausstattung oder potenzieller Versorgungslücken von Bedeutung. Ebenso dient die Zuordnung als Grundlage für Visualisierungen und statistische Auswertungen auf Bezirksebene.
 
-- Sie verhindern sinnvolle Berechnungen (z. B. Durchschnittswerte).
-
-- Sie stören die Darstellung auf Karten, da Koordinaten fehlen.
-
-- Sie können Analysen verfälschen, wenn sie nicht beachtet werden.
-
-Deshalb ist es üblich, diese unvollständigen Zeilen zu entfernen oder gezielt zu bereinigen.
-
-**Daten bereinigen und vereinheitlichen**
-
-```bash
-df_clean <- df %>%
-  drop_na(lng, lat, bewaesserungsmenge_in_liter) %>%
-  mutate(strname = str_to_title(trimws(tolower(strname)))) %>%
-  filter(strname != "Undefined" & strname != "" & !str_detect(gattung_deutsch, "[0-9]"))
-```
-
-Dieser Schritt sorgt dafür, dass die Tabelle wirklich nur vollständige und sinnvolle Daten enthält:
-
-- `drop_na(...)`: Entfernt alle Zeilen, bei denen:
-
-    - Koordinaten (lat/lng) fehlen → notwendig für die Kartendarstellung.
-
-    - Bewässerungsmenge fehlt → nötig für Auswertungen.
-
-- `mutate(...)`: Vereinheitlicht die Straßennamen:
-
-    - Alles wird klein geschrieben, Leerzeichen am Rand entfernt und dann korrekt formatiert, z. B. aus „ ALTENALLEE “ wird „Altenallee“.
-
-- `filter(...)`: Entfernt unbrauchbare Einträge:
-
-    - Wenn der Straßenname fehlt oder nur „Undefined“ enthält.
-
-    - Wenn sich in der Baumgattung Zahlen befinden (z. B. „Ahorn23“), was auf fehlerhafte Einträge hinweist.
-
-Das Ergebnis ist `df_clean`: eine bereinigte Version der ursprünglichen Tabelle – sauber, einheitlich und bereit für alle weiteren Schritte.

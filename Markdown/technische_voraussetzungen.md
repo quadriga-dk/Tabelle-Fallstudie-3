@@ -54,11 +54,11 @@ Hier werden Befehle direkt ausgeführt und deren Ergebnisse sowie eventuelle Feh
 **Environment:**  
 Dieser Bereich zeigt alle geladenen Objekte, Datensätze und Variablen an. Auch selbst erstellte Listen oder Datenframes werden hier verwaltet.  
 
-**Files**  
+**Files:**  
 Hier können Sie Dateien anzeigen, verwalten und importieren. Zudem bietet dieser Bereich Zugriff auf Verzeichnisse und gespeicherte Projekte.
 
-**Web-App:** 
-In diesem Bereich wird die visuelle Ausgabe der Shiny-App dargestellt. Je nach Einstellung öffnet sich das Fenster entweder direkt in RStudio oder in einem externen Browser.
+
+Ein weiteres Anzeigefenster ist die **Web-App:** In diesem Bereich wird die visuelle Ausgabe der Shiny-App dargestellt. Je nach Einstellung öffnet sich das Fenster entweder direkt in RStudio oder in einem externen Browser.  
 
 ```{figure} _images/R_Studio_Shiny_App.png
 ---
