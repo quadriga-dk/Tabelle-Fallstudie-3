@@ -2,9 +2,66 @@
 
 ## Vorbereitung der Daten: Einlesen und Bereinigung
 
-Nachdem die Datenbasis bekannt ist, beginnt der erste praktische Schritt in der Datenverarbeitung: Das Einlesen der Datei in R und das Vorbereiten der Daten für eine spätere Analyse oder Visualisierung, z. B. auf einer Karte.
+**Zielsetzung**
+Ziel dieses Schrittes ist es, verschiedene Datensätze – insbesondere den Berliner Baumkataster sowie manuell dokumentierte Gießdaten – zusammenzuführen und so aufzubereiten, dass sie für weitere Analysen und Visualisierungen (z. B. in einer interaktiven Karte) verwendet werden können.
 
-df_merged_final 
+### Laden der Baumkatasterdaten
+Die Berliner Baumdaten werden über eine WFS-Schnittstelle (Web Feature Service) bezogen. Dabei werden sowohl Anlagenbäume als auch Straßenbäume geladen. 
+
+```bash
+anlagenbaeume <- st_read("WFS:https://gdi.berlin.de/services/wfs/baumbestand", layer = "baumbestand:anlagenbaeume")
+strassenbaeume <- st_read("WFS:https://gdi.berlin.de/services/wfs/baumbestand", layer = "baumbestand:strassenbaeume")
+```
+### Laden und Bereinigung der Gießdaten
+Die Gießdaten stammen aus einer CSV-Datei des Projekts „Gieß den Kiez“. Sie werden eingelesen und anschließend bereinigt:
+
+Ungültige oder fehlende Koordinaten (Längen-/Breitengrad) werden entfernt.
+
+Datensätze ohne Straßenname oder mit fehlerhaften Gattungsbezeichnungen (z. B. numerische Werte) werden ausgeschlossen.
+
+```bash
+# 2. Bewässerungsdaten laden
+df_clean <- read.csv("data/giessdenkiez_bewässerungsdaten.csv", sep = ";", stringsAsFactors = FALSE, fileEncoding = "UTF-8") %>%
+  drop_na(lng, lat, bewaesserungsmenge_in_liter) %>%
+  filter(strname != "Undefined" & strname != "" & !str_detect(gattung_deutsch, "[0-9]"))
+```
+### Vereinheitlichung und Zusammenführung der Baumdaten
+Die beiden Baumdatenquellen werden vereinheitlicht (gemeinsames Koordinatensystem EPSG:4326) und zusammengeführt. Danach werden die Koordinaten explizit extrahiert und die Geometriedaten entfernt, um die Dateigröße zu reduzieren und die Weiterverarbeitung zu erleichtern.
+
+```bash
+# 3. Bäume zusammenführen
+baumbestand <- bind_rows(anlagenbaeume, strassenbaeume) %>%
+  st_transform(crs = 4326)
+
+# 4. Geometrie extrahieren
+coords <- st_coordinates(baumbestand$geom)
+baumbestand$lng <- coords[, "X"]
+baumbestand$lat <- coords[, "Y"]
+```
+### Harmonisierung und Verknüpfung der Daten
+Die eindeutige Baumkennung gisid wird so angepasst, dass sie mit der id aus den Gießdaten übereinstimmt (Unterstrich wird zu Doppelpunkt). Dadurch können die beiden Datensätze über einen sogenannten "Left Join" zusammengeführt werden.
+
+```bash
+# 5. Geometrie entfernen
+baumbestand <- st_drop_geometry(baumbestand)
+
+# 6. gisid anpassen (Unterstrich → Doppelpunkt)
+baumbestand$gisid <- str_replace_all(baumbestand$gisid, "_", ":")
+
+# 7. Bäume und Bewässerungsdaten mergen (über gisid = id)
+df_merged <- baumbestand %>%
+  left_join(df_clean %>% select(id, bewaesserungsmenge_in_liter, timestamp),
+            by = c("gisid" = "id"))
+```
+### Speichern der kombinierten Daten
+Die aufbereiteten Daten werden als CSV-Datei gespeichert. Eine Ausgabe relevanter Kennzahlen (z. B. Anzahl verknüpfter Bäume) dient der Kontrolle.
+
+```bash
+# 8. Ergebnis speichern
+write.csv2(df_merged, "data/df_merged_final.csv", row.names = FALSE, fileEncoding = "UTF-8")
+```
+
+df_merged_final gesamter Code
 ```bash
 library(sf)
 library(dplyr)
@@ -49,7 +106,16 @@ cat("Anzahl eindeutiger Bäume (pitid):", n_distinct(df_merged$pitid), "\n")
 cat("Anzahl Bäume mit Bewässerungsdaten:", sum(!is.na(df_merged$bewaesserungsmenge_in_liter)), "\n")
 
 ```
-Allen Bäumen einen Bezirk zuweisen
+### Geografische Zuordnung zu Berliner Bezirken
+**Zielsetzung**
+Einige Bäume verfügen nicht über eine Angabe zu ihrem Bezirk. Um eine aggregierte räumliche Analyse (z. B. Gießverhalten nach Bezirk) zu ermöglichen, werden fehlende Bezirksangaben durch räumliches Verschneiden mit offiziellen Bezirkspolygonen ergänzt.
+
+**Methodik**
+- Bäume ohne Bezirk werden in räumliche Objekte konvertiert (sf-Objekte).
+
+- Mittels eines „spatial join“ wird ermittelt, in welchem Bezirk sich jeder Baum befindet.
+
+- Das Ergebnis wird mit den ursprünglichen Daten wieder zusammengeführt.
 
 ```bash
 library(sf)
@@ -96,7 +162,22 @@ write.csv2(df_baeume_final, file = "data/df_merged_final.csv", row.names = FALSE
 
 ```
 
-Erstellen von df_merged_sum
+###  Voraggregation: Erstellung von ``df_merged_sum``
+
+**Zielsetzung**
+Um die Performance in der Shiny-App zu verbessern, werden pro Baum aggregierte Kennzahlen berechnet, wie z. B.:
+
+- Gesamte Bewässerungsmenge
+- Durchschnittliches Gießintervall in Tagen
+
+**Methodik**
+1. Gruppierung aller Gießeinträge nach Baum-ID (gisid).
+2. Sortierung der Gießvorgänge nach Datum.
+3. Berechnung der Zeitabstände zwischen den Gießungen.
+4. Zusammenfassung zu Mittelwerten und Summen.
+
+**Erklärung des Codes:**
+
 ```bash
 df_merged_full <- fread("data/df_merged_final.csv", sep = ";", encoding = "UTF-8")
 
@@ -136,8 +217,35 @@ timestamp = first(timestamp),
 write.csv2(df_merged_sum, file = "data/df_merged_gesamter_baumbestand_sum1.csv", sep = ";")
 ```
 
-Pumpen Bezirks zuordnung
+### Reduktion der Pumpendaten
+**Zielsetzung**
+Die Originaldaten der Wasserpumpen enthalten viele unnötige Spalten. Um Ressourcen zu schonen, wird ein reduzierter Datensatz erzeugt.
 
+**Vorgehen**
+Nur die relevanten Informationen (z. B. ob die Pumpe funktionstüchtig ist, ihre ID, der Pumpentyp und die Geometrie) werden beibehalten.
+
+**Code:**
+```bash
+# --- pumpen minimieren ---
+pumpen_full <- st_read("data/pumpen.geojson")
+
+pumpen <- pumpen_full %>%
+  select(pump, pump.style, geometry, man_made, id)
+
+st_write(pumpen, "data/pumpen_minimal.geojson",
+         driver = "GeoJSON", delete_dsn = TRUE)
+
+```
+
+
+### Bezirkszuordnung für Pumpen
+**Zielsetzung**
+Analog zur Baumzuordnung sollen auch Pumpen mit ihrem Bezirk verknüpft werden, um regionale Analysen zu ermöglichen.
+
+**Vorgehen**
+Ein räumlicher Join ermittelt für jede Pumpe, in welchem Bezirk sie liegt.
+
+**Code:** 
 ```bash
 pumpen <- st_read("data/pumpen_minimal.geojson")
 bezirksgrenzen <- st_read(data/bezirksgrenzen.geojson")
@@ -156,8 +264,30 @@ pumpen_mit_bezirk <- pumpen_mit_bezirk %>%
 st_write(pumpen_mit_bezirk, "data/pumpen_mit_bezirk.geojson", driver = "GeoJSON", delete_dsn = TRUE)
 ```
 
-Pumpen Distanz vorberechnung 
+Pumpendatensatz mit Bezirk minimiert: 
 
+```bash
+# --- pumpen_mit_bezirk minimieren ---
+pumpen_mit_bezirk_full <- st_read("data/pumpen_mit_bezirk.geojson")
+
+pumpen_mit_bezirk <- pumpen_mit_bezirk_full %>%
+  select(pump, pump.style, pump.status, bezirk, geometry, man_made, id)
+
+st_write(pumpen_mit_bezirk, "data/pumpen_mit_bezirk_minimal.geojson",
+         driver = "GeoJSON", delete_dsn = TRUE)
+```
+
+### Entfernung zur nächsten Pumpe berechnen
+**Zielsetzung**
+Für jede Baumposition soll berechnet werden, wie weit die nächste funktionierende Wasserpumpe entfernt ist.
+
+**Vorgehen**
+1. Nur funktionierende Pumpen auswählen.
+2. Beide Datensätze in ein metrisches Koordinatensystem (UTM) umwandeln, da Distanzen in Metern berechnet werden.
+3. Mit der Funktion st_nn() wird für jeden Baum die nächstgelegene Pumpe ermittelt.
+4. Die berechneten Entfernungen werden in einer neuen Spalte gespeichert.
+
+**Code:**
 ```bash
 library(data.table)
 library(sf)
@@ -201,7 +331,17 @@ df_merged_sum$distanz_zur_pumpe_m <- as.numeric(min_dist)
 write.csv2(df_merged_sum, "data/df_merged_sum_mit_distanzen_gesamter_Baumbestand_nur_Pumpen_ok.csv", row.names = FALSE, fileEncoding = "UTF-8")
 
 ```
-Pumpen umkreis vorberechnung
+### Anzahl Pumpen im 100-Meter-Umkreis berechnen
+**Zielsetzung**
+Ein Maß für die Zugänglichkeit zu Wasser ist die Anzahl der Pumpen in unmittelbarer Nähe eines Baumes.
+
+**Vorgehen**
+1. Um jeden Baum wird ein 100-Meter-Kreis (Buffer) gezogen.
+2. Es wird gezählt, wie viele funktionierende Pumpen sich in diesem Kreis befinden.
+3. Das Ergebnis wird im Baumdatensatz gespeichert.
+
+**Code:**
+
 ```bash
     library(data.table)
     library(sf)
@@ -231,7 +371,16 @@ Pumpen umkreis vorberechnung
   write.csv2(df_merged_sum_mit_distanzen, "data/df_merged_sum_mit_distanzen_mit_umkreis_baumbestand_nur_Pumpen_ok.csv", row.names = FALSE)
 
 ```
-LOR Daten zu df_merged und df_merged_sum hinzufügen
+### Integration der Lebensweltlich orientierten Räume (LOR)
+**Zielsetzung**
+Zur feinräumigen Analyse (unterhalb der Bezirksebene) sollen Bäume zusätzlich einem LOR-Gebiet zugeordnet werden.
+
+**Vorgehen**
+1. LOR-Grenzen werden über eine WFS-Schnittstelle geladen.
+2. Jeder Baum wird demjenigen LOR zugeordnet, in dessen Fläche er liegt.
+3. Ergebnis wird für spätere Analysen gespeichert.
+
+**Code:**
 ```bash
 library(sf)
 library(dplyr)
