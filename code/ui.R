@@ -26,19 +26,19 @@ ui <- dashboardPage(
       tabItem(tabName = "start",
               box(title = "Overview", status = "primary", solidHeader = TRUE, width = 12,
                   fluidRow(
-                    valueBoxOutput("total_trees"),
+                    uiOutput("dynamic_tree_box"),
                     valueBoxOutput("total_water"),
                     valueBoxOutput("avg_water")
                   ),
                   fluidRow(
                     column(width = 6,
                            selectInput("start_year", "Jahr der Bewässerung auswählen:", 
-                                       choices = c("2020-2024", unique(year(df_merged$timestamp))), 
+                                       choices = c("2020-2024", unique(year(df_merged_clean$timestamp))), 
                                        selected = "2020-2024", multiple = TRUE)
                     ),
                     column(width = 6,
                            selectInput("bezirk", "Bezirk auswählen:", 
-                                       choices = c("Alle", unique(df_merged$bezirk)), 
+                                       choices = c("Alle", unique(df_merged_clean$bezirk)), 
                                        selected = "Alle", multiple = TRUE)
                     )
                   )
@@ -48,16 +48,19 @@ ui <- dashboardPage(
               fluidRow(
                 box(title = "Filter", status = "primary", solidHeader = TRUE, width = 12,
                     column(width = 6,
-                      selectInput("map_bezirk", "Bezirk auswählen:", choices = c("Alle", unique(df_merged$bezirk)), selected = "Alle", multiple = TRUE),
+                           selectInput("map_bezirk", "Bezirk auswählen:", choices = c("Alle", unique(df_merged_clean$bezirk)), selected = "Alle", multiple = TRUE),
                     ),
                     column(width = 6,
-                      selectInput("map_year", "Jahr auswählen:", choices = c("2020-2024",unique(year(df_merged$timestamp))), selected = "2020-2024", multiple = TRUE),
+                           selectInput("map_lor", "Lebensweltlich orientierte Räume auswählen:", choices = c("Alle", unique(df_merged_sum_distanz_umkreis_pump_ok_lor$bzr_name)), selected = "Alle", multiple = TRUE)
+                           ),
+                    column(width = 6,
+                           selectInput("map_year", "Jahr auswählen:", choices = c("2020-2024",unique(year(df_merged_clean$timestamp))), selected = "2020-2024", multiple = TRUE),
                     ),
                     column(width = 6,
-                      selectInput("map_saison", "Saison auswählen:", choices = c("Alle", "Winter", "Frühling", "Sommer", "Herbst"), selected = "Alle", multiple = TRUE),
+                           selectInput("map_saison", "Saison auswählen:", choices = c("Alle", "Winter", "Frühling", "Sommer", "Herbst"), selected = "Alle", multiple = TRUE),
                     ),
                     column(width = 6,
-                      selectInput("map_baumgattung", "Baumgattung auswählen:", choices = c("Alle", unique(df_merged$gattung_deutsch)), selected = "Alle", multiple = TRUE)
+                           selectInput("map_baumgattung", "Baumgattung auswählen:", choices = c("Alle", unique(df_merged_clean$gattung_deutsch)), selected = "Alle", multiple = TRUE)
                     ),
                 )
               ),
@@ -66,16 +69,20 @@ ui <- dashboardPage(
       tabItem(tabName = "stats",
               fluidRow(
                 box(status = "primary", solidHeader = TRUE, width = 12, title = tagList("Baumverteilung der gegossenen Bäume nach Bezirk", 
-                                    div(actionButton("info_btn", label = "", icon = icon("info-circle")),  # Info-Button 
-                                        style = "position: absolute; right: 15px; top: 5px;")),
-                    selectInput("stats_baumvt_year", "Jahr auswählen:", choices = c("2020-2024",unique(year(df_merged$timestamp))), selected = "2020-2024", multiple = TRUE),
+                                                                                        div(actionButton("info_btn", label = "", icon = icon("info-circle")),  # Info-Button 
+                                                                                            style = "position: absolute; right: 15px; top: 5px;")),
+                    selectInput("stats_baumvt_year", "Jahr auswählen:",
+                                choices = c("2020-2024", "Baumbestand Stand 2025", sort(unique(na.omit(year(df_merged$timestamp))))),
+                                selected = "Baumbestand Stand 2025",
+                                multiple = TRUE),
+                    
                     plotlyOutput("tree_distribution")
                 ),
                 box(title = tagList("Häufig gegossene Baumarten im Verhältnis zu ihrem Vorkommen", 
                                     div(actionButton("info_btn_hb", label = "", icon = icon("info-circle")),  # Info-Button 
                                         style = "position: absolute; right: 15px; top: 5px;")),
                     status = "primary", solidHeader = TRUE, width = 12, height = "auto", 
-                    selectInput("pie_bezirk", "Bezirk auswählen:", choices = c("Alle", unique(df_merged$bezirk)), selected = "Alle", multiple = TRUE),
+                    selectInput("pie_bezirk", "Bezirk auswählen:", choices = c("Alle", unique(df_merged_clean$bezirk)), selected = "Alle", multiple = TRUE),
                     plotlyOutput("tree_pie_chart"),
                     fill = TRUE
                 )
@@ -117,7 +124,7 @@ ui <- dashboardPage(
                                 value = c(min(df_merged$pflanzjahr, na.rm = TRUE), max(df_merged$pflanzjahr, na.rm = TRUE)), 
                                 step = 1),
                     
-                    selectInput("trend_bezirk_pj", "Bezirk auswählen:", choices = c("Alle", unique(df_merged$bezirk)), selected = "Alle", multiple = TRUE),
+                    selectInput("trend_bezirk_pj", "Bezirk auswählen:", choices = c("Alle", unique(df_merged_clean$bezirk)), selected = "Alle", multiple = TRUE),
                     
                     plotlyOutput("trend_water")
                 )
@@ -134,10 +141,10 @@ ui <- dashboardPage(
                     conditionalPanel(
                       condition = "input.trend_mode == 'month'",
                       selectInput("trend_year_ts", "Jahr auswählen:", 
-                                  choices = unique(year(df_merged$timestamp)), 
-                                  selected = max(year(df_merged$timestamp)))
+                                  choices = unique(year(df_merged_sum_distanz_umkreis_pump_ok_lor_clean$timestamp)), 
+                                  selected = max(year(df_merged_sum_distanz_umkreis_pump_ok_lor_clean$timestamp)))
                     ),
-                    selectInput("trend_bezirk", "Bezirk auswählen:", choices = c("Alle", unique(df_merged$bezirk)), selected = "Alle", multiple = TRUE),
+                    selectInput("trend_bezirk", "Bezirk auswählen:", choices = c("Alle", unique(df_merged_clean$bezirk)), selected = "Alle", multiple = TRUE),
                     
                     selectInput("trend_baumgattung", "Baumgattung auswählen:", choices = c("Alle", unique(df_merged$gattung_deutsch)), selected = "Alle", multiple = TRUE),
                     
@@ -146,7 +153,7 @@ ui <- dashboardPage(
               ),
               fluidRow(
                 box(title = "Ranking",status = "primary", solidHeader = TRUE, width = 12,
-                    selectInput("bar_bezirk", "Bezirk auswählen:", choices = c("Alle", unique(df_merged$bezirk)), selected = "Alle", multiple = TRUE),
+                    selectInput("bar_bezirk", "Bezirk auswählen:", choices = c("Alle", unique(df_merged_clean$bezirk)), selected = "Alle", multiple = TRUE),
                     
                     box(title = tagList("Top 10 Straßen mit höchster Bewässerung (2020-2024)", 
                                         div(actionButton("info_btn_top", label = "", icon = icon("info-circle")),  # Info-Button 
@@ -185,21 +192,30 @@ ui <- dashboardPage(
                           condition = "input.water_mode_Bottom == 'ratio'",
                           plotOutput("hist_Top_10_worst_verhaeltnis_baum")
                         )
+                    ),
+                    box(title = "Bewässerung pro Straße", status = "primary", solidHeader = TRUE, width = 12,
+                      plotOutput("hist_bewaesserung_pro_strasse")
                     )
                 )
               )
       ),
       tabItem(tabName = "engagement",
               fluidRow(
-                  box(title = "Pumpenanzahl und Bewässerung pro Bezirk",status = "primary", solidHeader = TRUE, width = 12,
-                    plotOutput("balken_plot")
-                  ),
-                  box(title = "Durchschnittliche Gießmenge nach Pumpen-Kategorie im 100 m Umkreis",status = "primary", solidHeader = TRUE, width = 12,
-                      plotOutput("pumpenkategorien_plot", height = "400px")
-                  ),
-                  box(title = "Gießverhalten nach Bezirk",status = "primary", solidHeader = TRUE, width = 12,
-                      plotOutput("karte_giessverhalten")
-                  ),
+                box(title = "Pumpenanzahl und Bewässerung pro Bezirk",status = "primary", solidHeader = TRUE, width = 12,
+                    plotlyOutput("balken_plot"), plotlyOutput("balken_plot_mit_kaputten_Pumpen_nebeneinander"), plotlyOutput("balken_plot_mit_kaputten_Pumpen")
+                ),
+                # box(title = "Pumpengesamtanzahl und Bewässerung pro Bezirk",status = "primary", solidHeader = TRUE, width = 12,
+                #     plotlyOutput("balken_plot_mit_kaputten_Pumpen")
+                # ),
+                box(title = "Durchschnittliche Gießmenge nach Pumpen-Kategorie im 100 m Umkreis",status = "primary", solidHeader = TRUE, width = 12,
+                    plotOutput("pumpenkategorien_plot", height = "400px"), plotOutput("pumpenkategorien_plot_pump_ok", height = "400px")
+                ),
+                box(title = "Gießverhalten nach Bezirk",status = "primary", solidHeader = TRUE, width = 12,
+                    leafletOutput("karte_giessverhalten")
+                ),
+                box(title = "Gießverhalten nach Bezirk mit kaputten Pumpen",status = "primary", solidHeader = TRUE, width = 12,
+                    leafletOutput("karte_giessverhalten_mit_kaputten_Pumpen")
+                ),
               )
       )
     ),

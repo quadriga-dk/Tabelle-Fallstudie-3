@@ -87,6 +87,7 @@ server <- function(input, output, session) {
   
   barFilteredData <- reactive({
     filteredData() %>%
+      drop_na(strname) %>%
       filter(input$bar_bezirk == "Alle" | bezirk %in% input$bar_bezirk)
   })
   
@@ -99,45 +100,67 @@ server <- function(input, output, session) {
   
   output$total_trees <- renderValueBox({
     valueBox(
-      formatC(n_distinct(filteredData()$gisid), format = "d", big.mark = "."),
+      formatC(n_distinct(df_merged$gisid), format = "d", big.mark = "."),
       "Gesamtzahl der Bäume",
       icon = icon("tree"),
       color = "green"
     )
   })
   
+  output$total_tree_watered <- renderValueBox({
+    valueBox(
+      formatC(n_distinct(filteredData()$gisid), format = "d", big.mark = "."),
+      "Gesamtzahl der gegossenen Bäume",
+      icon = icon("tree"),
+      color = "green"
+    )
+  })
+  
+  # Dynamische Auswahl: welche Box zeigen?
+  output$dynamic_tree_box <- renderUI({
+    if (identical(input$start_year, "2020-2024") || (length(input$start_year) == 1 && input$start_year == "2020-2024")) {
+      valueBoxOutput("total_trees")
+    } else {
+      valueBoxOutput("total_tree_watered")
+    }
+  })
+  
+  
   output$tree_distribution <- renderPlotly({
     
-    # Jahresauswahl übernehmen
-    selected_years <- if (is.null(input$stats_baumvt_year) || "2020-2024" %in% input$stats_baumvt_year) {
-      2020:2024
-    } else {
-      as.numeric(input$stats_baumvt_year)
-    }
-    
-    # Timestamp vorbereiten
+    # sicher stellen, dass timestamp ein Date ist
     df_merged$timestamp <- as.Date(df_merged$timestamp)
     
-    # Nach Jahr filtern
     df_filtered <- df_merged %>%
-      filter(lubridate::year(timestamp) %in% selected_years)
+      filter(
+        ("Baumbestand Stand 2025" %in% input$stats_baumvt_year & 
+           (is.na(timestamp) | lubridate::year(timestamp) %in% 2020:2024)) |
+          ("2020-2024" %in% input$stats_baumvt_year & 
+             !is.na(timestamp) & lubridate::year(timestamp) %in% 2020:2024) |
+          (any(!input$stats_baumvt_year %in% c("2020-2024", "Baumbestand Stand 2025")) &
+             lubridate::year(timestamp) %in% as.numeric(input$stats_baumvt_year))
+      )
     
-    # Baumanzahl je Bezirk berechnen
+    x_axis_title <- if ("Baumbestand Stand 2025" %in% input$stats_baumvt_year) {
+      "Anzahl der Bäume"
+    } else {
+      "Anzahl gegossener Bäume"
+    }
+    
+    
     baumanzahl_filtered <- df_filtered %>%
       group_by(bezirk) %>%
-      summarise(tree_count = n_distinct(gisid))
+      summarise(tree_count = n_distinct(gisid), .groups = "drop")
     
-    # Baumdichte mit den gefilterten Daten kombinieren
     baum_dichte_filtered <- baum_dichte %>%
       filter(bezirk %in% baumanzahl_filtered$bezirk) %>%
       left_join(baumanzahl_filtered, by = "bezirk")
     
-    # Plot erstellen
     plot <- ggplot(baum_dichte_filtered, aes(x = reorder(bezirk, tree_count), y = tree_count, fill = baeume_pro_ha)) +
       geom_bar(stat = "identity", position = "dodge") +
-      scale_fill_gradient(low = "lightblue", high = "darkblue", name = "Baumdichte (Bäume/ha)") +  # Baumdichte als Farbskala
+      scale_fill_gradient(low = "lightblue", high = "darkblue", name = "Baumdichte (Bäume/ha)") +
       coord_flip() +
-      labs(title = "Baumverteilung im Verhältnis zur Bezirkfläche", x = "Bezirk", y = "Anzahl gegossener Bäume") +
+      labs(title = "Baumverteilung im Verhältnis zur Bezirkfläche", x = "Bezirk", y = x_axis_title)+
       theme_minimal() +
       theme(legend.position = "right")
     
@@ -197,16 +220,16 @@ server <- function(input, output, session) {
   
   output$hist_bewaesserung_pro_bezirk <- renderPlot({
     df_agg <- df_merged %>%
+      drop_na(bewaesserungsmenge_in_liter) %>%
       group_by(bezirk) %>%
       summarise(total_water = sum(bewaesserungsmenge_in_liter, na.rm = TRUE)) %>%
-      ungroup()  # Ensure it's ungrouped for further operations
+      ungroup() 
     
-    # Apply the unit conversion on each row (ensure we return a consistent structure)
     df_agg <- df_agg %>%
       mutate(
-        converted = purrr::map(total_water, convert_units),  # Apply conversion
-        value = sapply(converted, `[[`, "value"),  # Extract the numeric value
-        unit = sapply(converted, `[[`, "unit")  # Extract the unit
+        converted = purrr::map(total_water, convert_units),  
+        value = sapply(converted, `[[`, "value"),  
+        unit = sapply(converted, `[[`, "unit") 
       )
     
     ggplot(df_agg, aes(x = bezirk, y = value, fill = bezirk)) +
@@ -275,7 +298,7 @@ server <- function(input, output, session) {
   
   output$tree_pie_chart <- renderPlotly({
     
-    # Optional: nach Bezirk filtern
+    #  nach Bezirk filtern
     df_filtered <- df_merged
     if (!is.null(input$pie_bezirk) && !"Alle" %in% input$pie_bezirk) {
       df_filtered <- df_filtered %>%
@@ -374,7 +397,7 @@ server <- function(input, output, session) {
       group_by(strname) %>%
       summarise(
         total_water = sum(bewaesserungsmenge_in_liter, na.rm = TRUE),
-        tree_count = n_distinct(id),
+        tree_count = n_distinct(gisid),
         water_per_tree = total_water / tree_count
       ) %>%
       arrange(desc(water_per_tree))
@@ -399,7 +422,7 @@ server <- function(input, output, session) {
   })
   
   filtered_trend_data <- reactive({
-    df_agg <- df_merged %>%
+    df_agg <- df_merged_sum_distanz_umkreis_pump_ok_lor_clean %>%
       mutate(timestamp = ymd_hms(timestamp),
              year = year(timestamp),
              month = lubridate::month(timestamp, label = TRUE)) %>%
@@ -410,8 +433,8 @@ server <- function(input, output, session) {
         (input$trend_baumgattung == "Alle" | gattung_deutsch %in% input$trend_baumgattung)
       ) %>%
       group_by(!!sym(input$trend_mode)) %>%
-      summarise(total_water = sum(bewaesserungsmenge_in_liter, na.rm = TRUE)) %>%
-      mutate(total_water = as.numeric(total_water)) %>%  # 🛠️ Hier sicherstellen!
+      summarise(total_water = sum(gesamt_bewaesserung)) %>%
+      mutate(total_water = as.numeric(total_water)) %>%  
       arrange(!!sym(input$trend_mode))
     
     # Einheit berechnen (mit Absicherung)
@@ -542,27 +565,32 @@ server <- function(input, output, session) {
     }
   })
   
-
+  
   filtered_data_map <- reactive({
-    data <- df_merged_sum
-
+    # data <- df_merged_sum_pump_ok
+    data <- df_merged_sum_distanz_umkreis_pump_ok_lor
+    
     # Bezirk
     if (!is.null(input$map_bezirk) && !("Alle" %in% input$map_bezirk)) {
       data <- data %>% filter(bezirk %in% input$map_bezirk)
     }
-
+    
+    if (!is.null(input$map_lor) && !("Alle" %in% input$map_lor)) {
+      data <- data %>% filter(bzr_name %in% input$map_lor)
+    }
+    
     # Baumgattung
     if (!is.null(input$map_baumgattung) && !("Alle" %in% input$map_baumgattung)) {
       data <- data %>% filter(gattung_deutsch %in% input$map_baumgattung)
     }
-
+    
     # Jahr (nur wenn timestamp vorhanden und als Date/Year formatiert)
     if (!is.null(input$map_year) && !("2020-2024" %in% input$map_year)) {
       data$timestamp <- as.Date(data$timestamp)
       data <- data %>%
         filter(lubridate::year(timestamp) %in% as.numeric(input$map_year))
     }
-
+    
     # Saison
     if (!is.null(input$map_saison) && !("Alle" %in% input$map_saison)) {
       data$monat <- lubridate::month(as.Date(data$timestamp))
@@ -575,10 +603,10 @@ server <- function(input, output, session) {
       )
       data <- data %>% filter(saison %in% input$map_saison)
     }
-
+    
     # Koordinaten check
     data <- data %>% filter(!is.na(lat), !is.na(lng))
-
+    
     return(data)
   })
   
@@ -587,7 +615,7 @@ server <- function(input, output, session) {
     iconWidth = 15,
     iconHeight = 15
   )
-
+  
   output$map <- renderLeaflet({
     data <- filtered_data_map()
     
@@ -655,29 +683,39 @@ server <- function(input, output, session) {
     }
   })
   
-  df_merged_sum_mit_distanzen_mit_umkreis <- df_merged_sum_mit_distanzen_mit_umkreis %>%
+  df_merged_sum_distanz_umkreis_pump_ok_lor <- df_merged_sum_distanz_umkreis_pump_ok_lor %>%
     mutate(
       lat = as.numeric(str_replace(lat, ",", ".")),
       lng = as.numeric(str_replace(lng, ",", "."))
     )
   
-  df_merged_sum_mit_distanzen_mit_umkreis <- df_merged_sum_mit_distanzen_mit_umkreis %>% drop_na(lat, lng)
+  df_merged_sum_distanz_umkreis_pump_ok_lor <- df_merged_sum_distanz_umkreis_pump_ok_lor %>% drop_na(lat, lng)
   
-  
+  # Nur funktionierende Pumpen berücksichtigen
+  pumpen_mit_bezirk_ok <- pumpen_mit_bezirk %>%
+    filter(pump.status == "ok")
   
   # Pumpenanzahl je Bezirk zählen
-  pumpen_pro_bezirk <- pumpen_mit_bezirk %>%
+  pumpen_pro_bezirk <- pumpen_mit_bezirk_ok %>%
     st_drop_geometry() %>%
-    group_by(Gemeinde_name) %>%
-    summarise(pumpenanzahl = n()) %>%
-    rename(bezirk = Gemeinde_name)
+    group_by(bezirk) %>%
+    summarise(pumpenanzahl = n())
+  
+  pumpen_pro_bezirk_mit_kaputten_Pumpen <- pumpen_mit_bezirk_ok %>%
+    st_drop_geometry() %>%
+    group_by(bezirk) %>%
+    summarise(pumpenanzahl = n())
   
   # Mit Fläche verknüpfen
   pumpendichte <- pumpen_pro_bezirk %>%
     left_join(bezirksflaechen, by = "bezirk") %>%
     mutate(pumpen_pro_ha = pumpenanzahl / flaeche_ha)
   
-  giess_pumpen_dichte_df <- df_merged_sum %>%
+  pumpendichte_mit_kaputten_Pumpen <- pumpen_pro_bezirk_mit_kaputten_Pumpen %>%
+    left_join(bezirksflaechen, by = "bezirk") %>%
+    mutate(pumpen_pro_ha = pumpenanzahl / flaeche_ha)
+  
+  giess_pumpen_dichte_df <- df_merged_sum_distanz_umkreis_pump_ok_lor %>%
     group_by(bezirk) %>%
     summarise(
       gesamt_bewaesserung = sum(bewaesserungsmenge_in_liter, na.rm = TRUE),
@@ -687,25 +725,150 @@ server <- function(input, output, session) {
     left_join(pumpendichte, by = "bezirk")
   
   
-  anzahl_pumpen_pro_bezirk <- pumpen_mit_bezirk %>%
+  giess_pumpen_dichte_df_mit_kaputten_Pumpen <- df_merged_sum_distanz_umkreis_pump_ok_lor %>%
+    group_by(bezirk) %>%
+    summarise(
+      gesamt_bewaesserung = sum(bewaesserungsmenge_in_liter, na.rm = TRUE),
+      durchschnittl_intervall = mean(durchschnitts_intervall[is.finite(durchschnitts_intervall)], na.rm = TRUE),
+      .groups = "drop"
+    ) %>%
+    left_join(pumpendichte_mit_kaputten_Pumpen, by = "bezirk")
+  
+  
+  
+  anzahl_pumpen_pro_bezirk <- pumpen_mit_bezirk_ok %>%
     st_drop_geometry() %>%
-    group_by(Gemeinde_name) %>%
+    group_by(bezirk) %>%
     summarise(anzahl_pumpen = n(), .groups = "drop")
   
+  anzahl_pumpen_pro_bezirk_mit_kaputten_Pumpen <- pumpen_mit_bezirk %>%
+    st_drop_geometry() %>%
+    group_by(bezirk) %>%
+    summarise(anzahl_pumpen_mit_kaputten_Pumpen = n(), .groups = "drop")
+  
+  
+  giess_pumpen_dichte_df_mit_kaputten_Pumpen <- giess_pumpen_dichte_df_mit_kaputten_Pumpen %>%
+    left_join(anzahl_pumpen_pro_bezirk_mit_kaputten_Pumpen, by = "bezirk")
   
   giess_pumpen_dichte_df <- giess_pumpen_dichte_df %>%
-    left_join(anzahl_pumpen_pro_bezirk, by = c("bezirk" = "Gemeinde_name"))
+    left_join(anzahl_pumpen_pro_bezirk, by = "bezirk")
   
-  bezirke_karte <- left_join(bezirksgrenzen, giess_pumpen_dichte_df, by = c("Gemeinde_name" = "bezirk"))
+  # 'bezirksgrenzen' und 'giess_pumpen_dichte_df' verbinden
+  bezirke_karte <- bezirksgrenzen %>%
+    left_join(giess_pumpen_dichte_df, by = c("Gemeinde_name" = "bezirk"))
   
-  output$karte_giessverhalten <- renderPlot({
-    ggplot(bezirke_karte) +
-      geom_sf(aes(fill = gesamt_bewaesserung)) +
-      scale_fill_viridis_c(option = "C") +
-      labs(title = "Gießverhalten nach Bezirk",
-           fill = "Gesamtbewässerung (Liter)") +
-      theme_minimal()
+  # Bezirkszentren berechnen
+  bezirkszentren <- st_centroid(bezirksgrenzen) %>%
+    rename(bezirk = Gemeinde_name)
+  
+  # Merge mit Pumpenanzahl
+  bezirkszentren <- bezirkszentren %>%
+    left_join(anzahl_pumpen_pro_bezirk, by = "bezirk")
+  
+  bezirkszentren_mit_kaputten_Pumpen <- bezirkszentren %>%
+    left_join(anzahl_pumpen_pro_bezirk_mit_kaputten_Pumpen, by = "bezirk")
+  
+  output$karte_giessverhalten <- renderLeaflet({
+    
+    # Farbpalette: Blauverlauf
+    pal <- colorNumeric(palette = "Blues", domain = bezirke_karte$gesamt_bewaesserung)
+    
+    leaflet() %>%
+      addProviderTiles(providers$CartoDB.Positron) %>%
+      
+      # Bezirke einfärben
+      addPolygons(
+        data = bezirke_karte,
+        fillColor = ~pal(gesamt_bewaesserung),
+        fillOpacity = 0.7,
+        weight = 1,
+        color = "white",
+        highlightOptions = highlightOptions(
+          weight = 2,
+          color = "#666",
+          fillOpacity = 0.9,
+          bringToFront = FALSE
+        ),
+        label = ~paste0(Gemeinde_name, ": ", round(gesamt_bewaesserung), " Liter"),
+        labelOptions = labelOptions(
+          style = list("font-weight" = "normal", padding = "3px 8px"),
+          direction = "auto"
+        )
+      ) %>%
+      
+      # Pumpen-Punkte (an Bezirkszentren) mit Größen nach Anzahl
+      addCircleMarkers(
+        data = bezirkszentren,
+        radius = ~sqrt(anzahl_pumpen) * 2,  
+        color = "blue",
+        fillColor = "white",
+        fillOpacity = 0.9,
+        stroke = TRUE,
+        weight = 1,
+        label = ~paste0(bezirk, ": ", anzahl_pumpen, " Pumpen"),
+        labelOptions = labelOptions(
+          style = list("font-weight" = "bold", padding = "3px 8px"),
+          direction = "auto"
+        )
+      ) %>%
+      addLegend(
+        "bottomright", pal = pal, values = bezirke_karte$gesamt_bewaesserung,
+        title = "Gesamtbewässerung (Liter)",
+        opacity = 1
+      )
   })
+  
+  
+  output$karte_giessverhalten_mit_kaputten_Pumpen <- renderLeaflet({
+    
+    # Farbpalette: Blauverlauf
+    pal <- colorNumeric(palette = "Blues", domain = bezirke_karte$gesamt_bewaesserung)
+    
+    leaflet() %>%
+      addProviderTiles(providers$CartoDB.Positron) %>%
+      
+      # Bezirke einfärben
+      addPolygons(
+        data = bezirke_karte,
+        fillColor = ~pal(gesamt_bewaesserung),
+        fillOpacity = 0.7,
+        weight = 1,
+        color = "white",
+        highlightOptions = highlightOptions(
+          weight = 2,
+          color = "#666",
+          fillOpacity = 0.9,
+          bringToFront = FALSE
+        ),
+        label = ~paste0(Gemeinde_name, ": ", round(gesamt_bewaesserung), " Liter"),
+        labelOptions = labelOptions(
+          style = list("font-weight" = "normal", padding = "3px 8px"),
+          direction = "auto"
+        )
+      ) %>%
+      
+      # Pumpen-Punkte (an Bezirkszentren) mit Größen nach Anzahl
+      addCircleMarkers(
+        data = bezirkszentren_mit_kaputten_Pumpen,
+        radius = ~sqrt(anzahl_pumpen_mit_kaputten_Pumpen) * 2,
+        color = "darkred",
+        fillColor = "white",
+        fillOpacity = 0.9,
+        stroke = TRUE,
+        weight = 1,
+        label = ~paste0(bezirk, ": ", anzahl_pumpen_mit_kaputten_Pumpen, " Pumpen"),
+        labelOptions = labelOptions(
+          style = list("font-weight" = "bold", padding = "3px 8px"),
+          direction = "auto"
+        )
+      )%>%
+      addLegend(
+        "bottomright", pal = pal, values = bezirke_karte$gesamt_bewaesserung,
+        title = "Gesamtbewässerung (Liter)",
+        opacity = 1
+      )
+  })
+  
   
   
   
@@ -719,29 +882,40 @@ server <- function(input, output, session) {
                  names_to = "variable",
                  values_to = "wert")
   
-  output$balken_plot <- renderPlot({
+  
+  giess_long_mit_kaputten_Pumpen <- giess_pumpen_dichte_df_mit_kaputten_Pumpen %>%
+    select(bezirk, anzahl_pumpen_mit_kaputten_Pumpen, gesamt_bewaesserung) %>%
+    pivot_longer(cols = c(anzahl_pumpen_mit_kaputten_Pumpen, gesamt_bewaesserung),
+                 names_to = "variable",
+                 values_to = "wert")
+  
+  output$balken_plot <- renderPlotly({ 
+    
     # Skalierungsfaktor berechnen
     max_bewaesserung <- max(giess_pumpen_dichte_df$gesamt_bewaesserung, na.rm = TRUE)
     max_pumpen <- max(giess_pumpen_dichte_df$anzahl_pumpen, na.rm = TRUE)
     scaling_factor <- max_bewaesserung / max_pumpen
     
-    # Balkendiagramm
-    ggplot(giess_pumpen_dichte_df, aes(x = bezirk)) +
-      # Bewässerungs-Balken (links)
-      geom_bar(aes(y = gesamt_bewaesserung, fill = "Bewässerung"), 
-               stat = "identity", position = position_nudge(x = -0.2), width = 0.4) +
-      # Pumpenzahl-Balken (rechts, skaliert)
-      geom_bar(aes(y = anzahl_pumpen * scaling_factor, fill = "Pumpenanzahl"), 
-               stat = "identity", position = position_nudge(x = 0.2), width = 0.4) +
-      
-      # Achsen und Farben
-      scale_fill_manual(name = "Kategorie", 
-                        values = c("Bewässerung" = "steelblue", "Pumpenanzahl" = "seagreen")) +
+    # ggplot erstellen
+    p <- ggplot(giess_pumpen_dichte_df, aes(x = bezirk)) +
+      geom_bar(
+        aes(y = gesamt_bewaesserung, fill = "Bewässerung", 
+            text = paste("Bezirk:", bezirk, "<br>Bewässerung:", gesamt_bewaesserung, "L")), 
+        stat = "identity", position = position_nudge(x = -0.2), width = 0.4
+      ) +
+      geom_bar(
+        aes(y = anzahl_pumpen * scaling_factor, fill = "Pumpenanzahl", 
+            text = paste("Bezirk:", bezirk, "<br>Anzahl Pumpen:", anzahl_pumpen)), 
+        stat = "identity", position = position_nudge(x = 0.2), width = 0.4
+      ) +
+      scale_fill_manual(
+        name = "Kategorie", 
+        values = c("Bewässerung" = "steelblue", "Pumpenanzahl" = "seagreen")
+      ) +
       scale_y_continuous(
         name = "Gesamtbewässerung (Liter)",
         sec.axis = sec_axis(~ . / scaling_factor, name = "Anzahl Pumpen")
       ) +
-      
       labs(
         title = "Pumpenanzahl und Bewässerung pro Bezirk",
         x = "Bezirk"
@@ -751,29 +925,204 @@ server <- function(input, output, session) {
         axis.text.x = element_text(angle = 45, hjust = 1),
         legend.position = "top"
       )
+    
+    ggplotly(p, tooltip = "text")
+  })
+  
+  output$balken_plot <- renderPlotly({
+    
+    # Skalierungsfaktor berechnen
+    max_bewaesserung <- max(giess_pumpen_dichte_df$gesamt_bewaesserung, na.rm = TRUE)
+    max_pumpen <- max(giess_pumpen_dichte_df$anzahl_pumpen, na.rm = TRUE)
+    scaling_factor <- max_bewaesserung / max_pumpen
+    
+    plot_ly() %>%
+      add_bars(
+        data = giess_pumpen_dichte_df,
+        x = ~bezirk,
+        y = ~gesamt_bewaesserung,
+        name = "Bewässerung (L)",
+        marker = list(color = 'steelblue'),
+        hovertemplate = paste(
+          "<b>Bezirk:</b> %{x}<br>",
+          "<b>Bewässerung:</b> %{y} L"
+        )
+      ) %>%
+      add_bars(
+        data = giess_pumpen_dichte_df,
+        x = ~bezirk,
+        y = ~anzahl_pumpen * scaling_factor,
+        name = "Pumpenanzahl",
+        marker = list(color = 'seagreen'),
+        customdata = giess_pumpen_dichte_df$anzahl_pumpen,
+        hovertemplate = paste(
+          "<b>Bezirk:</b> %{x}<br>",
+          "<b>Anzahl Pumpen:</b> %{customdata}"
+        )
+      ) %>%
+      add_trace(
+        x = c(NA), y = c(NA),
+        type = "bar",
+        yaxis = "y2",
+        showlegend = FALSE,
+        hoverinfo = "none"
+      ) %>%
+      layout(
+        title = "Pumpenanzahl und Bewässerung pro Bezirk",
+        barmode = "group",
+        xaxis = list(title = "Bezirk"),
+        yaxis = list(
+          title = "Gesamtbewässerung (Liter)",
+          side = "left"
+        ),
+        yaxis2 = list(
+          title = "Anzahl Pumpen",
+          overlaying = "y",
+          side = "right",
+          tickvals = seq(0, max_bewaesserung, length.out = 6),
+          ticktext = round(seq(0, max_pumpen, length.out = 6), 0),
+          range = c(0, max_bewaesserung),
+          showgrid = FALSE
+        ),
+        legend = list(orientation = "h", x = 0.3, y = 1.1)
+      )
+  })
+  
+  
+  
+  output$balken_plot_mit_kaputten_Pumpen <- renderPlotly({
+    
+    plot_ly() %>%
+      add_bars(
+        data = giess_pumpen_dichte_df_mit_kaputten_Pumpen,
+        x = ~bezirk,
+        y = ~gesamt_bewaesserung,
+        name = "Bewässerung (L)",
+        marker = list(color = 'steelblue'),
+        yaxis = "y",
+        hovertemplate = paste(
+          "<b>Bezirk:</b> %{x}<br>",
+          "<b>Bewässerung:</b> %{y} L"
+        )
+      ) %>%
+      add_bars(
+        data = giess_pumpen_dichte_df_mit_kaputten_Pumpen,
+        x = ~bezirk,
+        y = ~anzahl_pumpen_mit_kaputten_Pumpen,
+        name = "Pumpenanzahl",
+        marker = list(color = 'seagreen'),
+        yaxis = "y2",
+        hovertemplate = paste(
+          "<b>Bezirk:</b> %{x}<br>",
+          "<b>Anzahl Pumpen:</b> %{y}"
+        )
+      ) %>%
+      layout(
+        title = "Pumpengesamtanzahl und Bewässerung pro Bezirk",
+        barmode = "group",
+        xaxis = list(title = "Bezirk"),
+        yaxis = list(
+          title = "Gesamtbewässerung (Liter)",
+          side = "left",
+          showgrid = FALSE
+        ),
+        yaxis2 = list(
+          title = "Anzahl Pumpen",
+          overlaying = "y",
+          side = "right",
+          showgrid = FALSE
+        ),
+        legend = list(orientation = "h", x = 0.3, y = 1.1)
+      )
+  })
+  
+  output$balken_plot_mit_kaputten_Pumpen_nebeneinander <- renderPlotly({
+    
+    # Skalierungsfaktor berechnen
+    max_bewaesserung <- max(giess_pumpen_dichte_df_mit_kaputten_Pumpen$gesamt_bewaesserung, na.rm = TRUE)
+    max_pumpen <- max(giess_pumpen_dichte_df_mit_kaputten_Pumpen$anzahl_pumpen_mit_kaputten_Pumpen, na.rm = TRUE)
+    scaling_factor <- max_bewaesserung / max_pumpen
+    
+    plot_ly() %>%
+      #  Bewässerung
+      add_bars(
+        data = giess_pumpen_dichte_df_mit_kaputten_Pumpen,
+        x = ~bezirk,
+        y = ~gesamt_bewaesserung,
+        name = "Bewässerung (L)",
+        marker = list(color = 'steelblue'),
+        hovertemplate = paste(
+          "<b>Bezirk:</b> %{x}<br>",
+          "<b>Bewässerung:</b> %{y} L"
+        )
+      ) %>%
+      # Pumpenanzahl (skaliert)
+      add_bars(
+        data = giess_pumpen_dichte_df_mit_kaputten_Pumpen,
+        x = ~bezirk,
+        y = ~anzahl_pumpen_mit_kaputten_Pumpen * scaling_factor,
+        name = "Pumpenanzahl",
+        marker = list(color = 'seagreen'),
+        customdata = giess_pumpen_dichte_df_mit_kaputten_Pumpen$anzahl_pumpen_mit_kaputten_Pumpen,
+        hovertemplate = paste(
+          "<b>Bezirk:</b> %{x}<br>",
+          "<b>Anzahl Pumpen:</b> %{customdata}"
+        )
+      ) %>%
+      # Dummy-Spur für rechte Achse, damit sie sichtbar ist
+      add_trace(
+        x = c(NA), y = c(NA),
+        type = "bar",
+        yaxis = "y2",
+        showlegend = FALSE,
+        hoverinfo = "none"
+      ) %>%
+      layout(
+        title = "Pumpengesamtanzahl und Bewässerung pro Bezirk",
+        barmode = "group",
+        xaxis = list(title = "Bezirk"),
+        yaxis = list(
+          title = "Gesamtbewässerung (Liter)",
+          side = "left"
+        ),
+        yaxis2 = list(
+          title = "Anzahl Pumpen",
+          overlaying = "y",
+          side = "right",
+          tickvals = seq(0, max_bewaesserung, length.out = 6),
+          ticktext = round(seq(0, max_pumpen, length.out = 6), 0),
+          range = c(0, max_bewaesserung),
+          showgrid = FALSE
+        ),
+        legend = list(orientation = "h", x = 0.3, y = 1.1)
+      )
   })
   
   
   
   
   
-  df_merged_sum_mit_distanzen_mit_umkreis <- df_merged_sum_mit_distanzen_mit_umkreis %>%
+  
+  
+  
+  
+  
+  df_merged_sum_distanz_umkreis_pump_ok_lor <- df_merged_sum_distanz_umkreis_pump_ok_lor %>%
     mutate(pumpenkategorie = case_when(
       pumpen_im_umkreis_100m == 0 ~ "Keine Pumpe",
       pumpen_im_umkreis_100m == 1 ~ "Eine Pumpe",
       pumpen_im_umkreis_100m >= 2 ~ "Mehrere Pumpen"
     ))
   
-  output$pumpenkategorien_plot <- renderPlot({
+  output$pumpenkategorien_plot_pump_ok <- renderPlot({
     
-    df_kategorie_mittelwert <- df_merged_sum_mit_distanzen_mit_umkreis %>%
+    df_kategorie_mittelwert <- df_merged_sum_distanz_umkreis_pump_ok_lor %>%
       group_by(pumpenkategorie) %>%
       summarise(
         durchschnittliche_giessmenge = mean(gesamt_bewaesserung, na.rm = TRUE),
         anzahl_baeume = n(),
         .groups = "drop"
       ) %>%
-      # Für bessere Achsenbeschriftung: Kategorie + Anzahl in einem String
       mutate(pumpenkategorie_label = paste0(pumpenkategorie, " (Anzahl Bäume = ", anzahl_baeume, ")"))
     
     ggplot(df_kategorie_mittelwert, aes(x = pumpenkategorie_label, y = durchschnittliche_giessmenge)) +
@@ -792,6 +1141,66 @@ server <- function(input, output, session) {
       )
   })
   
+  df_merged_sum_mit_distanzen_mit_umkreis <- df_merged_sum_mit_distanzen_mit_umkreis %>%
+    mutate(pumpenkategorie = case_when(
+      pumpen_im_umkreis_100m == 0 ~ "Keine Pumpe",
+      pumpen_im_umkreis_100m == 1 ~ "Eine Pumpe",
+      pumpen_im_umkreis_100m >= 2 ~ "Mehrere Pumpen"
+    ))
+  
+  output$pumpenkategorien_plot <- renderPlot({
+    
+    df_kategorie_mittelwert <- df_merged_sum_mit_distanzen_mit_umkreis %>%
+      group_by(pumpenkategorie) %>%
+      summarise(
+        durchschnittliche_giessmenge = mean(gesamt_bewaesserung, na.rm = TRUE),
+        anzahl_baeume = n(),
+        .groups = "drop"
+      ) %>%
+      mutate(pumpenkategorie_label = paste0(pumpenkategorie, " (Anzahl Bäume = ", anzahl_baeume, ")"))
+    
+    ggplot(df_kategorie_mittelwert, aes(x = pumpenkategorie_label, y = durchschnittliche_giessmenge)) +
+      geom_col(fill = "seagreen") +
+      labs(
+        title = "Durchschnittliche Gießmenge nach Pumpen-Kategorie im 100 m Umkreis mit Pumpen außerbetrieb",
+        x = "Pumpenkategorie",
+        y = "Durchschnittliche Gießmenge (Liter)"
+      ) +
+      theme_minimal() +
+      theme(
+        axis.text = element_text(size = 12),
+        axis.title = element_text(size = 13),
+        plot.title = element_text(size = 15, face = "bold"),
+        panel.grid.major.y = element_line(color = "gray90")
+      )
+  })
+  
+  
+  
+  
+  
+  
+  
+  
+  bewaesserung_pro_strasse <- reactive({
+    barFilteredData()%>%
+      group_by(strname) %>%
+      summarise(total_water = sum(bewaesserungsmenge_in_liter, na.rm = TRUE)) %>%
+      arrange(desc(total_water)) %>%
+      head(50)
+  })
+  
+  
+  output$hist_bewaesserung_pro_strasse <- renderPlot({
+    df_top <- bewaesserung_pro_strasse()
+    ggplot(df_top, aes(x = reorder(strname, total_water), y = total_water, fill = strname)) +
+      geom_bar(stat = "identity") +
+      coord_flip() +
+      labs(title = "Bewässerung pro Straße", x = "Straße", y = "Gesamte Bewässerung (Liter)") +
+      scale_fill_discrete(name = "Straßennamen") + 
+      theme_minimal() +
+      theme(legend.position = "none") 
+  })
   
   
 }
