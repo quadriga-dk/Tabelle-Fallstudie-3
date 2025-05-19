@@ -22,7 +22,7 @@ Diese Daten ermöglichen Rückschlüsse auf Muster im Gießverhalten der Bevölk
 name: Karte_mit_Personen
 alt: Ein Screenshot, der ein comicartiges Bild einer Berlin-Karte zeigt, auf der Bäume von Personen gegossen werden.
 ---
-Karte mit Personen darauf.
+Karte mit Personen darauf. (KI generiert)
 ```
 
 ## Baumbestandsdaten (Berlin Open Data)
@@ -83,4 +83,36 @@ Zur besseren geografischen Einordnung der Pumpen wurde zusätzlich der Datensatz
 - ``geometry``: Geometrische Beschreibung der Bezirksgrenzen als Multi-Polygon
 
 Konkret wurden die Bezirksgrenzen verwendet, um die Lage der Wasserpumpen innerhalb des Stadtgebiets einzelnen Bezirken zuzuweisen. Dies ist insbesondere für die Analyse lokaler Versorgungsdichten, infrastruktureller Ausstattung oder potenzieller Versorgungslücken von Bedeutung. Ebenso dient die Zuordnung als Grundlage für Visualisierungen und statistische Auswertungen auf Bezirksebene.
+
+Bezirksflächen (Grünflächeninformationssystem (GRIS)) 
+Zudem wurden auch noch Daten zu den Bezirksfläche aus dem Berliner GRIS Portal  gesammelt, um die Pumpendichte pro Bezirk je Hektar (ha) zu berechnen. 
+
+Dafür wurden diese Informationen aus der Tabelle verwendet um ein Dataframe zu erstellen:  
+
+```{figure} _images/Bezirksfläche.png
+---
+name: Tabelle mit Angaben zu Bezirksflächen
+alt: Ein Screenshot, der eine Tabelle zu den größen der Bezirksflächen in Berlin in Hektar enthält.
+---
+Tabelle mit Angaben zu Bezirksflächen
+```
+
+bezirksflaechen <- data.frame(
+  bezirk = c("Mitte", "Friedrichshain-Kreuzberg", "Pankow", "Charlottenburg-Wilmersdorf",
+             "Spandau", "Steglitz-Zehlendorf", "Tempelhof-Schöneberg", "Neukölln",
+             "Treptow-Köpenick", "Marzahn-Hellersdorf", "Lichtenberg", "Reinickendorf"),
+  flaeche_ha = c(3.940, 2.040, 10.322, 6.469, 9.188, 10.256, 5.305, 4.493, 16.773, 6.182, 5.212, 8.932)
+)
+
+
+## Lebensweltlich orientierte Räume auswähle (LOR GovData)
+ Für eine feinräumigere Analyse des Gießverhaltens in Berlin wurden zusätzlich die Lebensweltlich orientierten Räume (LOR) berücksichtigt. Dabei handelt es sich um ein offizielles kleinräumiges Gebietsgliederungssystem, das vom Amt für Statistik Berlin-Brandenburg bereitgestellt und gepflegt wird. Die Einteilung der Stadt in sogenannte Planungsräume ermöglicht differenzierte sozialräumliche Auswertungen und bietet eine sinnvolle Ergänzung zu den Bezirksgrenzen.
+
+Die LOR-Daten wurden über das Portal <a href="https://www.govdata.de/suche/daten/lebensweltlich-orientierte-raume-lor-01-01-2019" class="external-link" target="_blank">GovData</a> bezogen und liegen im Geo-Datenformat mit räumlichen Polygonen vor. Der vollständige Datensatz enthält zahlreiche Attribute – für unsere Analyse relevant sind insbesondere:
+
+- ``bzr_id``: ID des Bezirksregionsraums
+- ``bzr_name``: Name des Bezirksregionsraums
+- ``geom``: Geometrie (räumliche Abgrenzung als Polygon)
+
+Diese Informationen ermöglichen eine detailliertere geografische Segmentierung der Gießaktivitäten und erlauben den Vergleich zwischen verschiedenen Berliner Stadtteilen jenseits der groben Bezirksebene. Die LOR-Zuordnung wurde insbesondere für kleinräumige Visualisierungen sowie für die Untersuchung sozialräumlicher Unterschiede in der Baumgießbeteiligung herangezogen.
 
