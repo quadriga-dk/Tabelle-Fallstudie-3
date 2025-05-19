@@ -101,12 +101,14 @@ alt: Ein Screenshot, der eine Tabelle zu den größen der Bezirksflächen in Ber
 Tabelle mit Angaben zu Bezirksflächen
 ```
 
+```bash
 bezirksflaechen <- data.frame(
   bezirk = c("Mitte", "Friedrichshain-Kreuzberg", "Pankow", "Charlottenburg-Wilmersdorf",
              "Spandau", "Steglitz-Zehlendorf", "Tempelhof-Schöneberg", "Neukölln",
              "Treptow-Köpenick", "Marzahn-Hellersdorf", "Lichtenberg", "Reinickendorf"),
   flaeche_ha = c(3.940, 2.040, 10.322, 6.469, 9.188, 10.256, 5.305, 4.493, 16.773, 6.182, 5.212, 8.932)
 )
+```
 
 Diese Daten ermöglichen flächenbezogene Vergleiche der Pumpendichte und bilden eine wichtige Grundlage für die Bewertung der Verteilung öffentlicher Wasserquellen im urbanen Raum.
 
