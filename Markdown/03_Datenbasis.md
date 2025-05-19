@@ -84,10 +84,14 @@ Zur besseren geografischen Einordnung der Pumpen wurde zusätzlich der Datensatz
 
 Konkret wurden die Bezirksgrenzen verwendet, um die Lage der Wasserpumpen innerhalb des Stadtgebiets einzelnen Bezirken zuzuweisen. Dies ist insbesondere für die Analyse lokaler Versorgungsdichten, infrastruktureller Ausstattung oder potenzieller Versorgungslücken von Bedeutung. Ebenso dient die Zuordnung als Grundlage für Visualisierungen und statistische Auswertungen auf Bezirksebene.
 
-Bezirksflächen (Grünflächeninformationssystem (GRIS)) 
-Zudem wurden auch noch Daten zu den Bezirksfläche aus dem Berliner GRIS Portal  gesammelt, um die Pumpendichte pro Bezirk je Hektar (ha) zu berechnen. 
+## Bezirksflächen (Grünflächeninformationssystem (GRIS)) 
+Um die Verteilung und Dichte öffentlicher Wasserpumpen innerhalb der Berliner Bezirke besser quantifizieren zu können, wurden ergänzend Flächendaten aus dem Grünflächeninformationssystem (GRIS) des Landes Berlin herangezogen. Die Flächenangaben dienen insbesondere dazu, die Pumpendichte pro Hektar (ha) auf Bezirksebene zu berechnen und damit die infrastrukturelle Versorgung vergleichbar darzustellen.
 
-Dafür wurden diese Informationen aus der Tabelle verwendet um ein Dataframe zu erstellen:  
+Die Flächendaten wurden aus einer tabellarischen Quelle des GRIS extrahiert und manuell in ein strukturiertes Dataframe überführt. Dieses enthält pro Bezirk folgende Informationen:
+
+- ``bezirk``: Name des Berliner Bezirks
+
+- ``flaeche_ha``: Bezirksfläche in Hektar
 
 ```{figure} _images/Bezirksfläche.png
 ---
@@ -104,6 +108,7 @@ bezirksflaechen <- data.frame(
   flaeche_ha = c(3.940, 2.040, 10.322, 6.469, 9.188, 10.256, 5.305, 4.493, 16.773, 6.182, 5.212, 8.932)
 )
 
+Diese Daten ermöglichen flächenbezogene Vergleiche der Pumpendichte und bilden eine wichtige Grundlage für die Bewertung der Verteilung öffentlicher Wasserquellen im urbanen Raum.
 
 ## Lebensweltlich orientierte Räume auswähle (LOR GovData)
  Für eine feinräumigere Analyse des Gießverhaltens in Berlin wurden zusätzlich die Lebensweltlich orientierten Räume (LOR) berücksichtigt. Dabei handelt es sich um ein offizielles kleinräumiges Gebietsgliederungssystem, das vom Amt für Statistik Berlin-Brandenburg bereitgestellt und gepflegt wird. Die Einteilung der Stadt in sogenannte Planungsräume ermöglicht differenzierte sozialräumliche Auswertungen und bietet eine sinnvolle Ergänzung zu den Bezirksgrenzen.
