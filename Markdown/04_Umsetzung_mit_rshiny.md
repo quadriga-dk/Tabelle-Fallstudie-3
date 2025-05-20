@@ -844,3 +844,225 @@ tryCatch({
 })
 
 ```
+### LOR zuordnung zum Baumbestand
+
+**Zielsetzung**
+Ziel ist es, die Baumstandorte den entsprechenden LOR-Gebieten zuzuordnen, um auf dieser feinräumigen Ebene die Gesamtbewässerungsmenge je Gebiet zu analysieren und umsomit spezifische Filterung zu ermöglichen.
+
+**Vorgehen**
+1. Einlesen der Baumdaten mit Geokoordinaten.
+2. Umwandlung der Daten in ein Geo-Datenobjekt (sf).
+3. Einlesen und Vorbereitung der LOR-Geometrien über eine WFS-Schnittstelle.
+4. Räumliche Zuordnung (Join) der Baumdaten zu den LOR-Gebieten.
+5. Aggregation der Bewässerungsmengen je LOR.
+6. Rückführung der Summendaten in ein vollständiges sf-Objekt mit Geometrie.
+7. Speicherung des Endergebnisses im GeoJSON-Format.
+
+**Code-Erklärung**
+**1. Laden der benötigten Pakete**
+
+```bash
+library(dplyr)
+library(sf)
+library(data.table)
+```
+- ``dplyr``: Für effiziente Datenmanipulation.
+- ``sf``: Für die Arbeit mit räumlichen (Geo-)Daten.
+- ``data.table``: Für schnelles Einlesen großer CSV-Dateien.
+
+**2. Einlesen der Baumdaten**
+
+```bash
+df_merged <- fread("data/df_merged_final.csv", sep = ";", encoding = "UTF-8")
+```
+Die CSV-Datei enthält Baumdaten inklusive Längen- und Breitengrad sowie Bewässerungsmenge.
+
+**3. Umwandlung in ein sf-Objekt**
+
+```bash
+df_merged <- st_as_sf(df_merged, coords = c("lng", "lat"), crs = 4326)
+```
+- Die Koordinaten-Spalten lng und lat werden in ein Punkt-Objekt überführt.
+- Das Koordinatensystem WGS84 (EPSG:4326) wird festgelegt, um Kompatibilität mit anderen Geodaten zu gewährleisten.
+
+**4. Einlesen der LOR-Grenzen**
+
+```bash
+lor_url <- "https://gdi.berlin.de/services/wfs/lor_2019?service=WFS&version=1.1.0&request=GetFeature&typeName=lor_2019:b_lor_bzr_2019"
+lor <- st_read(lor_url) %>%
+  select(bzr_id, bzr_name, geom) %>%
+  st_simplify(preserveTopology = TRUE, dTolerance = 0.001) %>%
+  st_transform(4326)
+```
+- Die LOR-Gebiete werden über die WFS-Schnittstelle der Berliner Geodateninfrastruktur abgerufen.
+- Es werden nur relevante Spalten ausgewählt (bzr_id, bzr_name, geom).
+- Mit st_simplify() werden die Geometrien vereinfacht, um die Datenmenge zu reduzieren und damit die Performance bei der Verarbeitung und Visualisierung zu verbessern. Die Topologie bleibt dabei erhalten.
+- Das Koordinatensystem wird ebenfalls auf WGS84 eingestellt.
+
+**5. Räumlicher Join: Baum ↔ LOR**
+
+```bash
+df_merged_mit_lor <- st_join(df_merged, lor[, c("bzr_id", "bzr_name")], left = TRUE)
+```
+- Jeder Baum wird dem LOR-Gebiet zugeordnet, in dem er räumlich liegt (Punkt-in-Polygon-Zuordnung).
+- Die entsprechenden LOR-Informationen (bzr_id, bzr_name) werden übernommen.
+
+**6. Aggregation: Summe der Bewässerungsmengen pro LOR**
+
+```bash
+df_merged_mit_lor_sum <- df_merged_mit_lor %>%
+  group_by(bzr_id, bzr_name) %>%
+  summarise(gesamt_bewaesserung_lor = sum(bewaesserungsmenge_in_liter, na.rm = TRUE)) %>%
+  ungroup()
+```
+- Die Bewässerungsmenge wird für jedes LOR summiert.
+- Fehlende Werte (NA) werden bei der Summenbildung ignoriert.
+
+**7. Verknüpfung mit LOR-Geometrie**
+```bash
+df_merged_sum_with_geom <- lor %>%
+  left_join(st_drop_geometry(df_merged_mit_lor_sum), by = "bzr_id")
+```
+- Die berechneten Summen werden den ursprünglichen LOR-Geometrien wieder hinzugefügt.
+- Die Geometrie wird dabei aus dem lor-Objekt übernommen.
+
+**8. Export des Ergebnisses**
+
+```bash
+st_write(df_merged_sum_with_geom, "data/df_merged_mit_lor_und_sum.geojson", driver = "GEOJSON", delete_dsn = TRUE)
+```
+- Das finale Objekt wird im GeoJSON-Format gespeichert 
+
+**Gesamter Code**
+```bash
+library(dplyr)
+library(sf)
+library(data.table)
+
+# Daten einlesen
+df_merged <- fread("data/df_merged_final.csv", sep = ";", encoding = "UTF-8")
+
+# Falls df_merged keine sf ist
+df_merged <- st_as_sf(df_merged, coords = c("lng", "lat"), crs = 4326)
+
+# LOR-Geometrien laden
+lor_url <- "https://gdi.berlin.de/services/wfs/lor_2019?service=WFS&version=1.1.0&request=GetFeature&typeName=lor_2019:b_lor_bzr_2019"
+lor <- st_read(lor_url) %>%
+  select(bzr_id, bzr_name, geom) %>%
+  st_simplify(preserveTopology = TRUE, dTolerance = 0.001) %>%
+  st_transform(4326)
+
+# Join: Punkte mit LOR verknüpfen
+df_merged_mit_lor <- st_join(df_merged, lor[, c("bzr_id", "bzr_name")], left = TRUE)
+
+# Summe je LOR berechnen
+df_merged_mit_lor_sum <- df_merged_mit_lor %>%
+  group_by(bzr_id, bzr_name) %>%
+  summarise(gesamt_bewaesserung_lor = sum(bewaesserungsmenge_in_liter, na.rm = TRUE)) %>%
+  ungroup()
+
+# Geometrien hinzufügen
+df_merged_sum_with_geom <- lor %>%
+  left_join(st_drop_geometry(df_merged_mit_lor_sum), by = "bzr_id")
+
+
+st_write(df_merged_sum_with_geom, "data/df_merged_mit_lor_und_sum.geojson", driver = "GEOJSON", delete_dsn = TRUE)
+```
+
+### Integration von Pumpenstandorten in Lebensweltlich orientierte Räume (LOR)
+
+**Zielsetzung**
+Die Zuordnung von Wasserpumpen zu den entsprechenden LOR-Gebieten ermöglicht räumlich differenzierte Analysen der Infrastruktur auf unterbezirklicher Ebene (z. B. für Planungszwecke oder Gießroutenoptimierung).
+
+**Vorgehen**
+- Einlesen der Pumpenstandorte als Geo-Daten.
+- Filtern der aktiven („ok“) Pumpen.
+- Laden und Vereinfachen der LOR-Grenzen über eine WFS-Schnittstelle.
+- Transformation beider Datensätze in ein einheitliches Koordinatensystem (WGS84).
+- Räumliche Verknüpfung der Pumpen mit den jeweiligen LOR-Gebieten.
+- Speicherung des Endergebnisses im GeoJSON-Format.
+
+**Code-Erklärung**
+**1. Laden der benötigten Pakete**
+```bash
+library(dplyr)   # Für Datenmanipulation (z. B. filter, select, %>%)
+library(sf)      # Für das Arbeiten mit Geodaten (Einlesen, räumlicher Join, Transformation)
+library(data.table)
+```
+
+**2. Einlesen der Pumpendaten**
+
+```bash
+pumpen <- st_read("data/pumpen_mit_bezirk_minimal.geojson")
+```
+- Die Datei enthält Trinkwasserpumpen als Punkt-Geometrien mit weiteren Attributen, u. a. Status und Bezirk.
+- Es handelt sich um ein sf-Objekt mit räumlicher Referenz.
+
+**3. Filtern funktionsfähiger Pumpen**
+
+```bash
+pumpen <- pumpen %>%
+  filter(pump.status == "ok")
+```
+- Nur funktionstüchtige Pumpen mit dem Status „ok“ werden für die weitere Analyse berücksichtigt.
+
+**4. Einlesen und Vereinfachen der LOR-Gebiete**
+```bash
+lor <- st_read(lor_url) %>%
+  select(bzr_id, bzr_name, geom) %>%
+  st_simplify(preserveTopology = TRUE, dTolerance = 0.001) %>%
+  st_transform(4326)
+```
+- Die LOR-Gebiete werden direkt über die WFS-Schnittstelle des Berliner Geodatenportals geladen.
+- Es werden nur relevante Felder (bzr_id, bzr_name) übernommen.
+- Mit st_simplify() werden die Geometrien vereinfacht, um die Verarbeitungs- und Darstellungsleistung zu optimieren – besonders bei Webanwendungen ein wichtiger Faktor.
+- Die Koordinaten werden auf WGS84 (EPSG:4326) transformiert, um mit den Pumpendaten kompatibel zu sein.
+
+**5. Harmonisierung des Koordinatensystems**
+
+```bash
+pumpen <- st_transform(pumpen, crs = 4326)
+```
+- Sicherstellung, dass beide Datensätze im selben Koordinatensystem (WGS84) vorliegen – Voraussetzung für räumliche Operationen wie Joins
+
+**6. Räumliche Verknüpfung Pumpen ↔ LOR**
+
+```bash
+pumpen_mit_lor <- st_join(pumpen, lor[, c("bzr_name", "bzr_id")], left = TRUE)
+```
+- Jede Pumpe wird dem LOR-Gebiet zugewiesen, in dem sie sich geografisch befindet.
+- Die Felder ``bzr_name`` und ``bzr_id`` werden den Pumpendaten hinzugefügt.
+
+**7. Speichern der Ergebnisse**
+
+```bash
+st_write(pumpen_mit_lor, "data/pumpen_mit_lor.geojson", driver = "GEOJSON", delete_dsn = TRUE)
+```
+- Das Ergebnis wird als GeoJSON-Datei gespeichert 
+- Die Option delete_dsn = TRUE überschreibt bestehende Dateien automatisch.
+
+**Gesamter Code**
+```bash
+library(dplyr)   # Für Datenmanipulation (z. B. filter, select, %>%)
+library(sf)      # Für das Arbeiten mit Geodaten (Einlesen, räumlicher Join, Transformation)
+library(data.table)  
+
+
+pumpen <- st_read("data/pumpen_mit_bezirk_minimal.geojson")
+lor_url <- "https://gdi.berlin.de/services/wfs/lor_2019?service=WFS&version=1.1.0&request=GetFeature&typeName=lor_2019:b_lor_bzr_2019"
+
+pumpen <- pumpen %>%
+  filter(pump.status == "ok")
+
+lor <- st_read(lor_url) %>%
+  select(bzr_id, bzr_name, geom) %>%
+  st_simplify(preserveTopology = TRUE, dTolerance = 0.001) %>%
+  st_transform(4326)  # Zu WGS84 transformieren
+
+pumpen <- st_transform(pumpen, crs = 4326)
+
+pumpen_mit_lor <- st_join(pumpen, lor[, c("bzr_name", "bzr_id")], left = TRUE)
+
+
+st_write(pumpen_mit_lor, "data/pumpen_mit_lor.geojson", driver = "GEOJSON", delete_dsn = TRUE)
+```
