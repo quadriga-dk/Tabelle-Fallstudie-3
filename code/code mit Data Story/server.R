@@ -32,36 +32,22 @@ server <- function(input, output, session) {
     }
   }
   
-  filteredData <- reactive({
-    req(input$stats_baumvt_year)
+  filteredData <- function(filter_bezirk = TRUE) {
+    selected_years <- unlist(lapply(input$start_year, function(x) {
+      if (x == "2020-2024") {
+        2020:2024
+      } else {
+        as.numeric(x)
+      }
+    }))
     
-    df <- df_merged %>%
-      mutate(year = lubridate::year(timestamp))
-    
-    # Basisfilter nach Auswahl
-    df_filtered <- df %>%
+    df_merged %>%
+      mutate(year = year(timestamp)) %>%
       filter(
-        ("Baumbestand Stand 2025" %in% input$start_year & 
-           (is.na(timestamp) | year %in% 2020:2024)) |
-          
-          ("2020-2024" %in% input$start_year & 
-             !is.na(timestamp) & year %in% 2020:2024) |
-          
-          (any(!input$start_year %in% c("2020-2024", "Baumbestand Stand 2025")) & 
-             year %in% as.numeric(input$start_year))
+        year %in% selected_years,
+        if (filter_bezirk) (input$bezirk == "Alle" | bezirk %in% input$bezirk) else TRUE
       )
-    
-    # Wenn NUR "2020-2024" ausgewählt ist, dann NA-Drop forcieren
-    if (all(input$start_year == "2020-2024")) {
-      df_filtered <- df_filtered %>% filter(!is.na(timestamp))
-    }
-    
-    if (!is.null(input$bezirk) && input$bezirk != "Alle") {
-      df_filtered <- df_filtered %>% filter(bezirk %in% input$bezirk)
-    }
-    
-    df_filtered
-  })
+  }
   
   
   # mapFilteredData <- reactive({
@@ -132,13 +118,12 @@ server <- function(input, output, session) {
   
   # Dynamische Auswahl: welche Box zeigen?
   output$dynamic_tree_box <- renderUI({
-    if ("Baumbestand Stand 2025" %in% input$start_year) {
+    if (identical(input$start_year, "2020-2024") || (length(input$start_year) == 1 && input$start_year == "2020-2024")) {
       valueBoxOutput("total_trees")
     } else {
       valueBoxOutput("total_tree_watered")
     }
   })
-  
   
   
   output$tree_distribution <- renderPlotly({
@@ -716,11 +701,19 @@ server <- function(input, output, session) {
     group_by(bezirk) %>%
     summarise(pumpenanzahl = n())
   
+  pumpen_pro_bezirk_mit_kaputten_Pumpen <- pumpen_mit_bezirk_ok %>%
+    st_drop_geometry() %>%
+    group_by(bezirk) %>%
+    summarise(pumpenanzahl = n())
+  
   # Mit Fläche verknüpfen
   pumpendichte <- pumpen_pro_bezirk %>%
     left_join(bezirksflaechen, by = "bezirk") %>%
     mutate(pumpen_pro_ha = pumpenanzahl / flaeche_ha)
   
+  pumpendichte_mit_kaputten_Pumpen <- pumpen_pro_bezirk_mit_kaputten_Pumpen %>%
+    left_join(bezirksflaechen, by = "bezirk") %>%
+    mutate(pumpen_pro_ha = pumpenanzahl / flaeche_ha)
   
   giess_pumpen_dichte_df <- df_merged_sum_distanz_umkreis_pump_ok_lor %>%
     group_by(bezirk) %>%
@@ -732,11 +725,30 @@ server <- function(input, output, session) {
     left_join(pumpendichte, by = "bezirk")
   
   
+  giess_pumpen_dichte_df_mit_kaputten_Pumpen <- df_merged_sum_distanz_umkreis_pump_ok_lor %>%
+    group_by(bezirk) %>%
+    summarise(
+      gesamt_bewaesserung = sum(bewaesserungsmenge_in_liter, na.rm = TRUE),
+      durchschnittl_intervall = mean(durchschnitts_intervall[is.finite(durchschnitts_intervall)], na.rm = TRUE),
+      .groups = "drop"
+    ) %>%
+    left_join(pumpendichte_mit_kaputten_Pumpen, by = "bezirk")
+  
+  
+  
   anzahl_pumpen_pro_bezirk <- pumpen_mit_bezirk_ok %>%
     st_drop_geometry() %>%
     group_by(bezirk) %>%
     summarise(anzahl_pumpen = n(), .groups = "drop")
-
+  
+  anzahl_pumpen_pro_bezirk_mit_kaputten_Pumpen <- pumpen_mit_bezirk %>%
+    st_drop_geometry() %>%
+    group_by(bezirk) %>%
+    summarise(anzahl_pumpen_mit_kaputten_Pumpen = n(), .groups = "drop")
+  
+  
+  giess_pumpen_dichte_df_mit_kaputten_Pumpen <- giess_pumpen_dichte_df_mit_kaputten_Pumpen %>%
+    left_join(anzahl_pumpen_pro_bezirk_mit_kaputten_Pumpen, by = "bezirk")
   
   giess_pumpen_dichte_df <- giess_pumpen_dichte_df %>%
     left_join(anzahl_pumpen_pro_bezirk, by = "bezirk")
@@ -753,237 +765,115 @@ server <- function(input, output, session) {
   bezirkszentren <- bezirkszentren %>%
     left_join(anzahl_pumpen_pro_bezirk, by = "bezirk")
   
-  # output$karte_giessverhalten <- renderLeaflet({
-  #   
-  #   # Farbpalette: Blauverlauf
-  #   pal <- colorNumeric(palette = "Blues", domain = bezirke_karte$gesamt_bewaesserung)
-  #   
-  #   leaflet() %>%
-  #     addProviderTiles(providers$CartoDB.Positron) %>%
-  #     
-  #     # Bezirke einfärben
-  #     addPolygons(
-  #       data = bezirke_karte,
-  #       fillColor = ~pal(gesamt_bewaesserung),
-  #       fillOpacity = 0.7,
-  #       weight = 1,
-  #       color = "white",
-  #       highlightOptions = highlightOptions(
-  #         weight = 2,
-  #         color = "#666",
-  #         fillOpacity = 0.9,
-  #         bringToFront = FALSE
-  #       ),
-  #       label = ~paste0(Gemeinde_name, ": ", round(gesamt_bewaesserung), " Liter"),
-  #       labelOptions = labelOptions(
-  #         style = list("font-weight" = "normal", padding = "3px 8px"),
-  #         direction = "auto"
-  #       )
-  #     ) %>%
-  #     
-  #     # Pumpen-Punkte (an Bezirkszentren) mit Größen nach Anzahl
-  #     addCircleMarkers(
-  #       data = bezirkszentren,
-  #       radius = ~sqrt(anzahl_pumpen) * 2,  
-  #       color = "blue",
-  #       fillColor = "white",
-  #       fillOpacity = 0.9,
-  #       stroke = TRUE,
-  #       weight = 1,
-  #       label = ~paste0(bezirk, ": ", anzahl_pumpen, " Pumpen"),
-  #       labelOptions = labelOptions(
-  #         style = list("font-weight" = "bold", padding = "3px 8px"),
-  #         direction = "auto"
-  #       )
-  #     ) %>%
-  #     addLegend(
-  #       "bottomright", pal = pal, values = bezirke_karte$gesamt_bewaesserung,
-  #       title = "Gesamtbewässerung (Liter)",
-  #       opacity = 1
-  #     )
-  # })
-
-  
-  # Pumpen pro LOR zählen
-  pumpen_pro_lor <- pumpen_mit_lor %>%
-    st_drop_geometry() %>%
-    group_by(bzr_id) %>%
-    summarise(pumpen_anzahl_lor = n()) %>%
-    ungroup()
-  
-  # Mit LOR-Geometrien verbinden
-  lor_mit_pumpen <- lor %>%
-    left_join(pumpen_pro_lor, by = "bzr_id") %>%
-    mutate(pumpen_anzahl_lor = ifelse(is.na(pumpen_anzahl_lor), 0, pumpen_anzahl_lor))
-  
-  # LOR-Zentren für Marker berechnen
-  lor_zentren <- st_centroid(lor) %>%
-    left_join(pumpen_pro_lor, by = "bzr_id")
+  bezirkszentren_mit_kaputten_Pumpen <- bezirkszentren %>%
+    left_join(anzahl_pumpen_pro_bezirk_mit_kaputten_Pumpen, by = "bezirk")
   
   output$karte_giessverhalten <- renderLeaflet({
-    # Farbpaletten erstellen (beide blau für Konsistenz)
-    pal_bezirk <- colorNumeric(palette = "Blues", domain = bezirke_karte$gesamt_bewaesserung)
-    pal_lor <- colorNumeric(palette = "Blues", domain = df_merged_mit_lor_sum$gesamt_bewaesserung_lor)
     
-    # Gruppennamen für die Layer-Control
-    group_bezirke <- "Bezirke"
-    group_lor <- "LOR-Bereiche"
-    group_pumpen_bezirk <- "Pumpen (Bezirk)"
-    group_pumpen_lor <- "Pumpen (LOR)"
-    group_bezirksgrenzen <- "Bezirksgrenzen (LOR-Ebene)"
+    # Farbpalette: Blauverlauf
+    pal <- colorNumeric(palette = "Blues", domain = bezirke_karte$gesamt_bewaesserung)
     
-    # Pumpen pro LOR zählen und Zentren berechnen
-    lor_zentren <- st_centroid(lor) %>%
-      left_join(
-        pumpen_mit_lor %>% 
-          st_drop_geometry() %>%
-          group_by(bzr_id) %>%
-          summarise(pumpen_anzahl = n()),
-        by = "bzr_id"
-      ) %>%
-      mutate(pumpen_anzahl = ifelse(is.na(pumpen_anzahl), 0, pumpen_anzahl))
-    
-    # LOR-Daten mit Bewässerung verknüpfen
-    lor_mit_bewaesserung <- lor %>%
-      left_join(
-        df_merged_mit_lor_sum %>% 
-          st_drop_geometry() %>%
-          select(bzr_id, gesamt_bewaesserung_lor),
-        by = "bzr_id"
-      )
-    
-    # Karte erstellen
     leaflet() %>%
       addProviderTiles(providers$CartoDB.Positron) %>%
       
-      # BEZIRKS-EBENE (bei niedrigem Zoom) -------------------------------
-    # Bezirksflächen einfärben
-    addPolygons(
-      data = bezirke_karte,
-      group = group_bezirke,
-      fillColor = ~pal_bezirk(gesamt_bewaesserung),
-      fillOpacity = 0.7,
-      weight = 2,
-      color = "white",
-      highlightOptions = highlightOptions(
-        weight = 3,
-        color = "#666",
-        fillOpacity = 0.9
-      ),
-      label = ~paste0(Gemeinde_name, ": ", round(gesamt_bewaesserung), " Liter")
-    ) %>%
+      # Bezirke einfärben
+      addPolygons(
+        data = bezirke_karte,
+        fillColor = ~pal(gesamt_bewaesserung),
+        fillOpacity = 0.7,
+        weight = 1,
+        color = "white",
+        highlightOptions = highlightOptions(
+          weight = 2,
+          color = "#666",
+          fillOpacity = 0.9,
+          bringToFront = FALSE
+        ),
+        label = ~paste0(Gemeinde_name, ": ", round(gesamt_bewaesserung), " Liter"),
+        labelOptions = labelOptions(
+          style = list("font-weight" = "normal", padding = "3px 8px"),
+          direction = "auto"
+        )
+      ) %>%
       
-      # Pumpen-Punkte auf Bezirksebene
+      # Pumpen-Punkte (an Bezirkszentren) mit Größen nach Anzahl
       addCircleMarkers(
         data = bezirkszentren,
-        group = group_pumpen_bezirk,
-        radius = ~sqrt(anzahl_pumpen) * 2,
+        radius = ~sqrt(anzahl_pumpen) * 2,  
         color = "blue",
         fillColor = "white",
         fillOpacity = 0.9,
         stroke = TRUE,
         weight = 1,
-        label = ~paste0(bezirk, ": ", anzahl_pumpen, " Pumpen")
+        label = ~paste0(bezirk, ": ", anzahl_pumpen, " Pumpen"),
+        labelOptions = labelOptions(
+          style = list("font-weight" = "bold", padding = "3px 8px"),
+          direction = "auto"
+        )
+      ) %>%
+      addLegend(
+        "bottomright", pal = pal, values = bezirke_karte$gesamt_bewaesserung,
+        title = "Gesamtbewässerung (Liter)",
+        opacity = 1
+      )
+  })
+  
+  
+  output$karte_giessverhalten_mit_kaputten_Pumpen <- renderLeaflet({
+    
+    # Farbpalette: Blauverlauf
+    pal <- colorNumeric(palette = "Blues", domain = bezirke_karte$gesamt_bewaesserung)
+    
+    leaflet() %>%
+      addProviderTiles(providers$CartoDB.Positron) %>%
+      
+      # Bezirke einfärben
+      addPolygons(
+        data = bezirke_karte,
+        fillColor = ~pal(gesamt_bewaesserung),
+        fillOpacity = 0.7,
+        weight = 1,
+        color = "white",
+        highlightOptions = highlightOptions(
+          weight = 2,
+          color = "#666",
+          fillOpacity = 0.9,
+          bringToFront = FALSE
+        ),
+        label = ~paste0(Gemeinde_name, ": ", round(gesamt_bewaesserung), " Liter"),
+        labelOptions = labelOptions(
+          style = list("font-weight" = "normal", padding = "3px 8px"),
+          direction = "auto"
+        )
       ) %>%
       
-      # BEZIRKSGRENZEN (für LOR-Ebene) - dickere Linien
-      addPolylines(
-        data = bezirksgrenzen,
-        group = group_bezirksgrenzen,
-        color = "#333",
-        weight = 3,
-        opacity = 0.8,
-        options = pathOptions(clickable = FALSE)
-      ) %>%
-      
-      # LOR-EBENE (bei hohem Zoom) ---------------------------------------
-    # LOR-Bereiche blau einfärben
-    addPolygons(
-      data = lor_mit_bewaesserung,
-      group = group_lor,
-      fillColor = ~pal_lor(gesamt_bewaesserung_lor),
-      fillOpacity = 0.7,
-      weight = 1,
-      color = "#666",
-      opacity = 0.7,
-      highlightOptions = highlightOptions(
-        weight = 2,
-        color = "#000",
-        bringToFront = FALSE
-      ),
-      label = ~paste0(bzr_name, ": ", round(gesamt_bewaesserung_lor), " Liter"),
-      options = pathOptions(clickable = TRUE)
-    ) %>%
-      
-      # Pumpen-Punkte auf LOR-Ebene
+      # Pumpen-Punkte (an Bezirkszentren) mit Größen nach Anzahl
       addCircleMarkers(
-        data = lor_zentren,
-        group = group_pumpen_lor,
-        radius = ~sqrt(pumpen_anzahl) * 2,
-        color = "red",
+        data = bezirkszentren_mit_kaputten_Pumpen,
+        radius = ~sqrt(anzahl_pumpen_mit_kaputten_Pumpen) * 2,
+        color = "darkred",
         fillColor = "white",
         fillOpacity = 0.9,
         stroke = TRUE,
         weight = 1,
-        label = ~paste0(bzr_name, ": ", pumpen_anzahl, " Pumpen")
-      ) %>%
-      
-      # Legenden
+        label = ~paste0(bezirk, ": ", anzahl_pumpen_mit_kaputten_Pumpen, " Pumpen"),
+        labelOptions = labelOptions(
+          style = list("font-weight" = "bold", padding = "3px 8px"),
+          direction = "auto"
+        )
+      )%>%
       addLegend(
-        "bottomright",
-        pal = pal_bezirk,
-        values = bezirke_karte$gesamt_bewaesserung,
-        title = "Bewässerung (Liter)",
-        opacity = 1,
-        group = group_bezirke
-      ) %>%
-      
-      # Layer-Control
-      addLayersControl(
-        overlayGroups = c(group_bezirke, group_pumpen_bezirk),
-        options = layersControlOptions(collapsed = FALSE)
-      ) %>%
-      
-      # ZOOM-LOGIK -------------------------------------------------------
-    htmlwidgets::onRender("
-      function(el, x) {
-        var map = this;
-        
-        function updateLayers() {
-          var zoom = map.getZoom();
-          
-          if (zoom >= 12) {
-            // LOR-EBENE ANZEIGEN
-            map.layerManager.getLayerGroup('Bezirke').remove();
-            map.layerManager.getLayerGroup('Pumpen (Bezirk)').remove();
-            map.layerManager.getLayerGroup('Bezirksgrenzen (LOR-Ebene)').addTo(map);
-            map.layerManager.getLayerGroup('LOR-Bereiche').addTo(map);
-            map.layerManager.getLayerGroup('Pumpen (LOR)').addTo(map);
-          } else {
-            // BEZIRKS-EBENE ANZEIGEN
-            if (!map.hasLayer(map.layerManager.getLayerGroup('Bezirke'))) {
-              map.layerManager.getLayerGroup('Bezirke').addTo(map);
-              map.layerManager.getLayerGroup('Pumpen (Bezirk)').addTo(map);
-            }
-            map.layerManager.getLayerGroup('Bezirksgrenzen (LOR-Ebene)').remove();
-            map.layerManager.getLayerGroup('LOR-Bereiche').remove();
-            map.layerManager.getLayerGroup('Pumpen (LOR)').remove();
-          }
-        }
-        
-        // Initialen Zustand setzen
-        updateLayers();
-        
-        // Bei Zoom-Änderungen aktualisieren
-        map.on('zoomend', updateLayers);
-      }
-    ")
+        "bottomright", pal = pal, values = bezirke_karte$gesamt_bewaesserung,
+        title = "Gesamtbewässerung (Liter)",
+        opacity = 1
+      )
   })
   
   
   
   
- 
+  
+  
   
   # Daten in long-format bringen:
   giess_long <- giess_pumpen_dichte_df %>%
@@ -992,7 +882,12 @@ server <- function(input, output, session) {
                  names_to = "variable",
                  values_to = "wert")
   
-
+  
+  giess_long_mit_kaputten_Pumpen <- giess_pumpen_dichte_df_mit_kaputten_Pumpen %>%
+    select(bezirk, anzahl_pumpen_mit_kaputten_Pumpen, gesamt_bewaesserung) %>%
+    pivot_longer(cols = c(anzahl_pumpen_mit_kaputten_Pumpen, gesamt_bewaesserung),
+                 names_to = "variable",
+                 values_to = "wert")
   
   output$balken_plot <- renderPlotly({ 
     
@@ -1094,6 +989,124 @@ server <- function(input, output, session) {
   })
   
   
+  
+  output$balken_plot_mit_kaputten_Pumpen <- renderPlotly({
+    
+    plot_ly() %>%
+      add_bars(
+        data = giess_pumpen_dichte_df_mit_kaputten_Pumpen,
+        x = ~bezirk,
+        y = ~gesamt_bewaesserung,
+        name = "Bewässerung (L)",
+        marker = list(color = 'steelblue'),
+        yaxis = "y",
+        hovertemplate = paste(
+          "<b>Bezirk:</b> %{x}<br>",
+          "<b>Bewässerung:</b> %{y} L"
+        )
+      ) %>%
+      add_bars(
+        data = giess_pumpen_dichte_df_mit_kaputten_Pumpen,
+        x = ~bezirk,
+        y = ~anzahl_pumpen_mit_kaputten_Pumpen,
+        name = "Pumpenanzahl",
+        marker = list(color = 'seagreen'),
+        yaxis = "y2",
+        hovertemplate = paste(
+          "<b>Bezirk:</b> %{x}<br>",
+          "<b>Anzahl Pumpen:</b> %{y}"
+        )
+      ) %>%
+      layout(
+        title = "Pumpengesamtanzahl und Bewässerung pro Bezirk",
+        barmode = "group",
+        xaxis = list(title = "Bezirk"),
+        yaxis = list(
+          title = "Gesamtbewässerung (Liter)",
+          side = "left",
+          showgrid = FALSE
+        ),
+        yaxis2 = list(
+          title = "Anzahl Pumpen",
+          overlaying = "y",
+          side = "right",
+          showgrid = FALSE
+        ),
+        legend = list(orientation = "h", x = 0.3, y = 1.1)
+      )
+  })
+  
+  output$balken_plot_mit_kaputten_Pumpen_nebeneinander <- renderPlotly({
+    
+    # Skalierungsfaktor berechnen
+    max_bewaesserung <- max(giess_pumpen_dichte_df_mit_kaputten_Pumpen$gesamt_bewaesserung, na.rm = TRUE)
+    max_pumpen <- max(giess_pumpen_dichte_df_mit_kaputten_Pumpen$anzahl_pumpen_mit_kaputten_Pumpen, na.rm = TRUE)
+    scaling_factor <- max_bewaesserung / max_pumpen
+    
+    plot_ly() %>%
+      #  Bewässerung
+      add_bars(
+        data = giess_pumpen_dichte_df_mit_kaputten_Pumpen,
+        x = ~bezirk,
+        y = ~gesamt_bewaesserung,
+        name = "Bewässerung (L)",
+        marker = list(color = 'steelblue'),
+        hovertemplate = paste(
+          "<b>Bezirk:</b> %{x}<br>",
+          "<b>Bewässerung:</b> %{y} L"
+        )
+      ) %>%
+      # Pumpenanzahl (skaliert)
+      add_bars(
+        data = giess_pumpen_dichte_df_mit_kaputten_Pumpen,
+        x = ~bezirk,
+        y = ~anzahl_pumpen_mit_kaputten_Pumpen * scaling_factor,
+        name = "Pumpenanzahl",
+        marker = list(color = 'seagreen'),
+        customdata = giess_pumpen_dichte_df_mit_kaputten_Pumpen$anzahl_pumpen_mit_kaputten_Pumpen,
+        hovertemplate = paste(
+          "<b>Bezirk:</b> %{x}<br>",
+          "<b>Anzahl Pumpen:</b> %{customdata}"
+        )
+      ) %>%
+      # Dummy-Spur für rechte Achse, damit sie sichtbar ist
+      add_trace(
+        x = c(NA), y = c(NA),
+        type = "bar",
+        yaxis = "y2",
+        showlegend = FALSE,
+        hoverinfo = "none"
+      ) %>%
+      layout(
+        title = "Pumpengesamtanzahl und Bewässerung pro Bezirk",
+        barmode = "group",
+        xaxis = list(title = "Bezirk"),
+        yaxis = list(
+          title = "Gesamtbewässerung (Liter)",
+          side = "left"
+        ),
+        yaxis2 = list(
+          title = "Anzahl Pumpen",
+          overlaying = "y",
+          side = "right",
+          tickvals = seq(0, max_bewaesserung, length.out = 6),
+          ticktext = round(seq(0, max_pumpen, length.out = 6), 0),
+          range = c(0, max_bewaesserung),
+          showgrid = FALSE
+        ),
+        legend = list(orientation = "h", x = 0.3, y = 1.1)
+      )
+  })
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
   df_merged_sum_distanz_umkreis_pump_ok_lor <- df_merged_sum_distanz_umkreis_pump_ok_lor %>%
     mutate(pumpenkategorie = case_when(
       pumpen_im_umkreis_100m == 0 ~ "Keine Pumpe",
@@ -1161,5 +1174,33 @@ server <- function(input, output, session) {
         panel.grid.major.y = element_line(color = "gray90")
       )
   })
-
+  
+  
+  
+  
+  
+  
+  
+  
+  bewaesserung_pro_strasse <- reactive({
+    barFilteredData()%>%
+      group_by(strname) %>%
+      summarise(total_water = sum(bewaesserungsmenge_in_liter, na.rm = TRUE)) %>%
+      arrange(desc(total_water)) %>%
+      head(50)
+  })
+  
+  
+  output$hist_bewaesserung_pro_strasse <- renderPlot({
+    df_top <- bewaesserung_pro_strasse()
+    ggplot(df_top, aes(x = reorder(strname, total_water), y = total_water, fill = strname)) +
+      geom_bar(stat = "identity") +
+      coord_flip() +
+      labs(title = "Bewässerung pro Straße", x = "Straße", y = "Gesamte Bewässerung (Liter)") +
+      scale_fill_discrete(name = "Straßennamen") + 
+      theme_minimal() +
+      theme(legend.position = "none") 
+  })
+  
+  
 }

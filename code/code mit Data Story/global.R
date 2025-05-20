@@ -16,29 +16,14 @@ library(data.table)
 # In df_merged und df_merged_sum enthalten  
 # df <- read.csv("data/giessdenkiez_bewässerungsdaten.csv", sep = ";", stringsAsFactors = FALSE, fileEncoding = "UTF-8")
 
-lor_url <- "https://gdi.berlin.de/services/wfs/lor_2019?service=WFS&version=1.1.0&request=GetFeature&typeName=lor_2019:b_lor_bzr_2019"
-
-lor <- st_read(lor_url) %>%
-      select(bzr_id, bzr_name, geom) %>%
-      st_simplify(preserveTopology = TRUE, dTolerance = 0.001) %>%
-      st_transform(4326)  # Zu WGS84 transformieren
-
-lors <- st_read(lor_url) %>%
-  st_transform(4326)  # Zu WGS84 transformieren
-
 # pumpen <- st_read("data/pumpen.geojson")
 pumpen_mit_bezirk <- st_read("data/pumpen_mit_bezirk_minimal.geojson")
-pumpen_mit_lor <- st_read("data/pumpen_mit_lor.geojson")
 # st_layers("https://gdi.berlin.de/services/wfs/lor_2019?REQUEST=GetCapabilities&SERVICE=wfs")
-df_merged_sum_distanz_umkreis_pump_ok_lor <- fread("data/df_merged_sum_mit_distanzen_mit_umkreis_gesamter_Baumbestand_nur_Pumpen_ok_lor.csv",sep = ";", encoding = "UTF-8")
-df_merged_sum_mit_distanzen_mit_umkreis <- fread("data/df_merged_sum_mit_distanzen_mit_umkreis_baumbestand_nur_Pumpen_ok.csv", sep = ";", encoding = "UTF-8")
-
-glimpse(df_merged_sum_distanz_umkreis_pump_ok_lor)
-glimpse(lor)
+df_merged_sum_distanz_umkreis_pump_ok_lor <- read.csv("data/df_merged_sum_mit_distanzen_mit_umkreis_gesamter_Baumbestand_nur_Pumpen_ok_lor.csv", sep = ";", stringsAsFactors = FALSE, fileEncoding = "UTF-8")
+df_merged_sum_mit_distanzen_mit_umkreis <- read.csv("data/df_merged_sum_mit_distanzen_mit_umkreis_baumbestand_nur_Pumpen_ok.csv", sep = ";", stringsAsFactors = FALSE, fileEncoding = "UTF-8")
 
 # df_merged <- read.csv("data/df_merged_minimal.csv", sep = ";", stringsAsFactors = FALSE, fileEncoding = "UTF-8")
-df_merged <- fread("data/df_merged_final.csv", sep = ";",  , encoding = "UTF-8")
-df_merged_mit_lor_sum <- st_read("data/df_merged_mit_lor_und_sum.geojson")
+df_merged <- read.csv("data/df_merged_final.csv", sep = ";", stringsAsFactors = FALSE, fileEncoding = "UTF-8")
 # df_merged_sum_pump_ok <- read.csv("data/df_merged_sum_mit_distanzen_gesamter_Baumbestand_nur_Pumpen_ok.csv", sep = ";", stringsAsFactors = FALSE, fileEncoding = "UTF-8")
 # df_merged <- read.csv("data/df_merged_gesamter_baumbestand_minimal.csv", sep = ";", stringsAsFactors = FALSE, fileEncoding = "UTF-8")
 # df_merged_sum <- read.csv("data/df_merged_gesamter_baumbestand_sum1.csv", sep = ";", stringsAsFactors = FALSE, fileEncoding = "UTF-8")
@@ -76,8 +61,6 @@ bezirksgrenzen <- st_read("data/bezirksgrenzen.geojson")
 
 df_merged_sum_distanz_umkreis_pump_ok_lor_clean <- df_merged_sum_distanz_umkreis_pump_ok_lor %>%
   drop_na(timestamp)
-print(sum(is.na(df_merged_sum_distanz_umkreis_pump_ok_lor_clean$timestamp)))
-print(str(df_merged_sum_distanz_umkreis_pump_ok_lor_clean$timestamp))
 
 df_merged_clean <- df_merged %>%
   drop_na(bezirk, timestamp, gattung_deutsch)

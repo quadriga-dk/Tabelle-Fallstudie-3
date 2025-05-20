@@ -8,7 +8,7 @@ library(nngeo)
 # # 1. Daten einlesen
  pumpen_mit_bezirk <- st_read("data/pumpen_mit_bezirk_minimal.geojson")
  df_merged_sum <- read.csv("data/df_merged_gesamter_baumbestand_sum1.csv", sep = ";", stringsAsFactors = FALSE, fileEncoding = "UTF-8")
-  
+
  pumpen_mit_bezirk_ok <- pumpen_mit_bezirk %>%
    filter(pump.status == "ok")
  

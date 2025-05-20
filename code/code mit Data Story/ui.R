@@ -32,10 +32,9 @@ ui <- dashboardPage(
                   ),
                   fluidRow(
                     column(width = 6,
-                           selectInput("start_year", "Jahr der Bewässerung auswählen:",
-                                       choices = c("2020-2024", "Baumbestand Stand 2025", sort(unique(na.omit(year(df_merged_clean$timestamp))))),
-                                       selected = "Baumbestand Stand 2025",
-                                       multiple = TRUE),
+                           selectInput("start_year", "Jahr der Bewässerung auswählen:", 
+                                       choices = c("2020-2024", unique(year(df_merged_clean$timestamp))), 
+                                       selected = "2020-2024", multiple = TRUE)
                     ),
                     column(width = 6,
                            selectInput("bezirk", "Bezirk auswählen:", 
@@ -123,7 +122,7 @@ ui <- dashboardPage(
                                 min = 1900, 
                                 max = max(df_merged$pflanzjahr, na.rm = TRUE), 
                                 value = c(min(df_merged$pflanzjahr, na.rm = TRUE), max(df_merged$pflanzjahr, na.rm = TRUE)), 
-                                step = 1, sep = ""),
+                                step = 1),
                     
                     selectInput("trend_bezirk_pj", "Bezirk auswählen:", choices = c("Alle", unique(df_merged_clean$bezirk)), selected = "Alle", multiple = TRUE),
                     
@@ -193,22 +192,29 @@ ui <- dashboardPage(
                           condition = "input.water_mode_Bottom == 'ratio'",
                           plotOutput("hist_Top_10_worst_verhaeltnis_baum")
                         )
+                    ),
+                    box(title = "Bewässerung pro Straße", status = "primary", solidHeader = TRUE, width = 12,
+                      plotOutput("hist_bewaesserung_pro_strasse")
                     )
                 )
               )
       ),
       tabItem(tabName = "engagement",
               fluidRow(
-                box(title = "Pumpenanzahl und Bewässerung pro Bezirk (2020-2024)",status = "primary", solidHeader = TRUE, width = 12,
-                    plotlyOutput("balken_plot")
+                box(title = "Pumpenanzahl und Bewässerung pro Bezirk",status = "primary", solidHeader = TRUE, width = 12,
+                    plotlyOutput("balken_plot"), plotlyOutput("balken_plot_mit_kaputten_Pumpen_nebeneinander"), plotlyOutput("balken_plot_mit_kaputten_Pumpen")
                 ),
+                # box(title = "Pumpengesamtanzahl und Bewässerung pro Bezirk",status = "primary", solidHeader = TRUE, width = 12,
+                #     plotlyOutput("balken_plot_mit_kaputten_Pumpen")
+                # ),
                 box(title = "Durchschnittliche Gießmenge nach Pumpen-Kategorie im 100 m Umkreis",status = "primary", solidHeader = TRUE, width = 12,
                     plotOutput("pumpenkategorien_plot", height = "400px"), plotOutput("pumpenkategorien_plot_pump_ok", height = "400px")
                 ),
                 box(title = "Gießverhalten nach Bezirk",status = "primary", solidHeader = TRUE, width = 12,
-                    
-                    
-                    leafletOutput("karte_giessverhalten", height = "800px")
+                    leafletOutput("karte_giessverhalten")
+                ),
+                box(title = "Gießverhalten nach Bezirk mit kaputten Pumpen",status = "primary", solidHeader = TRUE, width = 12,
+                    leafletOutput("karte_giessverhalten_mit_kaputten_Pumpen")
                 ),
               )
       )
