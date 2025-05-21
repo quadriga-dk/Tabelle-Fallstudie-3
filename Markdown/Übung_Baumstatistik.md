@@ -164,7 +164,7 @@ output$tree_distribution <- renderPlotly({
 ```
 **Wichtige Begriffe erklärt:**
 - ``as.Date``: Wandelt einen Datumswert (z. B. ``"2023-05-01"``) in ein Datum, mit dem man rechnen oder filtern kann.
-- - ``filter(...)``: Filtert die Daten so, dass nur diejenigen Zeilen erhalten bleiben, die bestimmte Bedingungen erfüllen.
+- ``filter(...)``: Filtert die Daten so, dass nur diejenigen Zeilen erhalten bleiben, die bestimmte Bedingungen erfüllen.
 - ``df_merged``: Ist der vorbereitete Datensatz
 - NA-Werte (``NA``)
 Steht für "Not Available" und bedeutet, dass ein Wert in den Daten fehlt oder unbekannt ist. Zum Beispiel, wenn für einen Baum die Koordinaten nicht bekannt sind.
@@ -191,7 +191,6 @@ Leitet das Ergebnis von links an die Funktion rechts weiter. Er sorgt für eine 
 - ``geom_bar(stat = "identity")``: Zeichnet einen Balken für jede Gruppe – die Höhe entspricht genau dem übergebenen Wert (z. B. Anzahl der Bäume).
 - ``scale_fill_gradient(...)``: Farbverlauf für die Balken – je mehr Bäume pro Hektar, desto dunkler die Farbe. Dies macht die Baumdichte visuell erkennbar.
 - ``coord_flip()``: Dreht die Achsen – so wird aus einem vertikalen Balkendiagramm ein horizontales. Das ist oft besser lesbar, wenn die Namen lang sind.
-- ``labs``
 - ``theme_minimal()``: Ein schlankes, übersichtliches Design für das Diagramm ohne viele Linien oder Farben.
 - ``tooltip``
 
