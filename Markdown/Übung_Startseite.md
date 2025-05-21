@@ -1,40 +1,151 @@
 # Übung Startseite
-Das Ziel dieses Abschnitts ist es, eine Startseite für ein Dashboard zu erstellen, das wichtige Informationen über die Baum-Bewässerung in verschiedenen Berliner Bezirken anzeigt. Dabei geht es darum, eine übersichtliche, interaktive Ansicht zu bauen, die Folgendes ermöglicht:
+Das Ziel dieses Abschnitts ist es, eine interaktive Startseite für das Gieß-den-Kiez-Dashboard zu erstellen. Nutzer*innen können hier sehen, wie viele Bäume gegossen wurden, wie viel Wasser verwendet wurde – abhängig von ihrer Auswahl (Jahr und Bezirk).
 
-- Zentrale Kennzahlen anzeigen, etwa wie viele Bäume gegossen wurden oder wie viel Wasser verbraucht wurde.
+## 1. Benutzeroberfläche (UI)
+Die Benutzeroberfläche besteht aus zwei Teilen:
 
-- Daten filtern – also z. B. sagen: „Zeig mir nur die Daten für Friedrichshain-Kreuzberg“ oder „Alle Bezirke“.
+- einer Seitenleiste (``sidebarMenu``) mit der Navigation
 
-Um das zu realisieren, wird die Anwendung in zwei großen Teilen aufgebaut:
+- einem Inhaltsbereich (``tabItem``) mit:
 
-1. Benutzeroberfläche (UI – User Interface)
+    - ValueBoxen für wichtige Kennzahlen
 
-2. Serverlogik (server)
+    - Dropdowns zur Auswahl des Zeitraums und des Bezirks
 
-## **1. Interaktive Datenfilterung vorbereiten**
-
-Bevor wir Zahlen anzeigen können, müssen wir sicherstellen, dass die Daten nach Auswahl des Bezirks gefiltert werden. Das bedeutet: Wenn jemand im Menü z. B. „Neukölln“ auswählt, sollen nur die entsprechenden Datensätze aus Neukölln berücksichtigt werden.
-
-Das geschieht mit dieser Funktion:
+**Navigation: sidebarMenu**
 
 ```bash
-    filteredData <- reactive({
-    df_clean %>%
-        filter(
-        input$bezirk == "Alle" | bezirk %in% input$bezirk
-        )
-    })
+dashboardSidebar(
+  sidebarMenu(
+    menuItem("Startseite", tabName = "start", icon = icon("home"))
+  )
+)
+```
+```{admonition} Merke: 
+:class: keypoint 
+
+``menuItem(...)`` definiert einzelne Seiten im Dashboard – über tabName verknüpft mit dem jeweiligen Inhaltsbereich.
 ```
 
-Schauen wir uns das Zeile für Zeile und Begriff für Begriff an:
+- ``sidebarMenu(...)`` ist die Hauptnavigation des Dashboards.
+- ``menuItem(...)`` erzeugt einen Menüpunkt:
+- ``"Startseite"`` ist der angezeigte Name.
+- ``tabName = "start"`` verbindet den Menüpunkt mit dem Tab.
+- ``icon("home")`` zeigt ein kleines Symbol an.
 
-### ``filteredData <- reactive({ ... })``
-- ``filteredData`` ist ein selbstgewählter Name für eine neue Funktion, die wir erstellen.
+## Inhalt: tabItem mit Übersichtsbox
 
-- ``<-`` ist der sogenannte Zuweisungsoperator: Er weist etwas (hier eine Funktion) einem Namen zu. Gesprochen: „filteredData bekommt …“
+```bash
+tabItems(
+  tabItem(tabName = "start",
+    box(title = "Overview", status = "primary", solidHeader = TRUE, width = 12,
+      fluidRow(
+        uiOutput("dynamic_tree_box"),
+        valueBoxOutput("total_water"),
+        valueBoxOutput("avg_water")
+      ),
+      fluidRow(
+        column(width = 6,
+          selectInput("start_year", "Jahr der Bewässerung auswählen:",
+            choices = c("2020-2024", "Baumbestand Stand 2025", sort(unique(na.omit(year(df_merged_clean$timestamp))))),
+            selected = "Baumbestand Stand 2025",
+            multiple = TRUE
+          )
+        ),
+        column(width = 6,
+          selectInput("bezirk", "Bezirk auswählen:",
+            choices = c("Alle", unique(df_merged_clean$bezirk)),
+            selected = "Alle",
+            multiple = TRUE
+          )
+        )
+      )
+    )
+  )
+)
+```
+```{admonition} Merke: 
+:class: keypoint 
 
-- ``reactive({...})`` ist ein spezieller R-Befehl aus Shiny, der bedeutet:
-„Wenn sich etwas am Input (z. B. an der Bezirk-Auswahl) ändert, dann rechne das hier automatisch neu.“
+``fluidRow()`` ordnet Inhalte nebeneinander. ``box(...)`` gruppiert UI-Elemente visuell und funktional.
+```
+
+```{admonition} Beispiel: 
+:class: tip
+In einer ``fluidRow`` können drei ``valueBoxOutput(...)``-Elemente nebeneinander angezeigt werden.
+```
+
+**Erklärung der Elemente:**
+- ``box(...)`` ist ein Container mit:
+    - ``title`` (Überschrift)
+    - ``status = "primary"`` (Farbe)
+    - ``solidHeader = TRUE`` (fester Rand)
+    - ``width = 12`` (volle Breite – 12 ist die maximale Spaltenanzahl)
+- ``fluidRow(...)`` sorgt für eine horizontale Anordnung (z. B. nebeneinander statt untereinander).
+- ``uiOutput(...)`` ist ein dynamischer Platzhalter für Inhalte, die später im Server je nach Auswahl angezeigt werden.
+- ``valueBoxOutput(...)`` reserviert Platz für eine Box mit Kennzahlen.
+
+**Filter-Menüs mit ``selectInput``**
+
+```bash
+selectInput("start_year", ...)
+selectInput("bezirk", ...)
+```
+**Erläuterung der einzelnen Teile:**
+- ``selectInput(...)`` erstellt ein Dropdown-Menü (also eine Auswahlliste).
+- ``"bezirk"`` ist der Name, unter dem Shiny diesen Input später erkennt → input$bezirk
+- ``"Bezirk auswählen:"`` ist der Text, der über dem Menü steht.
+- ``choices = c("Alle", unique(df$bezirk))``
+- ``df$bezirk`` heißt: Aus der Tabelle df nimm die Spalte bezirk.
+- ``unique(df$bezirk)`` bedeutet: Nur jeden Bezirk einmal anzeigen – keine Dopplungen.
+- ``c(...)`` macht daraus eine Liste aller Bezirke plus **“Alle”**.
+- ``multiple = TRUE`` heißt: Man darf mehrere Bezirke gleichzeitig auswählen.
+
+```{admonition} Merke: 
+:class: keypoint 
+
+Mit ``multiple = TRUE`` können mehrere Jahre oder Bezirke gleichzeitig ausgewählt werden. Diese Auswahl steht im Server unter ``input$start_year`` und ``input$bezirk`` zur Verfügung.
+```
+
+
+- ``selectInput(...)`` erstellt ein Dropdown-Menü.
+- ``multiple = TRUE`` bedeutet, dass man mehrere Werte gleichzeitig auswählen kann.
+- Die gewählten Werte sind später über ``input$start_year`` bzw. ``input$bezirk`` im Server verfügbar.
+
+## 2. Reaktive Datenfilterung im Server
+
+```bash
+filteredData <- reactive({
+  req(input$stats_baumvt_year)
+  
+  df <- df_merged %>%
+    mutate(year = lubridate::year(timestamp))
+  
+  df_filtered <- df %>%
+    filter(
+      ("Baumbestand Stand 2025" %in% input$start_year & 
+       (is.na(timestamp) | year %in% 2020:2024)) |
+      ("2020-2024" %in% input$start_year & 
+       !is.na(timestamp) & year %in% 2020:2024) |
+      (any(!input$start_year %in% c("2020-2024", "Baumbestand Stand 2025")) & 
+       year %in% as.numeric(input$start_year))
+    )
+
+  if (all(input$start_year == "2020-2024")) {
+    df_filtered <- df_filtered %>% filter(!is.na(timestamp))
+  }
+
+  if (!is.null(input$bezirk) && input$bezirk != "Alle") {
+    df_filtered <- df_filtered %>% filter(bezirk %in% input$bezirk)
+  }
+
+  df_filtered
+})
+```
+**Wichtige Begriffe erklärt:**
+- ``reactive(...)``: erzeugt eine reaktive Funktion, die automatisch neu berechnet wird, wenn sich Eingaben ändern.
+- ``req(...)``: sorgt dafür, dass die Funktion nur ausgeführt wird, wenn bestimmte Eingaben vorhanden sind.
+- ``mutate(...)``: erzeugt eine neue Spalte year durch Extraktion aus timestamp.
 
 ```{admonition} Merke: 
 :class: keypoint 
@@ -42,275 +153,199 @@ Schauen wir uns das Zeile für Zeile und Begriff für Begriff an:
 ``reactive()`` ist wie ein **intelligenter Beobachter**: Er reagiert **automatisch** auf Eingaben und aktualisiert die Daten.
 ```
 
-### ``df_clean %>% filter(...)``
+**if- und else-Anweisungen**
+```bash
+if (Bedingung) {
+  # wird ausgeführt, wenn die Bedingung wahr ist
+} else {
+  # wird ausgeführt, wenn die Bedingung falsch ist
+}
+```
 
-``df_clean`` ist die **Daten-Tabelle**, wir bereits vorher im Schritt Datenbereiningung bereinigt wurde.
+Diese Struktur nennt man **Bedingung**. Sie steuert den Ablauf des Codes abhängig von bestimmten Eingaben.
 
-Das ``%>%`` ist ein sogenannter **Pipe-Operator** (gesprochen: "dann"). Er erlaubt uns, Befehle lesbarer hintereinander zu schreiben.
+**Operatoren**
+- ``%in%``: prüft, ob ein Wert in einer Liste enthalten ist.
+- ``<-``: weist einer Variable einen Wert zu (z. B. ``x <- 3``).
+- ``|`` = ODER, ``&`` = UND
 
-``filter(...)`` ist eine Funktion aus dem Paket ``dplyr`` und bedeutet: Nur bestimmte Zeilen behalten, nämlich die, auf die unsere Bedingungen zutreffen.
+## 3. Dynamische Anzeige: total_trees oder total_tree_watered
 
-### ``input$bezirk``
-- ``input$`` ist die Art, wie man in Shiny auf Eingabefelder zugreift.
+```bash
+output$dynamic_tree_box <- renderUI({
+  if ("Baumbestand Stand 2025" %in% input$start_year) {
+    valueBoxOutput("total_trees")
+  } else {
+    valueBoxOutput("total_tree_watered")
+  }
+})
+```
+- ``renderUI(...)``: erzeugt dynamische Elemente.
+- Abhängig von der Auswahl (``input$start_year``) wird eine andere Kennzahl angezeigt.
 
-- ``input$bezirk`` meint konkret: Was der/die Nutzer*in im Dropdown-Menü „Bezirk auswählen“ gewählt hat.
+```{admonition} Merke: 
+:class: keypoint 
+
+``renderUI(...)`` erlaubt es, UI-Elemente zur Laufzeit zu verändern – je nach Nutzereingabe.
+```
 
 ```{admonition} Beispiel: 
 :class: tip
-Wenn jemand im Menü „Mitte“ auswählt, steht in ``input$bezirk`` genau das drin: ``"Mitte"``.
+Wird nur „2020–2024“ ausgewählt, zeigt dynamic_tree_box nur gegossene Bäume an.
 ```
 
-### ``input$bezirk == "Alle" | bezirk %in% input$bezirk``
-Diese Zeile ist die Filter-Bedingung:
+## 4. ValueBoxes im Server
 
-1. Wenn „Alle“ ausgewählt wurde, dann sollen **alle Zeilen behalten werden**.
-
-2. Wenn ein **bestimmter Bezirk** ausgewählt wurde, dann sollen **nur die Zeilen mit diesem Bezirk** behalten werden.
-
-- ``|`` bedeutet **ODER**
-
-- ``%in%`` fragt: **Ist ein Wert in einer Liste enthalten?**
-
-```{admonition} Beispiel: 
-:class: tip
-Wenn ``input$bezirk`` = ``c("Mitte", "Kreuzberg")``, dann wird ``bezirk %in% input$bezirk`` nur die Zeilen durchlassen, die den Bezirk „Mitte“ oder „Kreuzberg“ haben.
-```
-
-## 2. Benutzeroberfläche: Elemente anzeigen
-Jetzt definieren wir, was auf dem Bildschirm sichtbar sein soll – z. B. Boxen mit Zahlen und das Dropdown-Menü.
-
-**Value Boxes anzeigen**
+Alle Bäume
 
 ```bash
-    tabItem(tabName = "start",
-    fluidRow(
-        valueBoxOutput("total_trees"),
-        valueBoxOutput("total_water"),
-        valueBoxOutput("avg_water")
-    ),
+output$total_trees <- renderValueBox({
+  valueBox(
+    formatC(n_distinct(df_merged$gisid), format = "d", big.mark = "."),
+    "Gesamtzahl der Bäume",
+    icon = icon("tree"),
+    color = "green"
+  )
+})
 ```
-
-- ``fluidRow(...)`` erzeugt eine **horizontale Zeile** mit mehreren Elementen.
-
-- ``valueBoxOutput("...")`` reserviert einen **Platzhalter** für eine Kennzahl, z. B. wie viele Bäume gegossen wurden.
-
-    - ``"total_trees"`` ist der Name des späteren Inhalts.
-
-    - Der Inhalt wird im **Server-Teil** gefüllt.
-
-
-### Filter-Dropdown für Bezirke
-
-```bash
-    fluidRow(
-        box(title = "Filter", status = "primary", solidHeader = TRUE, width = 12,
-        selectInput("bezirk", "Bezirk auswählen:", 
-            choices = c("Alle", unique(df$bezirk)), 
-            selected = "Alle", multiple = TRUE
-        )
-        )
-    )
-    )
-```
-
-Erläuterung der einzelnen Teile:
-- ``selectInput(...)`` erstellt ein **Dropdown-Menü** (also eine Auswahlliste).
-
-- ``"bezirk"`` ist der Name, unter dem Shiny diesen Input später erkennt → ``input$bezirk``
-
-- ``"Bezirk auswählen:" `` ist der Text, der über dem Menü steht.
-
-- ``choices = c("Alle", unique(df$bezirk))``
-
-    - ``df$bezirk`` heißt: Aus der Tabelle ``df`` nimm die Spalte ``bezirk``.
-
-    - ``unique(df$bezirk)`` bedeutet: **Nur jeden Bezirk einmal anzeigen** – keine Dopplungen.
-
-    - ``c(...)`` macht daraus eine Liste aller Bezirke plus **"Alle"**.
-
-- ``multiple = TRUE`` heißt: Man darf **mehrere Bezirke gleichzeitig auswählen**.
-
-
-## 3. Was passiert im Hintergrund? (Server-Logik)
-Jetzt legen wir fest, was die Boxen anzeigen sollen, wenn jemand einen Bezirk auswählt.
-
-#### Anzahl gegossener Bäume
-
-```bash
-    output$total_trees <- renderValueBox({
-        valueBox(
-            formatC(nrow(filteredData()), big.mark = "."),
-            "Gesamtzahl der gegossenen Bäume",
-            icon = icon("tree"),
-            color = "green"
-        )
-    })
-```   
 - ``output$total_trees`` ist das, was in die Box ``valueBoxOutput("total_trees")`` geschrieben wird.
-
 - ``renderValueBox({...})`` sagt: „Berechne, was in die Box geschrieben wird.“
-
-- ``nrow(filteredData())`` zählt die **Anzahl der Zeilen**, also: Wie viele Bäume wurden gegossen?
-
-- ``formatC(..., big.mark = ",")`` macht die Zahl lesbarer (z. B. 1,000 statt 1000).
-
+- ``n_distinct(...)``: zählt eindeutige Werte.
+- ``formatC(...)``: formatiert Zahlen, z. B. mit Tausenderpunkten.
 - ``icon("tree")`` zeigt ein Baum-Icon.
-
 - ``color = "green"`` färbt die Box grün.
 
-#### Gesamtmenge gegossenes Wasser
-
-Um die Gesamtmenge des Wassers anschaulich darzustellen, rechnen wir sie in passende Einheiten (Liter, Kubikmeter oder Mega Liter) um:
-
+**Gegossene Bäume**
 ```bash
-    output$total_water <- renderValueBox({
-        conversion_result <- convert_units(sum(filteredData()$bewaesserungsmenge_in_liter, na.rm = TRUE))
-        converted_value <- conversion_result$value
-        unit <- conversion_result$unit
-        
-        valueBox(
-            paste(format(converted_value, big.mark = ","), unit),
-            paste("Gesamtbewässerung (", full_unit(unit), ")", sep=""),
-            icon = icon("tint"),
-            color = "blue"
-        )
-    })
-```  
-Hier wird:
-
-- Die Summe aller Wassermengen berechnet: ``sum(...)``
-
-- Dann die Einheit umgerechnet: Liter, Kubikmeter oder Mega Liter, je nach Größe
-
-- ``convert_units()`` ist eine eigene Funktion, die das für uns macht
-
-#### Umrechnungsfunktionen
-
-```bash
-    convert_units <- function(liters) {
-        if (liters >= 1e6) {
-            return(list(value = round(liters / 1e6, 2), unit = "ML"))
-        } else if (liters >= 1e3) {
-            return(list(value = round(liters / 1e3, 2), unit = "m³"))
-        } else {
-            return(list(value = round(liters, 2), unit = "L"))
-        }
-    }
-``` 
-
-```bash
-    full_unit <- function(unit) {
-        switch(unit,
-            "ML" = "Mega Liter", 
-            "m³" = "Kubikmeter", 
-            "L" = "Liter", 
-            unit
-        )
-    }
-```  
-Logik:
-
-- Wenn über 1 Million Liter → **Mega Liter (ML)**
-
-- Wenn über 1.000 Liter → **Kubikmeter (m³)**
-
-- Sonst → **Liter (L)**
-
-Diese Funktionen helfen dabei, die Wassermenge in verständliche Einheiten zu bringen.
-
-**Durchschnittliche Bewässerungsmenge pro Baum**
-
-Neben der Gesamtmenge an gegossenem Wasser ist es oft auch spannend zu sehen, wie viel Wasser durchschnittlich pro Baum verwendet wurde. Dafür brauchen wir den sogenannten arithmetischen Mittelwert – also den Durchschnitt.
-
-Dieser wird im folgenden Abschnitt berechnet:
-
-```bash
-    output$avg_water <- renderValueBox({
-        valueBox(
-            formatC(mean(filteredData()$bewaesserungsmenge_in_liter, na.rm = TRUE), digits = 2, big.mark = "."),
-            "Durchschnittliche Bewässerung pro gegossenen Baum (Liter)",
-            icon = icon("chart-line"),
-            color = "aqua"
-        )
-    })
+output$total_tree_watered <- renderValueBox({
+  valueBox(
+    formatC(n_distinct(filteredData()$gisid), format = "d", big.mark = "."),
+    "Gesamtzahl der gegossenen Bäume",
+    icon = icon("tree"),
+    color = "green"
+  )
+})
 ```
-- output$avg_water ist die Stelle, an der die dritte Kennzahl (ValueBox) angezeigt wird. Diese Box wird im UI-Teil über valueBoxOutput("avg_water") eingebunden.
+- Nur Bäume, die tatsächlich gegossen wurden, werden gezählt – basierend auf ``filteredData()``.
 
-- renderValueBox({...}) ist eine Shiny-Funktion, die dafür sorgt, dass die Inhalte dynamisch aktualisiert werden – je nachdem, welcher Bezirk ausgewählt wurde.
-
-- Im Inneren wird eine valueBox(...) erzeugt. Diese zeigt:
-
-    - Die berechnete Zahl
-
-    - Einen Titeltext
-
-    - Ein passendes Icon
-
-    - Und eine Farbe (hier: aqua, ein helles Blau)
-
-
-#### Was passiert bei der Berechnung?
+**Durchschnittliche Bewässerung**
 
 ```bash
-mean(filteredData()$bewaesserungsmenge_in_liter, na.rm = TRUE)
+output$avg_water <- renderValueBox({
+  valueBox(
+    formatC(mean(filteredData()$bewaesserungsmenge_in_liter, na.rm = TRUE), digits = 2),
+    "Durchschnittliche Bewässerung pro gegossenen Baum (Liter)",
+    icon = icon("chart-line"),
+    color = "aqua"
+  )
+})
+```
+- ``mean(...)``: berechnet den Durchschnitt.
+- ``na.rm = TRUE``: ignoriert fehlende Werte (NA = "Not Available").
+
+## 5. Einheiten clever umrechnen
+
+```bash
+convert_units <- function(liters) {
+  if (liters >= 1e6) {
+    return(list(value = round(liters / 1e6, 2), unit = "ML"))
+  } else if (liters >= 1e3) {
+    return(list(value = round(liters / 1e3, 2), unit = "m³"))
+  } else {
+    return(list(value = round(liters, 2), unit = "L"))
+  }
+}
+```
+- ``1e6`` = 1.000.000 Liter
+- ``round(...)``: rundet auf 2 Nachkommastellen
+- ``switch(...)`` (siehe unten) hilft beim Umwandeln in ausgeschriebene Einheiten:
+
+```bash
+full_unit <- function(unit) {
+  switch(unit,
+    "ML" = "Mega Liter", 
+    "m³" = "Kubikmeter", 
+    "L" = "Liter",
+    unit
+  )
+}
+```
+```{admonition} Merke: 
+:class: keypoint 
+
+``1e3`` = 1.000 Liter → wird zu m³ (Kubikmeter)
+
+``1e6`` = 1.000.000 Liter → wird zu ML (Mega Liter)
+
+``switch(...)``: ersetzt viele if-Verzweigungen, wenn man je nach Wert einen bestimmten Text zurückgeben will.
 ```
 
-- ``filteredData()`` gibt die **bereits gefilterte Tabelle ** zurück – also nur die Daten aus den ausgewählten Bezirken.
-
-- ``filteredData()$bewaesserungsmenge_in_liter`` greift auf die Spalte zu, in der steht, wie viele Liter Wasser pro Baum gegossen wurden.
-
-- ``mean(...)`` berechnet den Durchschnittswert dieser Zahlen.
-
-- ``na.rm = TRUE`` bedeutet: Wenn es **leere oder fehlende Werte** gibt (``NA``), sollen diese ignoriert werden. Sonst könnte die Berechnung abbrechen.
-
-#### Formatierung der Zahl
-
-```bash
-formatC(..., digits = 2, big.mark = ".")
+```{admonition} Beispiel: 
+:class: tip
+Ein Wert von ``45.200 Litern`` wird zu ``45,2 m³``, angezeigt als ``"45,2 Kubikmeter"``.
 ```
+**Was ist ``switch(...)``?**
+Eine Alternative zu vielen if-Anweisungen – je nach Wert des Parameters gibt switch den passenden Text zurück.
 
-- ``formatC(...)`` sorgt dafür, dass die Zahl **schön lesbar formatiert** wird:
+Überblick der Funktionen/Operatoren
 
-    - ``digits = 2`` → zwei Nachkommastellen
+| Funktion/Operator | Bedeutung|
+|-------------------|----------|
+| ``<-``| weist einer Variable einen Wert zu|
+|``if (...)`` / ``else`` |	Bedingte Ausführung |
+|``%in%``	| prüft, ob ein Wert in einer Liste ist |
+| ``mean()`` |	Durchschnitt berechnen |
+|``sum()`` |	Summe berechnen |
+| ``switch()``	| wählt abhängig vom Wert einen Fall |
+| ``mutate()`` |	erzeugt oder verändert Spalten |
+| ``filter()`` |	filtert Zeilen in einem Datensatz |
+| ``is.na()`` |	prüft auf fehlende Werte |
 
-    - ``big.mark = "."`` → Punkte als Tausender-Trennzeichen, wie in Deutschland üblich (z. B. „1.234,56“ Liter)
-
-
-
-Hier der gesamte Code zur Kontrolle
+**Gesamter Code**
 
 ```bash
+# UI-Definition
 ui <- dashboardPage(
-    dashboardHeader(title = "Gieß den Kiez Dashboard"),
-    dashboardSidebar(
-        sidebarMenu(
-        menuItem("Startseite", tabName = "start", icon = icon("home")),
-        menuItem("Karte", tabName = "map", icon = icon("map")),
-        menuItem("Baumstatistik", tabName = "stats", icon = icon("bar-chart")),
-        menuItem("Bewässerungsanalyse", tabName = "analysis", icon = icon("chart-area"))
-        )
+  dashboardHeader(title = "Gieß den Kiez Dashboard"),
+  dashboardSidebar(
+    sidebarMenu(
+      menuItem("Startseite", tabName = "start", icon = icon("home")),
+    )
   ),
   dashboardBody(
     tabItems(
-        tabItem(tabName = "start",
-                fluidRow(
-                  valueBoxOutput("total_trees"),
-                  valueBoxOutput("total_water"),
-                  valueBoxOutput("avg_water")  
-                ),
-                fluidRow(
-                    box(title = "Filter", status = "primary", solidHeader = TRUE, width = 12,
-                    selectInput("bezirk", "Bezirk auswählen:", choices = c("Alle", unique(df$bezirk)), selected = "Alle", multiple = TRUE))
-                )
-
-        )
+      tabItem(tabName = "start",
+              box(title = "Overview", status = "primary", solidHeader = TRUE, width = 12,
+                  fluidRow(
+                    uiOutput("dynamic_tree_box"),
+                    valueBoxOutput("total_water"),
+                    valueBoxOutput("avg_water")
+                  ),
+                  fluidRow(
+                    column(width = 6,
+                           selectInput("start_year", "Jahr der Bewässerung auswählen:",
+                                       choices = c("2020-2024", "Baumbestand Stand 2025", sort(unique(na.omit(year(df_merged_clean$timestamp))))),
+                                       selected = "Baumbestand Stand 2025",
+                                       multiple = TRUE),
+                    ),
+                    column(width = 6,
+                           selectInput("bezirk", "Bezirk auswählen:", 
+                                       choices = c("Alle", unique(df_merged_clean$bezirk)), 
+                                       selected = "Alle", multiple = TRUE)
+                    )
+                  )
+              )
+      ),
     )
   )
+)
+
+
 
 # Server-Logik
 server <- function(input, output, session) {
-
-    convert_units <- function(liters) {
+  
+  convert_units <- function(liters) {
     if (liters >= 1e6) {
       return(list(value = round(liters / 1e6, 2), unit = "ML"))
     } else if (liters >= 1e3) {
@@ -342,45 +377,89 @@ server <- function(input, output, session) {
   }
   
   filteredData <- reactive({
-    df_clean %>%
+    req(input$stats_baumvt_year)
+    
+    df <- df_merged %>%
+      mutate(year = lubridate::year(timestamp))
+    
+    # Basisfilter nach Auswahl
+    df_filtered <- df %>%
       filter(
-        (input$bezirk == "Alle" | bezirk %in% input$bezirk)
+        ("Baumbestand Stand 2025" %in% input$start_year & 
+           (is.na(timestamp) | year %in% 2020:2024)) |
+          
+          ("2020-2024" %in% input$start_year & 
+             !is.na(timestamp) & year %in% 2020:2024) |
+          
+          (any(!input$start_year %in% c("2020-2024", "Baumbestand Stand 2025")) & 
+             year %in% as.numeric(input$start_year))
       )
+    
+    # Wenn NUR "2020-2024" ausgewählt ist, dann NA-Drop forcieren
+    if (all(input$start_year == "2020-2024")) {
+      df_filtered <- df_filtered %>% filter(!is.na(timestamp))
+    }
+    
+    if (!is.null(input$bezirk) && input$bezirk != "Alle") {
+      df_filtered <- df_filtered %>% filter(bezirk %in% input$bezirk)
+    }
+    
+    df_filtered
   })
-
-   output$total_trees <- renderValueBox({
+  
+  
+  output$total_trees <- renderValueBox({
     valueBox(
-      formatC(nrow(filteredData()), big.mark="."),
+      formatC(n_distinct(df_merged$gisid), format = "d", big.mark = "."),
+      "Gesamtzahl der Bäume",
+      icon = icon("tree"),
+      color = "green"
+    )
+  })
+  
+  output$total_tree_watered <- renderValueBox({
+    valueBox(
+      formatC(n_distinct(filteredData()$gisid), format = "d", big.mark = "."),
       "Gesamtzahl der gegossenen Bäume",
       icon = icon("tree"),
       color = "green"
     )
   })
-
-
-    output$total_water <- renderValueBox({
-        # Umrechnung des Werts und Ermittlung der Einheit
-        conversion_result <- convert_units(sum(filteredData()$bewaesserungsmenge_in_liter, na.rm = TRUE))
-        
-        # Der umgerechnete Wert und die Einheit
-        converted_value <- conversion_result$value
-        unit <- conversion_result$unit
-        
-        valueBox(
-            paste(format(converted_value, big.mark = "."), unit),
-            paste("Gesamtbewässerung (", full_unit(unit), ")", sep=""), 
-            icon = icon("tint"),
-            color = "blue"
-        )
-    }) 
-
-    output$avg_water <- renderValueBox({
-        valueBox(
-            formatC(mean(filteredData()$bewaesserungsmenge_in_liter, na.rm = TRUE), digits = 2, big.mark="."),
-            "Durchschnittliche Bewässerung pro gegossenen Baum (Liter)",
-            icon = icon("chart-line"),
-            color = "aqua"
-        )
-    })
-}  
+  
+  # Dynamische Auswahl: welche Box zeigen?
+  output$dynamic_tree_box <- renderUI({
+    if ("Baumbestand Stand 2025" %in% input$start_year) {
+      valueBoxOutput("total_trees")
+    } else {
+      valueBoxOutput("total_tree_watered")
+    }
+  })
+  
+  
+  output$total_water <- renderValueBox({
+    # Umrechnung des Werts und Ermittlung der Einheit
+    conversion_result <- convert_units(sum(filteredData()$bewaesserungsmenge_in_liter, na.rm = TRUE))
+    
+    # Der umgerechnete Wert und die Einheit
+    converted_value <- conversion_result$value
+    unit <- conversion_result$unit
+    
+    valueBox(
+      paste(format(converted_value, decimal.mark = ",", big.mark = "."), unit),
+      paste("Gesamtbewässerung (", full_unit(unit), ")", sep=""),  
+      icon = icon("tint"),
+      color = "blue"
+    )
+  })
+  
+  output$avg_water <- renderValueBox({
+    valueBox(
+      formatC(mean(filteredData()$bewaesserungsmenge_in_liter, na.rm = TRUE), digits = 2),
+      "Durchschnittliche Bewässerung pro gegossenen Baum (Liter)",
+      icon = icon("chart-line"),
+      color = "aqua"
+    )
+  })
+  
+}
 ```
