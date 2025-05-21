@@ -293,8 +293,8 @@ output$trend_water_ts <- renderPlotly({
   ggplotly(plot, tooltip = "text")
 })
 ```
-- ``geom_line``
-- ``geom_point``
+- ``geom_line``: Zeichnet eine Trendlinie über die Zeit.
+- ``geom_point``: Ergänzt Datenpunkte mit Tooltips, um die genauen Werte beim Mouseover anzuzeigen.
 
 ## 7. Top 10 Straßen mit höchster Bewässerung (2020-2024)
 
