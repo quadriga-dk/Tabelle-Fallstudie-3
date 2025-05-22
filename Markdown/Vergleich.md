@@ -57,7 +57,7 @@ Auf Grund dessen dass <u>Power BI</u> und <u>Tableau</u> dafür entwickelt wurde
 name: R_Shiny_Aufbau
 alt: Ein Screenshot, der zeigt, wie man ein R Shiny Anwendung aufbauen kann.
 ---
-R Shiny Aufbau 
+R Shiny Aufbau (Quelle: <a href="https://www.inwt-statistics.com/blog/best-practice-development-of-robust-shiny-dashboards-as-r-packages" target="_blank">Best Practice: Shiny Dashboards</a> )
 ``` 
 
 <u>Shiny</u> Anwendungen nutzen eine serverseitige Logik und eine Benutzeroberfläche (UI), oft in einer einzigen app.R-Datei kombiniert, darin besteht aber kein zwang der Server-Teil und UI-Teil können auch in zwei separate Dateien server.R und ui.R aufgeteilt werden und durch die Datei app.R wieder zusammengeführt werden. [@walker_tools_2016]
