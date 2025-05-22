@@ -252,7 +252,7 @@ write.csv2(df_baeume_final, file = "data/df_merged_final.csv", row.names = FALSE
 
 ```
 
-###  Voraggregation: Erstellung von ``df_merged_sum``
+###  Voraggregation: Erstellung von df_merged_sum
 
 **Zielsetzung**
 Um die Performance in der Shiny-App zu verbessern, werden pro Baum aggregierte Kennzahlen berechnet, wie z. B.:
