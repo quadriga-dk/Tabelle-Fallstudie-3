@@ -24,6 +24,6 @@ Auch im Hinblick auf die Infrastruktur zeigt sich eine ähnliche Verteilung:
 - Neukölln belegt den dritten Platz, nicht – wie beim Engagement – Charlottenburg-Wilmersdorf.
 
 Allerdings lässt sich kein klarer Zusammenhang zwischen der Verfügbarkeit von Pumpen und dem tatsächlichen Gießverhalten feststellen.
-Zwar zeigen Analysen, dass bei Bäumen, in deren unmittelbarem Umkreis (≤100 Meter) mehrere Pumpen vorhanden sind, tendenziell häufiger gegossen wird – dieser Befund basiert jedoch auf lediglich 55 Bäumen. Dem gegenüber stehen 28.064 Bäume mit einer einzigen Pumpe im Umkreis sowie 916.854 Bäume ohne jegliche Pumpe in der Nähe. Die statistische Aussagekraft dieser Abweichung ist daher eingeschränkt.
+Zwar zeigen Analysen (*WELCHE, Hier verweisen*), dass bei Bäumen, in deren unmittelbarem Umkreis (≤100 Meter) mehrere Pumpen vorhanden sind, tendenziell häufiger gegossen wird – dieser Befund basiert jedoch auf lediglich 55 Bäumen. Dem gegenüber stehen 28.064 Bäume mit einer einzigen Pumpe im Umkreis sowie 916.854 Bäume ohne jegliche Pumpe in der Nähe. Die statistische Aussagekraft dieser Abweichung ist daher eingeschränkt.
 
 Ein möglicher Einflussfaktor: Die Erhebung differenziert nicht zwischen Straßenbäumen und Bäumen in Grünanlagen. Für eine aussagekräftigere Bewertung wäre eine separate Analyse dieser Baumtypen erforderlich.
