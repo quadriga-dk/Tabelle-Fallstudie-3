@@ -13,31 +13,18 @@ chapters:
   - file: Markdown/03_Datenbasis
   - file: Markdown/Datenvisualierung_durch_interaktive_Dashboards
     sections:
+    - file: Markdown/Datenvisualisierung
+    - file: Markdown/Vergleich
     - file: Markdown/04_Umsetzung_mit_rshiny
-    - file: Markdown/Alternative_Lösungen
-    - title: Übung
-      file: Markdown/Übung
+    - file: Markdown/Übung
       sections:
         - file: Markdown/Übung_Startseite
         - file: Markdown/Übung_Karte
         - file: Markdown/Übung_Baumstatistik
         - file: Markdown/Übung_Bewässerungsanalyse
         - file: Markdown/Übung_Bürgerengagement
-
-  - file:  Markdown/08_Dateninterpretation
-
-  - file: Markdown/UX_von_Dashboards
-    sections:
-    - file: Markdown/09_UX_von_Dashboards
-    - file: Markdown/Übung_UX
-
-  - file: Markdown/Vergleich_mit_anderen_Visualisierungstools
-    sections:
-    - file: Markdown/Vergleich
   - file: Markdown/Data_story
-
   - file: Markdown/Zusammenfassung
-  
   - file: Markdown/Epilog
     sections:
     - file: Markdown/fragen_und_feedback
