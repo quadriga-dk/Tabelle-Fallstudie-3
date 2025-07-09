@@ -1,11 +1,11 @@
 # Book settings
 # Learn more at https://jupyterbook.org/customize/config.html
 
-title: Tabelle-Fallstudie-3
-author: Hannes Schnaitter, Evgenia Samoilova, Lamia Islam
+title: Tabelle Fallstudie 3
+author: Jana Plomin, Juliane Schmeling, Paul Walter, Cemre Bingöl
 logo: assets/logo.jpg
 copyright: "2024, QUADRIGA"
-exclude_patterns: [_build, Thumbs.db, .DS_Store, "**.ipynb_checkpoints", conda, venv, README.md, LICENSE.md, useful_documentation.md, .github, "**Reviewbogen.md", Checkliste_Finalisierung.md, sprints.md]
+exclude_patterns: [_build, Thumbs.db, .DS_Store, conda, venv, README.md, LICENSE.md, .github, Checkliste_Finalisierung.md]
 
 # Force re-execution of notebooks on each build.
 # See https://jupyterbook.org/content/execute.html
