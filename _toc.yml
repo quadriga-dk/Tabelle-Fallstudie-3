@@ -25,10 +25,10 @@ chapters:
         - file: Markdown/Übung_Bürgerengagement
   - file: Markdown/Data_story
   - file: Markdown/Zusammenfassung
-  - file: Markdown/Epilog
+  - file: epilog/Epilog
     sections:
-    - file: Markdown/fragen_und_feedback
-    - file: Markdown/literaturverzeichnis
-    - file: Markdown/authors
-    - file: Markdown/quadriga
-    - file: Markdown/impressum
+    - file: epilog/fragen_und_feedback
+    - file: epilog/literaturverzeichnis
+    - file: epilog/authors
+    - file: epilog/quadriga
+    - file: epilog/impressum
