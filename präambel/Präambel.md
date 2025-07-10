@@ -12,4 +12,4 @@ alt: Illustriertes Bild, in dem man einen Kiez mit Bäumen sieht, in dem ein Bau
 Baumgießen im Berliner Kiez (KI generiert)
 ```
 
-Machen Sie sich zunächst mit den [Lernzielen](/Markdown/lernziele.md) und den  [technischen Voraussetzungen](/Markdown/technische_voraussetzungen.md) vertraut.
+In dieser Einleitung können Sie sich zunächst mit den [Lernzielen](lernziele) und den [Technischen Voraussetzungen](technische_voraussetzungen) vertraut machen.

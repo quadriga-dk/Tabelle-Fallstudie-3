@@ -6,10 +6,10 @@ root: Markdown/01_Intro
 options: 
   numbered: 3
 chapters:
-  - file: Markdown/Präambel
+  - file: präambel/Präambel
     sections:
-      - file: Markdown/lernziele
-      - file: Markdown/technische_voraussetzungen
+      - file: präambel/lernziele
+      - file: präambel/technische_voraussetzungen
   - file: Markdown/03_Datenbasis
   - file: Markdown/Datenvisualierung_durch_interaktive_Dashboards
     sections:

@@ -1,3 +1,8 @@
+---
+lang: de-DE
+---
+
+(technische_voraussetzungen)=
 # Technische Voraussetzungen
 
 
