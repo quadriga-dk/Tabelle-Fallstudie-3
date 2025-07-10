@@ -28,7 +28,7 @@ Karte mit Personen darauf. (KI generiert)
 ## Baumbestandsdaten (Berlin Open Data)
 
 ````{margin}
-```{admonition}
+```{admonition} Hinweis
 :class: hinweis
 WFS steht für Web Feature Service, also einen Zugriff auf Geo-Objekte über eine definierte Schnittstelle. Dabei werden in der Regel Vektordaten mit Sachinformationen abgefragt (s. beispielsweise den entsprechenden <a href="https://de.wikipedia.org/wiki/Web_Feature_Service" class="external-link" target="_blank">Wikipedia-Artikel</a> oder die Anleitung von <a href="https://offenedaten-koeln.de/blog/anleitung-zur-nutzung-von-geodatendiensten-wie-wms-und-wfs" class="external-link" target="_blank">Open Data Köln</a>).
 ```

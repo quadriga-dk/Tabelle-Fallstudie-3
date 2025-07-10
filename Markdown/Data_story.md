@@ -2,7 +2,7 @@
 
 ```{figure} _images/DS_01.png
 ---
-name: bewässerung-trend
+name: bewässerung-trend-1
 alt: Liniendiagramm zur Gesamtbewässerung je Pflanzjahr von 1900 bis 1920, mit durchgehend niedrigen Werten und einem deutlichen Ausreißer im Jahr 1917.
 ---
 Ein Jahrhundert alt und kaum bewässert: Warum Berlins älteste Bäume austrocknen.
@@ -11,7 +11,7 @@ Bereits für die Bäume, die zu Beginn des 20. Jahrhunderts gepflanzt wurden, wu
 
 ```{figure} _images/DS_02.png
 ---
-name: bewässerung-trend
+name: bewässerung-trend-2
 alt: Liniendiagramm zur Gesamtbewässerung je Pflanzjahr von 1960 bis 1992, mit stark schwankenden Werten und mehreren Spitzen um 1960, 1980 und 1986.
 ---
 Pflege-Boom für Bäume aus der Babyboomer-Ära: Die durstigste Generation.
@@ -20,7 +20,7 @@ Für Bäume, die zwischen 1960 und 1992 gepflanzt wurden, zeigt sich eine deutli
 
 ```{figure} _images/DS_03.png
 ---
-name: bewässerung-trend
+name: bewässerung-trend-3
 alt: Liniendiagramm zeigt Trend der Gesamtbewässerung je Pflanzjahr zwischen 2004 und 2025 mit Höhepunkt 2017 und starkem Rückgang danach.
 ---
 Ein Jahrzehnt steigender Wasserverbräuche endet mit einem drastischen Rückgang.
