@@ -33,25 +33,39 @@ Mit Ihren Rückmeldungen können wir unser interaktives Lehrbuch gezielt an Ihre
 ````
 `````
 
-Diese Fallstudie bildet mit Hilfe eines <a href="https://jupyterbook.org/en/stable/intro.html" class="external-link" target="_blank">JupyterBooks</a> einen Forschungsverlauf in der Verwaltungswissenschaft nach. Dabei wird anhand einer modellhaften Forschungsfrage auf die Visualisierung von Nutzendendaten eingegangen. Dazu werden in einzelnen Kapiteln die Themen Datenvisualisierung, Dashboards und Manipulierbarkeit von Darstellungen behandelt.
+Diese Fallstudie bildet mit Hilfe eines <a href="https://jupyterbook.org/en/stable/intro.html" class="external-link" target="_blank">JupyterBooks</a> einen Handlungsverlauf in der Verwaltung(swissenschaft) nach. Dabei wird anhand einer modellhaften Forschungsfrage auf die Visualisierung von Daten eingegangen. Dazu werden in einzelnen Kapiteln die Themen Datenvisualisierung, Dashboards und Manipulierbarkeit von Visualisierungen *sowie Kommunikation von Forschungsergebnissen* behandelt.
+
+Inhaltlich treffen wir in dieser Fallstudie wieder auf Dr. Amir Weber, der seine Forschung zu Baumbeständen (*Link zu Fallstudie 2*) weiterführen und grafisch aufarbeiten möchte.
 
 ## Fokus
 
+...*wird ergänzt*
 
-## Bedeutung dieses Lehrbuchs für die Verwaltungswissenschaft
 Leitfrage: 
 **Wie stark engagieren sich die Berliner für ihr Bäume in ihrer Stadt? / Wo ist das höchste Bürgerengagement?**
 
 **Unterfrage: Inwieweit beeinflusst das Vorhandensein von Pumpen das Gießverhalten?**
 
+
+## Bedeutung dieses Lehrbuchs für die Verwaltungswissenschaft
+
+Datenvisualisierungen sind wichtig, weil ... *wird ergänzt*
+Dashboards sind eine Möglichkeit zur Darstellung von Verwaltungsdaten, die zunehmend Verwendung findet (*Verweis auf Beispiele Aachen etc.*)
+
+
 ## Zielgruppe
 
-Dieses Selbstlernangebot richtet sich vorwiegend an Verwaltungswissenschaftler:innen und alle Personen, die an digitaler Verwaltung interessiert sind, da die hier vermittelten Inhalte anhand des Datentyps Tabelle aufbereitet sind. Zudem sind die hier entwickelten Lerneinheiten an einem Fallbeispiel konstruiert, das für diese Disziplin typisch ist.
+Grundsätzlich steht das Angebot allen Interessierten offen. Es richtet sich jedoch vorwiegend an Verwaltungswissenschaftler:innen und alle Personen, die an digitaler Verwaltung interessiert sind, da die hier vermittelten Inhalte anhand des Datentyps Tabelle aufbereitet sind. Zudem sind die hier entwickelten Lerneinheiten anhand von Fallbeispielen konstruiert, die für diese Disziplin typisch sind.
 
 Die Zielgruppe sind promovierende und promovierte Wissenschaftler:innen, aber auch Lehrende, die das Angebot für die eigene Lehre nachnutzen wollen.
 
-Grundsätzlich steht das Angebot aber selbstverständlich allen Interessierten offen.
 
 ## Struktur der Fallstudie
 
-- wir haben Nutzungsdaten und präsentieren R Shiny
+- Im **1. Schritt** gilt es, Hintergrundwissen zu vermitteln. Auf Grundlage der Frage *Was braucht es für eine gelungene Datenvisualisierung?* gehen wir auf Methoden und Werkzeuge der Datenvisualisierung ein.
+
+- Im **2. Schritt** fokussieren wir uns auf die Darstellungsmethode Dashboards und ihre Möglichkeiten und zeigen Tools auf, mit denen man Dashboards gestalten kann.
+
+- Im **3. Schritt** zeigen wir Ihnen beispielhaft, wie man mit dem Tool R Shiny ein Dashboard bauen kann.
+
+... *to be continued*
