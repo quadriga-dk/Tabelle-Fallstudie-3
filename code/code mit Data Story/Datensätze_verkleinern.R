@@ -5,44 +5,46 @@ library(tidyr)
 library(stringr)
 
 
-# # df_merged_full <- fread("data/df_merged.csv", sep = ";", encoding = "UTF-8")
+df_merged_full <- fread("data/df_merged_final.csv", sep = ";", encoding = "UTF-8")
 # # df_merged_full <- fread("data/df_merged_gesamter_baumbestand.csv", sep = ";", encoding = "UTF-8")
 # df_merged_full <- fread("data/df_merged_final.csv", sep = ";", encoding = "UTF-8")
 # 
-# # 1. Intervall berechnen
-# bewässerungs_frequenz <- df_merged_full %>%
-#   group_by(gisid) %>%
-#   filter(n() > 1) %>%
-#   arrange(gisid, timestamp) %>%
-#   mutate(differenz = as.numeric(difftime(timestamp, lag(timestamp), units = "days"))) %>%
-#   summarise(durchschnitts_intervall = mean(differenz, na.rm = TRUE)) %>%
-#   ungroup()
-# 
-# # 2. Mit df_merged zusammenführen
-# df_merged_full <- df_merged_full %>%
-#   left_join(bewässerungs_frequenz, by = "gisid")
-# 
-# # 3. Inf setzen für fehlende Intervalle
-# df_merged_full$durchschnitts_intervall[is.na(df_merged_full$durchschnitts_intervall)] <- 0
-# 
-# # 4. df_merged_sum mit allen nötigen Infos bauen
-# df_merged_sum <- df_merged_full %>%
-#   group_by(gisid) %>%
-#   summarise(
-#     gesamt_bewaesserung = sum(bewaesserungsmenge_in_liter, na.rm = TRUE),
-#     durchschnitts_intervall = unique(durchschnitts_intervall),
-#     lat = first(lat),
-#     lng = first(lng),
-#     gattung_deutsch = first(gattung_deutsch),
-#     art_dtsch = first(art_dtsch),
-#     hausnr = first(hausnr),
-#     strname = first(strname),
-#     bezirk = first(bezirk),
-#     bewaesserungsmenge_in_liter = first(bewaesserungsmenge_in_liter),
-#     timestamp = first(timestamp),
-#     .groups = "drop"
-#   )
-# write.csv2(df_merged_sum, file = "data/df_merged_gesamter_baumbestand_sum1.csv", sep = ";")
+# 1. Intervall berechnen
+bewässerungs_frequenz <- df_merged_full %>%
+  group_by(gisid) %>%
+  filter(n() > 1) %>%
+  arrange(gisid, timestamp) %>%
+  mutate(differenz = as.numeric(difftime(timestamp, lag(timestamp), units = "days"))) %>%
+  summarise(durchschnitts_intervall = mean(differenz, na.rm = TRUE)) %>%
+  ungroup()
+ 
+# 2. Mit df_merged zusammenführen
+df_merged_full <- df_merged_full %>%
+left_join(bewässerungs_frequenz, by = "gisid")
+ 
+# 3. Fehlende Werte ersetzen
+df_merged_full$durchschnitts_intervall[is.na(df_merged_full$durchschnitts_intervall)] <- 0
+
+# 4. df_merged_sum mit allen nötigen Infos bauen
+df_merged_sum <- df_merged_full %>%
+    group_by(gisid) %>%
+    summarise(
+      gesamt_bewaesserung = sum(bewaesserungsmenge_in_liter, na.rm = TRUE),
+      durchschnitts_intervall = unique(durchschnitts_intervall),
+      lat = first(lat),
+      lng = first(lng),
+      gattung_deutsch = first(gattung_deutsch),
+      art_dtsch = first(art_dtsch),
+      hausnr = first(hausnr),
+      strname = first(strname),
+      bezirk = first(bezirk),
+      bewaesserungsmenge_in_liter = first(bewaesserungsmenge_in_liter),
+      timestamp = first(timestamp),
+      .groups = "drop"
+    )
+
+# 5. Speichern
+write.csv2(df_merged_sum, file = "data/df_merged_gesamter_baumbestand_sum1.csv", sep = ";")
 
 # # --- df_merged_gesamter_baumbestand minimieren ---
 # df_merged_full <- fread("data/df_merged_final.csv",
