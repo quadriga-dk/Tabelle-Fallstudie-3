@@ -1,5 +1,9 @@
-(Datenbasis)=
-# Datenbasis: 
+---
+lang: de-DE
+---
+
+(fragestellung-operationalisierung)=
+# Fragestellung und Operationalisierung
 
 Im Rahmen dieser Fallstudie beschäftigen wir uns unter anderem mit der Datenvisualisierung in R Shiny. Dabei nutzen wir drei zentrale Datensätze: Zum einen die Bewässerungsdaten des Projekts <a href="https://citylab-berlin.org/en/projects/giessdenkiez/" class="external-link" target="_blank">Gieß den Kiez</a>, die wir ergänzen, um fehlende Baumdaten auszugleichen. Ergänzend verwenden wir den Berliner Baumbestand sowie Informationen zu öffentlichen Wasserpumpen, um die Visualisierungsergebnisse besser einordnen und vergleichend darstellen zu können. Diese Datengrundlage ermöglicht eine fundierte Analyse der urbanen Bewässerungsinfrastruktur in Berlin.
 
