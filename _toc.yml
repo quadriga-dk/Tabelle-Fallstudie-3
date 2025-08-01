@@ -2,7 +2,7 @@
 # Learn more at https://jupyterbook.org/customize/toc.html
 
 format: jb-book
-root: Markdown/01_Intro
+root: intro
 options: 
   numbered: 3
 chapters:
@@ -10,7 +10,11 @@ chapters:
     sections:
       - file: präambel/lernziele
       - file: präambel/technische_voraussetzungen
-  - file: Markdown/03_Datenbasis
+  - file: operationalisierung/fragestellung-operationalisierung
+    sections:
+      - file: operationalisierung/fragestellung
+      - file: operationalisierung/operationalisierung
+      - file: operationalisierung/resümee
   - file: Markdown/Datenvisualierung_durch_interaktive_Dashboards
     sections:
     - file: Markdown/Datenvisualisierung
