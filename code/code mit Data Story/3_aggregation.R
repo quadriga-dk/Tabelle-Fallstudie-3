@@ -5,7 +5,6 @@ library(tidyr)
 library(stringr)
 
 
-df_merged_full <- fread("data/df_merged_final.csv", sep = ";", encoding = "UTF-8")
 # # df_merged_full <- fread("data/df_merged_gesamter_baumbestand.csv", sep = ";", encoding = "UTF-8")
 # df_merged_full <- fread("data/df_merged_final.csv", sep = ";", encoding = "UTF-8")
 # 

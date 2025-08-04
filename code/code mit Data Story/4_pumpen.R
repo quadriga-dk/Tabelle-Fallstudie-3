@@ -9,6 +9,18 @@ library(shinyBS)
 library(sf)
 library(data.table)
 
+# --- pumpen minimieren ---
+pumpen_full <- st_read("data/pumpen.geojson")
+
+pumpen <- pumpen_full %>%
+  select(pump, pump.status, pump.style, geometry, man_made, id)
+
+st_write(pumpen, "data/pumpen_minimal.geojson",
+         driver = "GeoJSON", delete_dsn = TRUE)
+
+# --- df (Nutzungsdaten GiessDenKiez) minimieren --- Bewässerungsdaten?
+df_full <- fread("data/nutzungsdatenGiessDenKiez.csv",
+                 sep = ";", encoding = "UTF-8")
 
 pumpen <- st_read("data/pumpen.geojson")
 bezirksgrenzen <- st_read("data/bezirksgrenzen.geojson")
