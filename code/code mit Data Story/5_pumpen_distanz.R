@@ -5,16 +5,6 @@ library(stringr)
 library(tidyr)
 library(nngeo)
 
-
-# --- pumpen_mit_bezirk minimieren ---
-pumpen_mit_bezirk_full <- st_read("data/pumpen_mit_bezirk.geojson")
-
-pumpen_mit_bezirk <- pumpen_mit_bezirk_full %>%
-  select(pump, pump.style, pump.status, bezirk, geometry, man_made, id)
-
-st_write(pumpen_mit_bezirk, "data/pumpen_mit_bezirk_minimal.geojson",
-         driver = "GeoJSON", delete_dsn = TRUE)
-
 # # 1. Daten einlesen
  pumpen_mit_bezirk <- st_read("data/pumpen_mit_bezirk_minimal.geojson")
  df_merged_sum <- read.csv("data/df_merged_gesamter_baumbestand_sum1.csv", sep = ";", stringsAsFactors = FALSE, fileEncoding = "UTF-8")

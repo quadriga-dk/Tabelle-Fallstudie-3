@@ -3,7 +3,7 @@ library(sf)
 library(data.table)
 
 # Daten einlesen
-df_merged <- fread("data/df_merged_final.csv", sep = ";", encoding = "UTF-8")
+df_merged <- fread("data/df_baeume_final.csv", sep = ";", encoding = "UTF-8")
 
 # Falls df_merged keine sf ist
 df_merged <- st_as_sf(df_merged, coords = c("lng", "lat"), crs = 4326)
