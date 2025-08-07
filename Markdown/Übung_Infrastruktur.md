@@ -1,4 +1,5 @@
-# Übung Bürgerengagement
+(infrastruktur)=
+# Übung Infrastruktur
 
 ## Ziel der Übung
 In diesem Abschnitt entwickeln wir eine interaktive Webanwendung, die das **Bürgerengagement** im Zusammenhang mit der Nutzung von öffentlichen Pumpen und dem Gießverhalten sichtbar macht.
