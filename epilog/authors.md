@@ -46,7 +46,7 @@ lang: de-DE
 <table style="margin-left: 0">
 <tr>
 <td><b>Rolle in QUADRIGA:</b></td>
-<td>Konzeptionierung und Umsetzung Fallstudien Datentyp Tabelle, Testing und Iteration</td>
+<td>Konzeptionierung Fallstudie 3 Datentyp Tabelle</td>
 </tr>
 <tr>
 <td><b>Einrichtung:</b></td>
@@ -55,6 +55,18 @@ lang: de-DE
 <tr>
 <td><b>Website:</b></td>
 </td><td><a href="https://www.fokus.fraunhofer.de/a1b4f9c17da1c9a6" class="external-link" target="_blank">Fraunhofer FOKUS</a></td>
+</tr>
+</table>
+
+### Sami Dakruni 
+<table style="margin-left: 0">
+<tr>
+<td><b>Rolle in QUADRIGA:</b></td>
+<td>Ausarbeitung und Technische Umsetzung</td>
+</tr>
+<tr>
+<td><b>Einrichtung:</b></td>
+<td>Fraunhofer-Institut für Offene Kommunikationssysteme FOKUS</td>
 </tr>
 </table>
 
