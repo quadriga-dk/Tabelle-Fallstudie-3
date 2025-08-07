@@ -2,7 +2,7 @@
 # Learn more at https://jupyterbook.org/customize/config.html
 
 title: Tabelle Fallstudie 3
-author: Jana Plomin, Paul Walter, Juliane Schmeling, Cemre Bingöl
+author: Jana Plomin, Paul Walter, Juliane Schmeling, Sami Dakruni, Cemre Bingöl
 logo: assets/logo.jpg
 copyright: "2024, QUADRIGA"
 exclude_patterns: [_build, Thumbs.db, .DS_Store, conda, venv, README.md, LICENSE.md, .github, Checkliste_Finalisierung.md]
