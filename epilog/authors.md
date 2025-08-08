@@ -58,7 +58,7 @@ lang: de-DE
 </tr>
 </table>
 
-### Sami Dakruni 
+### Sami Dakruni <a href="https://https://orcid.org/0009-0009-8541-6358" target="_blank">![](_images/ORCID-iD_icon-16x16.png)</a>
 <table style="margin-left: 0">
 <tr>
 <td><b>Rolle in QUADRIGA:</b></td>
