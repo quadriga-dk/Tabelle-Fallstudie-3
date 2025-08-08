@@ -17,22 +17,22 @@ chapters:
       - file: operationalisierung/resümee
   - file: Markdown/Datenvisualierung_durch_interaktive_Dashboards
     sections:
-    - file: Markdown/Datenvisualisierung
-    - file: Markdown/Vergleich
-    - file: Markdown/04_Umsetzung_mit_rshiny
-    - file: Markdown/Übung
-      sections:
-        - file: Markdown/Übung_Startseite
-        - file: Markdown/Übung_Karte
-        - file: Markdown/Übung_Baumstatistik
-        - file: Markdown/Übung_Bewässerungsanalyse
-        - file: Markdown/Übung_Infrastruktur
+      - file: Markdown/Datenvisualisierung
+      - file: Markdown/Vergleich
+      - file: Markdown/04_Umsetzung_mit_rshiny
+  - file: dashboard/Dashboard
+    sections:
+      - file: dashboard/Übung_Startseite
+      - file: dashboard/Übung_Karte
+      - file: dashboard/Übung_Baumstatistik
+      - file: dashboard/Übung_Bewässerungsanalyse
+      - file: dashboard/Übung_Infrastruktur
   - file: Markdown/Data_story
   - file: Markdown/Zusammenfassung
   - file: epilog/Epilog
     sections:
-    - file: epilog/fragen_und_feedback
-    - file: epilog/literaturverzeichnis
-    - file: epilog/authors
-    - file: epilog/quadriga
-    - file: epilog/impressum
+      - file: epilog/fragen_und_feedback
+      - file: epilog/literaturverzeichnis
+      - file: epilog/authors
+      - file: epilog/quadriga
+      - file: epilog/impressum

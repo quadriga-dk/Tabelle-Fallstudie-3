@@ -2,7 +2,7 @@
 lang: de-DE
 ---
 
-(Intro)=
+(intro)=
 # Visualisierung in der Verwaltung
 ## Bau eines Dashboards für Baumdaten
 
@@ -44,7 +44,6 @@ Inhaltlich treffen wir in dieser Fallstudie wieder auf Dr. Amir Weber, der seine
 Leitfrage: 
 **Wie stark engagieren sich die Berliner für ihr Bäume in ihrer Stadt? / Wo ist das höchste Bürgerengagement?**
 
-**Unterfrage: Inwieweit beeinflusst das Vorhandensein von Pumpen das Gießverhalten?**
 
 
 ## Bedeutung dieses Lehrbuchs für die Verwaltungswissenschaft
@@ -58,6 +57,10 @@ Dashboards sind eine Möglichkeit zur Darstellung von Verwaltungsdaten, die zune
 Grundsätzlich steht das Angebot allen Interessierten offen. Es richtet sich jedoch vorwiegend an Verwaltungswissenschaftler:innen und alle Personen, die an digitaler Verwaltung interessiert sind, da die hier vermittelten Inhalte anhand des Datentyps Tabelle aufbereitet sind. Zudem sind die hier entwickelten Lerneinheiten anhand von Fallbeispielen konstruiert, die für diese Disziplin typisch sind.
 
 Die Zielgruppe sind promovierende und promovierte Wissenschaftler:innen, aber auch Lehrende, die das Angebot für die eigene Lehre nachnutzen wollen.
+
+**Voraussetzungen**
+
+Im Kapitel [Dashboard](dashboard) können Sie, wenn Sie Technik affin sind, selbst ein Dashboard bauen. Dies setzt allerdings ein tieferes Verständnis von der Funktionsweise der <a href="https://www.r-project.org" class="external-link" target="_blank">Programmiersprache R</a> voraus, sodass dieses Kapitel für *Fortgeschrittene* konzipiert wurde. 
 
 
 ## Struktur der Fallstudie
