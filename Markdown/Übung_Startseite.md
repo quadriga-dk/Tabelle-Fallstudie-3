@@ -301,9 +301,10 @@ Eine Alternative zu vielen if-Anweisungen – je nach Wert des Parameters gibt s
 | ``filter()`` |	filtert Zeilen in einem Datensatz |
 | ``is.na()`` |	prüft auf fehlende Werte |
 
-**Gesamter Code**
+<details>
+<summary><strong>Gesamter Code</strong></summary>
 
-```bash
+```r
 # UI-Definition
 ui <- dashboardPage(
   dashboardHeader(title = "Gieß den Kiez Dashboard"),
@@ -463,3 +464,4 @@ server <- function(input, output, session) {
   
 }
 ```
+</details>

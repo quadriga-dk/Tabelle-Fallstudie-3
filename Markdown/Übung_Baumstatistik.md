@@ -274,7 +274,8 @@ if (Bedingung) {
 }
 ```
 
-Gesamter Code: 
+<details>
+<summary><strong>Gesamter Code</strong></summary>
 ```bash
 # UI-Definition
 ui <- dashboardPage(
@@ -389,3 +390,4 @@ output$tree_pie_chart <- renderPlotly({
 })
 }
 ```
+</details>

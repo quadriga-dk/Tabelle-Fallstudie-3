@@ -315,9 +315,10 @@ Pumpenmarker sollen nur dann angezeigt werden, wenn man weit genug hineingezoomt
 Mit `leafletProxy()` kann man gezielt Inhalte einer bestehenden Karte ändern – z. B. Marker hinzufügen oder löschen – ohne dass die ganze Karte neu aufgebaut werden muss.
 ```
 
-Gesamter Code: 
+<details>
+<summary><strong>Gesamter Code</strong></summary>
 
-```bash
+```r
 # UI-Definition
 ui <- dashboardPage(
   dashboardHeader(title = "Gieß den Kiez Dashboard"),
@@ -607,3 +608,4 @@ filtered_data_map <- reactive({
 }
 
 ```
+</details>

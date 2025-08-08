@@ -114,10 +114,10 @@ output$trend_water <- renderPlotly({
 
 - ``ggplot``: Stellt die Daten als Liniendiagramm dar, das den Trend der Bewässerung über die Jahre hinweg zeigt. Der Tooltip zeigt zusätzliche Informationen an, wenn der Benutzer über die Datenpunkte fährt.
 
+<details>
+<summary><strong>Hier der gesamte Code zur Kontrolle</strong></summary>
 
-Hier der gesamte Code zur Kontrolle: 
-
-```bash
+```r
 ui <- dashboardPage(
     dashboardHeader(title = "Gieß den Kiez Dashboard"),
     dashboardSidebar(
@@ -760,3 +760,4 @@ output$hist_bewaesserung_verhaeltnis <- renderPlotly({
 }
 
 ```
+</details>

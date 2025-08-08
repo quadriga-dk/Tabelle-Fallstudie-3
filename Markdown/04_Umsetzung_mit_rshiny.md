@@ -65,9 +65,10 @@ Die aufbereiteten Daten werden als CSV-Datei gespeichert. Eine Ausgabe relevante
 # 8. Ergebnis speichern
 write.csv2(df_merged, "data/df_merged_final.csv", row.names = FALSE, fileEncoding = "UTF-8")
 ```
+<details>
+<summary><strong> gesamter Code</strong></summary>
 
-df_merged_final gesamter Code
-```bash
+```r
 library(sf)
 library(dplyr)
 library(tidyr)
@@ -109,8 +110,11 @@ write.csv2(df_merged, "data/df_merged_final.csv", row.names = FALSE, fileEncodin
 cat("Anzahl Bäume nach Merge:", nrow(df_merged), "\n")
 cat("Anzahl eindeutiger Bäume (pitid):", n_distinct(df_merged$pitid), "\n")
 cat("Anzahl Bäume mit Bewässerungsdaten:", sum(!is.na(df_merged$bewaesserungsmenge_in_liter)), "\n")
-
 ```
+
+</details>
+
+
 ### Geografische Zuordnung zu Berliner Bezirken
 **Zielsetzung**
 Einige Bäume verfügen nicht über eine Angabe zu ihrem Bezirk. Um eine aggregierte räumliche Analyse (z. B. Gießverhalten nach Bezirk) zu ermöglichen, werden fehlende Bezirksangaben durch räumliches Verschneiden mit offiziellen Bezirkspolygonen ergänzt.
@@ -210,9 +214,10 @@ write.csv2(df_baeume_final, file = "data/df_merged_final.csv", row.names = FALSE
 ```
 - Die neue Tabelle mit allen Bäumen und Bezirken wird als Datei gespeichert.
 
-**Gesamter Code:** 
+<details>
+<summary><strong>gesamter Code</strong></summary>
 
-```bash
+```r
 library(sf)
 library(dplyr)
 
@@ -256,6 +261,7 @@ df_baeume_final <- bind_rows(df_mit_bezirk, df_ohne_bezirk_filled)
 write.csv2(df_baeume_final, file = "data/df_merged_final.csv", row.names = FALSE)
 
 ```
+</details>
 
 ###  Voraggregation: Erstellung von df_merged_sum
 
@@ -345,8 +351,10 @@ write.csv2(df_merged_sum, file = "data/df_merged_gesamter_baumbestand_sum1.csv",
 - Die neue, kompakte Tabelle wird gespeichert.
 - Diese Datei enthält einen Eintrag pro Baum, mit den wichtigsten zusammengefassten Infos.
 
-**Gesamter Code:**
-```bash
+<details>
+<summary><strong>gesamter Code:</strong></summary>
+
+```r
 df_merged_full <- fread("data/df_merged_final.csv", sep = ";", encoding = "UTF-8")
 
 # 1. Intervall berechnen
@@ -354,7 +362,7 @@ bewässerungs_frequenz <- df_merged_full %>%
     group_by(gisid) %>%
     filter(n() > 1) %>%
     arrange(gisid, timestamp) %>%
-    mutate(differenz = as.numeric(difftime(timestamp, lag(timestamp), units = "days))) %>%
+    mutate(differenz = as.numeric(difftime(timestamp, lag(timestamp), units = "days"))) %>%
     summarise(durchschnitts_intervall = mean(differenz, na.rm = TRUE)) %>%
     ungroup()
 
@@ -384,6 +392,7 @@ timestamp = first(timestamp),
 
 write.csv2(df_merged_sum, file = "data/df_merged_gesamter_baumbestand_sum1.csv", sep = ";")
 ```
+</details>
 
 ### Reduktion der Pumpendaten
 **Zielsetzung**
@@ -426,8 +435,10 @@ st_write(pumpen, "data/pumpen_minimal.geojson",
 - Format bleibt weiterhin GeoJSON – das ist ein gängiges Format für geografische Daten.
 - ``delete_dsn = TRUE ``sorgt dafür, dass eine eventuell vorhandene Datei mit demselben Namen überschrieben wird.
 
-Gesamter Code: 
-```bash
+<details>
+<summary><strong>gesamter Code:</strong></summary>
+
+```r
 # --- pumpen minimieren ---
 pumpen_full <- st_read("data/pumpen.geojson")
 
@@ -438,6 +449,8 @@ st_write(pumpen, "data/pumpen_minimal.geojson",
          driver = "GeoJSON", delete_dsn = TRUE)
 
 ```
+</details>
+
 
 ### Bezirkszuordnung für Pumpen
 **Zielsetzung**
@@ -495,8 +508,10 @@ st_write(pumpen_mit_bezirk, "data/pumpen_mit_bezirk.geojson", driver = "GeoJSON"
 - Sie enthält jetzt alle Pumpen, inklusive einer neuen Spalte mit dem Bezirksnamen.
 - Das Format bleibt GeoJSON, damit es weiterhin in Kartenanwendungen verwendet werden kann.
 
-**Gesamter Code:** 
-```bash
+<details>
+<summary><strong>gesamter Code:</strong></summary>
+
+```r
 pumpen <- st_read("data/pumpen_minimal.geojson")
 bezirksgrenzen <- st_read(data/bezirksgrenzen.geojson")
 
@@ -513,6 +528,7 @@ pumpen_mit_bezirk <- pumpen_mit_bezirk %>%
 # GeoJSON-Datei speichern
 st_write(pumpen_mit_bezirk, "data/pumpen_mit_bezirk.geojson", driver = "GeoJSON", delete_dsn = TRUE)
 ```
+</details>
 
 Pumpendatensatz mit Bezirk minimiert: 
 
@@ -537,8 +553,10 @@ Für jede Baumposition soll berechnet werden, wie weit die nächste funktioniere
 3. Mit der Funktion st_nn() wird für jeden Baum die nächstgelegene Pumpe ermittelt.
 4. Die berechneten Entfernungen werden in einer neuen Spalte gespeichert.
 
-**Code:**
-```bash
+<details>
+<summary><strong>gesamter Code: </strong></summary>
+
+```r
 library(data.table)
 library(sf)
 library(dplyr)
@@ -581,6 +599,8 @@ df_merged_sum$distanz_zur_pumpe_m <- as.numeric(min_dist)
 write.csv2(df_merged_sum, "data/df_merged_sum_mit_distanzen_gesamter_Baumbestand_nur_Pumpen_ok.csv", row.names = FALSE, fileEncoding = "UTF-8")
 
 ```
+</details>
+
 ### Anzahl Pumpen im 100-Meter-Umkreis berechnen
 **Zielsetzung**
 Ein Maß für die Zugänglichkeit zu Wasser ist die Anzahl der Pumpen in unmittelbarer Nähe eines Baumes.
@@ -670,8 +690,10 @@ write.csv2(df_merged_sum, "data/df_merged_sum_mit_distanzen_gesamter_Baumbestand
 ```
 - Die Tabelle mit den zusätzlichen Entfernungsdaten wird gespeichert.
 
-**Gesamter Code:**
-```bash
+<details>
+<summary><strong>gesamter Code:</strong></summary>
+
+```r
     library(data.table)
     library(sf)
     library(dplyr)
@@ -700,6 +722,8 @@ write.csv2(df_merged_sum, "data/df_merged_sum_mit_distanzen_gesamter_Baumbestand
   write.csv2(df_merged_sum_mit_distanzen, "data/df_merged_sum_mit_distanzen_mit_umkreis_baumbestand_nur_Pumpen_ok.csv", row.names = FALSE)
 
 ```
+</details>
+
 ### Integration der Lebensweltlich orientierten Räume (LOR)
 **Zielsetzung**
 Zur feinräumigen Analyse (unterhalb der Bezirksebene) sollen Bäume zusätzlich einem LOR-Gebiet zugeordnet werden.
@@ -780,8 +804,10 @@ tryCatch({ ... }, error = function(e) { ... })
 ```
 - Sollte beim Einlesen oder Verarbeiten ein Fehler auftreten (z. B. wegen Serverproblemen oder falscher Daten), wird eine Fehlermeldung mit Zusatzinfos ausgegeben, statt dass der ganze Prozess abstürzt.
 
-**Gesamter Code:**
-```bash
+<details>
+<summary><strong>gesamter Code:</strong></summary>
+
+```r
 library(sf)
 library(dplyr)
 library(readr)
@@ -849,6 +875,8 @@ tryCatch({
 })
 
 ```
+</details>
+
 ### LOR zuordnung zum Baumbestand
 
 **Zielsetzung**
@@ -938,8 +966,10 @@ st_write(df_merged_sum_with_geom, "data/df_merged_mit_lor_und_sum.geojson", driv
 ```
 - Das finale Objekt wird im GeoJSON-Format gespeichert 
 
-**Gesamter Code**
-```bash
+<details>
+<summary><strong>gesamter Code:</strong></summary>
+
+```r
 library(dplyr)
 library(sf)
 library(data.table)
@@ -973,6 +1003,7 @@ df_merged_sum_with_geom <- lor %>%
 
 st_write(df_merged_sum_with_geom, "data/df_merged_mit_lor_und_sum.geojson", driver = "GEOJSON", delete_dsn = TRUE)
 ```
+</details>
 
 ### Integration von Pumpenstandorten in Lebensweltlich orientierte Räume (LOR)
 
@@ -1046,8 +1077,10 @@ st_write(pumpen_mit_lor, "data/pumpen_mit_lor.geojson", driver = "GEOJSON", dele
 - Das Ergebnis wird als GeoJSON-Datei gespeichert 
 - Die Option delete_dsn = TRUE überschreibt bestehende Dateien automatisch.
 
-**Gesamter Code**
-```bash
+<details>
+<summary><strong>gesamter Code:</strong></summary>
+
+```r
 library(dplyr)   # Für Datenmanipulation (z. B. filter, select, %>%)
 library(sf)      # Für das Arbeiten mit Geodaten (Einlesen, räumlicher Join, Transformation)
 library(data.table)  
@@ -1071,3 +1104,4 @@ pumpen_mit_lor <- st_join(pumpen, lor[, c("bzr_name", "bzr_id")], left = TRUE)
 
 st_write(pumpen_mit_lor, "data/pumpen_mit_lor.geojson", driver = "GEOJSON", delete_dsn = TRUE)
 ```
+</details>
