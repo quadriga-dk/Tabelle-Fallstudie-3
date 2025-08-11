@@ -875,11 +875,16 @@ tryCatch({
 })
 
 ```
+<<<<<<< HEAD
 </details>
 
 ### LOR zuordnung zum Baumbestand
+=======
+### LOR Zuordnung zum Baumbestand
+>>>>>>> f92d1630a2be26834024a436cd01c5350db50f3d
 
 **Zielsetzung**
+
 Ziel ist es, die Baumstandorte den entsprechenden LOR-Gebieten zuzuordnen, um auf dieser feinräumigen Ebene die Gesamtbewässerungsmenge je Gebiet zu analysieren und umsomit spezifische Filterung zu ermöglichen.
 
 **Vorgehen**

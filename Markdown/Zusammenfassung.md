@@ -1,7 +1,8 @@
 ---
 lang: de-DE
 ---
-# Zusammenfassung
+(reflexion)=
+# Zusammenfassung und Reflexion
 
 Leitfrage: 
 **Wie stark engagieren sich die Berliner für ihr Bäume in ihrer Stadt? / Wo ist das höchste Bürgerengagement?**
@@ -17,13 +18,25 @@ Bezieht man jedoch das Verhältnis zwischen Bewässerungsmenge/Anzahl der Bäume
 - Tempelhof-Schöneberg rangiert an dritter Stelle.
 
 
-**Unterfrage: Inwieweit beeinflusst das Vorhandensein von Pumpen das Gießverhalten?**
-Auch im Hinblick auf die Infrastruktur zeigt sich eine ähnliche Verteilung:
+**Beeinflusst die Infrastruktur das Gießverhalten?**
+
+Im Hinblick auf die Pumpendichte lässt sich folgendes feststellen:
 - Mitte verfügt über die höchste Anzahl funktionstüchtiger Pumpen.
 - Tempelhof-Schöneberg folgt auf Platz zwei.
 - Neukölln belegt den dritten Platz, nicht – wie beim Engagement – Charlottenburg-Wilmersdorf.
 
-Allerdings lässt sich kein klarer Zusammenhang zwischen der Verfügbarkeit von Pumpen und dem tatsächlichen Gießverhalten feststellen.
-Zwar zeigen Analysen (*WELCHE, Hier verweisen*), dass bei Bäumen, in deren unmittelbarem Umkreis (≤100 Meter) mehrere Pumpen vorhanden sind, tendenziell häufiger gegossen wird – dieser Befund basiert jedoch auf lediglich 55 Bäumen. Dem gegenüber stehen 28.064 Bäume mit einer einzigen Pumpe im Umkreis sowie 916.854 Bäume ohne jegliche Pumpe in der Nähe. Die statistische Aussagekraft dieser Abweichung ist daher eingeschränkt. (*Achtung, hier muss die statistische Auswertung nochmal sehr genau angeschaut werden, die Ergebnisse sind zu pauschalisierend*). 
+Allerdings lässt sich kein Zusammenhang zwischen der Verfügbarkeit von Pumpen und dem tatsächlichen Gießverhalten feststellen, da nicht klar ist, ob die Anwohner:innen die Pumpen tatsächlich verwenden. Nur vom Vorhandensein und der Funktionstüchtigkeit einer Pumpe kann nicht auf ihre Verwendung geschlossen werden. Darüber hinaus sind Pumpen nicht die einzige Möglichkeit, Bäume zu bewässern. Anwohner:innen können das Wasser auch über einen Gartenschlauch von einem privaten oder gemeinschaftlichen Wasseranschluss beziehen oder die Straßenbäume mit einer in der Wohnung befüllten Gießkanne bewässern. Daher sind direkte Schlussfolgerungen zwischen Pumpendichte bzw. Pumpenverfügbarkeit und dem Gießverhalten der Anwohner:innen bzw. der Bewässerung der Bäume nicht möglich.
+
+# Reflexion
+
+*Einschätzung der Operationalisierung:*
+- *Was hat mit dieser Fragestellung funktioniert und was nicht?*
+- *Was sind Unsicherheitsfaktoren in der Untersuchung (z. B. sind alle Bäume in den Ausgangsdaten vorhanden?, Wie wird die Wassermenge bestimmt?)*
+- *Grenzen der Aussagen (Was können die Daten sagen und was nicht?)*
+
 
 Ein möglicher Einflussfaktor: Die Erhebung differenziert nicht zwischen Straßenbäumen und Bäumen in Grünanlagen. Für eine aussagekräftigere Bewertung wäre eine separate Analyse dieser Baumtypen erforderlich.
+
+**Zur Pumpendichte**
+Die Pumpendichte ist eine Datengrundlage, die weiterer Untersuchung bedarf. Die Anzahl der Pumpen pro Bezirk kann am Alter des Bezirks bzw. der Stadtteile liegen, da davon auszugehen ist, dass das Aufstellen öffentlicher Pumpen in der zweiten Hälfte des 20. Jahrhunderts stark abgenommen hat. Möglicherweise wurden vorhandene Pumpen in bestimmten Bezirken eher vom Netz genommen bzw. nicht mehr repariert und abgebaut.
+Von der Pumpendicht lässt sich nicht auf eine Bewässerung schließen, aber sie kann das Gießen unterstützen und vereinfachen.

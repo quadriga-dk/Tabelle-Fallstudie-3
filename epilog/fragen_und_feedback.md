@@ -7,6 +7,8 @@ lang: de-DE
 Mit ihren Rückmeldungen können wir unser JupyterBook gezielt an Ihre Bedürfnisse anpassen.
 Daher haben wir für Ihre Fragen und für Kritik, Anregungen und Wünsche mehrere Kommunikationswege eingerichtet.
 
+---
+
 1) Wenn Sie einen GitHub-Account besitzen, können Sie direkt ein Issue erstellen:
 
 <a href="https://github.com/quadriga-dk/Tabelle-Fallstudie-3/issues/new?assignees=&labels=question&projects=&template=frage.yml" class="external-link" target="_blank">
@@ -18,7 +20,7 @@ Daher haben wir für Ihre Fragen und für Kritik, Anregungen und Wünsche mehrer
 
 ---
 
-2) Ansonsten können Sie uns über den [Quadriga-Helpdesk](mailto:paul.walter@fh-potsdam.de?subject=[GitHub]%20Feedback%20Tabelle-Fallstudie-1) eine Email zukommen lassen.  
+2) Ansonsten können Sie uns über den [Quadriga-Helpdesk](mailto:quadriga-helpdesk@listserv.dfn.de?subject=[GitHub]%20Feedback%20Tabelle-Fallstudie-1) eine Email zukommen lassen.  
 
 ---
 

@@ -6,7 +6,7 @@ lang: de-DE
 
 ## Autor:innen der Inhalte
 
-### Jana Plomin <a href="https://orcid.org/0000-0003-0127-7493" target="_blank">![](_images/ORCID-iD_icon-16x16.png)</a>
+### Jana Plomin <a href="https://orcid.org/0000-0003-0127-7493" target="_blank">![](/assets/ORCID-iD_icon-16x16.png)</a>
 <table style="margin-left: 0">
 <tr>
 <td><b>Rolle in QUADRIGA:</b></td>
@@ -22,7 +22,7 @@ lang: de-DE
 </tr>
 </table>
 
-### Paul Walter <a href="https://orcid.org/0000-0002-9236-3268" target="_blank">![](_images/ORCID-iD_icon-16x16.png)</a>
+### Paul Walter <a href="https://orcid.org/0000-0002-9236-3268" target="_blank">![](/assets/ORCID-iD_icon-16x16.png)</a>
 <table style="margin-left: 0">
 <tr>
 <td><b>Rolle in QUADRIGA:</b></td>
@@ -42,11 +42,11 @@ lang: de-DE
 </tr>
 </table> 
 
-### Juliane Schmeling <a href="https://orcid.org/0009-0005-9814-1139" target="_blank">![](_images/ORCID-iD_icon-16x16.png)</a>
+### Juliane Schmeling <a href="https://orcid.org/0009-0005-9814-1139" target="_blank">![](/assets/ORCID-iD_icon-16x16.png)</a>
 <table style="margin-left: 0">
 <tr>
 <td><b>Rolle in QUADRIGA:</b></td>
-<td>Konzeptionierung und Umsetzung Fallstudien Datentyp Tabelle, Testing und Iteration</td>
+<td>Konzeptionierung Fallstudie 3 Datentyp Tabelle</td>
 </tr>
 <tr>
 <td><b>Einrichtung:</b></td>
@@ -54,11 +54,23 @@ lang: de-DE
 </tr>
 <tr>
 <td><b>Website:</b></td>
-</td><td><a href="https://www.fokus.fraunhofer.de/a1b4f9c17da1c9a6" class="external-link" target="_blank">Fraunhofer FOKUS</a></td>
+</td><td><a href="https://www.fokus.fraunhofer.de/de/usr/juliane_schmeling.html" class="external-link" target="_blank">Fraunhofer FOKUS</a></td>
 </tr>
 </table>
 
-### Cemre Bingöl <a href="https://orcid.org/0009-0009-2345-4973" target="_blank">![](_images/ORCID-iD_icon-16x16.png)</a>
+### Sami Dakruni <a href="https://https://orcid.org/0009-0009-8541-6358" target="_blank">![](/assets/ORCID-iD_icon-16x16.png)</a>
+<table style="margin-left: 0">
+<tr>
+<td><b>Rolle in QUADRIGA:</b></td>
+<td>Ausarbeitung und Technische Umsetzung</td>
+</tr>
+<tr>
+<td><b>Einrichtung:</b></td>
+<td>Fraunhofer-Institut für Offene Kommunikationssysteme FOKUS</td>
+</tr>
+</table>
+
+### Cemre Bingöl <a href="https://orcid.org/0009-0009-2345-4973" target="_blank">![](/assets/ORCID-iD_icon-16x16.png)</a>
 <table style="margin-left: 0">
 <tr>
 <td><b>Rolle in QUADRIGA:</b></td>
@@ -73,7 +85,7 @@ lang: de-DE
 
 ## Weitere Beteiligte  
 
-### Hannes Schnaitter <span style="font-size:8pt">(er/ihm/sein)</span> <a href="https://orcid.org/0000-0002-1602-6032" target="_blank">![](_images/ORCID-iD_icon-16x16.png)</a>
+### Hannes Schnaitter <span style="font-size:8pt">(er/ihm/sein)</span> <a href="https://orcid.org/0000-0002-1602-6032" target="_blank">![](/assets/ORCID-iD_icon-16x16.png)</a>
 <table style="margin-left: 0">
 <tr>
 <td><b>Rolle in QUADRIGA:</b></td>
@@ -93,7 +105,7 @@ lang: de-DE
 </tr>
 </table>
 
-### Evgenia Samoilova <a href="https://orcid.org/0000-0003-3858-901X" target="_blank">![](_images/ORCID-iD_icon-16x16.png)</a>
+### Evgenia Samoilova <a href="https://orcid.org/0000-0003-3858-901X" target="_blank">![](/assets/ORCID-iD_icon-16x16.png)</a>
 <table style="margin-left: 0">
 <tr>
 <td><b>Rolle in QUADRIGA:</b></td>
@@ -133,8 +145,6 @@ lang: de-DE
 
 ## Danksagung
 
-Wir danken folgenden Gruppen, Institutionen und Einrichtungen für die Nachnutzung ihrer Werke:
-
-- <a href="https://citylab-berlin.org/de/start/" target="_blank">CityLab Berlin</a>  
+Wir danken dem <a href="https://citylab-berlin.org/de/start/" target="_blank">CityLab Berlin</a> und ihrem Projekt <a href="https://citylab-berlin.org/de/projects/giess-den-kiez/" target="_blank">Gieß den Kiez</a>, das uns zur Erstellung dieser Fallstudie inspiriert hat.
 
 
