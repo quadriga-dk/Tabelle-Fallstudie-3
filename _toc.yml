@@ -29,7 +29,7 @@ chapters:
       - file: dashboard/Übung_Bewässerungsanalyse
       - file: dashboard/Übung_Infrastruktur
   - file: Markdown/Data_story
-  - file: Markdown/Zusammenfassung
+  - file: Zusammenfassung
   - file: epilog/Epilog
     sections:
       - file: epilog/fragen_und_feedback
