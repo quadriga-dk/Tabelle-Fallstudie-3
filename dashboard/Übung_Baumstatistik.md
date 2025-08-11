@@ -276,7 +276,8 @@ if (Bedingung) {
 
 <details>
 <summary><strong>Gesamter Code</strong></summary>
-```bash
+
+```r
 # UI-Definition
 ui <- dashboardPage(
   dashboardHeader(title = "Gieß den Kiez Dashboard"),
