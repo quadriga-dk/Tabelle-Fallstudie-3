@@ -14,6 +14,7 @@ chapters:
     sections:
       - file: operationalisierung/fragestellung
       - file: operationalisierung/operationalisierung
+      - file: operationalisierung/Datenbasis
       - file: operationalisierung/resümee
   - file: Markdown/Datenvisualierung_durch_interaktive_Dashboards
     sections:

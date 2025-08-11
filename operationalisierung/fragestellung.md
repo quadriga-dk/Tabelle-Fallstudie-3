@@ -5,5 +5,6 @@ lang: de-DE
 (fragestellung)=
 # Fragestellung
 
-*Text folgt*
+*Was vorliegt:*
+- 
 

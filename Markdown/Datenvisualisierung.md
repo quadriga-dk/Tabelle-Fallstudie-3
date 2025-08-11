@@ -23,7 +23,7 @@ Verweis auf bestehende OER/Kurse:
 **Fokus Haltung**
 - zielgerichteter und nicht-manipulativer Einsatz von Visualisierung (Warum ist das wichtig? Weil Visualisierungen immer ein Abstraktionsgrad sind, weil sie mehr Publikum erreichen, als die „puren“ Daten, die oft nicht einfach zu verstehen sind für Laien)
 
-Das Civic Data Lab hat eine <a href="https://civic-data.de/app/uploads/Checkliste-Datenvisualisierung.pdf" target="_blank">Checkliste</a> veröffentlicht, die dabei helfen kann, Visualisierungen kritisch zu lesen. Im Fokus steht dabei, woher die Daten kommen und wie sie grafisch dargestellt werden. <span style="color:red">Diese Checkliste</span> 
+Das Civic Data Lab hat eine <a href="https://civic-data.de/app/uploads/Checkliste-Datenvisualisierung.pdf" target="_blank">Checkliste</a> veröffentlicht, die dabei helfen kann, Visualisierungen kritisch zu lesen. Im Fokus steht dabei, woher die Daten kommen und wie sie grafisch dargestellt werden. <span style="color:red">Diese Checkliste können Sie auch aus unserem Repositorium herunterladen</span> 
 
 ## Dashboards
 
