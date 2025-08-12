@@ -14,9 +14,10 @@ Mit dem Durchlaufen dieses Jupyter Books können Sie die folgenden Lernziele err
 1. Spezielle Methoden und Werkzeuge der Datenvisualisierung können unterschieden werden.
 ```  
 
-```{admonition} Auswahl und Anwendung adäquater Visualisierungen
+```{admonition} Aufbau eines Dashboards als Form der Visualisierung in der Verwaltung(swissenschaft)
 :class: lernziele, dropdown
-1. Ein Dashboard kann mit R Shiny entworfen werden.
+1. Der Aufbau und die Gliederung eines Dashboards können erklärt werden.
+2. Die Grundstrukturen des Baus eines Dashboards mittels RShiny können beschrieben werden.
 ```  
 
 ```{admonition} Bereitschaft, Visualisierungen zielgerichtet und nicht manipulativ einzusetzen
