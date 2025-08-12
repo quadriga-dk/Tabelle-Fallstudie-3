@@ -5,6 +5,29 @@ lang: de-DE
 (dashboard)=
 # Ein Dashboard bauen
 
+````{margin}
+```{admonition} Fragen oder Feedback 
+:class: frage-feedback
+
+<a href="https://github.com/quadriga-dk/Tabelle-Fallstudie-3/issues/new?assignees=&labels=question&projects=&template=frage.yml" class="external-link" target="_blank">
+    Stellen Sie eine Frage
+</a> <br>
+<a href="https://github.com/quadriga-dk/Tabelle-Fallstudie-3/issues/new?assignees=&labels=feedback&projects=&template=feedback.yml" class="external-link" target="_blank">
+    Geben Sie uns Feedback
+</a>
+
+Mit Ihren Rückmeldungen können wir unser interaktives Lehrbuch gezielt an Ihre Bedürfnisse anpassen.
+```
+````
+
+
+```{admonition} Aufbau eines Dashboards als Form der Visualisierung in der Verwaltung(swissenschaft)
+:class: lernziele
+
+1. Der Aufbau und die Gliederung eines Dashboards können erklärt werden.
+2. Die Grundstrukturen des Baus eines Dashboards mittels RShiny können beschrieben werden.
+```
+
 In diesem Kapitel werden Sie durch den Aufbau eines Dashboards geführt. Je nach Vorkenntnissen und gewählter [Ausführungsmethode](technische_voraussetzungen) kann die Bearbeitungszeit variieren.
 
 In diesem Kapitel finden Sie folgende Abschnitte:
@@ -14,14 +37,6 @@ In diesem Kapitel finden Sie folgende Abschnitte:
 - [Einfügen Baumstatistik](trees)
 - [Einfügen Bewässerungsanalyse](watering)
 - [Einfügen Infrastruktur](infrastruktur)
-
-
-```{admonition} Aufbau eines Dashboards als Form der Visualisierung in der Verwaltung(swissenschaft)
-:class: lernziele
-
-1. Der Aufbau und die Gliederung eines Dashboards können erklärt werden.
-2. Die Grundstrukturen des Baus eines Dashboards mittels RShiny können beschrieben werden.
-```
 
 Wie im Abschnitt (Visualisierung?) dargelegt wurde, sind Dashboards eine gute Möglichkeit, Daten aus der Verwaltung nutzer:innenfreundlich aufzubereiten und zu visualisieren. In diesem Kapitel wird Ihnen das Bauen eines Dashboards mittels RShiny nahe gebracht. 
 +++

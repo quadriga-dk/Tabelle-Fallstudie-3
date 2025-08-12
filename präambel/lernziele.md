@@ -9,6 +9,11 @@ lang: de-DE
 Mit dem Durchlaufen dieses Jupyter Books können Sie die folgenden Lernziele erreichen:
 
 
+```{admonition} Formulieren der Forschungsfrage und Operationalisieren des Verfahrens
+:class: lernziele, dropdown
+1. Die Forschungsfrage kann erläutert und in einen Kontext mit der Gestaltung eines Dashboards gesetzt werden.
+```
+
 ```{admonition} Methoden und Werkzeuge der Datenvisualisierung
 :class: lernziele, dropdown
 1. Spezielle Methoden und Werkzeuge der Datenvisualisierung können unterschieden werden.
