@@ -33,4 +33,19 @@ Ein Dashboard zeigt nicht nur eine, sondern mehrere Visualisierungen zu gleichen
 
 nehmen im Verwaltungskontext zu (s. Aachen)
 
+Warum sollten Verwaltungs-wissenschaftler dieses Dashboard bauen?
+Für Verwaltungs-wissenschaftler ist das Erstellen und Analysieren von Dashboards wie dem "Gieß-den-Kiez-Dashboard" von entscheidender Bedeutung, um datengestützte Erkenntnisse zu gewinnen und die Effektivität öffentlicher Initiativen zu bewerten
+. In einer zunehmend datengetriebenen Welt ermöglicht Ihnen die Datenkompetenz im Umgang mit solchen Tools, folgende zentrale Fragen zu beantworten und Ihre Forschung sowie praktische Arbeit zu bereichern:
+• Bürgerengagement messen und verstehen: Das Dashboard visualisiert direkt das Engagement der Bürger:innen, indem es die Anzahl gegossener Bäume anzeigt
+. Für die Verwaltungswissenschaft ist dies relevant, um das Ausmaß und die Verteilung von Bürgerbeteiligung an städtischen Umweltprogrammen zu analysieren.
+• Ressourcenmanagement und Nachhaltigkeit: Die Anzeige des verwendeten Wasservolumens ermöglicht es, den Ressourcenverbrauch im Kontext von Stadtbegrünungsinitiativen zu überwachen
+. Dies ist entscheidend für die Bewertung von Nachhaltigkeitsstrategien und die Optimierung des Einsatzes öffentlicher oder privater Ressourcen.
+• Politikbewertung und Wirkungsanalyse: Durch die Möglichkeit, Daten nach Jahr und Bezirk zu filtern, können Sie die Auswirkungen spezifischer Politikmaßnahmen oder Kampagnen über die Zeit und in verschiedenen geografischen Gebieten verfolgen
+. Dies unterstützt die empirische Politikforschung und die Evaluierung von Programmen.
+• Transparenz und Kommunikation: Dashboards bieten eine klare, zugängliche Darstellung komplexer Daten
+. Dies ist für die Kommunikation von Forschungsergebnissen an Entscheidungsträger, die Öffentlichkeit oder andere Stakeholder unerlässlich und fördert die Transparenz administrativer Prozesse.
+• Identifizierung von Handlungsbedarfen: Durch die Visualisierung von Kennzahlen können Sie schnell erkennen, in welchen Bereichen oder Zeiträumen besonderer Handlungsbedarf besteht oder wo Initiativen erfolgreich sind.
+Kurz gesagt: Ein Dashboard verwandelt Rohdaten in umsetzbare Informationen, die für die evidenzbasierte Gestaltung und Bewertung von Verwaltungshandeln unverzichtbar sind.
+
+
 
