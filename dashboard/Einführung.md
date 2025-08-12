@@ -7,7 +7,7 @@ lang: de-DE
 
 *Vorbereitende Maßnahmen, bevor mit dem Bau eines Dashboards begonnen werden kann...*
 
-# Einrichtung der Entwicklungsumgebung
+## Einrichtung der Entwicklungsumgebung
 
 Bevor wir mit dem Aufbau des Dashboards beginnen können, müssen wir die benötigten Pakete installieren und laden. Öffnen Sie RStudio und führen Sie folgenden Befehl aus, um die erforderlichen Pakete zu installieren:
 
@@ -33,7 +33,7 @@ Diese Pakete ermöglichen die Entwicklung der Benutzeroberfläche, die Datenvera
 <span style="color:red">*vielleicht noch zuordnen, welche Pakete was genau machen*</span>
 
 
-# Daten laden und vorbereiten
+## Daten laden und vorbereiten
 
 **Einlesen und Aufbereitung der CSV-Datei**
 
@@ -60,7 +60,7 @@ Erklärung des Codes:
 Diese Schritte sind essenziell, um spätere Analysen und Visualisierungen korrekt durchführen zu können.
 
 
-# Dashboard bauen
+## Dashboard bauen
 
 **Grundstruktur einer Shiny-Anwendung**
 

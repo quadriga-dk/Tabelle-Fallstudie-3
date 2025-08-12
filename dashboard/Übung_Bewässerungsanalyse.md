@@ -1,7 +1,12 @@
-# Übung Bewässerungsanalyse
+---
+lang: de-DE
+---
+
+(watering)=
+# Einfügen Bewässerungsanalyse
 
 
-### Teil 1: Die Benutzeroberfläche
+## Die Benutzeroberfläche
 In der ui definieren wir eine neue Tab-Seite namens "stats" mit zwei Diagrammfeldern:
 
 ```bash
@@ -26,7 +31,7 @@ tabItem(tabName = "analysis",
 )
 ```
 
-#### Erklärung der Elemente:
+**Erklärung der Elemente:**
 
 - ``tabItem``: Dieser Abschnitt definiert einen einzelnen Tab (Reiter) in der Benutzeroberfläche der Anwendung. In diesem Fall geht es um die Bewässerung in den Jahren 2020 bis 2024.
 
@@ -40,7 +45,7 @@ tabItem(tabName = "analysis",
 
 - ``conditionalPanel``: Ein bedingtes Panel, das je nach Auswahl des Benutzers angezeigt wird. Wenn der Benutzer "Durchschnittliche Bewässerung" wählt, wird das Diagramm ``hist_bewaesserung_pro_bezirk`` angezeigt, und wenn "Verhältnis Bewässerung / Anzahl Bäume" gewählt wird, wird h``ist_bewaesserung_verhaeltnis`` angezeigt.
 
-##### Berechnung der Bewässerung
+## Berechnung der Bewässerung
 
 Der erste Teil des Codes, der die **durchschnittliche Bewässerung pro Bezirk** darstellt, berechnet, wie viel Wasser insgesamt in jedem Bezirk verbraucht wurde.
 
@@ -72,7 +77,7 @@ output$hist_bewaesserung_pro_bezirk <- renderPlot({
 
 ```
 
-#### Erklärung der Elemente: 
+**Erklärung der Elemente:** 
 
 - ``df_clean``: Hier handelt es sich um einen bereinigten Datensatz, der alle relevanten Daten zu Bewässerung und Bezirken enthält.
 
@@ -84,7 +89,7 @@ output$hist_bewaesserung_pro_bezirk <- renderPlot({
 
 - ``ggplot``: Erzeugt ein Balkendiagramm, das die gesammelten Daten visualisiert. Es zeigt die Gesamtbewässerungsmenge pro Bezirk an.
 
-#### Interaktive Auswahl und Trenddiagramme
+## Interaktive Auswahl und Trenddiagramme
 
 Ein weiterer Abschnitt des Codes ermöglicht es den Benutzern, einen Zeitraum oder bestimmte Bezirke auszuwählen, um Trends in der Bewässerung zu sehen.
 
@@ -106,7 +111,7 @@ output$trend_water <- renderPlotly({
 })
 ```
 
-##### Erklärung:
+**Erklärung:**
 
 - ``filter()``: Wählt nur Daten aus, die dem Benutzerfilter entsprechen. Hier kann der Benutzer zum Beispiel nach Bezirken oder nach bestimmten Jahren filtern.
 

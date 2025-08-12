@@ -1,4 +1,9 @@
-# Übung Baumstatistik
+---
+lang: de-DE
+---
+
+(trees)=
+# Einfügen Baumstatistik
 
 In dieser Übung lernen Sie, wie man mit Hilfe der Bibliothek plotly zwei interaktive Diagramme erstellt:
 
@@ -6,7 +11,7 @@ In dieser Übung lernen Sie, wie man mit Hilfe der Bibliothek plotly zwei intera
 
 - Ein Kreisdiagramm (Tortendiagramm) visualisiert die häufigsten Baumarten – mit der Möglichkeit, nach Bezirk zu filtern.
 
-### 1. Benutzeroberfläche (UI)
+## Benutzeroberfläche (UI)
 Die Benutzeroberfläche besteht aus zwei Teilen:
 
 - einer Seitenleiste (``sidebarMenu``) mit der Navigation
@@ -37,7 +42,7 @@ dashboardSidebar(
 Mit ``menuItem(...)`` wird ein weiterer Navigationspunkt eingebunden. "stats" als tabName verknüpft ihn mit dem Baumstatistiktab.
 ```
 
-## 2. UI: Balkengrafik und Kreisdiagramm mit Filter-Boxen
+## UI: Balkengrafik und Kreisdiagramm mit Filter-Boxen
 
 ```bash
 tabItems(
@@ -115,7 +120,8 @@ ui <- dashboardPage(
     )
 )
 ```
-#### Erklärung der Elemente:
+
+**Erklärung der Elemente:**
 - ``box(...)``: Ein Kasten-Layout für die Diagramme mit Titel.
 
 - ``plotlyOutput(...)``: Platzhalter für das interaktive Diagramm.
@@ -127,7 +133,7 @@ ui <- dashboardPage(
 - ``tagList(...)``: Kombiniert Text und HTML-Elemente im Titel.
 
 
-## 3. Baumverteilung pro Bezirk im Server:
+## Baumverteilung pro Bezirk im Server:
 
 ```bash
 output$tree_distribution <- renderPlotly({
@@ -209,7 +215,7 @@ Die Filter arbeiten unabhängig voneinander – so können beliebige Kombination
     ```
 - ``<-``: weist einer Variable einen Wert zu (z. B. ``x <- 3``).
 
-## 4. Anteil gegossener Bäume nach Baumart im Server: 
+## Anteil gegossener Bäume nach Baumart im Server: 
 
 ```bash
 output$tree_pie_chart <- renderPlotly({
