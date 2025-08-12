@@ -23,6 +23,7 @@ chapters:
       - file: Markdown/04_Umsetzung_mit_rshiny
   - file: dashboard/Dashboard
     sections:
+      - file: dashboard/Einführung
       - file: dashboard/Übung_Startseite
       - file: dashboard/Übung_Karte
       - file: dashboard/Übung_Baumstatistik
