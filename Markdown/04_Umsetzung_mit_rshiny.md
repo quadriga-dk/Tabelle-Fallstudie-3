@@ -3,9 +3,8 @@ lang: de-DE
 ---
 
 (umsetzung)=
-# Umsetzung mit R Shiny
+# Vorbereitung der Daten: Einlesen und Bereinigung
 
-## Vorbereitung der Daten: Einlesen und Bereinigung
 
 **Zielsetzung**
 Ziel dieses Schrittes ist es, verschiedene Datensätze – insbesondere den Berliner Baumkataster sowie manuell dokumentierte Gießdaten – zusammenzuführen und so aufzubereiten, dass sie für weitere Analysen und Visualisierungen (z. B. in einer interaktiven Karte) verwendet werden können.
