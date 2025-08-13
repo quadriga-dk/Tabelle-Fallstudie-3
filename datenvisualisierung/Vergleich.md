@@ -1,4 +1,9 @@
-# Vergleich
+---
+lang: de-DE
+---
+
+(vergleich)=
+# Vergleich von Visualisierungstools
 
 **Weshalb ist ein Vergleich zwischen anderen Visualisierungswerkzeugen sinnvoll ist**
 

@@ -3,7 +3,12 @@ lang: de-DE
 ---
 
 (datenvisualisierung-methoden-werkzeuge)=
-# Datenvisualisierung - Methoden und Werkzeuge
+# Grundlagen der Datenvisualisierung
+
+<span style="color:green">Amir Weber möchte Daten zu Bäumen, zum Gießverhalten und einige weitere ansprechend visualisieren. Wie lässt sich das umsetzen? Zuerst braucht er Grundkenntnisse in Bezug auf das Visualisieren von Daten.</span>
+
+
+## Grundlagen
 
 Datenvisualisierung ist die grafische Repräsentation von Daten und Informationen.
 
@@ -15,25 +20,81 @@ Dieses Kapitel soll Ihnen einen Überblick zum Thema Datenvisualisierung geben. 
 
 Eher für Fortgeschrittene ist ein <a href="https://www.skala-campus.org/artikel/tipps-daten-visualisieren-excel/" target="_blank">Blog-Beitrag</a> mit dem Titel "Daten visualisieren (III): Datenvisualisierungs-Tools im Überblick" auf der Lernplattform Skala Campus von Nina Hauser. Die ersten beiden Teile sind dort selbstverständlich auch abrufbar.
 
-## Datenvisualisierung
 
-Was braucht es für eine gelungene Datenvisualisierung?
-Verweis auf bestehende OER/Kurse: 
 
-**Fokus Haltung**
-- zielgerichteter und nicht-manipulativer Einsatz von Visualisierung (Warum ist das wichtig? Weil Visualisierungen immer ein Abstraktionsgrad sind, weil sie mehr Publikum erreichen, als die „puren“ Daten, die oft nicht einfach zu verstehen sind für Laien)
+## Methoden und Werkzeuge
 
+*Was braucht es für eine gelungene Datenvisualisierung?*
+
+
+## Haltung
+
+Haltung wird oft als einer von drei Teilen genannt, wenn es um Kompetenzbildung geht (*LitV: Schüller o.ä.*). Das bedeutet eine kritische Perspektive einnehmen - nicht nur bei der Nutzung der Daten anderer, sondern auch bei der Erstellung, Analyse, Auswertung und Publikation eigener Forschungsergebnisse bzw. Daten. Dies gilt insbesondere für Visualisierungen, da sie in der Regel bereits eine vereinfachte Darstellung eines komplexen Sachverhaltes sind, einen Abstraktionsgrad aufweisen und den Blick der Nutzenden auch un- bzw. unterbewusst bereits in eine bestimmte Richtung lenken können (Einsatz von Farben etc.). 
+
+Im Gegensatz zu einer Tabelle sind Visualisierungen übersichtlicher, das (Forschungs-)Ergebnis ist auf Hauptthesen herunter gebrochen und ansprechend dargestellt. In dieser Abstraktion liegt die Gefahr von Missinterpretationen ... Die Gefahr besteht sowohl im Entwerfen eigener Grafiken, als auch in der fälschlichen Wahrnehmung der Grafiken anderer.
+
+
+```{admonition} zusätzliche Materialien
+:class: seealso
 Das Civic Data Lab hat eine <a href="https://civic-data.de/app/uploads/Checkliste-Datenvisualisierung.pdf" target="_blank">Checkliste</a> veröffentlicht, die dabei helfen kann, Visualisierungen kritisch zu lesen. Im Fokus steht dabei, woher die Daten kommen und wie sie grafisch dargestellt werden. <span style="color:red">Diese Checkliste können Sie auch aus unserem Repositorium herunterladen</span> 
+```
+
+
+```{admonition} Was Sie mitnehmen sollten
+:class: keypoint
+
+Visualisierungen sind immer eine vereinfachte Darstellung eines Sachverhalts.
+
+Die Gestaltung der Visualisierung (Verwendung bestimmter Farben, Anordnung einzelner Aspekte etc.) hat bereits Einfluss darauf, wie sie von anderen wahrgenommen wird.
+
+Die Manipulation einer Visualisierung erfolgt daher nicht zwangsweise bewusst. 
+
+Wer sich der Manipulationsmöglichkeiten bewusst ist und Visualisierungen kritisch analysiert, läuft weniger Gefahr, Visualisierungen zu missinterpretieren.
+```
+
 
 ## Dashboards
 
-Ein Dashboard zeigt nicht nur eine, sondern mehrere Visualisierungen zu gleichen oder verwandten Themen.
 
-- sinnvoll fürs Monitoring (was in Verwaltung wichtig ist)
+<span style="color:green">Nachdem Dr. Amir Weber einiges über Visualisierungen und deren Manipulationsmöglichkeiten erfahren hat, wendet er sich nun Dashboards zu. Er hat erfahren, dass sie eine gute Option sind, wenn mehrere Visualisierungen zu einem Thema übersichtlich präsentiert werden sollen. Was aber können sie für Verwaltungen oder Verwaltungswissenschaften beitragen?</span>
 
-nehmen im Verwaltungskontext zu (s. Aachen)
 
-Warum sollten Verwaltungs-wissenschaftler dieses Dashboard bauen?
+**Was ist ein Dashboard**
+
+Ein Dashboard zeigt nicht nur eine, sondern mehrere Visualisierungen zu gleichen oder verwandten Themen. So lässt sich schnell ein Überblick über ein Thema erlangen, das zugleich übersichtlich und geordnet prässsentiert wird. 
+
+Ein weiterer Vorteil ist die Interaktivität von Dashboards. Häufig sind die dort zu sehenden Visualisierungen nicht bloß Abbildungen sondern lassen sich durch das Verändern von Variablen (Kennzahlen oder Regler für Jahreszahlen) interaktiv verwenden und können so anschaulich Entwicklungen darstellen.
+
+Wo eine Visualisierung im Dashboard positioniert wird, kann Einfluss auf ihre (wahrgenommene) Bedeutung haben.
+
+**Welchen Vorteil bieten Dashboards der Verwaltung bzw. der Verwaltungswissenschaft?**
+
+- Monitoring (Übersicht behalten)
+- Service-Gedanke (Übersicht für Bürger:innen)
+
+
+````{admonition} Weiterführende Literatur / zusätzliche Materialien
+:class: seealso
+Ein gelungenes Beispiel für die Verwendung eines Dashboards im kommunalen Kontext ist das <a href="https://verkehr.aachen.de/" target="_blank">Mobilitätsdashboard der Stadt Aachen</a>. Dort finden Anwendende Informationen zu Parkplätzen, Ladestationen, Verkehrslage, Baustellen und vielem mehr.
+
+```{figure} /assets/20250813_MobDashAachen.png
+---
+align: left
+width: 100%
+name: Mobilitätsdashboard Aachen
+alt: Übersicht über das Mobilitätsdashboard der Stadt Aachen mit Informationen zur Verkehrslage, Baustellen, Radstationen und weiterem mehr.
+---
+Screenshot des Mobilitätsdashoards der Stadt Aachen vom 13.08.2025.
+```
+
+Schauen Sie sich dieses Dashboard in Ruhe an und erkunden Sie die Optionen, die sich in diesem Zusammenhang eröffnen.
+````
+
+
+
+
+<span style="color:red">*Das folgende erklärt eher, warum für unsere Thematik ein Dashboard sinnvoll ist*</span>
+**Warum sollten Verwaltungs-wissenschaftler dieses Dashboard bauen?**
 Für Verwaltungs-wissenschaftler ist das Erstellen und Analysieren von Dashboards wie dem "Gieß-den-Kiez-Dashboard" von entscheidender Bedeutung, um datengestützte Erkenntnisse zu gewinnen und die Effektivität öffentlicher Initiativen zu bewerten
 . In einer zunehmend datengetriebenen Welt ermöglicht Ihnen die Datenkompetenz im Umgang mit solchen Tools, folgende zentrale Fragen zu beantworten und Ihre Forschung sowie praktische Arbeit zu bereichern:
 • Bürgerengagement messen und verstehen: Das Dashboard visualisiert direkt das Engagement der Bürger:innen, indem es die Anzahl gegossener Bäume anzeigt
