@@ -3,8 +3,39 @@ lang: de-DE
 ---
 
 (landing-page)=
-# Startseite Dashboard
-Das Ziel dieses Abschnitts ist es, eine interaktive Startseite für das Gieß-den-Kiez-Dashboard zu erstellen. Nutzer*innen können hier sehen, wie viele Bäume gegossen wurden, wie viel Wasser verwendet wurde – abhängig von ihrer Auswahl (Jahr und Bezirk).
+# Eine Startseite für das Dashboard gestalten
+
+```{admonition} Aufbau eines Dashboards als Form der Visualisierung in der Verwaltung(swissenschaft)
+:class: lernziele
+
+- eine übersichtliche Startseite für ein R-Shiny-Dashboard gestalten, die zentrale Informationen klar strukturiert darstellt, den Nutzer:innen einen schnellen Überblick verschafft und als intuitiver Einstiegspunkt in die Anwendung dient
+
+```
+
+Amir möchte sich zunächst einen schnellen Überblick verschaffen: Wie werden Bäume in Berlin gegossen, und wie engagieren sich die Bürger:innen dabei? Bei seiner Recherche stößt er auf die Plattform *Gieß den Kiez*. Besonders beeindruckt ihn, wie anschaulich die Daten dort visualisiert sind – das möchte er für seine eigene R-Shiny-Anwendung übernehmen.
+
+Die **Startseite** seines Dashboards soll als zentrale Übersicht und Einstiegspunkt dienen. Hier werden die wichtigsten Kennzahlen sofort sichtbar:
+
+- **Gesamtanzahl der Bäume**
+- **Anzahl gegossener Bäume**
+- **Verbrauchte Wassermenge**
+
+Damit liefert die Startseite einen kompakten, aber aussagekräftigen Überblick über das Engagement der Bürger:innen. Sie beantwortet bereits auf den ersten Blick zentrale Fragen der Analyse:
+
+**1. Wie groß ist der Gesamtbestand an Bäumen?**
+**2. Wie viele davon wurden aktiv bewässert?**
+
+So ist die Startseite nicht nur auf erstem Blick intuitiv und verständlich, sondern auch funktional der ideale Ausgangspunkt für die weitere Erkundung der Daten.
+
+Für den Einstieg arbeitet Amir mit dem Datensatz *„Gieß den Kiez – Bewässerungsdaten“* von **GovData**. Dieser Datensatz bietet detaillierte Informationen darüber, wann, wo und wie viel gegossen wurde. Er eignet sich ideal, um erste Analysen zum Gießverhalten zu erstellen, da er sowohl zeitliche als auch räumliche Bezüge enthält und öffentlich zugänglich ist.
+
+![alt text](Dashboard_Startseite.png)
+
+Für die Startseite seiner Anwendung entscheidet sich Amir für eine **kompakte Kennzahlenübersicht**. Diese soll den Nutzer:innen helfen, sofort die Größenordnung des Gießverhaltens einzuschätzen – etwa, wie viele Bäume gegossen wurden, wie oft und mit welchem Wasservolumen.
+
+Zusätzlich plant er **Filtermöglichkeiten** nach **Bezirk** und **Jahr**, um die Kennzahlen gezielt einzugrenzen und Entwicklungen über die Zeit oder regionale Unterschiede sichtbar zu machen. Damit lassen sich die Daten auch in einer feineren Granularität betrachten – von stadtweiter Übersicht bis hin zu einzelnen Bezirken und spezifischen Jahren.
+
+Als Nächstes bauen wir die Startseite des Dashboards mit R. Nach jedem Codeabschnitt werden kurz die verwendeten Techniken und Befehle erklärt. 
 
 ## Benutzeroberfläche (UI)
 Die Benutzeroberfläche besteht aus zwei Teilen:
@@ -470,3 +501,44 @@ server <- function(input, output, session) {
 }
 ```
 </details>
+
+## **Was muss Amir beim Bau eines Dashboards beachten?** *(vorläufig)* 
+Bei der Gestaltung der Startseite sollte Amir darauf achten, dass die wichtigsten Informationen klar, gut lesbar und ohne unnötige Ablenkungen präsentiert werden. Besonders für einen ersten Überblick gilt: Weniger ist oft mehr.
+
+Für die Startseite heißt das vor allem:
+
+- **Klarheit**: Keine überladene Darstellung, eindeutige Beschriftungen, selbsterklärende Kennzahlen.
+
+- **Lesbarkeit**: Vermeidung von 3D-Elementen oder komplexen Grafiken, wenn ein einfacher Indikator genügt.
+
+- **Fokus**: Nur die wirklich zentralen Kennzahlen aufnehmen, um den Blick nicht zu zerstreuen.
+
+- **Konsistenz**: Einheitliche Farb- und Formatwahl, damit Nutzer:innen sich sofort orientieren können.
+
+- **Kontext**: Kurze Hinweise oder Legenden, damit die Zahlen richtig interpretiert werden können.
+
+*Diese Punkte bilden den Rahmen – nach weiterer Recherche lassen sich hier noch Best Practices und konkrete Gestaltungsrichtlinien ergänzen.*
+
+## **Leitfrage und Ausblick**
+
+Die zentrale Leitfrage von Amirs Fallstudie lautet: **Wo ist das höchste Bürgerengagement?**
+
+Mit den Daten aus Gieß den Kiez kann er diese Frage bereits auf der Startseite beantworten: Pro Bezirk lässt sich das Engagement direkt darstellen und vergleichen. Damit ist die Hauptfrage zwar beantwortet – doch Amir interessiert sich nun für die **Geschichten hinter den Zahlen**.
+
+Er möchte verstehen, welche **Kontextfaktoren** zu den Unterschieden führen könnten:
+
+- **Räumlich** – etwa Unterschiede zwischen Bezirken oder die Baumdichte in einem Gebiet.
+
+- **Zeitlich** – wie sich das Engagement im Jahresverlauf entwickelt oder ob das Pflanzjahr der Bäume eine Rolle spielt.
+
+- **Infrastrukturell** – zum Beispiel, ob die Verfügbarkeit von Pumpen Einfluss auf das Gießverhalten hat.
+
+Daraus ergeben sich neue Fragen:
+
+- Wo treten die höchsten Ausprägungen des Bürgerengagements auf?
+
+- Welche zusätzlichen Datensätze lassen sich einbeziehen, um die Analyse zu vertiefen?
+
+- Wie können interaktive Dashboards diese Faktoren verständlich und vergleichbar darstellen?
+
+Mit diesen Überlegungen ist der Grundstein für die **nächste Übung** gelegt – den Bau eines interaktiven Dashboards, das nicht nur die Kernaussage liefert, sondern auch die Hintergründe sichtbar macht.
