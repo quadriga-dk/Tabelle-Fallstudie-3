@@ -16,11 +16,11 @@ chapters:
       - file: operationalisierung/operationalisierung
       - file: operationalisierung/Datenbasis
       - file: operationalisierung/resümee
-  - file: Markdown/Datenvisualierung_durch_interaktive_Dashboards
+  - file: datenvisualisierung/Datenvisualisierung
     sections:
-      - file: Markdown/Datenvisualisierung
-      - file: Markdown/Vergleich
-      - file: Markdown/04_Umsetzung_mit_rshiny
+      - file: datenvisualisierung/Datenvisualisierung-Grundlagen
+      - file: datenvisualisierung/Vergleich
+      - file: datenvisualisierung/Umsetzung_mit_rshiny
   - file: dashboard/Dashboard
     sections:
       - file: dashboard/Einführung
@@ -29,7 +29,6 @@ chapters:
       - file: dashboard/Übung_Baumstatistik
       - file: dashboard/Übung_Bewässerungsanalyse
       - file: dashboard/Übung_Infrastruktur
-  - file: Markdown/Data_story
   - file: Zusammenfassung
   - file: epilog/Epilog
     sections:
