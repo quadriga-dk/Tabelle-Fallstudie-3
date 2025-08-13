@@ -1,7 +1,12 @@
-# Übung Startseite
+---
+lang: de-DE
+---
+
+(landing-page)=
+# Startseite Dashboard
 Das Ziel dieses Abschnitts ist es, eine interaktive Startseite für das Gieß-den-Kiez-Dashboard zu erstellen. Nutzer*innen können hier sehen, wie viele Bäume gegossen wurden, wie viel Wasser verwendet wurde – abhängig von ihrer Auswahl (Jahr und Bezirk).
 
-## 1. Benutzeroberfläche (UI)
+## Benutzeroberfläche (UI)
 Die Benutzeroberfläche besteht aus zwei Teilen:
 
 - einer Seitenleiste (``sidebarMenu``) mit der Navigation
@@ -33,7 +38,7 @@ dashboardSidebar(
 - ``tabName = "start"`` verbindet den Menüpunkt mit dem Tab.
 - ``icon("home")`` zeigt ein kleines Symbol an.
 
-## Inhalt: tabItem mit Übersichtsbox
+**Inhalt: tabItem mit Übersichtsbox**
 
 ```bash
 tabItems(
@@ -112,7 +117,7 @@ Mit ``multiple = TRUE`` können mehrere Jahre oder Bezirke gleichzeitig ausgewä
 - ``multiple = TRUE`` bedeutet, dass man mehrere Werte gleichzeitig auswählen kann.
 - Die gewählten Werte sind später über ``input$start_year`` bzw. ``input$bezirk`` im Server verfügbar.
 
-## 2. Reaktive Datenfilterung im Server
+## Reaktive Datenfilterung im Server
 
 ```bash
 filteredData <- reactive({
@@ -169,7 +174,7 @@ Diese Struktur nennt man **Bedingung**. Sie steuert den Ablauf des Codes abhäng
 - ``<-``: weist einer Variable einen Wert zu (z. B. ``x <- 3``).
 - ``|`` = ODER, ``&`` = UND
 
-## 3. Dynamische Anzeige: total_trees oder total_tree_watered
+## Dynamische Anzeige: total_trees oder total_tree_watered
 
 ```bash
 output$dynamic_tree_box <- renderUI({
@@ -194,7 +199,7 @@ output$dynamic_tree_box <- renderUI({
 Wird nur „2020–2024“ ausgewählt, zeigt dynamic_tree_box nur gegossene Bäume an.
 ```
 
-## 4. ValueBoxes im Server
+## ValueBoxes im Server
 
 Alle Bäume
 
@@ -243,7 +248,7 @@ output$avg_water <- renderValueBox({
 - ``mean(...)``: berechnet den Durchschnitt.
 - ``na.rm = TRUE``: ignoriert fehlende Werte (NA = "Not Available").
 
-## 5. Einheiten clever umrechnen
+## Einheiten clever umrechnen
 
 ```bash
 convert_units <- function(liters) {

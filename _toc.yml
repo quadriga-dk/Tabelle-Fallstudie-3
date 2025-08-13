@@ -23,13 +23,14 @@ chapters:
       - file: Markdown/04_Umsetzung_mit_rshiny
   - file: dashboard/Dashboard
     sections:
+      - file: dashboard/Einführung
       - file: dashboard/Übung_Startseite
       - file: dashboard/Übung_Karte
       - file: dashboard/Übung_Baumstatistik
       - file: dashboard/Übung_Bewässerungsanalyse
       - file: dashboard/Übung_Infrastruktur
   - file: Markdown/Data_story
-  - file: Markdown/Zusammenfassung
+  - file: Zusammenfassung
   - file: epilog/Epilog
     sections:
       - file: epilog/fragen_und_feedback

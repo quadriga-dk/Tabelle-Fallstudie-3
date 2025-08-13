@@ -1,5 +1,9 @@
+---
+lang: de-DE
+---
+
 (infrastruktur)=
-# Übung Infrastruktur
+# Einfügen Infrastruktur
 
 ## Ziel der Übung
 In diesem Abschnitt entwickeln wir eine interaktive Webanwendung, die das **Bürgerengagement** im Zusammenhang mit der Nutzung von öffentlichen Pumpen und dem Gießverhalten sichtbar macht.
@@ -21,7 +25,7 @@ Definiert, welche Elemente die Nutzer:innen sehen und wie sie interagieren könn
 2. **Serverlogik (Server):**
 Kümmert sich um die Datenverarbeitung, Berechnung und das dynamische Erzeugen der Visualisierungen.
 
-## **1. Datenbasis zusammenstellen**
+## Datenbasis zusammenstellen
 
 Damit unser Dashboard funktioniert, benötigen wir gut aufbereitete Daten.
 
@@ -159,7 +163,7 @@ bezirksflaechen <- data.frame(
 )
 ```
 
-## 2. Benutzeroberfläche: Dashboard strukturieren
+## Benutzeroberfläche: Dashboard strukturieren
 
 In der Sidebar werden verschiedene Menüpunkte angeboten – darunter unser neuer Bereich **„Bürgerengagement“**, der die Pumpen- und Gießverhaltensdaten visualisiert.
 
@@ -199,7 +203,7 @@ tabItem(tabName = "engagement",
 )
 ```
 
-## 3. Serverlogik: Daten verarbeiten und visualisieren
+## Serverlogik: Daten verarbeiten und visualisieren
 Im Serverteil bereiten wir die Daten auf und definieren die Grafiken, die im UI angezeigt werden.
 
 ### Datenvorbereitung

@@ -3,86 +3,57 @@ lang: de-DE
 ---
 
 (dashboard)=
-# Dashboard bauen
+# Ein Dashboard bauen
 
-*In diesem Kapitel werden Sie durch den Aufbau eines Dashboards geführt. Wie bereits im [Intro](intro) erwähnt, ist dies sehr aufwendig.*
+````{margin}
+```{admonition} Fragen oder Feedback 
+:class: frage-feedback
 
-## Einrichtung der Entwicklungsumgebung
+<a href="https://github.com/quadriga-dk/Tabelle-Fallstudie-3/issues/new?assignees=&labels=question&projects=&template=frage.yml" class="external-link" target="_blank">
+    Stellen Sie eine Frage
+</a> <br>
+<a href="https://github.com/quadriga-dk/Tabelle-Fallstudie-3/issues/new?assignees=&labels=feedback&projects=&template=feedback.yml" class="external-link" target="_blank">
+    Geben Sie uns Feedback
+</a>
 
-Bevor mit der Entwicklung des Dashboards begonnen werden kann, müssen die benötigten Pakete installiert und geladen werden. Öffnen Sie RStudio und führen Sie folgenden Befehl aus, um die erforderlichen Pakete zu installieren:
+Mit Ihren Rückmeldungen können wir unser interaktives Lehrbuch gezielt an Ihre Bedürfnisse anpassen.
+```
+````
 
-```{figure} /assets/R_Studio_Packages.png
----
-name: R_Studio_Packages
-alt: Ein Screenshot, der das installieren der benöigten Packages zeigt.
----
-Installieren der Packages.
+
+```{admonition} Aufbau eines Dashboards als Form der Visualisierung in der Verwaltung(swissenschaft)
+:class: lernziele
+
+1. Der Aufbau und die Gliederung eines Dashboards können erklärt werden.
+2. Die Grundstrukturen des Baus eines Dashboards mittels RShiny können beschrieben werden.
 ```
 
-Nachdem die Installation abgeschlossen ist, laden Sie die Pakete in Ihr Skript:
+In diesem Kapitel werden Sie durch den Aufbau eines Dashboards geführt. Je nach Vorkenntnissen und gewählter [Ausführungsmethode](technische_voraussetzungen) kann die Bearbeitungszeit variieren.
 
-```{figure} /assets/R_Studio_Libraries.png
----
-name: R_Studio_Libraries
-alt: Ein Screenshot, der zeigt, wie man die Pakete lädt.
----
-Laden der Pakete.
-```
+In diesem Kapitel finden Sie folgende Abschnitte:
+- [Vorbereitung](vorbereitung)
+- [Startseite Dashboard](landing-page)
+- [Einfügen Karte](map)
+- [Einfügen Baumstatistik](trees)
+- [Einfügen Bewässerungsanalyse](watering)
+- [Einfügen Infrastruktur](infrastruktur)
 
-Diese Pakete ermöglichen die Entwicklung der Benutzeroberfläche, die Datenverarbeitung sowie die Visualisierung.
+Wie im Abschnitt (Visualisierung?) dargelegt wurde, sind Dashboards eine gute Möglichkeit, Daten aus der Verwaltung nutzer:innenfreundlich aufzubereiten und zu visualisieren. In diesem Kapitel wird Ihnen das Bauen eines Dashboards mittels RShiny nahe gebracht. 
++++
+*Wir befinden uns hier:*
+![Aufgabe 3](/assets/Aufgabenstruktur-03.png)
 
-## Daten laden und vorbereiten
+<span style="color:red">*Bild einfügen von Verortung in Fallstudien-Struktur*</span>
 
-**Einlesen und Aufbereitung der CSV-Datei**
 
-Die Grundlage für unser Dashboard bildet eine CSV-Datei der Nutzungsdaten aus dem Projekt Gieß den Kiez. Diese muss zunächst eingelesen und bereinigt werden. Verwenden Sie dazu folgenden Code:
+Dabei werden Sie Schritt für Schritt bzw. Abschnitt für Abschnitt durch den Prozess des Aufbaus eines Dashboards geleitet. Zuerst werden Ihnen vorbereitende Maßnahmen aufgezeigt, dann die Grundstruktur des Dashboards erstellt, eine Karte eingefügt und schließlich weitere Daten und Visualisierungen eingepflegt.
 
-```{figure} /assets/R_Studio_Einlesen_Aufbereitung.png
----
-name: R_Studio_Einlesen_Aufbereitung
-alt: Ein Screenshot, der zeigt, wie die Daten eingelesen und aufbereitet werden.
----
-Einlesen und Aufbereiten der Daten.
-```
 
-Erklärung:
+```{admonition} Bearbeitungszeit
+:class: zeitinfo
+Die geschätzte Bearbeitungszeit dieser Lerneinheit beträgt ca. ... Dies schließt die gekennzeichneten Übungsaufgaben, deren Bearbeitungsdauer individuell variiert, aus. 
 
-- `read.csv(...)` lädt die CSV-Datei und interpretiert sie als Tabelle.
+Die geschätzte Bearbeitungsdauer **inklusive** der einzelnen Übungsaufgaben beträgt ca. ...
 
-- `as.numeric(...)` stellt sicher, dass Zahlenwerte korrekt als numerische Variablen vorliegen.
-
-- `drop_na(...)` entfernt Zeilen mit fehlenden oder unvollständigen Daten.
-
-Diese Schritte sind essenziell, um spätere Analysen und Visualisierungen korrekt durchführen zu können.
-
-## Dashboard bauen
-
-**Grundstruktur einer Shiny-Anwendung**
-
-Eine typische Shiny-Anwendung besteht aus zwei Hauptkomponenten: 
-1.	User Interface (UI): Definiert das Layout und die Gestaltung der Anwendung, einschließlich aller Eingabe- und Ausgabeelemente.
-2.	Server: Beinhaltet die serverseitige Logik, verarbeitet Eingaben und generiert entsprechende Ausgaben.
-Diese beiden Komponenten werden schließlich durch den Befehl `shinyApp(ui = ui, server = server)` zusammengeführt, um die Anwendung zu starten.
-
-Das shinydashboard-Paket erweitert Shiny um Funktionen zur Erstellung von Dashboards. Ein Dashboard besteht typischerweise aus drei Hauptbereichen: Shiny Dashboard Structure 
-1.	Header: Der obere Bereich des Dashboards, der den Titel und optionale Steuerungselemente enthält.
-2.	Sidebar: Eine seitliche Navigationsleiste, die Links oder Schaltflächen zur Navigation innerhalb des Dashboards bereitstellt.
-3.	Body: Der Hauptbereich, in dem die Inhalte wie Diagramme, Tabellen und Texte angezeigt werden.
-Die Grundstruktur eines Dashboards wird mit der Funktion dashboardPage() erstellt, die die oben genannten Komponenten kombiniert:
-
-R_Studio_Dashboard
-
-```{figure} /assets/R_Studio_Dashboard.png
----
-name: R_Studio_Dashboard
-alt: Ein Screenshot, der zeigt, die Dashboardstruktur. 
----
-Dashboardstruktur
-```
-
-Die sidebarMenu-Funktion definiert die Navigationselemente, während tabItems die entsprechenden Inhalte für jeden Tab bereitstellt.
-
-**Interaktive Elemente und Reaktivität**
-
-Ein wesentliches Merkmal von Shiny ist die Reaktivität, die es ermöglicht, dass sich Ausgaben automatisch aktualisieren, wenn sich Eingaben ändern. Dies wird durch reaktive Funktionen und Objekte erreicht.
-
+Bitte beachten Sie: Die tatsächliche Bearbeitungsdauer kann je nach Ihren Vorkenntnissen unterschiedlich ausfallen. Die angegebene Zeitangabe dient lediglich als Orientierungshilfe.
+``` 

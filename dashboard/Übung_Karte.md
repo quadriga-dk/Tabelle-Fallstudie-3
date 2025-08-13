@@ -1,4 +1,9 @@
-# Übung Karte
+---
+lang: de-DE
+---
+
+(map)=
+# Einfügen Karte
 
 In dieser Übung erstellen wir eine interaktive Karte, auf der alle Bäume (stand 2025) dargestellt sind. Dabei können verschiedene Filter gesetzt werden, z. B. nach Bezirk, Jahr, Jahreszeit oder Baumart. 
 
@@ -9,7 +14,7 @@ Ziel ist es, mit Hilfe der Leaflet-Bibliothek eine Karte zu generieren, die:
 - Eine Legende zur Farbskala der Wassermenge enthält
 - Funktionstüchtige Pumpen ab einem bestimmten Zoom-Level anzeigen
 
-## 1. Benutzeroberfläche (UI)
+## Benutzeroberfläche (UI)
 Die Benutzeroberfläche besteht aus zwei Teilen:
 
 - einer Seitenleiste (``sidebarMenu``) mit der Navigation
@@ -41,7 +46,7 @@ dashboardSidebar(
 Mit ``menuItem(...)`` wird ein weiterer Navigationspunkt eingebunden. "map" als tabName verknüpft ihn mit dem Kartentab.
 ```
 
-## 2. UI: Karte mit Filter-Boxen
+## UI: Karte mit Filter-Boxen
 
 ```bash
 tabItem(tabName = "map",
@@ -71,7 +76,7 @@ tabItem(tabName = "map",
 ``fluidRow()`` ordnet Inhalte nebeneinander. ``box(...)`` gruppiert UI-Elemente visuell und funktional.
 ```
 
-## 3. Zoom Javascript
+## Zoom Javascript
 
 ```bash
  dashboardBody(
@@ -89,7 +94,7 @@ tabItem(tabName = "map",
 ```
 Diese Funktion überwacht die Zoomstufe der Karte. Wenn die Nutzer*innen herein- oder herauszoomen, wird die aktuelle Zoomstufe (``map_zoom``) an die Shiny-App zurückgemeldet, sodass darauf reagiert werden kann.
 
-## 4. Daten filtern im Server: filtered_data_map
+## Daten filtern im Server: filtered_data_map
 
 ```bash
 filtered_data_map <- reactive({
@@ -182,7 +187,7 @@ Die Filter arbeiten unabhängig voneinander – so können beliebige Kombination
 Ein Filter „Bezirk: Friedrichshain-Kreuzberg“ + „Baumgattung: Ahorn“ ergibt nur Ahornbäume im gewählten Bezirk.
 ```
 
-## 5. Pumpen Icon hinzufügen
+## Pumpen Icon hinzufügen
 
 ```bash
   icon_pumpe <- makeIcon(
@@ -197,7 +202,7 @@ Ein Filter „Bezirk: Friedrichshain-Kreuzberg“ + „Baumgattung: Ahorn“ erg
 - ``iconWidth``: Gibt die Breite des Icons an
 - ``iconHeight``: Gibt die Höhe des Icons an
 
-## 6. Karte zeichnen mit Leaflet
+## 6Karte zeichnen mit Leaflet
 
 ```bash
 output$map <- renderLeaflet({
