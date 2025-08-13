@@ -100,17 +100,17 @@ write.csv2(df_merged_sum, file = "data/df_merged_gesamter_baumbestand_sum1.csv",
 #          driver = "GeoJSON", delete_dsn = TRUE)
 # 
 # --- pumpen_mit_bezirk minimieren ---
-pumpen_mit_bezirk_full <- st_read("data/pumpen_mit_bezirk.geojson")
+# pumpen_mit_bezirk_full <- st_read("data/pumpen_mit_bezirk.geojson")
 
-pumpen_mit_bezirk <- pumpen_mit_bezirk_full %>%
-  select(pump, pump.style, pump.status, bezirk, geometry, man_made, id)
+# pumpen_mit_bezirk <- pumpen_mit_bezirk_full %>%
+#  select(pump, pump.style, pump.status, bezirk, geometry, man_made, id)
 
-st_write(pumpen_mit_bezirk, "data/pumpen_mit_bezirk_minimal.geojson",
-         driver = "GeoJSON", delete_dsn = TRUE)
+# st_write(pumpen_mit_bezirk, "data/pumpen_mit_bezirk_minimal.geojson",
+#         driver = "GeoJSON", delete_dsn = TRUE)
 
 # --- df (Nutzungsdaten GiessDenKiez) minimieren ---
-df_full <- fread("data/nutzungsdatenGiessDenKiez.csv",
-                 sep = ";", encoding = "UTF-8")
+# df_full <- fread("data/nutzungsdatenGiessDenKiez.csv",
+#                 sep = ";", encoding = "UTF-8")
 # 
 # df <- df_full[, .(
 #   id, lng, lat, bezirk, gattung_deutsch, strname, pflanzjahr, timestamp, bewaesserungsmenge_in_liter

@@ -27,6 +27,9 @@ Im Hinblick auf die Pumpendichte lässt sich folgendes feststellen:
 
 Allerdings lässt sich kein Zusammenhang zwischen der Verfügbarkeit von Pumpen und dem tatsächlichen Gießverhalten feststellen, da nicht klar ist, ob die Anwohner:innen die Pumpen tatsächlich verwenden. Nur vom Vorhandensein und der Funktionstüchtigkeit einer Pumpe kann nicht auf ihre Verwendung geschlossen werden. Darüber hinaus sind Pumpen nicht die einzige Möglichkeit, Bäume zu bewässern. Anwohner:innen können das Wasser auch über einen Gartenschlauch von einem privaten oder gemeinschaftlichen Wasseranschluss beziehen oder die Straßenbäume mit einer in der Wohnung befüllten Gießkanne bewässern. Daher sind direkte Schlussfolgerungen zwischen Pumpendichte bzw. Pumpenverfügbarkeit und dem Gießverhalten der Anwohner:innen bzw. der Bewässerung der Bäume nicht möglich.
 
+**Bewässerungstrend:**
+Die höchste Gesamtbewässerung wurde im **Jahr 2022** erreicht, mit einem Volumen von **761,97 m³**. Im Vergleich zum Vorjahr (**2021: 273,71 m³**) bedeutet dies eine deutliche Steigerung des Engagements.
+
 # Reflexion
 
 *Einschätzung der Operationalisierung:*

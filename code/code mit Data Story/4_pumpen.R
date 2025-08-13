@@ -22,3 +22,11 @@ pumpen_mit_bezirk <- pumpen_mit_bezirk %>%
   rename(bezirk = Gemeinde_name)
 
 st_write(pumpen_mit_bezirk, "data/pumpen_mit_bezirk.geojson", driver = "GEOJSON", delete_dsn = TRUE)
+
+pumpen_mit_bezirk_full <- st_read("data/pumpen_mit_bezirk.geojson")
+
+pumpen_mit_bezirk <- pumpen_mit_bezirk_full %>%
+  select(pump, pump.style, pump.status, bezirk, geometry, man_made, id)
+
+st_write(pumpen_mit_bezirk, "data/pumpen_mit_bezirk_minimal.geojson",
+         driver = "GeoJSON", delete_dsn = TRUE)
