@@ -35,15 +35,17 @@ Mit Ihren Rückmeldungen können wir unser interaktives Lehrbuch gezielt an Ihre
 
 Diese Fallstudie bildet mit Hilfe eines <a href="https://jupyterbook.org/en/stable/intro.html" class="external-link" target="_blank">JupyterBooks</a> einen Handlungsverlauf in der Verwaltung(swissenschaft) nach. Dabei wird anhand einer modellhaften Forschungsfrage auf die Visualisierung von Daten eingegangen. Dazu werden in einzelnen Kapiteln die Themen Datenvisualisierung, Dashboards und Manipulierbarkeit von Visualisierungen *sowie Kommunikation von Forschungsergebnissen* behandelt.
 
-Inhaltlich treffen wir in dieser Fallstudie wieder auf Dr. Amir Weber, der seine Forschung zu Baumbeständen (*Link zu Fallstudie 2*) weiterführen und grafisch aufarbeiten möchte.
+Statt einer zentralen Forschungsfrage wird folgendes Szenario skizziert: 
+
+Dr. Amir Weber, ein Verwaltungswissenschaftler mit Interesse an kommunalen Daten und Bürgerbeteiligung, möchte ein Dashboard zur Visualisierung der Baumartenvielfalt und dem Bewässerungsverhalten erstellen, das auf offenen Datensätzen basiert. In der 2. Fallstudie (*Link zu Fallstudie 2*) hat er dazu bereits nach passenden Datensätzen gesucht. Nun möchte er er sich die Daten explorativ anschauen und Dashboards zur Visualisierung dieser Daten gestaltet, um die Datensätze für  Bürger:innen und Politik verständlich darzustellen. Hier soll das Ausmaß und die Verteilung der Bürgerbeteiligung sichtbar gemacht werden. 
+Dabei orientiert er sich an folgenden Leitfragen: 
 
 ## Fokus
 
-...*wird ergänzt*
-
-Leitfrage: 
-**Wie stark engagieren sich die Berliner für ihr Bäume in ihrer Stadt? / Wo ist das höchste Bürgerengagement?**
-
+Leitfragen: 
+–	Wo zeigen sich die höchsten Ausprägungen des Bürgerengagements bei der Bewässerung städtischer Bäume in Berlin?
+–	Welche Rolle spielen räumliche (Bezirk, Baumdichte), zeitliche (Pflanzjahr, Jahresverlauf) und infrastrukturelle (Pumpendichte) Faktoren für das Engagement?
+–	Wie können interaktive Dashboards zur Visualisierung dieser Daten gestaltet werden, um versch. Datensätze einzubeziehen und verständlich darzustellen?
 
 
 ## Bedeutung dieses Lehrbuchs für die Verwaltungswissenschaft
