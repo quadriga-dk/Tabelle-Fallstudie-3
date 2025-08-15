@@ -5,6 +5,10 @@ lang: de-DE
 (vergleich)=
 # Vergleich von Visualisierungstools
 
+
+<span style="color:green">Nachdem Amir Weber sich über die Grundlagen der Visualisierung und das Bauen von Dashboards informiert hat, fragt er sich, welches Tool er zum Bauen eines Dashboards verwenden soll. Dazu sieht er sich mehrere Optionen an.</span>
+
+
 **Weshalb ist ein Vergleich zwischen anderen Visualisierungswerkzeugen sinnvoll ist**
 
 Der Vergleich zwischen R Shiny und anderen Visualisierungswerkzeugen wie Python Dash, Power BI oder Tableau ist für datengetriebene Projekte besonders relevant, da jedes dieser Tools unterschiedliche Stärken, Funktionalitäten und Zielgruppen adressiert. Die Auswahl eines geeigneten Visualisierungstools hängt maßgeblich von den konkreten Zielen, Anforderungen und Rahmenbedingungen eines Projekts ab – ebenso wie von den technischen Vorkenntnissen und persönlichen Präferenzen der Nutzer:innen. Während Power BI und Tableau häufig im unternehmerischen Umfeld zum Einsatz kommen, werden R Shiny und Python-basierte Lösungen vor allem im wissenschaftlichen und analytischen Kontext verwendet. 
