@@ -22,6 +22,21 @@ Wo eine Visualisierung im Dashboard positioniert wird, kann Einfluss auf ihre (w
 - Monitoring (Übersicht behalten)
 - Service-Gedanke (Übersicht für Bürger:innen)
 
+Für die Darstellung der vielfältigen Daten aus dem öffentlichen Sektor gibt es bereits gute Beispiele. 
+
+Unter der Lizenz CC BY 3.0 bzw. Deutschland Lizenz 2023 veröffentlicht z. B. das Amt für Statistik Berlin-Brandenburg auf seiner <a href="https://www.statistik-berlin-brandenburg.de/" target="_blank">Webseite</a> nicht nur zahlreiche informative Grafiken, Visualisierungen und Diagramme, sondern auch mehrere <a href="https://www.statistik-berlin-brandenburg.de/bevoelkerung/zensus/zensus2022" target="_blank">Dashboards</a> mit interaktiven Visualisierungen.
+
+```{figure} /assets/20250815_DashZensusBBB.png
+---
+align: left
+width: 100%
+name: Dashboard Zensus 2022 
+alt: Ein Dashboard mit Visualisierungen zum Zensus 2022 in Berlin und Brandenburg.
+---
+Screenshot des Dashoards zum Zensus 2022 in Berliner Bezirken vom 15.08.2025.
+```
+
+*some more text*
 
 ````{admonition} Weiterführende Literatur / zusätzliche Materialien
 :class: seealso
