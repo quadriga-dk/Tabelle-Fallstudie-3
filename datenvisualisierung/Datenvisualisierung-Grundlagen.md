@@ -12,7 +12,9 @@ lang: de-DE
 
 Datenvisualisierung ist die grafische Repräsentation von Daten und Informationen.
 
-Dieses Kapitel soll Ihnen einen Überblick zum Thema Datenvisualisierung geben. Da es bereits viele Kurse, Open Educational Ressources (OER) und Anleitungen zum Thema Datenvisualisierung gibt, verlinken wir an dieser Stelle einige von ihnen. 
+Dieses Kapitel möchte Ihnen einen Überblick zum Thema Datenvisualisierung geben. Da es bereits viele Kurse, Open Educational Ressources (OER) und Anleitungen zum Thema Datenvisualisierung gibt, verlinken wir an dieser Stelle einige von ihnen. 
+
+- Im Rahmen von <a href="https://www.quadriga-dk.de/de/" target="_blank">Quadriga</a> wurde in einer OER über Studentische Filme bereits ein <a href="https://quadriga-dk.github.io/Bewegtes-Bild-Fallstudie-2/auswertung/visualisierung.html" target="_blank">Kapitel über Visualisierung</a> kreiert, in das ein Blick auch aus Perspektive der Verwaltung(swissenschaft) lohnt.
 - Das Civid Data Lab hat eine Seite zum Thema <a href="https://civic-data.de/datenlebenszyklus/daten-visualisieren/" target="_blank">Daten visualisieren</a> eingerichtet auf der es ein großes Angebot an nach Kompetenzlevel gestaffelten Kursen, Videos und Webseiten gibt.
 - Das Civic Data Lab hat darüber hinaus einen <a href="https://moodle.gi.de/moodle/" target="_blank">Lernraum</a> geschaffen, in dem es einen Kurs zu <a href="https://moodle.gi.de/moodle/enrol/index.php?id=16" target="_blank">Datenvisualisierung und Storytelling</a> gibt. Der Kurs ist von Nicolas Dankel unter der Lizenz CC BY-SA 4.0 veröffentlich und dauert 3-5 Stunden - je nachdem wie intensiv die Aufgaben angegangen werden.
 - Ebenfalls beim Civic Data Lab gibt es einen <a href="https://civic-data.de/datenvisualisierung-einfuehrung/" target="_blank">Blog-Eintrag</a> zum Thema Datenvisualisierung für alle, die keine 3 Stunden Zeit haben.
@@ -51,62 +53,5 @@ Die Manipulation einer Visualisierung erfolgt daher nicht zwangsweise bewusst.
 
 Wer sich der Manipulationsmöglichkeiten bewusst ist und Visualisierungen kritisch analysiert, läuft weniger Gefahr, Visualisierungen zu missinterpretieren.
 ```
-
-
-## Dashboards
-
-
-<span style="color:green">Nachdem Dr. Amir Weber einiges über Visualisierungen und deren Manipulationsmöglichkeiten erfahren hat, wendet er sich nun Dashboards zu. Er hat erfahren, dass sie eine gute Option sind, wenn mehrere Visualisierungen zu einem Thema übersichtlich präsentiert werden sollen. Was aber können sie für Verwaltungen oder Verwaltungswissenschaften beitragen?</span>
-
-
-**Was ist ein Dashboard**
-
-Ein Dashboard zeigt nicht nur eine, sondern mehrere Visualisierungen zu gleichen oder verwandten Themen. So lässt sich schnell ein Überblick über ein Thema erlangen, das zugleich übersichtlich und geordnet prässsentiert wird. 
-
-Ein weiterer Vorteil ist die Interaktivität von Dashboards. Häufig sind die dort zu sehenden Visualisierungen nicht bloß Abbildungen sondern lassen sich durch das Verändern von Variablen (Kennzahlen oder Regler für Jahreszahlen) interaktiv verwenden und können so anschaulich Entwicklungen darstellen.
-
-Wo eine Visualisierung im Dashboard positioniert wird, kann Einfluss auf ihre (wahrgenommene) Bedeutung haben.
-
-**Welchen Vorteil bieten Dashboards der Verwaltung bzw. der Verwaltungswissenschaft?**
-
-- Monitoring (Übersicht behalten)
-- Service-Gedanke (Übersicht für Bürger:innen)
-
-
-````{admonition} Weiterführende Literatur / zusätzliche Materialien
-:class: seealso
-Ein gelungenes Beispiel für die Verwendung eines Dashboards im kommunalen Kontext ist das <a href="https://verkehr.aachen.de/" target="_blank">Mobilitätsdashboard der Stadt Aachen</a>. Dort finden Anwendende Informationen zu Parkplätzen, Ladestationen, Verkehrslage, Baustellen und vielem mehr.
-
-```{figure} /assets/20250813_MobDashAachen.png
----
-align: left
-width: 100%
-name: Mobilitätsdashboard Aachen
-alt: Übersicht über das Mobilitätsdashboard der Stadt Aachen mit Informationen zur Verkehrslage, Baustellen, Radstationen und weiterem mehr.
----
-Screenshot des Mobilitätsdashoards der Stadt Aachen vom 13.08.2025.
-```
-
-Schauen Sie sich dieses Dashboard in Ruhe an und erkunden Sie die Optionen, die sich in diesem Zusammenhang eröffnen.
-````
-
-
-
-
-<span style="color:red">*Das folgende erklärt eher, warum für unsere Thematik ein Dashboard sinnvoll ist*</span>
-**Warum sollten Verwaltungs-wissenschaftler dieses Dashboard bauen?**
-Für Verwaltungs-wissenschaftler ist das Erstellen und Analysieren von Dashboards wie dem "Gieß-den-Kiez-Dashboard" von entscheidender Bedeutung, um datengestützte Erkenntnisse zu gewinnen und die Effektivität öffentlicher Initiativen zu bewerten
-. In einer zunehmend datengetriebenen Welt ermöglicht Ihnen die Datenkompetenz im Umgang mit solchen Tools, folgende zentrale Fragen zu beantworten und Ihre Forschung sowie praktische Arbeit zu bereichern:
-• Bürgerengagement messen und verstehen: Das Dashboard visualisiert direkt das Engagement der Bürger:innen, indem es die Anzahl gegossener Bäume anzeigt
-. Für die Verwaltungswissenschaft ist dies relevant, um das Ausmaß und die Verteilung von Bürgerbeteiligung an städtischen Umweltprogrammen zu analysieren.
-• Ressourcenmanagement und Nachhaltigkeit: Die Anzeige des verwendeten Wasservolumens ermöglicht es, den Ressourcenverbrauch im Kontext von Stadtbegrünungsinitiativen zu überwachen
-. Dies ist entscheidend für die Bewertung von Nachhaltigkeitsstrategien und die Optimierung des Einsatzes öffentlicher oder privater Ressourcen.
-• Politikbewertung und Wirkungsanalyse: Durch die Möglichkeit, Daten nach Jahr und Bezirk zu filtern, können Sie die Auswirkungen spezifischer Politikmaßnahmen oder Kampagnen über die Zeit und in verschiedenen geografischen Gebieten verfolgen
-. Dies unterstützt die empirische Politikforschung und die Evaluierung von Programmen.
-• Transparenz und Kommunikation: Dashboards bieten eine klare, zugängliche Darstellung komplexer Daten
-. Dies ist für die Kommunikation von Forschungsergebnissen an Entscheidungsträger, die Öffentlichkeit oder andere Stakeholder unerlässlich und fördert die Transparenz administrativer Prozesse.
-• Identifizierung von Handlungsbedarfen: Durch die Visualisierung von Kennzahlen können Sie schnell erkennen, in welchen Bereichen oder Zeiträumen besonderer Handlungsbedarf besteht oder wo Initiativen erfolgreich sind.
-Kurz gesagt: Ein Dashboard verwandelt Rohdaten in umsetzbare Informationen, die für die evidenzbasierte Gestaltung und Bewertung von Verwaltungshandeln unverzichtbar sind.
-
 
 
