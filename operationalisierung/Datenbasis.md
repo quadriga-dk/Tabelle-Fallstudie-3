@@ -5,15 +5,24 @@ lang: de-DE
 (datenbasis)=
 # Datenbasis
 
-Im Rahmen dieser Fallstudie beschäftigen wir uns unter anderem mit der Datenvisualisierung in R Shiny. Dabei nutzen wir drei zentrale Datensätze: Zum einen die Bewässerungsdaten des Projekts <a href="https://citylab-berlin.org/en/projects/giessdenkiez/" class="external-link" target="_blank">Gieß den Kiez</a>, die wir ergänzen, um fehlende Baumdaten auszugleichen. Ergänzend verwenden wir den Berliner Baumbestand sowie Informationen zu öffentlichen Wasserpumpen, um die Visualisierungsergebnisse besser einordnen und vergleichend darstellen zu können. Diese Datengrundlage ermöglicht eine fundierte Analyse der urbanen Bewässerungsinfrastruktur in Berlin.
+<span style="color:green">Amir Weber macht sich Gedanken, welche Daten er braucht und woher er sie beziehen kann... Dabei fällt ihm das Berliner Projekt Gieß den Kiez ein, dass diese Daten bereits erhebt und zur Verfügung stellt. Er prüft zudem, welche Daten noch von Interesse sind und woher er sie beziehen kann.</span>
 
-Amir  
-*Amir macht sich Gedanken, welche Daten er braucht und woher er sie beziehen kann... Dabei fällt ihm das Berliner Projekt Gieß den Kiez ein, dass diese Daten bereits erhebt und zur Verfügung stellt...*
+
+In diesem Kapitel stellen wir Ihnen die Daten vor, die wir für unser Szenario benötigen und warum sie von Interesse sind.
+
+Die Daten werden für die Datenvisualisierung in RShiny benötigt. Dazu brauchen wir drei zentrale Datensätze: 
+- Daten über den Berliner Baumbestand
+- Bewässerungsdaten des Projekts <a href="https://citylab-berlin.org/en/projects/giessdenkiez/" class="external-link" target="_blank">Gieß den Kiez</a>
+- Informationen zu öffentlichen Wasserpumpen, um zu prüfen, ob diese mit dem Bewässerungsverhalten in Verbindung stehen 
+
+Diese Datengrundlage ermöglicht eine fundierte Analyse der urbanen Bewässerungsinfrastruktur in Berlin.
+ 
+
 
 ## Gieß den Kiez – Bewässerungsdaten (Govdata)
 
-Die Datenplattform <a href="https://www.govdata.de/suche/daten/giess-den-kiez-nutzungsdaten" class="external-link" target="_blank">Gieß den Kiez</a> dokumentiert die freiwillige Bewässerung städtischer Bäume durch Bürger:innen. Der Datensatz enthält Informationen über einzelne Bewässerungsvorgänge.
-Jeder Eintrag ist einem bestimmten Baum zugeordnet (zu erkennen durch die ID) und umfasst unter anderem:
+Die Datenplattform "Gieß den Kiez" dokumentiert die freiwillige Bewässerung städtischer Bäume durch Bürger:innen. Wir beziehen die Bewässerungsdaten über das Portal <a href="https://www.govdata.de/suche/daten/giess-den-kiez-nutzungsdaten" class="external-link" target="_blank">GovData</a>. Der Datensatz enthält Informationen über einzelne Bewässerungsvorgänge.
+Jeder Eintrag ist einem bestimmten Baum zugeordnet (zu erkennen an der ID) und umfasst unter anderem:
 
 - Geokoordinaten (Längengrad: ``lng``, Breitengrad: ``lat``)
 - Baumart: ``art_dtsch`` und Gattung: ``gattung_deutsch``
