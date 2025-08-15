@@ -27,7 +27,8 @@ In diesem Kapitel erlangen Sie theoretisches Wissen zum Thema Datenvisualisierun
 ```{admonition} Lernziel: Methoden und Werkzeuge der Datenvisualisierung
 :class: lernziele
 
-1. Spezielle Methoden und Werkzeuge der Datenvisualisierung können unterschieden werden.
+1. Grundsätze der Datenvisualisierung sind bekannt.
+2. *Auf die Manipulierbarkeit von Visualisierungen wird eingegangen.*
 ```
 
 Zuerst gehen wir auf Grundlagen zu den Themen Datenvisualisierung, Haltung und Dashboards ein. Danach zeigen wir in einem Vergleich auf, welche verschiedenen Wege der Datenvisualisierung es gibt und zum Schluss bereiten wir eine Umsetzung mit dem Programm RShiny vor.
