@@ -1,4 +1,13 @@
-# Vergleich
+---
+lang: de-DE
+---
+
+(vergleich)=
+# Vergleich von Visualisierungstools
+
+
+<span style="color:green">Nachdem Amir Weber sich über die Grundlagen der Visualisierung und das Bauen von Dashboards informiert hat, fragt er sich, welches Tool er zum Bauen eines Dashboards verwenden soll. Dazu sieht er sich mehrere Optionen an.</span>
+
 
 **Weshalb ist ein Vergleich zwischen anderen Visualisierungswerkzeugen sinnvoll ist**
 

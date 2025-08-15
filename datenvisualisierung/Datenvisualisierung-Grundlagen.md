@@ -3,11 +3,18 @@ lang: de-DE
 ---
 
 (datenvisualisierung-methoden-werkzeuge)=
-# Datenvisualisierung - Methoden und Werkzeuge
+# Grundlagen der Datenvisualisierung
+
+<span style="color:green">Amir Weber möchte Daten zu Bäumen, zum Gießverhalten und einige weitere ansprechend visualisieren. Wie lässt sich das umsetzen? Zuerst braucht er Grundkenntnisse in Bezug auf das Visualisieren von Daten.</span>
+
+
+## Grundlagen
 
 Datenvisualisierung ist die grafische Repräsentation von Daten und Informationen.
 
-Dieses Kapitel soll Ihnen einen Überblick zum Thema Datenvisualisierung geben. Da es bereits viele Kurse, Open Educational Ressources (OER) und Anleitungen zum Thema Datenvisualisierung gibt, verlinken wir an dieser Stelle einige von ihnen. 
+Dieses Kapitel möchte Ihnen einen Überblick zum Thema Datenvisualisierung geben. Da es bereits viele Kurse, Open Educational Ressources (OER) und Anleitungen zum Thema Datenvisualisierung gibt, verlinken wir an dieser Stelle einige von ihnen. 
+
+- Im Rahmen von <a href="https://www.quadriga-dk.de/de/" target="_blank">Quadriga</a> wurde in einer OER über Studentische Filme bereits ein <a href="https://quadriga-dk.github.io/Bewegtes-Bild-Fallstudie-2/auswertung/visualisierung.html" target="_blank">Kapitel über Visualisierung</a> kreiert, in das ein Blick auch aus Perspektive der Verwaltung(swissenschaft) lohnt.
 - Das Civid Data Lab hat eine Seite zum Thema <a href="https://civic-data.de/datenlebenszyklus/daten-visualisieren/" target="_blank">Daten visualisieren</a> eingerichtet auf der es ein großes Angebot an nach Kompetenzlevel gestaffelten Kursen, Videos und Webseiten gibt.
 - Das Civic Data Lab hat darüber hinaus einen <a href="https://moodle.gi.de/moodle/" target="_blank">Lernraum</a> geschaffen, in dem es einen Kurs zu <a href="https://moodle.gi.de/moodle/enrol/index.php?id=16" target="_blank">Datenvisualisierung und Storytelling</a> gibt. Der Kurs ist von Nicolas Dankel unter der Lizenz CC BY-SA 4.0 veröffentlich und dauert 3-5 Stunden - je nachdem wie intensiv die Aufgaben angegangen werden.
 - Ebenfalls beim Civic Data Lab gibt es einen <a href="https://civic-data.de/datenvisualisierung-einfuehrung/" target="_blank">Blog-Eintrag</a> zum Thema Datenvisualisierung für alle, die keine 3 Stunden Zeit haben.
@@ -15,37 +22,36 @@ Dieses Kapitel soll Ihnen einen Überblick zum Thema Datenvisualisierung geben. 
 
 Eher für Fortgeschrittene ist ein <a href="https://www.skala-campus.org/artikel/tipps-daten-visualisieren-excel/" target="_blank">Blog-Beitrag</a> mit dem Titel "Daten visualisieren (III): Datenvisualisierungs-Tools im Überblick" auf der Lernplattform Skala Campus von Nina Hauser. Die ersten beiden Teile sind dort selbstverständlich auch abrufbar.
 
-## Datenvisualisierung
 
-Was braucht es für eine gelungene Datenvisualisierung?
-Verweis auf bestehende OER/Kurse: 
 
-**Fokus Haltung**
-- zielgerichteter und nicht-manipulativer Einsatz von Visualisierung (Warum ist das wichtig? Weil Visualisierungen immer ein Abstraktionsgrad sind, weil sie mehr Publikum erreichen, als die „puren“ Daten, die oft nicht einfach zu verstehen sind für Laien)
+## Methoden und Werkzeuge
 
+*Was braucht es für eine gelungene Datenvisualisierung?*
+
+
+## Haltung
+
+Haltung wird oft als einer von drei Teilen genannt, wenn es um Kompetenzbildung geht (*LitV: Schüller o.ä.*). Das bedeutet eine kritische Perspektive einnehmen - nicht nur bei der Nutzung der Daten anderer, sondern auch bei der Erstellung, Analyse, Auswertung und Publikation eigener Forschungsergebnisse bzw. Daten. Dies gilt insbesondere für Visualisierungen, da sie in der Regel bereits eine vereinfachte Darstellung eines komplexen Sachverhaltes sind, einen Abstraktionsgrad aufweisen und den Blick der Nutzenden auch un- bzw. unterbewusst bereits in eine bestimmte Richtung lenken können (Einsatz von Farben etc.). 
+
+Im Gegensatz zu einer Tabelle sind Visualisierungen übersichtlicher, das (Forschungs-)Ergebnis ist auf Hauptthesen herunter gebrochen und ansprechend dargestellt. In dieser Abstraktion liegt die Gefahr von Missinterpretationen ... Die Gefahr besteht sowohl im Entwerfen eigener Grafiken, als auch in der fälschlichen Wahrnehmung der Grafiken anderer.
+
+
+```{admonition} zusätzliche Materialien
+:class: seealso
 Das Civic Data Lab hat eine <a href="https://civic-data.de/app/uploads/Checkliste-Datenvisualisierung.pdf" target="_blank">Checkliste</a> veröffentlicht, die dabei helfen kann, Visualisierungen kritisch zu lesen. Im Fokus steht dabei, woher die Daten kommen und wie sie grafisch dargestellt werden. <span style="color:red">Diese Checkliste können Sie auch aus unserem Repositorium herunterladen</span> 
+```
 
-## Dashboards
 
-Ein Dashboard zeigt nicht nur eine, sondern mehrere Visualisierungen zu gleichen oder verwandten Themen.
+```{admonition} Was Sie mitnehmen sollten
+:class: keypoint
 
-- sinnvoll fürs Monitoring (was in Verwaltung wichtig ist)
+Visualisierungen sind immer eine vereinfachte Darstellung eines Sachverhalts.
 
-nehmen im Verwaltungskontext zu (s. Aachen)
+Die Gestaltung der Visualisierung (Verwendung bestimmter Farben, Anordnung einzelner Aspekte etc.) hat bereits Einfluss darauf, wie sie von anderen wahrgenommen wird.
 
-Warum sollten Verwaltungs-wissenschaftler dieses Dashboard bauen?
-Für Verwaltungs-wissenschaftler ist das Erstellen und Analysieren von Dashboards wie dem "Gieß-den-Kiez-Dashboard" von entscheidender Bedeutung, um datengestützte Erkenntnisse zu gewinnen und die Effektivität öffentlicher Initiativen zu bewerten
-. In einer zunehmend datengetriebenen Welt ermöglicht Ihnen die Datenkompetenz im Umgang mit solchen Tools, folgende zentrale Fragen zu beantworten und Ihre Forschung sowie praktische Arbeit zu bereichern:
-• Bürgerengagement messen und verstehen: Das Dashboard visualisiert direkt das Engagement der Bürger:innen, indem es die Anzahl gegossener Bäume anzeigt
-. Für die Verwaltungswissenschaft ist dies relevant, um das Ausmaß und die Verteilung von Bürgerbeteiligung an städtischen Umweltprogrammen zu analysieren.
-• Ressourcenmanagement und Nachhaltigkeit: Die Anzeige des verwendeten Wasservolumens ermöglicht es, den Ressourcenverbrauch im Kontext von Stadtbegrünungsinitiativen zu überwachen
-. Dies ist entscheidend für die Bewertung von Nachhaltigkeitsstrategien und die Optimierung des Einsatzes öffentlicher oder privater Ressourcen.
-• Politikbewertung und Wirkungsanalyse: Durch die Möglichkeit, Daten nach Jahr und Bezirk zu filtern, können Sie die Auswirkungen spezifischer Politikmaßnahmen oder Kampagnen über die Zeit und in verschiedenen geografischen Gebieten verfolgen
-. Dies unterstützt die empirische Politikforschung und die Evaluierung von Programmen.
-• Transparenz und Kommunikation: Dashboards bieten eine klare, zugängliche Darstellung komplexer Daten
-. Dies ist für die Kommunikation von Forschungsergebnissen an Entscheidungsträger, die Öffentlichkeit oder andere Stakeholder unerlässlich und fördert die Transparenz administrativer Prozesse.
-• Identifizierung von Handlungsbedarfen: Durch die Visualisierung von Kennzahlen können Sie schnell erkennen, in welchen Bereichen oder Zeiträumen besonderer Handlungsbedarf besteht oder wo Initiativen erfolgreich sind.
-Kurz gesagt: Ein Dashboard verwandelt Rohdaten in umsetzbare Informationen, die für die evidenzbasierte Gestaltung und Bewertung von Verwaltungshandeln unverzichtbar sind.
+Die Manipulation einer Visualisierung erfolgt daher nicht zwangsweise bewusst. 
 
+Wer sich der Manipulationsmöglichkeiten bewusst ist und Visualisierungen kritisch analysiert, läuft weniger Gefahr, Visualisierungen zu missinterpretieren.
+```
 
 

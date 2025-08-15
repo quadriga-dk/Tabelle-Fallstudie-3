@@ -43,3 +43,8 @@ Ein möglicher Einflussfaktor: Die Erhebung differenziert nicht zwischen Straße
 **Zur Pumpendichte**
 Die Pumpendichte ist eine Datengrundlage, die weiterer Untersuchung bedarf. Die Anzahl der Pumpen pro Bezirk kann am Alter des Bezirks bzw. der Stadtteile liegen, da davon auszugehen ist, dass das Aufstellen öffentlicher Pumpen in der zweiten Hälfte des 20. Jahrhunderts stark abgenommen hat. Möglicherweise wurden vorhandene Pumpen in bestimmten Bezirken eher vom Netz genommen bzw. nicht mehr repariert und abgebaut.
 Von der Pumpendicht lässt sich nicht auf eine Bewässerung schließen, aber sie kann das Gießen unterstützen und vereinfachen.
+
+**Refektion**
+
+- Nächste Schritte, die man mit Dashboards machen könnte (Tragen Büger:innen Daten überhaupt bei, Usability Tests etc.) - Für Bürgerengagement müsste Schnittstelle vorhanden sein, bei der Bürger:innen ihre Nutzungsdaten einpflegen können
+

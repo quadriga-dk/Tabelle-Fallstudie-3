@@ -2,8 +2,9 @@
 lang: de-DE
 ---
 
-(dashboard)=
-# Ein Dashboard bauen
+(datenvisualisierung)=
+# Datenvisualierung
+
 
 ````{margin}
 ```{admonition} Fragen oder Feedback 
@@ -20,25 +21,26 @@ Mit Ihren Rückmeldungen können wir unser interaktives Lehrbuch gezielt an Ihre
 ```
 ````
 
+In diesem Kapitel erlangen Sie theoretisches Wissen zum Thema Datenvisualisierung.
 
-```{admonition} Aufbau eines Dashboards als Form der Visualisierung in der Verwaltung(swissenschaft)
+
+```{admonition} Lernziel: Methoden und Werkzeuge der Datenvisualisierung
 :class: lernziele
 
-1. Der Aufbau und die Gliederung eines Dashboards können erklärt werden.
-2. Ein Dashboard kann mit R Shiny entworfen werden.
+1. Grundsätze der Datenvisualisierung sind bekannt.
+2. *Auf die Manipulierbarkeit von Visualisierungen wird eingegangen.*
 ```
 
-In diesem Kapitel werden Sie durch den Aufbau eines Dashboards geführt. Je nach Vorkenntnissen und gewählter [Ausführungsmethode](technische_voraussetzungen) kann die Bearbeitungszeit variieren.
+Zuerst gehen wir auf Grundlagen zu den Themen Datenvisualisierung, Haltung und Dashboards ein. Danach zeigen wir in einem Vergleich auf, welche verschiedenen Wege der Datenvisualisierung es gibt und zum Schluss bereiten wir eine Umsetzung mit dem Programm RShiny vor.
 
 In diesem Kapitel finden Sie folgende Abschnitte:
-- [Vorbereitung](vorbereitung)
-- [Startseite Dashboard](landing-page)
-- [Einfügen Karte](map)
-- [Einfügen Baumstatistik](trees)
-- [Einfügen Bewässerungsanalyse](watering)
-- [Einfügen Infrastruktur](infrastruktur)
+- [Grundlagen der Datenvisualisierung](datenvisualisierung-methoden-werkzeuge)
+- [Vergleich von Visualisierungstools](vergleich)
+- [Vorbereitung der Daten](umsetzung)
 
-Wie im Abschnitt (Visualisierung?) dargelegt wurde, sind Dashboards eine gute Möglichkeit, Daten aus der Verwaltung nutzer:innenfreundlich aufzubereiten und zu visualisieren. In diesem Kapitel wird Ihnen das Bauen eines Dashboards mittels RShiny nahe gebracht. 
+
+Wir befinden uns damit im theoretischen Teil dieser Fallstudie. Nachdem wir ein Szenario skizziert haben, müssen wir uns nun die Grundlagen aneignen, bevor wir uns dem praktischen Teil widmen können.
+
 +++
 *Wir befinden uns hier:*
 ![Aufgabe 3](/assets/Aufgabenstruktur-03.png)
@@ -46,8 +48,7 @@ Wie im Abschnitt (Visualisierung?) dargelegt wurde, sind Dashboards eine gute M�
 <span style="color:red">*Bild einfügen von Verortung in Fallstudien-Struktur*</span>
 
 
-Dabei werden Sie Schritt für Schritt bzw. Abschnitt für Abschnitt durch den Prozess des Aufbaus eines Dashboards geleitet. Zuerst werden Ihnen vorbereitende Maßnahmen aufgezeigt, dann die Grundstruktur des Dashboards erstellt, eine Karte eingefügt und schließlich weitere Daten und Visualisierungen eingepflegt.
-
+*some more text*
 
 ```{admonition} Bearbeitungszeit
 :class: zeitinfo
@@ -57,3 +58,4 @@ Die geschätzte Bearbeitungsdauer **inklusive** der einzelnen Übungsaufgaben be
 
 Bitte beachten Sie: Die tatsächliche Bearbeitungsdauer kann je nach Ihren Vorkenntnissen unterschiedlich ausfallen. Die angegebene Zeitangabe dient lediglich als Orientierungshilfe.
 ``` 
+
