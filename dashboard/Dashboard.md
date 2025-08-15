@@ -25,7 +25,7 @@ Mit Ihren Rückmeldungen können wir unser interaktives Lehrbuch gezielt an Ihre
 :class: lernziele
 
 1. Der Aufbau und die Gliederung eines Dashboards können erklärt werden.
-2. Die Grundstrukturen des Baus eines Dashboards mittels RShiny können beschrieben werden.
+2. Ein Dashboard kann mit R Shiny entworfen werden.
 ```
 
 In diesem Kapitel werden Sie durch den Aufbau eines Dashboards geführt. Je nach Vorkenntnissen und gewählter [Ausführungsmethode](technische_voraussetzungen) kann die Bearbeitungszeit variieren.
