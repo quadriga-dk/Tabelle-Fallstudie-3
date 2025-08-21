@@ -331,3 +331,177 @@ ggraph(g4, layout = coords) +
     legend.position = "bottom",
     legend.title = element_blank()
   )
+
+
+# --- Nodes ---
+nodes5 <- tibble(
+  name = c(
+    "pumpen_minimal.geojson",
+    "df_merged_sum.csv",
+    "pumpen_ok",
+    "trees_sf (WGS84)",
+    "trees_proj (UTM33)",
+    "pumpen_proj (UTM33)",
+    "trees+distanz.csv",
+    "trees+buffer.csv"
+  ),
+  label = c(
+    "Pumpen minimal",
+    "Bäume Sum",
+    "Pumpen OK",
+    "Trees sf",
+    "Trees proj",
+    "Pumpen proj",
+    "Trees+Distanz",
+    "Trees+Buffer"
+  ),
+  type = c(
+    "GeoJSON", "CSV", "Intermediate", "Intermediate",
+    "Intermediate", "Intermediate", "Output", "Output"
+  )
+)
+
+# --- Edges ---
+edges5 <- tibble(
+  from = c(
+    "pumpen_minimal.geojson",
+    "df_merged_sum.csv",
+    "pumpen_ok",
+    "trees_sf (WGS84)",
+    "trees_proj (UTM33)",
+    "pumpen_proj (UTM33)",
+    "trees+distanz.csv"
+  ),
+  to = c(
+    "pumpen_ok",
+    "trees_sf (WGS84)",
+    "pumpen_proj (UTM33)",
+    "trees_proj (UTM33)",
+    "trees+distanz.csv",
+    "trees+distanz.csv",
+    "trees+buffer.csv"
+  ),
+  connection = c(
+    "filter(status=='ok')",
+    "st_as_sf()",
+    "st_transform(32633)",
+    "st_transform(32633)",
+    "st_nn() -> distanz",
+    "st_nn() -> distanz",
+    "st_buffer(100m) + st_intersects()"
+  )
+)
+
+# --- Graph ---
+g5 <- graph_from_data_frame(d = edges5, vertices = nodes5, directed = TRUE)
+
+coords5 <- layout_with_fr(g5) * 0.5
+
+ggraph(g5, layout = coords5) +
+  geom_edge_link(aes(label = connection),
+                 arrow = arrow(length = unit(6, 'mm'), type = "closed"),
+                 end_cap = circle(8, 'mm'),
+                 start_cap = circle(8, 'mm'),
+                 label_size = 3.2,
+                 fontface = "italic",
+                 angle_calc = "along",
+                 label_dodge = unit(2.5, 'mm'),
+                 label_colour = "grey20") +
+  geom_node_point(aes(color = type), size = 12) +
+  geom_node_text(aes(label = label),
+                 fontface = "bold",
+                 size = 4,
+                 color = "black") +
+  scale_color_manual(values = c(
+    "GeoJSON" = "lightblue",
+    "CSV" = "lightgreen",
+    "Intermediate" = "orange",
+    "Output" = "tomato"
+  )) +
+  theme_void() +
+  theme(
+    legend.position = "bottom",
+    legend.title = element_blank()
+  )
+
+
+# --- Nodes ---
+nodes6 <- tibble(
+  name = c(
+    "lor_wfs",
+    "trees_csv_in",
+    "trees_sf",
+    "trees_with_lor",
+    "trees_with_lor.geojson",
+    "trees_with_lor.csv"
+  ),
+  label = c(
+    "LOR WFS",
+    "Trees CSV",
+    "Trees sf",
+    "Trees+LOR",
+    "Trees LOR GeoJSON",
+    "Trees LOR CSV"
+  ),
+  type = c(
+    "GeoJSON", "CSV", "Intermediate", "Intermediate", "Output", "Output"
+  )
+)
+
+# --- Edges ---
+edges6 <- tibble(
+  from = c(
+    "lor_wfs",
+    "trees_csv_in",
+    "trees_sf",
+    "trees_with_lor",
+    "trees_with_lor"
+  ),
+  to = c(
+    "trees_sf",
+    "trees_sf",
+    "trees_with_lor",
+    "trees_with_lor.geojson",
+    "trees_with_lor.csv"
+  ),
+  connection = c(
+    "st_transform(4326)",
+    "clean coords -> st_as_sf()",
+    "st_join(lor, st_within)",
+    "st_write()",
+    "write.csv2()"
+  )
+)
+
+# --- Graph ---
+g6 <- graph_from_data_frame(d = edges6, vertices = nodes6, directed = TRUE)
+
+coords6 <- layout_with_fr(g6) * 0.6
+
+ggraph(g6, layout = coords6) +
+  geom_edge_link(aes(label = connection),
+                 arrow = arrow(length = unit(6, 'mm'), type = "closed"),
+                 end_cap = circle(8, 'mm'),
+                 start_cap = circle(8, 'mm'),
+                 label_size = 3.2,
+                 fontface = "italic",
+                 angle_calc = "along",
+                 label_dodge = unit(2.5, 'mm'),
+                 label_colour = "grey20") +
+  geom_node_point(aes(color = type), size = 12) +
+  geom_node_text(aes(label = label),
+                 fontface = "bold",
+                 size = 4,
+                 color = "black") +
+  scale_color_manual(values = c(
+    "GeoJSON" = "lightblue",
+    "CSV" = "lightgreen",
+    "Intermediate" = "orange",
+    "Output" = "tomato"
+  )) +
+  theme_void() +
+  theme(
+    legend.position = "bottom",
+    legend.title = element_blank()
+  )
+
