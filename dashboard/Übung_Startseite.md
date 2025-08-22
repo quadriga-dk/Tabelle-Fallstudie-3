@@ -205,7 +205,7 @@ Diese Struktur nennt man **Bedingung**. Sie steuert den Ablauf des Codes abhäng
 - ``<-``: weist einer Variable einen Wert zu (z. B. ``x <- 3``).
 - ``|`` = ODER, ``&`` = UND
 
-## Dynamische Anzeige: total_trees oder total_tree_watered
+### Dynamische Anzeige: total_trees oder total_tree_watered
 
 ```bash
 output$dynamic_tree_box <- renderUI({
@@ -230,7 +230,7 @@ output$dynamic_tree_box <- renderUI({
 Wird nur „2020–2024“ ausgewählt, zeigt dynamic_tree_box nur gegossene Bäume an.
 ```
 
-## ValueBoxes im Server
+### ValueBoxes im Server
 
 Alle Bäume
 
@@ -279,7 +279,7 @@ output$avg_water <- renderValueBox({
 - ``mean(...)``: berechnet den Durchschnitt.
 - ``na.rm = TRUE``: ignoriert fehlende Werte (NA = "Not Available").
 
-## Einheiten clever umrechnen
+### Einheiten clever umrechnen
 
 ```bash
 convert_units <- function(liters) {
