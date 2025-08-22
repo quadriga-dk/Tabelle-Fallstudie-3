@@ -502,7 +502,7 @@ server <- function(input, output, session) {
 ```
 </details>
 
-## **Was muss Amir beim Bau eines Dashboards beachten?** *(vorläufig)* 
+## Was muss Amir beim Bau eines Dashboards beachten? *(vorläufig)* 
 Bei der Gestaltung der Startseite sollte Amir darauf achten, dass die wichtigsten Informationen klar, gut lesbar und ohne unnötige Ablenkungen präsentiert werden. Besonders für einen ersten Überblick gilt: Weniger ist oft mehr.
 
 Für die Startseite heißt das vor allem:
@@ -519,7 +519,7 @@ Für die Startseite heißt das vor allem:
 
 *Diese Punkte bilden den Rahmen – nach weiterer Recherche lassen sich hier noch Best Practices und konkrete Gestaltungsrichtlinien ergänzen.*
 
-## **Leitfrage und Ausblick**
+## Leitfrage und Ausblick
 
 Die zentrale Leitfrage von Amirs Fallstudie lautet: **Wo ist das höchste Bürgerengagement?**
 
