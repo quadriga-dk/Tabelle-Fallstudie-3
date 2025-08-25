@@ -5,8 +5,12 @@ lang: de-DE
 (datenvisualisierung-methoden-werkzeuge)=
 # Grundlagen der Datenvisualisierung
 
-<span style="color:green">Amir Weber möchte Daten zu Bäumen, zum Gießverhalten und einige weitere ansprechend visualisieren. Wie lässt sich das umsetzen? Zuerst braucht er Grundkenntnisse in Bezug auf das Visualisieren von Daten.</span>
+Dieses Kapitel gibt einen grundsätzlichen Überblick zum Thema Datenvisualisierung. ...  
 
+```{admonition} Story
+:class: story
+Amir Weber möchte Daten zu Bäumen, zum Gießverhalten und einige weitere ansprechend visualisieren. Wie lässt sich das umsetzen? Zuerst braucht er Grundkenntnisse in Bezug auf das Visualisieren von Daten.
+```
 
 ## Grundlagen
 

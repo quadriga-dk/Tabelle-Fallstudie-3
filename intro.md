@@ -37,15 +37,19 @@ Diese Fallstudie bildet mit Hilfe eines <a href="https://jupyterbook.org/en/stab
 
 Statt einer zentralen Forschungsfrage wird folgendes Szenario skizziert: 
 
+```{admonition} Story
+:class: story
+Geschichten, Fallstudien oder narrative Beispiele werden mit diesem Admonition-Typ gekennzeichnet.
 Dr. Amir Weber, ein Verwaltungswissenschaftler mit Interesse an kommunalen Daten und Bürgerbeteiligung, möchte ein Dashboard zur Visualisierung der Baumartenvielfalt und dem Bewässerungsverhalten erstellen, das auf offenen Datensätzen basiert. In der 2. Fallstudie (*Link zu Fallstudie 2*) hat er dazu bereits nach passenden Datensätzen gesucht. Nun möchte er er sich die Daten explorativ anschauen und Dashboards zur Visualisierung dieser Daten gestaltet, um die Datensätze für  Bürger:innen und Politik verständlich darzustellen. Hier soll das Ausmaß und die Verteilung der Bürgerbeteiligung sichtbar gemacht werden. 
 Dabei orientiert er sich an folgenden Leitfragen: 
+```
 
 ## Fokus
 
 Leitfragen: 
-–	Wo zeigen sich die höchsten Ausprägungen des Bürgerengagements bei der Bewässerung städtischer Bäume in Berlin?
-–	Welche Rolle spielen räumliche (Bezirk, Baumdichte), zeitliche (Pflanzjahr, Jahresverlauf) und infrastrukturelle (Pumpendichte) Faktoren für das Engagement?
-–	Wie können interaktive Dashboards zur Visualisierung dieser Daten gestaltet werden, um versch. Datensätze einzubeziehen und verständlich darzustellen?
+- Wo zeigen sich die höchsten Ausprägungen des Bürgerengagements bei der Bewässerung städtischer Bäume in Berlin?
+- Welche Rolle spielen räumliche (Bezirk, Baumdichte), zeitliche (Pflanzjahr, Jahresverlauf) und infrastrukturelle (Pumpendichte) Faktoren für das Engagement?
+- Wie können interaktive Dashboards zur Visualisierung dieser Daten gestaltet werden, um versch. Datensätze einzubeziehen und verständlich darzustellen?
 
 
 ## Bedeutung dieses Lehrbuchs für die Verwaltungswissenschaft

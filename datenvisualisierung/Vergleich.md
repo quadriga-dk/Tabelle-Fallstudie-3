@@ -6,7 +6,10 @@ lang: de-DE
 # Vergleich von Visualisierungstools
 
 
-<span style="color:green">Nachdem Amir Weber sich über die Grundlagen der Visualisierung und das Bauen von Dashboards informiert hat, fragt er sich, welches Tool er zum Bauen eines Dashboards verwenden soll. Dazu sieht er sich mehrere Optionen an.</span>
+```{admonition} Story
+:class: story
+Nachdem Amir Weber sich über die Grundlagen der Visualisierung und das Bauen von Dashboards informiert hat, fragt er sich, welches Tool er zum Bauen eines Dashboards verwenden soll. Dazu sieht er sich mehrere Optionen an.
+```
 
 
 **Weshalb ist ein Vergleich zwischen anderen Visualisierungswerkzeugen sinnvoll ist**

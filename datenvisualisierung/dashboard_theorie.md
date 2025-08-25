@@ -5,9 +5,12 @@ lang: de-DE
 (dashboard_theorie)=
 # Dashboards
 
+Im vorherigen Unterkapitel haben Sie einen Überblick über grundsätzliche Aspekte zum Thema Datenvisualisierung erhalten. Dieses Unterkapitel widmet sich dem Thema Dashboards, eines besonderen Art der Visualisierung.
 
-<span style="color:green">Nachdem Dr. Amir Weber einiges über Visualisierungen und deren Manipulationsmöglichkeiten erfahren hat, wendet er sich nun Dashboards zu. Er hat erfahren, dass sie eine gute Option sind, wenn mehrere Visualisierungen zu einem Thema übersichtlich präsentiert werden sollen. Was aber können sie für Verwaltungen oder Verwaltungswissenschaften beitragen?</span>
-
+```{admonition} Story
+:class: story
+Nachdem Dr. Amir Weber einiges über Visualisierungen und deren Manipulationsmöglichkeiten erfahren hat, wendet er sich nun Dashboards zu. Er hat erfahren, dass sie eine gute Option sind, wenn mehrere Visualisierungen zu einem Thema übersichtlich präsentiert werden sollen. Was aber können sie für Verwaltungen oder Verwaltungswissenschaften beitragen?
+```
 
 **Was ist ein Dashboard**
 
