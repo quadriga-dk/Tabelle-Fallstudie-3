@@ -17,12 +17,12 @@ Entlang dieser beiden Fragen kommen wir zur folgenden Operationalisierung:
 
 `````{admonition} Operationalisierung
 :class: hinweis
-Als Engagement der Berliner:innen sollen in unserer Fallstudie die Bewässerungsdaten des Projektes "Gieß den Kiez" gelten. Wir messen das Gießverhalten, indem wir ermitteln, in welchem Berliner Bezirk Bäume am häufigsten gegossen werden. Ein besonders hohes Engagement läge demnach dann vor, wenn wir in einzelnen Bezirken ein vermehrtes Gießverhalten feststellen können. 
+Als Engagement der Berliner:innen sollen in unserer Fallstudie die Bewässerungsdaten des Projektes "Gieß den Kiez" gelten (siehe das folgende Unterkapitel [2.3 Datenbasis](datenbasis)). Wir messen das Gießverhalten, indem wir ermitteln, in welchem Berliner Bezirk Bäume am häufigsten gegossen werden. Ein besonders hohes Engagement läge demnach dann vor, wenn wir in einzelnen Bezirken ein vermehrtes Gießverhalten feststellen können. 
 `````
 
-Diese Operationalisierung ist wie jede wissenschaftliche Operationalisierung diskutabel. ~~Sie folgt dabei einem quantitativen Methodenparadigma. Und sie wählt mit der Worthäufigkeit einen einfachen Indikator für das zu messende Phänomen. Die Operationalisierung wird zudem weitere Einschränkungen erfahren müssen, etwa was das Korpus der Analysen betrifft, das mit der Formulierung "Texte in Berliner Tageszeitungen" derzeit sowohl zu unscharf angegeben ist als auch viel zu groß wäre.~~ 
+Diese Operationalisierung ist wie jede wissenschaftliche Operationalisierung diskutabel. Wir wenden in dieser Fallstudie ein **Exploratives Vorgehen** an. Das heißt wir suchen in den Datensätzen und in den Visualisierungen nach auftretenden Strukturen, Zusammenhängen oder Besonderheiten.
 
-Die Reflektion der Grenzen und Beschränkungen, die mit der eigenen Operationalisierung einhergehen, ist essentieller Bestandteil von Digital Humanities-Projekten. Wir werden in der abschließenden [Reflexion](reflexion) darauf zurückkommen. 
+Die Reflexion der Grenzen und Beschränkungen, die mit der eigenen Operationalisierung einhergehen, ist ebenfalls Bestandteil dieser Fallstudie. Wir werden in der abschließenden [Reflexion](reflexion) darauf zurückkommen. 
 
 ## Bibliographie
 ```{bibliography}
