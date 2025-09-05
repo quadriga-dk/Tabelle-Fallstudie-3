@@ -4,17 +4,16 @@ lang: de-DE
 
 (landing-page)=
 # Eine Startseite für das Dashboard gestalten
-
-```{admonition} Aufbau eines Dashboards als Form der Visualisierung in der Verwaltung(swissenschaft)
-:class: lernziele
-
-- eine übersichtliche Startseite für ein R-Shiny-Dashboard gestalten, die zentrale Informationen klar strukturiert darstellt, den Nutzer:innen einen schnellen Überblick verschafft und als intuitiver Einstiegspunkt in die Anwendung dient
-
-```
-
 ```{admonition} Story
 :class: story
 Amir möchte sich zunächst einen schnellen Überblick verschaffen: Wie werden Bäume in Berlin gegossen, und wie engagieren sich die Bürger:innen dabei? Bei seiner Recherche stößt er auf die Plattform *Gieß den Kiez*. Besonders beeindruckt ihn, wie anschaulich die Daten dort visualisiert sind – das möchte er für seine eigene R-Shiny-Anwendung übernehmen.
+```
+
+```{admonition} Zweck dieser Übung 
+:class: lernziele
+
+- Der Aufbau eines Dashboards als Form der Visualisierung in der Verwaltungswissenschaft umfasst die Gestaltung einer übersichtlichen Startseite für ein R-Shiny-Dashboard. Diese soll zentrale Informationen klar strukturiert darstellen, den Nutzer:innen einen schnellen Überblick verschaffen und gleichzeitig als intuitiver Einstiegspunkt in die Anwendung dienen.
+
 ```
 
 Die **Startseite** seines Dashboards soll als zentrale Übersicht und Einstiegspunkt dienen. Hier werden die wichtigsten Kennzahlen sofort sichtbar:
@@ -33,15 +32,16 @@ So ist die Startseite nicht nur auf erstem Blick intuitiv und verständlich, son
 Für den Einstieg arbeitet Amir mit dem Datensatz *„Gieß den Kiez – Bewässerungsdaten“* von **GovData**. Dieser Datensatz bietet detaillierte Informationen darüber, wann, wo und wie viel gegossen wurde. Er eignet sich ideal, um erste Analysen zum Gießverhalten zu erstellen, da er sowohl zeitliche als auch räumliche Bezüge enthält und öffentlich zugänglich ist.
 
 ![alt text](Dashboard_Startseite.png)
+*Abbildung 1: Startseite des Dashboards (Quelle: eigene Ausarbeitung)*
 
 Für die Startseite seiner Anwendung entscheidet sich Amir für eine **kompakte Kennzahlenübersicht**. Diese soll den Nutzer:innen helfen, sofort die Größenordnung des Gießverhaltens einzuschätzen – etwa, wie viele Bäume gegossen wurden, wie oft und mit welchem Wasservolumen.
 
 Zusätzlich plant er **Filtermöglichkeiten** nach **Bezirk** und **Jahr**, um die Kennzahlen gezielt einzugrenzen und Entwicklungen über die Zeit oder regionale Unterschiede sichtbar zu machen. Damit lassen sich die Daten auch in einer feineren Granularität betrachten – von stadtweiter Übersicht bis hin zu einzelnen Bezirken und spezifischen Jahren.
 
-Als Nächstes bauen wir die Startseite des Dashboards mit R. Nach jedem Codeabschnitt werden kurz die verwendeten Techniken und Befehle erklärt. 
+Als Nächstes bauen wir die Startseite des Dashboards mit R. Nach jedem Codeabschnitt werden kurz die verwendeten Techniken und Befehle erklärt. Wir widmen uns sowohl der Benutzeroberfläche (UI) als auch der Serverseite des R-Shiny-Dashboards.
 
 ## Benutzeroberfläche (UI)
-Die Benutzeroberfläche besteht aus zwei Teilen:
+Amir entscheidet sich für ein System der Benutzeroberfläche, die aus zwei Teilen besteht:
 
 - einer Seitenleiste (``sidebarMenu``) mit der Navigation
 
@@ -50,6 +50,8 @@ Die Benutzeroberfläche besteht aus zwei Teilen:
     - ValueBoxen für wichtige Kennzahlen
 
     - Dropdowns zur Auswahl des Zeitraums und des Bezirks
+
+Somit lässt sich eine übersichtliche Navigationsstruktur etablieren. 
 
 **Navigation: sidebarMenu**
 
@@ -151,7 +153,7 @@ Mit ``multiple = TRUE`` können mehrere Jahre oder Bezirke gleichzeitig ausgewä
 - ``multiple = TRUE`` bedeutet, dass man mehrere Werte gleichzeitig auswählen kann.
 - Die gewählten Werte sind später über ``input$start_year`` bzw. ``input$bezirk`` im Server verfügbar.
 
-## Reaktive Datenfilterung im Server
+## Server
 
 ```bash
 filteredData <- reactive({
@@ -208,7 +210,7 @@ Diese Struktur nennt man **Bedingung**. Sie steuert den Ablauf des Codes abhäng
 - ``<-``: weist einer Variable einen Wert zu (z. B. ``x <- 3``).
 - ``|`` = ODER, ``&`` = UND
 
-### Dynamische Anzeige: total_trees oder total_tree_watered
+**Dynamische Anzeige: total_trees oder total_tree_watered**
 
 ```bash
 output$dynamic_tree_box <- renderUI({
@@ -233,7 +235,7 @@ output$dynamic_tree_box <- renderUI({
 Wird nur „2020–2024“ ausgewählt, zeigt dynamic_tree_box nur gegossene Bäume an.
 ```
 
-### ValueBoxes im Server
+**ValueBoxes**
 
 Alle Bäume
 
@@ -282,7 +284,7 @@ output$avg_water <- renderValueBox({
 - ``mean(...)``: berechnet den Durchschnitt.
 - ``na.rm = TRUE``: ignoriert fehlende Werte (NA = "Not Available").
 
-### Einheiten clever umrechnen
+**Einheiten clever umrechnen**
 
 ```bash
 convert_units <- function(liters) {
@@ -526,7 +528,7 @@ Für die Startseite heißt das vor allem:
 
 Die zentrale Leitfrage von Amirs Fallstudie lautet: **Wo ist das höchste Bürgerengagement?**
 
-Mit den Daten aus Gieß den Kiez kann er diese Frage bereits auf der Startseite beantworten: Pro Bezirk lässt sich das Engagement direkt darstellen und vergleichen. Damit ist die Hauptfrage zwar beantwortet – doch Amir interessiert sich nun für die **Geschichten hinter den Zahlen**.
+Mit den Daten aus Gieß den Kiez kann er diese Frage bereits auf der Startseite beantworten: Pro Bezirk lässt sich das Engagement direkt darstellen und vergleichen. Am meisten engagierten sich die Bürger:innen in Mitte, danach folgen Tempelhof-Schöneberg und Charlottenburg-Wilmersdorf. Damit ist die Hauptfrage zwar beantwortet – doch Amir interessiert sich nun für die **Geschichten hinter den Zahlen**.
 
 Er möchte verstehen, welche **Kontextfaktoren** zu den Unterschieden führen könnten:
 
