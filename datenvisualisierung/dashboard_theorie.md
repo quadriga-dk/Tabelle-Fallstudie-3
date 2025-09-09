@@ -12,11 +12,13 @@ Im vorherigen Unterkapitel haben Sie einen Überblick über grundsätzliche Aspe
 Nachdem Dr. Amir Weber einiges über Visualisierungen und deren Manipulationsmöglichkeiten erfahren hat, wendet er sich nun Dashboards zu. Er hat erfahren, dass sie eine gute Option sind, wenn mehrere Visualisierungen zu einem Thema übersichtlich präsentiert werden sollen. Was aber können sie für Verwaltungen oder Verwaltungswissenschaften beitragen?
 ```
 
-**Was ist ein Dashboard**
+**Was ist ein Dashboard?**
+
+Der Begriff „Dashboard“ wird verwendet, um ein System zu beschreiben, das für die Entscheidungsfindung nützliche Daten visualisiert. Der Begriff „Dashboard“ wurde bereits im 19. Jahrhundert für eine Schutzwand vor Kutschen verwendet, die Schlamm abhielt, der von Pferdehufen hochgeschleudert wurde [@Janes2013Effective]. Später begannen Autos, Dashboards zu nutzen, um den Fahrer über den Status der verschiedenen Systeme des Autos zu informieren. Ähnlich wie die Armaturenbretter in einem Auto, haben Dashboards das Ziel, zu informieren, ohne die Nutzer von ihrer eigentlichen Aufgabe abzulenken. Daher werden Daten in Dashboards mittels Diagrammen, Tabellen, Messinstrumenten und so weiter zusammengefasst. Um Nutzern die korrekte Interpretation eines Elements auf dem Dashboard zu ermöglichen, erlauben Dashboards typischerweise, die ursprünglichen Daten einzusehen, auf denen die Zusammenfassung basierte.
 
 Ein Dashboard zeigt nicht nur eine, sondern mehrere Visualisierungen zu gleichen oder verwandten Themen. So lässt sich schnell ein Überblick über ein Thema erlangen, das zugleich übersichtlich und geordnet prässsentiert wird. 
 
-Ein weiterer Vorteil ist die Interaktivität von Dashboards. Häufig sind die dort zu sehenden Visualisierungen nicht bloß Abbildungen sondern lassen sich durch das Verändern von Variablen (Kennzahlen oder Regler für Jahreszahlen) interaktiv verwenden und können so anschaulich Entwicklungen darstellen.
+Ein weiterer Vorteil ist die Interaktivität von Dashboards. Häufig sind die dort zu sehenden Visualisierungen nicht bloß Abbildungen, sondern lassen sich durch das Verändern von Variablen (Kennzahlen oder Regler für Jahreszahlen) interaktiv verwenden und können so anschaulich Entwicklungen darstellen.
 
 Wo eine Visualisierung im Dashboard positioniert wird, kann Einfluss auf ihre (wahrgenommene) Bedeutung haben.
 

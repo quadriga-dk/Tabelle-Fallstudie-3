@@ -528,7 +528,7 @@ Für die Startseite heißt das vor allem:
 
 Die zentrale Leitfrage von Amirs Fallstudie lautet: **Wo ist das höchste Bürgerengagement?**
 
-Mit den Daten aus Gieß den Kiez kann er diese Frage bereits auf der Startseite beantworten: Pro Bezirk lässt sich das Engagement direkt darstellen und vergleichen. Am meisten engagierten sich die Bürger:innen in Mitte, danach folgen Tempelhof-Schöneberg und Charlottenburg-Wilmersdorf. Damit ist die Hauptfrage zwar beantwortet – doch Amir interessiert sich nun für die **Geschichten hinter den Zahlen**.
+Mit den Daten aus Gieß den Kiez kann er diese Frage bereits auf der Startseite beantworten: Pro Bezirk lässt sich das Engagement direkt darstellen und vergleichen. Am meisten engagierten sich die Bürger:innen in **Mitte**, danach folgen **Tempelhof-Schöneberg** und **Charlottenburg-Wilmersdorf**. Damit ist die Hauptfrage zwar beantwortet – doch Amir interessiert sich nun für die **Geschichten hinter den Zahlen**.
 
 Er möchte verstehen, welche **Kontextfaktoren** zu den Unterschieden führen könnten:
 
