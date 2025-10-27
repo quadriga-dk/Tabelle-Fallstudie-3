@@ -3,8 +3,7 @@ lang: de-DE
 ---
 
 (intro)=
-# Visualisierung in der Verwaltung
-## Bau eines Dashboards für Baumdaten
+# Visualisierung in der Verwaltung: Ein Dashboard für Baum- und Bewässerungsdaten
 
 ````{margin}
 ```{admonition} Fragen oder Feedback 
@@ -28,7 +27,7 @@ Mit Ihren Rückmeldungen können wir unser interaktives Lehrbuch gezielt an Ihre
 ```{literalinclude} /CITATION.bib
 :language: bibtex
 ```
-*... wird ergänzt ...*
+Plomin, J., Walter, P., Schmeling, J., Dakruni, S. & Bingöl, C. (2025). _Visualisierung in der Verwaltung: Ein Dashboard für Baum- und Bewässerungsdaten. QUADRIGA Open Educational Resources: Tabelle 3_
 
 ````
 `````
