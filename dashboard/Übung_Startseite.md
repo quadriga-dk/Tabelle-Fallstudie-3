@@ -20,7 +20,6 @@ Die **Startseite** seines Dashboards soll als zentrale Übersicht und Einstiegsp
 
 - **Gesamtanzahl der Bäume**
 - **Anzahl gegossener Bäume**
-- **Verbrauchte Wassermenge**
 
 Damit liefert die Startseite einen kompakten, aber aussagekräftigen Überblick über das Engagement der Bürger:innen. Sie beantwortet bereits auf den ersten Blick zentrale Fragen der Analyse:
 
@@ -31,12 +30,12 @@ So ist die Startseite nicht nur auf erstem Blick intuitiv und verständlich, son
 
 Für den Einstieg arbeitet Amir mit dem Datensatz *„Gieß den Kiez – Bewässerungsdaten“* von **GovData**. Dieser Datensatz bietet detaillierte Informationen darüber, wann, wo und wie viel gegossen wurde. Er eignet sich ideal, um erste Analysen zum Gießverhalten zu erstellen, da er sowohl zeitliche als auch räumliche Bezüge enthält und öffentlich zugänglich ist.
 
-![alt text](Dashboard_Startseite.png)
+![alt text](Dashboard_Startseite_2.png)
 *Abbildung 1: Startseite des Dashboards (Quelle: eigene Ausarbeitung)*
 
 Für die Startseite seiner Anwendung entscheidet sich Amir für eine **kompakte Kennzahlenübersicht**. Diese soll den Nutzer:innen helfen, sofort die Größenordnung des Gießverhaltens einzuschätzen – etwa, wie viele Bäume gegossen wurden, wie oft und mit welchem Wasservolumen.
 
-Zusätzlich plant er **Filtermöglichkeiten** nach **Bezirk** und **Jahr**, um die Kennzahlen gezielt einzugrenzen und Entwicklungen über die Zeit oder regionale Unterschiede sichtbar zu machen. Damit lassen sich die Daten auch in einer feineren Granularität betrachten – von stadtweiter Übersicht bis hin zu einzelnen Bezirken und spezifischen Jahren.
+Zusätzlich plant er **Filtermöglichkeiten** nach **Bezirk**, um die Kennzahlen gezielt einzugrenzen und regionale Unterschiede sichtbar zu machen. Damit lassen sich die Daten auch in einer feineren Granularität betrachten – von stadtweiter Übersicht bis hin zu einzelnen Bezirken.
 
 Als Nächstes bauen wir die Startseite des Dashboards mit R. Nach jedem Codeabschnitt werden kurz die verwendeten Techniken und Befehle erklärt. Wir widmen uns sowohl der Benutzeroberfläche (UI) als auch der Serverseite des R-Shiny-Dashboards.
 
@@ -77,32 +76,34 @@ dashboardSidebar(
 **Inhalt: tabItem mit Übersichtsbox**
 
 ```bash
-tabItems(
-  tabItem(tabName = "start",
-    box(title = "Overview", status = "primary", solidHeader = TRUE, width = 12,
-      fluidRow(
-        uiOutput("dynamic_tree_box"),
-        valueBoxOutput("total_water"),
-        valueBoxOutput("avg_water")
-      ),
-      fluidRow(
-        column(width = 6,
-          selectInput("start_year", "Jahr der Bewässerung auswählen:",
-            choices = c("2020-2024", "Baumbestand Stand 2025", sort(unique(na.omit(year(df_merged_clean$timestamp))))),
-            selected = "Baumbestand Stand 2025",
-            multiple = TRUE
-          )
-        ),
-        column(width = 6,
-          selectInput("bezirk", "Bezirk auswählen:",
-            choices = c("Alle", unique(df_merged_clean$bezirk)),
-            selected = "Alle",
-            multiple = TRUE
+    tabItems(
+      tabItem(
+        tabName = "start",
+        box(
+          title = "Overview",
+          status = "primary",
+          solidHeader = TRUE,
+          width = 12,
+          
+          fluidRow(
+            valueBoxOutput("total_trees", width = 6),
+            valueBoxOutput("total_tree_watered", width = 6)
+          ),
+          
+          fluidRow(
+            column(
+              width = 6,
+              selectInput(
+                "bezirk",
+                "Bezirk auswählen:",
+                choices = c("Alle", unique(df_merged$bezirk)),
+                selected = "Alle",
+                multiple = TRUE
+              )
+            )
           )
         )
       )
-    )
-  )
 )
 ```
 ```{admonition} Merke: 
@@ -113,7 +114,7 @@ tabItems(
 
 ```{admonition} Beispiel: 
 :class: tip
-In einer ``fluidRow`` können drei ``valueBoxOutput(...)``-Elemente nebeneinander angezeigt werden.
+In einer ``fluidRow`` können zwei ``valueBoxOutput(...)``-Elemente nebeneinander angezeigt werden.
 ```
 
 **Erklärung der Elemente:**
@@ -123,7 +124,6 @@ In einer ``fluidRow`` können drei ``valueBoxOutput(...)``-Elemente nebeneinande
     - ``solidHeader = TRUE`` (fester Rand)
     - ``width = 12`` (volle Breite – 12 ist die maximale Spaltenanzahl)
 - ``fluidRow(...)`` sorgt für eine horizontale Anordnung (z. B. nebeneinander statt untereinander).
-- ``uiOutput(...)`` ist ein dynamischer Platzhalter für Inhalte, die später im Server je nach Auswahl angezeigt werden.
 - ``valueBoxOutput(...)`` reserviert Platz für eine Box mit Kennzahlen.
 
 **Filter-Menüs mit ``selectInput``**
@@ -145,53 +145,42 @@ selectInput("bezirk", ...)
 ```{admonition} Merke: 
 :class: keypoint 
 
-Mit ``multiple = TRUE`` können mehrere Jahre oder Bezirke gleichzeitig ausgewählt werden. Diese Auswahl steht im Server unter ``input$start_year`` und ``input$bezirk`` zur Verfügung.
+Mit ``multiple = TRUE`` können mehrere Bezirke gleichzeitig ausgewählt werden. Diese Auswahl steht im Server unter ``input$bezirk`` zur Verfügung.
 ```
 
 
 - ``selectInput(...)`` erstellt ein Dropdown-Menü.
 - ``multiple = TRUE`` bedeutet, dass man mehrere Werte gleichzeitig auswählen kann.
-- Die gewählten Werte sind später über ``input$start_year`` bzw. ``input$bezirk`` im Server verfügbar.
+- Die gewählten Werte sind später über ``input$bezirk`` im Server verfügbar.
 
 ## Server
 
 ```bash
-filteredData <- reactive({
-  req(input$stats_baumvt_year)
-  
-  df <- df_merged %>%
-    mutate(year = lubridate::year(timestamp))
-  
-  df_filtered <- df %>%
-    filter(
-      ("Baumbestand Stand 2025" %in% input$start_year & 
-       (is.na(timestamp) | year %in% 2020:2024)) |
-      ("2020-2024" %in% input$start_year & 
-       !is.na(timestamp) & year %in% 2020:2024) |
-      (any(!input$start_year %in% c("2020-2024", "Baumbestand Stand 2025")) & 
-       year %in% as.numeric(input$start_year))
-    )
-
-  if (all(input$start_year == "2020-2024")) {
-    df_filtered <- df_filtered %>% filter(!is.na(timestamp))
-  }
-
-  if (!is.null(input$bezirk) && input$bezirk != "Alle") {
-    df_filtered <- df_filtered %>% filter(bezirk %in% input$bezirk)
-  }
-
-  df_filtered
+  filteredData <- reactive({
+   
+    req(input$bezirk)
+    
+    df <- df_merged 
+    
+    df_filtered <- df
+    
+    # Filter only by Bezirk
+    if (!("Alle" %in% input$bezirk)) {
+      df_filtered <- df_filtered %>% filter(bezirk %in% input$bezirk)
+    }
+    
+    df_filtered
 })
 ```
+
 **Wichtige Begriffe erklärt:**
 - ``reactive(...)``: erzeugt eine reaktive Funktion, die automatisch neu berechnet wird, wenn sich Eingaben ändern.
 - ``req(...)``: sorgt dafür, dass die Funktion nur ausgeführt wird, wenn bestimmte Eingaben vorhanden sind.
-- ``mutate(...)``: erzeugt eine neue Spalte year durch Extraktion aus timestamp.
 
 ```{admonition} Merke: 
 :class: keypoint 
 
-``reactive()`` ist wie ein **intelligenter Beobachter**: Er reagiert **automatisch** auf Eingaben und aktualisiert die Daten.
+``reactive()`` ist wie ein **intelligenter Beobachter**: Sobald sich input$bezirk ändert, wird filteredData() neu berechnet.
 ```
 
 **if- und else-Anweisungen**
@@ -258,31 +247,19 @@ output$total_trees <- renderValueBox({
 
 **Gegossene Bäume**
 ```bash
-output$total_tree_watered <- renderValueBox({
-  valueBox(
-    formatC(n_distinct(filteredData()$gisid), format = "d", big.mark = "."),
-    "Gesamtzahl der gegossenen Bäume",
-    icon = icon("tree"),
-    color = "green"
-  )
-})
+  output$total_tree_watered <- renderValueBox({
+    valueBox(
+      formatC(
+        n_distinct(filteredData()$gisid[!is.na(filteredData()$timestamp)]),
+        format = "d", big.mark = "."
+      ),
+      "Gesamtzahl der gegossenen Bäume",
+      icon = icon("tint"),
+      color = "blue"
+    )
+  })
 ```
-- Nur Bäume, die tatsächlich gegossen wurden, werden gezählt – basierend auf ``filteredData()``.
-
-**Durchschnittliche Bewässerung**
-
-```bash
-output$avg_water <- renderValueBox({
-  valueBox(
-    formatC(mean(filteredData()$bewaesserungsmenge_in_liter, na.rm = TRUE), digits = 2),
-    "Durchschnittliche Bewässerung pro gegossenen Baum (Liter)",
-    icon = icon("chart-line"),
-    color = "aqua"
-  )
-})
-```
-- ``mean(...)``: berechnet den Durchschnitt.
-- ``na.rm = TRUE``: ignoriert fehlende Werte (NA = "Not Available").
+- Es werden nur die Bäume gezählt, die mindestens einen gültigen Eintrag im Feld ```timestamp``` haben – also tatsächlich irgendwann gegossen wurden. Jeder Baum wird dabei nur einmal gezählt (über ```n_distinct(gisid)```).
 
 **Einheiten clever umrechnen**
 
@@ -360,16 +337,8 @@ ui <- dashboardPage(
               box(title = "Overview", status = "primary", solidHeader = TRUE, width = 12,
                   fluidRow(
                     uiOutput("dynamic_tree_box"),
-                    valueBoxOutput("total_water"),
-                    valueBoxOutput("avg_water")
+                    valueBoxOutput("total_water")
                   ),
-                  fluidRow(
-                    column(width = 6,
-                           selectInput("start_year", "Jahr der Bewässerung auswählen:",
-                                       choices = c("2020-2024", "Baumbestand Stand 2025", sort(unique(na.omit(year(df_merged_clean$timestamp))))),
-                                       selected = "Baumbestand Stand 2025",
-                                       multiple = TRUE),
-                    ),
                     column(width = 6,
                            selectInput("bezirk", "Bezirk auswählen:", 
                                        choices = c("Alle", unique(df_merged_clean$bezirk)), 
@@ -421,8 +390,7 @@ server <- function(input, output, session) {
   filteredData <- reactive({
     req(input$stats_baumvt_year)
     
-    df <- df_merged %>%
-      mutate(year = lubridate::year(timestamp))
+    df <- df_merged
     
     # Basisfilter nach Auswahl
     df_filtered <- df %>%
@@ -477,31 +445,6 @@ server <- function(input, output, session) {
     }
   })
   
-  
-  output$total_water <- renderValueBox({
-    # Umrechnung des Werts und Ermittlung der Einheit
-    conversion_result <- convert_units(sum(filteredData()$bewaesserungsmenge_in_liter, na.rm = TRUE))
-    
-    # Der umgerechnete Wert und die Einheit
-    converted_value <- conversion_result$value
-    unit <- conversion_result$unit
-    
-    valueBox(
-      paste(format(converted_value, decimal.mark = ",", big.mark = "."), unit),
-      paste("Gesamtbewässerung (", full_unit(unit), ")", sep=""),  
-      icon = icon("tint"),
-      color = "blue"
-    )
-  })
-  
-  output$avg_water <- renderValueBox({
-    valueBox(
-      formatC(mean(filteredData()$bewaesserungsmenge_in_liter, na.rm = TRUE), digits = 2),
-      "Durchschnittliche Bewässerung pro gegossenen Baum (Liter)",
-      icon = icon("chart-line"),
-      color = "aqua"
-    )
-  })
   
 }
 ```
