@@ -14,7 +14,7 @@ Er merkt schnell: Diese Darstellung zeigt zwar den Umfang des Engagements, aber 
 ```
 
 ```{admonition} Zweck dieser Übung
-:class: story
+:class: lernziele
 
 Diese Übung zeigt, wie sich durch unterschiedliche Kennzahlen neue Perspektiven auf dieselben Verwaltungsdaten ergeben. Während zuvor die Zahl der gegossenen Bäume im Mittelpunkt stand, wird nun die Bewässerungsmenge in Litern analysiert.
 

@@ -13,7 +13,7 @@ Sein Ziel: Eine intuitive Karte, die sofort erkennen lässt, in welchen Bezirken
 ```
 
 ```{admonition} Zweck dieser Übung
-:class: story
+:class: lernziele
 - Das Erstellen einer Leaflet-Karte dient dazu, räumliche Informationen nutzbar zu machen, um Verwaltungsdaten visuell zugänglich und vergleichbar darzustellen. In dieser Übung lernen wir, wie Bezirksdaten mit statistischen Kennzahlen verknüpft und anschließend mithilfe einer Farbskala intuitiv interpretiert werden können. Die farbliche Hervorhebung des Anteils bewässerter Bäume ermöglicht es, Muster und regionale Unterschiede auf einen Blick zu erkennen und erste Antworten auf die Leitfrage zu gewinnen: In welchen Bezirken wird besonders viel gegossen?
 ```
 
