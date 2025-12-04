@@ -4,397 +4,389 @@ lang: de-DE
 
 (trees)=
 # Einfügen Baumstatistik
+```{admonition} Story
+:class: story
 
-In dieser Übung lernen Sie, wie man mit Hilfe der Bibliothek plotly zwei interaktive Diagramme erstellt:
+Amir Weber möchte nachvollziehen, welche Eigenschaften der Bäume und ihrer Umgebung das freiwillige Engagement beim Gießen beeinflussen. Nachdem er bereits zeitliche Muster analysiert hat, richtet er seinen Blick nun auf räumliche Faktoren sowie baumartspezifische Merkmale.
 
-- Eine Balkengrafik zeigt die Verteilung der gegossenen Bäume und Baumdichte nach Berliner Bezirken im Verhältnis zur Bezirksfläche.
+```
 
-- Ein Kreisdiagramm (Tortendiagramm) visualisiert die häufigsten Baumarten – mit der Möglichkeit, nach Bezirk zu filtern.
+```{admonition} Zweck dieser Übung
+:class: lernziele
+
+In dieser Übung lernen wir, wie baumbezogene Merkmale und räumliche Faktoren das Engagement beim Gießen beeinflussen können. Wir üben:
+
+- Baumarten und deren Verteilung in Bezirken statistisch zu beschreiben,
+- relative Häufigkeiten und Top-Listen (z. B. meistgegossene Arten) zu interpretieren,
+- Baumdichte im Verhältnis zur Bezirksfläche quantitativ zu berechnen,
+
+und einfache Hypothesen über das Engagement – etwa bevorzugte Gattungen oder Nachbarschaftseffekte – mit Daten zu prüfen.
+
+```
+
+Nachdem zuvor untersucht wurde, wie Pflanzjahr und Zeitverlauf das Gießverhalten beeinflussen, richtet sich der Blick nun auf räumliche und baumartspezifische Unterschiede innerhalb Berlins. Verschiedene Bezirke weisen sehr unterschiedliche Baumstrukturen auf: Manche besitzen eine hohe Dichte, andere sind von wenigen dominanten Gattungen geprägt.
+
+Amir Weber will also überprüfen:
+
+- Ob bestimmte Baumgattungen häufiger gegossen werden als andere.
+- Ob die Baumdichte das Gießverhalten beeinflusst.
+Er vermutet, dass dicht bepflanzte Straßen oder Kieze mehr Interaktionen begünstigen – etwa nach dem Motto: „Wenn ich schon meinen Baum gieße, mache ich den daneben auch gleich mit.“
+
+Die Funktion dieses Reiters besteht also darin, die Baumverteilung nach Bezirken sichtbar zu machen, die am häufigsten gegossenen Baumarten zu identifizieren und die Baumdichte im Verhältnis zur Bezirksfläche zu analysieren, um mögliche Muster im Engagement zu erkennen.
+
+Damit dient der Reiter als Grundlage, um zu verstehen, welche strukturellen Faktoren im Stadtraum das Engagement der Gießenden möglicherweise begünstigen.
 
 ## Benutzeroberfläche (UI)
-Die Benutzeroberfläche besteht aus zwei Teilen:
-
-- einer Seitenleiste (``sidebarMenu``) mit der Navigation
-
-- einem Inhaltsbereich (``tabItem``) mit:
-
-    - Balkengrafik anzeigen
-    - Kreisdiagramm
-    - Dropdowns zur Auswahl des Bezirks
-
-**Navigation in der Seitenleiste**
-```bash
-dashboardSidebar(
-  sidebarMenu(
-      menuItem("Baumstatistik", tabName = "stats", icon = icon("bar-chart")),
-  )
-)
-```
-- ``sidebarMenu(...)`` ist die Hauptnavigation des Dashboards.
-- ``menuItem(...)`` erzeugt einen Menüpunkt:
-- ``"Baumstatistik"`` ist der angezeigte Name.
-- ``tabName = "stats"`` verbindet den Menüpunkt mit dem Tab.
-- ``icon("bar-chart")`` zeigt ein kleines Symbol an.
-
-```{admonition} Merke: 
-:class: keypoint 
-
-Mit ``menuItem(...)`` wird ein weiterer Navigationspunkt eingebunden. "stats" als tabName verknüpft ihn mit dem Baumstatistiktab.
-```
-
-## UI: Balkengrafik und Kreisdiagramm mit Filter-Boxen
 
 ```bash
-tabItems(
-      tabItem(tabName = "stats",
-              fluidRow(
-                box(status = "primary", solidHeader = TRUE, width = 12, title = tagList("Baumverteilung der gegossenen Bäume nach Bezirk", 
-                                                                                        div(actionButton("info_btn", label = "", icon = icon("info-circle")),  # Info-Button 
-                                                                                            style = "position: absolute; right: 15px; top: 5px;")),
-                    selectInput("stats_baumvt_year", "Jahr auswählen:",
-                                choices = c("2020-2024", "Baumbestand Stand 2025", sort(unique(na.omit(year(df_merged$timestamp))))),
-                                selected = "Baumbestand Stand 2025",
-                                multiple = TRUE),
-                    
-                    plotlyOutput("tree_distribution")
-                ),
-                box(title = tagList("Häufig gegossene Baumarten im Verhältnis zu ihrem Vorkommen", 
-                                    div(actionButton("info_btn_hb", label = "", icon = icon("info-circle")),  # Info-Button 
-                                        style = "position: absolute; right: 15px; top: 5px;")),
-                    status = "primary", solidHeader = TRUE, width = 12, height = "auto", 
-                    selectInput("pie_bezirk", "Bezirk auswählen:", choices = c("Alle", unique(df_merged_clean$bezirk)), selected = "Alle", multiple = TRUE),
-                    plotlyOutput("tree_pie_chart"),
-                    fill = TRUE
-                )
-              )
-      )
-```
-- ``box(...)`` ist ein Container mit:
-    - ``title`` (Überschrift)
-    - ``status = "primary"`` (Farbe)
-    - ``solidHeader = TRUE`` (fester Rand)
-    - ``width = 12`` (volle Breite – 12 ist die maximale Spaltenanzahl)
-- ``fluidRow(...)`` sorgt für eine horizontale Anordnung (z. B. nebeneinander statt untereinander).
-- ``multiple = TRUE`` bedeutet, dass man mehrere Optionen gleichzeitig auswählen kann.
-
-```{admonition} Merke: 
-:class: keypoint 
-
-``fluidRow()`` ordnet Inhalte nebeneinander. ``box(...)`` gruppiert UI-Elemente visuell und funktional.
-```
-
-
-```bash
-# UI-Definition
-ui <- dashboardPage(
+dashboardPage(
   dashboardHeader(title = "Gieß den Kiez Dashboard"),
   dashboardSidebar(
     sidebarMenu(
-      menuItem("Baumstatistik", tabName = "stats", icon = icon("bar-chart"))
-    )
-  ),
-  dashboardBody(
-    tabItems(
-      tabItem(tabName = "stats",
-              fluidRow(
-                box(status = "primary", solidHeader = TRUE, width = 12, title = tagList("Baumverteilung der gegossenen Bäume nach Bezirk", 
-                                                                                        div(actionButton("info_btn", label = "", icon = icon("info-circle")),  # Info-Button 
-                                                                                            style = "position: absolute; right: 15px; top: 5px;")),
-                    selectInput("stats_baumvt_year", "Jahr auswählen:",
-                                choices = c("2020-2024", "Baumbestand Stand 2025", sort(unique(na.omit(year(df_merged$timestamp))))),
-                                selected = "Baumbestand Stand 2025",
-                                multiple = TRUE),
-                    
-                    plotlyOutput("tree_distribution")
-                ),
-                box(title = tagList("Häufig gegossene Baumarten im Verhältnis zu ihrem Vorkommen", 
-                                    div(actionButton("info_btn_hb", label = "", icon = icon("info-circle")),  # Info-Button 
-                                        style = "position: absolute; right: 15px; top: 5px;")),
-                    status = "primary", solidHeader = TRUE, width = 12, height = "auto", 
-                    selectInput("pie_bezirk", "Bezirk auswählen:", choices = c("Alle", unique(df_merged_clean$bezirk)), selected = "Alle", multiple = TRUE),
-                    plotlyOutput("tree_pie_chart"),
-                    fill = TRUE
-                )
-              )
+      menuItem("Baumstatistik", tabName = "engagement", icon = icon("hands-helping"))
+```
+
+
+```bash
+     tabItem(
+       tabName = "engagement",
+       
+       
+       fluidRow(
+         box(
+           title = tagList(
+             "Baumverteilung nach Bezirken (mit Baumgattungen)",
+             div(
+               actionButton("info_btn_bvnb", label = "", icon = icon("info-circle")),
+               style = "position: absolute; right: 15px; top: 5px;"
+             )
+           ),
+           status = "primary",
+           solidHeader = TRUE,
+           width = 12,
+           sliderInput(
+             "top_n_species",
+             "Top N Baumgattungen anzeigen:",
+             min = 3,
+             max = 15,
+             value = 8,
+             step = 1
+           ),
+           plotOutput("tree_distribution_stacked", height = "500px")
+         )
+       ),
+       
+       
+       fluidRow(
+         box(
+           title = tagList(
+             "Verteilung der Baumgattungen",
+             div(
+               actionButton("info_btn_vdb", label = "", icon = icon("info-circle")),
+               style = "position: absolute; right: 15px; top: 5px;"
+             )
+           ),
+           status = "primary",
+           solidHeader = TRUE,
+           width = 6,
+           selectInput(
+             "pie_bezirk",
+             "Bezirk auswählen:",
+             choices = c("Alle", sort(unique(df_merged$bezirk))),
+             selected = "Alle"
+           ),
+           plotOutput("tree_species_pie", height = "500px")
+         ),
+         
+         
+         box(
+           title = tagList(
+             "Baumdichte pro km²",
+             div(
+               actionButton("info_btn_bdpf", label = "", icon = icon("info-circle")),
+               style = "position: absolute; right: 15px; top: 5px;"
+             )
+           ),
+           status = "primary",
+           solidHeader = TRUE,
+           width = 6,
+           plotOutput("tree_density_area", height = "500px")
+         )
+       ),
+       
+       
+       fluidRow(
+         box(
+           title = tagList(
+             "Top 10 gegossene Baumgattungen",
+             div(
+               actionButton("info_btn_hgb", label = "", icon = icon("info-circle")),
+               style = "position: absolute; right: 15px; top: 5px;"
+             )
+           ),
+           status = "primary",
+           solidHeader = TRUE,
+           width = 12,
+           selectInput(
+             "engagement_bezirk",
+             "Bezirk auswählen:",
+             choices = c("Alle", sort(unique(df_merged$bezirk))),
+             selected = "Alle"
+           ),
+           plotOutput("top_watered_species", height = "500px")
+         )
+       )
+     ),
+```
+
+## Server
+```bash  
+# 1. Stacked Bar Chart - Baumverteilung mit Gattungen
+  output$tree_distribution_stacked <- renderPlot({
+    top_genera <- df_merged %>%
+      filter(!is.na(gattung_deutsch)) %>%   
+      count(gattung_deutsch, sort = TRUE) %>%
+      head(input$top_n_species) %>%
+      pull(gattung_deutsch)
+```
+
+- Zählt alle Baumarten.
+- Wählt die **Top-N meistverbreiteten Baumgattungen** (über UI steuerbar).
+- Speichert sie in ```top_genera```.
+
+```bash
+    df_agg <- df_merged %>%
+      filter(!is.na(bezirk)) %>%  
+      mutate(gattung_grouped = ifelse(gattung_deutsch %in% top_genera, gattung_deutsch, "Sonstige")) %>%
+      group_by(bezirk, gattung_grouped) %>%
+      summarise(count = n(), .groups = "drop") %>%
+      group_by(bezirk) %>%
+      mutate(percentage = count / sum(count) * 100) %>%
+      ungroup()
+```
+
+- Bäume ohne Bezirk werden entfernt.
+- Alle Gattungen **außer den Top-N** werden zu **„Sonstige“** zusammengefasst.
+- Für jeden Bezirk + Artengruppe wird **gezählt**, wie viele Bäume es gibt.
+- Zusätzlich wird der **prozentuale Anteil** innerhalb des Bezirks berechnet.
+- Die Ergebnisstruktur ist ein typisches **Bezirks-Gattungs-Aggregat**.
+
+```bash
+    df_agg$gattung_grouped <- factor(df_agg$gattung_grouped, 
+                                     levels = c(top_genera, "Sonstige"))
+    
+    ggplot(df_agg, aes(x = reorder(bezirk, count, sum), y = count, fill = gattung_grouped)) +
+      geom_bar(stat = "identity", position = "stack", color = "white", size = 0.3) +
+      labs(
+        title = NULL,
+        x = "Bezirk",
+        y = "Anzahl Bäume",
+        fill = "Baumgattung"
+      ) +
+      theme_light() +
+      theme(
+        axis.text.x = element_text(angle = 45, hjust = 1, size = 10),
+        legend.position = "right",
+        panel.grid.major.x = element_blank()
+      ) +
+      scale_fill_brewer(palette = "Set3")
+  })
+```
+
+Der Plot zeigt somit:
+- **Welche Gattungen in welchem Bezirk dominieren**,
+- wie groß der Anteil der **Sonstigen** ist,
+- und wie sich Bezirke in ihrer Baumstruktur unterscheiden.
+ 
+```bash
+  # 2. Pie Chart - Gattungsverteilung
+  output$tree_species_pie <- renderPlot({
+    filtered_data <- df_merged
+    if (input$pie_bezirk != "Alle") {
+      filtered_data <- filtered_data %>%
+        filter(bezirk == input$pie_bezirk)
+    }
+    
+
+    df_agg <- filtered_data %>%
+      filter(!is.na(gattung_deutsch)) %>%  
+      count(gattung_deutsch, sort = TRUE) %>%
+      mutate(
+        gattung_grouped = ifelse(row_number() <= 10, gattung_deutsch, "Sonstige")
+      ) %>% # row_number vergibt laufende Reihenfolgenummern innerhalb einer sortierten Tabelle
+      group_by(gattung_grouped) %>%
+      summarise(count = sum(n), .groups = "drop") %>%
+      arrange(desc(count)) %>%
+      mutate(
+        percentage = count / sum(count) * 100,
+        label = paste0(gattung_grouped, "\n", round(percentage, 1), "%")
       )
+    
+    ggplot(df_agg, aes(x = "", y = count, fill = gattung_grouped)) +
+      geom_bar(stat = "identity", width = 1, color = "white", size = 0.5) +
+      coord_polar("y", start = 0) + # ein Balkendiagramm wird durch coord_polar("y") zu einem Pie-Chart umgewandelt
+      labs(
+        title = NULL,
+        fill = "Baumgattung"
+      ) +
+      theme_void() +
+      theme(
+        legend.position = "right",
+        legend.text = element_text(size = 9)
+      ) +
+      scale_fill_brewer(palette = "Set3") +
+      geom_text(aes(label = ifelse(percentage > 3, paste0(round(percentage, 1), "%"), "")),
+                position = position_stack(vjust = 0.5),
+                size = 3,
+                color = "black")
+  })
+  
+  # Info button
+  observeEvent(input$info_btn_vdb, {
+    showModal(modalDialog(
+      title = "Information: Verteilung der Baumgattungen",
+      HTML("
+      <p>Diese Grafik zeigt die <strong>prozentuale Verteilung der Baumgattungen</strong>.</p>
+      <ul>
+        <li>Zeigt die Top 10 häufigsten Baumgattungen (z.B. LINDE, AHORN, EICHE)</li>
+        <li>Alle anderen Gattungen werden als 'Sonstige' zusammengefasst</li>
+        <li>Kann auf einzelne Bezirke gefiltert werden</li>
+        <li>Hilft zu verstehen, welche Gattungen in Berlin dominieren</li>
+      </ul>
+    "),
+      easyClose = TRUE,
+      footer = modalButton("Schließen")
+    ))
+  })
+```
+  
+```bash
+  # 3. Baumdichte pro Bezirksfläche
+  output$tree_density_area <- renderPlot({
+    bezirk_flaeche <- data.frame(
+      bezirk = c("Charlottenburg-Wilmersdorf", "Friedrichshain-Kreuzberg", "Lichtenberg",
+                 "Marzahn-Hellersdorf", "Mitte", "Neukölln", "Pankow",
+                 "Reinickendorf", "Spandau", "Steglitz-Zehlendorf",
+                 "Tempelhof-Schöneberg", "Treptow-Köpenick"),
+      flaeche_km2 = c(64.72, 20.16, 52.29, 61.74, 39.47, 44.93, 103.07,
+                      89.46, 91.91, 102.50, 53.09, 168.42)
     )
-)
+    
+    df_agg <- df_merged %>%
+      filter(!is.na(bezirk)) %>%  
+      group_by(bezirk) %>%
+      summarise(total_trees = n_distinct(gml_id)) %>%
+      ungroup() %>%
+      left_join(bezirk_flaeche, by = "bezirk") %>%
+      mutate(density = total_trees / flaeche_km2) %>%
+      arrange(desc(density))
+    
+    ggplot(df_agg, aes(x = reorder(bezirk, -density), y = density, fill = bezirk)) +
+      geom_bar(stat = "identity", color = "white", alpha = 0.7) +
+      labs(
+        title = NULL,
+        x = "Bezirk",
+        y = "Bäume pro km²"
+      ) +
+      theme_light() +
+      theme(
+        legend.position = "none",
+        axis.text.x = element_text(angle = 45, hjust = 1, size = 10),
+        panel.grid.major.x = element_blank()
+      ) +
+      scale_fill_discrete()
+  })
+  
+  # Info button
+  observeEvent(input$info_btn_bdpf, {
+    showModal(modalDialog(
+      title = "Information: Baumdichte pro km²",
+      HTML("
+      <p>Diese Grafik zeigt die <strong>Baumdichte</strong> in jedem Bezirk normalisiert auf die Fläche.</p>
+      <ul>
+        <li>Berechnung: Anzahl Bäume / Bezirksfläche in km²</li>
+        <li>Ermöglicht fairen Vergleich zwischen großen und kleinen Bezirken</li>
+        <li>Hohe Dichte = urbaner, mehr Straßenbäume</li>
+        <li>Niedrige Dichte = ländlicher, mehr Wald/Parkflächen</li>
+      </ul>
+    "),
+      easyClose = TRUE,
+      footer = modalButton("Schließen")
+    ))
+  })
 ```
 
-**Erklärung der Elemente:**
-- ``box(...)``: Ein Kasten-Layout für die Diagramme mit Titel.
-
-- ``plotlyOutput(...)``: Platzhalter für das interaktive Diagramm.
-
-- ``selectInput(...)``: Erlaubt die Auswahl eines oder mehrerer Bezirke.
-
-- ``actionButton(...)``: Fügt einen kleinen Info-Button mit Icon ein.
-
-- ``tagList(...)``: Kombiniert Text und HTML-Elemente im Titel.
-
-
-## Baumverteilung pro Bezirk im Server:
+Neu ist hier lediglich eine kleine Lookup-Tabelle mit Bezirksflächen, die über ```left_join()``` ergänzt wird, um die Baumdichte (Bäume pro km²) berechnen zu können. Alles andere entspricht bekannten Mustern der vorherigen Plots.
 
 ```bash
-output$tree_distribution <- renderPlotly({
-  df_merged$timestamp <- as.Date(df_merged$timestamp)
-
-  df_filtered <- df_merged %>%
-    filter(
-      ("Baumbestand Stand 2025" %in% input$stats_baumvt_year &
-         (is.na(timestamp) | lubridate::year(timestamp) %in% 2020:2024)) |
-      ("2020-2024" %in% input$stats_baumvt_year &
-         !is.na(timestamp) & lubridate::year(timestamp) %in% 2020:2024) |
-      (any(!input$stats_baumvt_year %in% c("2020-2024", "Baumbestand Stand 2025")) &
-         lubridate::year(timestamp) %in% as.numeric(input$stats_baumvt_year))
-    )
-
-  baumanzahl_filtered <- df_filtered %>%
-    group_by(bezirk) %>%
-    summarise(tree_count = n_distinct(gisid), .groups = "drop")
-
-  baum_dichte_filtered <- baum_dichte %>%
-    filter(bezirk %in% baumanzahl_filtered$bezirk) %>%
-    left_join(baumanzahl_filtered, by = "bezirk")
-
-  plot <- ggplot(baum_dichte_filtered,
-      aes(x = reorder(bezirk, tree_count), y = tree_count, fill = baeume_pro_ha)) +
-    geom_bar(stat = "identity") +
-    scale_fill_gradient(low = "lightblue", high = "darkblue", name = "Baumdichte (Bäume/ha)") +
-    coord_flip() +
-    labs(title = "Baumverteilung im Verhältnis zur Bezirkfläche", x = "Bezirk", y = "Anzahl der Bäume") +
-    theme_minimal()
-
-  ggplotly(plot, tooltip = c("x", "y", "fill"))
-})
-```
-**Wichtige Begriffe erklärt:**
-- ``as.Date``: Wandelt einen Datumswert (z. B. ``"2023-05-01"``) in ein Datum, mit dem man rechnen oder filtern kann.
-- - ``filter(...)``: Filtert die Daten so, dass nur diejenigen Zeilen erhalten bleiben, die bestimmte Bedingungen erfüllen.
-- ``df_merged``: Ist der vorbereitete Datensatz
-- NA-Werte (``NA``)
-Steht für "Not Available" und bedeutet, dass ein Wert in den Daten fehlt oder unbekannt ist. Zum Beispiel, wenn für einen Baum die Koordinaten nicht bekannt sind.
-  - ``is.na(x)`` prüft, ob x ein fehlender Wert ist.
-  - ``!is.na(x)`` prüft, ob x nicht fehlt.
-- ``c(...)``: Erstellt einen Vektor (also eine Liste von Werten). 
-  Beispiel:
-  ```bash
-  c("rot", "blau", "gelb")
-  ```
-  Ergebnis: eine Liste mit den drei Farben.
-- ``%>%``  (Pipe-Operator)
-Leitet das Ergebnis von links an die Funktion rechts weiter. Er sorgt für eine lesbare Verkettung von Operationen.
-- ``as.numeric``: Wandelt einen Wert (z. B. eine Jahreszahl als Text ``"2023"``) in eine Zahl ``2023`` um – damit man mathematisch damit arbeiten kann.
-- ``lubridate``: Gehört zur Bibliothek lubridate, die speziell für Datumswerte gedacht ist. Die Funktion year(...) extrahiert das Jahr aus einem Datum.
-  Beispiel:
-  ```bash
-  year(as.Date("2023-05-01"))  # Ergebnis: 2023
-  ```
-- ``group_by``: Gruppiert die Daten nach einer bestimmten Spalte – zum Beispiel nach Bezirken oder Baumarten. Damit kann man pro Gruppe Berechnungen durchführen.
-- ``left_join``: Verbindet zwei Tabellen nach einem gemeinsamen Merkmal – z. B. nach dem Bezirk. Dabei bleiben alle Daten aus der linken Tabelle erhalten, auch wenn es rechts keine Entsprechung gibt.
-- ``plot``
-- ``aes``: Bedeutet **„Ästhetik“** – also welche Werte auf der X-Achse, Y-Achse und für Farben oder Größen verwendet werden sollen.
-- ``geom_bar(stat = "identity")``: Zeichnet einen Balken für jede Gruppe – die Höhe entspricht genau dem übergebenen Wert (z. B. Anzahl der Bäume).
-- ``scale_fill_gradient(...)``: Farbverlauf für die Balken – je mehr Bäume pro Hektar, desto dunkler die Farbe. Dies macht die Baumdichte visuell erkennbar.
-- ``coord_flip()``: Dreht die Achsen – so wird aus einem vertikalen Balkendiagramm ein horizontales. Das ist oft besser lesbar, wenn die Namen lang sind.
-- ``labs``
-- ``theme_minimal()``: Ein schlankes, übersichtliches Design für das Diagramm ohne viele Linien oder Farben.
-- ``tooltip``
-
-```{admonition} Merke: 
-:class: keypoint 
-
-Die Filter arbeiten unabhängig voneinander – so können beliebige Kombinationen gewählt werden.
+  # 4. Top 10 gegossene Baumgattungen
+  output$top_watered_species <- renderPlot({
+    filtered_data <- df_merged %>%
+      filter(!is.na(bewaesserungsmenge_in_liter)) 
+    
+    if (input$engagement_bezirk != "Alle") {
+      filtered_data <- filtered_data %>%
+        filter(bezirk == input$engagement_bezirk)
+    }
+    
+    df_agg <- filtered_data %>%
+      filter(!is.na(gattung_deutsch)) %>%   
+      group_by(gattung_deutsch) %>%
+      summarise(
+        count = n(),
+        total_water = sum(bewaesserungsmenge_in_liter, na.rm = TRUE)
+      ) %>%
+      ungroup() %>%
+      arrange(desc(count)) %>%
+      head(10)
+    
+    ggplot(df_agg, aes(x = reorder(gattung_deutsch, count), y = count, fill = gattung_deutsch)) +
+      geom_bar(stat = "identity", color = "white", alpha = 0.7) +
+      coord_flip() +
+      labs(
+        title = NULL,
+        x = "Baumgattung",
+        y = "Anzahl gegossener Bäume"
+      ) +
+      theme_light() +
+      theme(
+        legend.position = "none",
+        panel.grid.major.y = element_blank()
+      ) +
+      scale_fill_discrete()
+  })
+  
+  # Info button
+  observeEvent(input$info_btn_hgb, {
+    showModal(modalDialog(
+      title = "Information: Top 10 gegossene Baumgattungen",
+      HTML("
+      <p>Diese Grafik zeigt die <strong>am häufigsten gegossenen Baumgattungen</strong>.</p>
+      <ul>
+        <li>Nur Bäume, die tatsächlich bewässert wurden</li>
+        <li>Zeigt, welche Gattungen am meisten Unterstützung erhalten</li>
+        <li>Kann auf einzelne Bezirke gefiltert werden</li>
+        <li>Hilft zu verstehen, welche Gattungen besondere Aufmerksamkeit bekommen</li>
+      </ul>
+    "),
+      easyClose = TRUE,
+      footer = modalButton("Schließen")
+    ))
+  })
 ```
 
-**Operatoren**
-- ``%in%``: prüft, ob ein Wert in einer Liste enthalten ist.
-  Zum Beispiel:
-    ```bash
-    bezirk %in% input$map_bezirk
-    ```
-- ``<-``: weist einer Variable einen Wert zu (z. B. ``x <- 3``).
+Neu sind die gleichzeitige Berechnung zweier Kennzahlen (```count``` und ```total_water```) sowie die Sortierung nach Häufigkeit mit anschließender Auswahl der Top 10. Der Rest des Codes folgt bereits bekannten Mustern aus früheren Aggregationen und Visualisierungen.
 
-## Anteil gegossener Bäume nach Baumart im Server: 
+## Schlussfolgerung
+Die Analyse zeigt deutlich, dass der Berliner Baumbestand stark von wenigen Gattungen dominiert wird. **Linden machen berlinweit rund 55,6 % aller Straßenbäume aus**, was bedeutet, dass viele Muster der Verteilung zwangsläufig von dieser einen Gattung geprägt werden. Die Betrachtung der Gattungen ist daher zwar interessant, besitzt jedoch **nur begrenzte Aussagekraft**, da sie strukturelle Eigenheiten der Berliner Bepflanzung widerspiegelt und weniger das Verhalten der Bürgerinnen und Bürger.
 
-```bash
-output$tree_pie_chart <- renderPlotly({
-  df_filtered <- df_merged
+Beim Vergleich der Bezirke treten klare Unterschiede in der räumlichen Verteilung zutage. **Friedrichshain-Kreuzberg und Mitte weisen die höchsten Baumdichten pro km² auf**, was typisch für kompakte, urbane Bezirke mit vielen Straßenbäumen ist. Gleichzeitig besitzen **Mitte, Pankow und Charlottenburg-Wilmersdorf die größten absoluten Baumzahlen**, was vor allem auf großflächige Areale mit Mischbeständen und Gehölzflächen zurückzuführen ist.
 
-  if (!is.null(input$pie_bezirk) && !"Alle" %in% input$pie_bezirk) {
-    df_filtered <- df_filtered %>% filter(bezirk %in% input$pie_bezirk)
-  }
+Setzt man diese Befunde in Bezug zu den Engagement-Daten, deutet sich ein Muster an:
+**Bezirke mit hoher Baumdichte zeigen tendenziell auch mehr Bürgerengagement**.
+Dies ist plausibel, da in dichter bebauten Gebieten mehr Menschen auf engem Raum auf Bäume treffen und häufiger die Möglichkeit haben, einzelne Straßenbäume zu gießen.
 
-  baeume_einzigartig <- df_filtered %>%
-    filter(!is.na(art_dtsch)) %>%
-    distinct(gisid, art_dtsch)
+Die Baumgattungen selbst liefern hingegen **keinen starken Erklärungswert für das Engagement**. Es zeigt sich zwar, welche Gattungen besonders häufig gegossen werden, doch dies korreliert in erster Linie damit, wie verbreitet die jeweilige Gattung im Stadtbild ist. Dass Linden oft gegossen werden, liegt also vor allem daran, dass sie fast überall stehen – nicht daran, dass sie besonders pflegebedürftig oder beliebter wären.
 
-  baeume_gegossen <- df_filtered %>%
-    filter(!is.na(art_dtsch) & !is.na(bewaesserungsmenge_in_liter)) %>%
-    distinct(gisid, art_dtsch)
-
-  art_ratio_df <- baeume_einzigartig %>%
-    group_by(art_dtsch) %>%
-    summarise(gesamt = n()) %>%
-    left_join(
-      baeume_gegossen %>% group_by(art_dtsch) %>% summarise(gegossen = n()),
-      by = "art_dtsch"
-    ) %>%
-    mutate(
-      gegossen = replace_na(gegossen, 0),
-      anteil_gegossen = gegossen / gesamt
-    ) %>%
-    arrange(desc(gesamt)) %>%
-    slice_max(order_by = gesamt, n = 10)
-
-  plot_ly(
-    art_ratio_df,
-    labels = ~art_dtsch,
-    values = ~anteil_gegossen,
-    type = "pie",
-    textinfo = "label+percent",
-    hoverinfo = "label+percent+value",
-    marker = list(colors = RColorBrewer::brewer.pal(10, "Set2"))
-  ) %>%
-    layout(title = "Anteil gegossener Bäume pro Baumart (Top 10)")
-})
-```
-**Wichtige Begriffe erklärt:**
-- ``distinct``: Entfernt Dubletten (mehrfache Vorkommen derselben Kombination). Hier verwendet, um sicherzustellen, dass jeder Baum nur einmal gezählt wird.
-- ``group_by``: Gruppiert die Daten nach einer bestimmten Spalte – zum Beispiel nach Bezirken oder Baumarten. Damit kann man pro Gruppe Berechnungen durchführen.
-- ``mutate``: Fügt neue Spalten zu einem Datensatz hinzu oder verändert vorhandene. Beispiel: Berechnung des Anteils gegossener Bäume.
-- ``arrange``: Sortiert die Tabelle. Mit ``desc(...)`` wird absteigend sortiert, z. B. von häufig zu selten.
-- ``desc``
-- ``plot_ly``: Erstellt eine interaktive Grafik mit ``plotly``. Man kann damit z. B. über die Tortenstücke fahren und zusätzliche Infos sehen.
-- ``labels``: Welche Bezeichnungen sollen angezeigt werden? (z. B. Baumart)
-- ``values``: Welche Werte bestimmen die Größe der Tortenstücke?
-- ``textinfo``: Was wird auf dem Diagramm angezeigt?
-- ``hoverinfo``: Was erscheint, wenn man mit der Maus darüber fährt?
-
-**if- und else-Anweisungen**
-```bash
-if (Bedingung) {
-  # wird ausgeführt, wenn die Bedingung wahr ist
-} else {
-  # wird ausgeführt, wenn die Bedingung falsch ist
-}
-```
-
-<details>
-<summary><strong>Gesamter Code</strong></summary>
-
-```r
-# UI-Definition
-ui <- dashboardPage(
-  dashboardHeader(title = "Gieß den Kiez Dashboard"),
-  dashboardSidebar(
-    sidebarMenu(
-      menuItem("Baumstatistik", tabName = "stats", icon = icon("bar-chart"))
-    )
-  ),
-  dashboardBody(
-    tabItems(
-      tabItem(tabName = "stats",
-              fluidRow(
-                box(status = "primary", solidHeader = TRUE, width = 12, title = tagList("Baumverteilung der gegossenen Bäume nach Bezirk", 
-                                                                                        div(actionButton("info_btn", label = "", icon = icon("info-circle")),  # Info-Button 
-                                                                                            style = "position: absolute; right: 15px; top: 5px;")),
-                    selectInput("stats_baumvt_year", "Jahr auswählen:",
-                                choices = c("2020-2024", "Baumbestand Stand 2025", sort(unique(na.omit(year(df_merged$timestamp))))),
-                                selected = "Baumbestand Stand 2025",
-                                multiple = TRUE),
-                    
-                    plotlyOutput("tree_distribution")
-                ),
-                box(title = tagList("Häufig gegossene Baumarten im Verhältnis zu ihrem Vorkommen", 
-                                    div(actionButton("info_btn_hb", label = "", icon = icon("info-circle")),  # Info-Button 
-                                        style = "position: absolute; right: 15px; top: 5px;")),
-                    status = "primary", solidHeader = TRUE, width = 12, height = "auto", 
-                    selectInput("pie_bezirk", "Bezirk auswählen:", choices = c("Alle", unique(df_merged_clean$bezirk)), selected = "Alle", multiple = TRUE),
-                    plotlyOutput("tree_pie_chart"),
-                    fill = TRUE
-                )
-              )
-      )
-    )
-)
-
-
-# Server-Logik
-server <- function(input, output, session) {
-
-output$tree_distribution <- renderPlotly({
-  df_merged$timestamp <- as.Date(df_merged$timestamp)
-
-  df_filtered <- df_merged %>%
-    filter(
-      ("Baumbestand Stand 2025" %in% input$stats_baumvt_year &
-         (is.na(timestamp) | lubridate::year(timestamp) %in% 2020:2024)) |
-      ("2020-2024" %in% input$stats_baumvt_year &
-         !is.na(timestamp) & lubridate::year(timestamp) %in% 2020:2024) |
-      (any(!input$stats_baumvt_year %in% c("2020-2024", "Baumbestand Stand 2025")) &
-         lubridate::year(timestamp) %in% as.numeric(input$stats_baumvt_year))
-    )
-
-  baumanzahl_filtered <- df_filtered %>%
-    group_by(bezirk) %>%
-    summarise(tree_count = n_distinct(gisid), .groups = "drop")
-
-  baum_dichte_filtered <- baum_dichte %>%
-    filter(bezirk %in% baumanzahl_filtered$bezirk) %>%
-    left_join(baumanzahl_filtered, by = "bezirk")
-
-  plot <- ggplot(baum_dichte_filtered,
-      aes(x = reorder(bezirk, tree_count), y = tree_count, fill = baeume_pro_ha)) +
-    geom_bar(stat = "identity") +
-    scale_fill_gradient(low = "lightblue", high = "darkblue", name = "Baumdichte (Bäume/ha)") +
-    coord_flip() +
-    labs(title = "Baumverteilung im Verhältnis zur Bezirkfläche", x = "Bezirk", y = "Anzahl der Bäume") +
-    theme_minimal()
-
-  ggplotly(plot, tooltip = c("x", "y", "fill"))
-})
-
-output$tree_pie_chart <- renderPlotly({
-  df_filtered <- df_merged
-
-  if (!is.null(input$pie_bezirk) && !"Alle" %in% input$pie_bezirk) {
-    df_filtered <- df_filtered %>% filter(bezirk %in% input$pie_bezirk)
-  }
-
-  baeume_einzigartig <- df_filtered %>%
-    filter(!is.na(art_dtsch)) %>%
-    distinct(gisid, art_dtsch)
-
-  baeume_gegossen <- df_filtered %>%
-    filter(!is.na(art_dtsch) & !is.na(bewaesserungsmenge_in_liter)) %>%
-    distinct(gisid, art_dtsch)
-
-  art_ratio_df <- baeume_einzigartig %>%
-    group_by(art_dtsch) %>%
-    summarise(gesamt = n()) %>%
-    left_join(
-      baeume_gegossen %>% group_by(art_dtsch) %>% summarise(gegossen = n()),
-      by = "art_dtsch"
-    ) %>%
-    mutate(
-      gegossen = replace_na(gegossen, 0),
-      anteil_gegossen = gegossen / gesamt
-    ) %>%
-    arrange(desc(gesamt)) %>%
-    slice_max(order_by = gesamt, n = 10)
-
-  plot_ly(
-    art_ratio_df,
-    labels = ~art_dtsch,
-    values = ~anteil_gegossen,
-    type = "pie",
-    textinfo = "label+percent",
-    hoverinfo = "label+percent+value",
-    marker = list(colors = RColorBrewer::brewer.pal(10, "Set2"))
-  ) %>%
-    layout(title = "Anteil gegossener Bäume pro Baumart (Top 10)")
-})
-}
-```
-</details>
+**Kernbotschaft**
+*Die Verteilung des Engagements folgt eher der Dichte und Sichtbarkeit von Bäumen in den Bezirken als der Art der Bäume. Baumgattungen erklären wenig – räumliche Faktoren jedoch sehr viel.*
