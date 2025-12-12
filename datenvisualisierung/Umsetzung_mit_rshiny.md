@@ -7,8 +7,12 @@ lang: de-DE
 
 ## Umsetzung mit R Shiny
 
-**Zielsetzung**
+```{admonition} Zweck dieser Übung
+:class: lernziele
+
 Ziel dieses Schrittes ist es, verschiedene Datensätze – insbesondere den Berliner Baumkataster sowie manuell dokumentierte Gießdaten – zusammenzuführen und so aufzubereiten, dass sie für weitere Analysen und Visualisierungen (z. B. in einer interaktiven Karte) verwendet werden können.
+
+```
 
 **Laden der Baumkatasterdaten**
 Die Berliner Baumdaten werden über eine WFS-Schnittstelle (Web Feature Service) bezogen. Dabei werden sowohl Anlagenbäume als auch Straßenbäume geladen. 
@@ -31,7 +35,7 @@ df_clean <- read.csv("data/giessdenkiez_bewässerungsdaten.csv", sep = ";", stri
   filter(strname != "Undefined" & strname != "" & !str_detect(gattung_deutsch, "[0-9]"))
 ```
 **Vereinheitlichung und Zusammenführung der Baumdaten**
-Die beiden Baumdatenquellen werden vereinheitlicht (gemeinsames Koordinatensystem EPSG:4326) und zusammengeführt. Danach werden die Koordinaten explizit extrahiert und die Geometriedaten entfernt, um die Dateigröße zu reduzieren und die Weiterverarbeitung zu erleichtern.
+Die beiden Baumdatenquellen werden vereinheitlicht (gemeinsames Koordinatensystem EPSG:4326) und zusammengeführt. Danach werden die Koordinaten explizit extrahiert und die Geometriedaten entfernt, um die Dateigröße zu reduzieren und die Weiterverarbeitung zu erleichtern. EPSG:4326 (WGS 84) beschreibt die Erdoberfläche mit geografischen Koordinaten in Grad (Longitude/Latitude). Es ist das Standard-Koordinatensystem für GPS und die gängigste Grundlage für webbasierte Karten.
 
 ```bash
 # 3. Bäume zusammenführen
@@ -59,7 +63,7 @@ df_merged <- baumbestand %>%
             by = c("gisid" = "id"))
 ```
 **Speichern der kombinierten Daten**
-Die aufbereiteten Daten werden als CSV-Datei gespeichert. Eine Ausgabe relevanter Kennzahlen (z. B. Anzahl verknüpfter Bäume) dient der Kontrolle.
+Die aufbereiteten Daten werden als CSV-Datei gespeichert. Eine Ausgabe relevanter Kennzahlen (z.B. Anzahl verknüpfter Bäume) dient der Kontrolle.
 
 ```bash
 # 8. Ergebnis speichern
@@ -138,7 +142,7 @@ bezirksgrenzen <- st_read("data/bezirksgrenzen.geojson")
 ```bash
 df_baeume <- read.csv("data/df_merged_final.csv", sep = ";", stringsAsFactors = FALSE)
 ```
-- Eine Tabelle mit Baumdaten wird eingelesen. Jeder Eintrag beschreibt einen Baum: z. B. seine Art, Pflanzjahr und die Koordinaten, wo er steht.
+- Die Tabelle mit Baumdaten wird eingelesen. Jeder Eintrag beschreibt einen Baum: z. B. seine Art, Pflanzjahr und die Koordinaten, wo er steht.
 - Manche Bäume haben schon einen Bezirk eingetragen, andere nicht.
 
 **3. Koordinaten umwandeln**
@@ -174,6 +178,7 @@ df_ohne_bezirk_sf <- st_as_sf(df_ohne_bezirk, coords = c("lng", "lat"), crs = 43
 bezirksgrenzen <- st_transform(bezirksgrenzen, crs = st_crs(df_ohne_bezirk_sf)) %>%
   rename(bezirk = Gemeinde_name)
 ```
+
 - Die Karte der Bezirke wird ins gleiche geografische System wie die Baumdaten gebracht (Koordinatensystem).
 - Außerdem wird der Name des Bezirksfeldes vereinfacht in „bezirk“.
 
@@ -182,6 +187,7 @@ bezirksgrenzen <- st_transform(bezirksgrenzen, crs = st_crs(df_ohne_bezirk_sf)) 
 ```bash
 df_ohne_bezirk_joined <- st_join(df_ohne_bezirk_sf, bezirksgrenzen["bezirk"], left = TRUE)
 ```
+
 - Jetzt wird für jeden Baum ohne Bezirk geschaut, ob er innerhalb eines Bezirks liegt.
 - Dafür wird überprüft, welches Bezirks-Polygon den jeweiligen Baum „einschließt“.
 - Dieser Vorgang heißt „spatial join“ – also ein räumliches Verbinden.
@@ -196,16 +202,16 @@ df_ohne_bezirk_filled <- df_ohne_bezirk_joined %>%
 ```
 - Die berechneten Bezirksangaben werden in die Tabelle übernommen.
 - Zusätzliche technische Spalten werden entfernt.
-- Die geografischen Informationen werden wieder „fallen gelassen“, damit es wieder eine normale Tabelle ist.
+- Die geografischen Informationen werden wieder „fallen lassen“, damit es wieder eine normale Tabelle ist.
 
 **9. Beide Gruppen wieder zusammenfügen**
 ```bash
 df_baeume_final <- bind_rows(df_mit_bezirk, df_ohne_bezirk_filled)
 ```
+
 - Jetzt werden alle Bäume wieder in einer Tabelle vereint:
 
     - Die, die schon einen Bezirk hatten.
-
     - Und die, denen jetzt ein Bezirk zugeordnet wurde.
 
 **10. Neue, vollständige Tabelle speichern**
@@ -318,7 +324,6 @@ df_merged_full$durchschnitts_intervall[is.na(df_merged_full$durchschnitts_interv
 - Für diese Bäume wird der Durchschnitt einfach auf 0 gesetzt.
 
 **5. Endgültige Zusammenfassung: Ein Eintrag pro Baum**
-
 ```bash
 df_merged_sum <- df_merged_full %>%
   group_by(gisid) %>%

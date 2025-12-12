@@ -5,6 +5,13 @@ lang: de-DE
 (lernziele)=
 # Lernziele
 
+Dieses JupyterBook setzt ein grundlegendes Verständnis für Datenanalyse sowie ein Interesse an der Interpretation städtischer Strukturdaten voraus. Von Vorteil ist es, wenn Anwendende bereits mit grundlegenden statistischen Konzepten vertraut sind – insbesondere mit Variablen, Messkonzepten und dem Umgang mit Datensätzen. Spezifische Vorkenntnisse sind jedoch nicht zwingend notwendig.
+
+Für *Kapitel 2: Fragestellung und Operationalisierung* sind keine besonderen Vorkenntnisse erforderlich. Das Kapitel führt Schritt für Schritt in die Ableitung einer Forschungsfrage, die Übersetzung theoretischer Konzepte in messbare Variablen sowie in die Dokumentation der Datenbasis ein. Zudem werden hier die verwendeten Datensätze erläutert und die nötigen Vorverarbeitungsschritte vorgestellt. Eine grundsätzliche Bereitschaft, sich mit Datenstrukturen auseinanderzusetzen, ist hilfreich.
+
+*Kapitel 3: Datenvisualisierung* vermittelt die theoretischen Grundlagen der visuellen Datenanalyse. Hier werden zentrale Prinzipien der Informationsvisualisierung vorgestellt – etwa geeignete Diagrammtypen, Farbwahl, Skalierung, Vergleichbarkeit und bewusste Reduktion. Zudem werden unterschiedliche Visualisierungstools gegenübergestellt, sodass Anwendende ein Verständnis dafür entwickeln, in welchem Kontext welche Werkzeuge sinnvoll sind. Dieses Kapitel erfordert keine Programmierkenntnisse, richtet den Blick jedoch auf konzeptionelle Qualitätskriterien guter Visualisierungen.
+
+Alle praktischen Inhalte zum Aufbau des Dashboards sind in *Kapitel 4: Dashboard bauen* gebündelt. Dieses Kapitel umfasst mehrere Übungen, in denen Schritt für Schritt die fünf zentralen Dashboard-Reiter umgesetzt werden: Startseite, Karte, Bewässerungsanalyse, Zeitverlauf und Baumstatistik. Die Übungen vermitteln praxisnah den Umgang mit Shiny, der Reactive-Logik, ggplot-Visualisierungen, interaktiven Elementen und der Einbettung erklärender Hinweise. Grundlegende R-Kenntnisse sind hilfreich, aber nicht zwingend notwendig, da alle Bausteine ausführlich erläutert werden.
 
 Mit dem Durchlaufen dieses Jupyter Books können Sie die folgenden Lernziele erreichen:
 

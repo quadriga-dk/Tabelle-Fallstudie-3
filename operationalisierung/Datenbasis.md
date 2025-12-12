@@ -5,10 +5,13 @@ lang: de-DE
 (datenbasis)=
 # Datenbasis
 
-<span style="color:green">Amir Weber macht sich Gedanken, welche Daten er braucht und woher er sie beziehen kann... Dabei fällt ihm das Berliner Projekt Gieß den Kiez ein, dass diese Daten bereits erhebt und zur Verfügung stellt. Er prüft zudem, welche Daten noch von Interesse sind und woher er sie beziehen kann.</span>
+```{admonition} Story
+:class: story
+Amir Weber macht sich Gedanken, welche Daten er braucht und woher er sie beziehen kann... Dabei fällt ihm das Berliner Projekt Gieß den Kiez ein, dass diese Daten bereits erhebt und zur Verfügung stellt. Er prüft zudem, welche Daten noch von Interesse sind und woher er sie beziehen kann.
+```
 
 
-In diesem Kapitel stellen wir Ihnen die Daten vor, die wir für unser Szenario benötigen und warum sie von Interesse sind.
+In diesem Kapitel stellen wir Ihnen die Daten vor, die wir für unser Story benötigen und warum sie von Interesse sind.
 
 Die Daten werden für die Datenvisualisierung in RShiny benötigt. Dazu brauchen wir drei zentrale Datensätze: 
 - Daten über den Berliner Baumbestand
@@ -51,18 +54,26 @@ WFS steht für Web Feature Service, also einen Zugriff auf Geo-Objekte über ein
 ````
 Die Baumbestandsdaten stammen aus dem <a href="https://daten.berlin.de/" class="external-link" target="_blank">Berliner Open-Data-Portal</a> und umfassen sowohl Straßenbäume als auch Anlagebäume. Die Daten liegen im WFS-Format vor. 
 
-Die Datensätze enthalten unter anderem Informationen zu:
+Die Datensätze enthalten u.a. Informationen zu:
 - Identifikatoren wie ``gml_id`` (ermöglicht Unterscheidung zwischen Anlagen- und Straßenbäumen), ``gisid`` und ``pitid``
-- Kennzeichen: ``kennzeichen``
 - Botanische Klassifikation, z. B. Baumart: ``art_dtsch``, ``art_bot``, Gattung: ``gattung_deutsch``, ``gattung`` und Gruppe: ``art_gruppe``)
 - Standortmerkmale wie Straße: ``strname``, Hausnummer: ``hausnr``, Zusatz: ``zusatz``, Bezirk: ``bezirk``, Geometrie: ``geom`` (enthält Längen- und Breitengrad in anderem Format) und Standortnummer: ``standortnr``
-- Baummaße, z. B. Kronendurchmesser: ``kronedurch``, Stammumfang: ``stammumfg`` und Höhe: ``baumhoehe``
-- Eigentumsverhältnisse: ``eigentuemer``
 - Pflanzjahr: ``pflanzjahr``
 
-Sie dienen dazu, die Struktur des städtischen Baumbestands besser zu verstehen und mit den Gießdaten in Beziehung zu setzen.
+Sie dienen dazu, die Struktur des städtischen Baumbestands besser zu verstehen und in Beziehung zu den Gießdaten zu setzen. Das ist besonders wichtig, weil sich über die Identifikatoren die Informationen zu jedem einzelnen Baum sinnvoll zusammenführen lassen.
 
-## Öffentliche Pumpen (OpenStreetMap via Overpass API)
+## Bezirksgrenzen (Berlin Open Data)
+
+Für die geografische Einordnung des Baumbestands wurde zusätzlich der Datensatz zu den <a href="https://daten.odis-berlin.de/de/dataset/bezirksgrenzen/" class="external-link" target="_blank">Berliner Bezirksgrenzen</a> genutzt. Dieser enthält die polygonalen Abgrenzungen aller Berliner Bezirke im <a href="https://de.wikipedia.org/wiki/GeoJSON" class="external-link" target="_blank">GeoJson-Format</a> und ermöglicht damit eine präzise räumliche Zuordnung von Punktdaten und enthalten pro Bezirk unter anderem folgende Attribute:
+- ``Gemeinde_name``: Name des Bezirks (z. B. Reinickendorf)
+- ``Gemeinde_schluessel``: Dreistelliger Schlüssel des Bezirks
+- ``Land_name`` und ``Land_schluessel``: Verwaltungszuordnung zu Berlin
+- ``Schluessel_gesamt``: Vollständiger Gebietsschlüssel
+- ``geometry``: Geometrische Beschreibung der Bezirksgrenzen als Multi-Polygon
+
+Ebenso dient die Zuordnung als Grundlage für Visualisierungen und statistische Auswertungen auf Bezirksebene.
+
+## Öffentliche Wasserbrunnen (OpenStreetMap via Overpass API) - kann wohl weg
 
 Zur Identifikation potenzieller Wasserquellen für die Baumgießung wurden Daten zu öffentlichen Wasserpumpen aus <a href="https://overpass-turbo.eu/" class="external-link" target="_blank">Overpass Turbo</a> extrahiert. Dabei handelt es sich um ein Daten-Filterungs-Werkzeug für <a href="https://www.openstreetmap.org/" class="external-link" target="_blank">OpenStreetMap</a> (OSM). Mithilfe einer Abfrage im OpenStreetMap-Tagging-Schema "man_made"="water_well" 
 
@@ -89,18 +100,7 @@ wurde eine umfangreiche Sammlung relevanter Pumpenstandorte generiert. Die resul
 - Pumpentyp und Stil (``pump.status``, ``pump.style``, Pumpenbedinung: ``pump``)
 - Identifikator(``id``)
 
-## Bezirksgrenzen (Berlin Open Data)
-
-Zur besseren geografischen Einordnung der Pumpen wurde zusätzlich der Datensatz zu den <a href="https://daten.odis-berlin.de/de/dataset/bezirksgrenzen/" class="external-link" target="_blank">Berliner Bezirksgrenzen</a> genutzt. Dieser enthält die polygonalen Abgrenzungen aller Berliner Bezirke im <a href="https://de.wikipedia.org/wiki/GeoJSON" class="external-link" target="_blank">GeoJson-Format</a> und ermöglicht damit eine präzise räumliche Zuordnung von Punktdaten und enthalten pro Bezirk unter anderem folgende Attribute:
-- ``Gemeinde_name``: Name des Bezirks (z. B. Reinickendorf)
-- ``Gemeinde_schluessel``: Dreistelliger Schlüssel des Bezirks
-- ``Land_name`` und ``Land_schluessel``: Verwaltungszuordnung zu Berlin
-- ``Schluessel_gesamt``: Vollständiger Gebietsschlüssel
-- ``geometry``: Geometrische Beschreibung der Bezirksgrenzen als Multi-Polygon
-
-Konkret wurden die Bezirksgrenzen verwendet, um die Lage der Wasserpumpen innerhalb des Stadtgebiets einzelnen Bezirken zuzuweisen. Dies ist insbesondere für die Analyse lokaler Versorgungsdichten, infrastruktureller Ausstattung oder potenzieller Versorgungslücken von Bedeutung. Ebenso dient die Zuordnung als Grundlage für Visualisierungen und statistische Auswertungen auf Bezirksebene.
-
-## Bezirksflächen (Grünflächeninformationssystem (GRIS)) 
+## Bezirksflächen (Grünflächeninformationssystem (GRIS)) - kann wohl weg
 Um die Verteilung und Dichte öffentlicher Wasserpumpen innerhalb der Berliner Bezirke besser quantifizieren zu können, wurden ergänzend Flächendaten aus dem Grünflächeninformationssystem (GRIS) des Landes Berlin herangezogen. Die Flächenangaben dienen insbesondere dazu, die Pumpendichte pro Hektar (ha) auf Bezirksebene zu berechnen und damit die infrastrukturelle Versorgung vergleichbar darzustellen.
 
 Die Flächendaten wurden aus einer tabellarischen Quelle des GRIS extrahiert und manuell in ein strukturiertes Dataframe überführt. Dieses enthält pro Bezirk folgende Informationen:
@@ -127,15 +127,3 @@ bezirksflaechen <- data.frame(
 ```
 
 Diese Daten ermöglichen flächenbezogene Vergleiche der Pumpendichte und bilden eine wichtige Grundlage für die Bewertung der Verteilung öffentlicher Wasserquellen im urbanen Raum.
-
-## Lebensweltlich orientierte Räume auswähle (LOR GovData)
- Für eine feinräumigere Analyse des Gießverhaltens in Berlin wurden zusätzlich die Lebensweltlich orientierten Räume (LOR) berücksichtigt. Dabei handelt es sich um ein offizielles kleinräumiges Gebietsgliederungssystem, das vom Amt für Statistik Berlin-Brandenburg bereitgestellt und gepflegt wird. Die Einteilung der Stadt in sogenannte Planungsräume ermöglicht differenzierte sozialräumliche Auswertungen und bietet eine sinnvolle Ergänzung zu den Bezirksgrenzen.
-
-Die LOR-Daten wurden über das Portal <a href="https://www.govdata.de/suche/daten/lebensweltlich-orientierte-raume-lor-01-01-2019" class="external-link" target="_blank">GovData</a> bezogen und liegen im Geo-Datenformat mit räumlichen Polygonen vor. Der vollständige Datensatz enthält zahlreiche Attribute – für unsere Analyse relevant sind insbesondere:
-
-- ``bzr_id``: ID des Bezirksregionsraums
-- ``bzr_name``: Name des Bezirksregionsraums
-- ``geom``: Geometrie (räumliche Abgrenzung als Polygon)
-
-Diese Informationen ermöglichen eine detailliertere geografische Segmentierung der Gießaktivitäten und erlauben den Vergleich zwischen verschiedenen Berliner Stadtteilen jenseits der groben Bezirksebene. Die LOR-Zuordnung wurde insbesondere für kleinräumige Visualisierungen sowie für die Untersuchung sozialräumlicher Unterschiede in der Baumgießbeteiligung herangezogen.
-

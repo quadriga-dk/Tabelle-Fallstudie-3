@@ -21,7 +21,7 @@ chapters:
       - file: datenvisualisierung/Datenvisualisierung-Grundlagen
       - file: datenvisualisierung/dashboard_theorie
       - file: datenvisualisierung/Vergleich
-      - file: datenvisualisierung/Umsetzung_mit_rshiny
+      - file: datenvisualisierung/Umsetzung_mit_rshiny_edit
   - file: dashboard/Dashboard
     sections:
       - file: dashboard/Einführung
