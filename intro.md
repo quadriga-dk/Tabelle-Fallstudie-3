@@ -32,13 +32,13 @@ Plomin, J., Walter, P., Schmeling, J., Dakruni, S. & Bingöl, C. (2025). _Visual
 ````
 `````
 
-Diese Fallstudie bildet mit Hilfe eines <a href="https://jupyterbook.org/en/stable/intro.html" class="external-link" target="_blank">JupyterBooks</a> einen Handlungsverlauf in der Verwaltung(swissenschaft) nach. Dabei wird anhand einer modellhaften Forschungsfrage auf die Visualisierung von Daten eingegangen. Dazu werden in einzelnen Kapiteln die Themen Datenvisualisierung, Dashboards und Manipulierbarkeit von Visualisierungen *sowie Kommunikation von Forschungsergebnissen* behandelt.
+Diese Fallstudie bildet mit Hilfe eines <a href="https://jupyterbook.org/en/stable/intro.html" class="external-link" target="_blank">JupyterBooks</a> einen Handlungsverlauf in der Verwaltung(swissenschaft) nach. Dabei wird anhand einer modellhaften Forschungsfrage auf die Visualisierungsmöglichkeiten von Daten eingegangen. Dazu werden in einzelnen Kapiteln die Themen Datenvisualisierung, Dashboards und Manipulierbarkeit von Visualisierungen *sowie Kommunikation von Forschungsergebnissen* behandelt.
 
 Statt einer zentralen Forschungsfrage wird folgendes Szenario skizziert: 
 
 ```{admonition} Story
 :class: story
-Dr. Amir Weber, ein Verwaltungswissenschaftler mit Interesse an kommunalen Daten und Bürgerbeteiligung, möchte ein Dashboard zur Visualisierung der Baumartenvielfalt und dem Bewässerungsverhalten erstellen, das auf offenen Datensätzen basiert. In der 2. Fallstudie (*Link zu Fallstudie 2*) hat er dazu bereits nach passenden Datensätzen gesucht. Nun möchte er er sich die Daten explorativ anschauen und Dashboards zur Visualisierung dieser Daten gestaltet, um die Datensätze für  Bürger:innen und Politik verständlich darzustellen. Hier soll das Ausmaß und die Verteilung der Bürgerbeteiligung sichtbar gemacht werden. 
+Dr. Amir Weber, ein Verwaltungswissenschaftler mit Interesse an kommunalen Daten und Bürgerbeteiligung, möchte ein Dashboard zur Visualisierung der Baumartenvielfalt und dem Bewässerungsverhalten erstellen, das auf offenen Datensätzen basiert. In einer vorangegangenen  <a href="https://quadriga-dk.github.io/Tabelle-Fallstudie-2/Titelseite.html" class="external-link" target="_blank">Fallstudie</a> hat er dazu bereits nach den passenden Datensätzen gesucht. Nun möchte er sich die Daten explorativ anschauen und Dashboards zur Visualisierung dieser Daten gestaltet, um die Datensätze für Bürger:innen und Politik verständlich darzustellen. Diese sollen das Ausmaß und die Verteilung der Bürgerbeteiligung sichtbar machen. 
 Dabei orientiert er sich an folgenden Leitfragen: 
 ```
 
@@ -46,7 +46,7 @@ Dabei orientiert er sich an folgenden Leitfragen:
 
 Leitfragen: 
 - Wo zeigen sich die höchsten Ausprägungen des Bürgerengagements bei der Bewässerung städtischer Bäume in Berlin?
-- Welche Rolle spielen räumliche (Bezirk, Baumdichte), zeitliche (Pflanzjahr, Jahresverlauf) und infrastrukturelle (Pumpendichte) Faktoren für das Engagement?
+- Welche Rolle spielen räumliche (Bezirk, Baumdichte) und zeitliche (Pflanzjahr, Jahresverlauf) Faktoren für das Engagement?
 - Wie können interaktive Dashboards zur Visualisierung dieser Daten gestaltet werden, um versch. Datensätze einzubeziehen und verständlich darzustellen?
 
 
@@ -64,7 +64,7 @@ Die Zielgruppe sind promovierende und promovierte Wissenschaftler:innen, aber au
 
 **Voraussetzungen**
 
-Im Kapitel [Dashboard](dashboard) können Sie, wenn Sie Technik affin sind, selbst ein Dashboard bauen. Dies setzt allerdings ein tieferes Verständnis von der Funktionsweise der <a href="https://www.r-project.org" class="external-link" target="_blank">Programmiersprache R</a> voraus, sodass dieses Kapitel für *Fortgeschrittene* konzipiert wurde. 
+Im Kapitel [Dashboard](dashboard) können Sie, wenn Sie technikaffin sind, selbst ein Dashboard bauen. Dies setzt allerdings ein tieferes Verständnis von der Funktionsweise der <a href="https://www.r-project.org" class="external-link" target="_blank">Programmiersprache R</a> voraus, sodass dieses Kapitel für *Fortgeschrittene* konzipiert wurde. 
 
 
 ## Struktur der Fallstudie
