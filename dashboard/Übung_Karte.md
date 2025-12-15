@@ -7,17 +7,17 @@ lang: de-DE
 ```{admonition} Story
 :class: story
 Nachdem Amir sein Dashboard eingerichtet und die wichtigsten Kennzahlen sichtbar gemacht hat, möchte er nun genauer verstehen, wo in Berlin besonders viel gegossen wird.
-Die Plattform Gieß den Kiez zeigt ihm eindrucksvolle Karten, die Bezirke farblich nach bestimmten Kriterien hervorheben – das möchte Amir für seine Anwendung nachbauen.
+Die Plattform Gieß den Kiez (Link) zeigt ihm eindrucksvolle Karten, die Bezirke farblich nach bestimmten Kriterien hervorheben – das möchte Amir für seine Anwendung nachbauen.
 
-Sein Ziel: Eine intuitive Karte, die sofort erkennen lässt, in welchen Bezirken viele Bäume gegossen wurden und wo eher weniger.
+Sein Ziel: Eine intuitive Karte von Berlin, die sofort erkennen lässt, in welchen Bezirken viele Bäume gegossen wurden und wo eher weniger.
 ```
 
 ```{admonition} Zweck dieser Übung
 :class: lernziele
-- Das Erstellen einer Leaflet-Karte dient dazu, räumliche Informationen nutzbar zu machen, um Verwaltungsdaten visuell zugänglich und vergleichbar darzustellen. In dieser Übung lernen wir, wie Bezirksdaten mit statistischen Kennzahlen verknüpft und anschließend mithilfe einer Farbskala intuitiv interpretiert werden können. Die farbliche Hervorhebung des Anteils bewässerter Bäume ermöglicht es, Muster und regionale Unterschiede auf einen Blick zu erkennen und erste Antworten auf die Leitfrage zu gewinnen: In welchen Bezirken wird besonders viel gegossen?
+- Das Erstellen einer Leaflet-Karte (erklären, was ist das) dient dazu, räumliche Informationen nutzbar zu machen, um Verwaltungsdaten visuell zugänglich und vergleichbar darzustellen. In dieser Übung lernen wir, wie Bezirksdaten mit statistischen Kennzahlen verknüpft und anschließend mithilfe einer Farbskala intuitiv interpretiert werden können. Die farbliche Hervorhebung des Anteils bewässerter Bäume ermöglicht es, Muster und regionale Unterschiede auf einen Blick zu erkennen und zusätzliche Antworten auf die Leitfrage zu gewinnen: In welchen Bezirken wird besonders viel gegossen?
 ```
 
-Die **Bezirkskarte** bildet den nächsten zentralen Baustein in Amirs Dashboard. Nachdem die Startseite bereits erste Kennzahlen sichtbar macht, möchte Amir nun räumlich darstellen, **wo** in Berlin besonders viel gegossen wurde. Eine kartenbasierte Visualisierung eignet sich ideal, um regionale Muster zu erkennen, Hotspots sichtbar zu machen und Unterschiede zwischen den Bezirken intuitiv zu erfassen.
+Das Dashboard soll um eine **Bezirkskarte** erweitert werden. Nachdem die Startseite bereits erste Kennzahlen sichtbar macht, möchte Amir nun räumlich darstellen, **wo** in Berlin besonders viel gegossen wurde. Eine kartenbasierte Visualisierung eignet sich ideal, um regionale Muster zu erkennen, Hotspots sichtbar zu machen und Unterschiede zwischen den Bezirken intuitiv zu erfassen.
 
 Für diese Aufgabe nutzt Amir das Paket **Leaflet**, das interaktive Karten direkt in R-Shiny erzeugt. Ergänzt wird Leaflet durch **sf** zur Verarbeitung der Bezirks-Geodaten sowie durch Funktionen wie ```colorNumeric()```, mit denen eine aussagekräftige Farbskala erzeugt wird. Die Karte verknüpft also zwei Datenquellen:
 die **räumliche Geometrie** der Berliner Bezirke und die **berechneten Kennzahlen** aus seinem Datensatz – insbesondere die Anzahl der Bäume sowie den Anteil der bewässerten Bäume pro Bezirk.
@@ -33,8 +33,8 @@ Die Karte erfüllt mehrere Ziele gleichzeitig:
 
 - Ein **Tooltip** zeigt beim Überfahren eines Bezirks die genauen Zahlen und den exakten Prozentsatz, sodass die Nutzer:innen nicht nur visuell, sondern auch quantitativ informiert werden.
 
-Damit beantwortet die Karte eine zentrale Leitfrage:
-**In welchen Bezirken engagieren sich Bürger:innen besonders stark beim Gießen der Bäume – und wo weniger?**
+Durch die Visualisierung kann ebenso die zentrale Leitfrage beantwortet werden:
+**Wie stark engagieren sich die Berliner*innen für die Bäume in ihrer Stadt – und in welchen Bezirken ist dieses Engagement am höchsten?**
 
 Technisch nutzt Amir dafür ein Zusammenspiel aus:
 
