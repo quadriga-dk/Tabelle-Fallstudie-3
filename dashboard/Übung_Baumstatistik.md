@@ -7,14 +7,14 @@ lang: de-DE
 ```{admonition} Story
 :class: story
 
-Amir Weber möchte nachvollziehen, welche Eigenschaften der Bäume und ihrer Umgebung das freiwillige Engagement beim Gießen beeinflussen. Nachdem er bereits zeitliche Muster analysiert hat, richtet er seinen Blick nun auf räumliche Faktoren sowie baumartspezifische Merkmale.
+Amir Weber möchte nachvollziehen, inwieweit die Art der Bäume und ihrer Umgebung das freiwillige Engagement beim Gießen beeinflussen. Nachdem er bereits zeitliche Muster analysiert hat, richtet er seinen Blick nun auf räumliche Faktoren (Baumdichte) sowie baumartspezifische Merkmale.
 
 ```
 
 ```{admonition} Zweck dieser Übung
 :class: lernziele
 
-In dieser Übung lernen wir, wie baumbezogene Merkmale und räumliche Faktoren das Engagement beim Gießen beeinflussen können. Wir üben:
+In dieser Übung wollen wir herausfinden, ob die Baumart und räumliche Faktoren (Baumdichte) einen Einfluss auf das Engagement beim Gießen haben. Wir üben:
 
 - Baumarten und deren Verteilung in Bezirken statistisch zu beschreiben,
 - relative Häufigkeiten und Top-Listen (z. B. meistgegossene Arten) zu interpretieren,
@@ -24,7 +24,7 @@ und einfache Hypothesen über das Engagement – etwa bevorzugte Gattungen oder 
 
 ```
 
-Nachdem zuvor untersucht wurde, wie Pflanzjahr und Zeitverlauf das Gießverhalten beeinflussen, richtet sich der Blick nun auf räumliche und baumartspezifische Unterschiede innerhalb Berlins. Verschiedene Bezirke weisen sehr unterschiedliche Baumstrukturen auf: Manche besitzen eine hohe Dichte, andere sind von wenigen dominanten Gattungen geprägt.
+Nachdem zuvor untersucht wurde, wie Pflanzjahr und Zeitverlauf das Gießverhalten beeinflussen, richtet sich der Blick nun auf räumliche und baumartspezifische Unterschiede innerhalb Berlins. Verschiedene Bezirke weisen sehr unterschiedliche Baumstrukturen auf: Manche besitzen eine hohe Dichte, andere sind von wenigen dominanten Gattungen geprägt (Nachweis dazu fehlt - woraus wird das zu diesem Zeitpunkt abgeleitet?).
 
 Amir Weber will also überprüfen:
 
