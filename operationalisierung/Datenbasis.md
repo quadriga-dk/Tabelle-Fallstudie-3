@@ -11,13 +11,12 @@ Amir Weber macht sich Gedanken, welche Daten er braucht und woher er sie beziehe
 ```
 
 
-In diesem Kapitel stellen wir Ihnen die Daten vor, die wir für unser Story benötigen und warum sie von Interesse sind.
+In diesem Kapitel stellen wir Ihnen die Daten vor, die wir zur Beantwortung unserer Forschungsfrage benötigen und warum sie von Interesse sind.
 
-Die Daten werden für die Datenvisualisierung in RShiny benötigt. Dazu brauchen wir drei zentrale Datensätze: 
+Die Daten werden für die Datenvisualisierung in RShiny benötigt. Dazu brauchen wir zwei zentrale Datensätze: 
 - Daten über den Berliner Baumbestand
 - Bewässerungsdaten des Projekts <a href="https://citylab-berlin.org/en/projects/giessdenkiez/" class="external-link" target="_blank">Gieß den Kiez</a>
-- Informationen zu öffentlichen Wasserpumpen, um zu prüfen, ob diese mit dem Bewässerungsverhalten in Verbindung stehen 
-
+ 
 Diese Datengrundlage ermöglicht eine fundierte Analyse der urbanen Bewässerungsinfrastruktur in Berlin.
  
 
@@ -73,7 +72,7 @@ Für die geografische Einordnung des Baumbestands wurde zusätzlich der Datensat
 
 Ebenso dient die Zuordnung als Grundlage für Visualisierungen und statistische Auswertungen auf Bezirksebene.
 
-## Öffentliche Wasserbrunnen (OpenStreetMap via Overpass API) - kann wohl weg
+## Öffentliche Wasserbrunnen (OpenStreetMap via Overpass API) - Kapitel wird noch rausgeschmissen
 
 Zur Identifikation potenzieller Wasserquellen für die Baumgießung wurden Daten zu öffentlichen Wasserpumpen aus <a href="https://overpass-turbo.eu/" class="external-link" target="_blank">Overpass Turbo</a> extrahiert. Dabei handelt es sich um ein Daten-Filterungs-Werkzeug für <a href="https://www.openstreetmap.org/" class="external-link" target="_blank">OpenStreetMap</a> (OSM). Mithilfe einer Abfrage im OpenStreetMap-Tagging-Schema "man_made"="water_well" 
 
@@ -100,7 +99,7 @@ wurde eine umfangreiche Sammlung relevanter Pumpenstandorte generiert. Die resul
 - Pumpentyp und Stil (``pump.status``, ``pump.style``, Pumpenbedinung: ``pump``)
 - Identifikator(``id``)
 
-## Bezirksflächen (Grünflächeninformationssystem (GRIS)) - kann wohl weg
+## Bezirksflächen (Grünflächeninformationssystem (GRIS))  - Kapitel wird noch rausgeschmissen
 Um die Verteilung und Dichte öffentlicher Wasserpumpen innerhalb der Berliner Bezirke besser quantifizieren zu können, wurden ergänzend Flächendaten aus dem Grünflächeninformationssystem (GRIS) des Landes Berlin herangezogen. Die Flächenangaben dienen insbesondere dazu, die Pumpendichte pro Hektar (ha) auf Bezirksebene zu berechnen und damit die infrastrukturelle Versorgung vergleichbar darzustellen.
 
 Die Flächendaten wurden aus einer tabellarischen Quelle des GRIS extrahiert und manuell in ein strukturiertes Dataframe überführt. Dieses enthält pro Bezirk folgende Informationen:
