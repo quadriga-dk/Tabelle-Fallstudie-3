@@ -31,14 +31,13 @@ Mit Ihren Rückmeldungen können wir unser interaktives Lehrbuch gezielt an Ihre
 In diesem Kapitel werden Sie durch den Aufbau eines Dashboards geführt. Je nach Vorkenntnissen und gewählter [Ausführungsmethode](technische_voraussetzungen) kann die Bearbeitungszeit variieren.
 
 In diesem Kapitel finden Sie folgende Abschnitte:
-- [Vorbereitung](vorbereitung)
-- [Startseite Dashboard](landing-page)
-- [Einfügen Karte](map)
-- [Einfügen Baumstatistik](trees)
-- [Einfügen Bewässerungsanalyse](watering)
-- [Einfügen Infrastruktur](infrastruktur)
+- [4.1. Vorbereitung](vorbereitung)
+- [4.1. Startseite Dashboard](landing-page)
+- [4.3. Erstellung einer Karte](map)
+- [4.4. Einfügen Baumstatistik](trees)
+- [4.5. Einfügen Bewässerungsanalyse](watering)
 
-Wie im Abschnitt (Visualisierung?) dargelegt wurde, sind Dashboards eine gute Möglichkeit, Daten aus der Verwaltung nutzer:innenfreundlich aufzubereiten und zu visualisieren. In diesem Kapitel wird Ihnen das Bauen eines Dashboards mittels RShiny nahe gebracht. 
+Wie im Abschnitt 3.2. dargelegt wurde, sind Dashboards eine gute Möglichkeit, Daten aus der Verwaltung nutzer:innenfreundlich aufzubereiten und zu visualisieren. In diesem Kapitel wird Ihnen das Bauen eines Dashboards mittels RShiny nahe gebracht. 
 +++
 *Wir befinden uns hier:*
 ![Aufgabe 3](/assets/Aufgabenstruktur-03.png)
