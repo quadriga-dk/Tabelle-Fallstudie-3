@@ -36,6 +36,7 @@ Die höchste Gesamtbewässerung wurde im **Jahr 2022** erreicht, mit einem Volum
 - *Was hat mit dieser Fragestellung funktioniert und was nicht?*
 - *Was sind Unsicherheitsfaktoren in der Untersuchung (z. B. sind alle Bäume in den Ausgangsdaten vorhanden?, Wie wird die Wassermenge bestimmt?)*
 - *Grenzen der Aussagen (Was können die Daten sagen und was nicht?)*
+- Und wie robust sind unsere Befunde gegenüber unterschiedlichen Operationalisierungen?
 
 
 Ein möglicher Einflussfaktor: Die Erhebung differenziert nicht zwischen Straßenbäumen und Bäumen in Grünanlagen. Für eine aussagekräftigere Bewertung wäre eine separate Analyse dieser Baumtypen erforderlich.
