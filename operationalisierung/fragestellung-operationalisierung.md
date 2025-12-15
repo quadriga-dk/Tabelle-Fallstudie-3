@@ -21,7 +21,7 @@ Mit Ihren Rückmeldungen können wir unser interaktives Lehrbuch gezielt an Ihre
 ````
 
 
-Dieses Kapitel stellt die Einführung in die Fallstudie dar und dient der Klärung des Erkenntnisinteresses, bevor wir in den nächsten Kapiteln zur Vorbereitung und Aufbereitung des Forschungsgegenstandes übergehen.
+Dieses Kapitel 2 stellt die Einführung in die Fallstudie dar und dient der Klärung des Erkenntnisinteresses, bevor wir in den nächsten Kapiteln zur Vorbereitung und Aufbereitung des Forschungsgegenstandes übergehen.
 
 ```{admonition} Formulieren der Forschungsfrage und Operationalisieren des Verfahrens
 :class: lernziele
@@ -29,13 +29,13 @@ Dieses Kapitel stellt die Einführung in die Fallstudie dar und dient der Kläru
 1. Die Forschungsfrage kann erläutert und in einen Kontext mit der Gestaltung eines Dashboards gesetzt werden.
 ```
 
-Zunächst wird dazu eine Forschungsfrage formuliert, um darzulegen, was in dieser Fallstudie untersucht wird. Anschließend widmen wir uns der Operationalisierung, d. h. wir entwickeln ein Erkennungsverfahren für ein theoretisches Konzept. Der Abschnitt Datenbasis erläutert die Daten, mit denen wir in dieser Fallstudie arbeiten.
+Im Abschnitt 2.1 wird dazu eine Forschungsfrage formuliert, um darzulegen, was in dieser Fallstudie untersucht wird. Anschließend widmen wir uns im Abschnitt 2.2 der Operationalisierung, d. h. wir legen fest, wie ein theoretisches Konzept praktisch erfasst werden soll. Der Abschnitt 2.3 Datenbasis erläutert die Daten, mit denen wir in dieser Fallstudie arbeiten.
 
 In diesem Kapitel finden Sie folgende Abschnitte:
-- [Fragestellung](fragestellung)
-- [Operationalisierung](operationalisierung)
-- [Datenbasis](datenbasis)
-- [Resümee](fragestellung-resümee)
+- [2.1. Fragestellung](fragestellung): Zunächst wird eine Forschungsfrage formuliert, um darzulegen, was in dieser Fallstudie untersucht wird.
+- [2.2. Operationalisierung](operationalisierung): Anschließend widmen wir uns in diesem Abschnitt der Operationalisierung, d. h. wir legen fest, wie ein theoretisches Konzept praktisch erfasst werden soll. 
+- [2.3. Datenbasis](datenbasis): Dieser erläutert die Daten, mit denen wir in dieser Fallstudie arbeiten.
+- [2.4. Resümee](fragestellung-resümee)
 
 
 *Dieses Kapitel ist wegen der Methodik von Bedeutung?* 
