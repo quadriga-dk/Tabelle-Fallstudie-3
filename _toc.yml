@@ -27,6 +27,7 @@ chapters:
       - file: dashboard/Einführung
       - file: dashboard/Übung_Startseite
       - file: dashboard/Übung_Karte
+      - file: dashboard/Übung_Zeitverlauf
       - file: dashboard/Übung_Baumstatistik
       - file: dashboard/Übung_Bewässerungsanalyse
       - file: dashboard/Übung_Infrastruktur
