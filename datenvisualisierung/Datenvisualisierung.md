@@ -34,12 +34,13 @@ In diesem Kapitel erlangen Sie theoretisches Wissen zum Thema Datenvisualisierun
 Zuerst gehen wir auf Grundlagen zu den Themen Datenvisualisierung, Haltung und Dashboards ein. Danach zeigen wir in einem Vergleich auf, welche verschiedenen Wege der Datenvisualisierung es gibt und zum Schluss bereiten wir eine Umsetzung mit dem Programm RShiny vor.
 
 In diesem Kapitel finden Sie folgende Abschnitte:
-- [Grundlagen der Datenvisualisierung](datenvisualisierung-methoden-werkzeuge)
-- [Vergleich von Visualisierungstools](vergleich)
-- [Vorbereitung der Daten](umsetzung)
+- [3.1. Grundlagen der Datenvisualisierung](datenvisualisierung-methoden-werkzeuge)
+- [3.2. Dashboards](Dashboards)
+- [3.3. Vergleich von Visualisierungstools](vergleich)
+- [3.4. Vorbereitung der Daten](umsetzung)
 
 
-Wir befinden uns damit im theoretischen Teil dieser Fallstudie. Nachdem wir ein Szenario skizziert haben, müssen wir uns nun die Grundlagen aneignen, bevor wir uns dem praktischen Teil widmen können.
+Wir befinden uns damit im theoretischen Teil dieser Fallstudie. Nachdem wir das Szenario der fallstudie und die Motivation von Amir Weber skizziert haben, müssen wir uns nun ein paar Grundlagen aneignen, bevor wir uns dem praktischen Teil, dem Bau eines Dashboards, widmen können.
 
 +++
 *Wir befinden uns hier:*
