@@ -30,8 +30,8 @@ So ist die Startseite nicht nur auf erstem Blick intuitiv und verständlich, son
 
 Für den Einstieg arbeitet Amir mit dem Datensatz *„Gieß den Kiez – Bewässerungsdaten“* von **GovData**. Dieser Datensatz bietet detaillierte Informationen darüber, wann, wo und wie viel gegossen wurde. Er eignet sich ideal, um erste Analysen zum Gießverhalten zu erstellen, da er sowohl zeitliche als auch räumliche Bezüge enthält und öffentlich zugänglich ist.
 
-![alt text](Dashboard_Startseite_2.png)
-*Abbildung 1: Startseite des Dashboards (Quelle: eigene Ausarbeitung)*
+![alt text](Dashboard_Startseite.png)
+*Abbildung 1: Startseite des Dashboards; Die Startseite zeigt zwei Kacheln mit der Gesamtzahl der Bäume in Berlin sowie der Anzahl der bereits gegossenen Bäume, die einen Teilmenge des gesamten Baumbestands darstellen. Zusätzlich steht ein Filter zur Verfügung, mit dem der Baumbestand nach Bezirken ausgewählt und angezeigt werden kann. (Quelle: eigene Ausarbeitung)*
 
 Für die Startseite seiner Anwendung entscheidet sich Amir für eine **kompakte Kennzahlenübersicht**. Diese soll den Nutzer:innen helfen, sofort die Größenordnung des Gießverhaltens einzuschätzen – etwa, wie viele Bäume gegossen wurden, wie oft und mit welchem Wasservolumen.
 

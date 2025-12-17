@@ -31,11 +31,11 @@ Um die Unterschiede sichtbar zu machen, entscheidet sich Amir, eine umfassendere
 So möchte Amir untersuchen, wie sich die Wahl der Operationalisierung – also „gezählte Bäume“ vs. „gegossene Liter“ – auf die Ergebnisse auswirkt. Die Frage lautet:
 Welche Geschichte erzählen die Daten, wenn man Liter statt Baumanzahl betrachtet?
 
-![alt text](Dashboard_Bewässerungsanalyse.png)
-*Abbildung 3: dritter Reiter des Dashboards - Bewässerungsanalyse (Quelle: eigene Ausarbeitung)*
-
 ## Die Benutzeroberfläche (UI)
-In der ui definieren wir eine neue Tab-Seite namens "stats" mit zwei Diagrammfeldern:
+In der UI definieren wir eine neue Tab-Seite namens "stats" mit zwei Diagrammfeldern. In jedem Diagrammfeld findet man je eines des beiden erstellten Diagramme.
+
+![alt text](Dashboard_Bewässerungsanalyse_1.png)
+*Abbildung 3: Balkendiagramm zur Bewässerung pro Bezirk (2020–2024). Die Abbildung zeigt die aggregierte Bewässerungsmenge in Millionen Litern für die einzelnen Berliner Bezirke im Zeitraum von 2020 bis 2024. Auf der x-Achse sind die Bezirke dargestellt, während die y-Achse die gesamte Bewässerungsmenge angibt. Das Diagramm ermöglicht einen direkten Vergleich der Bewässerungsintensität zwischen den Bezirken. (Quelle: eigene Ausarbeitung)*
 
 ```bash
      tabItem(
@@ -55,6 +55,12 @@ In der ui definieren wir eine neue Tab-Seite namens "stats" mit zwei Diagrammfel
               plotOutput("hist_bewaesserung_pro_bezirk", height = "500px")
               )
         ),
+```
+
+![alt text](Dashboard_Bewässerungsanalyse.png)
+*Abbildung 4: Durchschnittliche Bewässerungsmenge pro gegossenem Baum nach Bezirk. Die Abbildung zeigt die durchschnittliche Bewässerungsmenge pro gegossenem Baum in Litern für die einzelnen Berliner Bezirke. Auf der x-Achse sind die Bezirke dargestellt, während die y-Achse die durchschnittliche Bewässerungsmenge pro Baum angibt. Das Balkendiagramm verdeutlicht Unterschiede in der Bewässerungsintensität zwischen den Bezirken. (Quelle: eigene Ausarbeitung)*
+
+```bash
         fluidRow(
           box(
             title = tagList(

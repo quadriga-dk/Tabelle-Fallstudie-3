@@ -46,6 +46,9 @@ dashboardPage(
       menuItem("Baumstatistik", tabName = "engagement", icon = icon("hands-helping"))
 ```
 
+![alt text](Dashboard_Baumstatistik_1.png)
+*Abbildung 5: Baumverteilung nach Bezirken und Baumgattungen.
+Die Abbildung zeigt die Verteilung der Bäume in den Berliner Bezirken, aufgeschlüsselt nach Baumgattungen. Die Anzahl der Bäume ist für jeden Bezirk als gestapeltes Balkendiagramm dargestellt, wobei die einzelnen Farbsegmente unterschiedliche Baumgattungen repräsentieren. Über einen Schieberegler kann die Anzahl der angezeigten, häufigsten Baumgattungen (Top-N) interaktiv angepasst werden, während weniger häufige Gattungen unter „Sonstige“ zusammengefasst sind. (Quelle: eigene Ausarbeitung)*
 
 ```bash
      tabItem(
@@ -75,7 +78,13 @@ dashboardPage(
            plotOutput("tree_distribution_stacked", height = "500px")
          )
        ),
-       
+```
+
+![alt text](Dashboard_Baumstatistik_2.png)
+*Abbildung 6: Verteilung der Baumgattungen.
+Die Abbildung zeigt die prozentuale Verteilung der Baumgattungen im Berliner Baumbestand in Form eines Kreisdiagramms. Über ein Auswahlfeld kann der betrachtete Bezirk festgelegt werden, wodurch sich die dargestellte Verteilung entsprechend anpasst. Die einzelnen Kreissegmente repräsentieren die Anteile der jeweiligen Baumgattungen am Gesamtbestand des ausgewählten Bezirks. (Quelle: eigene Ausarbeitung)*
+
+```bash
        
        fluidRow(
          box(
@@ -88,7 +97,7 @@ dashboardPage(
            ),
            status = "primary",
            solidHeader = TRUE,
-           width = 6,
+           width = 12,
            selectInput(
              "pie_bezirk",
              "Bezirk auswählen:",
@@ -96,9 +105,14 @@ dashboardPage(
              selected = "Alle"
            ),
            plotOutput("tree_species_pie", height = "500px")
-         ),
-         
-         
+         ),         
+```
+
+![alt text](Dashboard_Baumstatistik_3.png)
+*Abbildung 7: Top 10 gegossene Baumgattungen.
+Die Abbildung zeigt die Top 10 gegossenen Baumgattungen in Berlin in Form eines horizontalen Balkendiagramms. Über ein Auswahlfeld kann der betrachtete Bezirk festgelegt werden, wodurch sich die dargestellten Werte entsprechend anpassen. Die Balken repräsentieren die absolute Anzahl gegossener Bäume je Gattung, wobei die Linde mit deutlichem Abstand an erster Stelle steht, gefolgt von Ahorn (ca. 250.000) und weiteren Gattungen mit jeweils deutlich geringeren Werten. Die x-Achse zeigt die Anzahl gegossener Bäume, die y-Achse die Baumgattungen. (Quelle: eigene Ausarbeitung)*
+
+```bash         
          box(
            title = tagList(
              "Baumdichte pro km²",
@@ -112,9 +126,14 @@ dashboardPage(
            width = 6,
            plotOutput("tree_density_area", height = "500px")
          )
-       ),
-       
-       
+       ),       
+```
+
+![alt text](Dashboard_Baumstatistik_4.png)
+*Abbildung 8: Baumdichte pro km²
+Die Abbildung zeigt die Baumdichte pro km² in den verschiedenen Berliner Bezirken in Form eines vertikalen Balkendiagramms. Die Balken repräsentieren die jeweilige Baumdichte, wobei Friedrichshain-Kreuzberg die höchste Dichte aufweist. Die x-Achse zeigt die Bezirke, die y-Achse die Anzahl der Bäume pro km². Die Darstellung ermöglicht einen direkten Vergleich der Baumdichte zwischen den zwölf Berliner Bezirken. (Quelle: eigene Ausarbeitung)*
+
+```bash
        fluidRow(
          box(
            title = tagList(

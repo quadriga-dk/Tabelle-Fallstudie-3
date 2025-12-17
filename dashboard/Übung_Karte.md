@@ -22,8 +22,8 @@ Das Dashboard soll um eine **Bezirkskarte** erweitert werden. Nachdem die Starts
 Für diese Aufgabe nutzt Amir das Paket **Leaflet**, das interaktive Karten direkt in R-Shiny erzeugt. Ergänzt wird Leaflet durch **sf** zur Verarbeitung der Bezirks-Geodaten sowie durch Funktionen wie ```colorNumeric()```, mit denen eine aussagekräftige Farbskala erzeugt wird. Die Karte verknüpft also zwei Datenquellen:
 die **räumliche Geometrie** der Berliner Bezirke und die **berechneten Kennzahlen** aus seinem Datensatz – insbesondere die Anzahl der Bäume sowie den Anteil der bewässerten Bäume pro Bezirk.
 
-![alt text](Dashboard_Startseite_2.png)
-*Abbildung 2: zweiter Reiter des Dashboards - Karte (Quelle: eigene Ausarbeitung)*
+![alt text](Dashboard_Karte.png)
+*Abbildung 2: zweiter Reiter des Dashboards - Karte; Die Abbildung zeigt eine Karte aller Berliner Bezirke. Die Farbsättigung eines Bezirks entspricht dem prozentualen Anteil der gegossenen Bäume an der Gesamtzahl der Bäume im jeweiligen Bezirk. Die genaue Zuordnung der Farbskala ist in der Legende erläutert.  (Quelle: eigene Ausarbeitung)*
 
 Die Karte erfüllt mehrere Ziele gleichzeitig:
 
