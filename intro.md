@@ -32,7 +32,7 @@ Plomin, J., Walter, P., Schmeling, J., Dakruni, S. & Bingöl, C. (2025). _Visual
 ````
 `````
 
-Diese Fallstudie bildet mit Hilfe eines <a href="https://jupyterbook.org/en/stable/intro.html" class="external-link" target="_blank">JupyterBooks</a> einen Handlungsverlauf in der Verwaltung(swissenschaft) nach. Dabei wird anhand einer modellhaften Forschungsfrage auf die Visualisierungsmöglichkeiten von Daten eingegangen. Dazu werden in einzelnen Kapiteln die Themen Datenvisualisierung, Dashboards und Manipulierbarkeit von Visualisierungen *sowie Kommunikation von Forschungsergebnissen* behandelt.
+Diese Fallstudie bildet mit Hilfe eines <a href="https://jupyterbook.org/en/stable/intro.html" class="external-link" target="_blank">JupyterBooks</a> einen Forschungsverlauf in der Verwaltungswissenschaft nach. Dabei wird anhand einer modellhaften Forschungsfrage auf die Visualisierungsmöglichkeiten von Daten eingegangen. Dazu werden in einzelnen Kapiteln die Themen Datenvisualisierung, Dashboards und Manipulierbarkeit von Visualisierungen *sowie Kommunikation von Forschungsergebnissen* behandelt.
 
 Statt einer zentralen Forschungsfrage wird folgendes Szenario skizziert: 
 
@@ -52,7 +52,7 @@ Leitfragen:
 
 ## Bedeutung dieses Lehrbuchs für die Verwaltungswissenschaft
 
-Datenvisualisierungen sind wichtig, weil ... *wird ergänzt*
+Datenvisualisierungen sind wichtig, weil ... *wird ergänzt* (siehe Kapitel 3.2)
 Dashboards sind eine Möglichkeit zur Darstellung von Verwaltungsdaten, die zunehmend Verwendung findet (*Verweis auf Beispiele Aachen etc.*)
 
 

@@ -1,6 +1,7 @@
 # yaml-language-server: $schema=https://citation-file-format.github.io/1.2.0/schema.json
 cff-version: 1.2.0
-title: Tabelle Fallstudie 3
+title: 'Visualisierung in der Verwaltung: Ein Dashboard für Baum- und Bewässerungsdaten.
+  QUADRIGA Open Educational Resources: Tabelle 3'
 abstract: Dieses Buch ist einerseits ein Template für die Erstellung von OERs nach
   den Empfehlungen von QUADRIGA (https://quadriga-dk.de) und andererseits eine OER
   für die Entwicklung von OERs entsprechend der QUADRIGA Empfehlungen.
@@ -28,7 +29,8 @@ references:
 preferred-citation:
   year: 2024
   authors: *id001
-  title: Tabelle Fallstudie 3
+  title: 'Visualisierung in der Verwaltung: Ein Dashboard für Baum- und Bewässerungsdaten.
+    QUADRIGA Open Educational Resources: Tabelle 3'
   type: book
   doi: 10.5281/zenodo.14970672
   url: https://quadriga-dk.github.io/Book_Template/
