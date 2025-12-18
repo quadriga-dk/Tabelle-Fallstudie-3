@@ -57,7 +57,7 @@ In der UI definieren wir eine neue Tab-Seite namens "stats" mit zwei Diagrammfel
         ),
 ```
 
-![alt text](Dashboard_Bewässerungsanalyse.png)
+![alt text](Dashboard_Bewässerungsanalyse_2.png)
 *Abbildung 4: Durchschnittliche Bewässerungsmenge pro gegossenem Baum nach Bezirk. Die Abbildung zeigt die durchschnittliche Bewässerungsmenge pro gegossenem Baum in Litern für die einzelnen Berliner Bezirke. Auf der x-Achse sind die Bezirke dargestellt, während die y-Achse die durchschnittliche Bewässerungsmenge pro Baum angibt. Das Balkendiagramm verdeutlicht Unterschiede in der Bewässerungsintensität zwischen den Bezirken. (Quelle: eigene Ausarbeitung)*
 
 ```bash

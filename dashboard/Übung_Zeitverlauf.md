@@ -39,7 +39,7 @@ Um diese Aspekte besser zu verstehen, untersucht er zwei zentrale Fragen:
 **2. Werden bestimmte Baumjahrgänge (Pflanzjahre) häufiger gegossen als andere?**
 → Deutet das auf besondere Pflegebedarfe oder engagiertes Handeln hin?
 
-Die folgenden Visualisierungen zeigen deshalb sowohl **Trends im Jahresverlauf** als auch die **gesamt gegossene Wassermenge pro Pflanzjahr**, um das Zusammenspiel zwischen Baumalter, Bedarf und Engagement sichtbar zu machen.
+Die folgenden Visualisierungen zeigen deshalb sowohl **Trends im Jahresverlauf** als auch die **gesamt gegossene Wassermenge pro Pflanzjahr**, um das Zusammenspiel zwischen Baumalter, Bedarf und Engagement sichtbar zu machen. Eine chronologische Trenddarstellung ermöglicht es, zeitliche Entwicklungen und Muster im Gießverhalten zu erkennen. Nutzer:innen können nachvollziehen, wie sich die Bewässerungsaktivität über die Jahren hinweg verändert. Solche Erkenntnisse helfen nicht nur bei der Einschätzung des aktuellen Bedarfs, sondern auch bei der Planung zukünftiger Gießaktionen. Darüber hinaus macht die Visualisierung Schwankungen sichtbar. Für die Community kann die Trendlinie zudem motivierend wirken: Ein Aufwärtstrend zeigt wachsendes Engagement, während ein Abfall zum Handeln aufrufen kann. Langfristig liefert die chronologische Darstellung wertvolle Daten für die Evaluation von Maßnahmen und hilft zu verstehen, wann und warum Menschen aktiv werden – eine wichtige Grundlage für die Weiterentwicklung von Plattformen und gezielten Kommunikationsstrategien.
 
 ![alt text](Dashboard_Zeitverlauf.png)
 *Abbildung 4: Zeitverlauf der Baumbewässerung (Quelle: eigene Ausarbeitung)*
