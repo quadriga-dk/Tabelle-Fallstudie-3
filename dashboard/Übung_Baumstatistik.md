@@ -412,4 +412,4 @@ Dies ist plausibel, da in dichter bebauten Gebieten mehr Menschen auf engem Raum
 Die Baumgattungen selbst liefern hingegen **keinen starken Erklärungswert für das Engagement**. Es zeigt sich zwar, welche Gattungen besonders häufig gegossen werden, doch dies korreliert in erster Linie damit, wie verbreitet die jeweilige Gattung im Stadtbild ist. Dass Linden oft gegossen werden, liegt also vor allem daran, dass sie fast überall stehen – nicht daran, dass sie besonders pflegebedürftig oder beliebter wären.
 
 **Kernbotschaft**
-*Die Verteilung des Engagements folgt eher der Dichte und Sichtbarkeit von Bäumen in den Bezirken als der Art der Bäume. Baumgattungen erklären wenig – räumliche Faktoren jedoch sehr viel.*
+*Die Verteilung des Engagements folgt eher der Dichte und Sichtbarkeit von Bäumen in den Bezirken als der Art der Bäume. Baumgattungen erklären wenig – räumliche Faktoren jedoch deuten auf einiges hin.*
