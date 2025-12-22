@@ -14,6 +14,7 @@ Ziel dieses Schrittes ist es, verschiedene Datensätze – insbesondere den Berl
 
 ```
 
+### Erste Schritte
 **Laden der Baumkatasterdaten**
 Die Berliner Baumdaten werden über eine WFS-Schnittstelle (Web Feature Service) bezogen. Dabei werden sowohl Anlagenbäume als auch Straßenbäume geladen. 
 
