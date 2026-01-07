@@ -53,6 +53,7 @@ Amir entscheidet sich für ein System der Benutzeroberfläche, die aus zwei Teil
 Somit lässt sich eine übersichtliche Navigationsstruktur etablieren. 
 
 **Navigation: sidebarMenu**
+**Code**
 
 ```bash
 dashboardSidebar(
@@ -60,6 +61,7 @@ dashboardSidebar(
     menuItem("Startseite", tabName = "start", icon = icon("home"))
   )
 )
+Erklärung des Codes
 ```
 ```{admonition} Merke: 
 :class: keypoint 
