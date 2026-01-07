@@ -52,7 +52,8 @@ Amir entscheidet sich für ein System der Benutzeroberfläche, die aus zwei Teil
 
 Somit lässt sich eine übersichtliche Navigationsstruktur etablieren. 
 
-**Navigation: sidebarMenu**
+**Seitenleiste mit der Navigation (sidebarMenu)**
+
 **Code**
 
 ```bash
@@ -61,13 +62,8 @@ dashboardSidebar(
     menuItem("Startseite", tabName = "start", icon = icon("home"))
   )
 )
-Erklärung des Codes
 ```
-```{admonition} Merke: 
-:class: keypoint 
-
-``menuItem(...)`` definiert einzelne Seiten im Dashboard – über tabName verknüpft mit dem jeweiligen Inhaltsbereich.
-```
+**Erklärung des Codes**
 
 - ``sidebarMenu(...)`` ist die Hauptnavigation des Dashboards.
 - ``menuItem(...)`` erzeugt einen Menüpunkt:
@@ -75,7 +71,15 @@ Erklärung des Codes
 - ``tabName = "start"`` verbindet den Menüpunkt mit dem Tab.
 - ``icon("home")`` zeigt ein kleines Symbol an.
 
-**Inhalt: tabItem mit Übersichtsbox**
+```{admonition} Merke: 
+:class: keypoint 
+
+``menuItem(...)`` definiert einzelne Seiten im Dashboard – über tabName verknüpft mit dem jeweiligen Inhaltsbereich.
+```
+
+**Inhaltsbereich (tabItem)**
+
+**Code**
 
 ```bash
     tabItems(
@@ -108,6 +112,16 @@ Erklärung des Codes
       )
 )
 ```
+
+**Erklärung des Codes:**
+- ``box(...)`` ist ein Container mit:
+    - ``title`` (Überschrift)
+    - ``status = "primary"`` (Farbe)
+    - ``solidHeader = TRUE`` (fester Rand)
+    - ``width = 12`` (volle Breite – 12 ist die maximale Spaltenanzahl)
+- ``fluidRow(...)`` sorgt für eine horizontale Anordnung (z. B. nebeneinander statt untereinander).
+- ``valueBoxOutput(...)`` reserviert Platz für eine Box mit Kennzahlen.
+
 ```{admonition} Merke: 
 :class: keypoint 
 
@@ -119,22 +133,15 @@ Erklärung des Codes
 In einer ``fluidRow`` können zwei ``valueBoxOutput(...)``-Elemente nebeneinander angezeigt werden.
 ```
 
-**Erklärung der Elemente:**
-- ``box(...)`` ist ein Container mit:
-    - ``title`` (Überschrift)
-    - ``status = "primary"`` (Farbe)
-    - ``solidHeader = TRUE`` (fester Rand)
-    - ``width = 12`` (volle Breite – 12 ist die maximale Spaltenanzahl)
-- ``fluidRow(...)`` sorgt für eine horizontale Anordnung (z. B. nebeneinander statt untereinander).
-- ``valueBoxOutput(...)`` reserviert Platz für eine Box mit Kennzahlen.
-
 **Filter-Menüs mit ``selectInput``**
+
+**Code**
 
 ```bash
 selectInput("start_year", ...)
 selectInput("bezirk", ...)
 ```
-**Erläuterung der einzelnen Teile:**
+**Erläuterung des Codes:**
 - ``selectInput(...)`` erstellt ein Dropdown-Menü (also eine Auswahlliste).
 - ``"bezirk"`` ist der Name, unter dem Shiny diesen Input später erkennt → input$bezirk
 - ``"Bezirk auswählen:"`` ist der Text, der über dem Menü steht.
@@ -157,6 +164,7 @@ Mit ``multiple = TRUE`` können mehrere Bezirke gleichzeitig ausgewählt werden.
 
 ## Server
 
+**Code**
 ```bash
   filteredData <- reactive({
    
@@ -175,7 +183,7 @@ Mit ``multiple = TRUE`` können mehrere Bezirke gleichzeitig ausgewählt werden.
 })
 ```
 
-**Wichtige Begriffe erklärt:**
+**Erläuterung des Codes:**
 - ``reactive(...)``: erzeugt eine reaktive Funktion, die automatisch neu berechnet wird, wenn sich Eingaben ändern.
 - ``req(...)``: sorgt dafür, dass die Funktion nur ausgeführt wird, wenn bestimmte Eingaben vorhanden sind.
 
@@ -186,6 +194,7 @@ Mit ``multiple = TRUE`` können mehrere Bezirke gleichzeitig ausgewählt werden.
 ```
 
 **if- und else-Anweisungen**
+
 ```bash
 if (Bedingung) {
   # wird ausgeführt, wenn die Bedingung wahr ist
@@ -203,6 +212,8 @@ Diese Struktur nennt man **Bedingung**. Sie steuert den Ablauf des Codes abhäng
 
 **Dynamische Anzeige: total_trees oder total_tree_watered**
 
+**Code**
+
 ```bash
 output$dynamic_tree_box <- renderUI({
   if ("Baumbestand Stand 2025" %in% input$start_year) {
@@ -212,6 +223,8 @@ output$dynamic_tree_box <- renderUI({
   }
 })
 ```
+**Erklärung des Codes**
+
 - ``renderUI(...)``: erzeugt dynamische Elemente.
 - Abhängig von der Auswahl (``input$start_year``) wird eine andere Kennzahl angezeigt.
 
@@ -230,6 +243,8 @@ Wird nur „2020–2024“ ausgewählt, zeigt dynamic_tree_box nur gegossene Bä
 
 Alle Bäume
 
+**Code**
+
 ```bash
 output$total_trees <- renderValueBox({
   valueBox(
@@ -240,6 +255,9 @@ output$total_trees <- renderValueBox({
   )
 })
 ```
+
+**Erklärung des Codes**
+
 - ``output$total_trees`` ist das, was in die Box ``valueBoxOutput("total_trees")`` geschrieben wird.
 - ``renderValueBox({...})`` sagt: „Berechne, was in die Box geschrieben wird.“
 - ``n_distinct(...)``: zählt eindeutige Werte.
@@ -248,6 +266,8 @@ output$total_trees <- renderValueBox({
 - ``color = "green"`` färbt die Box grün.
 
 **Gegossene Bäume**
+
+**Code**
 ```bash
   output$total_tree_watered <- renderValueBox({
     valueBox(
@@ -264,6 +284,8 @@ output$total_trees <- renderValueBox({
 - Es werden nur die Bäume gezählt, die mindestens einen gültigen Eintrag im Feld ```timestamp``` haben – also tatsächlich irgendwann gegossen wurden. Jeder Baum wird dabei nur einmal gezählt (über ```n_distinct(gisid)```).
 
 **Einheiten clever umrechnen**
+
+**Code**
 
 ```bash
 convert_units <- function(liters) {
