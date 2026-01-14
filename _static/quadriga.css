@@ -1,8 +1,15 @@
+/* font-awesome icons library */
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css');
+
 /* Custom variables */
 :root {
     --quadriga-main: #00305e;
     --quadriga-main-45: #818bac;
     --quadriga-main-web: #c1d3e0;
+}
+
+html[data-theme='dark'] .navbar-brand img {
+    filter: invert(95%) hue-rotate(190deg) saturate(60%) brightness(135%);
 }
 
 /* Reset ALL default admonition icons */
@@ -119,7 +126,8 @@ html[data-theme='dark'] div.caution > .admonition-title,
 html[data-theme='dark'] div.hinweis > .admonition-title,
 html[data-theme='dark'] div.keypoint > .admonition-title,
 html[data-theme='dark'] div.solution > .admonition-title,
-html[data-theme='dark'] div.exercise > .admonition-title {
+html[data-theme='dark'] div.exercise > .admonition-title,
+html[data-theme='dark'] div.story > .admonition-title {
     color: #CED6DD !important;
 }
 
@@ -250,10 +258,13 @@ html[data-theme='dark'] div.citation-information > .admonition-title::after {
 
 /* Dark mode styling for Jupyter notebook cells */
 html[data-theme='dark'] div.cell div.cell_input,
-html[data-theme='dark'] div.cell details.above-input > summary {
+html[data-theme='dark'] div.cell div.cell_output,
+html[data-theme='dark'] div.cell details.above-input > summary,
+html[data-theme='dark'] div.cell details.above-output > summary {
     background-color: #29313d !important;
     color: #f7fbff !important;
 }
+
 
 /* Zeitinfo/Bearbeitungszeit styling */
 div.zeitinfo {

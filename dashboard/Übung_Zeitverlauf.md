@@ -116,8 +116,8 @@ plotlyOutput("trend_water", height = "500px")
 - **Plotly** ermöglicht Zoomen, Tooltipps und interaktive Achsen.
 - Visualisiert wird die **gesamt gegossene Wassermenge pro Pflanzjahr** (x = Pflanzjahr, y = Liter).
 
-# Server
-## Daten filtern
+## Server
+### Daten filtern
 ```bash
 filtered_data <- df_merged %>%
   filter(!is.na(bewaesserungsmenge_in_liter)) %>%  
@@ -127,7 +127,7 @@ filtered_data <- df_merged %>%
 - Es werden **nur Bäume berücksichtigt, die tatsächlich gegossen wurden**.
 - Zusätzlich werden nur Bäume mit **bekanntem Pflanzjahr** einbezogen.
 
-## Bezirk-Filter anwenden
+### Bezirk-Filter anwenden
 ```bash
 if (!"Alle" %in% input$trend_bezirk_pj && length(input$trend_bezirk_pj) > 0) {
   filtered_data <- filtered_data %>%
@@ -138,7 +138,7 @@ if (!"Alle" %in% input$trend_bezirk_pj && length(input$trend_bezirk_pj) > 0) {
 - Wenn Nutzer **einen oder mehrere Bezirke** ausgewählt haben, werden ausschließlich diese einbezogen.
 -Wenn „Alle“ ausgewählt ist → keine Einschränkung.
 
-## Pflanzjahr-Regler anwenden
+### Pflanzjahr-Regler anwenden
 ```bash
 filtered_data <- filtered_data %>%
   filter(pflanzjahr >= input$trend_year[1] & pflanzjahr <= input$trend_year[2])
@@ -147,7 +147,7 @@ filtered_data <- filtered_data %>%
 - Der Slider schränkt den Zeitraum ein (z. B. 1950–2020).
 - Sehr praktisch: Nutzer*innen können so **nur junge Bäume, nur Altbestand** oder ein **bestimmtes Jahrzehnt** analysieren.
 
-## Aggregation: Wasser pro Pflanzjahr
+### Aggregation: Wasser pro Pflanzjahr
 ```bash
 plot_data <- filtered_data %>%
   group_by(pflanzjahr) %>%
@@ -166,7 +166,7 @@ Für jedes Pflanzjahr wird berechnet:
 → liefert eine Zeitreihe nach Pflanzjahren – wichtig für die Frage:
 „Werden junge oder alte Bäume stärker bewässert?“
 
-## Erstellung des ggplot2-Liniendiagramms
+### Erstellung des ggplot2-Liniendiagramms
 ```bash
 plot <- ggplot(plot_data, aes(x = pflanzjahr, y = total_water)) +
   geom_line(color = "#2E86AB", size = 1) +
@@ -191,7 +191,7 @@ plot <- ggplot(plot_data, aes(x = pflanzjahr, y = total_water)) +
     - Anzahl der beteiligten Bäume
 - **theme_minimal()** sorgt für ein aufgeräumtes Diagramm.
 
-## Plotly-Interaktivität hinzufügen
+### Plotly-Interaktivität hinzufügen
 ```bash
 ggplotly(plot, tooltip = "text") %>%
   layout(hovermode = "closest")
@@ -201,7 +201,7 @@ ggplotly(plot, tooltip = "text") %>%
 - Tooltips zeigen die präzise Werte pro Produkt.
 - Nutzer*innen können hineinzoomen, Achsen verschieben, etc. 
 
-## Kritische Diskussion
+### Kritische Diskussion
 Der dargestellte Trend der Bewässerungsmenge je Pflanzjahr zeigt zwar über den gesamten Zeitraum betrachtet einen **grundsätzlich steigenden Verlauf**, allerdings lässt sich **kein klar lineares oder systematisches Muster** erkennen. Stattdessen wirkt der Verlauf stark **heterogen**, mit ausgeprägten Spitzen und Einbrüchen in einzelnen Jahrgängen.
 
 Diese Ausschläge sprechen eher dafür, dass **strukturelle Eigenschaften der Bäume** – wie Alter, Größe und Wasserbedarf – eine wesentlich größere Rolle spielen als der zeitliche Trend selbst. Insbesondere wird sichtbar, dass **jüngere Bäume**, also jene mit einem **neueren Pflanzjahr**, deutlich häufiger und intensiver gegossen werden. Das deckt sich mit den fachlichen Erwartungen:
@@ -212,7 +212,7 @@ Diese Ausschläge sprechen eher dafür, dass **strukturelle Eigenschaften der B�
 
 Die beobachteten starken Peaks deuten also weniger auf ein „mehr Engagement über die Jahre“ hin, sondern vielmehr darauf, dass sich das Engagement **selektiv** auf jene Bäume konzentriert, die **besonders pflegebedürftig** sind.
 
-## Einordnung der Unsicherheiten
+### Einordnung der Unsicherheiten
 
 Mehrere Faktoren schränken die Interpretierbarkeit des Trends ein:
 
@@ -220,6 +220,6 @@ Mehrere Faktoren schränken die Interpretierbarkeit des Trends ein:
 - Das Bewässerungsverhalten hängt zusätzlich vom **lokalen Kontext** (Bezirk, Pumpendichte, Freiwilligenaktivität) ab, der im Aggregat verschleiert wird.
 - Stark schwankende Jahrgangswerte könnten auch auf **Einzelbäume mit extrem vielen Gießungen** zurückzuführen sein.
 
-## Überleitung zum nächsten Analyse-Schritt
+### Überleitung zum nächsten Analyse-Schritt
 
 Die bisherige Betrachtung nach Pflanzjahren legt nahe, dass das Engagement nicht nur zeitlich, sondern vor allem **strukturell** geprägt ist — insbesondere durch Unterschiede im Alter der Bäume und damit verbundenem Wasserbedarf. Um diese Muster besser zu verstehen, ist es sinnvoll, das Bewässerungsverhalten im Kontext der **räumlichen und biologischen Baumstruktur** zu betrachten.
