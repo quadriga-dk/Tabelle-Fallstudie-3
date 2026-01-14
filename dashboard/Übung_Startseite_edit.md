@@ -223,9 +223,14 @@ Diese Bedingung implementiert die eigentliche Filterung:
 Amir muss den Filtercode nur einmal schreiben. Alle Visualisierungen und Kennzahlen, die `filteredData()` verwenden, greifen automatisch auf die aktuell gefilterte Version der Daten zu. Das vermeidet Redundanz und macht den Code wartbar.
 ````
 
-````{admonition} if- und else-Anweisungen
-:class: hinweis, dropdown
+#### Dynamische Anzeige
 
+Eine dynamische Anzeige bedeutet, dass sich die Inhalte des Dashboards automatisch ändern, abhängig davon, was Sie auswählen.
+Um solche dynamischen Anzeigen zu erstellen, muss das Dashboard Entscheidungen treffen: „Wenn dies ausgewählt ist, dann eige das – ansonsten zeige etwas anderes."
+
+In der Programmierung verwendet man dafür **if-else-Anweisungen**:
+
+````{dropdown} Code
 ```r
 if (Bedingung) {
   # wird ausgeführt, wenn die Bedingung wahr ist
@@ -242,8 +247,10 @@ Diese Struktur nennt man **Bedingung**. Sie steuert den Ablauf des Codes abhäng
 
 ````
 
-````{dropdown} Dynamische Anzeige: total_trees oder total_tree_watered
-```bash
+##### Praktisches Beispiel für das Dashboard
+
+````{dropdown} total_trees oder total_tree_watered
+```r
 output$dynamic_tree_box <- renderUI({
   if ("Baumbestand Stand 2025" %in% input$start_year) {
     valueBoxOutput("total_trees")
