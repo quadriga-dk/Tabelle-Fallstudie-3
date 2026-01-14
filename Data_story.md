@@ -1,6 +1,6 @@
 # Data Story
 
-```{figure} _images/DS_01.png
+```{figure} ../assets/DS_01.png
 ---
 name: bewässerung-trend-1
 alt: Liniendiagramm zur Gesamtbewässerung je Pflanzjahr von 1900 bis 1920, mit durchgehend niedrigen Werten und einem deutlichen Ausreißer im Jahr 1917.
@@ -9,7 +9,7 @@ Ein Jahrhundert alt und kaum bewässert: Warum Berlins älteste Bäume austrockn
 ```
 Bereits für die Bäume, die zu Beginn des 20. Jahrhunderts gepflanzt wurden, wurde offensichtlich nur wenig Wasser zugeführt. Die Visualisierung zeigt die Gesamtbewässerung je Pflanzjahr von 1900 bis 1920, und zwischen diesen Jahren ist der Wasserverbrauch konstant niedrig. Ein einzelner Ausreißer um das Jahr 1917 zeigt eine kurze Phase höherer Bewässerung. Dies lässt vermuten, dass viele Stadtbäume aus einer Generation stammen, die über Jahrzehnten hinweg kaum gepflegt wurden und auf sich allein gestellt waren.
 
-```{figure} _images/DS_02.png
+```{figure} ../assets/DS_02.png
 ---
 name: bewässerung-trend-2
 alt: Liniendiagramm zur Gesamtbewässerung je Pflanzjahr von 1960 bis 1992, mit stark schwankenden Werten und mehreren Spitzen um 1960, 1980 und 1986.
@@ -18,7 +18,7 @@ Pflege-Boom für Bäume aus der Babyboomer-Ära: Die durstigste Generation.
 ```
 Für Bäume, die zwischen 1960 und 1992 gepflanzt wurden, zeigt sich eine deutliche Verbesserung in der Bewässerung. In dieser Zeit werden mehrere Phasen höherer Wasserzufuhr sichtbar, insbesondere um 1960, 1980 und 1986. Die Gesamtbewässerung je Pflanzjahr ist deutlich höher als in den vorherigen Jahren. Diese Bäume scheinen mehr Aufmerksamkeit erhalten zu haben – war es aufgrund ihrer speziellen Pflegebedürfnisse oder eher ein Zeichen einer bevorzugten Behandlung?
 
-```{figure} _images/DS_03.png
+```{figure} ../assets/DS_03.png
 ---
 name: bewässerung-trend-3
 alt: Liniendiagramm zeigt Trend der Gesamtbewässerung je Pflanzjahr zwischen 2004 und 2025 mit Höhepunkt 2017 und starkem Rückgang danach.

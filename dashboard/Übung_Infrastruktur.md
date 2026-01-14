@@ -146,7 +146,7 @@ Um die Pumpendichte zu berechnen, benötigen wir die Fläche jedes Bezirks in He
 
 Die Information um das Dataframe zu erstellen ziehen wir aus dieser Tabelle:  
 
-```{figure} _images/Bezirksfläche.png
+```{figure} ../assets/Bezirksfläche.png
 ---
 name: screenshot zeigt eine Tabelle mit der größe der Bezirksfläche in ha
 alt: Ein Screenshot, der eine Tabelle mit der größe der Bezirksfläche in ha zeigt.

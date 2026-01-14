@@ -40,7 +40,7 @@ In diesem Kapitel finden Sie folgende Abschnitte:
 Wie im Abschnitt 3.2. dargelegt wurde, sind Dashboards eine gute Möglichkeit, Daten aus der Verwaltung nutzer:innenfreundlich aufzubereiten und zu visualisieren. In diesem Kapitel wird Ihnen das Bauen eines Dashboards mittels RShiny nahe gebracht. 
 +++
 *Wir befinden uns hier:*
-![Aufgabe 3](/assets/Aufgabenstruktur-03.png)
+![Aufgabe 3](../assets/Aufgabenstruktur-03.png)
 
 <span style="color:red">*Bild einfügen von Verortung in Fallstudien-Struktur*</span>
 

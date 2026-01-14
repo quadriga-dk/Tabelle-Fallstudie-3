@@ -52,10 +52,8 @@ Amir entscheidet sich für ein System der Benutzeroberfläche, die aus zwei Teil
 
 Somit lässt sich eine übersichtliche Navigationsstruktur etablieren. 
 
-**Seitenleiste mit der Navigation (sidebarMenu)**
 
-**Code**
-
+````{dropdown} Seitenleiste mit der Navigation (sidebarMenu)
 ```bash
 dashboardSidebar(
   sidebarMenu(
@@ -63,7 +61,10 @@ dashboardSidebar(
   )
 )
 ```
-**Erklärung des Codes**
+````
+
+````{admonition} Erklärung des Codes
+:class: hinweis, dropdown
 
 - ``sidebarMenu(...)`` ist die Hauptnavigation des Dashboards.
 - ``menuItem(...)`` erzeugt einen Menüpunkt:
@@ -76,11 +77,9 @@ dashboardSidebar(
 
 ``menuItem(...)`` definiert einzelne Seiten im Dashboard – über tabName verknüpft mit dem jeweiligen Inhaltsbereich.
 ```
+````
 
-**Inhaltsbereich (tabItem)**
-
-**Code**
-
+````{dropdown} Inhaltsbereich (tabItem)
 ```bash
     tabItems(
       tabItem(
@@ -112,8 +111,10 @@ dashboardSidebar(
       )
 )
 ```
+````
 
-**Erklärung des Codes:**
+````{admonition} Erklärung des Codes
+:class: hinweis, dropdown
 - ``box(...)`` ist ein Container mit:
     - ``title`` (Überschrift)
     - ``status = "primary"`` (Farbe)
@@ -132,16 +133,17 @@ dashboardSidebar(
 :class: tip
 In einer ``fluidRow`` können zwei ``valueBoxOutput(...)``-Elemente nebeneinander angezeigt werden.
 ```
+````
 
-**Filter-Menüs mit ``selectInput``**
-
-**Code**
-
+````{dropdown} Filter-Menüs mit selectInput
 ```bash
 selectInput("start_year", ...)
 selectInput("bezirk", ...)
 ```
-**Erläuterung des Codes:**
+````
+
+````{admonition} Erläuterung des Codes
+:class: hinweis, dropdown
 - ``selectInput(...)`` erstellt ein Dropdown-Menü (also eine Auswahlliste).
 - ``"bezirk"`` ist der Name, unter dem Shiny diesen Input später erkennt → input$bezirk
 - ``"Bezirk auswählen:"`` ist der Text, der über dem Menü steht.
@@ -161,10 +163,11 @@ Mit ``multiple = TRUE`` können mehrere Bezirke gleichzeitig ausgewählt werden.
 - ``selectInput(...)`` erstellt ein Dropdown-Menü.
 - ``multiple = TRUE`` bedeutet, dass man mehrere Werte gleichzeitig auswählen kann.
 - Die gewählten Werte sind später über ``input$bezirk`` im Server verfügbar.
+````
 
 ## Server
 
-**Code**
+````{dropdown} Code
 ```bash
   filteredData <- reactive({
    
@@ -182,8 +185,10 @@ Mit ``multiple = TRUE`` können mehrere Bezirke gleichzeitig ausgewählt werden.
     df_filtered
 })
 ```
+````
 
-**Erläuterung des Codes:**
+`````{admonition} Erläuterung des Codes
+:class: hinweis, dropdown
 - ``reactive(...)``: erzeugt eine reaktive Funktion, die automatisch neu berechnet wird, wenn sich Eingaben ändern.
 - ``req(...)``: sorgt dafür, dass die Funktion nur ausgeführt wird, wenn bestimmte Eingaben vorhanden sind.
 
@@ -192,9 +197,9 @@ Mit ``multiple = TRUE`` können mehrere Bezirke gleichzeitig ausgewählt werden.
 
 ``reactive()`` ist wie ein **intelligenter Beobachter**: Sobald sich input$bezirk ändert, wird filteredData() neu berechnet.
 ```
+`````
 
-**if- und else-Anweisungen**
-
+````{dropdown} if- und else-Anweisungen
 ```bash
 if (Bedingung) {
   # wird ausgeführt, wenn die Bedingung wahr ist
@@ -202,6 +207,7 @@ if (Bedingung) {
   # wird ausgeführt, wenn die Bedingung falsch ist
 }
 ```
+````
 
 Diese Struktur nennt man **Bedingung**. Sie steuert den Ablauf des Codes abhängig von bestimmten Eingaben.
 
@@ -210,10 +216,8 @@ Diese Struktur nennt man **Bedingung**. Sie steuert den Ablauf des Codes abhäng
 - ``<-``: weist einer Variable einen Wert zu (z. B. ``x <- 3``).
 - ``|`` = ODER, ``&`` = UND
 
-**Dynamische Anzeige: total_trees oder total_tree_watered**
 
-**Code**
-
+````{dropdown} Dynamische Anzeige: total_trees oder total_tree_watered
 ```bash
 output$dynamic_tree_box <- renderUI({
   if ("Baumbestand Stand 2025" %in% input$start_year) {
@@ -223,27 +227,27 @@ output$dynamic_tree_box <- renderUI({
   }
 })
 ```
-**Erklärung des Codes**
+````
+
+````{admonition} Erklärung des Codes
+:class: hinweis, dropdown
 
 - ``renderUI(...)``: erzeugt dynamische Elemente.
 - Abhängig von der Auswahl (``input$start_year``) wird eine andere Kennzahl angezeigt.
-
 ```{admonition} Merke: 
 :class: keypoint 
 
 ``renderUI(...)`` erlaubt es, UI-Elemente zur Laufzeit zu verändern – je nach Nutzereingabe.
 ```
-
 ```{admonition} Beispiel: 
 :class: tip
 Wird nur „2020–2024“ ausgewählt, zeigt dynamic_tree_box nur gegossene Bäume an.
 ```
+````
 
 **ValueBoxes**
 
-Alle Bäume
-
-**Code**
+````{dropdown} Alle Bäume
 
 ```bash
 output$total_trees <- renderValueBox({
@@ -255,8 +259,10 @@ output$total_trees <- renderValueBox({
   )
 })
 ```
+````
 
-**Erklärung des Codes**
+````{admonition} Erklärung des Codes
+:class: hinweis, dropdown
 
 - ``output$total_trees`` ist das, was in die Box ``valueBoxOutput("total_trees")`` geschrieben wird.
 - ``renderValueBox({...})`` sagt: „Berechne, was in die Box geschrieben wird.“
@@ -264,10 +270,9 @@ output$total_trees <- renderValueBox({
 - ``formatC(...)``: formatiert Zahlen, z. B. mit Tausenderpunkten.
 - ``icon("tree")`` zeigt ein Baum-Icon.
 - ``color = "green"`` färbt die Box grün.
+````
 
-**Gegossene Bäume**
-
-**Code**
+````{dropdown} Gegossene Bäume
 ```bash
   output$total_tree_watered <- renderValueBox({
     valueBox(
@@ -281,11 +286,12 @@ output$total_trees <- renderValueBox({
     )
   })
 ```
+````
 - Es werden nur die Bäume gezählt, die mindestens einen gültigen Eintrag im Feld ```timestamp``` haben – also tatsächlich irgendwann gegossen wurden. Jeder Baum wird dabei nur einmal gezählt (über ```n_distinct(gisid)```).
 
-**Einheiten clever umrechnen**
 
-**Code**
+
+````{dropdown} Einheiten clever umrechnen
 
 ```bash
 convert_units <- function(liters) {
@@ -312,6 +318,8 @@ full_unit <- function(unit) {
   )
 }
 ```
+````
+
 ```{admonition} Merke: 
 :class: keypoint 
 
@@ -343,8 +351,8 @@ Eine Alternative zu vielen if-Anweisungen – je nach Wert des Parameters gibt s
 | ``filter()`` |	filtert Zeilen in einem Datensatz |
 | ``is.na()`` |	prüft auf fehlende Werte |
 
-<details>
-<summary><strong>Gesamter Code</strong></summary>
+````{admonition} Gesamter Code
+:class: hinweis, dropdown
 
 ```r
 # UI-Definition
@@ -363,18 +371,16 @@ ui <- dashboardPage(
                     uiOutput("dynamic_tree_box"),
                     valueBoxOutput("total_water")
                   ),
-                    column(width = 6,
-                           selectInput("bezirk", "Bezirk auswählen:", 
-                                       choices = c("Alle", unique(df_merged_clean$bezirk)), 
-                                       selected = "Alle", multiple = TRUE)
-                    )
+                  column(width = 6,
+                         selectInput("bezirk", "Bezirk auswählen:", 
+                                      choices = c("Alle", unique(df_merged_clean$bezirk)), 
+                                      selected = "Alle", multiple = TRUE)
                   )
+                )
               )
-      ),
-    )
+    ),
   )
 )
-
 
 
 # Server-Logik
@@ -472,7 +478,7 @@ server <- function(input, output, session) {
   
 }
 ```
-</details>
+````
 
 ## Was muss Amir beim Bau eines Dashboards beachten? *(vorläufig)* 
 Bei der Gestaltung der Startseite sollte Amir darauf achten, dass die wichtigsten Informationen klar, gut lesbar und ohne unnötige Ablenkungen präsentiert werden. Besonders für einen ersten Überblick gilt: Weniger ist oft mehr.
