@@ -41,9 +41,9 @@ In diesem Kapitel finden Sie folgende Abschnitte:
 *Dieses Kapitel ist wegen der Methodik von Bedeutung?* 
 +++
 *Wir befinden uns hier:*
-![Aufgabe 3](/assets/Aufgabenstruktur-03.png)
+![Aufgabe 3](../assets/Aufgabenstruktur-03.png)
 
-<span style="color:red">*Bild einfügen von Verortung in Fallstudien-Struktur*</span>
+<span style="color:red">*Bild einfügen von Verortung in Fallstudien-Struktur - could not find this image*</span>
 
 
 *some more text*

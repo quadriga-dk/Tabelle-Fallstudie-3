@@ -14,7 +14,7 @@ Sein Ziel: Eine intuitive Karte von Berlin, die sofort erkennen lässt, in welch
 
 ```{admonition} Zweck dieser Übung
 :class: lernziele
-- Das Erstellen einer Leaflet-Karte (erklären, was ist das) dient dazu, räumliche Informationen nutzbar zu machen, um Verwaltungsdaten visuell zugänglich und vergleichbar darzustellen. In dieser Übung lernen wir, wie Bezirksdaten mit statistischen Kennzahlen verknüpft und anschließend mithilfe einer Farbskala intuitiv interpretiert werden können. Die farbliche Hervorhebung des Anteils bewässerter Bäume ermöglicht es, Muster und regionale Unterschiede auf einen Blick zu erkennen und zusätzliche Antworten auf die Leitfrage zu gewinnen: In welchen Bezirken wird besonders viel gegossen?
+Das Erstellen einer Leaflet-Karte (erklären, was ist das) dient dazu, räumliche Informationen nutzbar zu machen, um Verwaltungsdaten visuell zugänglich und vergleichbar darzustellen. In dieser Übung lernen wir, wie Bezirksdaten mit statistischen Kennzahlen verknüpft und anschließend mithilfe einer Farbskala intuitiv interpretiert werden können. Die farbliche Hervorhebung des Anteils bewässerter Bäume ermöglicht es, Muster und regionale Unterschiede auf einen Blick zu erkennen und zusätzliche Antworten auf die Leitfrage zu gewinnen: In welchen Bezirken wird besonders viel gegossen?
 ```
 
 Das Dashboard soll um eine **Bezirkskarte** erweitert werden. Nachdem die Startseite bereits erste Kennzahlen sichtbar macht, möchte Amir nun räumlich darstellen, **wo** in Berlin besonders viel gegossen wurde. Eine kartenbasierte Visualisierung eignet sich ideal, um regionale Muster zu erkennen, Hotspots sichtbar zu machen und Unterschiede zwischen den Bezirken intuitiv zu erfassen.
@@ -22,16 +22,24 @@ Das Dashboard soll um eine **Bezirkskarte** erweitert werden. Nachdem die Starts
 Für diese Aufgabe nutzt Amir das Paket **Leaflet**, das interaktive Karten direkt in R-Shiny erzeugt. Ergänzt wird Leaflet durch **sf** zur Verarbeitung der Bezirks-Geodaten sowie durch Funktionen wie ```colorNumeric()```, mit denen eine aussagekräftige Farbskala erzeugt wird. Die Karte verknüpft also zwei Datenquellen:
 die **räumliche Geometrie** der Berliner Bezirke und die **berechneten Kennzahlen** aus seinem Datensatz – insbesondere die Anzahl der Bäume sowie den Anteil der bewässerten Bäume pro Bezirk.
 
-![alt text](Dashboard_Karte.png)
-*Abbildung 2: zweiter Reiter des Dashboards - Karte; Die Abbildung zeigt eine Karte aller Berliner Bezirke. Die Farbsättigung eines Bezirks entspricht dem prozentualen Anteil der gegossenen Bäume an der Gesamtzahl der Bäume im jeweiligen Bezirk. Die genaue Zuordnung der Farbskala ist in der Legende erläutert.  (Quelle: eigene Ausarbeitung)*
+```{figure} Dashboard_Karte.png
+---
+name: Dashboard Karte
+alt: Ein Screenshot, der zeigt Dashboard Karte
+width: 450px
+---
+Abbildung 2: zweiter Reiter des Dashboards - Karte; Die Abbildung zeigt eine Karte aller Berliner Bezirke. Die Farbsättigung eines Bezirks entspricht dem prozentualen Anteil der gegossenen Bäume an der Gesamtzahl der Bäume im jeweiligen Bezirk. Die genaue Zuordnung der Farbskala ist in der Legende erläutert.  (Quelle: eigene Ausarbeitung)
+``` 
 
-Die Karte erfüllt mehrere Ziele gleichzeitig:
+```{admonition} Die Karte erfüllt mehrere Ziele gleichzeitig:
+:class: keypoint
 
 - Sie zeigt für **jeden Bezirk**, wie viele Bäume dort stehen und wie viele davon gegossen wurden.
 
 - Durch die farbliche Schattierung lässt sich der **Anteil bewässerter Bäume** sofort erkennen – hohe Werte erscheinen dunkler.
 
 - Ein **Tooltip** zeigt beim Überfahren eines Bezirks die genauen Zahlen und den exakten Prozentsatz, sodass die Nutzer:innen nicht nur visuell, sondern auch quantitativ informiert werden.
+```
 
 Durch die Visualisierung kann ebenso die zentrale Leitfrage beantwortet werden:
 **Wie stark engagieren sich die Berliner*innen für die Bäume in ihrer Stadt – und in welchen Bezirken ist dieses Engagement am höchsten?**
@@ -60,9 +68,9 @@ Die Benutzeroberfläche besteht aus zwei Teilen:
 
     - Dropdowns zur Auswahl des Zeitraums, des Bezirks, des lor und der Baumgattung
 
-**Navigation in der Seitenleiste**
 
-```bash
+````{dropdown} Navigation in der Seitenleiste
+```r
 dashboardSidebar(
   sidebarMenu(
     menuItem("Karte", tabName = "map", icon = icon("map"))
@@ -75,15 +83,15 @@ dashboardSidebar(
 - ``tabName = "map"`` verbindet den Menüpunkt mit dem Tab.
 - ``icon("map")`` zeigt ein kleines Karten Symbol an.
 
-```{admonition} Merke: 
-:class: keypoint 
-
 Mit ``menuItem(...)`` wird ein weiterer Navigationspunkt eingebunden. "map" als tabName verknüpft ihn mit dem Kartentab.
-```
+````
 
 ## UI: Karte mit Filter-Boxen
 
-```bash
+Amir möchte, dass die Leaflet-Karte zentral dargestellt wird und sofort ins Auge fällt. Die Karte soll nicht nur schön aussehen, sondern auf einen Blick zeigen, wo in Berlin besonders viel gegossen wird. Darunter sollen Filter es ermöglichen, die Ansicht auf bestimmte Bezirke oder Zeiträume einzugrenzen.
+
+````{dropdown} Code
+```r
       tabItem(
         tabName = "map",
         fluidRow(
@@ -97,6 +105,10 @@ Mit ``menuItem(...)`` wird ein weiterer Navigationspunkt eingebunden. "map" als 
         )
       )
 ```
+````
+````{admonition} Erklärung des Codes
+:class: hinweis, dropdown
+
 - ``box(...)`` ist ein Container mit:
     - ``title`` - Überschrift („Anteil bewässerter Bäume nach Bezirk“)
     - ``status = "primary"`` – Farbe des Box-Headers
@@ -104,16 +116,16 @@ Mit ``menuItem(...)`` wird ein weiterer Navigationspunkt eingebunden. "map" als 
     - ``width = 12`` – Box nimmt die volle Seitenbreite ein (12 = max. Spaltenzahl)
 - ``fluidRow(...)`` sorgt für eine horizontale Anordnung (z. B. nebeneinander statt untereinander).
 - ``multiple = TRUE`` bedeutet, dass man mehrere Optionen gleichzeitig auswählen kann.
-
-```{admonition} Merke: 
-:class: keypoint 
-
+ 
 ``fluidRow()`` ordnet Inhalte nebeneinander. ``box(...)`` gruppiert UI-Elemente visuell und funktional.
-```
+
+````
 
 ## Zoom Javascript
+Wenn jemand hinein- oder herauszoomt, soll die App das mitbekommen und später darauf reagieren können – etwa um bei starkem Zoom mehr Details anzuzeigen. Ein kleines JavaScript-Skript erfasst die Zoomstufe im Hintergrund.
 
-```bash
+````{dropdown} Code
+```r
     tags$script(HTML("
       $(document).ready(function() {
         var map = $('#map').find('div.leaflet-container')[0];
@@ -126,12 +138,23 @@ Mit ``menuItem(...)`` wird ein weiterer Navigationspunkt eingebunden. "map" als 
       });
     ")),
 ```
-Diese Funktion überwacht die Zoomstufe der Karte. Wenn die Nutzer*innen herein- oder herauszoomen, wird die aktuelle Zoomstufe (``map_zoom``) an die Shiny-App zurückgemeldet, sodass darauf reagiert werden kann.
+````
+````{admonition} Erklärung des Codes
+:class: hinweis, dropdown
+Diese Funktion überwacht die Zoomstufe der Karte:
+- `$(document).ready(...)` wartet, bis die Seite vollständig geladen ist
+- `$('#map').find('div.leaflet-container')` findet die Leaflet-Karte im DOM
+- `leafletMap.on('zoomend', ...)` registriert einen Event-Listener für Zoom-Ereignisse
+- `Shiny.setInputValue('map_zoom', ...)` sendet die aktuelle Zoomstufe an die Shiny-App zurück
 
+Wenn Nutzer:innen herein- oder herauszoomen, wird die aktuelle Zoomstufe (`map_zoom`) automatisch aktualisiert und an die App übermittelt.
+````
 
-## 6Karte zeichnen mit Leaflet
+## Karte zeichnen mit Leaflet
+Jetzt entsteht die eigentliche Karte. Jeder Berliner Bezirk wird farblich gestaltet: Dunklere Farben zeigen hohes Engagement, hellere Bereiche niedrigere Bewässerungsraten. Beim Überfahren mit der Maus erscheinen die genauen Zahlen – wie viele Bäume es gibt, wie viele gegossen wurden und der prozentuale Anteil.
 
-```bash
+````{dropdown} Code
+```r
   output$map <- renderLeaflet({
     data_stats <- data_by_bezirk()
     
@@ -190,6 +213,9 @@ Diese Funktion überwacht die Zoomstufe der Karte. Wenn die Nutzer*innen herein-
       )
   })
 ```
+````
+````{admonition} Erklärung des Codes
+:class: hinweis, dropdown
 
 - ``renderLeaflet({...})``: Erzeugt eine Leaflet-Karte, die dynamisch auf Eingaben reagieren kann.
 - ``data_stats <- data_by_bezirk()``: Holt aggregierte Statistiken pro Bezirk (z. B. Anzahl Bäume, Anteil bewässert).
@@ -210,14 +236,12 @@ Diese Funktion überwacht die Zoomstufe der Karte. Wenn die Nutzer*innen herein-
     - Anzahl bewässerter Bäume
     - Anteil in Prozent
   - ``addLegend(...)``  →  Fügt unten rechts eine Farblegende ein, die zeigt, welcher Blauton welchem Prozentwert entspricht.
-
-
-```{admonition} Merke: 
-:class: keypoint 
-
+ 
 Leaflet kombiniert Geodaten (hier: Bezirks-Polygone) mit dynamischen Werten.
 Mit Farbskalen wie colorNumeric() können Bezirke automatisch nach Kennzahlen eingefärbt werden.
-```
+
+````
+
 
 Durch die Bezirkskarte erhält Amir erstmals einen **räumlichen Überblick** darüber, in welchen Berliner Bezirken besonders viele Bäume gegossen wurden. Die Visualisierung zeigt deutlich, dass **Friedrichshain-Kreuzberg** den höchsten Anteil bewässerter Bäume aufweist, dicht gefolgt von **Mitte**. Damit beantwortet die Karte bereits einen wichtigen Teil der Leitfrage:
 **Wo engagieren sich Bürger:innen besonders häufig beim Gießen der Straßenbäume?**

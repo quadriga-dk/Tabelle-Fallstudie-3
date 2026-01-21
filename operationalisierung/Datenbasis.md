@@ -35,10 +35,11 @@ Jeder Eintrag ist einem bestimmten Baum zugeordnet (zu erkennen an der ID) und u
 Diese Daten ermöglichen Rückschlüsse auf Muster im Gießverhalten der Bevölkerung in dem Zeitraum 2020-2024 und versorgen die Visualisierung mit räumlich und zeitlich differenzierten Informationen zur städtischen Baumbewässerung.
 
 
-```{figure} /assets/Karte_mit_Personen.png
+```{figure} ../assets/Karte_mit_Personen.png
 ---
 name: Karte_mit_Personen
 alt: Ein Screenshot, der ein comicartiges Bild einer Berlin-Karte zeigt, auf der Bäume von Personen gegossen werden.
+width: 400px
 ---
 Karte mit Personen darauf. (KI generiert)
 ```

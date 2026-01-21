@@ -34,10 +34,15 @@ Welche Geschichte erzählen die Daten, wenn man Liter statt Baumanzahl betrachte
 ## Die Benutzeroberfläche (UI)
 In der UI definieren wir eine neue Tab-Seite namens "stats" mit zwei Diagrammfeldern. In jedem Diagrammfeld findet man je eines des beiden erstellten Diagramme.
 
-![alt text](Dashboard_Bewässerungsanalyse_1.png)
-*Abbildung 3: Balkendiagramm zur Bewässerung pro Bezirk (2020–2024). Die Abbildung zeigt die aggregierte Bewässerungsmenge in Millionen Litern für die einzelnen Berliner Bezirke im Zeitraum von 2020 bis 2024. Auf der x-Achse sind die Bezirke dargestellt, während die y-Achse die gesamte Bewässerungsmenge angibt. Das Diagramm ermöglicht einen direkten Vergleich der Bewässerungsintensität zwischen den Bezirken. (Quelle: eigene Ausarbeitung)*
+```{figure} Dashboard_Bewässerungsanalyse_1.png
+---
+name: Dashboard Karte
+alt: Ein Screenshot, der zeigt Dashboard Karte
+---
+Abbildung 3: Balkendiagramm zur Bewässerung pro Bezirk (2020–2024). Die Abbildung zeigt die aggregierte Bewässerungsmenge in Millionen Litern für die einzelnen Berliner Bezirke im Zeitraum von 2020 bis 2024. Auf der x-Achse sind die Bezirke dargestellt, während die y-Achse die gesamte Bewässerungsmenge angibt. Das Diagramm ermöglicht einen direkten Vergleich der Bewässerungsintensität zwischen den Bezirken. (Quelle: eigene Ausarbeitung)
+``` 
 
-```bash
+```r
      tabItem(
         tabName = "analysis",
         fluidRow(
@@ -56,11 +61,16 @@ In der UI definieren wir eine neue Tab-Seite namens "stats" mit zwei Diagrammfel
               )
         ),
 ```
+```{figure} Dashboard_Bewässerungsanalyse_2.png
+---
+name: Dashboard Karte
+alt: Ein Screenshot, der zeigt Dashboard Karte
+width: 700px
+---
+Abbildung 4: Durchschnittliche Bewässerungsmenge pro gegossenem Baum nach Bezirk. Die Abbildung zeigt die durchschnittliche Bewässerungsmenge pro gegossenem Baum in Litern für die einzelnen Berliner Bezirke. Auf der x-Achse sind die Bezirke dargestellt, während die y-Achse die durchschnittliche Bewässerungsmenge pro Baum angibt. Das Balkendiagramm verdeutlicht Unterschiede in der Bewässerungsintensität zwischen den Bezirken. (Quelle: eigene Ausarbeitung)
+``` 
 
-![alt text](Dashboard_Bewässerungsanalyse_2.png)
-*Abbildung 4: Durchschnittliche Bewässerungsmenge pro gegossenem Baum nach Bezirk. Die Abbildung zeigt die durchschnittliche Bewässerungsmenge pro gegossenem Baum in Litern für die einzelnen Berliner Bezirke. Auf der x-Achse sind die Bezirke dargestellt, während die y-Achse die durchschnittliche Bewässerungsmenge pro Baum angibt. Das Balkendiagramm verdeutlicht Unterschiede in der Bewässerungsintensität zwischen den Bezirken. (Quelle: eigene Ausarbeitung)*
-
-```bash
+```r
         fluidRow(
           box(
             title = tagList(
@@ -95,7 +105,7 @@ Platzhalter für ein Diagramm, das im Server-Teil gerendert wird.
 
 Der erste Teil des Codes, der die **durchschnittliche Bewässerung pro Bezirk** darstellt, berechnet, wie viel Wasser insgesamt in jedem Bezirk verbraucht wurde.
 
-```bash
+```r
   output$hist_bewaesserung_pro_bezirk <- renderPlot({
     df_agg <- df_merged %>%
       filter(!is.na(bezirk)) %>%  
@@ -113,7 +123,7 @@ Der erste Teil des Codes, der die **durchschnittliche Bewässerung pro Bezirk** 
 - ``ungroup()`` - Entfernt die Gruppierungsstruktur, um spätere Verarbeitungsschritte nicht zu blockieren.
 - ``arrange(desc(total_water))`` - Sortiert die Bezirke nach der Gesamtbewässerungsmenge – größte Werte stehen oben bzw. links im Plot.
 
-```bash
+```r
     df_agg <- df_agg %>%
       mutate(
         converted = purrr::map(total_water, convert_units), 
@@ -139,7 +149,7 @@ Der erste Teil des Codes, der die **durchschnittliche Bewässerung pro Bezirk** 
 
 
     # Create plot
-    ```bash
+    ```r
     ggplot(df_agg, aes(x = reorder(bezirk, -value), y = value, fill = bezirk)) +
       geom_bar(stat = "identity", color = "white", alpha = 0.7, width = 0.8) +
       labs(
@@ -179,7 +189,7 @@ Der erste Teil des Codes, der die **durchschnittliche Bewässerung pro Bezirk** 
 - **Keine manuelle Farbzuordnung** nötig.
 
   # Info button observer
-  ```bash
+  ```r
   observeEvent(input$info_btn_hbpb, {
     showModal(modalDialog(
       title = "Information: Bewässerung pro Bezirk",
@@ -210,7 +220,7 @@ Der erste Teil des Codes, der die **durchschnittliche Bewässerung pro Bezirk** 
 - ``modalButton("Schließen")`` - Fügt unten rechts den Schließen-Button hinzu.
 
 
-```bash
+```r
 
   # Plot: Durchschnittliche Bewässerung pro gegossenem Baum
   output$hist_bewaesserung_pro_baum <- renderPlot({
