@@ -51,14 +51,14 @@ Abbildung 4: Zeitverlauf der Baumbewässerung (Quelle: eigene Ausarbeitung)
 ``` 
 
 ## Benutzeroberfläche (UI)
-```bash
+```r
 dashboardHeader(title = "Gieß den Kiez Dashboard"),
 dashboardSidebar(
   sidebarMenu(
     menuItem("Zeitverlauf", tabName = "stats", icon = icon("bar-chart")),
 ```
 
-```bash
+```r
 tabItem(
   tabName = "stats",
   fluidRow(
@@ -76,7 +76,7 @@ tabItem(
 ```
 
 ### Filterelemente (Inputs)
-```bash
+```r
 fluidRow(
   column(
     width = 6,
@@ -96,7 +96,7 @@ fluidRow(
 - Der Bereich passt sich automatisch den Daten an (*dynamische min/max-Werte*).
 - Sinn: gezielt nur junge Bäume, nur Altbestand oder ein bestimmtes Jahrzehnt untersuchen.
 
-```bash
+```r
 column(
   width = 6,
   selectInput(
@@ -114,7 +114,7 @@ column(
 - Nutzer können so Trends für einzelne Bezirke, Gruppen oder ganz Berlin untersuchen.
 
 ### Visualisierung
-```bash
+```r
 plotlyOutput("trend_water", height = "500px")
 ```
 
@@ -124,7 +124,7 @@ plotlyOutput("trend_water", height = "500px")
 
 ## Server
 ### Daten filtern
-```bash
+```r
 filtered_data <- df_merged %>%
   filter(!is.na(bewaesserungsmenge_in_liter)) %>%  
   filter(!is.na(pflanzjahr))
@@ -134,7 +134,7 @@ filtered_data <- df_merged %>%
 - Zusätzlich werden nur Bäume mit **bekanntem Pflanzjahr** einbezogen.
 
 ### Bezirk-Filter anwenden
-```bash
+```r
 if (!"Alle" %in% input$trend_bezirk_pj && length(input$trend_bezirk_pj) > 0) {
   filtered_data <- filtered_data %>%
     filter(bezirk %in% input$trend_bezirk_pj)
@@ -145,7 +145,7 @@ if (!"Alle" %in% input$trend_bezirk_pj && length(input$trend_bezirk_pj) > 0) {
 -Wenn „Alle“ ausgewählt ist → keine Einschränkung.
 
 ### Pflanzjahr-Regler anwenden
-```bash
+```r
 filtered_data <- filtered_data %>%
   filter(pflanzjahr >= input$trend_year[1] & pflanzjahr <= input$trend_year[2])
 ```
@@ -154,7 +154,7 @@ filtered_data <- filtered_data %>%
 - Sehr praktisch: Nutzer*innen können so **nur junge Bäume, nur Altbestand** oder ein **bestimmtes Jahrzehnt** analysieren.
 
 ### Aggregation: Wasser pro Pflanzjahr
-```bash
+```r
 plot_data <- filtered_data %>%
   group_by(pflanzjahr) %>%
   summarize(
@@ -173,7 +173,7 @@ Für jedes Pflanzjahr wird berechnet:
 „Werden junge oder alte Bäume stärker bewässert?“
 
 ### Erstellung des ggplot2-Liniendiagramms
-```bash
+```r
 plot <- ggplot(plot_data, aes(x = pflanzjahr, y = total_water)) +
   geom_line(color = "#2E86AB", size = 1) +
   geom_point(
@@ -198,7 +198,7 @@ plot <- ggplot(plot_data, aes(x = pflanzjahr, y = total_water)) +
 - **theme_minimal()** sorgt für ein aufgeräumtes Diagramm.
 
 ### Plotly-Interaktivität hinzufügen
-```bash
+```r
 ggplotly(plot, tooltip = "text") %>%
   layout(hovermode = "closest")
 ```

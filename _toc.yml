@@ -26,7 +26,6 @@ chapters:
     sections:
       - file: dashboard/Einführung
       - file: dashboard/Übung_Startseite
-      - file: dashboard/Übung_Startseite_edit
       - file: dashboard/Übung_Karte
       - file: dashboard/Übung_Zeitverlauf
       - file: dashboard/Übung_Baumstatistik
