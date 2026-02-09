@@ -221,8 +221,8 @@ write.csv2(df_baeume_final, file = "data/df_merged_final.csv", row.names = FALSE
 ```
 - Die neue Tabelle mit allen Bäumen und Bezirken wird als Datei gespeichert.
 
-<details>
-<summary><strong>gesamter Code</strong></summary>
+````{admonition} Gesamter Code
+:class: hinweis, dropdown
 
 ```r
 library(sf)
@@ -268,4 +268,4 @@ df_baeume_final <- bind_rows(df_mit_bezirk, df_ohne_bezirk_filled)
 write.csv2(df_baeume_final, file = "data/df_merged_final.csv", row.names = FALSE)
 
 ```
-</details>
+````

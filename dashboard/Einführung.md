@@ -11,22 +11,27 @@ lang: de-DE
 
 Bevor wir mit dem Aufbau des Dashboards beginnen können, müssen wir die benötigten Pakete installieren und laden. Öffnen Sie RStudio und führen Sie folgenden Befehl aus, um die erforderlichen Pakete zu installieren:
 
-```{figure} /assets/R_Studio_Packages.png
----
-name: R_Studio_Packages
-alt: Ein Screenshot, der das installieren der benöigten Packages zeigt.
----
-Befehl zum Installieren der 11 benötigten Packages.
+```r
+install.packages(c("shiny", "shinydashboard", 
+                   "leaflet", "ggplot2", "dplyr", 
+                   "lubridate", "plotly", "tidyr", 
+                   "stringr", "leaflet.extras", "shinyBS"))
 ```
 
 Nachdem die Installation abgeschlossen ist, laden Sie die Pakete in Ihr Skript:
 
-```{figure} /assets/R_Studio_Libraries.png
----
-name: R_Studio_Libraries
-alt: Ein Screenshot, der zeigt, wie man die Pakete lädt.
----
-Befehl zum Laden der 11 benötigten Pakete.
+```r
+library(shiny)
+library(leaflet)
+library(ggplot2)
+library(dplyr)
+library(lubridate)
+library(shinydashboard)
+library(plotly)
+library(leaflet.extras)
+library(tidyr)
+library(stringr)
+library(shinyBS)
 ```
 
 Diese Pakete ermöglichen die Entwicklung der Benutzeroberfläche, die Datenverarbeitung sowie die Visualisierung.
@@ -41,12 +46,17 @@ Die Grundlage für unser Dashboard bildet eine CSV-Datei der Nutzungsdaten aus d
 <span style="color:red">*die CSV muss verlinkt werden: 1. Link zur "Anbieter" und 2. Link zu unserem Repositorium, wo der Datensatz ebenfalls abgelegt werden muss*</span>
 
 
-```{figure} /assets/R_Studio_Einlesen_Aufbereitung.png
----
-name: R_Studio_Einlesen_Aufbereitung
-alt: Ein Screenshot, der zeigt, wie die Daten eingelesen und aufbereitet werden.
----
-Einlesen und Aufbereiten der Daten.
+```r
+# Daten laden
+df <- read.csv("data/nutzungsdatenGiessDenKiez.csv", sep = ";", 
+               stringsAsFactors = FALSE, fileEncoding = "UTF-8")
+
+# Konvertierung von Zeichenketten in numerische Werte
+df$pflanzjahr <- as.numeric(df$pflanzjahr)
+df$bewaesserungsmenge_in_liter <- as.numeric(df$bewaesserungsmenge_in_liter)
+
+# Entfernung fehlender Werte
+df_clean <- df %>% drop_na(lng, lat, bewaesserungsmenge_in_liter)
 ```
 
 Erklärung des Codes:
@@ -75,14 +85,30 @@ Das shinydashboard-Paket erweitert Shiny um Funktionen zur Erstellung von Dashbo
 3.	Body: Der Hauptbereich, in dem die Inhalte wie Diagramme, Tabellen und Texte angezeigt werden.
 Die Grundstruktur eines Dashboards wird mit der Funktion dashboardPage() erstellt, die die oben genannten Komponenten kombiniert:
 
-R_Studio_Dashboard
+```r
+ui <- dashboardPage(
+  dashboardHeader(title = "Gieß den Kiez Dashboard"),
+  dashboardSidebar(
+    sidebarMenu(
+      menuItem("Startseite", tabName = "start", icon = icon("home")),
+      menuItem("Karte", tabName = "map", icon = icon("map")),
+      menuItem("Baumstatistik", tabName = "stats", icon = icon("bar-chart")),
+      menuItem("Bewässerungsanalyse", tabName = "analysis", icon = icon("chart-area"))
+    )
+  ),
+  dashboardBody(
+    tabItems(
+      tabItem(tabName = "start"),
+      tabItem(tabName = "map"),
+      tabItem(tabName = "stats"),
+      tabItem(tabName = "analysis")
+    )
+  )
+)
 
-```{figure} /assets/R_Studio_Dashboard.png
----
-name: R_Studio_Dashboard
-alt: Ein Screenshot, der zeigt, die Dashboardstruktur. 
----
-Dashboardstruktur
+server <- function(input, output) { }
+
+shinyApp(ui = ui, server = server)
 ```
 
 Die sidebarMenu-Funktion definiert die Navigationselemente, während tabItems die entsprechenden Inhalte für jeden Tab bereitstellt.

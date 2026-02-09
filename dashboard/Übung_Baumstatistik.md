@@ -38,21 +38,30 @@ Damit dient der Reiter als Grundlage, um zu verstehen, welche strukturellen Fakt
 
 ## Benutzeroberfläche (UI)
 
-```bash
+
+````{dropdown} Code
+```r
 dashboardPage(
   dashboardHeader(title = "Gieß den Kiez Dashboard"),
   dashboardSidebar(
     sidebarMenu(
       menuItem("Baumstatistik", tabName = "engagement", icon = icon("hands-helping"))
 ```
+````
 
-![alt text](Dashboard_Baumstatistik_1.png)
-*Abbildung 5: Baumverteilung nach Bezirken und Baumgattungen.
-Die Abbildung zeigt die Verteilung der Bäume in den Berliner Bezirken, aufgeschlüsselt nach Baumgattungen. Die Anzahl der Bäume ist für jeden Bezirk als gestapeltes Balkendiagramm dargestellt, wobei die einzelnen Farbsegmente unterschiedliche Baumgattungen repräsentieren. Über einen Schieberegler kann die Anzahl der angezeigten, häufigsten Baumgattungen (Top-N) interaktiv angepasst werden, während weniger häufige Gattungen unter „Sonstige“ zusammengefasst sind. (Quelle: eigene Ausarbeitung)*
+```{figure} Dashboard_Baumstatistik_1.png
+---
+name: Dashboard Karte
+alt: Ein Screenshot, der zeigt Dashboard Karte
+---
+Abbildung 5: Baumverteilung nach Bezirken und Baumgattungen.  
+Die Abbildung zeigt die Verteilung der Bäume in den Berliner Bezirken, aufgeschlüsselt nach Baumgattungen. Die Anzahl der Bäume ist für jeden Bezirk als gestapeltes Balkendiagramm dargestellt, wobei die einzelnen Farbsegmente unterschiedliche Baumgattungen repräsentieren. Über einen Schieberegler kann die Anzahl der angezeigten, häufigsten Baumgattungen (Top-N) interaktiv angepasst werden, während weniger häufige Gattungen unter „Sonstige“ zusammengefasst sind. (Quelle: eigene Ausarbeitung)
+``` 
 
 Das obenstehende Diagramm ist ein Balkendiagramm, genauer gesagt ein gestapeltes Balkendiagramm, das mehrere Informationsebenen gleichzeitig vermittelt. Der zentrale Mehrwert dieser Darstellungsform liegt darin, sowohl die Gesamtanzahl der Bäume pro Bezirk als auch deren Zusammensetzung nach Gattungen in einer einzigen Visualisierung zu vereinen. Die Balkenlänge zeigt auf einen Blick, welche Bezirke den größten Baumbestand haben, während die farbigen Segmente innerhalb jedes Balkens die Artenvielfalt und deren relative Anteile offenlegen. Dies ermöglicht direkte Vergleiche zwischen Bezirken: Nutzer:innen können nicht nur erkennen, dass Bezirk A mehr Bäume hat als Bezirk B, sondern auch, ob beide eine ähnliche Gattungsverteilung aufweisen oder ob bestimmte Arten in einzelnen Bezirken dominieren. Die Anpassung über den Top-N-Schieberegler reduziert visuelle Komplexität und ermöglicht es, den Fokus je nach Fragestellung auf die häufigsten Gattungen zu legen oder eine detailliertere Aufschlüsselung zu betrachten. Somit verbindet das gestapelte Balkendiagramm quantitative Präzision mit visueller Übersichtlichkeit und macht komplexe, mehrdimensionale Daten intuitiv erfassbar. Balkendiagramme zählen zu den etabliertesten Darstellungswerkzeugen der Datenvisualisierung – ihre breite Anwendung in dieser Fallstudie spiegelt ihre Vielseitigkeit und Lesbarkeit wider.
 
-```bash
+````{dropdown} Code
+```r
      tabItem(
        tabName = "engagement",
        
@@ -81,14 +90,23 @@ Das obenstehende Diagramm ist ein Balkendiagramm, genauer gesagt ein gestapeltes
          )
        ),
 ```
+````
 
-![alt text](Dashboard_Baumstatistik_2.png)
-*Abbildung 6: Verteilung der Baumgattungen.
-Die Abbildung zeigt die prozentuale Verteilung der Baumgattungen im Berliner Baumbestand in Form eines Kreisdiagramms. Über ein Auswahlfeld kann der betrachtete Bezirk festgelegt werden, wodurch sich die dargestellte Verteilung entsprechend anpasst. Die einzelnen Kreissegmente repräsentieren die Anteile der jeweiligen Baumgattungen am Gesamtbestand des ausgewählten Bezirks. (Quelle: eigene Ausarbeitung)*
+```{figure} Dashboard_Baumstatistik_2.png
+---
+name: Dashboard Karte
+alt: Ein Screenshot, der zeigt Dashboard Karte
+width: 600px
+---
+Abbildung 6: Verteilung der Baumgattungen.
+Die Abbildung zeigt die prozentuale Verteilung der Baumgattungen im Berliner Baumbestand in Form eines Kreisdiagramms. Über ein Auswahlfeld kann der betrachtete Bezirk festgelegt werden, wodurch sich die dargestellte Verteilung entsprechend anpasst. Die einzelnen Kreissegmente repräsentieren die Anteile der jeweiligen Baumgattungen am Gesamtbestand des ausgewählten Bezirks. (Quelle: eigene Ausarbeitung)
+``` 
+
 
 Das obenstehende Diagramm ist ein Kreisdiagramm (auch Tortendiagramm genannt), das die prozentuale Zusammensetzung der Baumgattungen innerhalb eines Bezirks visualisiert. Der zentrale Mehrwert dieser Darstellungsform liegt in ihrer Fähigkeit, Anteile und Proportionen intuitiv erfassbar zu machen: Nutzer:innen erkennen auf einen Blick, welche Gattungen den Baumbestand dominieren und welche nur eine untergeordnete Rolle spielen. Die Kreisform vermittelt das Konzept des "Ganzen" unmittelbar – alle Segmente zusammen ergeben 100% des Baumbestands im gewählten Bezirk. Dies erleichtert das Verständnis relativer Größenverhältnisse, etwa wenn eine Gattung ein Viertel oder die Hälfte aller Bäume ausmacht. Die interaktive Bezirksauswahl ermöglicht zudem gezielte Vergleiche: Nutzer:innen können erkunden, ob bestimmte Gattungen in verschiedenen Stadtteilen unterschiedlich stark vertreten sind. Im Gegensatz zum Balkendiagramm, das absolute Zahlen und Mengenvergleiche betont, fokussiert das Kreisdiagramm auf die innere Struktur und Diversität des Baumbestands eines einzelnen Bezirks.
 
-```bash
+````{dropdown} Code
+```r
        
        fluidRow(
          box(
@@ -111,12 +129,20 @@ Das obenstehende Diagramm ist ein Kreisdiagramm (auch Tortendiagramm genannt), d
            plotOutput("tree_species_pie", height = "500px")
          ),         
 ```
+````
 
-![alt text](Dashboard_Baumstatistik_3.png)
-*Abbildung 7: Top 10 gegossene Baumgattungen.
-Die Abbildung zeigt die Top 10 gegossenen Baumgattungen in Berlin in Form eines horizontalen Balkendiagramms. Über ein Auswahlfeld kann der betrachtete Bezirk festgelegt werden, wodurch sich die dargestellten Werte entsprechend anpassen. Die Balken repräsentieren die absolute Anzahl gegossener Bäume je Gattung, wobei die Linde mit deutlichem Abstand an erster Stelle steht, gefolgt von Ahorn (ca. 250.000) und weiteren Gattungen mit jeweils deutlich geringeren Werten. Die x-Achse zeigt die Anzahl gegossener Bäume, die y-Achse die Baumgattungen. (Quelle: eigene Ausarbeitung)*
+```{figure} Dashboard_Baumstatistik_3.png
+---
+name: Dashboard Karte
+alt: Ein Screenshot, der zeigt Dashboard Karte
+width: 650px
+---
+Abbildung 7: Top 10 gegossene Baumgattungen.  
+Die Abbildung zeigt die Top 10 gegossenen Baumgattungen in Berlin in Form eines horizontalen Balkendiagramms. Über ein Auswahlfeld kann der betrachtete Bezirk festgelegt werden, wodurch sich die dargestellten Werte entsprechend anpassen. Die Balken repräsentieren die absolute Anzahl gegossener Bäume je Gattung, wobei die Linde mit deutlichem Abstand an erster Stelle steht, gefolgt von Ahorn (ca. 250.000) und weiteren Gattungen mit jeweils deutlich geringeren Werten. Die x-Achse zeigt die Anzahl gegossener Bäume, die y-Achse die Baumgattungen. (Quelle: eigene Ausarbeitung)
+``` 
 
-```bash         
+````{dropdown} Code
+```r         
          box(
            title = tagList(
              "Baumdichte pro km²",
@@ -132,12 +158,21 @@ Die Abbildung zeigt die Top 10 gegossenen Baumgattungen in Berlin in Form eines 
          )
        ),       
 ```
+````
 
-![alt text](Dashboard_Baumstatistik_4.png)
-*Abbildung 8: Baumdichte pro km²
-Die Abbildung zeigt die Baumdichte pro km² in den verschiedenen Berliner Bezirken in Form eines vertikalen Balkendiagramms. Die Balken repräsentieren die jeweilige Baumdichte, wobei Friedrichshain-Kreuzberg die höchste Dichte aufweist. Die x-Achse zeigt die Bezirke, die y-Achse die Anzahl der Bäume pro km². Die Darstellung ermöglicht einen direkten Vergleich der Baumdichte zwischen den zwölf Berliner Bezirken. (Quelle: eigene Ausarbeitung)*
+```{figure} Dashboard_Baumstatistik_4.png
+---
+name: Dashboard Karte
+alt: Ein Screenshot, der zeigt Dashboard Karte
+width: 600px
+---
+Abbildung 8: Baumdichte pro km²  
+Die Abbildung zeigt die Baumdichte pro km² in den verschiedenen Berliner Bezirken in Form eines vertikalen Balkendiagramms. Die Balken repräsentieren die jeweilige Baumdichte, wobei Friedrichshain-Kreuzberg die höchste Dichte aufweist. Die x-Achse zeigt die Bezirke, die y-Achse die Anzahl der Bäume pro km². Die Darstellung ermöglicht einen direkten Vergleich der Baumdichte zwischen den zwölf Berliner Bezirken. (Quelle: eigene Ausarbeitung)
+``` 
 
-```bash
+
+````{dropdown} Code
+```r
        fluidRow(
          box(
            title = tagList(
@@ -161,9 +196,11 @@ Die Abbildung zeigt die Baumdichte pro km² in den verschiedenen Berliner Bezirk
        )
      ),
 ```
+````
 
 ## Server
-```bash  
+
+```r  
 # 1. Stacked Bar Chart - Baumverteilung mit Gattungen
   output$tree_distribution_stacked <- renderPlot({
     top_genera <- df_merged %>%
@@ -177,7 +214,8 @@ Die Abbildung zeigt die Baumdichte pro km² in den verschiedenen Berliner Bezirk
 - Wählt die **Top-N meistverbreiteten Baumgattungen** (über UI steuerbar).
 - Speichert sie in ```top_genera```.
 
-```bash
+
+```r
     df_agg <- df_merged %>%
       filter(!is.na(bezirk)) %>%  
       mutate(gattung_grouped = ifelse(gattung_deutsch %in% top_genera, gattung_deutsch, "Sonstige")) %>%
@@ -194,7 +232,8 @@ Die Abbildung zeigt die Baumdichte pro km² in den verschiedenen Berliner Bezirk
 - Zusätzlich wird der **prozentuale Anteil** innerhalb des Bezirks berechnet.
 - Die Ergebnisstruktur ist ein typisches **Bezirks-Gattungs-Aggregat**.
 
-```bash
+
+```r
     df_agg$gattung_grouped <- factor(df_agg$gattung_grouped, 
                                      levels = c(top_genera, "Sonstige"))
     
@@ -221,7 +260,8 @@ Der Plot zeigt somit:
 - wie groß der Anteil der **Sonstigen** ist,
 - und wie sich Bezirke in ihrer Baumstruktur unterscheiden.
  
-```bash
+
+```r
   # 2. Pie Chart - Gattungsverteilung
   output$tree_species_pie <- renderPlot({
     filtered_data <- df_merged
@@ -283,7 +323,8 @@ Der Plot zeigt somit:
   })
 ```
   
-```bash
+
+```r
   # 3. Baumdichte pro Bezirksfläche
   output$tree_density_area <- renderPlot({
     bezirk_flaeche <- data.frame(
@@ -341,7 +382,8 @@ Der Plot zeigt somit:
 
 Neu ist hier lediglich eine kleine Lookup-Tabelle mit Bezirksflächen, die über ```left_join()``` ergänzt wird, um die Baumdichte (Bäume pro km²) berechnen zu können. Alles andere entspricht bekannten Mustern der vorherigen Plots.
 
-```bash
+
+```r
   # 4. Top 10 gegossene Baumgattungen
   output$top_watered_species <- renderPlot({
     filtered_data <- df_merged %>%

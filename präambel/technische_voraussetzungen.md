@@ -41,7 +41,7 @@ Dieses JupyterBook besteht aus mehreren Kapiteln, die jeweils als einzelne Open 
 2. Ein Shiny Web App Skript, in dem Sie Befehle eingeben können, öffnen Sie
 unter *Files*: 
  
-```{figure} _images/R_Studio_open_new_script.png
+```{figure} ../assets/R_Studio_open_new_script.png
 ---
 name: screenshot-r-1
 alt: Ein Screenshot, der zeigt, wie man ein neues R-Skript öffnet.
@@ -51,7 +51,7 @@ Anleitung zum Öffnen eines neuen R-Skriptes.
 
 **RStudio Umgebung für Shiny:** 
 
-```{figure} _images/R_Studio_Interface.png
+```{figure} ../assets/R_Studio_Interface.png
 ---
 name: screenshot-r-2
 alt: Ein Screenshot, der das Interface von R-Studio zeigt.
@@ -79,7 +79,7 @@ Hier können Sie Dateien anzeigen, verwalten und importieren. Zudem bietet diese
 
 Ein weiteres Anzeigefenster ist die **Web-App:** In diesem Bereich wird die visuelle Ausgabe der Shiny-App dargestellt. Je nach Einstellung öffnet sich das Fenster entweder direkt in RStudio oder in einem externen Browser.  
 
-```{figure} _images/R_Studio_Shiny_App.png
+```{figure} ../assets/R_Studio_Shiny_App.png
 ---
 name: screenshot-shiny-2
 alt: Ein Screenshot, der die Shiny-App zeigt.
