@@ -47,16 +47,41 @@ name: Dashboard Karte
 alt: Ein Screenshot, der zeigt Dashboard Karte
 width: 600px
 ---
-Abbildung 4: Zeitverlauf der Baumbewässerung (Quelle: eigene Ausarbeitung)
+Zeitverlauf der Baumbewässerung (Quelle: eigene Ausarbeitung)
 ``` 
 
 ## Benutzeroberfläche (UI)
+
+### Seitenleiste mit Navigation
+
+Zunächst fügt Amir einen weiteren Menüpunkt zur Navigation hinzu, um den Zeitverlauf-Tab zugänglich zu machen.
+
+````{dropdown} Code
 ```r
-dashboardHeader(title = "Gieß den Kiez Dashboard"),
 dashboardSidebar(
   sidebarMenu(
-    menuItem("Zeitverlauf", tabName = "stats", icon = icon("bar-chart")),
+    menuItem("Zeitverlauf", tabName = "stats", icon = icon("bar-chart"))
+  )
+)
 ```
+````
+
+````{admonition} Erklärung des Codes
+:class: hinweis, dropdown
+
+- `menuItem(...)` erzeugt einen neuen Navigationspunkt:
+  - `"Zeitverlauf"` ist der sichtbare Name
+  - `tabName = "stats"` verknüpft diesen Menüpunkt mit dem Inhaltsbereich
+  - `icon("bar-chart")` fügt ein Diagramm-Symbol zur visuellen Orientierung hinzu
+
+Dieser Menüpunkt reiht sich in die bestehende Navigation ein – neben Startseite und Karte.
+````
+
+### Inhaltsbereich mit Diagramm und Filtern
+
+Der Inhaltsbereich enthält das Liniendiagramm sowie Filteroptionen, mit denen Nutzer:innen die Darstellung anpassen können.
+
+````{dropdown} Code
 
 ```r
 tabItem(
@@ -73,87 +98,116 @@ tabItem(
       status = "primary",
       solidHeader = TRUE,
       width = 12,
-```
-
-### Filterelemente (Inputs)
-```r
-fluidRow(
-  column(
-    width = 6,
-    sliderInput(
-      "trend_year",
-      "Pflanzjahre filtern:",
-      min = 1900,
-      max = max(df_merged$pflanzjahr, na.rm = TRUE),
-      value = c(min(df_merged$pflanzjahr, na.rm = TRUE),
-                max(df_merged$pflanzjahr, na.rm = TRUE)),
-      step = 1,
-      sep = ""
+      
+      fluidRow(
+        column(
+          width = 6,
+          sliderInput(
+            "trend_year",
+            "Pflanzjahre filtern:",
+            min = 1900,
+            max = max(df_merged$pflanzjahr, na.rm = TRUE),
+            value = c(min(df_merged$pflanzjahr, na.rm = TRUE),
+                      max(df_merged$pflanzjahr, na.rm = TRUE)),
+            step = 1,
+            sep = ""
+          )
+        ),
+        column(
+          width = 6,
+          selectInput(
+            "trend_bezirk_pj",
+            "Bezirk auswählen:",
+            choices = c("Alle", sort(unique(df_merged$bezirk))),
+            selected = "Alle",
+            multiple = TRUE
+          )
+        )
+      ),
+      
+      plotlyOutput("trend_water", height = "500px")
     )
-  ),
-```
-- **sliderInput("trend_year")** erlaubt es, einen Bereich an Pflanzjahren auszuwählen.
-- Der Bereich passt sich automatisch den Daten an (*dynamische min/max-Werte*).
-- Sinn: gezielt nur junge Bäume, nur Altbestand oder ein bestimmtes Jahrzehnt untersuchen.
-
-```r
-column(
-  width = 6,
-  selectInput(
-    "trend_bezirk_pj",
-    "Bezirk auswählen:",
-    choices = c("Alle", sort(unique(df_merged$bezirk))),
-    selected = "Alle",
-    multiple = TRUE
   )
 )
 ```
+````
 
-- **selectInput()** ermöglicht eine Auswahl von Bezirken – auch mehrfach.
-- Standartwert ist "Alle". 
-- Nutzer können so Trends für einzelne Bezirke, Gruppen oder ganz Berlin untersuchen.
+````{admonition} Erklärung des Codes
+:class: hinweis, dropdown
 
-### Visualisierung
-```r
-plotlyOutput("trend_water", height = "500px")
-```
+**Struktur des Inhaltsbereichs:**
 
-- Zeigt den interaktiven Plot an, der später in ```server.R``` erzeugt wird.
-- **Plotly** ermöglicht Zoomen, Tooltipps und interaktive Achsen.
-- Visualisiert wird die **gesamt gegossene Wassermenge pro Pflanzjahr** (x = Pflanzjahr, y = Liter).
+- `box(...)` gruppiert alle Elemente visuell
+  - `title` enthält die Überschrift und einen Info-Button
+  - `status = "primary"` bestimmt die Farbe
+  - `width = 12` bedeutet volle Seitenbreite
+
+**Filterelemente:**
+
+- `sliderInput("trend_year", ...)` – ein Schieberegler zur Auswahl eines Pflanzjahr-Bereichs
+  - Die Min/Max-Werte passen sich automatisch an die vorhandenen Daten an
+  - Nutzer:innen können gezielt nur junge Bäume, nur Altbestand oder ein bestimmtes Jahrzehnt untersuchen
+  
+- `selectInput("trend_bezirk_pj", ...)` – ein Dropdown zur Bezirksauswahl
+  - `multiple = TRUE` ermöglicht die Auswahl mehrerer Bezirke gleichzeitig
+  - Standardwert ist "Alle"
+
+**Visualisierung:**
+
+- `plotlyOutput("trend_water", ...)` – reserviert Platz für das interaktive Diagramm
+  - Die tatsächliche Grafik wird im Server erzeugt
+  - Plotly ermöglicht Zoomen, Tooltips und interaktive Achsen
+
+Diese Struktur gibt Nutzer:innen volle Kontrolle: Sie können sowohl den Zeitraum als auch die betrachteten Bezirke frei anpassen und so gezielt nach Mustern suchen.
+````
 
 ## Server
-### Daten filtern
+
+### Daten vorbereiten und filtern
+
+Zunächst müssen die Rohdaten so vorbereitet werden, dass nur relevante Einträge berücksichtigt werden – also Bäume, die tatsächlich gegossen wurden und für die ein Pflanzjahr bekannt ist.
+
+````{dropdown} Code
 ```r
 filtered_data <- df_merged %>%
   filter(!is.na(bewaesserungsmenge_in_liter)) %>%  
   filter(!is.na(pflanzjahr))
-```
 
-- Es werden **nur Bäume berücksichtigt, die tatsächlich gegossen wurden**.
-- Zusätzlich werden nur Bäume mit **bekanntem Pflanzjahr** einbezogen.
-
-### Bezirk-Filter anwenden
-```r
 if (!"Alle" %in% input$trend_bezirk_pj && length(input$trend_bezirk_pj) > 0) {
   filtered_data <- filtered_data %>%
     filter(bezirk %in% input$trend_bezirk_pj)
 }
-```
 
-- Wenn Nutzer **einen oder mehrere Bezirke** ausgewählt haben, werden ausschließlich diese einbezogen.
--Wenn „Alle“ ausgewählt ist → keine Einschränkung.
-
-### Pflanzjahr-Regler anwenden
-```r
 filtered_data <- filtered_data %>%
   filter(pflanzjahr >= input$trend_year[1] & pflanzjahr <= input$trend_year[2])
+
 ```
+````
 
-- Der Slider schränkt den Zeitraum ein (z. B. 1950–2020).
-- Sehr praktisch: Nutzer*innen können so **nur junge Bäume, nur Altbestand** oder ein **bestimmtes Jahrzehnt** analysieren.
+````{admonition} Erklärung des Codes
+:class: hinweis, dropdown
 
-### Aggregation: Wasser pro Pflanzjahr
+**Grundfilterung:**  
+- `filter(!is.na(bewaesserungsmenge_in_liter))` – nur Bäume, die tatsächlich gegossen wurden
+- `filter(!is.na(pflanzjahr))` – nur Bäume mit bekanntem Pflanzjahr
+
+**Bezirksfilter:**  
+- Wenn "Alle" ausgewählt ist → keine Einschränkung
+- Wenn bestimmte Bezirke ausgewählt wurden → behalte nur diese
+
+**Pflanzjahr-Filter:**  
+- `input$trend_year[1]` ist der untere Wert des Schiebereglers
+- `input$trend_year[2]` ist der obere Wert
+- So können Nutzer:innen gezielt z. B. nur Bäume aus den Jahren 1950–2020 betrachten
+
+Durch diese mehrstufige Filterung erhält Amir einen sauberen Datensatz, der genau die Bäume enthält, die für die aktuelle Analyse relevant sind.
+````
+
+### Bewässerungsmenge pro Pflanzjahr berechnen
+
+Jetzt aggregiert Amir die Daten: Für jedes Pflanzjahr wird die gesamte gegossene Wassermenge sowie die Anzahl der bewässerten Bäume berechnet.
+
+````{dropdown} Code
 ```r
 plot_data <- filtered_data %>%
   group_by(pflanzjahr) %>%
@@ -163,16 +217,28 @@ plot_data <- filtered_data %>%
   ) %>%
   ungroup()
 ```
+````
 
-Für jedes Pflanzjahr wird berechnet:
+````{admonition} Erklärung des Codes
+:class: hinweis, dropdown
 
-- **total_water** → Wie viel Wasser wurde auf alle Bäume dieses Jahrgangs gegossen?
-- **count_trees** → Wie viele individuelle Bäume aus diesem Jahrgang wurden gegossen?
+- `group_by(pflanzjahr)` gruppiert die Daten nach Pflanzjahr
+- `summarize(...)` berechnet für jede Gruppe:
+  - `total_water` – die Summe aller gegossenen Liter
+  - `count_trees` – die Anzahl unterschiedlicher Bäume (`n_distinct` zählt jeden Baum nur einmal)
+- `ungroup()` löst die Gruppierung wieder auf
 
-→ liefert eine Zeitreihe nach Pflanzjahren – wichtig für die Frage:
-„Werden junge oder alte Bäume stärker bewässert?“
+ 
+Eine Tabelle mit drei Spalten: Pflanzjahr, Gesamtwassermenge, Anzahl Bäume  
 
-### Erstellung des ggplot2-Liniendiagramms
+Diese Aggregation beantwortet die zentrale Frage: „Welche Baumjahrgänge wurden besonders intensiv bewässert?"
+````
+
+### Liniendiagramm erstellen
+
+Mit den aggregierten Daten erstellt Amir nun ein Liniendiagramm, das den Trend über die Pflanzjahre zeigt.
+
+````{dropdown} Code
 ```r
 plot <- ggplot(plot_data, aes(x = pflanzjahr, y = total_water)) +
   geom_line(color = "#2E86AB", size = 1) +
@@ -188,24 +254,35 @@ plot <- ggplot(plot_data, aes(x = pflanzjahr, y = total_water)) +
     y = "Gesamtbewässerung (Liter)"
   ) +
   theme(panel.grid.minor = element_blank())
-```
 
-- **Linie** zeigt den Trend über die Pflanzjahre.
-- **Punkte** sind datenreich → im Hover erscheinen:
-    - Pflanzjahr
-    - gesamte Bewässerungsmenge
-    - Anzahl der beteiligten Bäume
-- **theme_minimal()** sorgt für ein aufgeräumtes Diagramm.
-
-### Plotly-Interaktivität hinzufügen
-```r
 ggplotly(plot, tooltip = "text") %>%
   layout(hovermode = "closest")
 ```
+````
 
-- Macht das Diagramm interaktiv.
-- Tooltips zeigen die präzise Werte pro Produkt.
-- Nutzer*innen können hineinzoomen, Achsen verschieben, etc. 
+````{admonition} Erklärung des Codes
+:class: hinweis, dropdown
+
+**ggplot2-Grundstruktur:**
+
+- `aes(x = pflanzjahr, y = total_water)` definiert, was auf den Achsen dargestellt wird
+- `geom_line(...)` zeichnet die Verbindungslinie zwischen den Datenpunkten
+- `geom_point(...)` setzt Punkte auf jeden Datenpunkt
+  - `aes(text = ...)` definiert, was beim Überfahren mit der Maus angezeigt wird:
+    - Pflanzjahr
+    - Gesamtwassermenge (formatiert mit Tausenderpunkten)
+    - Anzahl der bewässerten Bäume
+- `theme_minimal()` sorgt für ein aufgeräumtes Design
+- `labs(...)` beschriftet die Achsen
+
+**Interaktivität durch Plotly:**
+
+- `ggplotly(...)` wandelt das statische ggplot in ein interaktives Plotly-Diagramm um
+- `tooltip = "text"` zeigt die zuvor definierten Tooltips beim Hover an
+- `layout(hovermode = "closest")` sorgt dafür, dass immer der nächstgelegene Datenpunkt angezeigt wird
+
+Durch diese Kombination aus ggplot2 und Plotly entsteht ein Diagramm, in dem Nutzer:innen hineinzoomen, Achsen verschieben und präzise Werte ablesen können.
+```` 
 
 ### Kritische Diskussion
 Der dargestellte Trend der Bewässerungsmenge je Pflanzjahr zeigt zwar über den gesamten Zeitraum betrachtet einen **grundsätzlich steigenden Verlauf**, allerdings lässt sich **kein klar lineares oder systematisches Muster** erkennen. Stattdessen wirkt der Verlauf stark **heterogen**, mit ausgeprägten Spitzen und Einbrüchen in einzelnen Jahrgängen.
