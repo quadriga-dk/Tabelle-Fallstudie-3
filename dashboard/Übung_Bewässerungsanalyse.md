@@ -39,9 +39,11 @@ In der UI definieren wir eine neue Tab-Seite namens "stats" mit zwei Diagrammfel
 name: Dashboard Karte
 alt: Ein Screenshot, der zeigt Dashboard Karte
 ---
-Abbildung 3: Balkendiagramm zur Bewässerung pro Bezirk (2020–2024). Die Abbildung zeigt die aggregierte Bewässerungsmenge in Millionen Litern für die einzelnen Berliner Bezirke im Zeitraum von 2020 bis 2024. Auf der x-Achse sind die Bezirke dargestellt, während die y-Achse die gesamte Bewässerungsmenge angibt. Das Diagramm ermöglicht einen direkten Vergleich der Bewässerungsintensität zwischen den Bezirken. (Quelle: eigene Ausarbeitung)
-``` 
+Balkendiagramm zur Bewässerung pro Bezirk (2020–2024). Die Abbildung zeigt die aggregierte Bewässerungsmenge in Millionen Litern für die einzelnen Berliner Bezirke im Zeitraum von 2020 bis 2024. Auf der x-Achse sind die Bezirke dargestellt, während die y-Achse die gesamte Bewässerungsmenge angibt. Das Diagramm ermöglicht einen direkten Vergleich der Bewässerungsintensität zwischen den Bezirken. (Quelle: eigene Ausarbeitung)
+```
 
+
+````{dropdown} Code
 ```r
      tabItem(
         tabName = "analysis",
@@ -61,15 +63,16 @@ Abbildung 3: Balkendiagramm zur Bewässerung pro Bezirk (2020–2024). Die Abbil
               )
         ),
 ```
+````
 ```{figure} Dashboard_Bewässerungsanalyse_2.png
 ---
 name: Dashboard Karte
 alt: Ein Screenshot, der zeigt Dashboard Karte
 width: 700px
 ---
-Abbildung 4: Durchschnittliche Bewässerungsmenge pro gegossenem Baum nach Bezirk. Die Abbildung zeigt die durchschnittliche Bewässerungsmenge pro gegossenem Baum in Litern für die einzelnen Berliner Bezirke. Auf der x-Achse sind die Bezirke dargestellt, während die y-Achse die durchschnittliche Bewässerungsmenge pro Baum angibt. Das Balkendiagramm verdeutlicht Unterschiede in der Bewässerungsintensität zwischen den Bezirken. (Quelle: eigene Ausarbeitung)
+Durchschnittliche Bewässerungsmenge pro gegossenem Baum nach Bezirk. Die Abbildung zeigt die durchschnittliche Bewässerungsmenge pro gegossenem Baum in Litern für die einzelnen Berliner Bezirke. Auf der x-Achse sind die Bezirke dargestellt, während die y-Achse die durchschnittliche Bewässerungsmenge pro Baum angibt. Das Balkendiagramm verdeutlicht Unterschiede in der Bewässerungsintensität zwischen den Bezirken. (Quelle: eigene Ausarbeitung)
 ``` 
-
+````{dropdown} Code
 ```r
         fluidRow(
           box(
@@ -88,8 +91,9 @@ Abbildung 4: Durchschnittliche Bewässerungsmenge pro gegossenem Baum nach Bezir
         )
       )
 ```
-
-**Erklärung der Elemente:**
+````
+````{admonition} Erklärung der Elemente
+:class: hinweis, dropdown
 
 - ``tagList(...)``: Wird genutzt, um mehrere UI-Elemente im Titel der Box zu kombinieren – hier der Titeltext und der Informations-Button. So kann der Info-Button elegant im Titelbereich platziert werden.
 
@@ -100,11 +104,14 @@ Platzhalter für ein Diagramm, das im Server-Teil gerendert wird.
  - ``hist_bewaesserung_pro_bezirk`` zeigt die **Gesamtwassermenge pro Bezirk**
  - ``hist_bewaesserung_pro_baum`` zeigt die **durchschnittliche Wassermenge pro gegossenem Baum**
 
-# Server
-## Berechnung der Bewässerung
+````
+
+## Server
+### Berechnung der Bewässerung
 
 Der erste Teil des Codes, der die **durchschnittliche Bewässerung pro Bezirk** darstellt, berechnet, wie viel Wasser insgesamt in jedem Bezirk verbraucht wurde.
 
+````{dropdown} Code
 ```r
   output$hist_bewaesserung_pro_bezirk <- renderPlot({
     df_agg <- df_merged %>%
@@ -114,15 +121,27 @@ Der erste Teil des Codes, der die **durchschnittliche Bewässerung pro Bezirk** 
       ungroup() %>%
       arrange(desc(total_water))
 ```
+````
 
-**Erklärung der Elemente:** 
+````{admonition} Erklärung des Codes
+:class: hinweis, dropdown
 
-- ``filter(!is.na(bezirk))`` - Entfernt Einträge ohne Bezirksangabe, damit nur gültige Bezirke im Diagramm erscheinen.
-- ``group_by(bezirk)`` - Gruppiert die Daten nach Bezirk, damit alle Bäume eines Bezirks gemeinsam ausgewertet werden.
-- ``summarise(total_water = sum(...))`` - Berechnet für jeden Bezirk die gesamte Bewässerungsmenge (Summe aller Liter im Zeitraum).
-- ``ungroup()`` - Entfernt die Gruppierungsstruktur, um spätere Verarbeitungsschritte nicht zu blockieren.
-- ``arrange(desc(total_water))`` - Sortiert die Bezirke nach der Gesamtbewässerungsmenge – größte Werte stehen oben bzw. links im Plot.
+**Daten aggregieren:**
 
+- `filter(!is.na(bezirk))` – entfernt Einträge ohne Bezirksangabe
+- `group_by(bezirk)` – gruppiert alle Bäume nach Bezirk
+- `summarise(total_water = sum(...))` – berechnet die Gesamtwassermenge pro Bezirk
+- `ungroup()` – löst die Gruppierung auf
+- `arrange(desc(total_water))` – sortiert Bezirke absteigend nach Wassermenge
+
+Durch diese Aggregation wird sichtbar, welche Bezirke absolut gesehen die meisten Liter Wasser auf ihre Bäume gegossen haben.
+````
+
+### Einheiten automatisch umrechnen
+
+Da die Wassermenge sehr groß sein kann (Millionen Liter), rechnet Amir die Werte in passende Einheiten um: Liter, Kubikmeter oder Megaliter – je nach Größenordnung.
+
+````{dropdown} Code
 ```r
     df_agg <- df_agg %>%
       mutate(
@@ -131,29 +150,36 @@ Der erste Teil des Codes, der die **durchschnittliche Bewässerung pro Bezirk** 
         unit = sapply(converted, `[[`, "unit")  
       )
 ```
+````
 
-**Erklärung der Elemente:** 
-- ``converted = purrr::map(total_water, convert_units)`` - Für jeden Bezirk wird die Gesamtbewässerung (``total_water``) an die Funktion ``convert_units()`` übergeben.
-  Diese Funktion entscheidet automatisch:
-  - Liter (*L*)
-  - Kubikmeter (*m³*)
-  - Megaliter (*ML*)
-  Das Ergebnis ist eine Liste pro Zeile – bestehend aus **Wert** + **Einheit**.
-- ``value = sapply(converted, `[[`, "value"),`` - Extrahiert aus jedem Listenelement den umgerechneten **numerischen Wert**, z. B.:
-  - **2.3**
-  - **150**
-  - **0.85**
-  Das macht die Werte direkt für die Achse im Diagramm nutzbar.
-- ``unit = sapply(converted, `[[`, "unit")`` - Extrahiert die zugehörige **Einheit** (z. B. "ML", "m³", "L"`), damit später die y-Achse korrekt beschriftet werden kann.
+````{admonition} Erklärung des Codes
+:class: hinweis, dropdown
+
+**Einheiten umrechnen:**
+
+- `purrr::map(total_water, convert_units)` – wendet die Funktion `convert_units()` auf jede Wassermenge an
+  - Diese Funktion entscheidet automatisch, welche Einheit sinnvoll ist (L, m³ oder ML)
+  - Das Ergebnis ist eine Liste mit `value` (Zahl) und `unit` (Einheit)
+- `sapply(converted, `[[`, "value")` – extrahiert den numerischen Wert
+- `sapply(converted, `[[`, "unit")` – extrahiert die Einheit
+
+**Warum ist das wichtig?**  
+Ohne Umrechnung würden große Zahlen wie "2.500.000 L" schwer lesbar sein. Mit der automatischen Umrechnung wird daraus "2,5 ML" – viel übersichtlicher.
+````
 
 
 
+### Balkendiagramm erstellen
+
+Mit den aggregierten und umgerechneten Daten erstellt Amir nun das Balkendiagramm.
+
+````{dropdown} Code
+```r
     # Create plot
-    ```r
     ggplot(df_agg, aes(x = reorder(bezirk, -value), y = value, fill = bezirk)) +
       geom_bar(stat = "identity", color = "white", alpha = 0.7, width = 0.8) +
       labs(
-        title = NULL,  # Title is already in the box header
+        title = NULL,
         x = "Bezirke in Berlin",
         y = paste0("Gesamte Bewässerungsmenge (", unique(df_agg$unit), ")")
       ) +
@@ -166,30 +192,40 @@ Der erste Teil des Codes, der die **durchschnittliche Bewässerung pro Bezirk** 
       ) +
       scale_fill_discrete(name = "Bezirk")
   })
-  ```
-  
-**Erklärung der Elemete**:
-- Initialisiert die Grafik mit dem Datensatz ``df_agg``.
-- ``reorder(bezirk, -value)`` sortiert die Bezirke absteigend nach Bewässerungsmenge.
-- ``y = value`` stellt die berechnete / umgerechnete Wassermenge dar.
-- ``fill = bezirk`` weist jedem Bezirk eine eigene Farbe zu.
-- ``stat = "identity"`` bedeutet: die Balkenhöhe entspricht direkt dem numerischen Wert (keine Häufigkeit).
-- **Weiße Umrandung** trennt die Balken klar voneinander.
-- **Transparenz** (``alpha = 0.7``) sorgt für einen angenehmen, nicht zu harten Look.
-- ``width = 0.8`` macht die Balken etwas schmaler für bessere Lesbarkeit.
-- **Kein Titel** – dieser kommt bereits von der Box im UI.
-- **X-Achse**: Bezirke in Berlin.
-- **Y-Achse**: Dynamisch generiert je nach Einheit (Liter, m³ oder ML), die vorher berechnet wurde.
-- ``theme_light()``: helles, sauberes Standard-Layout.
-- **Legende ausgeblendet**, da Farben für die Interpretation nicht relevant sind.
-- **X-Achsentexte gedreht** (55°), um Überlappung zu vermeiden.
-- **Vertikale Gitterlinien entfernt** – der Plot wirkt klarer und ruhiger.
-- **Plot-Margin erhöht**, damit Achsenbeschriftungen nicht abgeschnitten werden.
-- Verwendet die **ggplot-Standardfarbpalette**.
-- **Keine manuelle Farbzuordnung** nötig.
+```
+````
 
-  # Info button observer
-  ```r
+````{admonition} Erklärung des Codes
+:class: hinweis, dropdown
+
+**Balkendiagramm aufbauen:**
+
+- `reorder(bezirk, -value)` – sortiert Bezirke absteigend nach Wassermenge
+- `y = value` – die umgerechnete Wassermenge auf der y-Achse
+- `fill = bezirk` – jeder Bezirk erhält eine eigene Farbe
+- `stat = "identity"` – die Balkenhöhe entspricht direkt dem Wert
+- `color = "white", alpha = 0.7` – weiße Umrandung und leichte Transparenz für bessere Lesbarkeit
+- `width = 0.8` – schmalere Balken für übersichtlichere Darstellung
+
+**Achsenbeschriftung:**
+
+- `title = NULL` – kein Titel, da dieser bereits in der Box steht
+- `x = "Bezirke in Berlin"` – Beschriftung der x-Achse
+- `y = paste0(...)` – dynamische y-Achsenbeschriftung mit der passenden Einheit (automatisch ML, m³ oder L)
+
+**Design:**
+
+- `theme_light()` – helles, sauberes Layout
+- `legend.position = "none"` – keine Legende notwendig
+- `axis.text.x = element_text(angle = 55, ...)` – Bezirksnamen schräg gestellt, um Überlappungen zu vermeiden
+- `panel.grid.major.x = element_blank()` – vertikale Gitterlinien entfernt für klareres Bild
+- `plot.margin = margin(10, 10, 10, 10)` – ausreichend Abstand, damit Beschriftungen nicht abgeschnitten werden
+````
+
+### Info button observer
+
+````{dropdown} Code
+```r
   observeEvent(input$info_btn_hbpb, {
     showModal(modalDialog(
       title = "Information: Bewässerung pro Bezirk",
@@ -205,31 +241,39 @@ Der erste Teil des Codes, der die **durchschnittliche Bewässerung pro Bezirk** 
       footer = modalButton("Schließen")
     ))
   })
-  ```
+```
+````
 
-**Erklärung der Elemente**
+````{admonition} Erklärung der Elemente
+:class: hinweis, dropdown
+
 - ``observeEvent()`` - Reagiert auf ein Ereignis – in diesem Fall das Klicken des Info-Buttons.
 - ``input$info_btn_hbpb`` - ID des Buttons aus der Benutzeroberfläche. Sobald dieser geklickt wird, öffnet sich das Modal.
 - ``showModal()`` - Zeigt ein Pop-up-Fenster über der Anwendung. Nützlich für Hinweise, Hilfetexte und Zusatzinfos.
 - ``modalDialog()`` - Erzeugt das Dialogfenster selbst. Es enthält:
   - einen **Titel**,
-  - **HTML-formatierten Text**, z. B. fett <strong> oder Listen,
+  - **HTML-formatierten Text**, z. B. fett `<strong>` oder Listen,
   - eine **Schließen-Schaltfläche**.
 - ``HTML("…")`` - Ermöglicht echte HTML-Struktur (Absätze, Listen, Hervorhebungen), statt einfachem Text.
 - ``easyClose = TRUE`` - Das Fenster kann auch durch Klick außerhalb des Modals geschlossen werden.
 - ``modalButton("Schließen")`` - Fügt unten rechts den Schließen-Button hinzu.
+````
 
 
+### Durchschnittliche Bewässerung pro Baum
+
+Das zweite Diagramm zeigt eine andere Perspektive: Statt der Gesamtmenge wird hier berechnet, wie viel Wasser durchschnittlich auf jeden gegossenen Baum kam. Das hilft zu verstehen, ob in einem Bezirk besonders intensiv oder eher oberflächlich gegossen wurde.
+
+````{dropdown} Code
 ```r
-
   # Plot: Durchschnittliche Bewässerung pro gegossenem Baum
   output$hist_bewaesserung_pro_baum <- renderPlot({
     df_agg <- df_merged %>%
-      filter(!is.na(bezirk)) %>%   # <--- exclude NA only for the plot
+      filter(!is.na(bezirk)) %>%
       group_by(bezirk) %>%
       summarise(
         total_water = sum(bewaesserungsmenge_in_liter, na.rm = TRUE),
-        trees_watered = n_distinct(gml_id)  # Count unique trees that were watered
+        trees_watered = n_distinct(gml_id)
       ) %>%
       ungroup() %>%
       mutate(water_per_tree = total_water / trees_watered) %>%
@@ -260,8 +304,7 @@ Der erste Teil des Codes, der die **durchschnittliche Bewässerung pro Bezirk** 
       ) +
       scale_fill_discrete()
   })
-  
-  
+
   # Info button observer for second graph
   observeEvent(input$info_btn_hbpb2, {
     showModal(modalDialog(
@@ -284,14 +327,29 @@ Der erste Teil des Codes, der die **durchschnittliche Bewässerung pro Bezirk** 
       footer = modalButton("Schließen")
     ))
   })
-
 ```
+````
 
-Der zweite Plot ist strkuturell ähnlich zum ersten, jedoch mit kleinen Unterschieden, weil:
-- eine zusätzliche Kennzahl berechnet wird (```trees_watered```)
-- eine neue Metrik entsteht (```water_per_tree```)
+````{admonition} Erklärung des Codes
+:class: hinweis, dropdown
 
-Die übrige Struktur (Plotaufbau, Theme, Farben, Layout) bleibt gleich.
+Die Struktur ist ähnlich wie beim ersten Diagramm, mit einigen wichtigen Unterschieden:
+
+**Zusätzliche Kennzahlen:**
+
+- `total_water = sum(...)` – Gesamtwassermenge pro Bezirk
+- `trees_watered = n_distinct(gml_id)` – zählt, wie viele unterschiedliche Bäume gegossen wurden
+- `mutate(water_per_tree = total_water / trees_watered)` – berechnet den Durchschnitt: Gesamtwasser geteilt durch Anzahl gegossener Bäume
+
+**Einheitenumrechnung:**
+
+- Auch hier wird `convert_units()` angewendet, um die Werte in passende Einheiten umzurechnen
+- Die y-Achse zeigt dynamisch "Durchschnittliche Bewässerung pro Baum" mit der automatisch gewählten Einheit
+
+**Interpretation:**
+
+Diese Kennzahl zeigt, wie intensiv die Bäume gegossen wurden. Ein Bezirk mit hoher Gesamtmenge kann eine niedrige Durchschnittsmenge pro Baum haben, wenn dort sehr viele Bäume nur leicht gegossen wurden. Umgekehrt kann ein Bezirk mit weniger Gesamtmenge eine hohe Durchschnittsmenge aufweisen, wenn dort wenige Bäume besonders intensiv versorgt wurden.
+````
 
 ## Kritische Schlussfolgerung
 Die beiden Visualisierungen machen eindrucksvoll sichtbar, wie stark sich die Ergebnisse verändern, sobald man eine andere Operationalisierung wählt.
