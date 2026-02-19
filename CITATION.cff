@@ -2,9 +2,9 @@
 cff-version: 1.2.0
 title: 'Visualisierung in der Verwaltung: Ein Dashboard für Baum- und Bewässerungsdaten.
   QUADRIGA Open Educational Resources: Tabelle 3'
-abstract: Dieses Buch ist einerseits ein Template für die Erstellung von OERs nach
-  den Empfehlungen von QUADRIGA (https://quadriga-dk.de) und andererseits eine OER
-  für die Entwicklung von OERs entsprechend der QUADRIGA Empfehlungen.
+abstract: Diese OER führt in die Erstellung von QUADRIGA-OERs ein, bietet Inhalte
+  für Nutzer:innen der OERs und dient gleichzeitig als Template für die Erstellung
+  eigener OERs auf Basis der QUADRIGA-Empfehlungen.
 type: software
 message: Please cite this software using the metadata from `preferred-citation` in
   `CITATION.cff`.
@@ -27,7 +27,7 @@ references:
   - name: The Jupyter Book Community
     website: https://github.com/jupyter-book/jupyter-book/graphs/contributors
 preferred-citation:
-  year: 2024
+  year: '2025'
   authors: *id001
   title: 'Visualisierung in der Verwaltung: Ein Dashboard für Baum- und Bewässerungsdaten.
     QUADRIGA Open Educational Resources: Tabelle 3'

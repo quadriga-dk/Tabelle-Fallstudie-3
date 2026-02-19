@@ -1,46 +1,11 @@
 # yaml-language-server: $schema=https://quadriga-dk.github.io/quadriga-schema/v1.0.0/schema.json
-schema-version: 1.0.0
-book-version: 0.0.1
+title: 'Visualisierung in der Verwaltung: Ein Dashboard für Baum- und Bewässerungsdaten.
+  QUADRIGA Open Educational Resources: Tabelle 3'
 authors:
 - given-names: Paul
   family-names: Walter
-contributors:
-- affiliation: Humboldt-Universität zu Berlin, Institut für Bibliotheks- und Informationswissenschaft
-  credit:
-  - Writing
-  - Software
-  family-names: Schnaitter
-  given-names: Hannes
-  orcid: https://orcid.org/0000-0002-1602-6032
-- affiliation: Universität Potsdam
-  credit:
-  - Writing
-  family-names: Samoilova
-  given-names: Evgenia
-  orcid: https://orcid.org/0000-0003-3858-901X
-- affiliation: Universität Potsdam
-  credit:
-  - Software
-  family-names: Islam
-  given-names: Lamia
-chapters:
-- description: TODO
-  learning-goal: TODO
-  doi: TODO
-  learning-objectives:
-  - blooms-category: 1 Erinnern
-    competency: Orientierungswissen
-    data-flow: übergreifend
-    learning-objective: test
-  title: Präambel
-  url: TODO
-  duration: TODO
-context-of-creation: 'Die vorliegenden Open Educational Resources wurden durch das
-  Datenkompetenzzentrum QUADRIGA erstellt.
-
-
-  Förderkennzeichen: 16DKZ2034'
-date-modified: 2025-03-11
+keywords:
+- Open Educational Resource
 description: Diese OER führt in die Erstellung von QUADRIGA-OERs ein, bietet Inhalte
   für Nutzer:innen der OERs und dient gleichzeitig als Template für die Erstellung
   eigener OERs auf Basis der QUADRIGA-Empfehlungen.
@@ -57,23 +22,61 @@ table-of-contents: '- Präambel
   - Epilog'
 discipline:
 - übergreifend
-duration: 10h
-git: https://github.com/quadriga-dk/Book_Template
-identifier: https://doi.org
-date-published: 2025-10-30
+research-object-type:
+- übergreifend
 target-group:
 - Forschende (PostDoc)
 - Forschende (Projektleitung)
 - Promovierende
 - Hochschullehrende
-title: 'Visualisierung in der Verwaltung: Ein Dashboard für Baum- und Bewässerungsdaten.
-  QUADRIGA Open Educational Resources: Tabelle 3'
-research-object-type:
-- übergreifend
+time-required: PT10H
+language: de
+contributors:
+- affiliation: Humboldt-Universität zu Berlin, Institut für Bibliotheks- und Informationswissenschaft
+  credit:
+  - Software
+  - Writing – review & editing
+  family-names: Schnaitter
+  given-names: Hannes
+  orcid: https://orcid.org/0000-0002-1602-6032
+- affiliation: Universität Potsdam
+  credit:
+  - Writing – review & editing
+  family-names: Samoilova
+  given-names: Evgenia
+  orcid: https://orcid.org/0000-0003-3858-901X
+- affiliation: Universität Potsdam
+  credit:
+  - Software
+  family-names: Islam
+  given-names: Lamia
+identifier: https://doi.org
+git: https://github.com/quadriga-dk/Book_Template
 url: https://quadriga-dk.github.io/Book_Template/
-language: deu
+chapters:
+- description: TODO
+  learning-goal: TODO
+  learning-objectives:
+  - blooms-category: 1 Erinnern
+    competency: Orientierungswissen
+    data-flow: übergreifend
+    learning-objective: test
+  title: Präambel
+  url: TODO
+  time-required: TODO
+date-issued: '2025-10-30'
+date-modified: '2025-03-11'
+version: 0.0.1
+context-of-creation: 'Die vorliegenden Open Educational Resources wurden durch das
+  Datenkompetenzzentrum QUADRIGA erstellt.
+
+
+  Förderkennzeichen: 16DKZ2034'
+quality-assurance:
+  description: https://doi.org/TODO
+  date: '2026-11-14'
+learning-resource-type: Jupyter Book
+schema-version: 1.0.0
 license:
   code: https://www.gnu.org/licenses/agpl-3.0.html
   content: https://creativecommons.org/licenses/by-sa/4.0/
-keywords:
-- Open Educational Resource

@@ -1,0 +1,156 @@
+<?xml version='1.0' encoding='utf-8'?>
+<rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:lrmi="http://purl.org/dcx/lrmi-terms/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:schema="http://schema.org/">
+  <schema:AlignmentObject rdf:about="https://quadriga-dk.github.io/Book_Template/#chapter_0_objective_0">
+    <schema:educationalFramework>QUADRIGA Competency Framework</schema:educationalFramework>
+    <schema:targetDescription>Competency: Orientierungswissen | Bloom's: 1 Erinnern | Data Flow: übergreifend</schema:targetDescription>
+    <schema:targetName>test</schema:targetName>
+  </schema:AlignmentObject>
+  <schema:Book rdf:about="https://quadriga-dk.github.io/Book_Template/">
+    <dc:type>Jupyter Book</dc:type>
+    <dcterms:tableOfContents>- Präambel
+- Fragestellung und Operationalisierung
+- Datenvisualierung
+- Ein Dashboard bauen
+- Zusammenfassung und Reflexion
+- Epilog</dcterms:tableOfContents>
+    <dcterms:type>Jupyter Book</dcterms:type>
+    <lrmi:learningResourceType>Jupyter Book</lrmi:learningResourceType>
+    <schema:about>
+      <schema:Thing rdf:about="https://quadriga-dk.github.io/Book_Template/#keyword_0">
+        <schema:name>Open Educational Resource</schema:name>
+      </schema:Thing>
+    </schema:about>
+    <schema:about>
+      <schema:Thing rdf:about="https://quadriga-dk.github.io/Book_Template/#discipline_0">
+        <schema:name>übergreifend</schema:name>
+      </schema:Thing>
+    </schema:about>
+    <schema:about>
+      <schema:Thing rdf:about="https://quadriga-dk.github.io/Book_Template/#research_object_0">
+        <schema:name>übergreifend</schema:name>
+      </schema:Thing>
+    </schema:about>
+    <schema:audience>
+      <schema:Audience rdf:about="https://quadriga-dk.github.io/Book_Template/#audience_0">
+        <schema:audienceType>Forschende (PostDoc)</schema:audienceType>
+      </schema:Audience>
+    </schema:audience>
+    <schema:audience>
+      <schema:Audience rdf:about="https://quadriga-dk.github.io/Book_Template/#audience_1">
+        <schema:audienceType>Forschende (Projektleitung)</schema:audienceType>
+      </schema:Audience>
+    </schema:audience>
+    <schema:audience>
+      <schema:Audience rdf:about="https://quadriga-dk.github.io/Book_Template/#audience_2">
+        <schema:audienceType>Promovierende</schema:audienceType>
+      </schema:Audience>
+    </schema:audience>
+    <schema:audience>
+      <schema:Audience rdf:about="https://quadriga-dk.github.io/Book_Template/#audience_3">
+        <schema:audienceType>Hochschullehrende</schema:audienceType>
+      </schema:Audience>
+    </schema:audience>
+    <schema:author>
+      <schema:Person rdf:about="https://quadriga-dk.github.io/Book_Template/#author_0">
+        <schema:familyName>Walter</schema:familyName>
+        <schema:givenName>Paul</schema:givenName>
+        <schema:name>Paul Walter</schema:name>
+      </schema:Person>
+    </schema:author>
+    <schema:contributor>
+      <schema:Person rdf:about="https://quadriga-dk.github.io/Book_Template/#contributor_0">
+        <schema:affiliation rdf:resource="https://quadriga-dk.github.io/Book_Template/#contributor_0_org" />
+        <schema:familyName>Schnaitter</schema:familyName>
+        <schema:givenName>Hannes</schema:givenName>
+        <schema:identifier rdf:resource="https://quadriga-dk.github.io/Book_Template/#contributor_0_orcid" />
+        <schema:name>Hannes Schnaitter</schema:name>
+      </schema:Person>
+    </schema:contributor>
+    <schema:contributor>
+      <schema:Person rdf:about="https://quadriga-dk.github.io/Book_Template/#contributor_1">
+        <schema:affiliation rdf:resource="https://quadriga-dk.github.io/Book_Template/#contributor_1_org" />
+        <schema:familyName>Samoilova</schema:familyName>
+        <schema:givenName>Evgenia</schema:givenName>
+        <schema:identifier rdf:resource="https://quadriga-dk.github.io/Book_Template/#contributor_1_orcid" />
+        <schema:name>Evgenia Samoilova</schema:name>
+      </schema:Person>
+    </schema:contributor>
+    <schema:contributor>
+      <schema:Person rdf:about="https://quadriga-dk.github.io/Book_Template/#contributor_2">
+        <schema:affiliation rdf:resource="https://quadriga-dk.github.io/Book_Template/#contributor_2_org" />
+        <schema:familyName>Islam</schema:familyName>
+        <schema:givenName>Lamia</schema:givenName>
+        <schema:name>Lamia Islam</schema:name>
+      </schema:Person>
+    </schema:contributor>
+    <schema:dateModified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2025-03-11</schema:dateModified>
+    <schema:datePublished rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2025-10-30</schema:datePublished>
+    <schema:description>Diese OER führt in die Erstellung von QUADRIGA-OERs ein, bietet Inhalte für Nutzer:innen der OERs und dient gleichzeitig als Template für die Erstellung eigener OERs auf Basis der QUADRIGA-Empfehlungen.</schema:description>
+    <schema:funding>Die vorliegenden Open Educational Resources wurden durch das Datenkompetenzzentrum QUADRIGA erstellt.
+
+Förderkennzeichen: 16DKZ2034</schema:funding>
+    <schema:hasPart>
+      <schema:LearningResource rdf:about="https://quadriga-dk.github.io/Book_Template/#chapter_0">
+        <schema:description>TODO</schema:description>
+        <schema:educationalAlignment rdf:resource="https://quadriga-dk.github.io/Book_Template/#chapter_0_objective_0" />
+        <schema:name>Präambel</schema:name>
+        <schema:teaches>TODO</schema:teaches>
+        <schema:timeRequired>TODO</schema:timeRequired>
+        <schema:url rdf:resource="TODO" />
+      </schema:LearningResource>
+    </schema:hasPart>
+    <schema:identifier>
+      <schema:PropertyValue rdf:about="https://quadriga-dk.github.io/Book_Template/#doi">
+        <schema:propertyID>DOI</schema:propertyID>
+        <schema:url rdf:resource="https://doi.org" />
+        <schema:value>https://doi.org</schema:value>
+      </schema:PropertyValue>
+    </schema:identifier>
+    <schema:inLanguage>de</schema:inLanguage>
+    <schema:keywords>Open Educational Resource</schema:keywords>
+    <schema:learningResourceType>Jupyter Book</schema:learningResourceType>
+    <schema:license>
+      <schema:CreativeWork rdf:about="https://quadriga-dk.github.io/Book_Template/#license_code">
+        <schema:license rdf:resource="https://www.gnu.org/licenses/agpl-3.0.html" />
+        <schema:name>Source Code</schema:name>
+      </schema:CreativeWork>
+    </schema:license>
+    <schema:license>
+      <schema:CreativeWork rdf:about="https://quadriga-dk.github.io/Book_Template/#license_content">
+        <schema:license rdf:resource="https://creativecommons.org/licenses/by-sa/4.0/" />
+        <schema:name>Content</schema:name>
+      </schema:CreativeWork>
+    </schema:license>
+    <schema:name>Visualisierung in der Verwaltung: Ein Dashboard für Baum- und Bewässerungsdaten. QUADRIGA Open Educational Resources: Tabelle 3</schema:name>
+    <schema:schemaVersion>1.0.0</schema:schemaVersion>
+    <schema:timeRequired>PT10H</schema:timeRequired>
+    <schema:url rdf:resource="https://quadriga-dk.github.io/Book_Template/" />
+    <schema:version>0.0.1</schema:version>
+    <schema:workExample>
+      <schema:SoftwareSourceCode rdf:about="https://quadriga-dk.github.io/Book_Template/#repository">
+        <schema:codeRepository rdf:resource="https://github.com/quadriga-dk/Book_Template" />
+        <schema:name>Source Code Repository</schema:name>
+      </schema:SoftwareSourceCode>
+    </schema:workExample>
+    <rdf:type rdf:resource="http://schema.org/LearningResource" />
+  </schema:Book>
+  <schema:Organization rdf:about="https://quadriga-dk.github.io/Book_Template/#contributor_0_org">
+    <schema:name>Humboldt-Universität zu Berlin, Institut für Bibliotheks- und Informationswissenschaft</schema:name>
+  </schema:Organization>
+  <schema:Organization rdf:about="https://quadriga-dk.github.io/Book_Template/#contributor_1_org">
+    <schema:name>Universität Potsdam</schema:name>
+  </schema:Organization>
+  <schema:Organization rdf:about="https://quadriga-dk.github.io/Book_Template/#contributor_2_org">
+    <schema:name>Universität Potsdam</schema:name>
+  </schema:Organization>
+  <schema:PropertyValue rdf:about="https://quadriga-dk.github.io/Book_Template/#contributor_0_orcid">
+    <schema:propertyID>ORCID</schema:propertyID>
+    <schema:url rdf:resource="https://orcid.org/0000-0002-1602-6032" />
+    <schema:value>0000-0002-1602-6032</schema:value>
+  </schema:PropertyValue>
+  <schema:PropertyValue rdf:about="https://quadriga-dk.github.io/Book_Template/#contributor_1_orcid">
+    <schema:propertyID>ORCID</schema:propertyID>
+    <schema:url rdf:resource="https://orcid.org/0000-0003-3858-901X" />
+    <schema:value>0000-0003-3858-901X</schema:value>
+  </schema:PropertyValue>
+</rdf:RDF>
