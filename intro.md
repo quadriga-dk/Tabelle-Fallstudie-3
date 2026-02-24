@@ -32,13 +32,11 @@ Plomin, J., Walter, P., Schmeling, J., Dakruni, S. & Bingöl, C. (2025). _Visual
 ````
 `````
 
-Diese Fallstudie bildet mit Hilfe eines <a href="https://jupyterbook.org/en/stable/intro.html" class="external-link" target="_blank">JupyterBooks</a> einen Forschungsverlauf in der Verwaltungswissenschaft nach. Dabei wird anhand einer modellhaften Forschungsfrage auf die Visualisierungsmöglichkeiten von Daten eingegangen. Dazu werden in einzelnen Kapiteln die Themen Datenvisualisierung, Dashboards und Manipulierbarkeit von Visualisierungen *sowie Kommunikation von Forschungsergebnissen* behandelt.
-
-Statt einer zentralen Forschungsfrage wird folgendes Szenario skizziert: 
+Auf diesen Seiten zeichnen wir den Forschungsprozess einer Fallstudie im Bereich der Verwaltungswissenschaft mithilfe eines <a href="https://jupyterbook.org/en/stable/intro.html" class="external-link" target="_blank">JupyterBooks</a> nach. Anhand einer modellhaften Forschungsfrage werden die Möglichkeiten der Datenvisualisierung analysiert. In den einzelnen Kapiteln werden dabei die Themen Datenvisualisierung, Dashboards, die Manipulierbarkeit von Visualisierungen *sowie Kommunikation von Forschungsergebnissen* behandelt. 
 
 ```{admonition} Story
 :class: story
-Dr. Amir Weber, ein Verwaltungswissenschaftler mit Interesse an kommunalen Daten und Bürgerbeteiligung, möchte ein Dashboard zur Visualisierung der Baumartenvielfalt und dem Bewässerungsverhalten erstellen, das auf offenen Datensätzen basiert. In einer vorangegangenen  <a href="https://quadriga-dk.github.io/Tabelle-Fallstudie-2/Titelseite.html" class="external-link" target="_blank">Fallstudie</a> hat er dazu bereits nach den passenden Datensätzen gesucht. Nun möchte er sich die Daten explorativ anschauen und Dashboards zur Visualisierung dieser Daten gestaltet, um die Datensätze für Bürger:innen und Politik verständlich darzustellen. Diese sollen das Ausmaß und die Verteilung der Bürgerbeteiligung sichtbar machen. 
+Dr. Amir Weber, ein Verwaltungswissenschaftler mit Interesse an kommunalen Daten und Bürgerbeteiligung, möchte ein Dashboard zur Visualisierung der Baumartenvielfalt und dem Bewässerungsverhalten erstellen, das auf offenen Datensätzen basiert. In einer vorangegangenen  <a href="https://quadriga-dk.github.io/Tabelle-Fallstudie-2/Titelseite.html" class="external-link" target="_blank">Fallstudie</a> hat er dazu bereits nach den passenden Datensätzen gesucht. Nun möchte er sich die Daten explorativ anschauen und Dashboards zur Visualisierung dieser Daten gestalten, um die Datensätze für Bürger:innen und Politik verständlich darzustellen. Diese sollen das Ausmaß und die Verteilung der Bürgerbeteiligung sichtbar machen. 
 Dabei orientiert er sich an folgenden Leitfragen: 
 ```
 
