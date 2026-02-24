@@ -46,18 +46,18 @@ Er orientiert er sich an folgenden Leitfragen:
 
 - Wo lassen sich die höchsten Ausprägungen des Bürgerengagements bei der Bewässerung städtischer Bäume in Berlin feststellen?
 - Wie unterscheidet sich das Engagement der Bürger:innen z.B. mit Blick auf den Bezirk, auf die vorhandene Baumdichte, auf das Alter der Bäume und Jahresverlauf? 
-- Wie können interaktive Dashboards zur Visualisierung dieser Daten gestaltet werden, um versch. Datensätze einzubeziehen und verständlich darzustellen?
+- Wie können interaktive Dashboards zur Visualisierung dieser Daten gestaltet werden, um verschiedene Datensätze einzubeziehen und verständlich darzustellen?
 
 
-## Bedeutung dieses Lehrbuchs für die Verwaltungswissenschaft
+## Relevanz für die Verwaltungswissenschaft
 
-Datenvisualisierungen sind wichtig, weil ... *wird ergänzt* (siehe Kapitel 3.2)
+Datenvisualisierungen sind ein bewährtes Mittel der …, um zu ... *wird ergänzt = nicht ihre Wichtigkeit, sondern ihre Wirkung/Funktionalität benennen.* (siehe Kapitel 3.2)
 Dashboards sind eine Möglichkeit zur Darstellung von Verwaltungsdaten, die zunehmend Verwendung findet (*Verweis auf Beispiele Aachen etc.*)
 
 
 ## Zielgruppe
 
-Grundsätzlich steht das Angebot allen Interessierten offen. Es richtet sich jedoch vorwiegend an Verwaltungswissenschaftler:innen und alle Personen, die an digitaler Verwaltung interessiert sind, da die hier vermittelten Inhalte anhand des Datentyps Tabelle aufbereitet sind. Zudem sind die hier entwickelten Lerneinheiten anhand von Fallbeispielen konstruiert, die für diese Disziplin typisch sind.
+Grundsätzlich steht das Angebot allen Interessierten offen. Es richtet sich jedoch vorwiegend an Verwaltungswissenschaftler:innen und alle Personen, die an digitaler Verwaltung interessiert sind, da die Inhalte anhand des Datentyps Tabelle aufbereitet werden, der eine zentrale Darstellungsform im Verwaltungskontext darstellt. Zudem sind die hier entwickelten Lerneinheiten anhand von Fallbeispielen konstruiert, die für diese Disziplin typisch sind.
 
 Die Zielgruppe sind promovierende und promovierte Wissenschaftler:innen, aber auch Lehrende, die das Angebot für die eigene Lehre nachnutzen wollen.
 
