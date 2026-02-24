@@ -36,15 +36,16 @@ Auf diesen Seiten zeichnen wir den Forschungsprozess einer Fallstudie im Bereich
 
 ```{admonition} Story
 :class: story
-Dr. Amir Weber, ein Verwaltungswissenschaftler mit Interesse an kommunalen Daten und Bürgerbeteiligung, möchte ein Dashboard zur Visualisierung der Baumartenvielfalt und dem Bewässerungsverhalten erstellen, das auf offenen Datensätzen basiert. In einer vorangegangenen  <a href="https://quadriga-dk.github.io/Tabelle-Fallstudie-2/Titelseite.html" class="external-link" target="_blank">Fallstudie</a> hat er dazu bereits nach den passenden Datensätzen gesucht. Nun möchte er sich die Daten explorativ anschauen und Dashboards zur Visualisierung dieser Daten gestalten, um die Datensätze für Bürger:innen und Politik verständlich darzustellen. Diese sollen das Ausmaß und die Verteilung der Bürgerbeteiligung sichtbar machen. 
-Dabei orientiert er sich an folgenden Leitfragen: 
+Dr. Amir Weber, ein Verwaltungswissenschaftler mit Interesse an kommunalen Daten und Bürgerbeteiligung, möchte ein Dashboard zur Visualisierung der Baumartenvielfalt und dem Bewässerungsverhalten der Bürger:innen erstellen, das auf offenen Datensätzen basiert. In einer vorangegangenen  <a href="https://quadriga-dk.github.io/Tabelle-Fallstudie-2/Titelseite.html" class="external-link" target="_blank">Fallstudie</a> hat er exemplarisch aufgezeigt, wie im Rahmen eines Forschungsprozesses geeignete Datensätze identifiziert und erschlossen werden können. Auf Grundlage von Datensätzen aus dem Bundesland Berlin möchte er nun eine ergebnisoffene, explorative Analyse durchführen, um darin enthaltende Erkenntnispotenziale zu identifizieren. Die gewonnenen Befunde werden anschließend in dieser Fallstudie in Form von Dashboards aufbereitet, um die Daten für Bürger:innen und politische Entscheidungsträger:innen nachvollziehbar darzustellen.
+Dabei soll insbesondere das Ausmaß sowie die räumliche Verteilung der Bürgerbeteiligung sichtbar gemacht werden.
+
+Er orientiert er sich an folgenden Leitfragen: 
 ```
 
-## Fokus
+## Leitfragen
 
-Leitfragen: 
-- Wo zeigen sich die höchsten Ausprägungen des Bürgerengagements bei der Bewässerung städtischer Bäume in Berlin?
-- Welche Rolle spielen räumliche (Bezirk, Baumdichte) und zeitliche (Pflanzjahr, Jahresverlauf) Faktoren für das Engagement?
+- Wo lassen sich die höchsten Ausprägungen des Bürgerengagements bei der Bewässerung städtischer Bäume in Berlin feststellen?
+- Wie unterscheidet sich das Engagement der Bürger:innen z.B. mit Blick auf den Bezirk, auf die vorhandene Baumdichte, auf das Alter der Bäume und Jahresverlauf? 
 - Wie können interaktive Dashboards zur Visualisierung dieser Daten gestaltet werden, um versch. Datensätze einzubeziehen und verständlich darzustellen?
 
 
