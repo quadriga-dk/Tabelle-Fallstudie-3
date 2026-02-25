@@ -29,12 +29,10 @@ Dieses Kapitel 2 stellt die Einführung in die Fallstudie dar und dient der Klä
 1. Die Forschungsfrage kann erläutert und in einen Kontext mit der Gestaltung eines Dashboards gesetzt werden.
 ```
 
-Im Abschnitt 2.1 wird dazu eine Forschungsfrage formuliert, um darzulegen, was in dieser Fallstudie untersucht wird. Anschließend widmen wir uns im Abschnitt 2.2 der Operationalisierung, d. h. wir legen fest, wie ein theoretisches Konzept praktisch erfasst werden soll. Der Abschnitt 2.3 Datenbasis erläutert die Daten, mit denen wir in dieser Fallstudie arbeiten.
-
 In diesem Kapitel finden Sie folgende Abschnitte:
 - [2.1. Fragestellung](fragestellung): Zunächst wird eine Forschungsfrage formuliert, um darzulegen, was in dieser Fallstudie untersucht wird.
 - [2.2. Operationalisierung](operationalisierung): Anschließend widmen wir uns in diesem Abschnitt der Operationalisierung, d. h. wir legen fest, wie ein theoretisches Konzept praktisch erfasst werden soll. 
-- [2.3. Datenbasis](datenbasis): Dieser erläutert die Daten, mit denen wir in dieser Fallstudie arbeiten.
+- [2.3. Datenbasis](datenbasis): Dieser Abschnitt erläutert die Daten, mit denen wir in dieser Fallstudie arbeiten.
 - [2.4. Resümee](fragestellung-resümee)
 
 
