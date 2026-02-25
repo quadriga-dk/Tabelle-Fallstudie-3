@@ -9,7 +9,7 @@ Dieses JupyterBook setzt ein grundlegendes Verständnis für Datenanalyse voraus
 
 sowie ein Interesse an der Interpretation städtischer Strukturdaten voraus. 
 
-Für *Kapitel 2: Fragestellung und Operationalisierung* sind keine besonderen Vorkenntnisse erforderlich. Das Kapitel behandelt die Entwicklung der Forschungsfrage, die Operationalisierung zentraler theoretischer Konzepte und die Beschreibung der verwendeten Daten. 
+Für *Kapitel 2: Fragestellung und Operationalisierung* sind keine besonderen Vorkenntnisse erforderlich. Das Kapitel führt in die zentralen Leitfragen ein, erläutert die Operationalisierung wesentlicher theoretischer Konzepte und beschreibt die verwendeten Daten. 
 
 *Kapitel 3: Datenvisualisierung* vermittelt die theoretischen Grundlagen der visuellen Datenanalyse. Hier werden zentrale Prinzipien der Informationsvisualisierung vorgestellt – etwa geeignete Diagrammtypen, Farbwahl, Skalierung, Vergleichbarkeit und bewusste Reduktion. Zudem werden unterschiedliche Visualisierungstools gegenübergestellt, sodass Anwendende ein Verständnis dafür entwickeln, in welchem Kontext welche Werkzeuge sinnvoll sind. 
 
