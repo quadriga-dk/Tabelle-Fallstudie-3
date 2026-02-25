@@ -5,7 +5,9 @@ lang: de-DE
 (lernziele)=
 # Lernziele und individuelle Voraussetzungen 
 
-Dieses JupyterBook setzt ein grundlegendes Verständnis für Datenanalyse sowie ein Interesse an der Interpretation städtischer Strukturdaten voraus. Von Vorteil ist es, wenn Anwendende bereits mit grundlegenden statistischen Konzepten vertraut sind – insbesondere mit Variablen, Messkonzepten und dem Umgang mit Datensätzen. Spezifische Vorkenntnisse sind jedoch nicht zwingend notwendig.
+Dieses JupyterBook setzt ein grundlegendes Verständnis für Datenanalyse voraus. Von Vorteil ist es, wenn Anwendende bereits mit grundlegenden statistischen Konzepten vertraut sind – insbesondere mit Variablen, Messkonzepten und dem Umgang mit Datensätzen. Spezifische Vorkenntnisse sind jedoch nicht zwingend notwendig. Thematisch Analyse urbaner Entwicklungen, Bürger:innenbeteiligung 
+
+sowie ein Interesse an der Interpretation städtischer Strukturdaten voraus. 
 
 Für *Kapitel 2: Fragestellung und Operationalisierung* sind keine besonderen Vorkenntnisse erforderlich. Das Kapitel behandelt die Entwicklung der Forschungsfrage, die Operationalisierung zentraler theoretischer Konzepte und die Beschreibung der verwendeten Daten. Eine grundsätzliche Bereitschaft, sich mit Datenstrukturen auseinanderzusetzen, ist hilfreich.
 
