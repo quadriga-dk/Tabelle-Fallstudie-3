@@ -68,10 +68,10 @@ Im Kapitel [Dashboard](dashboard) können Sie, wenn Sie technikaffin sind, selbs
 
 ## Struktur der Fallstudie
 
-- Im **1. Schritt** gilt es, Hintergrundwissen zu vermitteln. Auf Grundlage der Frage *Was braucht es für eine gelungene Datenvisualisierung?* gehen wir auf Methoden und Werkzeuge der Datenvisualisierung ein.
+- Im **1. Schritt** wird relevantes Fach- und Kontextwissen vermittelt. Auf Grundlage der Frage *Was braucht es für eine gelungene Datenvisualisierung?* gehen wir auf Methoden und Werkzeuge der Datenvisualisierung ein.
 
 - Im **2. Schritt** fokussieren wir uns auf die Darstellungsmethode Dashboards und ihre Möglichkeiten und zeigen Tools auf, mit denen man Dashboards gestalten kann.
 
-- Im **3. Schritt** zeigen wir Ihnen beispielhaft, wie man mit dem Tool R Shiny ein Dashboard bauen kann.
+- Im **3. Schritt** zeigen wir beispielhaft, wie man mit dem Tool R Shiny ein Dashboard bauen kann.
 
 ... *to be continued*
