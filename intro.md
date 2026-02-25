@@ -32,7 +32,7 @@ Plomin, J., Walter, P., Schmeling, J., Dakruni, S. & Bingöl, C. (2025). _Visual
 ````
 `````
 
-Auf diesen Seiten zeichnen wir den Forschungsprozess einer Fallstudie im Bereich der Verwaltungswissenschaft mithilfe eines <a href="https://jupyterbook.org/en/stable/intro.html" class="external-link" target="_blank">JupyterBooks</a> nach. Anhand einer modellhaften Forschungsfrage werden die Möglichkeiten der Datenvisualisierung analysiert. In den einzelnen Kapiteln werden dabei die Themen Datenvisualisierung, Dashboards, die Manipulierbarkeit von Visualisierungen *sowie Kommunikation von Forschungsergebnissen* behandelt. 
+Auf diesen Seiten zeichnen wir den Forschungsprozess einer Fallstudie im Bereich der Verwaltungswissenschaft mithilfe eines <a href="https://jupyterbook.org/en/stable/intro.html" class="external-link" target="_blank">JupyterBooks</a> nach. Anhand von wissenschaftlichen Leitfragen werden die Möglichkeiten der Datenvisualisierung analysiert. In den einzelnen Kapiteln werden dabei die Themen Datenvisualisierung, Dashboards, die Manipulierbarkeit von Visualisierungen *sowie Kommunikation von Forschungsergebnissen* behandelt. 
 
 ```{admonition} Story
 :class: story
