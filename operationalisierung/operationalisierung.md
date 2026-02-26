@@ -6,7 +6,7 @@ lang: de-DE
 # Operationalisierung
 
 
-Die im [vorherigen Abschnitt 2.1.](fragestellung) entwickelte Forschungsfrage zielt darauf, das Engagement der Berliner:innen in Bezug auf das Gießverhalten zu messen. Um eine solche Messung möglich zu machen, muss zunächst eine Operationalisierung der Forschungsfrage erfolgen. "Operationalisierung bezeichnet den Prozess, ein Erkennungs- oder Messverfahren für ein theoretisches Konzept zu entwickeln." {cite}`krautter_operationalisierung_2023`.
+Die im [vorherigen Abschnitt 2.1.](fragestellung) entwickelte erste leitfrage zielt darauf, das Engagement der Berliner:innen in Bezug auf das Gießverhalten zu messen. Um eine solche Messung möglich zu machen, muss zunächst eine Operationalisierung der Forschungsfrage erfolgen. "Operationalisierung bezeichnet den Prozess, ein Erkennungs- oder Messverfahren für ein theoretisches Konzept zu entwickeln." {cite}`krautter_operationalisierung_2023`.
 
 Für die Operationalisierung der Forschungsfrage müssen insbesondere zwei Fragen adressiert werden:
 
