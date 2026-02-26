@@ -8,7 +8,7 @@ lang: de-DE
 
 Mit der im vorherigen Abschnitt 2.1. entwickelten [ersten Leitfrage] (fragestellung) soll analysiert werden, wie stark sich die Berliner*innen für die Bäume in ihrer Stadt engagieren – und in welchen Bezirken dieses Engagement am höchsten ist.
 
-das Engagement der Berliner:innen in Bezug auf das Gießverhalten zu messen. Um eine solche Messung möglich zu machen, muss zunächst eine Operationalisierung der Forschungsfrage erfolgen. "Operationalisierung bezeichnet den Prozess, ein Erkennungs- oder Messverfahren für ein theoretisches Konzept zu entwickeln." {cite}`krautter_operationalisierung_2023`.
+Um eine solche Messung möglich zu machen, muss zunächst eine Operationalisierung der Forschungsfrage erfolgen. "Operationalisierung bezeichnet den Prozess, ein Erkennungs- oder Messverfahren für ein theoretisches Konzept zu entwickeln." {cite}`krautter_operationalisierung_2023`.
 
 Für die Operationalisierung der Forschungsfrage müssen insbesondere zwei Fragen adressiert werden:
 
@@ -19,7 +19,7 @@ Entlang dieser beiden Fragen kommen wir zur folgenden Operationalisierung:
 
 `````{admonition} Operationalisierung
 :class: hinweis
-Als Engagement der Berliner:innen sollen in unserer Fallstudie die Bewässerungsdaten des Projektes "Gieß den Kiez" gelten (siehe Unterkapitel [2.3 Datenbasis](datenbasis)). Wir messen das Gießverhalten, indem wir ermitteln, wie die Berliner*innen in allen Bezirken sich für ihren Baumbestand engagieren. Ein besonders hohes Engagement läge demnach dann vor, wenn wir in einzelnen Bezirken ein vermehrtes Gießverhalten feststellen können. Wie wir aber sehen werden, kann das Gießverhalten selbst unterschiedlich gemessen werden. Zugleich zeigt sich daran, dass selbst das Erfassen eines scheinbar eindeutigen Verhaltens – wie dem Gießen von Bäumen – je nach Perspektive und Methode unterschiedlich ausfallen kann. Solche Variationen in der Messlogik sind kein Ausnahmefall, sondern gehören vielmehr zum ganz normalen Bestandteil wissenschaftlicher Praxis.
+Als Engagement der Berliner:innen soll in dieser Fallstudie gelten, wieviel gewässert wird. Als Datengrundlage dienen u.a. die Bewässerungsdaten des Projekts „Gieß den Kiez“ (siehe Unterkapitel [2.3 Datenbasis](datenbasis)). Ein besonders hohes Engagement läge demnach dann vor, wenn wir in einzelnen Bezirken ein vermehrtes Gießverhalten feststellen können. Wie wir aber sehen werden, kann das Gießverhalten selbst unterschiedlich gemessen werden. Zugleich zeigt sich daran, dass selbst das Erfassen eines scheinbar eindeutigen Verhaltens – wie dem Gießen von Bäumen – je nach Perspektive und Methode unterschiedlich ausfallen kann. Solche Variationen in der Messlogik sind kein Ausnahmefall, sondern gehören vielmehr zum ganz normalen Bestandteil wissenschaftlicher Praxis.
 `````
 
 Diese Operationalisierung ist wie jede wissenschaftliche Operationalisierung diskutabel. Wir wenden in dieser Fallstudie ein **exploratives Vorgehen** an. Das heißt wir suchen in den Datensätzen und in den Visualisierungen nach auftretenden Strukturen, Zusammenhängen oder Besonderheiten.
