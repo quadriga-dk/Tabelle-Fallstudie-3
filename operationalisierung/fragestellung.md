@@ -2,9 +2,9 @@
 lang: de-DE
 ---
 
-(fragestellung)=
-# Fragestellung
-Die erste zentrale Leitfrage dieses JupyterBooks lautet: **Wo lassen sich die höchsten Ausprägungen des Bürgerengagements bei der Bewässerung städtischer Bäume in Berlin feststellen?**
+(Leitfrage)=
+# Leitfrage
+Die erste Leitfrage dieses JupyterBooks lautet: **Wo lassen sich die höchsten Ausprägungen des Bürgerengagements bei der Bewässerung städtischer Bäume in Berlin feststellen?**
 
 Um diese Frage beantworten zu können, vermittelt dieses JupyterBook schrittweise die notwendigen Kenntnisse zu **Datenaufbereitung, Operationalisierung, Visualisierung und interaktiver Analyse**. Dabei wird gezeigt, wie aus einer offenen Verwaltungsdatenquelle (Gieß den Kiez) Indikatoren für Engagement entwickelt werden können und wie unterschiedliche Messgrößen – etwa die Zahl der gegossenen Bäume, die Wassermenge, die zeitliche Entwicklung oder räumliche Faktoren – zu unterschiedlichen Ergebnissen in der Visualisierung führen.
 
