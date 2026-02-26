@@ -6,7 +6,9 @@ lang: de-DE
 # Operationalisierung
 
 
-Die im [vorherigen Abschnitt 2.1.](fragestellung) entwickelte erste Leitfrage zielt darauf, das Engagement der Berliner:innen in Bezug auf das Gießverhalten zu messen. Um eine solche Messung möglich zu machen, muss zunächst eine Operationalisierung der Forschungsfrage erfolgen. "Operationalisierung bezeichnet den Prozess, ein Erkennungs- oder Messverfahren für ein theoretisches Konzept zu entwickeln." {cite}`krautter_operationalisierung_2023`.
+Mit der im vorherigen Abschnitt 2.1. entwickelten [ersten Leitfrage] (fragestellung) soll analysiert werden, wie stark sich die Berliner*innen für die Bäume in ihrer Stadt engagieren – und in welchen Bezirken dieses Engagement am höchsten ist.
+
+das Engagement der Berliner:innen in Bezug auf das Gießverhalten zu messen. Um eine solche Messung möglich zu machen, muss zunächst eine Operationalisierung der Forschungsfrage erfolgen. "Operationalisierung bezeichnet den Prozess, ein Erkennungs- oder Messverfahren für ein theoretisches Konzept zu entwickeln." {cite}`krautter_operationalisierung_2023`.
 
 Für die Operationalisierung der Forschungsfrage müssen insbesondere zwei Fragen adressiert werden:
 
