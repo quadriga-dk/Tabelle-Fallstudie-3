@@ -5,9 +5,7 @@ lang: de-DE
 (lernziele)=
 # Lernziele und individuelle Voraussetzungen 
 
-Dieses JupyterBook setzt ein grundlegendes Verständnis für Datenanalyse voraus. Von Vorteil ist es, wenn Anwendende bereits mit grundlegenden statistischen Konzepten vertraut sind. Die Fallstudie ist insbesondere für diejenigen relevant, die ein Interesse an urbanen Entwicklungsprozessen haben und diese auf Grundlage stadtsoziologischer und räumlicher Daten untersuchen möchten. 
-
-sowie ein Interesse an der Interpretation städtischer Strukturdaten voraus. 
+Dieses JupyterBook setzt ein grundlegendes Verständnis für Datenanalyse voraus. Von Vorteil ist es, wenn Anwendende bereits mit grundlegenden statistischen Konzepten vertraut sind. Die Fallstudie ist insbesondere für diejenigen relevant, die ein Interesse an urbanen Entwicklungsprozessen haben und diese auf Grundlage stadtsoziologischer und räumlicher Daten untersuchen möchten.  
 
 Für *Kapitel 2: Fragestellung und Operationalisierung* sind keine besonderen Vorkenntnisse erforderlich. Das Kapitel führt in die zentralen Leitfragen ein, erläutert die Operationalisierung wesentlicher theoretischer Konzepte und beschreibt die verwendeten Daten. 
 
