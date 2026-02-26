@@ -7,7 +7,7 @@ lang: de-DE
 
 ```{admonition} Story
 :class: story
-Amir Weber macht sich Gedanken, welche Daten er braucht und woher er sie beziehen kann... Dabei fällt ihm das Berliner Projekt Gieß den Kiez ein, dass diese Daten bereits erhebt und zur Verfügung stellt. Er prüft zudem, welche Daten noch von Interesse sind und woher er sie beziehen kann.
+Amir Weber macht sich Gedanken, welche Daten er braucht und woher er sie beziehen kann... Dabei fällt ihm das Berliner Projekt Gieß den Kiez ein, welches diese Daten bereits erhebt und zur Verfügung stellt. Er prüft zudem, welche Daten noch relevant sind und auf welche Weise sie beschafft werden können.
 ```
 
 
@@ -23,7 +23,7 @@ Diese Datengrundlage ermöglicht eine fundierte Analyse der urbanen Bewässerung
 
 ## Gieß den Kiez – Bewässerungsdaten (Govdata)
 
-Die Datenplattform "Gieß den Kiez" dokumentiert die freiwillige Bewässerung städtischer Bäume durch Bürger:innen. Wir beziehen die Bewässerungsdaten über das Portal <a href="https://www.govdata.de/suche/daten/giess-den-kiez-nutzungsdaten" class="external-link" target="_blank">GovData</a>. Der Datensatz enthält Informationen über einzelne Bewässerungsvorgänge.
+Die Datenplattform <a href="https://citylab-berlin.org/en/projects/giessdenkiez/" class="external-link" target="_blank">Gieß den Kiez</a> ist eine digitale Beteiligungsplattform, die Bewässerungsbedarfe von Straßenbäumen in Berlin erfasst und es Bürger*innen ermöglicht, Gießaktivitäten zu dokumentieren und zu koordinieren. Wir beziehen die Bewässerungsdaten über das Portal <a href="https://www.govdata.de/suche/daten/giess-den-kiez-nutzungsdaten" class="external-link" target="_blank">GovData</a>. Der Datensatz enthält Informationen über einzelne Bewässerungsvorgänge.
 Jeder Eintrag ist einem bestimmten Baum zugeordnet (zu erkennen an der ID) und umfasst unter anderem:
 
 - Geokoordinaten (Längengrad: ``lng``, Breitengrad: ``lat``)
