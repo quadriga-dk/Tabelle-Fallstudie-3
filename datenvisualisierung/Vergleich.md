@@ -20,15 +20,15 @@ Im Folgenden werden die jeweiligen Werkzeuge und ihre Besonderheiten näher erl�
 
 ## Erläuterung der ausgewählten Visualisierungswerkzeugen
 
-<u>R Shiny:</u>  R Shiny ist ein Open-Source-Web-Anwendungs-Framework für R, welches von RStudio entwickelt worden ist. Das Shiny Framework ermöglicht es R-Nutzern, webbasierte grafische Benutzeroberflächen (GUIs) mit den dazugehörigen R-Analysen und Visualisierungen zu entwickeln. [@walker_tools_2016]
+<u>R Shiny:</u>  R Shiny ist ein Open Source Webanwendungs-Framework für R, welches von RStudio entwickelt worden ist. Das Shiny Framework ermöglicht es R-Nutzern, webbasierte grafische Benutzeroberflächen (GUIs) mit den dazugehörigen R-Analysen und Visualisierungen zu entwickeln. [@walker_tools_2016]
 
-Der Hauptzweck von Shiny ist es, diese erstellten Benutzeroberflächen zu veröffentlichen, damit auch andere, mitsamt Personen ohne Programmierkenntnisse (Nicht-Coder), mit den Daten interagieren und diese selbst visualisieren können. [@walker_tools_2016]
+Der Hauptzweck von Shiny ist es, diese erstellten Benutzeroberflächen zu veröffentlichen, damit auch Personen ohne Programmierkenntnisse (Nicht-Coder) mit den Daten interagieren und diese selbst visualisieren können. [@walker_tools_2016]
 
 <u>Python Dash:</u> Python Dash ist ein leistungsfähiges Open-Source-Framework, welches von Plotly für Python Entwickler entwickelt worden ist. Dash ermöglicht es, vollständig ausgestaltete analytische Datenanwendungen und interaktive Dashboards zu kreieren, ohne Kenntnisse in Frontend-Technologien wie HTML, CSS oder JavaScript. Gerade diese Zugänglichkeit macht einen wesentlichen Vorteil von Dash aus. [@dabbas_interactive_2021]
 
-<u>Power BI:</u> Das von Microsoft entwickelte Power BI ist eine zusammenkunft von Analysetools für Unternehmen. Das Tool ermöglicht die Analyse von Daten und zum Teilen von Erkenntnissen über Berichte und Dashboards. Entwickelt wurde Power BI mit dem Ziel Business Intelligence und Datenanalyse zu vereinfachen, indem es Einzelpersonen und Organisationen ermöglicht, mit minimalem Zeit- und Arbeitsaufwand Daten beizutragen und somit Berichte zu erstellen oder automatisch generieren (über die Quick Insights Funktion) zu lassen, zusammengefasst werden können diese Berichte in den Dashboards welche anschließend freigegeben werden können.[@krishnan_research_nodate]
+<u>Power BI:</u> Das von Microsoft entwickelte Power BI ist ein Analysetool für Unternehmen. Das Tool ermöglicht die Analyse von Daten und das Teilen von Erkenntnissen über Berichte und Dashboards. Entwickelt wurde Power BI mit dem Ziel, Business Intelligence und Datenanalyse zu vereinfachen, indem es Einzelpersonen und Organisationen ermöglicht, mit minimalem Zeit- und Arbeitsaufwand Daten beizutragen und somit Berichte zu erstellen oder automatisch generieren (über die Quick Insights Funktion) zu lassen. Zusammengefasst werden können diese Berichte in Dashboards, welche anschließend freigegeben werden können.[@krishnan_research_nodate]
 
-<u>Tableau:</u> Bei Tableau handelt es sich um eine Software für die Erstellung von Visualisierungen.  Entwickelt wurde Tableau von Tableau Inc. als Visualisierungstool für die Erstellung oder Programmierung von Dashboards im Business-Intelligence-Bereich. [@wood_diabetes_2019] [@vasundhara_data_nodate] Die Besonderheit an Tableau ist, dass die Verwendung durch die GUI mit drag and drop relativ unkompliziert ist.[@vasundhara_data_nodate] 
+<u>Tableau:</u> Bei Tableau handelt es sich um eine Software für die Erstellung von Visualisierungen. Entwickelt wurde Tableau von Tableau Inc. als Visualisierungstool für die Erstellung oder Programmierung von Dashboards im Business-Intelligence-Bereich. [@wood_diabetes_2019] [@vasundhara_data_nodate] Die Besonderheit an Tableau ist, dass die Verwendung durch die GUI mit drag and drop relativ unkompliziert ist.[@vasundhara_data_nodate]
 
 ## Vergleich im Überblick
 
