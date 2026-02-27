@@ -73,7 +73,7 @@ width: 300px
 R Shiny Aufbau (Quelle: <a href="https://www.inwt-statistics.com/blog/best-practice-development-of-robust-shiny-dashboards-as-r-packages" target="_blank">Best Practice: Shiny Dashboards</a> )
 ``` 
 
-<u>Shiny</u> Anwendungen nutzen eine serverseitige Logik und eine Benutzeroberfläche (UI), oft in einer einzigen app.R-Datei kombiniert, darin besteht aber kein zwang der Server-Teil und UI-Teil können auch in zwei separate Dateien server.R und ui.R aufgeteilt werden und durch die Datei app.R wieder zusammengeführt werden. [@walker_tools_2016]
+<u>Shiny</u> Eine Anwendung besteht aus einer serverseitigen Logik und einer Benutzeroberfläche (UI). Beide Komponenten werden häufig in einer gemeinsamen Datei (app.R) implementiert. Eine Trennung ist jedoch möglich, indem Server- und UI-Teil in die Dateien server.R beziehungsweise ui.R ausgelagert und anschließend über app.R integriert werden. [@walker_tools_2016]
 
 ```{figure} ../assets/Python_Architektur.png
 ---
