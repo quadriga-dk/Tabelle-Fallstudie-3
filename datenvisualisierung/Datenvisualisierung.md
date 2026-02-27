@@ -40,7 +40,7 @@ In diesem Kapitel finden Sie folgende Abschnitte:
 - [3.4. Vorbereitung der Daten](umsetzung)
 
 
-Wir befinden uns damit im theoretischen Teil dieser Fallstudie. Nachdem wir das Szenario der fallstudie und die Motivation von Amir Weber skizziert haben, müssen wir uns nun ein paar Grundlagen aneignen, bevor wir uns dem praktischen Teil, dem Bau eines Dashboards, widmen können.
+Wir befinden uns damit im theoretischen Teil dieser Fallstudie. Nachdem wir das Interesse und die Motivation von Amir Weber für sein Forschungsvorhaben skizziert haben, müssen wir uns nun ein paar Grundlagen aneignen, bevor wir uns dem praktischen Teil, dem Bau eines Dashboards, widmen können.
 
 +++
 *Wir befinden uns hier:*
@@ -57,6 +57,6 @@ Die geschätzte Bearbeitungszeit dieser Lerneinheit beträgt ca. ... Dies schlie
 
 Die geschätzte Bearbeitungsdauer **inklusive** der einzelnen Übungsaufgaben beträgt ca. ...
 
-Bitte beachten Sie: Die tatsächliche Bearbeitungsdauer kann je nach Ihren Vorkenntnissen unterschiedlich ausfallen. Die angegebene Zeitangabe dient lediglich als Orientierungshilfe.
+Bitte beachten Sie: Die tatsächliche Bearbeitungsdauer kann je nach Vorkenntnissen unterschiedlich ausfallen. Die angegebene Zeitangabe dient lediglich als Orientierungshilfe.
 ``` 
 
