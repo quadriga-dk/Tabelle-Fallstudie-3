@@ -18,7 +18,7 @@ Der Begriff „Dashboard“ wird verwendet, um ein System zu beschreiben, das f�
 
 Ein Dashboard zeigt nicht nur eine, sondern mehrere Visualisierungen zu gleichen oder verwandten Themen. So lässt sich schnell ein Überblick über ein Thema erlangen, das zugleich übersichtlich und geordnet prässsentiert wird. 
 
-Ein weiterer Vorteil ist die Interaktivität von Dashboards. Häufig sind die dort zu sehenden Visualisierungen nicht bloß Abbildungen, sondern lassen sich durch das Verändern von Variablen (Kennzahlen oder Regler für Jahreszahlen) interaktiv verwenden und können so anschaulich Entwicklungen darstellen.
+Ein weiteres Merkmal ist die Interaktivität von Dashboards. Häufig sind die dort zu sehenden Visualisierungen nicht bloß Abbildungen, sondern lassen sich durch das Verändern von Variablen (Kennzahlen oder Regler für Jahreszahlen) interaktiv verwenden und können so anschaulich Entwicklungen darstellen.
 
 Wo eine Visualisierung im Dashboard positioniert wird, kann Einfluss auf ihre (wahrgenommene) Bedeutung haben.
 
