@@ -9,14 +9,14 @@ Dieses Kapitel gibt einen grundsätzlichen Überblick zum Thema Datenvisualisier
 
 ```{admonition} Story
 :class: story
-Amir Weber möchte Daten zu Bäumen, zum Gießverhalten und einige weitere ansprechend visualisieren. Wie lässt sich das umsetzen? Zuerst braucht er Grundkenntnisse in Bezug auf das Visualisieren von Daten.
+Amir Weber möchte Daten zu Bäumen und zum Gießverhalten ansprechend visualisieren. Wie lässt sich das umsetzen? Zuerst braucht er Grundkenntnisse in Bezug auf das Visualisieren von Daten.
 ```
 
 ## Grundlagen
 
 Datenvisualisierung ist die grafische Repräsentation von Daten und Informationen.
 
-Dieses Kapitel möchte Ihnen einen Überblick zum Thema Datenvisualisierung geben. Da es bereits viele Kurse, Open Educational Ressources (OER) und Anleitungen zum Thema Datenvisualisierung gibt, verlinken wir an dieser Stelle einige von ihnen. 
+Dieses Kapitel möchte Ihnen einen Überblick zum Thema Datenvisualisierung geben. Da es bereits einige Lernressourcen zum Thema Datenvisualisierung gibt, verlinken wir an dieser Stelle einige von ihnen. 
 
 - Im Rahmen von <a href="https://www.quadriga-dk.de/de/" target="_blank">Quadriga</a> wurde in einer OER über Studentische Filme bereits ein <a href="https://quadriga-dk.github.io/Bewegtes-Bild-Fallstudie-2/auswertung/visualisierung.html" target="_blank">Kapitel über Visualisierung</a> kreiert, in das ein Blick auch aus Perspektive der Verwaltung(swissenschaft) lohnt.
 - Das Civid Data Lab hat eine Seite zum Thema <a href="https://civic-data.de/datenlebenszyklus/daten-visualisieren/" target="_blank">Daten visualisieren</a> eingerichtet auf der es ein großes Angebot an nach Kompetenzlevel gestaffelten Kursen, Videos und Webseiten gibt.
@@ -46,16 +46,16 @@ Das Civic Data Lab hat eine <a href="https://civic-data.de/app/uploads/Checklist
 ```
 
 
-```{admonition} Was Sie mitnehmen sollten
+```{admonition} Merke
 :class: keypoint
 
-Visualisierungen sind immer eine vereinfachte Darstellung eines Sachverhalts.
+Visualisierungen sind immer eine **vereinfachte Darstellung** eines Sachverhalts.
 
 Die Gestaltung der Visualisierung (Verwendung bestimmter Farben, Anordnung einzelner Aspekte etc.) hat bereits Einfluss darauf, wie sie von anderen wahrgenommen wird.
 
 Die Manipulation einer Visualisierung erfolgt daher nicht zwangsweise bewusst. 
 
-Wer sich der Manipulationsmöglichkeiten bewusst ist und Visualisierungen kritisch analysiert, läuft weniger Gefahr, Visualisierungen zu missinterpretieren.
+Wer sich der **Manipulationsmöglichkeiten** bewusst ist und **Visualisierungen kritisch analysiert**, läuft weniger Gefahr, Visualisierungen zu missinterpretieren.
 ```
 
 
