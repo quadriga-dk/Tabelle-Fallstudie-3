@@ -70,8 +70,9 @@ Die aufbereiteten Daten werden als CSV-Datei gespeichert. Eine Ausgabe relevante
 # 8. Ergebnis speichern
 write.csv2(df_merged, "data/df_merged_final.csv", row.names = FALSE, fileEncoding = "UTF-8")
 ```
-<details>
-<summary><strong> gesamter Code</strong></summary>
+
+````{admonition} Gesamter Code
+:class: hinweis, dropdown
 
 ```r
 library(sf)
@@ -116,8 +117,7 @@ cat("Anzahl Bäume nach Merge:", nrow(df_merged), "\n")
 cat("Anzahl eindeutiger Bäume (pitid):", n_distinct(df_merged$pitid), "\n")
 cat("Anzahl Bäume mit Bewässerungsdaten:", sum(!is.na(df_merged$bewaesserungsmenge_in_liter)), "\n")
 ```
-
-</details>
+````
 
 
 ### Geografische Zuordnung zu Berliner Bezirken
