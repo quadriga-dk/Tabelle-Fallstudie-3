@@ -65,8 +65,8 @@ Schauen Sie sich dieses Dashboard in Ruhe an und erkunden Sie die Optionen, die 
 
 <span style="color:red">*Das folgende erklärt eher, warum für unsere Thematik ein Dashboard sinnvoll ist*</span>
 
-**Warum sollten Verwaltungs-wissenschaftler dieses Dashboard bauen?**
-Für Verwaltungs-wissenschaftler ist das Erstellen und Analysieren von Dashboards wie dem "Gieß-den-Kiez-Dashboard" von entscheidender Bedeutung, um datengestützte Erkenntnisse zu gewinnen und die Effektivität öffentlicher Initiativen zu bewerten
+**Warum sollten Verwaltungswissenschaftler:innen dieses Dashboard bauen?**
+Für Verwaltungswissenschaftler:innen ist das Erstellen und Analysieren von Dashboards wie dem "Gieß-den-Kiez-Dashboard" von entscheidender Bedeutung, um datengestützte Erkenntnisse zu gewinnen und die Effektivität öffentlicher Initiativen zu bewerten
 . In einer zunehmend datengetriebenen Welt ermöglicht Ihnen die Datenkompetenz im Umgang mit solchen Tools, folgende zentrale Fragen zu beantworten und Ihre Forschung sowie praktische Arbeit zu bereichern:
 • Bürgerengagement messen und verstehen: Das Dashboard visualisiert direkt das Engagement der Bürger:innen, indem es die Anzahl gegossener Bäume anzeigt
 . Für die Verwaltungswissenschaft ist dies relevant, um das Ausmaß und die Verteilung von Bürgerbeteiligung an städtischen Umweltprogrammen zu analysieren.
