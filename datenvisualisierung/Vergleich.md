@@ -84,7 +84,7 @@ Python Architektur [@dabbas_interactive_2021]
 ``` 
 
 
-<u>Dash</u> basiert ebenfalls auf einer Client-Server-Architektur. Diese besteht aus drei Hauptkomponenten: Flask, Ploty und React zusammen binden diese Dash. Dabei wird 
+<u>Dash</u> basiert ebenfalls auf einer Client-Server-Architektur. Diese besteht aus drei Hauptkomponenten: Flask, Ploty und React. Dabei wird 
 - Flask als Web Framework für das Backend verwendet und ist essentiell für Flask Apps.
 - Zur Erstellung der Diagramme und interaktiven Grafiken wird die Plotly Bibliothek verwendet, diese ist aber nicht Pflichtmäßig zu verwenden bei der Dash Programmierung. Ploty bildet aber das best unterstütze Package für die daten Visualisierung. Es bietet über 50 Diagrammtypen mit inklusive 2D und 3D Visualisierungen. 
 - React wird zum Umgang mit allen Komponenten verwendet. Dash-Anwendungen werden als einseitige React-Anwendungen gerendert. Die Dash-Kernkomponenten sind im Wesentlichen in Python verfügbare React-Komponenten. React bildet die UI-Komponente der Dash Anwendung. Dash stellt diese Komponenten über eine einheitliche Python-Schnittstelle bereit, wodurch Datenmanipulation, Visualisierung und Webentwicklung vollständig in einer Programmiersprache erfolgen können. [@dabbas_interactive_2021]
