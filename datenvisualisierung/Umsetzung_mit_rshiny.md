@@ -14,7 +14,7 @@ Ziel dieses Schrittes ist es, verschiedene Datensätze – insbesondere den Berl
 
 ```
 
-**Laden der Baumkatasterdaten**
+**Datenimport Baumkataster**
 Die Berliner Baumdaten werden über eine WFS-Schnittstelle (Web Feature Service) bezogen. Dabei werden sowohl Anlagenbäume als auch Straßenbäume geladen. 
 
 ```bash
