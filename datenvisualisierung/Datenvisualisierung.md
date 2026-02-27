@@ -21,7 +21,7 @@ Mit Ihren Rückmeldungen können wir unser interaktives Lehrbuch gezielt an Ihre
 ```
 ````
 
-In diesem Kapitel erlangen Sie theoretisches Wissen zum Thema Datenvisualisierung.
+In diesem Kapitel wird theoretisches Wissen zum Thema Datenvisualisierung vermittelt.
 
 
 ```{admonition} Lernziel: Methoden und Werkzeuge der Datenvisualisierung
