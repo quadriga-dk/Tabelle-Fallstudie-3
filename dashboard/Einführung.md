@@ -3,11 +3,23 @@ lang: de-DE
 ---
 
 (vorbereitung)=
-# Vorbereitung
+# Entwicklungsumgebung vorbereiten
 
 *Vorbereitende Maßnahmen, bevor mit dem Bau eines Dashboards begonnen werden kann...*
 
 ## Einrichtung der Entwicklungsumgebung
+
+````{margin}
+```{admonition} Hinweis zum Paket leaflet.extras
+:class: hinweis
+
+Das Paket leaflet.extras wurde während der Erstellung dieses Lehrbuchs aus dem Repository <a href="https://cran.r-project.org/web/packages/leaflet.extras/index.html" class="external-link" target="_blank">entfernt</a>.
+
+Da das Bauen des Dashboards auch ohne diesen Befehl funktioniert, können Sie ihn auch weglassen.
+Da das Paket möglicherweise aber zurückkommt, ist es weiter in dieser Auflistung aufgeführt.
+
+```
+````
 
 Bevor wir mit dem Aufbau des Dashboards beginnen können, müssen wir die benötigten Pakete installieren und laden. Öffnen Sie RStudio und führen Sie folgenden Befehl aus, um die erforderlichen Pakete zu installieren:
 

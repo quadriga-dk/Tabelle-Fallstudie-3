@@ -5,6 +5,11 @@ lang: de-DE
 (umsetzung)=
 # Vorbereitung der Daten: Einlesen und Bereinigung
 
+```{admonition} Story
+:class: story
+Amir möchte sich zunächst einen schnellen Überblick verschaffen: Wie werden Bäume in Berlin gegossen, und wie engagieren sich die Bürger:innen dabei? Bei seiner Recherche stößt er auf die Plattform *Gieß den Kiez*. Besonders beeindruckt ihn, wie anschaulich die Daten dort visualisiert sind – das möchte er für seine eigene R-Shiny-Anwendung übernehmen.
+```
+
 ## Umsetzung mit R Shiny
 
 ```{admonition} Zweck dieser Übung
