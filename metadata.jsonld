@@ -148,7 +148,7 @@
       ]
     }
   ],
-  "dcterms:tableOfContents": "- Präambel\n- Fragestellung und Operationalisierung\n- Datenvisualierung\n- Ein Dashboard bauen\n- Zusammenfassung und Reflexion\n- Epilog",
+  "dcterms:tableOfContents": "- Präambel\n- Fragestellung und Operationalisierung\n- Datenvisualierung\n- Ein Dashboard bauen\n- Epilog",
   "funding": "Die vorliegenden Open Educational Resources wurden durch das Datenkompetenzzentrum QUADRIGA erstellt.\n\nFörderkennzeichen: 16DKZ2034",
   "learningResourceType": "Jupyter Book",
   "lrmi:learningResourceType": "Jupyter Book",
