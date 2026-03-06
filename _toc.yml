@@ -23,7 +23,7 @@ chapters:
       - file: datenvisualisierung/Vergleich
   - file: dashboard/Dashboard
     sections:
-      - file: datenvisualisierung/Umsetzung_mit_rshiny_edit
+      - file: dashboard/Umsetzung_mit_rshiny_edit
       - file: dashboard/Einführung
       - file: dashboard/Übung_Startseite
       - file: dashboard/Übung_Karte
