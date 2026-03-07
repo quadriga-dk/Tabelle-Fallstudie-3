@@ -41,7 +41,7 @@ df_clean <- read.csv("data/giessdenkiez_bewässerungsdaten.csv", sep = ";", stri
   filter(strname != "Undefined" & strname != "" & !str_detect(gattung_deutsch, "[0-9]"))
 ```
 **Vereinheitlichung und Zusammenführung der Baumdaten**
-Die beiden Baumdatenquellen werden vereinheitlicht (gemeinsames Koordinatensystem EPSG:4326) und zusammengeführt. Danach werden die Koordinaten explizit extrahiert und die Geometriedaten entfernt, um die Dateigröße zu reduzieren und die Weiterverarbeitung zu erleichtern. EPSG:4326 (WGS 84) beschreibt die Erdoberfläche mit geografischen Koordinaten in Grad (Longitude/Latitude). Es ist das Standard-Koordinatensystem für GPS und die gängigste Grundlage für webbasierte Karten.
+Die beiden Baumdatenquellen werden vereinheitlicht (gemeinsames Koordinatensystem EPSG:4326) und zusammengeführt. Danach werden die Koordinaten explizit extrahiert und die Geometriedaten, also die technische Standortinformation jedes Baumes in einem speziellen räumlichen Format (z. B. die `geom`-Spalte mit Einträgen wie `c(" 394532.3", "5811461.0")`) entfernt, um die Dateigröße zu reduzieren und die Weiterverarbeitung zu erleichtern. EPSG:4326 (WGS 84) beschreibt die Erdoberfläche mit geografischen Koordinaten in Grad (Longitude/Latitude). Es ist das Standard-Koordinatensystem für GPS und die gängigste Grundlage für webbasierte Karten.
 
 ```bash
 # 3. Bäume zusammenführen
@@ -195,7 +195,7 @@ df_ohne_bezirk_joined <- st_join(df_ohne_bezirk_sf, bezirksgrenzen["bezirk"], le
 ```
 
 - Jetzt wird für jeden Baum ohne Bezirk geschaut, ob er innerhalb eines Bezirks liegt.
-- Dafür wird überprüft, welches Bezirks-Polygon den jeweiligen Baum „einschließt“.
+- Dafür wird überprüft, welches Bezirks-Polygon (d. h. die digitale Umrissfläche eines Bezirks, die dessen geografische Grenzen als geschlossene Fläche auf der Karte abbildet) den jeweiligen Baum „einschließt".
 - Dieser Vorgang heißt „spatial join“ – also ein räumliches Verbinden.
 
 **8. Ergebnis bereinigen und in normales Tabellenformat bringen**
