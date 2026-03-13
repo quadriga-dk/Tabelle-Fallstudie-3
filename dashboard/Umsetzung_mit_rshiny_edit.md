@@ -22,6 +22,10 @@ alt: Das Dashboard des Projektes "Gieß des Kiez" mit Visualisierungen zur Bewä
 Screenshot des Dashoards des Projekts Gieß den Kiez vom 13.03.2026.
 ```
 
+*genauer beschreiben, was er will (weil GdK so toll ist*): Karte, Zeitverlauf etc.* *Das erklärt dann auch, warum er die Daten braucht, die er folgend einliest* 
+
+Dazu benötigt er folgende Daten:
+
 ## Daten laden, aggregieren und vorbereiten
 
 ````{margin}

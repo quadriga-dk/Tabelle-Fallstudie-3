@@ -14,7 +14,6 @@ chapters:
     sections:
       - file: operationalisierung/fragestellung
       - file: operationalisierung/operationalisierung
-      - file: operationalisierung/Datenbasis
       - file: operationalisierung/resümee
   - file: datenvisualisierung/Datenvisualisierung
     sections:
@@ -23,6 +22,7 @@ chapters:
       - file: datenvisualisierung/Vergleich
   - file: dashboard/Dashboard
     sections:
+      - file: dashboard/Datenbasis
       - file: dashboard/Umsetzung_mit_rshiny_edit
       - file: dashboard/Einführung
       - file: dashboard/Übung_Startseite
