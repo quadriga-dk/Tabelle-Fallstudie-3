@@ -5,7 +5,7 @@ lang: de-DE
 (datenvisualisierung-methoden-werkzeuge)=
 # Grundlagen der Datenvisualisierung
 
-Datenvisualisierung ist die grafische Repräsentation von Daten und Informationen. Dieses Kapitel gibt einen Überblick zu den Grundlagen von Datenvisualisierungen.  
+Datenvisualisierung ist die grafische Repräsentation von Daten und Informationen. Dieses Kapitel gibt einen Überblick zu den Grundlagen von Datenvisualisierungen.
 
 ```{admonition} Story
 :class: story
