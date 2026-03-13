@@ -28,14 +28,17 @@ Mit Ihren Rückmeldungen können wir unser interaktives Lehrbuch gezielt an Ihre
 2. Ein Dashboard kann mit R Shiny entworfen werden.
 ```
 
-In diesem Kapitel werden Sie durch den Aufbau eines Dashboards geführt. Je nach Vorkenntnissen und gewählter [Ausführungsmethode](technische_voraussetzungen) kann die Bearbeitungszeit variieren.
+In diesem Kapitel werden Sie durch den Bau eines Dashboards mit R Shiny geführt. Je nach Vorkenntnissen und gewählter [Ausführungsmethode](technische_voraussetzungen) kann die Bearbeitungszeit variieren.
+Für den Fall, dass Sie das Dashboard nicht selbst bauen wollen oder können, sind einige Visualisierungen interaktiv gestaltet worden, sodass Sie nachempfinden können, welchen Unterschied es macht, Variablen in Visualisierungen ändern zu können. 
 
 In diesem Kapitel finden Sie folgende Abschnitte:
-- [4.1. Vorbereitung](vorbereitung)
-- [4.1. Startseite Dashboard](landing-page)
-- [4.3. Erstellung einer Karte](map)
-- [4.4. Einfügen Baumstatistik](trees)
-- [4.5. Einfügen Bewässerungsanalyse](watering)
+- [4.1. Vorbereitung der Daten: Einlesen und Bereinigung](daten-einlesen)
+- [4.2. Entwicklungsumgebung vorbereiten](vorbereitung)
+- [4.3. Eine Startseite für das Dashboard gestalten](landing-page)
+- [4.4. Eine Karte für das Dashboard erstellen](map)
+- [4.5. Einfügen Zeitverlauf](zeitverlauf)
+- [4.6. Einfügen Baumstatistik](trees)
+- [4.7. Einfügen Bewässerungsanalyse](watering)
 
 Wie im Abschnitt 3.2. dargelegt wurde, sind Dashboards eine gute Möglichkeit, Daten aus der Verwaltung nutzer:innenfreundlich aufzubereiten und zu visualisieren. In diesem Kapitel wird Ihnen das Bauen eines Dashboards mittels RShiny nahe gebracht. 
 +++

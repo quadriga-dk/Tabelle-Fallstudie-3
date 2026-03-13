@@ -2,7 +2,7 @@
 lang: de-DE
 ---
 
-(landing-page)=
+(zeitverlauf)=
 # Einfügen Zeitverlauf
 ```{admonition} Story
 :class: story

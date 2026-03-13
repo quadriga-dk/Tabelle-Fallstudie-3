@@ -2,46 +2,72 @@
 lang: de-DE
 ---
 
-(umsetzung)=
+(daten-einlesen)=
 # Vorbereitung der Daten: Einlesen und Bereinigung
+
+Bevor wir mit dem Bau eines Dashboards mit R Shiny beginnen können, müssen wir die Daten einholen und bearbeiten. Dazu werden verschiedene Datensätze – der Berliner Baumkataster sowie manuell dokumentierte Gießdaten – zusammengeführt und so aufbereitet, dass sie für weitere Analysen und Visualisierungen verwendet werden können.
 
 ```{admonition} Story
 :class: story
-Amir möchte sich zunächst einen schnellen Überblick verschaffen: Wie werden Bäume in Berlin gegossen, und wie engagieren sich die Bürger:innen dabei? Bei seiner Recherche stößt er auf die Plattform *Gieß den Kiez*. Besonders beeindruckt ihn, wie anschaulich die Daten dort visualisiert sind – das möchte er für seine eigene R-Shiny-Anwendung übernehmen.
+Amir möchte sich zunächst einen schnellen Überblick verschaffen: Wie werden Bäume in Berlin gegossen, und wie engagieren sich die Bürger:innen dabei? Bei seiner Recherche stößt er auf die Plattform <a href="https://www.giessdenkiez.de/stats?lang=de" class="external-link" target="_blank">Gieß den Kiez</a>. Besonders beeindruckt ihn, wie anschaulich die Daten dort visualisiert sind (s. Abb. 4.1). Dies möchte er für seine eigene R-Shiny-Anwendung übernehmen.
 ```
 
-## Umsetzung mit R Shiny
-
-```{admonition} Zweck dieser Übung
-:class: lernziele
-
-Ziel dieses Schrittes ist es, verschiedene Datensätze – insbesondere den Berliner Baumkataster sowie manuell dokumentierte Gießdaten – zusammenzuführen und so aufzubereiten, dass sie für weitere Analysen und Visualisierungen (z. B. in einer interaktiven Karte) verwendet werden können.
-
+```{figure} /assets/GdK_Screenshot_20260313.png
+---
+align: left
+width: 100%
+name: Dashboard Gieß den Kiez 
+alt: Das Dashboard des Projektes "Gieß des Kiez" mit Visualisierungen zur Bewässerung von Bäumen in Berlin.
+---
+Screenshot des Dashoards des Projekts Gieß den Kiez vom 13.03.2026.
 ```
 
-### Erste Schritte
+## Daten laden, aggregieren und vorbereiten
+
+````{margin}
+```{admonition} Hinweis
+:class: hinweis
+
+Der Code ist am Ende jedes Unterkapitels in einer eingeklappten Box 'Gesamter Code' zusammengefasst. So haben Sie die Wahl, ob Sie den Code Stück für Stück oder in ganzen Blöcken eingeben.
+
+```
+````
+
 **Laden der Baumkatasterdaten**
-Die Berliner Baumdaten werden über eine WFS-Schnittstelle (Web Feature Service) bezogen. Dabei werden sowohl Anlagenbäume als auch Straßenbäume geladen. 
+
+Die Berliner Baumdaten werden über eine WFS-Schnittstelle (Web Feature Service) bezogen. Dabei werden sowohl Anlagenbäume als auch Straßenbäume geladen. Dies geschieht mit dem Befehl `st_read`.
 
 ```bash
+# 1. Baumbestandsdaten laden
 anlagenbaeume <- st_read("WFS:https://gdi.berlin.de/services/wfs/baumbestand", layer = "baumbestand:anlagenbaeume")
 strassenbaeume <- st_read("WFS:https://gdi.berlin.de/services/wfs/baumbestand", layer = "baumbestand:strassenbaeume")
 ```
+
 **Laden und Bereinigung der Gießdaten**
-Die Gießdaten stammen aus einer CSV-Datei des Projekts „Gieß den Kiez“. Sie werden eingelesen und anschließend bereinigt:
 
-Ungültige oder fehlende Koordinaten (Längen-/Breitengrad) werden entfernt.
+Die Gießdaten stammen aus einer CSV-Datei des Projekts „Gieß den Kiez“. Sie werden eingelesen und anschließend bereinigt, d. h.:
 
-Datensätze ohne Straßenname oder mit fehlerhaften Gattungsbezeichnungen (z. B. numerische Werte) werden ausgeschlossen.
+- Ungültige oder fehlende Koordinaten (Längen-/Breitengrad) werden entfernt.
+- Datensätze ohne Straßenname oder mit fehlerhaften Gattungsbezeichnungen (z. B. numerische Werte) werden ausgeschlossen.
 
 ```bash
-# 2. Bewässerungsdaten laden
+# 2. Bewässerungsdaten laden und bereinigen
 df_clean <- read.csv("data/giessdenkiez_bewässerungsdaten.csv", sep = ";", stringsAsFactors = FALSE, fileEncoding = "UTF-8") %>%
   drop_na(lng, lat, bewaesserungsmenge_in_liter) %>%
   filter(strname != "Undefined" & strname != "" & !str_detect(gattung_deutsch, "[0-9]"))
 ```
+
 **Vereinheitlichung und Zusammenführung der Baumdaten**
-Die beiden Baumdatenquellen werden vereinheitlicht (gemeinsames Koordinatensystem EPSG:4326) und zusammengeführt. Danach werden die Koordinaten explizit extrahiert und die Geometriedaten, also die technische Standortinformation jedes Baumes in einem speziellen räumlichen Format (z. B. die `geom`-Spalte mit Einträgen wie `c(" 394532.3", "5811461.0")`) entfernt, um die Dateigröße zu reduzieren und die Weiterverarbeitung zu erleichtern. EPSG:4326 (WGS 84) beschreibt die Erdoberfläche mit geografischen Koordinaten in Grad (Longitude/Latitude). Es ist das Standard-Koordinatensystem für GPS und die gängigste Grundlage für webbasierte Karten.
+
+````{margin}
+```{admonition} Hinweis
+:class: hinweis
+
+EPSG:4326 (WGS 84) beschreibt die Erdoberfläche mit geografischen Koordinaten in Grad (Longitude/Latitude). Es ist das Standard-Koordinatensystem für GPS und die gängigste Grundlage für webbasierte Karten. Weitere Informationen dazu erhalten Sie z. B. in einem <a href="https://opendata.duesseldorf.de/blog/wgs-utm-etrs-ein-paar-informationen-zu-geobasisdaten-und-georeferenzsystemen" class="external-link" target="_blank">Blogbeitrag</a> von Open Data Düsseldorf.
+
+```
+````
+Die beiden Baumdatenquellen werden vereinheitlicht (gemeinsames Koordinatensystem EPSG:4326) und zusammengeführt. Danach werden die Koordinaten explizit extrahiert und die Geometriedaten, also die technische Standortinformation jedes Baumes in einem speziellen räumlichen Format (z. B. die `geom`-Spalte mit Einträgen wie `c(" 394532.3", "5811461.0")`) entfernt, um die Dateigröße zu reduzieren und die Weiterverarbeitung zu erleichtern. 
 
 ```bash
 # 3. Bäume zusammenführen
@@ -53,8 +79,10 @@ coords <- st_coordinates(baumbestand$geom)
 baumbestand$lng <- coords[, "X"]
 baumbestand$lat <- coords[, "Y"]
 ```
+
 **Harmonisierung und Verknüpfung der Daten**
-Die eindeutige Baumkennung gisid wird so angepasst, dass sie mit der id aus den Gießdaten übereinstimmt (Unterstrich wird zu Doppelpunkt). Dadurch können die beiden Datensätze über einen sogenannten "Left Join" zusammengeführt werden.
+
+Die eindeutige Baumkennung `gisid` wird so angepasst, dass sie mit der id aus den Gießdaten übereinstimmt (Unterstrich wird zu Doppelpunkt). Dadurch können die beiden Datensätze über einen sogenannten "Left Join" zusammengeführt werden.
 
 ```bash
 # 5. Geometrie entfernen
@@ -68,13 +96,17 @@ df_merged <- baumbestand %>%
   left_join(df_clean %>% select(id, bewaesserungsmenge_in_liter, timestamp),
             by = c("gisid" = "id"))
 ```
+
 **Speichern der kombinierten Daten**
-Die aufbereiteten Daten werden als CSV-Datei gespeichert. Eine Ausgabe relevanter Kennzahlen (z.B. Anzahl verknüpfter Bäume) dient der Kontrolle.
+
+Die aufbereiteten Daten werden als CSV-Datei gespeichert. Eine Ausgabe relevanter Kennzahlen (z. B. Anzahl verknüpfter Bäume) dient der Kontrolle.
 
 ```bash
 # 8. Ergebnis speichern
 write.csv2(df_merged, "data/df_merged_final.csv", row.names = FALSE, fileEncoding = "UTF-8")
 ```
+
+Wenn Sie möchten, schauen Sie sich den gesamten Code als einen Block an, bevor wir Baumdaten den Berliner Bezirken zuordnen:
 
 ````{admonition} Gesamter Code
 :class: hinweis, dropdown
@@ -85,11 +117,11 @@ library(dplyr)
 library(tidyr)
 library(stringr)
 
-# 1. Bäume laden
+# 1. Baumbestandsdaten laden
 anlagenbaeume <- st_read("WFS:https://gdi.berlin.de/services/wfs/baumbestand", layer = "baumbestand:anlagenbaeume")
 strassenbaeume <- st_read("WFS:https://gdi.berlin.de/services/wfs/baumbestand", layer = "baumbestand:strassenbaeume")
 
-# 2. Bewässerungsdaten laden
+# 2. Bewässerungsdaten laden und bereinigen
 df_clean <- read.csv("data/giessdenkiez_bewässerungsdaten.csv", sep = ";", stringsAsFactors = FALSE, fileEncoding = "UTF-8") %>%
   drop_na(lng, lat, bewaesserungsmenge_in_liter) %>%
   filter(strname != "Undefined" & strname != "" & !str_detect(gattung_deutsch, "[0-9]"))
@@ -125,11 +157,14 @@ cat("Anzahl Bäume mit Bewässerungsdaten:", sum(!is.na(df_merged$bewaesserungsm
 ````
 
 
-### Geografische Zuordnung zu Berliner Bezirken
+## Geografische Zuordnung zu Berliner Bezirken
+
 **Zielsetzung**
+
 Einige Bäume verfügen nicht über eine Angabe zu ihrem Bezirk. Um eine aggregierte räumliche Analyse (z. B. Gießverhalten nach Bezirk) zu ermöglichen, werden fehlende Bezirksangaben durch räumliches Verschneiden mit offiziellen Bezirkspolygonen ergänzt.
 
 **Methodik**
+
 - Bäume ohne Bezirk werden in räumliche Objekte konvertiert (sf-Objekte).
 
 - Mittels eines „spatial join“ wird ermittelt, in welchem Bezirk sich jeder Baum befindet.
@@ -137,7 +172,9 @@ Einige Bäume verfügen nicht über eine Angabe zu ihrem Bezirk. Um eine aggregi
 - Das Ergebnis wird mit den ursprünglichen Daten wieder zusammengeführt.
 
 **Code Erklärung:**
+
 **1. Die Bezirkskarte laden**
+
 ```bash
 bezirksgrenzen <- st_read("data/bezirksgrenzen.geojson")
 ```
@@ -145,6 +182,7 @@ bezirksgrenzen <- st_read("data/bezirksgrenzen.geojson")
 - Jeder Bezirk hat dabei ein sogenanntes „Polygon“ – eine Art Umrisslinie.
 
 **2. Die Baumdaten laden**
+
 ```bash
 df_baeume <- read.csv("data/df_merged_final.csv", sep = ";", stringsAsFactors = FALSE)
 ```
@@ -152,6 +190,7 @@ df_baeume <- read.csv("data/df_merged_final.csv", sep = ";", stringsAsFactors = 
 - Manche Bäume haben schon einen Bezirk eingetragen, andere nicht.
 
 **3. Koordinaten umwandeln**
+
 ```bash
 df_baeume <- df_baeume %>%
   mutate(
@@ -163,6 +202,7 @@ df_baeume <- df_baeume %>%
 - Manche Koordinaten sind falsch formatiert (mit Komma statt Punkt, z. B. „13,405“ statt „13.405“). Das wird korrigiert, damit der Computer die Zahlen richtig versteht.
 
 **4. Zwei Gruppen bilden:** 
+
 ```bash
 df_mit_bezirk <- df_baeume %>% filter(!is.na(bezirk))
 df_ohne_bezirk <- df_baeume %>% filter(is.na(bezirk) & !is.na(lng) & !is.na(lat))
@@ -225,6 +265,8 @@ df_baeume_final <- bind_rows(df_mit_bezirk, df_ohne_bezirk_filled)
 write.csv2(df_baeume_final, file = "data/df_merged_final.csv", row.names = FALSE)
 ```
 - Die neue Tabelle mit allen Bäumen und Bezirken wird als Datei gespeichert.
+
+Am Ende haben Sie wieder die Möglichkeit, sich den gesamten Code anzusehen, bevor wir im nächsten Kapitel die Entwicklungsumgebung auf den Bau des Dashboards vorbereiten.
 
 ````{admonition} Gesamter Code
 :class: hinweis, dropdown

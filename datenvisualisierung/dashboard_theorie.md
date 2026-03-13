@@ -14,7 +14,7 @@ Nachdem Dr. Amir Weber einiges über Visualisierungen und deren Manipulationsmö
 
 ## Was ist ein Dashboard?
 
-Der Begriff „Dashboard“ wird verwendet, um ein System zu beschreiben, das für die Entscheidungsfindung nützliche Daten visualisiert. Der Begriff „Dashboard“ wurde bereits im 19. Jahrhundert für eine Schutzwand vor Kutschen verwendet, die Schlamm abhielt, der von Pferdehufen hochgeschleudert wurde [@Janes2013Effective]. Mit Beginn der Automobilproduktion wandelte sich der Begriff und das Dashboard wurde allmählich zu einer Informationstafel, die dem Fahrer den Status der verschiedenen Systeme des Autos anzeigt. Diese, auf deutsch Armaturenbrett genannte, Zusammenführung und Visualisierung verschiedener Funktionen stand dann wiederum Pate für die Ansammlungen verschiedener visualisierter Datensätze im Internet, die das Ziel haben, Nutzer:innen schnell und übersichtlich zu informieren. Daten werden in Dashboards mittels unterschiedlicher Diagrammen, Tabellen und anderen Darstellungsformen visualisiert. Um Nutzern die korrekte Interpretation eines Elements auf dem Dashboard zu ermöglichen, erlauben Dashboards typischerweise, die ursprünglichen Daten einzusehen, auf denen die Zusammenfassung basierte. <span style="color:red">*Ist das so? Gibt es dafür Quellen?*</span>
+Der Begriff „Dashboard“ wird verwendet, um ein System zu beschreiben, das für die Entscheidungsfindung nützliche Daten visualisiert. Der Begriff „Dashboard“ wurde bereits im 19. Jahrhundert für eine Schutzwand vor Kutschen verwendet, die Schlamm abhielt, der von Pferdehufen hochgeschleudert wurde {cite}`Janes2013Effective`. Mit Beginn der Automobilproduktion wandelte sich der Begriff und das Dashboard wurde allmählich zu einer Informationstafel, die dem Fahrer den Status der verschiedenen Systeme des Autos anzeigt. Diese, auf deutsch Armaturenbrett genannte, Zusammenführung und Visualisierung verschiedener Funktionen stand dann wiederum Pate für die Ansammlungen verschiedener visualisierter Datensätze im Internet, die das Ziel haben, Nutzer:innen schnell und übersichtlich zu informieren. Daten werden in Dashboards mittels unterschiedlicher Diagrammen, Tabellen und anderen Darstellungsformen visualisiert. Um Nutzern die korrekte Interpretation eines Elements auf dem Dashboard zu ermöglichen, erlauben Dashboards typischerweise, die ursprünglichen Daten einzusehen, auf denen die Zusammenfassung basierte. <span style="color:red">*Ist das so? Gibt es dafür Quellen?*</span>
 
 Ein Dashboard zeigt nicht nur eine, sondern mehrere Visualisierungen zu gleichen oder verwandten Themen. Diese werden übersichtlich und geordnet präsentiert, damit Anwendende sich schnell einen Überblick über ein Thema verschaffen können. 
 Ein weiteres Merkmal ist die Interaktivität von Dashboards. Häufig sind die dort zu sehenden Visualisierungen nicht bloß statische Abbildungen, sondern lassen sich durch das Verändern von Variablen (Kennzahlen oder Regler für Jahreszahlen) interaktiv verwenden und können so anschaulich Entwicklungen darstellen. <span style="color:red">*Verweis/Link auf unsere interaktiven Visualisierungen einbauen, wenn vorhanden.*</span>
@@ -28,7 +28,7 @@ Dashboards sind damit auch ein Beispiel für die Kommunikation von Ergebnissen, 
 
 Neben dem Service-Gedanken, der sich vor allem auf die Nutzung durch Bürger:innen bezieht, und der Transparenz im Sinne von Open Data, ist darüber hinaus das Monitoring der Daten ein Vorteil von Dashboards. Die kompakt visualisierten Daten ermöglichen es, sich schnell einen Überblick in einerbestimmte Thematik zu verschaffen.
 
-Für die Darstellung der vielfältigen Daten aus dem öffentlichen Sektor gibt es bereits gute Beispiele. So veröffentlicht z. B. das Amt für Statistik Berlin-Brandenburg auf seiner <a href="https://www.statistik-berlin-brandenburg.de/" target="_blank">Webseite</a> nicht nur zahlreiche informative Grafiken, Visualisierungen und Diagramme, sondern auch mehrere <a href="https://www.statistik-berlin-brandenburg.de/bevoelkerung/zensus/zensus2022" target="_blank">Dashboards</a> mit interaktiven Visualisierungen unter der Lizenz CC BY 3.0 bzw. Deutschland Lizenz 2023.
+Für die Darstellung der vielfältigen Daten aus dem öffentlichen Sektor gibt es bereits gute Beispiele. So veröffentlicht z. B. das Amt für Statistik Berlin-Brandenburg auf seiner <a href="https://www.statistik-berlin-brandenburg.de/" class="external-link" target="_blank">Webseite</a> nicht nur zahlreiche informative Grafiken, Visualisierungen und Diagramme, sondern auch mehrere <a href="https://www.statistik-berlin-brandenburg.de/bevoelkerung/zensus/zensus2022" class="external-link" target="_blank">Dashboards</a> mit interaktiven Visualisierungen unter der Lizenz CC BY 3.0 bzw. Deutschland Lizenz 2023.
 
 ```{figure} /assets/20250815_DashZensusBBB.png
 ---
@@ -43,7 +43,7 @@ Screenshot des Dashoards zum Zensus 2022 in Berliner Bezirken vom 15.08.2025.
 
 ````{admonition} Weiterführende Literatur / zusätzliche Materialien
 :class: seealso
-Ein gelungenes Beispiel für die Verwendung eines Dashboards im kommunalen Kontext ist das <a href="https://verkehr.aachen.de/" target="_blank">Mobilitätsdashboard der Stadt Aachen</a>. Dort finden Anwendende Informationen zu Parkplätzen, Ladestationen, Verkehrslage, Baustellen und vielem mehr.
+Ein gelungenes Beispiel für die Verwendung eines Dashboards im kommunalen Kontext ist das <a href="https://verkehr.aachen.de/" class="external-link" target="_blank">Mobilitätsdashboard der Stadt Aachen</a>. Dort finden Anwendende Informationen zu Parkplätzen, Ladestationen, Verkehrslage, Baustellen und vielem mehr.
 
 ```{figure} /assets/20250813_MobDashAachen.png
 ---
@@ -81,4 +81,9 @@ Für Verwaltungswissenschaftler:innen ist das Erstellen und Analysieren von Dash
 Kurz gesagt: Ein Dashboard verwandelt Rohdaten in umsetzbare Informationen, die für die evidenzbasierte Gestaltung und Bewertung von Verwaltungshandeln unverzichtbar sind.
 
 
+**Literatur**
+
+```{bibliography}
+:filter: docname in docnames
+```
 
