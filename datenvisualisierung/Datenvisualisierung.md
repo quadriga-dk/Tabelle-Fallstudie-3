@@ -20,8 +20,7 @@ lang: de-DE
 Mit Ihren Rückmeldungen können wir unser interaktives Lehrbuch gezielt an Ihre Bedürfnisse anpassen.
 ```
 ````
-
-In diesem Kapitel wird theoretisches Wissen zum Thema Datenvisualisierung vermittelt.
+Um unsere Forschungsfrage zum Bürgerengagement beim Gießen beantworten zu können, müssen wir die Daten sichtbar machen – daher wenden wir uns zunächst den Grundlagen der Datenvisualisierung zu.
 
 
 ```{admonition} Lernziel: Methoden und Werkzeuge der Datenvisualisierung
