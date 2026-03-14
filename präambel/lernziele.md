@@ -3,34 +3,44 @@ lang: de-DE
 ---
 
 (lernziele)=
-# Lernziele und individuelle Voraussetzungen 
+# Vorkenntnisse und Lernziele 
 
-Dieses JupyterBook setzt ein grundlegendes Verständnis für Datenanalyse voraus. Von Vorteil ist es, wenn Anwendende bereits mit grundlegenden statistischen Konzepten vertraut sind. Die Fallstudie ist insbesondere für diejenigen relevant, die ein Interesse an urbanen Entwicklungsprozessen haben und diese auf Grundlage stadtsoziologischer und räumlicher Daten untersuchen möchten.  
+## Vorkenntnisse
 
-Für *Kapitel 2: Fragestellung und Operationalisierung* sind keine besonderen Vorkenntnisse erforderlich. Das Kapitel führt in die zentralen Leitfragen ein, erläutert die Operationalisierung wesentlicher theoretischer Konzepte und beschreibt die verwendeten Daten. 
+Diese Fallstudie fokussiert Dashboards als Mittel der Visualisierung von Daten für den Public Sector. Im Kapitel [Dashboard](dashboard) können Sie selbst ein Dashboard bauen. Dies setzt allerdings ein tieferes Verständnis der Funktionsweise der <a href="https://www.r-project.org" class="external-link" target="_blank">Programmiersprache R</a> voraus, sodass dieses Kapitel für *Fortgeschrittene* ist. 
 
-*Kapitel 3: Datenvisualisierung* vermittelt die theoretischen Grundlagen der visuellen Datenanalyse. Hier werden zentrale Prinzipien der Informationsvisualisierung vorgestellt – etwa geeignete Diagrammtypen, Farbwahl, Skalierung, Vergleichbarkeit und bewusste Reduktion. Zudem werden unterschiedliche Visualisierungstools gegenübergestellt, sodass Anwendende ein Verständnis dafür entwickeln, in welchem Kontext welche Werkzeuge sinnvoll sind. 
-
-Alle praktischen Inhalte zum Aufbau des Dashboards sind in *Kapitel 4: Dashboard bauen* gebündelt. Dieses Kapitel umfasst mehrere Übungen, in denen Schritt für Schritt die fünf zentralen Dashboard-Reiter umgesetzt werden: Startseite, Karte, Bewässerungsanalyse, Zeitverlauf und Baumstatistik. Die Übungen vermitteln praxisnah den Umgang mit Shiny, der Reactive-Logik, ggplot-Visualisierungen, interaktiven Elementen und der Einbettung erklärender Hinweise. Grundlegende R-Kenntnisse sind hilfreich, aber nicht zwingend notwendig, da alle Bausteine ausführlich erläutert werden.
+## Lernziele
 
 Mit dem Durchlaufen dieses Jupyter Books können Sie die folgenden Lernziele erreichen:
 
-
-```{admonition} Formulieren der Forschungsfrage und Operationalisieren des Verfahrens
-:class: lernziele, dropdown
-1. Die Forschungsfrage kann erläutert und in einen Kontext mit der Gestaltung eines Dashboards gesetzt werden.
+<!-- START: Fragestellung und Operationalisierung -->
+```{admonition} [Lernziel: Formulieren der Forschungsfrage und Operationalisieren des Verfahrens](operationalisierung)
+:class: lernziele
+<!-- learning-goal: Formulieren der Forschungsfrage und Operationalisieren des Verfahrens -->
+1. Die Forschungsfrage kann in Bezug zu Dashboards erläutert werden.
+<!-- competency: nicht anwendbar | bloom: 2 Verstehen -->
 ```
+<!-- END: Fragestellung und Operationalisierung -->
 
-```{admonition} Methoden und Werkzeuge der Datenvisualisierung
-:class: lernziele, dropdown
-1. Grundsätze der Datenvisualisierung sind bekannt.
-*2. Auf die Manipulierbarkeit von Visualisierungen wird eingegangen.*
-```  
+<!-- START: Datenvisualisierung -->
+```{admonition} [Lernziel: Dashboards für Visualisierung und Kommunikation von Daten](datenvisualisierung)
+:class: lernziele
+<!-- learning-goal: Dashboards für Visualisierung und Kommunikation von Daten -->
+1. Die Bedeutung von Dashboards für die Datenkommunikation kann erläutert werden.
+<!-- competency: 5.3 Kommunikation | bloom: 2 Verstehen -->
+```
+<!-- END: Datenvisualisierung -->
 
-```{admonition} Aufbau eines Dashboards als Form der Visualisierung in der Verwaltung(swissenschaft)
-:class: lernziele, dropdown
+<!-- START: Ein Dashboard bauen -->
+```{admonition} [Lernziel: Aufbau eines Dashboards](dashboard)
+:class: lernziele
+<!-- learning-goal: Aufbau eines Dashboards -->
 1. Der Aufbau und die Gliederung eines Dashboards können erklärt werden.
+<!-- competency: 4.2 Visualisierung | bloom: 2 Verstehen -->
 2. Ein Dashboard kann mit R Shiny entworfen werden.
-```  
+<!-- competency: 4.2 Visualisierung | bloom: 3 Anwenden -->
+```
+<!-- END: Ein Dashboard bauen --> 
+
 
 

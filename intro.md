@@ -61,9 +61,10 @@ Grundsätzlich steht das Angebot allen Interessierten offen. Es richtet sich jed
 
 Die Zielgruppe sind promovierende und promovierte Wissenschaftler:innen, aber auch Lehrende, die das Angebot für die eigene Lehre nachnutzen wollen.
 
-**Voraussetzungen**
+Die Fallstudie ist insbesondere für diejenigen relevant, die ein Interesse an urbanen Entwicklungsprozessen haben und diese auf Grundlage stadtsoziologischer und räumlicher Daten untersuchen möchten.
 
-Im Kapitel [Dashboard](dashboard) können Sie, wenn Sie technikaffin sind, selbst ein Dashboard bauen. Dies setzt allerdings ein tieferes Verständnis von der Funktionsweise der <a href="https://www.r-project.org" class="external-link" target="_blank">Programmiersprache R</a> voraus, sodass dieses Kapitel für *Fortgeschrittene* konzipiert wurde. 
+Sie eignet sich besonders für technisch interessierte Personen, die erste Schritte in der räumlichen Datenanalyse, den Computational Urban Studies oder der Geoanalytik machen.
+
 
 
 ## Struktur der Fallstudie

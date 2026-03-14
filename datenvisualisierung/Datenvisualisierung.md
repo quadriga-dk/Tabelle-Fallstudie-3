@@ -23,11 +23,10 @@ Mit Ihren Rückmeldungen können wir unser interaktives Lehrbuch gezielt an Ihre
 Um unsere Forschungsfrage zum Bürgerengagement beim Gießen beantworten zu können, müssen wir die Daten sichtbar machen – daher wenden wir uns zunächst den Grundlagen der Datenvisualisierung zu.
 
 
-```{admonition} Lernziel: Methoden und Werkzeuge der Datenvisualisierung
+```{admonition} Lernziel: Dashboards für Visualisierung und Kommunikation von Daten
 :class: lernziele
 
-1. Grundsätze der Datenvisualisierung sind bekannt.
-2. *Auf die Manipulierbarkeit von Visualisierungen wird eingegangen.*
+1. Die Bedeutung von Dashboards für die Datenkommunikation kann erläutert werden.
 ```
 
 Zuerst gehen wir auf Grundlagen zu den Themen Datenvisualisierung, Haltung und Dashboards ein. Danach zeigen wir in einem Vergleich auf, welche verschiedenen Wege der Datenvisualisierung es gibt und zum Schluss bereiten wir eine Umsetzung mit dem Programm RShiny vor.

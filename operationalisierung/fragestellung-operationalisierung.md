@@ -2,7 +2,7 @@
 lang: de-DE
 ---
 
-(fragestellung-operationalisierung)=
+(operationalisierung)=
 # Fragestellung und Operationalisierung
 
 ````{margin}
@@ -26,7 +26,7 @@ Dieses Kapitel 2 stellt die Einführung in die Fallstudie dar und dient der Klä
 ```{admonition} Formulieren der Forschungsfrage und Operationalisieren des Verfahrens
 :class: lernziele
 
-1. Die Forschungsfrage kann erläutert und in einen Kontext mit der Gestaltung eines Dashboards gesetzt werden.
+1. Die Forschungsfrage kann in Bezug zu Dashboards erläutert werden.
 ```
 
 In diesem Kapitel finden Sie folgende Abschnitte:
