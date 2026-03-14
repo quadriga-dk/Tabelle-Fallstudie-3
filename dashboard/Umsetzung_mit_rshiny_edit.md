@@ -5,26 +5,14 @@ lang: de-DE
 (daten-einlesen)=
 # Vorbereitung der Daten: Einlesen und Bereinigung
 
-Bevor wir mit dem Bau eines Dashboards mit R Shiny beginnen können, müssen wir die Daten einholen und bearbeiten. Dazu werden verschiedene Datensätze – der Berliner Baumkataster sowie manuell dokumentierte Gießdaten – zusammengeführt und so aufbereitet, dass sie für weitere Analysen und Visualisierungen verwendet werden können.
+Bevor Sie mit dem Bau eines Dashboards mit R Shiny beginnen können, müssen Sie die Daten einholen und bearbeiten. Dazu werden verschiedene Datensätze – der Berliner Baumkataster sowie manuell dokumentierte Gießdaten – zusammengeführt und so aufbereitet, dass sie für weitere Analysen und Visualisierungen verwendet werden können.
 
 ```{admonition} Story
 :class: story
-Amir möchte sich zunächst einen schnellen Überblick verschaffen: Wie werden Bäume in Berlin gegossen, und wie engagieren sich die Bürger:innen dabei? Bei seiner Recherche stößt er auf die Plattform <a href="https://www.giessdenkiez.de/stats?lang=de" class="external-link" target="_blank">Gieß den Kiez</a>. Besonders beeindruckt ihn, wie anschaulich die Daten dort visualisiert sind (s. Abb. 4.1). Dies möchte er für seine eigene R-Shiny-Anwendung übernehmen.
+Dr. Amir Weber möchte sich zunächst einen schnellen Überblick verschaffen: Wie werden Bäume in Berlin gegossen und wie engagieren sich die Bürger:innen dabei? 
+Bei seiner Recherche stößt er auf die Plattform <a href="https://www.giessdenkiez.de/stats?lang=de" class="external-link" target="_blank">Gieß den Kiez</a>. Besonders beeindruckt ihn, wie anschaulich die Daten dort visualisiert sind (s. Abb. 4.1). Die Mischung aus Zahlen zu Bäumen und Gießenden, Karten und Zeitverläufen inspirieren ihn so sehr, dass er sie für seine eigene R-Shiny-Anwendung übernehmen möchte. Dazu benötigt er folgende Daten:
 ```
 
-```{figure} /assets/GdK_Screenshot_20260313.png
----
-align: left
-width: 100%
-name: Dashboard Gieß den Kiez 
-alt: Das Dashboard des Projektes "Gieß des Kiez" mit Visualisierungen zur Bewässerung von Bäumen in Berlin.
----
-Screenshot des Dashoards des Projekts Gieß den Kiez vom 13.03.2026.
-```
-
-*genauer beschreiben, was er will (weil GdK so toll ist*): Karte, Zeitverlauf etc.* *Das erklärt dann auch, warum er die Daten braucht, die er folgend einliest* 
-
-Dazu benötigt er folgende Daten:
 
 ## Daten laden, aggregieren und vorbereiten
 
@@ -36,6 +24,18 @@ Der Code ist am Ende jedes Unterkapitels in einer eingeklappten Box 'Gesamter Co
 
 ```
 ````
+
+<font color="red">Screenshot einfügen, der zeigt, wie die Eingabe des gesamten Codes bei R Shiny aussieht.</font> Mit Hinweis versehen: Dies ist der Code den Sie im folgenden Schritt für Schritt eingeben werden. Den gesamten Code finden Sie am Ende dieses Abschnitts.
+
+**Installieren der Bibliotheken**
+
+Bevor die Daten eingelesen werden können, müssen Sie folgende Bibliotheken laden:
+```bash
+library(sf)
+library(dplyr)
+library(tidyr)
+library(stringr)
+```
 
 **Laden der Baumkatasterdaten**
 

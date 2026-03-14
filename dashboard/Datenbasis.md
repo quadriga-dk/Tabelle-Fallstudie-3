@@ -34,14 +34,14 @@ Jeder Eintrag ist einem bestimmten Baum zugeordnet (zu erkennen an der ID) und u
 
 Diese Daten ermöglichen Rückschlüsse auf Muster im Gießverhalten der Bevölkerung in dem Zeitraum 2020-2024 und versorgen die Visualisierung mit räumlich und zeitlich differenzierten Informationen zur städtischen Baumbewässerung.
 
-
-```{figure} ../assets/Karte_mit_Personen.png
+```{figure} /assets/GdK_Screenshot_20260313.png
 ---
-name: Karte_mit_Personen
-alt: Ein Screenshot, der ein comicartiges Bild einer Berlin-Karte zeigt, auf der Bäume von Personen gegossen werden.
-width: 400px
+align: center
+width: 100%
+name: Dashboard Gieß den Kiez 
+alt: Das Dashboard des Projektes "Gieß des Kiez" mit Visualisierungen zur Bewässerung von Bäumen in Berlin.
 ---
-Karte mit Personen darauf. (KI generiert)
+Screenshot des Dashoards des Projekts Gieß den Kiez vom 13.03.2026.
 ```
 
 ## Baumbestandsdaten (Berlin Open Data)
