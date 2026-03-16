@@ -32,13 +32,14 @@ In diesem Kapitel werden Sie durch den Bau eines Dashboards mit R Shiny geführt
 Für den Fall, dass Sie das Dashboard nicht selbst bauen wollen oder können, sind einige Visualisierungen interaktiv gestaltet worden, sodass Sie nachempfinden können, welchen Unterschied es macht, Variablen in Visualisierungen ändern zu können. 
 
 In diesem Kapitel finden Sie folgende Abschnitte:
-- [4.1. Vorbereitung der Daten: Einlesen und Bereinigung](daten-einlesen)
-- [4.2. Entwicklungsumgebung vorbereiten](vorbereitung)
-- [4.3. Eine Startseite für das Dashboard gestalten](landing-page)
-- [4.4. Eine Karte für das Dashboard erstellen](map)
-- [4.5. Einfügen Zeitverlauf](zeitverlauf)
-- [4.6. Einfügen Baumstatistik](trees)
-- [4.7. Einfügen Bewässerungsanalyse](watering)
+- [4.1. Datenbasis](datenbasis): Dieser Abschnitt erläutert die Daten, mit denen wir in dieser Fallstudie arbeiten.
+- [4.2. Vorbereitung der Daten: Einlesen und Bereinigung](daten-einlesen)
+- [4.3. Entwicklungsumgebung vorbereiten](vorbereitung)
+- [4.4. Eine Startseite für das Dashboard gestalten](landing-page)
+- [4.5. Eine Karte für das Dashboard erstellen](map)
+- [4.6. Einfügen Zeitverlauf](zeitverlauf)
+- [4.7. Einfügen Baumstatistik](trees)
+- [4.8. Einfügen Bewässerungsanalyse](watering)
 
 Wie im Abschnitt 3.2. dargelegt wurde, sind Dashboards eine gute Möglichkeit, Daten aus der Verwaltung nutzer:innenfreundlich aufzubereiten und zu visualisieren. In diesem Kapitel wird Ihnen das Bauen eines Dashboards mittels RShiny nahe gebracht. 
 +++

@@ -6,7 +6,7 @@ lang: de-DE
 # Operationalisierung
 
 
-Mit der im vorherigen Abschnitt 2.1. entwickelten [ersten Leitfrage] (fragestellung) soll analysiert werden, wie stark sich die Berliner*innen für die Bäume in ihrer Stadt engagieren – und in welchen Bezirken dieses Engagement am höchsten ist.
+Mit der im vorherigen Abschnitt 2.1. entwickelten [ersten Leitfrage](leitfrage) soll analysiert werden, wie stark sich die Berliner*innen für die Bäume in ihrer Stadt engagieren – und in welchen Bezirken dieses Engagement am höchsten ist.
 
 Um eine solche Messung möglich zu machen, muss zunächst eine Operationalisierung der Forschungsfrage erfolgen. "Operationalisierung bezeichnet den Prozess, ein Erkennungs- oder Messverfahren für ein theoretisches Konzept zu entwickeln." {cite}`krautter_operationalisierung_2023`.
 
@@ -27,3 +27,10 @@ Diese Operationalisierung ist wie jede wissenschaftliche Operationalisierung dis
 Die Reflexion der Grenzen und Beschränkungen, die mit der eigenen Operationalisierung einhergehen, ist ebenfalls Bestandteil dieser Fallstudie. Wir werden in der abschließenden [Reflexion](reflexion) darauf zurückkommen. 
 
 *Zur Reflexion: Am Ende muss da logischerweise herauskommen, dass Daten zum Bewässerungsverhalten nur von den Bürger:innen selbst stammen können, da diese Werte nicht öffentlich erhoben werden können. Auch die "Selbstauskunft" ist keine verlässliche Größe, aber in diesem Fall die einzige, mit der man arbeiten kann. Daher müsste ein Dashboard über die Funktion verfügen, eine selbst gegossene Wassermenge eintragen zu können. Dies ist der Fall bei Gieß den Kiez, ein Projekt des CityLab Berlin, das uns zu unserer Fallstudie inspiriert hat.*
+
+Zum explorativen Vorgehen (von Bild)
+Exploratives Vorgehen
+
+Auf der Grundlage eines bereinigten Datensatzes zu den studentischen Filmen, die an der Filmuniversität Babelsberg bzw. der HFF Potsdam in der Zeit von 1985 bis 1999 entstanden sind, bietet sich auch ein exploratives Vorgehen für die Beantwortung der grundlegenden Fragestellung an. Im Datensatz wird nach auftretenden Mustern, Strukturen, Zusammenhängen und Besonderheiten gesucht, aus denen sich neue Fragestellungen und Hypothesen ergeben können, die weiter verfolgt werden sollen. Eine solche explorative Auswertung des Datensatzes kann z.B. durch das Erstellen und die Interpretation von Visualisierungen zu den Daten erfolgen.
+
+Wichtig ist hierbei die Verbindung der aus der quantitativen Auswertung herausgearbeiteten Muster und Besonderheiten in Bezug auf den Datensatz mit qualitativen Vorgehensweisen. Die Ursachen für das Auftreten bestimmter Strukturen und Muster müssen im jeweiligen Kontext der Entstehung der Filme gesucht werden.

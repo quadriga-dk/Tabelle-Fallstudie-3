@@ -2,7 +2,7 @@
 lang: de-DE
 ---
 
-(operationalisierung)=
+(frage-operationalisierung)=
 # Fragestellung und Operationalisierung
 
 ````{margin}
@@ -30,10 +30,9 @@ Dieses Kapitel 2 stellt die Einführung in die Fallstudie dar und dient der Klä
 ```
 
 In diesem Kapitel finden Sie folgende Abschnitte:
-- [2.1. Fragestellung](fragestellung): Zunächst wird eine Forschungsfrage formuliert, um darzulegen, was in dieser Fallstudie untersucht wird.
+- [2.1. Leitfrage](leitfrage): Zunächst wird eine Forschungsfrage formuliert, um darzulegen, was in dieser Fallstudie untersucht wird.
 - [2.2. Operationalisierung](operationalisierung): Anschließend widmen wir uns in diesem Abschnitt der Operationalisierung, d. h. wir legen fest, wie ein theoretisches Konzept praktisch erfasst werden soll. 
-- [2.3. Datenbasis](datenbasis): Dieser Abschnitt erläutert die Daten, mit denen wir in dieser Fallstudie arbeiten.
-- [2.4. Resümee](fragestellung-resümee)
+- [2.3. Resümee](fragestellung-resümee)
 
 
 *Dieses Kapitel ist wegen der Methodik von Bedeutung?* 

@@ -2,8 +2,16 @@
 lang: de-DE
 ---
 
-(Leitfrage)=
+(leitfrage)=
 # Leitfrage
+
+Visualisierung von Daten vor allem für den Public Sector großes Potential, da viele statistische Erhebungen, Daten von Bürger:innen
+
+-> Wie lassen sich diese Daten veranschaulichen und niedrigschwellig an die Gesellschaft (zurück) kommunizieren aus der die Daten in der Regel stammen? Antwort: Dashboard
+
+(Herleitung wie bei Text: gute Beispiel für andere Dashboards zeigen/listen/visualisieren, dann Entwurf des eigenen rechtfertigen)
+
+
 Die **erste Leitfrage** dieses JupyterBooks lautet: **Wo lassen sich die höchsten Ausprägungen des Bürgerengagements bei der Bewässerung städtischer Bäume in Berlin feststellen?**
 
 Um diese Frage beantworten zu können, vermittelt dieses JupyterBook schrittweise die notwendigen Kenntnisse zu **Datenaufbereitung, Operationalisierung, Visualisierung und interaktiver Analyse**. Dabei wird gezeigt, wie aus einer offenen Verwaltungsdatenquelle (Gieß den Kiez) Indikatoren für Engagement entwickelt werden können und wie unterschiedliche Messgrößen – etwa die Zahl der gegossenen Bäume, die Wassermenge, die zeitliche Entwicklung oder räumliche Faktoren – zu unterschiedlichen Ergebnissen in der Visualisierung führen.

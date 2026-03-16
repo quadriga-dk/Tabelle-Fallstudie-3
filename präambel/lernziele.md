@@ -14,7 +14,7 @@ Diese Fallstudie fokussiert Dashboards als Mittel der Visualisierung von Daten f
 Mit dem Durchlaufen dieses Jupyter Books können Sie die folgenden Lernziele erreichen:
 
 <!-- START: Fragestellung und Operationalisierung -->
-```{admonition} [Lernziel: Formulieren der Forschungsfrage und Operationalisieren des Verfahrens](operationalisierung)
+```{admonition} [Lernziel: Formulieren der Forschungsfrage und Operationalisieren des Verfahrens](frage-operationalisierung)
 :class: lernziele
 <!-- learning-goal: Formulieren der Forschungsfrage und Operationalisieren des Verfahrens -->
 1. Die Forschungsfrage kann in Bezug zu Dashboards erläutert werden.
