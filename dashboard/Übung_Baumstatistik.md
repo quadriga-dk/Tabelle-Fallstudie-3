@@ -167,6 +167,16 @@ Baumdichte pro km². Die Abbildung zeigt die Baumdichte pro km² in den verschie
 ``` 
 
 
+```{admonition} Was Sie beachten sollten
+:class: keypoint
+
+Nur weil Indikatoren nicht auftauchen, heißt es nicht, dass sie nicht wichtig sein können. Für das Verständnis der obigen Abbildung 4.8 'Top 10 gegossene Baumgattungen' ist beispielsweise eine Information zur Häufigkeit von Baumarten (wie in Abb. 4.7 dargestellt) unabdingbar. Und für eine korrekte Analyse der Abbildung 4.9 'Baumdichte pro km²' braucht es mindestens Hinweise zur Größe der Bezirke. Möglichicherweise wären auch Indikatoren wie Bevölkerungsdichte sinnvoll, um die angegebenen Werte zu kontextualisieren. 
+
+Vor allem hinsichtlich der Interpretation von Datenvisualisierungen sollten Sie also darauf achten, sich nicht von den Indikatoren, die visuell hervorgehoben oder überhaupt dargestellt werden, in die Irre führen zu lassen. Es kann weitere Merkmale geben, die zum Verständnis oder der Analyse der Daten notwendig sind.
+
+```
+
+
 ````{dropdown} Code
 ```r
        fluidRow(
