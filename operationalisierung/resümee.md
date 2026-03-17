@@ -10,10 +10,11 @@ lang: de-DE
 
 **Medizinische vs. mediale Wellen:** Medizinische Fallzahlen und mediale Aufmerksamkeit folgen unterschiedlichen Verlaufsmustern. "Medienwellen" zeigen sich in der schwankenden Intensität öffentlicher Diskussion über Pandemien.
 
-**Operationalisierung:** Qualitative Fragestellungen werden durch Operationalisierung für quantitative Methoden zugänglich gemacht. "Öffentliche Aufmerksamkeit" wird als messbare Worthäufigkeit in Tageszeitungen definiert.
+**Operationalisierung:** Qualitative Fragestellungen werden durch Operationalisierung für quantitative Methoden zugänglich gemacht. 'Bürger:innenengagement' wird als messbares Gießverhalten in Bezug auf Stadtbäume definiert.
 
-**Methodische Grenzen:** Jede Operationalisierung bringt diskutable Einschränkungen mit sich. Die kritische Reflexion dieser Grenzen ist essentieller Bestandteil von Digital Humanities-Projekten.
+**Methodische Grenzen:** Jede Operationalisierung bringt diskutable Einschränkungen mit sich. Die kritische Reflexion dieser Grenzen ist essentieller Bestandteil von wissenschaftlichen Projekten.
 
 ```
 
-Im zurückliegenden Kapitel haben wir die [Leitfrage](leitfrage) der vorliegenden Fallstudie expliziert und mithilfe von historischen Visualisierungen veranschaulicht. Um die Forschungsfrage für eine quantitativ-digitale Analyse adressierbar zu machen, haben wir eine [Operationalisierung](operationalisierung) vorgenommen, durch die wir einen Messvorgang definieren können, der als Antwort für die Frage gelten kann. Im nächsten Kapitel bauen wir unser Forschungskorpus auf, um darauf den Messvorgang anzuwenden.
+Im zurückliegenden Kapitel wurde die [Leitfrage](fragestellung) der vorliegenden Fallstudie formuliert. Um diese Leitfrage für eine explorative Analyse nutzbar zu machen, wurde eine [Operationalisierung](operationalisierung) vorgenommen, durch die Messparameter definiert werden konnten, die zur Beantwortung der Frage führen können.  
+Im nächsten Kapitel wird auf die Datengrundlage eingegangen, auf der die anzuwendende Analyse basiert.
