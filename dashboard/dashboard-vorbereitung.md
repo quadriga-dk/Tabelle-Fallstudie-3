@@ -2,7 +2,7 @@
 lang: de-DE
 ---
 
-(vorbereitung)=
+(dashboard-vorbereitung)=
 # Entwicklungsumgebung vorbereiten
 
 *Vorbereitende Maßnahmen, bevor mit dem Bau eines Dashboards begonnen werden kann...*

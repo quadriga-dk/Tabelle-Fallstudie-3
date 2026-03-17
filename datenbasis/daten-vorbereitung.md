@@ -2,7 +2,7 @@
 lang: de-DE
 ---
 
-(daten-einlesen)=
+(daten-vorbereitung)=
 # Vorbereitung der Daten: Einlesen und Bereinigung
 
 Bevor Sie mit dem Bau eines Dashboards mit R Shiny beginnen können, müssen Sie die Daten einholen und bearbeiten. Dazu werden verschiedene Datensätze – der Berliner Baumkataster sowie manuell dokumentierte Gießdaten – zusammengeführt und so aufbereitet, dass sie für weitere Analysen und Visualisierungen verwendet werden können.

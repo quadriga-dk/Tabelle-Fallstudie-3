@@ -15,6 +15,10 @@ chapters:
       - file: operationalisierung/fragestellung
       - file: operationalisierung/operationalisierung
       - file: operationalisierung/resümee
+  - file: datenbasis/datenbasis
+    sections:
+      - file: datenbasis/datenbasis-einleitung
+      - file: datenbasis/datenbasis-vorbereitung
   - file: datenvisualisierung/Datenvisualisierung
     sections:
       - file: datenvisualisierung/Datenvisualisierung-Grundlagen
@@ -22,9 +26,7 @@ chapters:
       - file: datenvisualisierung/Vergleich
   - file: dashboard/Dashboard
     sections:
-      - file: dashboard/Datenbasis
-      - file: dashboard/Umsetzung_mit_rshiny_edit
-      - file: dashboard/Einführung
+      - file: dashboard/dashboard-vorbereitung
       - file: dashboard/Übung_Startseite
       - file: dashboard/Übung_Karte
       - file: dashboard/Übung_Zeitverlauf
