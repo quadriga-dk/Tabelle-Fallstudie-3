@@ -15,10 +15,10 @@ chapters:
       - file: operationalisierung/fragestellung
       - file: operationalisierung/operationalisierung
       - file: operationalisierung/resümee
-  - file: datenbasis/datenbasis
+  - file: datenbasis/datenbasis-einleitung
     sections:
-      - file: datenbasis/datenbasis-einleitung
-      - file: datenbasis/datenbasis-vorbereitung
+      - file: datenbasis/datenbasis
+      - file: datenbasis/daten-vorbereitung
   - file: datenvisualisierung/Datenvisualisierung
     sections:
       - file: datenvisualisierung/Datenvisualisierung-Grundlagen
