@@ -2,22 +2,28 @@
 lang: de-DE
 ---
 
-(leitfrage)=
-# Leitfrage
+(fragestellung)=
+# Fragestellung
 
-Visualisierung von Daten vor allem für den Public Sector großes Potential, da viele statistische Erhebungen, Daten von Bürger:innen
+Die Visualisierung von Daten hat vor allem im Public Sector großes Potential, da es dort viele statistische Erhebungen gibt, die direkt oder indirekt mit den Bürger:innen zusammenhängen.  
+Sucht man nach Wegen wie sich diese Daten veranschaulichen und niedrigschwellig an die Gesellschaft (zurück) kommunizieren lassen, stößt man schnell auf Dashboards.  
+Dashboards wie das in Abb. 2.1 gezeigte <a href="https://www.digitale-verwaltung.de/Webs/DV/DE/aktuelles-service/dashboard_digitale_verwaltung/dashboard-node.html" class="external-link" target="_blank">Dashboard Digitale Verwaltung</a>, erlauben es, Informationen gebündelt und grafisch aufbereitet präzise darstellen zu können.
 
--> Wie lassen sich diese Daten veranschaulichen und niedrigschwellig an die Gesellschaft (zurück) kommunizieren aus der die Daten in der Regel stammen? Antwort: Dashboard
+```{figure} /assets/DDV_Screenshot_20260317.png
+---
+align: center
+width: 100%
+name: Dashboard Digitale Verwaltung 
+alt: Das Dashboard Digitale Verwaltung mit Informationen zur Online-Verfügbarkeit von Verwaltungsleistungen für das Land Berlin.
+---
+Screenshot des Dashoards Digitale Verwaltung mit Fokus auf Online-Verfügbarkeit von Verwaltungsleistungen für das Land Berlin vom 17.03.2026.
+```
 
-(Herleitung wie bei Text: gute Beispiel für andere Dashboards zeigen/listen/visualisieren, dann Entwurf des eigenen rechtfertigen)
 
+Um diese Vorteile nachvollziehbar und nutzbar zu machen, wird in dieser Fallstudie ein Dashboard mit R Shiny erstellt.  
+Dazu wird auf die Abfrage von Baumkatasterdaten der Fallstudie <a href="https://quadriga-dk.github.io/Tabelle-Fallstudie-2/Titelseite.html" class="external-link" target="_blank">Offene Daten im urbanen Raum</a> aufgebaut. Inspiriert von der Plattform <a href="https://citylab-berlin.org/de/projects/giess-den-kiez/" class="external-link" target="_blank">Gieß den Kiez</a> wird unter Einbindung von Bewässerungsdaten folgende Leitfrage formuliert:
 
-Die **erste Leitfrage** dieses JupyterBooks lautet: **Wo lassen sich die höchsten Ausprägungen des Bürgerengagements bei der Bewässerung städtischer Bäume in Berlin feststellen?**
-
-Um diese Frage beantworten zu können, vermittelt dieses JupyterBook schrittweise die notwendigen Kenntnisse zu **Datenaufbereitung, Operationalisierung, Visualisierung und interaktiver Analyse**. Dabei wird gezeigt, wie aus einer offenen Verwaltungsdatenquelle (Gieß den Kiez) Indikatoren für Engagement entwickelt werden können und wie unterschiedliche Messgrößen – etwa die Zahl der gegossenen Bäume, die Wassermenge, die zeitliche Entwicklung oder räumliche Faktoren – zu unterschiedlichen Ergebnissen in der Visualisierung führen.
-
-Dieses Kapitel 2 der Fallstudie setzt sich daher mit der **Übersetzung theoretischer Konzepte in messbare Variablen** auseinander. Darauf aufbauend werden grundlegende Prinzipien der **Datenvisualisierung** vorgestellt, bevor im anschließenden Praxisteil ein eigenes interaktives Dashboard entwickelt wird. 
-
-Ziel ist es, Anwendenden zu zeigen, wie aus offenen Daten **empirische Antworten auf stadtsoziologische Fragen** gewonnen werden können: Wo wird besonders viel gegossen? Welche Rolle spielen Baumarten, Bezirksstrukturen, Dichten und Pflanzjahre? Und wie robust sind unsere Befunde gegenüber unterschiedlichen Operationalisierungen?
-
-So verbindet dieses JupyterBook theoretische Grundlagen mit praxisnaher Datenanalyse und bietet einen nachvollziehbaren Weg, um das **Bürgerengagement im urbanen Raum** differenziert zu untersuchen.
+`````{admonition} Forschungsfrage
+:class: keypoint
+Wo lassen sich die höchsten Ausprägungen des Engagements von Bürger:innen bei der Bewässerung städtischer Bäume in Berlin feststellen? 
+`````

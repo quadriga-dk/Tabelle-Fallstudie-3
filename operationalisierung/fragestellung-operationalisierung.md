@@ -33,7 +33,7 @@ In diesem einführenden Kapitel wird ein Erkenntnisinteresse formuliert, das in 
 <span style="color:red">*Abb. 2.1: Bild einfügen von Verortung in Fallstudien-Struktur*</span>
 
 
-Dazu wird im ersten Schritt zunächst eine [Leitfrage](leitfrage) formuliert. Im zweiten Schritt erfolgt mit der [Operationalisierung](operationalisierung) die Festlegung von Parametern zur Erfassung des theoretischen Konzeptes, bevor das Kapitel mit einem [2.3. Resümee](fragestellung-resümee) abschließt.
+Dazu wird im ersten Schritt zunächst eine [Leitfrage](fragestellung) formuliert. Im zweiten Schritt erfolgt mit der [Operationalisierung](operationalisierung) die Festlegung von Parametern zur Erfassung des theoretischen Konzeptes, bevor das Kapitel mit einem [Resümee](fragestellung-resümee) abschließt.
 
 
 
