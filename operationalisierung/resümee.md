@@ -8,8 +8,6 @@ lang: de-DE
 ```{admonition} Key points des Kapitels
 :class: keypoint
 
-**Medizinische vs. mediale Wellen:** Medizinische Fallzahlen und mediale Aufmerksamkeit folgen unterschiedlichen Verlaufsmustern. "Medienwellen" zeigen sich in der schwankenden Intensität öffentlicher Diskussion über Pandemien.
-
 **Operationalisierung:** Qualitative Fragestellungen werden durch Operationalisierung für quantitative Methoden zugänglich gemacht. 'Bürger:innenengagement' wird als messbares Gießverhalten in Bezug auf Stadtbäume definiert.
 
 **Methodische Grenzen:** Jede Operationalisierung bringt diskutable Einschränkungen mit sich. Die kritische Reflexion dieser Grenzen ist essentieller Bestandteil von wissenschaftlichen Projekten.
