@@ -17,7 +17,7 @@ Mit dem Durchlaufen dieses Jupyter Books können Sie die folgenden Lernziele err
 ```{admonition} [Lernziel: Formulieren der Forschungsfrage und Operationalisieren des Verfahrens](frage-operationalisierung)
 :class: lernziele
 <!-- learning-goal: Formulieren der Forschungsfrage und Operationalisieren des Verfahrens -->
-1. Die Forschungsfrage kann in Bezug zu Dashboards erläutert werden.
+1. Die Entwicklung einer Fragestellung in der Verwaltungswissenschaft kann am Beispiel der Ausprägungen des Engagements von Bürger:innen erläutert werden.
 <!-- competency: nicht anwendbar | bloom: 2 Verstehen -->
 ```
 <!-- END: Fragestellung und Operationalisierung -->

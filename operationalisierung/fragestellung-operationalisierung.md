@@ -21,34 +21,19 @@ Mit Ihren Rückmeldungen können wir unser interaktives Lehrbuch gezielt an Ihre
 ````
 
 
-Dieses Kapitel 2 stellt die Einführung in die Fallstudie dar und dient der Klärung des Erkenntnisinteresses, bevor wir in den nächsten Kapiteln zur Vorbereitung und Aufbereitung des Forschungsgegenstandes übergehen.
-
-```{admonition} Formulieren der Forschungsfrage und Operationalisieren des Verfahrens
-:class: lernziele
-
-1. Die Forschungsfrage kann in Bezug zu Dashboards erläutert werden.
+```{include} ../präambel/lernziele.md
+:start-after: "<!-- START: Fragestellung und Operationalisierung -->"
+:end-before: "<!-- END: Fragestellung und Operationalisierung -->"
 ```
 
-In diesem Kapitel finden Sie folgende Abschnitte:
-- [2.1. Leitfrage](leitfrage): Zunächst wird eine Forschungsfrage formuliert, um darzulegen, was in dieser Fallstudie untersucht wird.
-- [2.2. Operationalisierung](operationalisierung): Anschließend widmen wir uns in diesem Abschnitt der Operationalisierung, d. h. wir legen fest, wie ein theoretisches Konzept praktisch erfasst werden soll. 
-- [2.3. Resümee](fragestellung-resümee)
+
+In diesem einführenden Kapitel wird ein Erkenntnisinteresse formuliert, das in den nächsten Kapiteln die Vorbereitung, Aufbereitung und Analyse des Forschungsgegenstandes leitet (s. Abb. 2.1).
 
 
-*Dieses Kapitel ist wegen der Methodik von Bedeutung?* 
-+++
-*Wir befinden uns hier:*
-![Aufgabe 3](../assets/Aufgabenstruktur-03.png)
-
-<span style="color:red">*Bild einfügen von Verortung in Fallstudien-Struktur - could not find this image*</span>
+<span style="color:red">*Abb. 2.1: Bild einfügen von Verortung in Fallstudien-Struktur*</span>
 
 
-*some more text*
+Dazu wird im ersten Schritt zunächst eine [Leitfrage](leitfrage) formuliert. Im zweiten Schritt erfolgt mit der [Operationalisierung](operationalisierung) die Festlegung von Parametern zur Erfassung des theoretischen Konzeptes, bevor das Kapitel mit einem [2.3. Resümee](fragestellung-resümee) abschließt.
 
-```{admonition} Bearbeitungszeit
-:class: zeitinfo
-Die geschätzte Bearbeitungszeit dieser Lerneinheit beträgt ca. ..., **inklusive** der einzelnen Übungsaufgaben ca. ...
 
-Bitte beachten Sie: Die tatsächliche Bearbeitungsdauer kann je nach Ihren Vorkenntnissen unterschiedlich ausfallen. Die angegebene Zeitangabe dient lediglich als Orientierungshilfe.
-``` 
 
