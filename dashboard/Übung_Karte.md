@@ -3,7 +3,7 @@ lang: de-DE
 ---
 
 (map)=
-# Eine Karte für das Dashboard erstellen
+# Eine Karte erstellen
 ```{admonition} Story
 :class: story
 Nachdem Amir sein Dashboard eingerichtet und die wichtigsten Kennzahlen sichtbar gemacht hat, möchte er nun genauer verstehen, wo in Berlin besonders viel gegossen wird.

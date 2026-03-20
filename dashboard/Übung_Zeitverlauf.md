@@ -3,7 +3,7 @@ lang: de-DE
 ---
 
 (zeitverlauf)=
-# Einfügen Zeitverlauf
+# Einen Zeitverlauf einfügen
 ```{admonition} Story
 :class: story
 

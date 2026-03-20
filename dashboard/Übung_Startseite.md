@@ -3,7 +3,7 @@ lang: de-DE
 ---
 
 (landing-page)=
-# Eine Startseite für das Dashboard gestalten
+# Eine Startseite gestalten
 
 
 ```{admonition} Zweck dieser Übung 

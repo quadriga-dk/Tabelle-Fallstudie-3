@@ -3,7 +3,7 @@ lang: de-DE
 ---
 
 (trees)=
-# Einfügen Baumstatistik
+# Eine Baumstatistik einfügen
 ```{admonition} Story
 :class: story
 

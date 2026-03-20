@@ -3,7 +3,7 @@ lang: de-DE
 ---
 
 (watering)=
-# Einfügen Bewässerungsanalyse
+# Eine Bewässerungsanalyse einfügen
 ```{admonition} Story
 :class: story
 
