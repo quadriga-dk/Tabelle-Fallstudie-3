@@ -3,7 +3,7 @@ lang: de-DE
 ---
 
 (datenvisualisierung)=
-# Datenvisualierung
+# Dashboard - Vorbereitung
 
 
 ````{margin}
@@ -20,34 +20,19 @@ lang: de-DE
 Mit Ihren Rückmeldungen können wir unser interaktives Lehrbuch gezielt an Ihre Bedürfnisse anpassen.
 ```
 ````
-Um unsere Forschungsfrage zum Bürgerengagement beim Gießen beantworten zu können, müssen wir die Daten sichtbar machen – daher wenden wir uns zunächst den Grundlagen der Datenvisualisierung zu.
 
-
-```{admonition} Lernziel: Dashboards für Visualisierung und Kommunikation von Daten
-:class: lernziele
-
-1. Die Bedeutung von Dashboards für die Datenkommunikation kann erläutert werden.
+```{include} ../präambel/lernziele.md
+:start-after: "<!-- START: Datenvisualisierung -->"
+:end-before: "<!-- END: Datenvisualisierung -->"
 ```
 
-Zuerst gehen wir auf Grundlagen zu den Themen Datenvisualisierung, Haltung und Dashboards ein. Danach zeigen wir in einem Vergleich auf, welche verschiedenen Wege der Datenvisualisierung es gibt und zum Schluss bereiten wir eine Umsetzung mit dem Programm RShiny vor.
+Nachdem im vorherigen Kapitel die Untersuchungsparameter festgelegt und die Datensätze bereinigt wurden, widmet sich dieses Kapitel der Vorbereitung des Dashboards, bevor im nächsten Kapitel die explorative Analyse mittels Visualisierungen begonnen werden kann (s. Abb. 4.1).  
 
-In diesem Kapitel finden Sie folgende Abschnitte:
-- [3.1. Grundlagen der Datenvisualisierung](datenvisualisierung-methoden-werkzeuge)
-- [3.2. Dashboards](Dashboards)
-- [3.3. Vergleich von Visualisierungstools](vergleich)
-- [3.4. Vorbereitung der Daten](umsetzung)
+<span style="color:red">*Abb. 4.1: Bild einfügen von Verortung in Fallstudien-Struktur*</span>
 
 
-Wir befinden uns damit im theoretischen Teil dieser Fallstudie. Nachdem wir das Interesse und die Motivation von Amir Weber für sein Forschungsvorhaben skizziert haben, müssen wir uns nun ein paar Grundlagen aneignen, bevor wir uns dem praktischen Teil, dem Bau eines Dashboards, widmen können.
+Zuerst wird dargelegt, was [Dashboards](dashboard_theorie) sind und welchen Vorteil sie für den Public Sector bieten. Danach können Sie in einem [Vergleich von Visualisierungstools](vergleich) nachvollziehen, warum dieses Lehrbuch die Applikation RShiny verwendet. Abschließend wird im letzten Abschnitt die [Entwicklungsumgebung vorbereitet](dashboard-vorbereitung).
 
-+++
-*Wir befinden uns hier:*
-![Aufgabe 3](/assets/Aufgabenstruktur-03.png)
-
-<span style="color:red">*Bild einfügen von Verortung in Fallstudien-Struktur - could not find this image*</span>
-
-
-*some more text*
 
 ```{admonition} Bearbeitungszeit
 :class: zeitinfo

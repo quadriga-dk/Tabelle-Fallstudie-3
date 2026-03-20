@@ -19,7 +19,7 @@ Mit Ihren Rückmeldungen können wir unser interaktives Lehrbuch gezielt an Ihre
 
 Nachdem im vorherigen Kapitel [Fragestellung und Operationalisierung](frage-operationalisierung) die Leitfrage formuliert und operationalisiert wurde, widmet sich dieses Kapitel der Datengrundlage für die Untersuchung. 
 
-<span style="color:red">*Abb. 2.1: Bild einfügen von Verortung in Fallstudien-Struktur*</span>
+<span style="color:red">*Abb. 3.1: Bild einfügen von Verortung in Fallstudien-Struktur*</span>
 
 Dazu werden Sie im ersten Schritt mit den für die Analyse notwendigen Datensätzen und Untersuchungsparametern vertraut gemacht (Abschnitt [Datenbasis](datenbasis)) und erfahren im zweiten Schritt wie die Daten für den Bau eines Dashboards eingelesen und bereinigt werden ([Vorbereitung der Daten: Einlesen und Bereinigung](daten-vorbereitung)).
 

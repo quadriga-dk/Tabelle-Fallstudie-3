@@ -21,12 +21,12 @@ chapters:
       - file: datenbasis/daten-vorbereitung
   - file: datenvisualisierung/Datenvisualisierung
     sections:
-      - file: datenvisualisierung/Datenvisualisierung-Grundlagen
       - file: datenvisualisierung/dashboard_theorie
       - file: datenvisualisierung/Vergleich
-  - file: dashboard/Dashboard
-    sections:
       - file: dashboard/dashboard-vorbereitung
+  - file: dashboard/Dashboard
+    sections:      
+      - file: datenvisualisierung/Datenvisualisierung-Grundlagen
       - file: dashboard/Übung_Startseite
       - file: dashboard/Übung_Karte
       - file: dashboard/Übung_Zeitverlauf
