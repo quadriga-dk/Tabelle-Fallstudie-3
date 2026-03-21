@@ -29,17 +29,22 @@ Da es bereits einige Lernressourcen zum Thema Datenvisualisierung gibt, verlinke
 
 *Was braucht es für eine gelungene Datenvisualisierung?*
 
+## Gestaltung von Dashboards
+
+Wo eine Visualisierung im Dashboard positioniert wird, kann Einfluss auf ihre (wahrgenommene) Bedeutung haben.
+
 
 ## Haltung
 
-Haltung wird oft als einer von drei Teilen genannt, wenn es um Kompetenzbildung geht (*LitV: Schüller o.ä.*). Das bedeutet eine kritische Perspektive einnehmen - nicht nur bei der Nutzung der Daten anderer, sondern auch bei der Erstellung, Analyse, Auswertung und Publikation eigener Forschungsergebnisse bzw. Daten. Dies gilt insbesondere für Visualisierungen, da sie in der Regel bereits eine vereinfachte Darstellung eines komplexen Sachverhaltes sind, einen Abstraktionsgrad aufweisen und den Blick der Nutzenden auch un- bzw. unterbewusst bereits in eine bestimmte Richtung lenken können (Einsatz von Farben etc.). 
+Haltung wird neben Wissen und Fähigkeiten oft als einer von drei Teilen genannt, wenn es um Kompetenzbildung geht (*LitV: Schüller o.ä.*). Das bedeutet eine kritische Perspektive einnehmen - nicht nur bei der Nutzung der Daten anderer, sondern auch bei der Erstellung, Analyse, Auswertung und Publikation eigener Forschungsergebnisse bzw. Daten. Dies gilt insbesondere für Visualisierungen, da sie in der Regel bereits eine vereinfachte Darstellung eines komplexen Sachverhaltes sind, einen Abstraktionsgrad aufweisen und den Blick der Nutzenden auch un- bzw. unterbewusst bereits in eine bestimmte Richtung lenken können (Einsatz von Farben etc.). 
 
-Im Gegensatz zu einer Tabelle sind Visualisierungen übersichtlicher, das (Forschungs-)Ergebnis ist auf Hauptthesen herunter gebrochen und ansprechend dargestellt. In dieser Abstraktion liegt die Gefahr von Missinterpretationen ... Die Gefahr besteht sowohl im Entwerfen eigener Grafiken, als auch in der fälschlichen Wahrnehmung der Grafiken anderer.
+Im Gegensatz zu einer Tabelle sind Visualisierungen oft ansprechender gestaltet. Durch Farbgebungen lässt sich ein starker Fokus setzen, was allerdings auch dazu genutzt werden kann, um das Hauptaugenmerk abzulenken.  
+Zudem ist eine Visualisierung immer auch eine Abstraktion. Sie bricht das (Forschungs-)Ergebnis auf einige Aspekte herunter und unterstreicht diese damit. Daher liegt darin auch eine Gefahr von Missinterpretationen. Die Gefahr besteht sowohl im Entwerfen eigener Grafiken, als auch in der fälschlichen Wahrnehmung der Grafiken anderer.
 
 
 ```{admonition} zusätzliche Materialien
 :class: seealso
-Das Civic Data Lab hat eine <a href="https://civic-data.de/app/uploads/Checkliste-Datenvisualisierung.pdf" target="_blank">Checkliste</a> veröffentlicht, die dabei helfen kann, Visualisierungen kritisch zu lesen. Im Fokus steht dabei, woher die Daten kommen und wie sie grafisch dargestellt werden. <span style="color:red">Diese Checkliste können Sie auch aus unserem Repositorium herunterladen</span> 
+Das <a href="https://civic-data.de/" target="_blank">Civic Data Lab</a> hat eine <a href="https://civic-data.de/app/uploads/Checkliste-Datenvisualisierung.pdf" target="_blank">Checkliste</a> veröffentlicht, die dabei helfen kann, Visualisierungen kritisch zu lesen. Im Fokus steht dabei, woher die Daten kommen und wie sie grafisch dargestellt werden. 
 ```
 
 

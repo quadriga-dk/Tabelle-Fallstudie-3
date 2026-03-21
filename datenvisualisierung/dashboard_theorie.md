@@ -58,12 +58,6 @@ Screenshot des Mobilitätsdashoards der Stadt Aachen vom 13.08.2025.
 Schauen Sie sich dieses Dashboard in Ruhe an und erkunden Sie die Optionen, die sich in diesem Zusammenhang eröffnen.
 ````
 
-## Gestaltung von Dashboards
-
-Wo eine Visualisierung im Dashboard positioniert wird, kann Einfluss auf ihre (wahrgenommene) Bedeutung haben.
-
-
-<span style="color:red">*Das folgende erklärt eher, warum für unsere Thematik ein Dashboard sinnvoll ist*</span>
 
 ## Warum sollten Verwaltungswissenschaftler:innen dieses Dashboard bauen?
 
