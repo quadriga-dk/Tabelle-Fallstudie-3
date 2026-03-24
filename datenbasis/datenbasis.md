@@ -7,42 +7,15 @@ lang: de-DE
 
 ```{admonition} Story
 :class: story
-Amir Weber macht sich Gedanken, welche Daten er braucht und woher er sie beziehen kann... Dabei fällt ihm das Berliner Projekt Gieß den Kiez ein, welches diese Daten bereits erhebt und zur Verfügung stellt. Er prüft zudem, welche Daten noch relevant sind und auf welche Weise sie beschafft werden können.
+Dr. Amir Weber macht sich Gedanken, welche Daten er braucht und woher er sie beziehen kann. Wichtig sind vor allem Daten über den Baumbestand und Bewässerungsdaten.  
+Dabei fällt ihm das Berliner Projekt Gieß den Kiez ein, welches diese Daten bereits erhebt und zur Verfügung stellt. Er prüft zudem, welche Daten noch relevant sind und auf welche Weise sie beschafft werden können.
 ```
 
+In diesem Abschnitt werden Ihnen die Daten vorgestellt, die zur Beantwortung der Leitfrage und als Datenbasis für ein Dashboard benötigt werden. Im nächsten Abschnitt werden diese dann eingelesen.
 
-In diesem Kapitel stellen wir Ihnen die Daten vor, die wir zur Beantwortung unserer Forschungsfrage benötigen und warum sie von Interesse sind.
-
-Die Daten werden für die Datenvisualisierung in RShiny benötigt. Dazu brauchen wir zwei zentrale Datensätze: 
+Dabei handelt es sich um zwei zentrale Datensätze: 
 - Daten über den Berliner Baumbestand
-- Bewässerungsdaten des Projekts <a href="https://citylab-berlin.org/en/projects/giessdenkiez/" class="external-link" target="_blank">Gieß den Kiez</a>
- 
-Diese Datengrundlage ermöglicht eine fundierte Analyse der urbanen Bewässerungsinfrastruktur in Berlin.
- 
-
-
-## Gieß den Kiez – Bewässerungsdaten (Govdata)
-
-Die Datenplattform <a href="https://citylab-berlin.org/en/projects/giessdenkiez/" class="external-link" target="_blank">Gieß den Kiez</a> ist eine digitale Beteiligungsplattform, die Bewässerungsbedarfe von Straßenbäumen in Berlin erfasst und es Bürger*innen ermöglicht, Gießaktivitäten zu dokumentieren und zu koordinieren. Wir beziehen die Bewässerungsdaten über das Portal <a href="https://www.govdata.de/suche/daten/giess-den-kiez-nutzungsdaten" class="external-link" target="_blank">GovData</a>. Der Datensatz enthält Informationen über einzelne Bewässerungsvorgänge.
-Jeder Eintrag ist einem bestimmten Baum zugeordnet (zu erkennen an der ID) und umfasst unter anderem:
-
-- Geokoordinaten (Längengrad: ``lng``, Breitengrad: ``lat``)
-- Baumart: ``art_dtsch`` und Gattung: ``gattung_deutsch``
-- Pflanzjahr: ``pflanzjahr``, Straßenname: ``strname`` und Bezirk: ``bezirk``
-- Zeitpunkt der letzten Bewässerung: ``timestamp`` 
-- Menge der Bewässerung in Litern: ``bewaesserungsmenge_in_liter``
-
-Diese Daten ermöglichen Rückschlüsse auf Muster im Gießverhalten der Bevölkerung in dem Zeitraum 2020-2024 und versorgen die Visualisierung mit räumlich und zeitlich differenzierten Informationen zur städtischen Baumbewässerung.
-
-```{figure} /assets/GdK_Screenshot_20260313.png
----
-align: center
-width: 100%
-name: Dashboard Gieß den Kiez 
-alt: Das Dashboard des Projektes "Gieß des Kiez" mit Visualisierungen zur Bewässerung von Bäumen in Berlin.
----
-Screenshot des Dashoards des Projekts Gieß den Kiez vom 13.03.2026.
-```
+- Bewässerungsdaten des Projekts <a href="https://citylab-berlin.org/en/projects/giessdenkiez/" class="external-link" target="_blank">Gieß den Kiez</a> 
 
 ## Baumbestandsdaten (Berlin Open Data)
 
@@ -56,15 +29,25 @@ Die Baumbestandsdaten stammen aus dem <a href="https://daten.berlin.de/" class="
 
 Die Datensätze enthalten u.a. Informationen zu:
 - Identifikatoren wie ``gml_id`` (ermöglicht Unterscheidung zwischen Anlagen- und Straßenbäumen), ``gisid`` und ``pitid``
-- Botanische Klassifikation, z. B. Baumart: ``art_dtsch``, ``art_bot``, Gattung: ``gattung_deutsch``, ``gattung`` und Gruppe: ``art_gruppe``)
+- Botanische Klassifikation, z. B. Baumart: ``art_dtsch``, ``art_bot``, Gattung: ``gattung_deutsch``, ``gattung`` und Gruppe: ``art_gruppe``
 - Standortmerkmale wie Straße: ``strname``, Hausnummer: ``hausnr``, Zusatz: ``zusatz``, Bezirk: ``bezirk``, Geometrie: ``geom`` (enthält Längen- und Breitengrad in anderem Format) und Standortnummer: ``standortnr``
 - Pflanzjahr: ``pflanzjahr``
 
 Sie dienen dazu, die Struktur des städtischen Baumbestands besser zu verstehen und in Beziehung zu den Gießdaten zu setzen. Das ist besonders wichtig, weil sich über die Identifikatoren die Informationen zu jedem einzelnen Baum sinnvoll zusammenführen lassen.
 
+```{figure} /assets/WFS_Screenshot_20260324.png
+---
+align: center
+width: 100%
+name: WFSExplorer Baumbestand Berlin 
+alt: Anzeige der beiden Layer Anlagenbäume und Straßenbäume im WFSExplorer von der Open Data Informationsstelle Berlin.
+---
+Screenshot des WFSExplorers der Open Data Informationsstelle mit <a href="https://wfsexplorer.odis-berlin.de/?wfs=https%3A%2F%2Fgdi.berlin.de%2Fservices%2Fwfs%2Fbaumbestand" class="external-link" target="_blank">Anzeige</a> der verfügbaren Layer vom 24.03.2026.
+```
+
 ## Bezirksgrenzen (Berlin Open Data)
 
-Für die geografische Einordnung des Baumbestands wurde zusätzlich der Datensatz zu den <a href="https://daten.odis-berlin.de/de/dataset/bezirksgrenzen/" class="external-link" target="_blank">Berliner Bezirksgrenzen</a> genutzt. Dieser enthält die polygonalen Abgrenzungen aller Berliner Bezirke im <a href="https://de.wikipedia.org/wiki/GeoJSON" class="external-link" target="_blank">GeoJson-Format</a> und ermöglicht damit eine präzise räumliche Zuordnung von Punktdaten und enthalten pro Bezirk unter anderem folgende Attribute:
+Für die geografische Einordnung des Baumbestands wurde zusätzlich der Datensatz zu den <a href="https://daten.odis-berlin.de/de/dataset/bezirksgrenzen/" class="external-link" target="_blank">Berliner Bezirksgrenzen</a> genutzt. Dieser enthält die polygonalen Abgrenzungen aller Berliner Bezirke u. a. im <a href="https://de.wikipedia.org/wiki/GeoJSON" class="external-link" target="_blank">GeoJson-Format</a> und ermöglicht damit eine präzise räumliche Zuordnung von Punktdaten. Enthalten sind zudem folgende Attribute:
 - ``Gemeinde_name``: Name des Bezirks (z. B. Reinickendorf)
 - ``Gemeinde_schluessel``: Dreistelliger Schlüssel des Bezirks
 - ``Land_name`` und ``Land_schluessel``: Verwaltungszuordnung zu Berlin
@@ -73,57 +56,27 @@ Für die geografische Einordnung des Baumbestands wurde zusätzlich der Datensat
 
 Ebenso dient die Zuordnung als Grundlage für Visualisierungen und statistische Auswertungen auf Bezirksebene.
 
-## Öffentliche Wasserbrunnen (OpenStreetMap via Overpass API) - Kapitel wird noch rausgeschmissen
-
-Zur Identifikation potenzieller Wasserquellen für die Baumgießung wurden Daten zu öffentlichen Wasserpumpen aus <a href="https://overpass-turbo.eu/" class="external-link" target="_blank">Overpass Turbo</a> extrahiert. Dabei handelt es sich um ein Daten-Filterungs-Werkzeug für <a href="https://www.openstreetmap.org/" class="external-link" target="_blank">OpenStreetMap</a> (OSM). Mithilfe einer Abfrage im OpenStreetMap-Tagging-Schema "man_made"="water_well" 
-
-```bash
-[out:json][timeout:60];
-// Berliner Stadtgrenze (Relation)
-{{geocodeArea:Berlin}}->.searchArea;
-
-// Suche nach Wasserpumpen innerhalb Berlins
-(
-  node["man_made"="water_well"](area.searchArea);
-  way["man_made"="water_well"](area.searchArea);
-  relation["man_made"="water_well"](area.searchArea);
-);
-out body;
->;
-out skel qt;
-```
-
-wurde eine umfangreiche Sammlung relevanter Pumpenstandorte generiert. Die resultierenden Daten enthalten zahlreiche Attribute, von denen besonders relevant sind:
-
-- Geolokation (Punktgeometrie: ``geometry``)
-- Zugänglichkeit (``access``)
-- Pumpentyp und Stil (``pump.status``, ``pump.style``, Pumpenbedinung: ``pump``)
-- Identifikator(``id``)
-
-## Bezirksflächen (Grünflächeninformationssystem (GRIS))  - Kapitel wird noch rausgeschmissen
-Um die Verteilung und Dichte öffentlicher Wasserpumpen innerhalb der Berliner Bezirke besser quantifizieren zu können, wurden ergänzend Flächendaten aus dem Grünflächeninformationssystem (GRIS) des Landes Berlin herangezogen. Die Flächenangaben dienen insbesondere dazu, die Pumpendichte pro Hektar (ha) auf Bezirksebene zu berechnen und damit die infrastrukturelle Versorgung vergleichbar darzustellen.
-
-Die Flächendaten wurden aus einer tabellarischen Quelle des GRIS extrahiert und manuell in ein strukturiertes Dataframe überführt. Dieses enthält pro Bezirk folgende Informationen:
-
-- ``bezirk``: Name des Berliner Bezirks
-
-- ``flaeche_ha``: Bezirksfläche in Hektar
-
-```{figure} /assets/Bezirksfläche.png
+```{figure} /assets/ODIS_Screenshot_20260324.png
 ---
-name: Tabelle mit Angaben zu Bezirksflächen
-alt: Ein Screenshot, der eine Tabelle zu den größen der Bezirksflächen in Berlin in Hektar enthält.
+align: center
+width: 100%
+name: Berliner Bezirksgrenzen 
+alt: Einfache Visualisierung der Bezirksgrenzen in Berlin.
 ---
-Tabelle mit Angaben zu Bezirksflächen
+Screenshot der Visualisierung der Berliner Bezirksgrenzen auf der Seite des Datensatzes vom 24.03.2026.
 ```
 
-```bash
-bezirksflaechen <- data.frame(
-  bezirk = c("Mitte", "Friedrichshain-Kreuzberg", "Pankow", "Charlottenburg-Wilmersdorf",
-             "Spandau", "Steglitz-Zehlendorf", "Tempelhof-Schöneberg", "Neukölln",
-             "Treptow-Köpenick", "Marzahn-Hellersdorf", "Lichtenberg", "Reinickendorf"),
-  flaeche_ha = c(3.940, 2.040, 10.322, 6.469, 9.188, 10.256, 5.305, 4.493, 16.773, 6.182, 5.212, 8.932)
-)
-```
+## Gieß den Kiez – Bewässerungsdaten (Govdata)
 
-Diese Daten ermöglichen flächenbezogene Vergleiche der Pumpendichte und bilden eine wichtige Grundlage für die Bewertung der Verteilung öffentlicher Wasserquellen im urbanen Raum.
+Die Datenplattform <a href="https://citylab-berlin.org/en/projects/giessdenkiez/" class="external-link" target="_blank">Gieß den Kiez</a> ist eine digitale Beteiligungsplattform, die Bewässerungsbedarfe von Straßenbäumen in Berlin erfasst und es Bürger:innen ermöglicht, Gießaktivitäten zu dokumentieren und zu koordinieren. Wir beziehen die Bewässerungsdaten über das Portal <a href="https://www.govdata.de/suche/daten/giess-den-kiez-nutzungsdaten" class="external-link" target="_blank">GovData</a>. Der Datensatz enthält Informationen über einzelne Bewässerungsvorgänge.
+Jeder Eintrag ist einem bestimmten Baum zugeordnet (zu erkennen an der ID) und umfasst unter anderem:
+
+- Geokoordinaten (Längengrad: ``lng``, Breitengrad: ``lat``)
+- Baumart: ``art_dtsch`` und Gattung: ``gattung_deutsch``
+- Pflanzjahr: ``pflanzjahr``, Straßenname: ``strname`` und Bezirk: ``bezirk``
+- Zeitpunkt der letzten Bewässerung: ``timestamp`` 
+- Menge der Bewässerung in Litern: ``bewaesserungsmenge_in_liter``
+
+Diese Daten ermöglichen Rückschlüsse auf Muster im Gießverhalten der Bevölkerung in dem Zeitraum 2020-2024 und versorgen die Visualisierung mit räumlich und zeitlich differenzierten Informationen zur städtischen Baumbewässerung.
+
+
