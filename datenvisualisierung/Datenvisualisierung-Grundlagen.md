@@ -3,13 +3,23 @@ lang: de-DE
 ---
 
 (datenvisualisierung-methoden-werkzeuge)=
-# Grundlagen der Datenvisualisierung
+# Datenvisualisierung in Dashboards
 
 Datenvisualisierung ist die grafische Repräsentation von Daten und Informationen. Dieses Kapitel gibt einen Überblick zu den Grundlagen von Datenvisualisierungen.
 
 ```{admonition} Story
 :class: story
 Amir Weber möchte Daten zu Bäumen und zum Gießverhalten ansprechend visualisieren. Wie lässt sich das umsetzen? Zuerst braucht er Grundkenntnisse in Bezug auf das Visualisieren von Daten.
+```
+
+```{figure} /assets/GdK_Screenshot_20260313.png
+---
+align: center
+width: 100%
+name: Dashboard Gieß den Kiez 
+alt: Das Dashboard des Projektes "Gieß des Kiez" mit Visualisierungen zur Bewässerung von Bäumen in Berlin.
+---
+Screenshot des Dashoards des Projekts Gieß den Kiez vom 13.03.2026.
 ```
 
 ## Grundlagen
