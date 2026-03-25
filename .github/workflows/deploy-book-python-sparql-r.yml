@@ -24,8 +24,9 @@ jobs:
     - name: Install libcurl for R pak
       run: |
         while sudo fuser /var/lib/dpkg/lock-frontend >/dev/null 2>&1; do
-          echo "Waiting for dpkg lock..."; sleep 5;
+          echo "Waiting for dpkg lock..."; sleep 5
         done
+        sudo apt-get update
         sudo apt-get install -y --no-install-recommends libcurl4-openssl-dev
 
     - name: Set up Python
