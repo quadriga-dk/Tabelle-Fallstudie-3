@@ -9,10 +9,10 @@ lang: de-DE
 ```{admonition} Fragen oder Feedback 
 :class: frage-feedback
 
-<a href="https://github.com/quadriga-dk/Tabelle-Fallstudie-1/issues/new?assignees=&labels=question&projects=&template=frage.yml" class="external-link" target="_blank">
+<a href="https://github.com/quadriga-dk/Tabelle-Fallstudie-3/issues/new?assignees=&labels=question&projects=&template=frage.yml" class="external-link" target="_blank">
     Stellen Sie eine Frage
 </a> <br>
-<a href="https://github.com/quadriga-dk/Tabelle-Fallstudie-1/issues/new?assignees=&labels=feedback&projects=&template=feedback.yml" class="external-link" target="_blank">
+<a href="https://github.com/quadriga-dk/Tabelle-Fallstudie-3/issues/new?assignees=&labels=feedback&projects=&template=feedback.yml" class="external-link" target="_blank">
     Geben Sie uns Feedback
 </a>
 
@@ -32,24 +32,29 @@ Plomin, J., Walter, P., Schmeling, J., Dakruni, S. & Bingöl, C. (2025). _Visual
 ````
 `````
 
-Auf diesen Seiten zeichnen wir den Forschungsprozess einer Fallstudie im Bereich der Verwaltungswissenschaft mithilfe eines <a href="https://jupyterbook.org/en/stable/intro.html" class="external-link" target="_blank">JupyterBooks</a> nach. Anhand von wissenschaftlichen Leitfragen werden die Möglichkeiten der Datenvisualisierung analysiert. In den einzelnen Kapiteln werden dabei die Themen Datenvisualisierung, Dashboards, die Manipulierbarkeit von Visualisierungen *sowie Kommunikation von Forschungsergebnissen* behandelt. 
+In dieser Open Educational Resource (OER) wird ein Forschungsverlauf im Bereich der Verwaltungswissenschaft mithilfe eines <a href="https://jupyterbook.org/en/stable/intro.html" class="external-link" target="_blank">JupyterBooks</a> nachgezeichnet. Anhand einer wissenschaftlichen Leitfrage wird mit der Applikation RShiny ein Dasboard gebaut. In den einzelnen Kapiteln wird erläutert, welche Daten zur Lösung der Leitfrage und zum Bau des Dashboards benötigt und wie sie bearbeitet und visualisiert werden. Dabei werden Kompetenzen wie Datenvisualisierung und Kommunikation von Forschungsergebnissen behandelt.
 
-```{admonition} Story
+<span style="color:red">Bild einfügen: Framework oder etw. zu Dashboards</span>.
+
+
+```{admonition} Die Forschung von Dr. Amir Weber
 :class: story
-Dr. Amir Weber, ein Verwaltungswissenschaftler mit Interesse an kommunalen Daten und Bürgerbeteiligung, möchte ein Dashboard zur Visualisierung der Baumartenvielfalt und dem Bewässerungsverhalten der Bürger:innen erstellen, das auf offenen Datensätzen basiert. In einer vorangegangenen  <a href="https://quadriga-dk.github.io/Tabelle-Fallstudie-2/Titelseite.html" class="external-link" target="_blank">Fallstudie</a> hat er exemplarisch aufgezeigt, wie im Rahmen eines Forschungsprozesses geeignete Datensätze identifiziert und erschlossen werden können. Auf Grundlage von Datensätzen aus dem Bundesland Berlin möchte er nun eine ergebnisoffene, explorative Analyse durchführen, um darin enthaltende Erkenntnispotenziale zu identifizieren. Die gewonnenen Befunde werden anschließend in dieser Fallstudie in Form von Dashboards aufbereitet, um die Daten für Bürger:innen und politische Entscheidungsträger:innen nachvollziehbar darzustellen.
+Dr. Amir Weber, ein Verwaltungswissenschaftler mit Interesse an kommunalen Daten und Bürgerbeteiligung, möchte ein Dashboard zur Visualisierung des Bewässerungsverhaltens von Bürger:innen erstellen, das auf offenen Datensätzen basiert.  
+In einer vorangegangenen  <a href="https://quadriga-dk.github.io/Tabelle-Fallstudie-2/Titelseite.html" class="external-link" target="_blank">Fallstudie</a> hat er exemplarisch aufgezeigt, wie geeignete Datensätze identifiziert und erschlossen werden können. Auf Grundlage von Datensätzen aus dem Bundesland Berlin möchte er nun eine ergebnisoffene, explorative Analyse durchführen, um darin enthaltende Erkenntnispotenziale zu identifizieren. Die gewonnenen Befunde werden in dieser Fallstudie parallel in Form von Dashboards aufbereitet, um die Daten für Bürger:innen und politische Entscheidungsträger:innen nachvollziehbar darzustellen.  
 Hierzu soll insbesondere das Ausmaß sowie die räumliche Verteilung der Bürgerbeteiligung sichtbar gemacht werden.
 
-Er orientiert er sich an folgenden Leitfragen: 
+Er orientiert er sich an folgender Leitfrage: 
 ```
 
-## Leitfragen
 
-- Wo lassen sich die höchsten Ausprägungen des Bürgerengagements bei der Bewässerung städtischer Bäume in Berlin feststellen?
-- Wie unterscheidet sich das Engagement der Bürger:innen z.B. mit Blick auf den Bezirk, auf die vorhandene Baumdichte, auf das Alter der Bäume und Jahresverlauf? 
-- Wie können interaktive Dashboards zur Visualisierung dieser Daten gestaltet werden, um verschiedene Datensätze einzubeziehen und verständlich darzustellen?
-
+```{admonition} Leitfrage
+:class: keypoint
+Wo lassen sich die höchsten Ausprägungen des Engagements von Bürger:innen bei der Bewässerung städtischer Bäume in Berlin feststellen? 
+```
 
 ## Relevanz für die Verwaltungswissenschaft
+
+<span style="color:red">folgendes noch überarbeiten</span>.
 
 Datenvisualisierungen sind ein bewährtes Mittel der …, um zu ... *wird ergänzt = nicht ihre Wichtigkeit, sondern ihre Wirkung/Funktionalität benennen.* (siehe Kapitel 3.2)
 Dashboards sind eine Möglichkeit zur Darstellung von Verwaltungsdaten, die zunehmend Verwendung findet (*Verweis auf Beispiele Aachen etc.*)
@@ -66,8 +71,9 @@ Die Fallstudie ist insbesondere für diejenigen relevant, die ein Interesse an u
 Sie eignet sich besonders für technisch interessierte Personen, die erste Schritte in der räumlichen Datenanalyse, den Computational Urban Studies oder der Geoanalytik machen.
 
 
-
 ## Struktur der Fallstudie
+
+<span style="color:red">folgendes noch überarbeiten</span>.
 
 - Im **1. Schritt** wird relevantes Fach- und Kontextwissen vermittelt. Auf Grundlage der Frage *Was braucht es für eine gelungene Datenvisualisierung?* gehen wir auf Methoden und Werkzeuge der Datenvisualisierung ein.
 
