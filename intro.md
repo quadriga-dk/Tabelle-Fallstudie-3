@@ -32,9 +32,9 @@ Plomin, J., Walter, P., Schmeling, J., Dakruni, S. & Bingöl, C. (2025). _Visual
 ````
 `````
 
-In dieser Open Educational Resource (OER) wird ein Forschungsverlauf im Bereich der Verwaltungswissenschaft mithilfe eines <a href="https://jupyterbook.org/en/stable/intro.html" class="external-link" target="_blank">JupyterBooks</a> nachgezeichnet. Anhand einer wissenschaftlichen Leitfrage wird mit der Applikation RShiny ein Dasboard gebaut. In den einzelnen Kapiteln wird erläutert, welche Daten zur Lösung der Leitfrage und zum Bau des Dashboards benötigt und wie sie bearbeitet und visualisiert werden. Dabei werden Kompetenzen wie Datenvisualisierung und Kommunikation von Forschungsergebnissen behandelt.
+In dieser Open Educational Resource (OER) wird ein Forschungsverlauf im Bereich der Verwaltungswissenschaft mithilfe eines <a href="https://jupyterbook.org/en/stable/intro.html" class="external-link" target="_blank">JupyterBooks</a> nachgezeichnet. Anhand einer wissenschaftlichen Leitfrage wird mit der Applikation <a href="https://shiny.posit.co/" class="external-link" target="_blank">R Shiny</a> ein Dasboard gebaut. In den einzelnen Kapiteln wird erläutert, welche Daten zur Lösung der Leitfrage und zum Bau des Dashboards benötigt und wie sie bearbeitet und visualisiert werden. Dabei werden Kompetenzen wie Datenvisualisierung und Kommunikation von Forschungsergebnissen behandelt.
 
-<span style="color:red">Bild einfügen: Framework oder etw. zu Dashboards</span>.
+<span style="color:red">Bild einfügen: Framework oder etw. zu Dashboards -> UNSER Dashboard</span>.
 
 
 ```{admonition} Die Forschung von Dr. Amir Weber
@@ -62,23 +62,20 @@ Dashboards sind eine Möglichkeit zur Darstellung von Verwaltungsdaten, die zune
 
 ## Zielgruppe
 
-Grundsätzlich steht das Angebot allen Interessierten offen. Es richtet sich jedoch vorwiegend an Verwaltungswissenschaftler:innen und alle Personen, die an digitaler Verwaltung interessiert sind, da die Inhalte anhand des Datentyps Tabelle aufbereitet werden, der eine zentrale Darstellungsform im Verwaltungskontext darstellt. Zudem sind die hier entwickelten Lerneinheiten anhand von Fallbeispielen konstruiert, die für diese Disziplin typisch sind.
+Grundsätzlich steht das Angebot allen Interessierten offen.  
+Aufgrund der Details in Bezug auf das Bauen eines Dashboards mit R Shiny, eignet sich diese OER besonders für technisch interessierte bzw. versierte Personen.  
+Thematisch richtet sich das Lernangebot vorwiegend an Verwaltungswissenschaftler:innen und alle Personen, die an digitaler Verwaltung interessiert sind, da das Fallbeispiel und die Datengrundlage aus dieser Disziplin stammen.
 
-Die Zielgruppe sind promovierende und promovierte Wissenschaftler:innen, aber auch Lehrende, die das Angebot für die eigene Lehre nachnutzen wollen.
-
-Die Fallstudie ist insbesondere für diejenigen relevant, die ein Interesse an urbanen Entwicklungsprozessen haben und diese auf Grundlage stadtsoziologischer und räumlicher Daten untersuchen möchten.
-
-Sie eignet sich besonders für technisch interessierte Personen, die erste Schritte in der räumlichen Datenanalyse, den Computational Urban Studies oder der Geoanalytik machen.
-
+Die Zielgruppe sind zudem promovierende und promovierte Wissenschaftler:innen, aber auch Lehrende, die das Angebot für die eigene Lehre nachnutzen wollen.
 
 ## Struktur der Fallstudie
 
 <span style="color:red">folgendes noch überarbeiten</span>.
 
-- Im **1. Schritt** wird relevantes Fach- und Kontextwissen vermittelt. Auf Grundlage der Frage *Was braucht es für eine gelungene Datenvisualisierung?* gehen wir auf Methoden und Werkzeuge der Datenvisualisierung ein.
+- Im **1. Schritt** wird eine Fragestellung aufgebaut und operationalisiert.
 
-- Im **2. Schritt** fokussieren wir uns auf die Darstellungsmethode Dashboards und ihre Möglichkeiten und zeigen Tools auf, mit denen man Dashboards gestalten kann.
+- Im **2. Schritt** wird der Untersuchungsgegenstand - also die Datengrundlage - beleuchtet und die Daten eingelesen und strukturiert.
 
-- Im **3. Schritt** zeigen wir beispielhaft, wie man mit dem Tool R Shiny ein Dashboard bauen kann.
+- Im **3. Schritt** erfahren Sie was Dashboards sind, welche Bedeutung sie für die Verwaltung haben können, mit welchen Tools sie gebaut werden können und schließlich wie R Shiny eingerichtet wird, um damit ein Dashboard zu bauen.
 
-... *to be continued*
+- Im **4. Schritt** führt Sie das Kapitel "Dashboards - Einzelelemente" Schritt für Schritt durch die Erweiterung eines Dashboards mit weiteren Visualisierungen wie Karten oder Zeitverläufen.
