@@ -29,7 +29,7 @@ Eine Anleitung für die ersten Schritte in RStudio findet sich weiter unten in d
 
 ## Nutzung dieses JupyterBooks
 
-Dieses JupyterBook besteht aus mehreren Kapiteln, die jeweils als einzelne Open Educational Resource (OER) gelten. Sie sind anhand einer Forschungsfrage durch einen roten Faden verbunden, können aber auch einzeln absolviert werden.
+Dieses JupyterBook besteht aus mehreren Kapiteln, die jeweils als einzelne [Open Educational Resource (OER)](https://de.wikipedia.org/wiki/Open_Educational_Resources) gelten. Sie sind anhand einer Forschungsfrage durch einen roten Faden verbunden, können aber auch einzeln absolviert werden.
 
 
 ------------------------------------------------------------------------
