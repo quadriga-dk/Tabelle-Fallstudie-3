@@ -28,10 +28,10 @@ Anhand dieser beiden Fragen ensteht folgende Operationalisierung:
 
 `````{admonition} Operationalisierung
 :class: hinweis
-Als Engagement soll in dieser Fallstudie gelten, wieviel Berliner Bäume gegossen werden. Dies lässt sich messen, indem die Menge gegossenen Wassers in Liter als Datengrundlage herangezogen wird. Ein besonders hohes Engagement läge demnach dann vor, wenn Bäume mit vielen Litern Wasser gegossen werden. Wird in einem Bezirk mehr gegossen als in einem anderen, läge dort ein höheres Engagement vor.
+Als Engagement soll in dieser Fallstudie gelten, wie intensiv Berliner Bäume gegossen werden. Dies lässt sich messen, indem die Menge gegossenen Wassers in Liter als Datengrundlage herangezogen wird. Ein besonders hohes Engagement läge demnach dann vor, wenn Bäume mit vielen Litern Wasser gegossen werden. Wird in einem Bezirk mehr gegossen als in einem anderen, läge dort ein höheres Engagement vor.
 `````
 
-Diese Operationalisierung ist wie jede wissenschaftliche Operationalisierung diskutabel. Engagement könnte zum Beispiel anders definiert oder unterschiedlich gemessen werden. Darüber hinaus ist die von Bürger:innen selbst erhobene Bewässerungsmenge nur eine bedingt reliable Datengrundlage.
+Diese Operationalisierung ist wie jede wissenschaftliche Operationalisierung diskutabel. Engagement könnte zum Beispiel anders definiert oder unterschiedlich gemessen werden. Darüber hinaus ist die von Bürger:innen selbst erhobene Bewässerungsmenge nur eine bedingt verlässliche Datengrundlage.
 
 Die Reflexion der Grenzen und Beschränkungen, die mit der eigenen Operationalisierung einhergehen, ist ebenfalls Bestandteil dieser Fallstudie. Darauf geht die abschließende [Zusammenfassung und Reflexion](reflexion) ein. 
 
