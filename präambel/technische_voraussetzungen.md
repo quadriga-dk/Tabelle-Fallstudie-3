@@ -39,7 +39,8 @@ Dieses JupyterBook besteht aus mehreren Kapiteln, die jeweils als einzelne [Open
 **Neues R Skript anlegen**  
 1. Öffnen Sie RStudio.  
 2. Ein Shiny Web App Skript, in dem Sie Befehle eingeben können, öffnen Sie
-unter *Files*: 
+unter *Files*:
+<span style="color:red">*Nachdem man "Shiny Web App" ausgefwählt hat, öffnet sich ein Fenster mit potenziell unklaren Speicherpräferenzen. Dieses würde ich erklären*</span>
  
 ```{figure} ../assets/R_Studio_open_new_script.png
 ---
@@ -63,7 +64,7 @@ Interface von RStudio.
 
 **R Skript:**  
 Im R Skript werden Befehle eingegeben, die **R** ausführen soll.
-Um einen Befehl auszuführen, drücken Sie `Strg + Enter`, um eine einzelne Zeile zu starten, oder markieren Sie den gewünschten Code-Abschnitt und drücke erneut `Strg + Enter`, um mehrere Zeilen gleichzeitig auszuführen. Alternativ können Sie den Run-App-Button in der oberen rechten Ecke des Fensters nutzen oder die Tastenkombination `Strg + Shift + S` verwenden.
+Um einen Befehl auszuführen, drücken Sie `Strg + Enter`, um eine einzelne Zeile zu starten, oder markieren Sie den gewünschten Code-Abschnitt und drücke erneut `Strg + Enter`, um mehrere Zeilen gleichzeitig auszuführen. Alternativ können Sie den Run-App-Button in der oberen rechten Ecke des Skript-Fensters nutzen oder die Tastenkombination `Strg + Shift + S` verwenden.
 Ein Beispielbefehl ist das vorab eingetragene Skript, das automatisch beim Erstellen einer neuen Shiny-Web-App generiert wird.
 Das Skript kann gespeichert und später erneut geöffnet werden.
 
