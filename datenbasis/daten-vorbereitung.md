@@ -29,8 +29,13 @@ Der Code ist am Ende jedes Unterkapitels in einer eingeklappten Box 'Gesamter Co
 
 **Installieren der Bibliotheken**
 
-Bevor die Daten eingelesen werden können, müssen Sie folgende Bibliotheken laden:
+Bevor die Daten eingelesen werden können, müssen Sie folgende Bibliotheken (und, sofern noch nicht geschehen, davor noch die daugehörigen Pakete) laden:
 ```bash
+# --- PAKETE: ---
+install.packages("sf")
+install.packages("tidyverse")
+
+# --- BIBLIOTHEKEN: ---
 library(sf)
 library(dplyr)
 library(tidyr)
