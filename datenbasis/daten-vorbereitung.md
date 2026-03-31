@@ -30,6 +30,8 @@ Der Code ist am Ende jedes Unterkapitels in einer eingeklappten Box 'Gesamter Co
 **Installieren der Bibliotheken**
 
 Bevor die Daten eingelesen werden können, müssen Sie folgende Bibliotheken (und, sofern noch nicht geschehen, davor noch die daugehörigen Pakete) laden:
+
+
 ```bash
 # --- PAKETE: ---
 install.packages("sf")
@@ -45,8 +47,20 @@ library(stringr)
 **Laden der Baumkatasterdaten**
 
 Die Berliner Baumdaten werden über eine WFS-Schnittstelle (Web Feature Service) bezogen. Dabei werden sowohl Anlagenbäume als auch Straßenbäume geladen. Dies geschieht mit dem Befehl `st_read`.
+<font color="red">Hier könnte man dem User den Link zu den Daten geben, damit er diese herunterlädt und in sein Working Directory hinzufügt. Dazu müsste man ihm aber erklären wie man das korret settet, was gar nicht so einfach ist. Solange der Link gültig ist, macht der Code das aber auch automatisch.</font>
 
 ```bash
+#0 CSV File lokalisieren bzw. laden
+
+local_path <- "Data/giessdenkiez_bewässerungsdaten.csv"
+url_path <- "https://raw.githubusercontent.com/technologiestiftung/giessdenkiez-de-opendata/main/daten/giessdenkiez_bew%C3%A4sserungsdaten.csv"
+
+if (file.exists(local_path)) {
+  csv_data <- local_path
+} else {
+  csv_data <- url_path
+}
+
 # 1. Baumbestandsdaten laden
 anlagenbaeume <- st_read("WFS:https://gdi.berlin.de/services/wfs/baumbestand", layer = "baumbestand:anlagenbaeume")
 strassenbaeume <- st_read("WFS:https://gdi.berlin.de/services/wfs/baumbestand", layer = "baumbestand:strassenbaeume")
@@ -61,7 +75,7 @@ Die Gießdaten stammen aus einer CSV-Datei des Projekts „Gieß den Kiez“. Si
 
 ```bash
 # 2. Bewässerungsdaten laden und bereinigen
-df_clean <- read.csv("data/giessdenkiez_bewässerungsdaten.csv", sep = ";", stringsAsFactors = FALSE, fileEncoding = "UTF-8") %>%
+df_clean <- read.csv(csv_data, sep = ";", stringsAsFactors = FALSE, fileEncoding = "UTF-8") %>%
   drop_na(lng, lat, bewaesserungsmenge_in_liter) %>%
   filter(strname != "Undefined" & strname != "" & !str_detect(gattung_deutsch, "[0-9]"))
 ```
@@ -126,12 +140,23 @@ library(dplyr)
 library(tidyr)
 library(stringr)
 
+#0 CSV File lokalisieren bzw. laden
+
+local_path <- "Data/giessdenkiez_bewässerungsdaten.csv"
+url_path <- "https://raw.githubusercontent.com/technologiestiftung/giessdenkiez-de-opendata/main/daten/giessdenkiez_bew%C3%A4sserungsdaten.csv"
+
+if (file.exists(local_path)) {
+  csv_data <- local_path
+} else {
+  csv_data <- url_path
+}
+
 # 1. Baumbestandsdaten laden
 anlagenbaeume <- st_read("WFS:https://gdi.berlin.de/services/wfs/baumbestand", layer = "baumbestand:anlagenbaeume")
 strassenbaeume <- st_read("WFS:https://gdi.berlin.de/services/wfs/baumbestand", layer = "baumbestand:strassenbaeume")
 
 # 2. Bewässerungsdaten laden und bereinigen
-df_clean <- read.csv("data/giessdenkiez_bewässerungsdaten.csv", sep = ";", stringsAsFactors = FALSE, fileEncoding = "UTF-8") %>%
+df_clean <- read.csv(csv_data, sep = ";", stringsAsFactors = FALSE, fileEncoding = "UTF-8") %>%
   drop_na(lng, lat, bewaesserungsmenge_in_liter) %>%
   filter(strname != "Undefined" & strname != "" & !str_detect(gattung_deutsch, "[0-9]"))
 
