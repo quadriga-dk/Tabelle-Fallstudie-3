@@ -7,7 +7,7 @@ lang: de-DE
 
 Die Visualisierung von Daten hat vor allem im Public Sector großes Potential, da es dort viele statistische Erhebungen gibt, die direkt oder indirekt mit den Bürger:innen zusammenhängen.  
 Sucht man nach Wegen wie sich diese Daten veranschaulichen und niedrigschwellig an die Gesellschaft (zurück) kommunizieren lassen, stößt man schnell auf Dashboards.  
-Dashboards wie das in Abb. 2.1 gezeigte <a href="https://www.digitale-verwaltung.de/Webs/DV/DE/aktuelles-service/dashboard_digitale_verwaltung/dashboard-node.html" class="external-link" target="_blank">Dashboard Digitale Verwaltung</a>, erlauben es, Informationen gebündelt und grafisch aufbereitet präzise darstellen zu können.
+Dashboards wie das in Abb. 2.1 gezeigte <a href="https://www.digitale-verwaltung.de/Webs/DV/DE/aktuelles-service/dashboard_digitale_verwaltung/dashboard-node.html" class="external-link" target="_blank">Dashboard Digitale Verwaltung</a>, erlauben es, Informationen gebündelt und grafisch aufbereitet präzise darzustellen.
 
 ```{figure} /assets/DDV_Screenshot_20260317.png
 ---
