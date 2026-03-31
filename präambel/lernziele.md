@@ -7,7 +7,7 @@ lang: de-DE
 
 ## Vorkenntnisse
 
-Diese Fallstudie fokussiert Dashboards als Mittel der Visualisierung von Daten für den Public Sector. Im Kapitel [Dashboard](dashboard) können Sie selbst ein Dashboard bauen. Dies setzt allerdings ein tieferes Verständnis der Funktionsweise der <a href="https://www.r-project.org" class="external-link" target="_blank">Programmiersprache R</a> voraus, sodass dieses Kapitel für *Fortgeschrittene* ist. 
+Diese Fallstudie fokussiert Dashboards als Mittel der Visualisierung von Daten für den Public Sector. Im Kapitel [Dashboard](dashboard) können Sie selbst ein Dashboard bauen. Ein Dashboard ist eine graphische Benutzeroberfläche mit welcher man Daten, Kennzahlen und Informationen visualisieren kann. Dies setzt allerdings ein tieferes Verständnis der Funktionsweise der <a href="https://www.r-project.org" class="external-link" target="_blank">Programmiersprache R</a> voraus, sodass dieses Kapitel für *Fortgeschrittene* ist. 
 
 ## Lernziele
 
