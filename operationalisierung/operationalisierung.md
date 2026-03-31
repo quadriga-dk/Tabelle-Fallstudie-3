@@ -6,7 +6,7 @@ lang: de-DE
 # Operationalisierung
 
 Mit der im vorherigen Abschnitt 2.1. entwickelten [Leitfrage](fragestellung) soll analysiert werden, wie stark sich die Berliner:innen für die Bäume in ihrer Stadt engagieren und in welchen Bezirken dieses Engagement am höchsten ist.
-Da der Begriff 'Engagement' nicht direkt beobachtbar oder messbar ist, muss zunächst eine Operationalisierung erfolgen, also ein Messverfahren für dieses theoretische Konzept entwickelt werden {cite}`krautter_operationalisierung_2023`.
+Da der Begriff 'Engagement' nicht direkt beobachtbar oder messbar ist, muss zunächst eine sogenannte Operationalisierung erfolgen, also ein Messverfahren für dieses theoretische Konzept entwickelt werden {cite}`krautter_operationalisierung_2023`.
 
 ```{figure} /assets/watering1.jpg
 ---
