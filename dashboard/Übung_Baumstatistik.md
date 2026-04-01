@@ -49,7 +49,7 @@ dashboardPage(
 ```
 ````
 
-```{figure} Dashboard_Baumstatistik_1.png
+```{figure} ../assets/Dashboard_Baumstatistik_1.png
 ---
 name: Dashboard Karte
 alt: Ein Screenshot, der zeigt Dashboard Karte
@@ -91,7 +91,7 @@ Das obenstehende Diagramm ist ein Balkendiagramm, genauer gesagt ein gestapeltes
 ```
 ````
 
-```{figure} Dashboard_Baumstatistik_2.png
+```{figure} ../assets/Dashboard_Baumstatistik_2.png
 ---
 name: Dashboard Karte
 alt: Ein Screenshot, der zeigt Dashboard Karte
@@ -129,7 +129,7 @@ Das obenstehende Diagramm ist ein Kreisdiagramm (auch Tortendiagramm genannt), d
 ```
 ````
 
-```{figure} Dashboard_Baumstatistik_3.png
+```{figure} ../assets/Dashboard_Baumstatistik_3.png
 ---
 name: Dashboard Karte
 alt: Ein Screenshot, der zeigt Dashboard Karte
@@ -157,7 +157,7 @@ Top 10 gegossene Baumgattungen. Die Abbildung zeigt die Top 10 gegossenen Baumga
 ```
 ````
 
-```{figure} Dashboard_Baumstatistik_4.png
+```{figure} ../assets/Dashboard_Baumstatistik_4.png
 ---
 name: Dashboard Karte
 alt: Ein Screenshot, der zeigt Dashboard Karte

@@ -28,7 +28,7 @@ So ist die Startseite nicht nur auf erstem Blick intuitiv und verständlich, son
 Für den Einstieg arbeitet Amir mit dem Datensatz *„Gieß den Kiez – Bewässerungsdaten“* von **GovData**. Dieser Datensatz bietet detaillierte Informationen darüber, wann, wo und wie viel gegossen wurde. Er eignet sich ideal, um erste Analysen zum Gießverhalten zu erstellen, da er sowohl zeitliche als auch räumliche Bezüge enthält und öffentlich zugänglich ist.
 
 
-```{figure} Dashboard_Startseite.png
+```{figure} ../assets/Dashboard_Startseite.png
 ---
 name: Dashboard Startseite
 alt: Ein Screenshot, der zeigt Dashboard Startseite
