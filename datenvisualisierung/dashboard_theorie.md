@@ -5,7 +5,7 @@ lang: de-DE
 (dashboard_theorie)=
 # Dashboards
 
-Im vorherigen Unterkapitel haben Sie einen Überblick über grundsätzliche Aspekte zum Thema Datenvisualisierung erhalten. Dieses Unterkapitel widmet sich dem Thema Dashboards, eines besonderen Art der Visualisierung.
+Im vorherigen Unterkapitel haben Sie einen Überblick über grundsätzliche Aspekte zum Thema Datenvisualisierung erhalten. Dieses Unterkapitel widmet sich dem Thema Dashboards, einer besonderen Art der Visualisierung.
 
 ```{admonition} Story
 :class: story
