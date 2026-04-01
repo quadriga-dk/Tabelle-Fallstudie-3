@@ -47,7 +47,7 @@ library(stringr)
 **Laden der Baumkatasterdaten**
 
 Die Berliner Baumdaten werden über eine WFS-Schnittstelle (Web Feature Service) bezogen. Dabei werden sowohl Anlagenbäume als auch Straßenbäume geladen. Dies geschieht mit dem Befehl `st_read`.
-<font color="red">Hier könnte man dem User den Link zu den Daten geben, damit er diese herunterlädt und in sein Working Directory hinzufügt. Dazu müsste man ihm aber erklären wie man das korret settet, was gar nicht so einfach ist. Solange der Link gültig ist, macht der Code das aber auch automatisch.</font>
+<font color="red">Hier könnte man dem User den Link zu den Daten geben, damit er diese herunterlädt und in sein Working Directory hinzufügt. Dazu müsste man ihm aber erklären wie man das korret settet, was gar nicht so einfach ist. Solange der Link gültig ist, lädt der Code zwar die Datei automatisch, speichert sie jedoch nicht im Directory.</font>
 
 ```bash
 #0 CSV File lokalisieren bzw. laden
@@ -206,6 +206,8 @@ Einige Bäume verfügen nicht über eine Angabe zu ihrem Bezirk. Um eine aggregi
 - Das Ergebnis wird mit den ursprünglichen Daten wieder zusammengeführt.
 
 **Code Erklärung:**
+
+<font color="red">Die [Quelle](https://daten.odis-berlin.de/de/dataset/bezirksgrenzen/) der geojson Datei wird im vorherigen Kapitel verlinkt, allerdings wird nicht gesagt, dass man diese herunterzuladen hat. Die Erklärung zur korrekten lokalen Speicherung und Pfadsetzung muss auch noch ausgearbeitet werden, da sich dies von Endgerät zu Endgerät unterscheidet.</font>
 
 **1. Die Bezirkskarte laden**
 
