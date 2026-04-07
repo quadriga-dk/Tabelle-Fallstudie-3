@@ -12,7 +12,7 @@ Nachdem Amir Weber sich über die Grundlagen der Visualisierung und das Bauen vo
 ```
 
 
-**Weshalb ist ein Vergleich zwischen anderen Visualisierungswerkzeugen sinnvoll ist**
+**Weshalb ist ein Vergleich zwischen anderen Visualisierungswerkzeugen sinnvoll ist:**
 
 Der Vergleich zwischen R Shiny und anderen Visualisierungswerkzeugen wie Python Dash, Power BI oder Tableau ist für datengetriebene Projekte besonders relevant, da jedes dieser Tools unterschiedliche Stärken, Funktionalitäten und Zielgruppen adressiert. Die Auswahl eines geeigneten Visualisierungstools hängt maßgeblich von den konkreten Zielen, Anforderungen und Rahmenbedingungen eines Projekts ab – ebenso wie von den technischen Vorkenntnissen und persönlichen Präferenzen der Nutzer:innen. Während Power BI und Tableau häufig im unternehmerischen Umfeld zum Einsatz kommen, werden R Shiny und Python-basierte Lösungen vor allem im wissenschaftlichen und analytischen Kontext verwendet. 
 
@@ -20,15 +20,15 @@ Im Folgenden werden die jeweiligen Werkzeuge und ihre Besonderheiten näher erl�
 
 ## Erläuterung der ausgewählten Visualisierungswerkzeugen
 
-<u>R Shiny:</u>  R Shiny ist ein Open Source Webanwendungs-Framework für R, welches von RStudio entwickelt worden ist. Das Shiny Framework ermöglicht es R-Nutzern, webbasierte grafische Benutzeroberflächen (GUIs) mit den dazugehörigen R-Analysen und Visualisierungen zu entwickeln. [@walker_tools_2016]
+**<u>R Shiny:</u>**  R Shiny ist ein Open Source Webanwendungs-Framework für R, welches von RStudio entwickelt worden ist. Das Shiny Framework ermöglicht es R-Nutzern, webbasierte grafische Benutzeroberflächen (GUIs) mit den dazugehörigen R-Analysen und Visualisierungen zu entwickeln. [@walker_tools_2016]
 
 Der Hauptzweck von Shiny ist es, diese erstellten Benutzeroberflächen zu veröffentlichen, damit auch Personen ohne Programmierkenntnisse (Nicht-Coder) mit den Daten interagieren und diese selbst visualisieren können. [@walker_tools_2016]
 
-<u>Python Dash:</u> Python Dash ist ein leistungsfähiges Open-Source-Framework, welches von Plotly für Python Entwickler entwickelt worden ist. Dash ermöglicht es, vollständig ausgestaltete analytische Datenanwendungen und interaktive Dashboards zu kreieren, ohne Kenntnisse in Frontend-Technologien wie HTML, CSS oder JavaScript. Gerade diese Zugänglichkeit macht einen wesentlichen Vorteil von Dash aus. [@dabbas_interactive_2021]
+**<u>Python Dash:</u>** Python Dash ist ein leistungsfähiges Open-Source-Framework, welches von Plotly für Python Entwickler entwickelt worden ist. Dash ermöglicht es, vollständig ausgestaltete analytische Datenanwendungen und interaktive Dashboards zu kreieren, ohne Kenntnisse in Frontend-Technologien wie HTML, CSS oder JavaScript. Gerade diese Zugänglichkeit macht einen wesentlichen Vorteil von Dash aus. [@dabbas_interactive_2021]
 
-<u>Power BI:</u> Das von Microsoft entwickelte Power BI ist ein Analysetool für Unternehmen. Das Tool ermöglicht die Analyse von Daten und das Teilen von Erkenntnissen über Berichte und Dashboards. Entwickelt wurde Power BI mit dem Ziel, Business Intelligence und Datenanalyse zu vereinfachen, indem es Einzelpersonen und Organisationen ermöglicht, mit minimalem Zeit- und Arbeitsaufwand Daten beizutragen und somit Berichte zu erstellen oder automatisch generieren (über die Quick Insights Funktion) zu lassen. Zusammengefasst werden können diese Berichte in Dashboards, welche anschließend freigegeben werden können.[@krishnan_research_nodate]
+**<u>Power BI:</u>** Das von Microsoft entwickelte Power BI ist ein Analysetool für Unternehmen. Das Tool ermöglicht die Analyse von Daten und das Teilen von Erkenntnissen über Berichte und Dashboards. Entwickelt wurde Power BI mit dem Ziel, Business Intelligence und Datenanalyse zu vereinfachen, indem es Einzelpersonen und Organisationen ermöglicht, mit minimalem Zeit- und Arbeitsaufwand Daten beizutragen und somit Berichte zu erstellen oder automatisch generieren (über die Quick Insights Funktion) zu lassen. Zusammengefasst werden können diese Berichte in Dashboards, welche anschließend freigegeben werden können.[@krishnan_research_nodate]
 
-<u>Tableau:</u> Bei Tableau handelt es sich um eine Software für die Erstellung von Visualisierungen. Entwickelt wurde Tableau von Tableau Inc. als Visualisierungstool für die Erstellung oder Programmierung von Dashboards im Business-Intelligence-Bereich. [@wood_diabetes_2019] [@vasundhara_data_nodate] Die Besonderheit an Tableau ist, dass die Verwendung durch die GUI mit drag and drop relativ unkompliziert ist.[@vasundhara_data_nodate]
+**<u>Tableau:</u>** Bei Tableau handelt es sich um eine Software für die Erstellung von Visualisierungen. Entwickelt wurde Tableau von Tableau Inc. als Visualisierungstool für die Erstellung oder Programmierung von Dashboards im Business-Intelligence-Bereich. [@wood_diabetes_2019] [@vasundhara_data_nodate] Die Besonderheit an Tableau ist, dass die Verwendung durch die GUI mit drag and drop relativ unkompliziert ist.[@vasundhara_data_nodate]
 
 ## Vergleich im Überblick
 
@@ -53,7 +53,7 @@ Um die unterschiedlichen Stärken und Einsatzbereiche der vier Tools noch klarer
 
 
 **Lizenzmodell und Einsatzszenarien**
-<u>Dash</u> und <u>Shiny</u> sind beide Open Scource Anwendungen können diese Frameworks kostenlos verwendet werden. [@dabbas_interactive_2021] Im Gegensatz dazu setzen <u>Power BI</u> und <u>Tableau</u> für die vollständigen Versionen auf kommerzielle Lizenzmodelle. Power BI und Tableau bieten beide zusätzlich auch noch eine kostenfreie Version an, die allerdings nicht alle Funktionen bereitstellt, die auch die kostenpflichtige Version bereitstellt, besonders für kleine und mittlere Unternehmen stellt die kostenlose Option über ausreichende Funktionen und Features zur Verfügung. [@krishnan_research_nodate]
+<u>Dash</u> und <u>Shiny</u> sind beide Open Scource Anwendungen können diese Frameworks kostenlos verwendet werden. [@dabbas_interactive_2021] Im Gegensatz dazu setzen <u>Power BI</u> und <u>Tableau</u> für die vollständigen Versionen auf kommerzielle Lizenzmodelle. Power BI und Tableau bieten beide zusätzlich auch noch eine kostenfreie Version an, die allerdings nicht alle Funktionen bereitstellt, die auch die kostenpflichtige Version bereitstellt, besonders für kleine und mittlere Unternehmen stellt die kostenlose Option über ausreichende Funktionen und Features zur Verfügung. [@krishnan_research_nodate] <span style="color:red">Dürfen Unternehmen die nicht kommerzielle Version überhaupt nutzen?</span>.
 
 **Programmiersprache, Zielgruppe, Bedienbarkeit, Erweiterbarkeit**
 <u>R Shiny</u> ist vollständig auf der Programmiersprache R aufgebaut und eignet sich besonders für Nutzer: innen aus Wissenschaft und Datenanalyse. [@khedr_interactive_2021] Diese Verbundenheit mit dem R Ökosystem ist für Shiny enormer Vorteil, da Shiny dadurch leicht erweiterbar ist,diese verwenden zu können, setzt aber Vorkenntnisse in der Programmiersprache R voraus. [@walker_tools_2016]
@@ -73,7 +73,7 @@ width: 300px
 R Shiny Aufbau (Quelle: <a href="https://www.inwt-statistics.com/blog/best-practice-development-of-robust-shiny-dashboards-as-r-packages" target="_blank">Best Practice: Shiny Dashboards</a> )
 ``` 
 
-<u>Shiny</u> Eine Anwendung besteht aus einer serverseitigen Logik und einer Benutzeroberfläche (UI). Beide Komponenten werden häufig in einer gemeinsamen Datei (app.R) implementiert. Eine Trennung ist jedoch möglich, indem Server- und UI-Teil in die Dateien server.R beziehungsweise ui.R ausgelagert und anschließend über app.R integriert werden. [@walker_tools_2016]
+Eine <u>Shiny</u> Anwendung besteht aus einer serverseitigen Logik und einer Benutzeroberfläche (UI). Beide Komponenten werden häufig in einer gemeinsamen Datei (app.R) implementiert. Eine Trennung ist jedoch möglich, indem Server- und UI-Teil in die Dateien server.R beziehungsweise ui.R ausgelagert und anschließend über app.R integriert werden. [@walker_tools_2016]
 
 ```{figure} ../assets/Python_Architektur.png
 ---
@@ -91,8 +91,8 @@ Python Architektur [@dabbas_interactive_2021]
 
 Die Architektur von <u>Power BI</u> ist cloud-zentriert und umfasst mehrere Module. Die wesentlichen Bauteile sind:
 
-- Power BI Desktop ist das lokale Entwicklungstool. Diese Bauteil wird für die Datenanbindung, die Datentransformation (mittels Power Query), für die Modellierung anhand von Power Pivot und für die Erstellung von Berichten verwendet. [@arkharov_power_2024] Für die Berichtsentwichklung ist Power BI Desktop das Hauptwerkzeug. Dafür können Daten aus den verschiedensten Quellen importiert oder über DirectQuery verbunden werden. [@arkharov_power_2024] [@denglishbi_bi-losungsarchitektur_nodate]
-- Power BI Service dient der Veröffentlichung und Interaktion, es bildet die Online-Plattform. Online werden Berichte und Dashboards in der Cloud geteil. Der Dienst nutzt die Microsoft-Azure-Infrastruktur. Wodurch Nutzer über mobile Apps oder Browser darauf zugreifen können. Die Dashboards ermöglichen das die Visualisierungen interaktiviert werden, anhand der Power Q&A Funktion können sogar Abfragen mit Hilfe natürlicher Sprache durchgeführt werden. [@arkharov_power_2024] 
+- Power BI Desktop ist das lokale Entwicklungstool. Dieses Bauteil wird für die Datenanbindung, die Datentransformation (mittels Power Query), für die Modellierung anhand von Power Pivot und für die Erstellung von Berichten verwendet. [@arkharov_power_2024] Für die Berichtsentwichklung ist Power BI Desktop das Hauptwerkzeug. Dafür können Daten aus den verschiedensten Quellen importiert oder über DirectQuery verbunden werden. [@arkharov_power_2024] [@denglishbi_bi-losungsarchitektur_nodate]
+- Power BI Service dient der Veröffentlichung und Interaktion, es bildet die Online-Plattform. Online werden Berichte und Dashboards in der Cloud geteilt. Der Dienst nutzt die Microsoft-Azure-Infrastruktur, wodurch Nutzer über mobile Apps oder Browser darauf zugreifen können. Die Dashboards ermöglichen das die Visualisierungen interaktiv werden, anhand der Power Q&A Funktion können sogar Abfragen mit Hilfe natürlicher Sprache durchgeführt werden. [@arkharov_power_2024] 
     - Die Microsoft Azure Infrastruktur wird in zwei Teile unterteilt: 
         - Das Front End Cluster dient als Interface zwischen Backend Cluster und dem Client (Web oder mobile App) und authentifiziert den Benutzer für  Power BI Service. [@arkharov_power_2024] 
         - Das Backend End Cluster enthält alle Daten, Visualisierungen, Berichte und verarbeitete alle Nutzer interaktionen. Das Backend nutzt die Microsoft Entra ID, um die Identität der Nutzer zu managen. Der Azure Traffic Manager verbindet den Client mit dem nahegelegenen Datencenter und der Inhalt wird über Azure CDN bereitgestellt. [@arkharov_power_2024]  
@@ -110,7 +110,7 @@ Genau wie <u>Python Dash</u> und <u>R-Shiny</u> basiert <u>Tableau</u> auch auf 
 
 In Bezug auf Interaktivität bieten <u>Shiny</u> und <u>Dash</u> das höchste maß an Flexibilität, da die beiden auf einem reaktiven Programmiermodell basieren. In Shiny Anwendungen können Benutzer aktiv in den Analyseprozess eingebunden werden, anhand von Slidern die erlauben die Daten zum Beispiel für einen Bestimmten Zeitraum zu analysieren, Dropdowns oder Karten mit den interagiert werden kann, durch diese interaktionsmöglichkeiten wird die Visualisierung bei jeder Eingabe serverseitig aktualisiert. Dash regelt das auf eine ähnliche Art und Weise, durch sogenannte Callback- Funktionen werden UI- Elemente mit Diagrammen verknüpft, was explorative Datenanalyse ermöglicht. [@dabbas_interactive_2021]
 
-Auch <u>Power BI</u> und <u>Tableau</u> bieten Interaktivität, dies jedoch innerhalb ihrer Benutzeroberflächen.  Standardmäßig sind Filter, Drilldowns und Highlighting-Funktionen vorhanden. [@walker_tools_2016] Im Vergleich zu Shiny und Dash ist die Interaktivität Tiefe jedoch begrenzt, da es schwieriger, komplexer ist, benutzerdefinierte Logiken umzusetzen. 
+Auch <u>Power BI</u> und <u>Tableau</u> bieten Interaktivität, dies jedoch innerhalb ihrer Benutzeroberflächen.  Standardmäßig sind Filter, Drilldowns und Highlighting-Funktionen vorhanden. [@walker_tools_2016] Im Vergleich zu Shiny und Dash ist die Interaktivität Tiefe jedoch begrenzt, da es schwieriger und komplexer ist, benutzerdefinierte Logiken umzusetzen. 
 
 **Einbindung externer Daten**
 
@@ -118,7 +118,7 @@ Auch <u>Power BI</u> und <u>Tableau</u> bieten Interaktivität, dies jedoch inne
 
 <u>Python Dash</u> ist vergleichbar in der Flexibilität der Datenverbindung mit Shiny. Dash profitiert genauso wie Shiny vom R-Ökosystem vom Python-Ökosystem deshalb lassen sich auch hier zahlreiche Datenquellen einbinden, wie zum Beispiel lokale Dateien, SQL- oder NoSQL-Datenbanken, REST-APIs oder Cloud-basierte Speicherlösungen. [@noauthor_managing_nodate]
 
-<u>Power BI</u> bietet eine umfangreiche anzahl an Datenkonnektoren, die eine unkomplizierte Verbindung zu verschiedenen Datenquellen ermöglichen. Hierzu gehören unter anderem Excel, CSV-Dateien, relationale Datenbanken wie SQL Server, Oracle oder MySQL sowie Cloud-Dienste wie Azure, Salesforce oder Google Analytics. [@davidiseminger_data_nodate] Es ermöglicht zusätzlich die Integration von ETL-Prozess (Extract, Transform, Load) zum Datenbereinigen. [@odonnell_interaktive_2020]
+<u>Power BI</u> bietet eine umfangreiche Anzahl an Datenkonnektoren, die eine unkomplizierte Verbindung zu verschiedenen Datenquellen ermöglichen. Hierzu gehören unter anderem Excel, CSV-Dateien, relationale Datenbanken wie SQL Server, Oracle oder MySQL sowie Cloud-Dienste wie Azure, Salesforce oder Google Analytics. [@davidiseminger_data_nodate] Es ermöglicht zusätzlich die Integration von ETL-Prozess (Extract, Transform, Load) zum Datenbereinigen. [@odonnell_interaktive_2020]
 
 <u>Tableau</u>  erlaubt ebenso eine Vielzahl an Datenanbindungen. Es unterstützt strukturierte Daten aus Datenbanken (z. B. MySQL, PostgreSQL, Snowflake) sowie Daten aus Cloud-Diensten und unstrukturierte Quellen wie Excel oder Textdateien. [@noauthor_supported_nodate]
 
