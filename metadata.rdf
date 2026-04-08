@@ -7,12 +7,13 @@
   </schema:AlignmentObject>
   <schema:Book rdf:about="https://quadriga-dk.github.io/Book_Template/">
     <dc:type>Jupyter Book</dc:type>
-    <dcterms:tableOfContents>- Präambel
+    <dcterms:tableOfContents>- Einstieg
 - Fragestellung und Operationalisierung
-- Datenvisualierung
-- Ein Dashboard bauen
+- Datenbasis (Korpusaufbau)
+- Dashboard - Vorbereitung
+- Dashboard - Einzelelemente
 - Zusammenfassung und Reflexion
-- Epilog</dcterms:tableOfContents>
+- Abschluss</dcterms:tableOfContents>
     <dcterms:type>Jupyter Book</dcterms:type>
     <lrmi:learningResourceType>Jupyter Book</lrmi:learningResourceType>
     <schema:about>

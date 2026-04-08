@@ -29,6 +29,16 @@ Die höchste Gesamtbewässerung wurde im **Jahr 2022** erreicht, mit einem Volum
 - *Grenzen der Aussagen (Was können die Daten sagen und was nicht?)*
 - Und wie robust sind unsere Befunde gegenüber unterschiedlichen Operationalisierungen?
 
+Grenzen der Operationalisierung:
+- Engagement kann anders definiert werden
+- Gießverhalten kann unterschiedlich gemessen werden
+
+Grenzen der Datensätze
+- Daten zum Bewässerungsverhalten stammen von Bürger:innen selbst und sind daher nur bedingt reliabel
+
+Grenzen des Dashboards
+- Einbindung der Bürger:innen (z. B. durch eigenes Eintragen gegossener Wassermengen) bedarf eines interaktiven Dashboards, das die Möglichkeiten dieser Fallstudie übersteigt, von der Plattform GdK aber erfolgreich umgesetzt ist
+
 
 Ein möglicher Einflussfaktor: Die Erhebung differenziert nicht zwischen Straßenbäumen und Bäumen in Grünanlagen. Für eine aussagekräftigere Bewertung wäre eine separate Analyse dieser Baumtypen erforderlich.
 

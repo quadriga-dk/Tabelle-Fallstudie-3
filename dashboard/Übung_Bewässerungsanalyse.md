@@ -3,7 +3,7 @@ lang: de-DE
 ---
 
 (watering)=
-# Einfügen Bewässerungsanalyse
+# Eine Bewässerungsanalyse einfügen
 ```{admonition} Story
 :class: story
 
@@ -34,7 +34,7 @@ Welche Geschichte erzählen die Daten, wenn man Liter statt Baumanzahl betrachte
 ## Die Benutzeroberfläche (UI)
 In der UI definieren wir eine neue Tab-Seite namens "stats" mit zwei Diagrammfeldern. In jedem Diagrammfeld findet man je eines des beiden erstellten Diagramme.
 
-```{figure} Dashboard_Bewässerungsanalyse_1.png
+```{figure} ../assets/Dashboard_Bewässerungsanalyse_1.png
 ---
 name: Dashboard Karte
 alt: Ein Screenshot, der zeigt Dashboard Karte
@@ -64,7 +64,7 @@ Balkendiagramm zur Bewässerung pro Bezirk (2020–2024). Die Abbildung zeigt di
         ),
 ```
 ````
-```{figure} Dashboard_Bewässerungsanalyse_2.png
+```{figure} ../assets/Dashboard_Bewässerungsanalyse_2.png
 ---
 name: Dashboard Karte
 alt: Ein Screenshot, der zeigt Dashboard Karte

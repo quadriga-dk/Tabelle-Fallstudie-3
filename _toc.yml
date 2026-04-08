@@ -14,23 +14,24 @@ chapters:
     sections:
       - file: operationalisierung/fragestellung
       - file: operationalisierung/operationalisierung
-      - file: operationalisierung/Datenbasis
       - file: operationalisierung/resümee
+  - file: datenbasis/datenbasis-einleitung
+    sections:
+      - file: datenbasis/datenbasis
+      - file: datenbasis/daten-vorbereitung
   - file: datenvisualisierung/Datenvisualisierung
     sections:
-      - file: datenvisualisierung/Datenvisualisierung-Grundlagen
       - file: datenvisualisierung/dashboard_theorie
       - file: datenvisualisierung/Vergleich
-      - file: datenvisualisierung/Umsetzung_mit_rshiny_edit
+      - file: dashboard/dashboard-vorbereitung
   - file: dashboard/Dashboard
-    sections:
-      - file: dashboard/Einführung
+    sections:      
+      - file: datenvisualisierung/Datenvisualisierung-Grundlagen
       - file: dashboard/Übung_Startseite
       - file: dashboard/Übung_Karte
       - file: dashboard/Übung_Zeitverlauf
       - file: dashboard/Übung_Baumstatistik
       - file: dashboard/Übung_Bewässerungsanalyse
-      - file: dashboard/Übung_Infrastruktur
   - file: Zusammenfassung
   - file: epilog/Epilog
     sections:

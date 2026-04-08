@@ -3,28 +3,35 @@ lang: de-DE
 ---
 
 (datenvisualisierung-methoden-werkzeuge)=
-# Grundlagen der Datenvisualisierung
+# Datenvisualisierung in Dashboards
 
-Dieses Kapitel gibt einen grundsätzlichen Überblick zum Thema Datenvisualisierung. ...  
+Datenvisualisierung ist die grafische Repräsentation von Daten und Informationen. Dieses Kapitel gibt einen Überblick zu den Grundlagen von Datenvisualisierungen.
 
 ```{admonition} Story
 :class: story
 Amir Weber möchte Daten zu Bäumen und zum Gießverhalten ansprechend visualisieren. Wie lässt sich das umsetzen? Zuerst braucht er Grundkenntnisse in Bezug auf das Visualisieren von Daten.
 ```
 
+```{figure} /assets/GdK_Screenshot_20260313.png
+---
+align: center
+width: 100%
+name: Dashboard Gieß den Kiez 
+alt: Das Dashboard des Projektes "Gieß des Kiez" mit Visualisierungen zur Bewässerung von Bäumen in Berlin.
+---
+Screenshot des Dashoards des Projekts Gieß den Kiez vom 13.03.2026.
+```
+
 ## Grundlagen
 
-Datenvisualisierung ist die grafische Repräsentation von Daten und Informationen.
+Da es bereits einige Lernressourcen zum Thema Datenvisualisierung gibt, verlinken wir an dieser Stelle einige Empfehlungen:
 
-Dieses Kapitel möchte Ihnen einen Überblick zum Thema Datenvisualisierung geben. Da es bereits einige Lernressourcen zum Thema Datenvisualisierung gibt, verlinken wir an dieser Stelle einige von ihnen. 
-
-- Im Rahmen von <a href="https://www.quadriga-dk.de/de/" target="_blank">Quadriga</a> wurde in einer OER über Studentische Filme bereits ein <a href="https://quadriga-dk.github.io/Bewegtes-Bild-Fallstudie-2/auswertung/visualisierung.html" target="_blank">Kapitel über Visualisierung</a> kreiert, in das ein Blick auch aus Perspektive der Verwaltung(swissenschaft) lohnt.
-- Das Civid Data Lab hat eine Seite zum Thema <a href="https://civic-data.de/datenlebenszyklus/daten-visualisieren/" target="_blank">Daten visualisieren</a> eingerichtet auf der es ein großes Angebot an nach Kompetenzlevel gestaffelten Kursen, Videos und Webseiten gibt.
-- Das Civic Data Lab hat darüber hinaus einen <a href="https://moodle.gi.de/moodle/" target="_blank">Lernraum</a> geschaffen, in dem es einen Kurs zu <a href="https://moodle.gi.de/moodle/enrol/index.php?id=16" target="_blank">Datenvisualisierung und Storytelling</a> gibt. Der Kurs ist von Nicolas Dankel unter der Lizenz CC BY-SA 4.0 veröffentlich und dauert 3-5 Stunden - je nachdem wie intensiv die Aufgaben angegangen werden.
-- Ebenfalls beim Civic Data Lab gibt es einen <a href="https://civic-data.de/datenvisualisierung-einfuehrung/" target="_blank">Blog-Eintrag</a> zum Thema Datenvisualisierung für alle, die keine 3 Stunden Zeit haben.
-- Von der RWTH Aachen stammt ein 14-minütiges <a href="https://future-skills-journey.de/was-ist-datenvisualisierung?show_status_form=1" target="_blank">Video</a> "Was ist Datenvisualisierung" von Malte Persiske, dass ebenfalls CC BY-SA 4.0 veröffentlicht wurde und hier über die Plattform Future skills Journey zur Verfügung gestellt wird.
-
-Eher für Fortgeschrittene ist ein <a href="https://www.skala-campus.org/artikel/tipps-daten-visualisieren-excel/" target="_blank">Blog-Beitrag</a> mit dem Titel "Daten visualisieren (III): Datenvisualisierungs-Tools im Überblick" auf der Lernplattform Skala Campus von Nina Hauser. Die ersten beiden Teile sind dort selbstverständlich auch abrufbar.
+- Wer noch wenig Erfahrung mit Datenvisualisierung hat, findet im  <a href="https://civic-data.de/datenvisualisierung-einfuehrung/" target="_blank">Blog-Eintrag</a> des Civic Data Labs</a> einen zugänglichen Einstieg ins Thema – ganz ohne Programmierkenntnisse.
+- Das <a href="https://future-skills-journey.de/was-ist-datenvisualisierung?show_status_form=1" target="_blank">Einsteigervideo</a> der RWTH Aachen erklärt in 14 Minuten kompakt, was Datenvisualisierung ist und welche Arten von Visualisierungen es gibt – ergänzt durch Reflexionsfragen zur Vertiefung.
+- Wer auf der Suche nach weiteren Lernressourcen zu Datenvisualisierung ist, findet beim <a href="https://civic-data.de/datenlebenszyklus/daten-visualisieren/" target="_blank">Civic Data Lab</a>  eine umfassende Sammlung an externen Empfehlungen – strukturiert nach Anfänger:in, Fortgeschrittene und Expert:in, mit passenden Kursen, Cheat Sheets und Praxistipps zu Tools wie Datawrapper, Excel, ggplot2, Tableau und Power BI. Schaut dort gerne rein, um eure Vorerfahrungen mit dem Thema besser einschätzen zu können.  
+- Das Civic Data Lab hat darüber hinaus einen eigenen Lernraum geschaffen, in dem es einen Kurs zu <a href="https://moodle.gi.de/moodle/enrol/index.php?id=16" target="_blank">Datenvisualisierung und Storytelling</a> gibt. Der Kurs vermittelt in drei aufeinander aufbauenden Modulen sowohl die Konzepte hinter Visualisierung und Storytelling als auch praktische Methoden und lehrt, warum und wie man Daten als Geschichte erzählt.
+- Im Rahmen von <a href="https://www.quadriga-dk.de/de/" target="_blank">Quadriga</a> wurde in einer anderen Fallstudie über Studentische Filme bereits ein <a href="https://quadriga-dk.github.io/Bewegtes-Bild-Fallstudie-2/auswertung/visualisierung.html" target="_blank">Kapitel über Visualisierung</a> kreiert, in das ein Blick auch aus Perspektive der Verwaltung(swissenschaft) lohnt.
+- Wer bereits Grundkenntnisse mitbringt, findet im <a href="https://www.skala-campus.org/artikel/tipps-daten-visualisieren-excel/" target="_blank">Blog-Beitrag</a> „Daten visualisieren (III): Datenvisualisierungs-Tools im Überblick" von Nina Hauser auf dem Skala Campus einen strukturierten Überblick über gängige Tools zur Datenvisualisierung. 
 
 
 
@@ -32,17 +39,22 @@ Eher für Fortgeschrittene ist ein <a href="https://www.skala-campus.org/artikel
 
 *Was braucht es für eine gelungene Datenvisualisierung?*
 
+## Gestaltung von Dashboards
+
+Wo eine Visualisierung im Dashboard positioniert wird, kann Einfluss auf ihre (wahrgenommene) Bedeutung haben.
+
 
 ## Haltung
 
-Haltung wird oft als einer von drei Teilen genannt, wenn es um Kompetenzbildung geht (*LitV: Schüller o.ä.*). Das bedeutet eine kritische Perspektive einnehmen - nicht nur bei der Nutzung der Daten anderer, sondern auch bei der Erstellung, Analyse, Auswertung und Publikation eigener Forschungsergebnisse bzw. Daten. Dies gilt insbesondere für Visualisierungen, da sie in der Regel bereits eine vereinfachte Darstellung eines komplexen Sachverhaltes sind, einen Abstraktionsgrad aufweisen und den Blick der Nutzenden auch un- bzw. unterbewusst bereits in eine bestimmte Richtung lenken können (Einsatz von Farben etc.). 
+Haltung wird neben Wissen und Fähigkeiten oft als einer von drei Teilen genannt, wenn es um Kompetenzbildung geht (*LitV: Schüller o.ä.*). Das bedeutet eine kritische Perspektive einnehmen - nicht nur bei der Nutzung der Daten anderer, sondern auch bei der Erstellung, Analyse, Auswertung und Publikation eigener Forschungsergebnisse bzw. Daten. Dies gilt insbesondere für Visualisierungen, da sie in der Regel bereits eine vereinfachte Darstellung eines komplexen Sachverhaltes sind, einen Abstraktionsgrad aufweisen und den Blick der Nutzenden auch un- bzw. unterbewusst bereits in eine bestimmte Richtung lenken können (Einsatz von Farben etc.). 
 
-Im Gegensatz zu einer Tabelle sind Visualisierungen übersichtlicher, das (Forschungs-)Ergebnis ist auf Hauptthesen herunter gebrochen und ansprechend dargestellt. In dieser Abstraktion liegt die Gefahr von Missinterpretationen ... Die Gefahr besteht sowohl im Entwerfen eigener Grafiken, als auch in der fälschlichen Wahrnehmung der Grafiken anderer.
+Im Gegensatz zu einer Tabelle sind Visualisierungen oft ansprechender gestaltet. Durch Farbgebungen lässt sich ein starker Fokus setzen, was allerdings auch dazu genutzt werden kann, um das Hauptaugenmerk abzulenken.  
+Zudem ist eine Visualisierung immer auch eine Abstraktion. Sie bricht das (Forschungs-)Ergebnis auf einige Aspekte herunter und unterstreicht diese damit. Daher liegt darin auch eine Gefahr von Missinterpretationen. Die Gefahr besteht sowohl im Entwerfen eigener Grafiken, als auch in der fälschlichen Wahrnehmung der Grafiken anderer.
 
 
 ```{admonition} zusätzliche Materialien
 :class: seealso
-Das Civic Data Lab hat eine <a href="https://civic-data.de/app/uploads/Checkliste-Datenvisualisierung.pdf" target="_blank">Checkliste</a> veröffentlicht, die dabei helfen kann, Visualisierungen kritisch zu lesen. Im Fokus steht dabei, woher die Daten kommen und wie sie grafisch dargestellt werden. <span style="color:red">Diese Checkliste können Sie auch aus unserem Repositorium herunterladen</span> 
+Das <a href="https://civic-data.de/" target="_blank">Civic Data Lab</a> hat eine <a href="https://civic-data.de/app/uploads/Checkliste-Datenvisualisierung.pdf" target="_blank">Checkliste</a> veröffentlicht, die dabei helfen kann, Visualisierungen kritisch zu lesen. Im Fokus steht dabei, woher die Daten kommen und wie sie grafisch dargestellt werden. 
 ```
 
 

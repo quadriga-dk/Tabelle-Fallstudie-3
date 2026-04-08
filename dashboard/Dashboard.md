@@ -3,7 +3,7 @@ lang: de-DE
 ---
 
 (dashboard)=
-# Ein Dashboard bauen
+# Dashboard - Einzelelemente
 
 ````{margin}
 ```{admonition} Fragen oder Feedback 
@@ -20,32 +20,18 @@ Mit Ihren Rückmeldungen können wir unser interaktives Lehrbuch gezielt an Ihre
 ```
 ````
 
-
-```{admonition} Aufbau eines Dashboards als Form der Visualisierung in der Verwaltung(swissenschaft)
-:class: lernziele
-
-1. Der Aufbau und die Gliederung eines Dashboards können erklärt werden.
-2. Ein Dashboard kann mit R Shiny entworfen werden.
+```{include} ../präambel/lernziele.md
+:start-after: "<!-- START: Ein Dashboard bauen -->"
+:end-before: "<!-- END: Ein Dashboard bauen -->"
 ```
 
-In diesem Kapitel werden Sie durch den Aufbau eines Dashboards geführt. Je nach Vorkenntnissen und gewählter [Ausführungsmethode](technische_voraussetzungen) kann die Bearbeitungszeit variieren.
-
-In diesem Kapitel finden Sie folgende Abschnitte:
-- [4.1. Vorbereitung](vorbereitung)
-- [4.1. Startseite Dashboard](landing-page)
-- [4.3. Erstellung einer Karte](map)
-- [4.4. Einfügen Baumstatistik](trees)
-- [4.5. Einfügen Bewässerungsanalyse](watering)
-
-Wie im Abschnitt 3.2. dargelegt wurde, sind Dashboards eine gute Möglichkeit, Daten aus der Verwaltung nutzer:innenfreundlich aufzubereiten und zu visualisieren. In diesem Kapitel wird Ihnen das Bauen eines Dashboards mittels RShiny nahe gebracht. 
-+++
-*Wir befinden uns hier:*
-![Aufgabe 3](../assets/Aufgabenstruktur-03.png)
+Nachdem im vorherigen Kapitel dargelegt wurde, dass Dashboards eine gute Möglichkeit sind, um Daten aus der Verwaltung nutzer:innenfreundlich aufzubereiten und zu visualisieren, werden Sie in diesem Kapitel durch den Bau eines Dashboards mit R Shiny geführt. Je nach Vorkenntnissen und gewählter [Ausführungsmethode](technische_voraussetzungen) kann die Bearbeitungszeit variieren.
+Für den Fall, dass Sie das Dashboard nicht selbst bauen wollen oder können, sind einige Visualisierungen interaktiv gestaltet worden, sodass Sie nachempfinden können, welchen Unterschied es macht, Variablen in Visualisierungen ändern zu können. 
 
 <span style="color:red">*Bild einfügen von Verortung in Fallstudien-Struktur*</span>
 
-
-Dabei werden Sie Schritt für Schritt bzw. Abschnitt für Abschnitt durch den Prozess des Aufbaus eines Dashboards geleitet. Zuerst werden Ihnen vorbereitende Maßnahmen aufgezeigt, dann die Grundstruktur des Dashboards erstellt, eine Karte eingefügt und schließlich weitere Daten und Visualisierungen eingepflegt.
+Bevor die einzelnen Elemente dem Dashboard zugefügt werden, geht der erste Abschnitt auf einige [Grundlagen der Datenvisualisierung](datenvisualisierung-methoden-werkzeuge) ein.  
+Anschließend wird eine [Startseite gestaltet](landing-page) und dem Dashboard weitere Elemente hinzugefügt: eine [Karte](map), ein [Zeitverlauf](zeitverlauf), eine [Baumstatistik](trees) und eine [Bewässerungsanalyse](watering).
 
 
 ```{admonition} Bearbeitungszeit

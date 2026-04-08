@@ -3,7 +3,7 @@ lang: de-DE
 ---
 
 (map)=
-# Eine Karte für das Dashboard erstellen
+# Eine Karte erstellen
 ```{admonition} Story
 :class: story
 Nachdem Amir sein Dashboard eingerichtet und die wichtigsten Kennzahlen sichtbar gemacht hat, möchte er nun genauer verstehen, wo in Berlin besonders viel gegossen wird.
@@ -22,7 +22,7 @@ Das Dashboard soll um eine **Bezirkskarte** erweitert werden. Nachdem die Starts
 Für diese Aufgabe nutzt Amir das Paket **Leaflet**, das interaktive Karten direkt in R-Shiny erzeugt. Ergänzt wird Leaflet durch **sf** zur Verarbeitung der Bezirks-Geodaten sowie durch Funktionen wie ```colorNumeric()```, mit denen eine aussagekräftige Farbskala erzeugt wird. Die Karte verknüpft also zwei Datenquellen:
 die **räumliche Geometrie** der Berliner Bezirke und die **berechneten Kennzahlen** aus seinem Datensatz – insbesondere die Anzahl der Bäume sowie den Anteil der bewässerten Bäume pro Bezirk.
 
-```{figure} Dashboard_Karte.png
+```{figure} ../assets/Dashboard_Karte.png
 ---
 name: Dashboard Karte
 alt: Ein Screenshot, der zeigt Dashboard Karte

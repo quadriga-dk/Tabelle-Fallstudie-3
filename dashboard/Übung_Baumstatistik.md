@@ -3,7 +3,7 @@ lang: de-DE
 ---
 
 (trees)=
-# Einfügen Baumstatistik
+# Eine Baumstatistik einfügen
 ```{admonition} Story
 :class: story
 
@@ -49,7 +49,7 @@ dashboardPage(
 ```
 ````
 
-```{figure} Dashboard_Baumstatistik_1.png
+```{figure} ../assets/Dashboard_Baumstatistik_1.png
 ---
 name: Dashboard Karte
 alt: Ein Screenshot, der zeigt Dashboard Karte
@@ -91,7 +91,7 @@ Das obenstehende Diagramm ist ein Balkendiagramm, genauer gesagt ein gestapeltes
 ```
 ````
 
-```{figure} Dashboard_Baumstatistik_2.png
+```{figure} ../assets/Dashboard_Baumstatistik_2.png
 ---
 name: Dashboard Karte
 alt: Ein Screenshot, der zeigt Dashboard Karte
@@ -129,7 +129,7 @@ Das obenstehende Diagramm ist ein Kreisdiagramm (auch Tortendiagramm genannt), d
 ```
 ````
 
-```{figure} Dashboard_Baumstatistik_3.png
+```{figure} ../assets/Dashboard_Baumstatistik_3.png
 ---
 name: Dashboard Karte
 alt: Ein Screenshot, der zeigt Dashboard Karte
@@ -157,7 +157,7 @@ Top 10 gegossene Baumgattungen. Die Abbildung zeigt die Top 10 gegossenen Baumga
 ```
 ````
 
-```{figure} Dashboard_Baumstatistik_4.png
+```{figure} ../assets/Dashboard_Baumstatistik_4.png
 ---
 name: Dashboard Karte
 alt: Ein Screenshot, der zeigt Dashboard Karte
@@ -165,6 +165,16 @@ width: 600px
 ---
 Baumdichte pro km². Die Abbildung zeigt die Baumdichte pro km² in den verschiedenen Berliner Bezirken in Form eines vertikalen Balkendiagramms. Die Balken repräsentieren die jeweilige Baumdichte, wobei Friedrichshain-Kreuzberg die höchste Dichte aufweist. Die x-Achse zeigt die Bezirke, die y-Achse die Anzahl der Bäume pro km². Die Darstellung ermöglicht einen direkten Vergleich der Baumdichte zwischen den zwölf Berliner Bezirken. (Quelle: eigene Ausarbeitung)
 ``` 
+
+
+```{admonition} Was Sie beachten sollten
+:class: keypoint
+
+Nur weil Indikatoren nicht auftauchen, heißt es nicht, dass sie nicht wichtig sein können. Für das Verständnis der obigen Abbildung 4.8 'Top 10 gegossene Baumgattungen' ist beispielsweise eine Information zur Häufigkeit von Baumarten (wie in Abb. 4.7 dargestellt) unabdingbar. Und für eine korrekte Analyse der Abbildung 4.9 'Baumdichte pro km²' braucht es mindestens Hinweise zur Größe der Bezirke. Möglichicherweise wären auch Indikatoren wie Bevölkerungsdichte sinnvoll, um die angegebenen Werte zu kontextualisieren. 
+
+Vor allem hinsichtlich der Interpretation von Datenvisualisierungen sollten Sie also darauf achten, sich nicht von den Indikatoren, die visuell hervorgehoben oder überhaupt dargestellt werden, in die Irre führen zu lassen. Es kann weitere Merkmale geben, die zum Verständnis oder der Analyse der Daten notwendig sind.
+
+```
 
 
 ````{dropdown} Code
