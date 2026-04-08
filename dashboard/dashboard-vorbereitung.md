@@ -89,13 +89,13 @@ Diese Schritte sind essenziell, um spätere Analysen und Visualisierungen korrek
 Eine typische Shiny-Anwendung besteht aus zwei Hauptkomponenten: 
 1.	User Interface (UI): Definiert das Layout und die Gestaltung der Anwendung, einschließlich aller Eingabe- und Ausgabeelemente.
 2.	Server: Beinhaltet die serverseitige Logik, verarbeitet Eingaben und generiert entsprechende Ausgaben.
-Diese beiden Komponenten werden schließlich durch den Befehl `shinyApp(ui = ui, server = server)` zusammengeführt, um die Anwendung zu starten.
+Diese beiden Komponenten werden schließlich durch den Befehl `shinyApp(ui = ui, server = server)` zusammengeführt, um die Anwendung zu starten. 
 
 Das shinydashboard-Paket erweitert Shiny um Funktionen zur Erstellung von Dashboards. Ein Dashboard besteht typischerweise aus drei Hauptbereichen: Shiny Dashboard Structure 
 1.	Header: Der obere Bereich des Dashboards, der den Titel und optionale Steuerungselemente enthält.
 2.	Sidebar: Eine seitliche Navigationsleiste, die Links oder Schaltflächen zur Navigation innerhalb des Dashboards bereitstellt.
 3.	Body: Der Hauptbereich, in dem die Inhalte wie Diagramme, Tabellen und Texte angezeigt werden.
-Die Grundstruktur eines Dashboards wird mit der Funktion dashboardPage() erstellt, die die oben genannten Komponenten kombiniert:
+Die Grundstruktur eines Dashboards wird mit der Funktion dashboardPage() erstellt, die die oben genannten Komponenten kombiniert: <span style="color:red">An dieser Stelle fände ich visuellen Input oder Comments hilfteich. Vielleicht erst ein Schaubild zur Server-UI-Beziehung und später eine deutlichere Kennzeichnung was denn genau jetzt Header bzw. Sidebar und Body sind im Block. Es ist zwar aus dem Code ersichtlich, jedoch könnte ich mir dennoch vorstellen, dass das wegen unserer Zielgruppe dem Nutzer entgeht (überflogen, copy/paste etc)</span>
 
 ```r
 ui <- dashboardPage(
