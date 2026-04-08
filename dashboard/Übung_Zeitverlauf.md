@@ -163,6 +163,16 @@ Diese Struktur gibt Nutzer:innen volle Kontrolle: Sie können sowohl den Zeitrau
 
 ## Server
 
+Alle folgenden Code-Abschnitte gehören zusammen in den `output$trend_water <- renderPlotly({...})`-Block:
+
+````{dropdown} Vollständiger Server-Code (Rahmen)
+```r
+  output$trend_water <- renderPlotly({
+    # ... (Daten filtern, aggregieren und Diagramm erstellen – siehe Abschnitte unten)
+  })
+```
+````
+
 ### Daten vorbereiten und filtern
 
 Zunächst müssen die Rohdaten so vorbereitet werden, dass nur relevante Einträge berücksichtigt werden – also Bäume, die tatsächlich gegossen wurden und für die ein Pflanzjahr bekannt ist.
@@ -283,6 +293,48 @@ ggplotly(plot, tooltip = "text") %>%
 
 Durch diese Kombination aus ggplot2 und Plotly entsteht ein Diagramm, in dem Nutzer:innen hineinzoomen, Achsen verschieben und präzise Werte ablesen können.
 ```` 
+
+### Info-Button: Erklärung einblenden
+
+Der Info-Button im Diagramm-Titel öffnet ein erläuterndes Pop-up-Fenster, das Nutzer:innen kontextbezogene Hintergrundinformationen zur Grafik liefert.
+
+````{dropdown} Code
+```r
+  observeEvent(input$info_btn_tdbjp, {
+    showModal(modalDialog(
+      title = "Information: Trend der Bewässerung je Pflanzjahr",
+      HTML("
+      <p>Diese Grafik zeigt die <strong>Gesamtbewässerungsmenge nach Pflanzjahr</strong> der Bäume.</p>
+      <p><strong>Hintergrund:</strong> Junge und sehr alte Bäume benötigen typischerweise mehr Wasser als Bäume mittleren Alters.</p>
+      <ul>
+        <li>Junge Bäume (kürzlich gepflanzt) haben noch flache Wurzelsysteme</li>
+        <li>Sehr alte Bäume können geschwächt sein und mehr Unterstützung brauchen</li>
+        <li>Bäume mittleren Alters sind oft selbstständiger</li>
+      </ul>
+      <p><strong>Verwendung:</strong></p>
+      <ul>
+        <li>Nutzen Sie die Filter, um bestimmte Jahrgänge oder Bezirke zu analysieren</li>
+        <li>Bewegen Sie die Maus über die Punkte für Details</li>
+        <li>Mehrere Bezirke können gleichzeitig ausgewählt werden</li>
+      </ul>
+      <p><strong>Ergebnis:</strong> Die Daten zeigen keine wesentlichen Auffälligkeiten - das Pflanzjahr scheint kein entscheidender Faktor für das Bewässerungsengagement zu sein.</p>
+    "),
+      easyClose = TRUE,
+      footer = modalButton("Schließen")
+    ))
+  })
+```
+````
+
+````{admonition} Erklärung des Codes
+:class: hinweis, dropdown
+
+- `observeEvent(input$info_btn_tdbjp, {...})` – reagiert auf das Klicken des Info-Buttons
+- `showModal(modalDialog(...))` – öffnet ein Pop-up-Fenster über der Anwendung
+- `HTML("...")` – ermöglicht HTML-formatierten Text im Dialog
+- `easyClose = TRUE` – das Fenster kann durch Klick außerhalb geschlossen werden
+- `modalButton("Schließen")` – fügt einen Schließen-Button hinzu
+````
 
 ### Kritische Diskussion
 Der dargestellte Trend der Bewässerungsmenge je Pflanzjahr zeigt zwar über den gesamten Zeitraum betrachtet einen **grundsätzlich steigenden Verlauf**, allerdings lässt sich **kein klar lineares oder systematisches Muster** erkennen. Stattdessen wirkt der Verlauf stark **heterogen**, mit ausgeprägten Spitzen und Einbrüchen in einzelnen Jahrgängen.

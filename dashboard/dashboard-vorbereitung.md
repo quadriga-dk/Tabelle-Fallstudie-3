@@ -34,16 +34,17 @@ Nachdem die Installation abgeschlossen ist, laden Sie die Pakete in Ihr Skript:
 
 ```r
 library(shiny)
-library(leaflet)
-library(ggplot2)
-library(dplyr)
-library(lubridate)
 library(shinydashboard)
-library(plotly)
-library(leaflet.extras)
-library(tidyr)
+library(lubridate)
+library(leaflet)
+library(dplyr)
+library(htmltools)
 library(stringr)
-library(shinyBS)
+library(sf)
+library(tidyr)
+library(ggplot2)
+library(plotly)
+library(nngeo)
 ```
 
 Diese Pakete ermöglichen die Entwicklung der Benutzeroberfläche, die Datenverarbeitung sowie die Visualisierung.
@@ -59,27 +60,27 @@ Die Grundlage für unser Dashboard bildet eine CSV-Datei der Nutzungsdaten aus d
 
 
 ```r
-# Daten laden
-df <- read.csv("data/nutzungsdatenGiessDenKiez.csv", sep = ";", 
-               stringsAsFactors = FALSE, fileEncoding = "UTF-8")
+# Bezirksgrenzen laden
+bezirksgrenzen <- st_read("data/bezirksgrenzen.geojson", quiet = TRUE)
 
-# Konvertierung von Zeichenketten in numerische Werte
-df$pflanzjahr <- as.numeric(df$pflanzjahr)
-df$bewaesserungsmenge_in_liter <- as.numeric(df$bewaesserungsmenge_in_liter)
+# Bewässerungsdaten laden
+df_merged <- read.csv2("data/df_merged_final.csv", fileEncoding = "UTF-8")
 
-# Entfernung fehlender Werte
-df_clean <- df %>% drop_na(lng, lat, bewaesserungsmenge_in_liter)
+# Bezirksgrenzen vorbereiten
+berlin_bezirke_sf <- bezirksgrenzen %>%
+  rename(bezirk = Gemeinde_name) %>%     # Spalte vereinheitlichen
+  mutate(bezirk = str_to_title(bezirk))  # gleiche Schreibweise wie in df_merged
 ```
 
 Erklärung des Codes:
 
-- `read.csv(...)` lädt die CSV-Datei und interpretiert sie als Tabelle.
+- `st_read(...)` lädt die GeoJSON-Datei mit den Berliner Bezirksgrenzen als räumliches Objekt ein.
 
-- `as.numeric(...)` stellt sicher, dass Zahlenwerte korrekt als numerische Variablen vorliegen.
+- `read.csv2(...)` lädt die CSV-Datei mit den Bewässerungsdaten und interpretiert sie als Tabelle (semikolon-getrennt).
 
-- `drop_na(...)` entfernt Zeilen mit fehlenden oder unvollständigen Daten.
+- `rename(...)` benennt die Spalte `Gemeinde_name` in `bezirk` um, um eine einheitliche Schreibweise sicherzustellen.
 
-Diese Schritte sind essenziell, um spätere Analysen und Visualisierungen korrekt durchführen zu können.
+- `mutate(bezirk = str_to_title(bezirk))` sorgt dafür, dass die Bezirksnamen in der Geodatei dieselbe Schreibweise wie in `df_merged` haben.
 
 
 ## Dashboard bauen
