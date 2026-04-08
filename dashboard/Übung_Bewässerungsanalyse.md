@@ -32,7 +32,31 @@ So möchte Amir untersuchen, wie sich die Wahl der Operationalisierung – also 
 Welche Geschichte erzählen die Daten, wenn man Liter statt Baumanzahl betrachtet?
 
 ## Die Benutzeroberfläche (UI)
-In der UI definieren wir eine neue Tab-Seite namens "stats" mit zwei Diagrammfeldern. In jedem Diagrammfeld findet man je eines des beiden erstellten Diagramme.
+In der UI definieren wir eine neue Tab-Seite namens "analysis" mit zwei Diagrammfeldern. In jedem Diagrammfeld findet man je eines der beiden erstellten Diagramme.
+
+### Navigation in der Seitenleiste
+
+Zunächst fügt Amir einen weiteren Menüpunkt zur Navigation hinzu, um den Bewässerungsanalyse-Tab zugänglich zu machen.
+
+````{dropdown} Code
+```r
+dashboardSidebar(
+  sidebarMenu(
+    menuItem("Bewässerungsanalyse", tabName = "analysis", icon = icon("chart-area"))
+  )
+)
+```
+````
+````{admonition} Erklärung des Codes
+:class: hinweis, dropdown
+
+- `menuItem(...)` erzeugt einen neuen Navigationspunkt:
+  - `"Bewässerungsanalyse"` ist der sichtbare Name
+  - `tabName = "analysis"` verknüpft diesen Menüpunkt mit dem Inhaltsbereich
+  - `icon("chart-area")` fügt ein Diagramm-Symbol zur visuellen Orientierung hinzu
+
+Dieser Menüpunkt reiht sich in die bestehende Navigation ein – neben Startseite, Karte, Zeitverlauf und Baumstatistik.
+````
 
 ```{figure} ../assets/Dashboard_Bewässerungsanalyse_1.png
 ---

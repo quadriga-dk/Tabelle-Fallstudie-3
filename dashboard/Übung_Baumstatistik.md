@@ -150,7 +150,7 @@ Top 10 gegossene Baumgattungen. Die Abbildung zeigt die Top 10 gegossenen Baumga
            ),
            status = "primary",
            solidHeader = TRUE,
-           width = 6,
+           width = 12,
            plotOutput("tree_density_area", height = "500px")
          )
        ),       
@@ -313,7 +313,30 @@ Mit den aggregierten Daten erstellt Amir nun das gestapelte Balkendiagramm, das 
 - Wie groß der Anteil der "Sonstigen" ist
 - Wie sich Bezirke in ihrer Baumstruktur unterscheiden
 ````
- 
+
+### Info-Button: Baumverteilung nach Bezirken
+
+````{dropdown} Code
+```r
+  # Info button
+  observeEvent(input$info_btn_bvnb, {
+    showModal(modalDialog(
+      title = "Information: Baumverteilung nach Bezirken",
+      HTML("
+      <p>Diese Grafik zeigt die <strong>Gesamtanzahl und Zusammensetzung der Bäume</strong> in jedem Berliner Bezirk nach Gattung.</p>
+      <ul>
+        <li>Jeder Balken zeigt die Gesamtzahl der Bäume im Bezirk</li>
+        <li>Die Farben zeigen die verschiedenen Baumgattungen (z.B. LINDE, AHORN, EICHE)</li>
+        <li>Seltene Gattungen werden als 'Sonstige' zusammengefasst</li>
+        <li>Nutzen Sie den Slider, um mehr oder weniger Gattungen anzuzeigen</li>
+      </ul>
+    "),
+      easyClose = TRUE,
+      footer = modalButton("Schließen")
+    ))
+  })
+```
+````
 
 ### Kreisdiagramm: Gattungsverteilung
 

@@ -150,6 +150,39 @@ Diese Funktion überwacht die Zoomstufe der Karte:
 Wenn Nutzer:innen herein- oder herauszoomen, wird die aktuelle Zoomstufe (`map_zoom`) automatisch aktualisiert und an die App übermittelt.
 ````
 
+## Server
+
+### Bewässerungsstatistik pro Bezirk berechnen
+
+Bevor die Karte gezeichnet werden kann, müssen für jeden Berliner Bezirk die relevanten Kennzahlen berechnet werden: Wie viele Bäume stehen dort insgesamt? Wie viele davon wurden gegossen? Und welcher Anteil wurde bewässert?
+
+````{dropdown} Code
+```r
+  data_by_bezirk <- reactive({
+    df_merged %>%
+      group_by(bezirk) %>%
+      summarise(
+        n_total = n_distinct(gisid),
+        n_watered = n_distinct(gisid[!is.na(timestamp)]),
+        pct_watered = round((n_watered / n_total) * 100, 1)
+      ) %>%
+      ungroup()
+  })
+```
+````
+````{admonition} Erklärung des Codes
+:class: hinweis, dropdown
+
+- `reactive({...})` – erzeugt eine reaktive Funktion, die automatisch neu berechnet wird, wenn sich die Eingaben ändern
+- `group_by(bezirk)` – gruppiert alle Bäume nach Bezirk
+- `n_distinct(gisid)` – zählt die eindeutigen Baum-IDs (jeder Baum wird nur einmal gezählt)
+- `n_distinct(gisid[!is.na(timestamp)])` – zählt nur Bäume, die mindestens einmal gegossen wurden (erkennbar am Zeitstempel)
+- `pct_watered` – berechnet den prozentualen Anteil bewässerter Bäume pro Bezirk
+- `ungroup()` – löst die Gruppierung auf
+
+Diese reaktive Funktion wird später im `renderLeaflet`-Block aufgerufen, um die Karte mit aktuellen Daten zu befüllen.
+````
+
 ## Karte zeichnen mit Leaflet
 Jetzt entsteht die eigentliche Karte. Jeder Berliner Bezirk wird farblich gestaltet: Dunklere Farben zeigen hohes Engagement, hellere Bereiche niedrigere Bewässerungsraten. Beim Überfahren mit der Maus erscheinen die genauen Zahlen – wie viele Bäume es gibt, wie viele gegossen wurden und der prozentuale Anteil.
 
