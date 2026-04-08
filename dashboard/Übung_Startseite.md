@@ -38,7 +38,7 @@ Startseite des Dashboards; Die Startseite zeigt zwei Kacheln mit der Gesamtzahl 
 
 Für die Startseite seiner Anwendung entscheidet sich Amir für eine **kompakte Kennzahlenübersicht**. <span style="color:red;">Das Verb "entscheiden" impliziert eine Auswahl aus mehreren Optionen. Ich finde es wäre hilfreich und intuitiv, wenn man an kleinen Beispielen zeigen würde was eine kompakte Kennzahlenübersicht ausmacht und ggf. 1-2 Alternativen präsentiert</span> Diese soll den Nutzer:innen helfen, sofort die Größenordnung des Gießverhaltens einzuschätzen – etwa, wie viele Bäume gegossen wurden, wie oft und mit welchem Wasservolumen. Der Mehrwert einer Startseite mit Kennzahlenkacheln umfasst also die schnellere Orientierung - Nutzer:innen erfassen auf einen Blick den aktuellen Stand der Gießaktivitäten, ohne durch die Anwendung navigieren zu müssen. Dies spart Zeit und erleichtert den Einstieg. Die Kennzahlen dienen als Ausgangspunkt: man kann von dort aus zu detaillierteren Visualisierungen und Analysen navigieren.
 
-Zusätzlich plant er **Filtermöglichkeiten** nach **Bezirk**, um die Kennzahlen gezielt einzugrenzen und regionale Unterschiede sichtbar zu machen. Damit lassen sich die Daten auch in einer feineren Granularität betrachten – von stadtweiter Übersicht bis hin zu einzelnen Bezirken. Die auf der Startseite dargestellten Kennzahlen werden dabei ausschließlich als **absolute Werte** angezeigt und **nicht ins Verhältnis** zueinander gesetzt.
+Zusätzlich plant er **Filtermöglichkeiten** nach **Bezirk**, um die Kennzahlen gezielt einzugrenzen und regionale Unterschiede sichtbar zu machen. Damit lassen sich die Daten auch in einer feineren Granularität betrachten – von stadtweiter Übersicht bis hin zu einzelnen Bezirken. Die auf der Startseite dargestellten Kennzahlen werden dabei ausschließlich als **absolute Werte** angezeigt und **nicht ins Verhältnis** zueinander gesetzt. <span style="color:red;">Warum nicht?</span>
 
 Als Nächstes bauen wir die Startseite des Dashboards mit R. Nach jedem Codeabschnitt werden kurz die verwendeten Techniken und Befehle erklärt. Wir widmen uns sowohl der Benutzeroberfläche (UI) als auch der Serverseite des R-Shiny-Dashboards.
 
@@ -49,7 +49,7 @@ Amir entscheidet sich für ein System der Benutzeroberfläche, die aus zwei Teil
 
 - einem Inhaltsbereich (``tabItem``) mit:
 
-    - ValueBoxen für wichtige Kennzahlen
+    - sog. ValueBoxen für wichtige Kennzahlen
 
     - Dropdowns zur Auswahl des Zeitraums und des Bezirks
 
@@ -72,12 +72,13 @@ dashboardSidebar(
 ````{admonition} Erklärung des Codes
 :class: hinweis, dropdown
 
-`sidebarMenu(...)` erzeugt die Navigationsleiste. Jeder `menuItem(...)` darin repräsentiert einen Menüpunkt:
+`sidebarMenu(...)` erzeugt die Navigationsleiste. Jedes
+ `menuItem(...)` darin repräsentiert einen Menüpunkt:
 - `"Startseite"` ist der sichtbare Text
 - `tabName = "start"` verknüpft diesen Menüpunkt mit dem zugehörigen Inhaltsbereich, welcher Inhalt angezeigt werden soll
 - `icon("home")` fügt ein kleines Haus-Symbol zur visuellen Orientierung hinzu
 
-Später kann Amir weitere Menüpunkte ergänzen – etwa für die Karte oder die Baumstatistik. Das Prinzip bleibt gleich: Jeder `menuItem` erhält einen Namen, ein Symbol und eine eindeutige `tabName`, die ihn mit dem entsprechenden Inhaltsbereich verbindet.
+Später kann Amir weitere Menüpunkte ergänzen – etwa für die Karte oder die Baumstatistik. Das Prinzip bleibt gleich: Jedes `menuItem` erhält einen Namen, ein Symbol und eine eindeutige `tabName`, die ihn mit dem entsprechenden Inhaltsbereich verbindet.
 ````
 
 ### Inhaltsbereich
