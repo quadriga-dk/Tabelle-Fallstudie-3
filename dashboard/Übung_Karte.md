@@ -86,7 +86,7 @@ dashboardSidebar(
 Mit ``menuItem(...)`` wird ein weiterer Navigationspunkt eingebunden. "map" als tabName verknüpft ihn mit dem Kartentab.
 ````
 
-## UI: Karte mit Filter-Boxen
+### Inhaltsbereich: Karte mit Filter-Boxen
 
 Amir möchte, dass die Leaflet-Karte zentral dargestellt wird und sofort ins Auge fällt. Die Karte soll nicht nur schön aussehen, sondern auf einen Blick zeigen, wo in Berlin besonders viel gegossen wird. Darunter sollen Filter es ermöglichen, die Ansicht auf bestimmte Bezirke oder Zeiträume einzugrenzen.
 
@@ -121,7 +121,7 @@ Amir möchte, dass die Leaflet-Karte zentral dargestellt wird und sofort ins Aug
 
 ````
 
-## Zoom Javascript
+### Zoom Javascript
 Wenn jemand hinein- oder herauszoomt, soll die App das mitbekommen und später darauf reagieren können – etwa um bei starkem Zoom mehr Details anzuzeigen. Ein kleines JavaScript-Skript erfasst die Zoomstufe im Hintergrund.
 
 ````{dropdown} Code
@@ -183,7 +183,7 @@ Bevor die Karte gezeichnet werden kann, müssen für jeden Berliner Bezirk die r
 Diese reaktive Funktion wird später im `renderLeaflet`-Block aufgerufen, um die Karte mit aktuellen Daten zu befüllen.
 ````
 
-## Karte zeichnen mit Leaflet
+### Karte zeichnen mit Leaflet
 Jetzt entsteht die eigentliche Karte. Jeder Berliner Bezirk wird farblich gestaltet: Dunklere Farben zeigen hohes Engagement, hellere Bereiche niedrigere Bewässerungsraten. Beim Überfahren mit der Maus erscheinen die genauen Zahlen – wie viele Bäume es gibt, wie viele gegossen wurden und der prozentuale Anteil.
 
 ````{dropdown} Code

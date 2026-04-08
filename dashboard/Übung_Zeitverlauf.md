@@ -179,17 +179,19 @@ Zunächst müssen die Rohdaten so vorbereitet werden, dass nur relevante Einträ
 
 ````{dropdown} Code
 ```r
-filtered_data <- df_merged %>%
-  filter(!is.na(bewaesserungsmenge_in_liter)) %>%  
-  filter(!is.na(pflanzjahr))
+# Trend: Bewässerung nach Pflanzjahr
+output$trend_water <- renderPlotly({
+  filtered_data <- df_merged %>%
+    filter(!is.na(bewaesserungsmenge_in_liter)) %>%  
+    filter(!is.na(pflanzjahr))
 
-if (!"Alle" %in% input$trend_bezirk_pj && length(input$trend_bezirk_pj) > 0) {
+  if (!"Alle" %in% input$trend_bezirk_pj && length(input$trend_bezirk_pj) > 0) {
+    filtered_data <- filtered_data %>%
+      filter(bezirk %in% input$trend_bezirk_pj)
+  }
+
   filtered_data <- filtered_data %>%
-    filter(bezirk %in% input$trend_bezirk_pj)
-}
-
-filtered_data <- filtered_data %>%
-  filter(pflanzjahr >= input$trend_year[1] & pflanzjahr <= input$trend_year[2])
+    filter(pflanzjahr >= input$trend_year[1] & pflanzjahr <= input$trend_year[2])
 
 ```
 ````
@@ -219,13 +221,13 @@ Jetzt aggregiert Amir die Daten: Für jedes Pflanzjahr wird die gesamte gegossen
 
 ````{dropdown} Code
 ```r
-plot_data <- filtered_data %>%
-  group_by(pflanzjahr) %>%
-  summarize(
-    total_water = sum(bewaesserungsmenge_in_liter, na.rm = TRUE),
-    count_trees = n_distinct(gml_id)
-  ) %>%
-  ungroup()
+  plot_data <- filtered_data %>%
+    group_by(pflanzjahr) %>%
+    summarize(
+      total_water = sum(bewaesserungsmenge_in_liter, na.rm = TRUE),
+      count_trees = n_distinct(gml_id)
+    ) %>%
+    ungroup()
 ```
 ````
 
@@ -250,23 +252,25 @@ Mit den aggregierten Daten erstellt Amir nun ein Liniendiagramm, das den Trend �
 
 ````{dropdown} Code
 ```r
-plot <- ggplot(plot_data, aes(x = pflanzjahr, y = total_water)) +
-  geom_line(color = "#2E86AB", size = 1) +
-  geom_point(
-    aes(text = paste0("Pflanzjahr: ", pflanzjahr,
-                      "<br>Gesamtwasser: ", format(total_water, big.mark = ".", decimal.mark = ","), " L",
-                      "<br>Anzahl Bäume: ", count_trees)),
-    size = 2, color = "#2E86AB"
-  ) +
-  theme_minimal() +
-  labs(
-    x = "Pflanzjahr",
-    y = "Gesamtbewässerung (Liter)"
-  ) +
-  theme(panel.grid.minor = element_blank())
+  plot <- ggplot(plot_data, aes(x = pflanzjahr, y = total_water)) +
+    geom_line(color = "#2E86AB", size = 1) +
+    geom_point(
+      aes(text = paste0("Pflanzjahr: ", pflanzjahr,
+                        "<br>Gesamtwasser: ", format(total_water, big.mark = ".", decimal.mark = ","), " L",
+                        "<br>Anzahl Bäume: ", count_trees)),
+      size = 2, color = "#2E86AB"
+    ) +
+    theme_minimal() +
+    labs(
+      x = "Pflanzjahr",
+      y = "Gesamtbewässerung (Liter)"
+    ) +
+    theme(panel.grid.minor = element_blank())
 
-ggplotly(plot, tooltip = "text") %>%
-  layout(hovermode = "closest")
+  ggplotly(plot, tooltip = "text") %>%
+    layout(hovermode = "closest")
+})
+
 ```
 ````
 
@@ -294,7 +298,7 @@ ggplotly(plot, tooltip = "text") %>%
 Durch diese Kombination aus ggplot2 und Plotly entsteht ein Diagramm, in dem Nutzer:innen hineinzoomen, Achsen verschieben und präzise Werte ablesen können.
 ```` 
 
-### Info-Button: Erklärung einblenden
+### Info button observer
 
 Der Info-Button im Diagramm-Titel öffnet ein erläuterndes Pop-up-Fenster, das Nutzer:innen kontextbezogene Hintergrundinformationen zur Grafik liefert.
 

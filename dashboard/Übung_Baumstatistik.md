@@ -294,30 +294,7 @@ Mit den aggregierten Daten erstellt Amir nun das gestapelte Balkendiagramm, das 
       ) +
       scale_fill_brewer(palette = "Set3")
   })
-```
-````
 
-````{admonition} Erklärung des Codes
-:class: hinweis, dropdown
-
-**Gestapeltes Balkendiagramm:**
-
-- `factor(df_agg$gattung_grouped, levels = ...)` – definiert die Reihenfolge der Gattungen (Top-Gattungen zuerst, dann "Sonstige")
-- `reorder(bezirk, count, sum)` – sortiert Bezirke nach Gesamtanzahl der Bäume
-- `geom_bar(stat = "identity", position = "stack")` – erstellt gestapelte Balken
-- `fill = gattung_grouped` – färbt die Segmente nach Gattungsgruppe
-- `scale_fill_brewer(palette = "Set3")` – verwendet eine farblich abgestimmte Palette
-
-**Was zeigt der Plot?**
-- Welche Gattungen in welchem Bezirk dominieren
-- Wie groß der Anteil der "Sonstigen" ist
-- Wie sich Bezirke in ihrer Baumstruktur unterscheiden
-````
-
-### Info-Button: Baumverteilung nach Bezirken
-
-````{dropdown} Code
-```r
   # Info button
   observeEvent(input$info_btn_bvnb, {
     showModal(modalDialog(
@@ -336,6 +313,23 @@ Mit den aggregierten Daten erstellt Amir nun das gestapelte Balkendiagramm, das 
     ))
   })
 ```
+````
+
+````{admonition} Erklärung des Codes
+:class: hinweis, dropdown
+
+**Gestapeltes Balkendiagramm:**
+
+- `factor(df_agg$gattung_grouped, levels = ...)` – definiert die Reihenfolge der Gattungen (Top-Gattungen zuerst, dann "Sonstige")
+- `reorder(bezirk, count, sum)` – sortiert Bezirke nach Gesamtanzahl der Bäume
+- `geom_bar(stat = "identity", position = "stack")` – erstellt gestapelte Balken
+- `fill = gattung_grouped` – färbt die Segmente nach Gattungsgruppe
+- `scale_fill_brewer(palette = "Set3")` – verwendet eine farblich abgestimmte Palette
+
+**Was zeigt der Plot?**
+- Welche Gattungen in welchem Bezirk dominieren
+- Wie groß der Anteil der "Sonstigen" ist
+- Wie sich Bezirke in ihrer Baumstruktur unterscheiden
 ````
 
 ### Kreisdiagramm: Gattungsverteilung

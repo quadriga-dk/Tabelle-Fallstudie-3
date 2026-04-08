@@ -216,6 +216,24 @@ Mit den aggregierten und umgerechneten Daten erstellt Amir nun das Balkendiagram
       ) +
       scale_fill_discrete(name = "Bezirk")
   })
+
+  # Info button observer
+  observeEvent(input$info_btn_hbpb, {
+    showModal(modalDialog(
+      title = "Information: Bewässerung pro Bezirk",
+      HTML("
+      <p>Diese Grafik zeigt die <strong>gesamte Bewässerungsmenge</strong> für jeden Berliner Bezirk im Zeitraum 2020-2024.</p>
+      <ul>
+        <li>Die Daten werden automatisch in die passende Einheit (Liter, m³ oder Megaliter) umgerechnet</li>
+        <li>Die Bezirke werden entlang der x-Achse dargestellt</li>
+        <li>Die Höhe der Balken entspricht der gesamten Bewässerungsmenge</li>
+      </ul>
+    "),
+      easyClose = TRUE,
+      footer = modalButton("Schließen")
+    ))
+  })
+
 ```
 ````
 
@@ -244,43 +262,6 @@ Mit den aggregierten und umgerechneten Daten erstellt Amir nun das Balkendiagram
 - `axis.text.x = element_text(angle = 55, ...)` – Bezirksnamen schräg gestellt, um Überlappungen zu vermeiden
 - `panel.grid.major.x = element_blank()` – vertikale Gitterlinien entfernt für klareres Bild
 - `plot.margin = margin(10, 10, 10, 10)` – ausreichend Abstand, damit Beschriftungen nicht abgeschnitten werden
-````
-
-### Info button observer
-
-````{dropdown} Code
-```r
-  observeEvent(input$info_btn_hbpb, {
-    showModal(modalDialog(
-      title = "Information: Bewässerung pro Bezirk",
-      HTML("
-      <p>Diese Grafik zeigt die <strong>gesamte Bewässerungsmenge</strong> für jeden Berliner Bezirk im Zeitraum 2020-2024.</p>
-      <ul>
-        <li>Die Daten werden automatisch in die passende Einheit (Liter, m³ oder Megaliter) umgerechnet</li>
-        <li>Die Bezirke werden entlang der x-Achse dargestellt</li>
-        <li>Die Höhe der Balken entspricht der gesamten Bewässerungsmenge</li>
-      </ul>
-    "),
-      easyClose = TRUE,
-      footer = modalButton("Schließen")
-    ))
-  })
-```
-````
-
-````{admonition} Erklärung der Elemente
-:class: hinweis, dropdown
-
-- ``observeEvent()`` - Reagiert auf ein Ereignis – in diesem Fall das Klicken des Info-Buttons.
-- ``input$info_btn_hbpb`` - ID des Buttons aus der Benutzeroberfläche. Sobald dieser geklickt wird, öffnet sich das Modal.
-- ``showModal()`` - Zeigt ein Pop-up-Fenster über der Anwendung. Nützlich für Hinweise, Hilfetexte und Zusatzinfos.
-- ``modalDialog()`` - Erzeugt das Dialogfenster selbst. Es enthält:
-  - einen **Titel**,
-  - **HTML-formatierten Text**, z. B. fett `<strong>` oder Listen,
-  - eine **Schließen-Schaltfläche**.
-- ``HTML("…")`` - Ermöglicht echte HTML-Struktur (Absätze, Listen, Hervorhebungen), statt einfachem Text.
-- ``easyClose = TRUE`` - Das Fenster kann auch durch Klick außerhalb des Modals geschlossen werden.
-- ``modalButton("Schließen")`` - Fügt unten rechts den Schließen-Button hinzu.
 ````
 
 
@@ -329,7 +310,7 @@ Das zweite Diagramm zeigt eine andere Perspektive: Statt der Gesamtmenge wird hi
       scale_fill_discrete()
   })
 
-  # Info button observer for second graph
+  # Info button observer
   observeEvent(input$info_btn_hbpb2, {
     showModal(modalDialog(
       title = "Information: Bewässerung pro gegossenem Baum",
