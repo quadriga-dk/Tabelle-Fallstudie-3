@@ -127,5 +127,5 @@ Die sidebarMenu-Funktion definiert die Navigationselemente, während tabItems di
 
 **Interaktive Elemente und Reaktivität**
 
-Ein wesentliches Merkmal von Shiny ist die Reaktivität, die es ermöglicht, dass sich Ausgaben automatisch aktualisieren, wenn sich Eingaben ändern. Dies wird durch reaktive Funktionen und Objekte erreicht.
+Ein wesentliches Merkmal von Shiny ist seine [Reaktivität](https://de.wikipedia.org/wiki/Reaktives_System_(Informatik)), die es ermöglicht, dass sich Ausgaben automatisch aktualisieren, wenn sich Eingaben ändern. Dies wird durch reaktive Funktionen und Objekte erreicht.
 
