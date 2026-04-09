@@ -32,7 +32,7 @@ Der Code ist am Ende jedes Unterkapitels in einer eingeklappten Box 'Gesamter Co
 Bevor die Daten eingelesen werden können, müssen Sie folgende Bibliotheken (und, sofern noch nicht geschehen, davor noch die daugehörigen Pakete) laden:
 
 
-```bash
+```r
 # --- PAKETE: ---
 install.packages("sf")
 install.packages("tidyverse")
@@ -49,7 +49,7 @@ library(stringr)
 Die Berliner Baumdaten werden über eine WFS-Schnittstelle (Web Feature Service) bezogen. Dabei werden sowohl Anlagenbäume als auch Straßenbäume geladen. Dies geschieht mit dem Befehl `st_read`.
 <font color="red">Hier könnte man dem User den Link zu den Daten geben, damit er diese herunterlädt und in sein Working Directory hinzufügt. Dazu müsste man ihm aber erklären wie man das korret settet, was gar nicht so einfach ist. Solange der Link gültig ist, lädt der Code zwar die Datei automatisch, speichert sie jedoch nicht im Directory.</font>
 
-```bash
+```r
 #0 CSV File lokalisieren bzw. laden
 
 local_path <- "Data/giessdenkiez_bewässerungsdaten.csv"
@@ -73,7 +73,7 @@ Die Gießdaten stammen aus einer CSV-Datei des Projekts „Gieß den Kiez“. Si
 - Ungültige oder fehlende Koordinaten (Längen-/Breitengrad) werden entfernt.
 - Datensätze ohne Straßenname oder mit fehlerhaften Gattungsbezeichnungen (z. B. numerische Werte) werden ausgeschlossen.
 
-```bash
+```r
 # 2. Bewässerungsdaten laden und bereinigen
 df_clean <- read.csv(csv_data, sep = ";", stringsAsFactors = FALSE, fileEncoding = "UTF-8") %>%
   drop_na(lng, lat, bewaesserungsmenge_in_liter) %>%
@@ -92,7 +92,7 @@ EPSG:4326 (WGS 84) beschreibt die Erdoberfläche mit geografischen Koordinaten i
 ````
 Die beiden Baumdatenquellen werden vereinheitlicht (gemeinsames Koordinatensystem EPSG:4326) und zusammengeführt. Danach werden die Koordinaten explizit extrahiert und die Geometriedaten, also die technische Standortinformation jedes Baumes in einem speziellen räumlichen Format (z. B. die `geom`-Spalte mit Einträgen wie `c(" 394532.3", "5811461.0")`) entfernt, um die Dateigröße zu reduzieren und die Weiterverarbeitung zu erleichtern. 
 
-```bash
+```r
 # 3. Bäume zusammenführen
 baumbestand <- bind_rows(anlagenbaeume, strassenbaeume) %>%
   st_transform(crs = 4326)
@@ -107,7 +107,7 @@ baumbestand$lat <- coords[, "Y"]
 
 Die eindeutige Baumkennung `gisid` wird so angepasst, dass sie mit der id aus den Gießdaten übereinstimmt (Unterstrich wird zu Doppelpunkt). Dadurch können die beiden Datensätze über einen sogenannten "Left Join" zusammengeführt werden.
 
-```bash
+```r
 # 5. Geometrie entfernen
 baumbestand <- st_drop_geometry(baumbestand)
 
@@ -124,8 +124,9 @@ df_merged <- baumbestand %>%
 
 Die aufbereiteten Daten werden als CSV-Datei gespeichert. Eine Ausgabe relevanter Kennzahlen (z. B. Anzahl verknüpfter Bäume) dient der Kontrolle.
 
-```bash
+```r
 # 8. Ergebnis speichern
+if (!dir.exists("data")) dir.create("data")
 write.csv2(df_merged, "data/df_merged_final.csv", row.names = FALSE, fileEncoding = "UTF-8")
 ```
 
@@ -181,6 +182,7 @@ df_merged <- baumbestand %>%
             by = c("gisid" = "id"))
 
 # 8. Ergebnis speichern
+if (!dir.exists("data")) dir.create("data")
 write.csv2(df_merged, "data/df_merged_final.csv", row.names = FALSE, fileEncoding = "UTF-8")
 
 # 9. Kontrolle: Anzahl der Zeilen
@@ -211,15 +213,22 @@ Einige Bäume verfügen nicht über eine Angabe zu ihrem Bezirk. Um eine aggregi
 
 **1. Die Bezirkskarte laden**
 
-```bash
-bezirksgrenzen <- st_read("data/bezirksgrenzen.geojson")
+```r
+local_geojson <- "data/bezirksgrenzen.geojson"
+url_geojson <- "https://raw.githubusercontent.com/quadriga-dk/Tabelle-Fallstudie-3/6cd488f5f4306f9788bda3166d5929ad64312349/data/bezirksgrenzen.geojson"
+
+if (file.exists(local_geojson)) {
+  bezirksgrenzen <- st_read(local_geojson)
+} else {
+  bezirksgrenzen <- st_read(url_geojson)
+}
 ```
 - Es wird eine digitale Karte geladen, auf der die Bezirksgrenzen Berlins eingezeichnet sind.
 - Jeder Bezirk hat dabei ein sogenanntes „Polygon“ – eine Art Umrisslinie.
 
 **2. Die Baumdaten laden**
 
-```bash
+```r
 df_baeume <- read.csv("data/df_merged_final.csv", sep = ";", stringsAsFactors = FALSE)
 ```
 - Die Tabelle mit Baumdaten wird eingelesen. Jeder Eintrag beschreibt einen Baum: z. B. seine Art, Pflanzjahr und die Koordinaten, wo er steht.
@@ -227,7 +236,7 @@ df_baeume <- read.csv("data/df_merged_final.csv", sep = ";", stringsAsFactors = 
 
 **3. Koordinaten umwandeln**
 
-```bash
+```r
 df_baeume <- df_baeume %>%
   mutate(
     lng = as.numeric(gsub(",", ".", lng)),
@@ -239,7 +248,7 @@ df_baeume <- df_baeume %>%
 
 **4. Zwei Gruppen bilden:** 
 
-```bash
+```r
 df_mit_bezirk <- df_baeume %>% filter(!is.na(bezirk))
 df_ohne_bezirk <- df_baeume %>% filter(is.na(bezirk) & !is.na(lng) & !is.na(lat))
 ```
@@ -248,7 +257,7 @@ df_ohne_bezirk <- df_baeume %>% filter(is.na(bezirk) & !is.na(lng) & !is.na(lat)
 
 **5. Gruppe ohne Bezirk in geografisches Format umwandeln**
 
-```bash
+```r
 df_ohne_bezirk_sf <- st_as_sf(df_ohne_bezirk, coords = c("lng", "lat"), crs = 4326, remove = FALSE)
 ```
 - Die zweite Gruppe wird in ein spezielles Format (sogenannte sf-Objekte) umgewandelt.
@@ -256,7 +265,7 @@ df_ohne_bezirk_sf <- st_as_sf(df_ohne_bezirk, coords = c("lng", "lat"), crs = 43
 
 **6. Bezirksgrenzen vorbereiten**
 
-```bash
+```r
 bezirksgrenzen <- st_transform(bezirksgrenzen, crs = st_crs(df_ohne_bezirk_sf)) %>%
   rename(bezirk = Gemeinde_name)
 ```
@@ -266,7 +275,7 @@ bezirksgrenzen <- st_transform(bezirksgrenzen, crs = st_crs(df_ohne_bezirk_sf)) 
 
 **7. Räumlicher Vergleich: Welcher Baum liegt in welchem Bezirk?**
 
-```bash
+```r
 df_ohne_bezirk_joined <- st_join(df_ohne_bezirk_sf, bezirksgrenzen["bezirk"], left = TRUE)
 ```
 
@@ -276,7 +285,7 @@ df_ohne_bezirk_joined <- st_join(df_ohne_bezirk_sf, bezirksgrenzen["bezirk"], le
 
 **8. Ergebnis bereinigen und in normales Tabellenformat bringen**
 
-```bash
+```r
 df_ohne_bezirk_filled <- df_ohne_bezirk_joined %>%
   mutate(bezirk = ifelse(is.na(bezirk.x), bezirk.y, bezirk.x)) %>%
   select(-bezirk.x, -bezirk.y) %>%
@@ -287,7 +296,7 @@ df_ohne_bezirk_filled <- df_ohne_bezirk_joined %>%
 - Die geografischen Informationen werden wieder „fallen lassen“, damit es wieder eine normale Tabelle ist.
 
 **9. Beide Gruppen wieder zusammenfügen**
-```bash
+```r
 df_baeume_final <- bind_rows(df_mit_bezirk, df_ohne_bezirk_filled)
 ```
 
@@ -297,7 +306,8 @@ df_baeume_final <- bind_rows(df_mit_bezirk, df_ohne_bezirk_filled)
     - Und die, denen jetzt ein Bezirk zugeordnet wurde.
 
 **10. Neue, vollständige Tabelle speichern**
-```bash
+```r
+if (!dir.exists("data")) dir.create("data")
 write.csv2(df_baeume_final, file = "data/df_merged_final.csv", row.names = FALSE)
 ```
 - Die neue Tabelle mit allen Bäumen und Bezirken wird als Datei gespeichert.
@@ -312,7 +322,14 @@ library(sf)
 library(dplyr)
 
 # 1. Lade die Bezirkspolygone
-bezirksgrenzen <- st_read("data/bezirksgrenzen.geojson")
+local_geojson <- "data/bezirksgrenzen.geojson"
+url_geojson <- "https://raw.githubusercontent.com/quadriga-dk/Tabelle-Fallstudie-3/6cd488f5f4306f9788bda3166d5929ad64312349/data/bezirksgrenzen.geojson"
+
+if (file.exists(local_geojson)) {
+  bezirksgrenzen <- st_read(local_geojson)
+} else {
+  bezirksgrenzen <- st_read(url_geojson)
+}
 
 # 2. Lade die Baumdaten
 df_baeume <- read.csv("data/df_merged_final.csv", sep = ";", stringsAsFactors = FALSE)
@@ -348,6 +365,7 @@ df_ohne_bezirk_filled <- df_ohne_bezirk_joined %>%
 df_baeume_final <- bind_rows(df_mit_bezirk, df_ohne_bezirk_filled)
 
 # 10. Ergebnis speichern
+if (!dir.exists("data")) dir.create("data")
 write.csv2(df_baeume_final, file = "data/df_merged_final.csv", row.names = FALSE)
 
 ```

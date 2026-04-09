@@ -52,32 +52,22 @@ Zeitverlauf der Baumbewässerung (Quelle: eigene Ausarbeitung)
 
 ## Benutzeroberfläche (UI)
 
-### Seitenleiste mit Navigation
-
 Zunächst fügt Amir einen weiteren Menüpunkt zur Navigation hinzu, um den Zeitverlauf-Tab zugänglich zu machen.
 
-````{dropdown} Code
+````{dropdown} Navigation in der Seitenleiste
 ```r
 dashboardSidebar(
   sidebarMenu(
+    menuItem("Startseite", tabName = "start", icon = icon("home")),
+    menuItem("Karte", tabName = "map", icon = icon("map")),
+    # NEU: Menüpunkt für die Zeitverlauf hinzufügen
     menuItem("Zeitverlauf", tabName = "stats", icon = icon("bar-chart"))
   )
 )
 ```
 ````
 
-````{admonition} Erklärung des Codes
-:class: hinweis, dropdown
-
-- `menuItem(...)` erzeugt einen neuen Navigationspunkt:
-  - `"Zeitverlauf"` ist der sichtbare Name
-  - `tabName = "stats"` verknüpft diesen Menüpunkt mit dem Inhaltsbereich
-  - `icon("bar-chart")` fügt ein Diagramm-Symbol zur visuellen Orientierung hinzu
-
-Dieser Menüpunkt reiht sich in die bestehende Navigation ein – neben Startseite und Karte.
-````
-
-### Inhaltsbereich mit Diagramm und Filtern
+### Inhaltsbereich: Diagramm und Filtern
 
 Der Inhaltsbereich enthält das Liniendiagramm sowie Filteroptionen, mit denen Nutzer:innen die Darstellung anpassen können.
 
@@ -169,17 +159,19 @@ Zunächst müssen die Rohdaten so vorbereitet werden, dass nur relevante Einträ
 
 ````{dropdown} Code
 ```r
-filtered_data <- df_merged %>%
-  filter(!is.na(bewaesserungsmenge_in_liter)) %>%  
-  filter(!is.na(pflanzjahr))
+# Trend: Bewässerung nach Pflanzjahr
+output$trend_water <- renderPlotly({
+  filtered_data <- df_merged %>%
+    filter(!is.na(bewaesserungsmenge_in_liter)) %>%  
+    filter(!is.na(pflanzjahr))
 
-if (!"Alle" %in% input$trend_bezirk_pj && length(input$trend_bezirk_pj) > 0) {
+  if (!"Alle" %in% input$trend_bezirk_pj && length(input$trend_bezirk_pj) > 0) {
+    filtered_data <- filtered_data %>%
+      filter(bezirk %in% input$trend_bezirk_pj)
+  }
+
   filtered_data <- filtered_data %>%
-    filter(bezirk %in% input$trend_bezirk_pj)
-}
-
-filtered_data <- filtered_data %>%
-  filter(pflanzjahr >= input$trend_year[1] & pflanzjahr <= input$trend_year[2])
+    filter(pflanzjahr >= input$trend_year[1] & pflanzjahr <= input$trend_year[2])
 
 ```
 ````
@@ -209,13 +201,13 @@ Jetzt aggregiert Amir die Daten: Für jedes Pflanzjahr wird die gesamte gegossen
 
 ````{dropdown} Code
 ```r
-plot_data <- filtered_data %>%
-  group_by(pflanzjahr) %>%
-  summarize(
-    total_water = sum(bewaesserungsmenge_in_liter, na.rm = TRUE),
-    count_trees = n_distinct(gml_id)
-  ) %>%
-  ungroup()
+  plot_data <- filtered_data %>%
+    group_by(pflanzjahr) %>%
+    summarize(
+      total_water = sum(bewaesserungsmenge_in_liter, na.rm = TRUE),
+      count_trees = n_distinct(gml_id)
+    ) %>%
+    ungroup()
 ```
 ````
 
@@ -240,23 +232,25 @@ Mit den aggregierten Daten erstellt Amir nun ein Liniendiagramm, das den Trend �
 
 ````{dropdown} Code
 ```r
-plot <- ggplot(plot_data, aes(x = pflanzjahr, y = total_water)) +
-  geom_line(color = "#2E86AB", size = 1) +
-  geom_point(
-    aes(text = paste0("Pflanzjahr: ", pflanzjahr,
-                      "<br>Gesamtwasser: ", format(total_water, big.mark = ".", decimal.mark = ","), " L",
-                      "<br>Anzahl Bäume: ", count_trees)),
-    size = 2, color = "#2E86AB"
-  ) +
-  theme_minimal() +
-  labs(
-    x = "Pflanzjahr",
-    y = "Gesamtbewässerung (Liter)"
-  ) +
-  theme(panel.grid.minor = element_blank())
+  plot <- ggplot(plot_data, aes(x = pflanzjahr, y = total_water)) +
+    geom_line(color = "#2E86AB", size = 1) +
+    geom_point(
+      aes(text = paste0("Pflanzjahr: ", pflanzjahr,
+                        "<br>Gesamtwasser: ", format(total_water, big.mark = ".", decimal.mark = ","), " L",
+                        "<br>Anzahl Bäume: ", count_trees)),
+      size = 2, color = "#2E86AB"
+    ) +
+    theme_minimal() +
+    labs(
+      x = "Pflanzjahr",
+      y = "Gesamtbewässerung (Liter)"
+    ) +
+    theme(panel.grid.minor = element_blank())
 
-ggplotly(plot, tooltip = "text") %>%
-  layout(hovermode = "closest")
+  ggplotly(plot, tooltip = "text") %>%
+    layout(hovermode = "closest")
+})
+
 ```
 ````
 
@@ -284,6 +278,48 @@ ggplotly(plot, tooltip = "text") %>%
 Durch diese Kombination aus ggplot2 und Plotly entsteht ein Diagramm, in dem Nutzer:innen hineinzoomen, Achsen verschieben und präzise Werte ablesen können.
 ```` 
 
+### Info button observer
+
+Der Info-Button im Diagramm-Titel öffnet ein erläuterndes Pop-up-Fenster, das Nutzer:innen kontextbezogene Hintergrundinformationen zur Grafik liefert.
+
+````{dropdown} Code
+```r
+  observeEvent(input$info_btn_tdbjp, {
+    showModal(modalDialog(
+      title = "Information: Trend der Bewässerung je Pflanzjahr",
+      HTML("
+      <p>Diese Grafik zeigt die <strong>Gesamtbewässerungsmenge nach Pflanzjahr</strong> der Bäume.</p>
+      <p><strong>Hintergrund:</strong> Junge und sehr alte Bäume benötigen typischerweise mehr Wasser als Bäume mittleren Alters.</p>
+      <ul>
+        <li>Junge Bäume (kürzlich gepflanzt) haben noch flache Wurzelsysteme</li>
+        <li>Sehr alte Bäume können geschwächt sein und mehr Unterstützung brauchen</li>
+        <li>Bäume mittleren Alters sind oft selbstständiger</li>
+      </ul>
+      <p><strong>Verwendung:</strong></p>
+      <ul>
+        <li>Nutzen Sie die Filter, um bestimmte Jahrgänge oder Bezirke zu analysieren</li>
+        <li>Bewegen Sie die Maus über die Punkte für Details</li>
+        <li>Mehrere Bezirke können gleichzeitig ausgewählt werden</li>
+      </ul>
+      <p><strong>Ergebnis:</strong> Die Daten zeigen keine wesentlichen Auffälligkeiten - das Pflanzjahr scheint kein entscheidender Faktor für das Bewässerungsengagement zu sein.</p>
+    "),
+      easyClose = TRUE,
+      footer = modalButton("Schließen")
+    ))
+  })
+```
+````
+
+````{admonition} Erklärung des Codes
+:class: hinweis, dropdown
+
+- `observeEvent(input$info_btn_tdbjp, {...})` – reagiert auf das Klicken des Info-Buttons
+- `showModal(modalDialog(...))` – öffnet ein Pop-up-Fenster über der Anwendung
+- `HTML("...")` – ermöglicht HTML-formatierten Text im Dialog
+- `easyClose = TRUE` – das Fenster kann durch Klick außerhalb geschlossen werden
+- `modalButton("Schließen")` – fügt einen Schließen-Button hinzu
+````
+
 ### Kritische Diskussion
 Der dargestellte Trend der Bewässerungsmenge je Pflanzjahr zeigt zwar über den gesamten Zeitraum betrachtet einen **grundsätzlich steigenden Verlauf**, allerdings lässt sich **kein klar lineares oder systematisches Muster** erkennen. Stattdessen wirkt der Verlauf stark **heterogen**, mit ausgeprägten Spitzen und Einbrüchen in einzelnen Jahrgängen.
 
@@ -302,6 +338,152 @@ Mehrere Faktoren schränken die Interpretierbarkeit des Trends ein:
 - Die **Anzahl der Bäume je Pflanzjahr** ist nicht konstant; einzelne Jahrgänge sind stark unter- oder überrepräsentiert.
 - Das Bewässerungsverhalten hängt zusätzlich vom **lokalen Kontext** (Bezirk, Pumpendichte, Freiwilligenaktivität) ab, der im Aggregat verschleiert wird.
 - Stark schwankende Jahrgangswerte könnten auch auf **Einzelbäume mit extrem vielen Gießungen** zurückzuführen sein.
+
+````{admonition} Gesamter Code für diesen Schritt
+:class: solution, dropdown
+
+```r
+# UI-Definition
+ui <- dashboardPage(
+  dashboardHeader(title = "Gieß den Kiez Dashboard"),
+  dashboardSidebar(
+    sidebarMenu(
+      # Code aus der Startseite und Karte
+      menuItem("Startseite", tabName = "start", icon = icon("home")),
+      menuItem("Karte", tabName = "map", icon = icon("map")),
+      # NEU: Navigation für den Zeitverlauf
+      menuItem("Zeitverlauf", tabName = "stats", icon = icon("bar-chart"))
+    )
+  ),
+  dashboardBody(
+    tabItems(
+      # ... Code aus der Startseite und Karte (tabItem für "start" & "map") ...
+      
+      # NEU: Inhaltsbereich für den Zeitverlauf
+      tabItem(
+        tabName = "stats",
+        fluidRow(
+          box(
+            title = tagList(
+              "Trend der Bewässerung je Pflanzjahr",
+              div(
+                actionButton("info_btn_tdbjp", label = "", icon = icon("info-circle")),
+                style = "position: absolute; right: 15px; top: 5px;"
+              )
+            ),
+            status = "primary",
+            solidHeader = TRUE,
+            width = 12,
+            
+            fluidRow(
+              column(
+                width = 6,
+                sliderInput(
+                  "trend_year",
+                  "Pflanzjahre filtern:",
+                  min = 1900,
+                  max = max(df_merged$pflanzjahr, na.rm = TRUE),
+                  value = c(min(df_merged$pflanzjahr, na.rm = TRUE),
+                            max(df_merged$pflanzjahr, na.rm = TRUE)),
+                  step = 1,
+                  sep = ""
+                )
+              ),
+              column(
+                width = 6,
+                selectInput(
+                  "trend_bezirk_pj",
+                  "Bezirk auswählen:",
+                  choices = c("Alle", sort(unique(df_merged$bezirk))),
+                  selected = "Alle",
+                  multiple = TRUE
+                )
+              )
+            ),
+            
+            plotlyOutput("trend_water", height = "500px")
+          )
+        )
+      )
+    )
+  )
+)
+
+# Server-Logik
+server <- function(input, output, session) {
+  
+  # ... Code aus der Startseite und Karte (Hilfsfunktionen, filteredData, ValueBoxes, data_by_bezirk, Leaflet-Karte) ...
+  
+  # NEU: Trend: Bewässerung nach Pflanzjahr
+  output$trend_water <- renderPlotly({
+    filtered_data <- df_merged %>%
+      filter(!is.na(bewaesserungsmenge_in_liter)) %>%  
+      filter(!is.na(pflanzjahr))
+
+    if (!"Alle" %in% input$trend_bezirk_pj && length(input$trend_bezirk_pj) > 0) {
+      filtered_data <- filtered_data %>%
+        filter(bezirk %in% input$trend_bezirk_pj)
+    }
+
+    filtered_data <- filtered_data %>%
+      filter(pflanzjahr >= input$trend_year[1] & pflanzjahr <= input$trend_year[2])
+
+    plot_data <- filtered_data %>%
+      group_by(pflanzjahr) %>%
+      summarize(
+        total_water = sum(bewaesserungsmenge_in_liter, na.rm = TRUE),
+        count_trees = n_distinct(gml_id)
+      ) %>%
+      ungroup()
+
+    plot <- ggplot(plot_data, aes(x = pflanzjahr, y = total_water)) +
+      geom_line(color = "#2E86AB", size = 1) +
+      geom_point(
+        aes(text = paste0("Pflanzjahr: ", pflanzjahr,
+                          "<br>Gesamtwasser: ", format(total_water, big.mark = ".", decimal.mark = ","), " L",
+                          "<br>Anzahl Bäume: ", count_trees)),
+        size = 2, color = "#2E86AB"
+      ) +
+      theme_minimal() +
+      labs(
+        x = "Pflanzjahr",
+        y = "Gesamtbewässerung (Liter)"
+      ) +
+      theme(panel.grid.minor = element_blank())
+
+    ggplotly(plot, tooltip = "text") %>%
+      layout(hovermode = "closest")
+  })
+
+  # NEU: Info button observer
+  observeEvent(input$info_btn_tdbjp, {
+    showModal(modalDialog(
+      title = "Information: Trend der Bewässerung je Pflanzjahr",
+      HTML("
+      <p>Diese Grafik zeigt die <strong>Gesamtbewässerungsmenge nach Pflanzjahr</strong> der Bäume.</p>
+      <p><strong>Hintergrund:</strong> Junge und sehr alte Bäume benötigen typischerweise mehr Wasser als Bäume mittleren Alters.</p>
+      <ul>
+        <li>Junge Bäume (kürzlich gepflanzt) haben noch flache Wurzelsysteme</li>
+        <li>Sehr alte Bäume können geschwächt sein und mehr Unterstützung brauchen</li>
+        <li>Bäume mittleren Alters sind oft selbstständiger</li>
+      </ul>
+      <p><strong>Verwendung:</strong></p>
+      <ul>
+        <li>Nutzen Sie die Filter, um bestimmte Jahrgänge oder Bezirke zu analysieren</li>
+        <li>Bewegen Sie die Maus über die Punkte für Details</li>
+        <li>Mehrere Bezirke können gleichzeitig ausgewählt werden</li>
+      </ul>
+      <p><strong>Ergebnis:</strong> Die Daten zeigen keine wesentlichen Auffälligkeiten - das Pflanzjahr scheint kein entscheidender Faktor für das Bewässerungsengagement zu sein.</p>
+    "),
+      easyClose = TRUE,
+      footer = modalButton("Schließen")
+    ))
+  })
+}
+
+shinyApp(ui = ui, server = server)
+```
+````
 
 ### Überleitung zum nächsten Analyse-Schritt
 

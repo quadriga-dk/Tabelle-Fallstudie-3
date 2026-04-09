@@ -34,16 +34,17 @@ Nachdem die Installation abgeschlossen ist, laden Sie die Pakete in Ihr Skript:
 
 ```r
 library(shiny)
-library(leaflet)
-library(ggplot2)
-library(dplyr)
-library(lubridate)
 library(shinydashboard)
-library(plotly)
-library(leaflet.extras)
-library(tidyr)
+library(lubridate)
+library(leaflet)
+library(dplyr)
+library(htmltools)
 library(stringr)
-library(shinyBS)
+library(sf)
+library(tidyr)
+library(ggplot2)
+library(plotly)
+library(nngeo)
 ```
 
 Diese Pakete ermöglichen die Entwicklung der Benutzeroberfläche, die Datenverarbeitung sowie die Visualisierung.
@@ -59,27 +60,27 @@ Die Grundlage für unser Dashboard bildet eine CSV-Datei der Nutzungsdaten aus d
 
 
 ```r
-# Daten laden
-df <- read.csv("data/nutzungsdatenGiessDenKiez.csv", sep = ";", 
-               stringsAsFactors = FALSE, fileEncoding = "UTF-8")
+# Bezirksgrenzen laden
+bezirksgrenzen <- st_read("data/bezirksgrenzen.geojson", quiet = TRUE)
 
-# Konvertierung von Zeichenketten in numerische Werte
-df$pflanzjahr <- as.numeric(df$pflanzjahr)
-df$bewaesserungsmenge_in_liter <- as.numeric(df$bewaesserungsmenge_in_liter)
+# Bewässerungsdaten laden
+df_merged <- read.csv2("data/df_merged_final.csv", fileEncoding = "UTF-8")
 
-# Entfernung fehlender Werte
-df_clean <- df %>% drop_na(lng, lat, bewaesserungsmenge_in_liter)
+# Bezirksgrenzen vorbereiten
+berlin_bezirke_sf <- bezirksgrenzen %>%
+  rename(bezirk = Gemeinde_name) %>%     # Spalte vereinheitlichen
+  mutate(bezirk = str_to_title(bezirk))  # gleiche Schreibweise wie in df_merged
 ```
 
 Erklärung des Codes:
 
-- `read.csv(...)` lädt die CSV-Datei und interpretiert sie als Tabelle.
+- `st_read(...)` lädt die GeoJSON-Datei mit den Berliner Bezirksgrenzen als räumliches Objekt ein.
 
-- `as.numeric(...)` stellt sicher, dass Zahlenwerte korrekt als numerische Variablen vorliegen.
+- `read.csv2(...)` lädt die CSV-Datei mit den Bewässerungsdaten und interpretiert sie als Tabelle (semikolon-getrennt).
 
-- `drop_na(...)` entfernt Zeilen mit fehlenden oder unvollständigen Daten.
+- `rename(...)` benennt die Spalte `Gemeinde_name` in `bezirk` um, um eine einheitliche Schreibweise sicherzustellen.
 
-Diese Schritte sind essenziell, um spätere Analysen und Visualisierungen korrekt durchführen zu können.
+- `mutate(bezirk = str_to_title(bezirk))` sorgt dafür, dass die Bezirksnamen in der Geodatei dieselbe Schreibweise wie in `df_merged` haben.
 
 
 ## Dashboard bauen
@@ -99,27 +100,54 @@ Die Grundstruktur eines Dashboards wird mit der Funktion dashboardPage() erstell
 
 ```r
 ui <- dashboardPage(
+  # 1. HEADER: Titelbereich des Dashboards
   dashboardHeader(title = "Gieß den Kiez Dashboard"),
+  
+  # 2. SIDEBAR: Seitliche Navigationsleiste mit Menüeinträgen
   dashboardSidebar(
     sidebarMenu(
       menuItem("Startseite", tabName = "start", icon = icon("home")),
       menuItem("Karte", tabName = "map", icon = icon("map")),
-      menuItem("Baumstatistik", tabName = "stats", icon = icon("bar-chart")),
+      menuItem("Zeitverlauf", tabName = "stats", icon = icon("bar-chart")),
+      menuItem("Baumstatistik", tabName = "engagement", icon = icon("bar-chart")),
       menuItem("Bewässerungsanalyse", tabName = "analysis", icon = icon("chart-area"))
     )
   ),
+  
+  # 3. BODY: Inhaltsbereich
   dashboardBody(
     tabItems(
-      tabItem(tabName = "start"),
-      tabItem(tabName = "map"),
-      tabItem(tabName = "stats"),
-      tabItem(tabName = "analysis")
+      tabItem(
+        tabName = "start"
+        # Hier folgt später der UI-Code für die Startseite (Texte, Bilder, etc.)
+      ),
+      tabItem(
+        tabName = "map"
+        # Hier folgen später die UI-Komponenten für die Karte
+      ),
+      tabItem(
+        tabName = "stats"
+        # Hier folgen später die UI-Komponenten für den Zeitverlauf
+      ),
+      tabItem(
+        tabName = "engagement"
+        # Hier folgen später die UI-Komponenten für die Baumstatistik
+      ),
+      tabItem(
+        tabName = "analysis"
+        # Hier folgen später die UI-Komponenten für die Bewässerungsanalyse
+      )
     )
   )
 )
 
-server <- function(input, output) { }
+# 4. SERVER: Backend-Logik, die Daten verarbeitet und an die UI generiert
+server <- function(input, output) { 
+  # Hier folgt später der R-Code zur Datenverarbeitung (z.B. renderPlot, renderLeaflet), 
+  # der die Grafiken und Inhalte für die jeweiligen Tabs im Body erzeugt.
+}
 
+# 5. Zusammenführung: Startet die Shiny-Anwendung
 shinyApp(ui = ui, server = server)
 ```
 

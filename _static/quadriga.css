@@ -185,6 +185,20 @@ a[href^="mailto:"]:after {
     content: "📧";
 }
 
+/* Download link mit FontAwesome Icon */
+.download-link:after {
+    content: "\f019";  /* FontAwesome download icon */
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    color: var(--quadriga-main);
+    padding-left: 0.3rem;
+}
+
+/* Dark mode override for download link */
+html[data-theme='dark'] .download-link:after {
+    color: var(--quadriga-main-web);
+}
+
 /* margin for frage-feedback styling */
 div.frage-feedback {
     background-color: #f7fbff !important;
