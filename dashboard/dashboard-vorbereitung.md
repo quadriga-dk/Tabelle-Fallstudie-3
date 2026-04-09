@@ -100,27 +100,54 @@ Die Grundstruktur eines Dashboards wird mit der Funktion dashboardPage() erstell
 
 ```r
 ui <- dashboardPage(
+  # 1. HEADER: Titelbereich des Dashboards
   dashboardHeader(title = "Gieß den Kiez Dashboard"),
+  
+  # 2. SIDEBAR: Seitliche Navigationsleiste mit Menüeinträgen
   dashboardSidebar(
     sidebarMenu(
       menuItem("Startseite", tabName = "start", icon = icon("home")),
       menuItem("Karte", tabName = "map", icon = icon("map")),
-      menuItem("Baumstatistik", tabName = "stats", icon = icon("bar-chart")),
+      menuItem("Zeitverlauf", tabName = "stats", icon = icon("bar-chart")),
+      menuItem("Baumstatistik", tabName = "engagement", icon = icon("bar-chart")),
       menuItem("Bewässerungsanalyse", tabName = "analysis", icon = icon("chart-area"))
     )
   ),
+  
+  # 3. BODY: Inhaltsbereich
   dashboardBody(
     tabItems(
-      tabItem(tabName = "start"),
-      tabItem(tabName = "map"),
-      tabItem(tabName = "stats"),
-      tabItem(tabName = "analysis")
+      tabItem(
+        tabName = "start"
+        # Hier folgt später der UI-Code für die Startseite (Texte, Bilder, etc.)
+      ),
+      tabItem(
+        tabName = "map"
+        # Hier folgen später die UI-Komponenten für die Karte
+      ),
+      tabItem(
+        tabName = "stats"
+        # Hier folgen später die UI-Komponenten für den Zeitverlauf
+      ),
+      tabItem(
+        tabName = "engagement"
+        # Hier folgen später die UI-Komponenten für die Baumstatistik
+      ),
+      tabItem(
+        tabName = "analysis"
+        # Hier folgen später die UI-Komponenten für die Bewässerungsanalyse
+      )
     )
   )
 )
 
-server <- function(input, output) { }
+# 4. SERVER: Backend-Logik, die Daten verarbeitet und an die UI generiert
+server <- function(input, output) { 
+  # Hier folgt später der R-Code zur Datenverarbeitung (z.B. renderPlot, renderLeaflet), 
+  # der die Grafiken und Inhalte für die jeweiligen Tabs im Body erzeugt.
+}
 
+# 5. Zusammenführung: Startet die Shiny-Anwendung
 shinyApp(ui = ui, server = server)
 ```
 
