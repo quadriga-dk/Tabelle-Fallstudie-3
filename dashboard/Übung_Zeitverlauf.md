@@ -163,16 +163,6 @@ Diese Struktur gibt Nutzer:innen volle Kontrolle: Sie können sowohl den Zeitrau
 
 ## Server
 
-Alle folgenden Code-Abschnitte gehören zusammen in den `output$trend_water <- renderPlotly({...})`-Block:
-
-````{dropdown} Vollständiger Server-Code (Rahmen)
-```r
-  output$trend_water <- renderPlotly({
-    # ... (Daten filtern, aggregieren und Diagramm erstellen – siehe Abschnitte unten)
-  })
-```
-````
-
 ### Daten vorbereiten und filtern
 
 Zunächst müssen die Rohdaten so vorbereitet werden, dass nur relevante Einträge berücksichtigt werden – also Bäume, die tatsächlich gegossen wurden und für die ein Pflanzjahr bekannt ist.

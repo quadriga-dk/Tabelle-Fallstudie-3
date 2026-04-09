@@ -121,34 +121,6 @@ Amir möchte, dass die Leaflet-Karte zentral dargestellt wird und sofort ins Aug
 
 ````
 
-### Zoom Javascript
-Wenn jemand hinein- oder herauszoomt, soll die App das mitbekommen und später darauf reagieren können – etwa um bei starkem Zoom mehr Details anzuzeigen. Ein kleines JavaScript-Skript erfasst die Zoomstufe im Hintergrund.
-
-````{dropdown} Code
-```r
-    tags$script(HTML("
-      $(document).ready(function() {
-        var map = $('#map').find('div.leaflet-container')[0];
-        if (map) {
-          var leafletMap = $(map).data('leaflet-map');
-          leafletMap.on('zoomend', function() {
-            Shiny.setInputValue('map_zoom', leafletMap.getZoom());
-          });
-        }
-      });
-    ")),
-```
-````
-````{admonition} Erklärung des Codes
-:class: hinweis, dropdown
-Diese Funktion überwacht die Zoomstufe der Karte:
-- `$(document).ready(...)` wartet, bis die Seite vollständig geladen ist
-- `$('#map').find('div.leaflet-container')` findet die Leaflet-Karte im DOM
-- `leafletMap.on('zoomend', ...)` registriert einen Event-Listener für Zoom-Ereignisse
-- `Shiny.setInputValue('map_zoom', ...)` sendet die aktuelle Zoomstufe an die Shiny-App zurück
-
-Wenn Nutzer:innen herein- oder herauszoomen, wird die aktuelle Zoomstufe (`map_zoom`) automatisch aktualisiert und an die App übermittelt.
-````
 
 ## Server
 

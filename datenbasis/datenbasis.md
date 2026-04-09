@@ -11,6 +11,16 @@ Dr. Amir Weber macht sich Gedanken, welche Daten er braucht und woher er sie bez
 Dabei fällt ihm das Berliner Projekt Gieß den Kiez ein, welches diese Daten bereits erhebt und zur Verfügung stellt. Er prüft zudem, welche Daten noch relevant sind und auf welche Weise sie beschafft werden können.
 ```
 
+````{margin}
+```{admonition} Daten herunterladen
+:class: hinweis
+
+Laden Sie die Dateien herunter und speichern Sie diese in Ihrem Projektverzeichnis im Ordner `data/`:  
+<a href="https://raw.githubusercontent.com/technologiestiftung/giessdenkiez-de-opendata/main/daten/giessdenkiez_bew%C3%A4sserungsdaten.csv" class="download-link" target='_blank'>Bewässerungsdaten (CSV)</a>  
+<a href="https://tsb-opendata.s3.eu-central-1.amazonaws.com/bezirksgrenzen/bezirksgrenzen.geojson" class="download-link" target='_blank'>Bezirksgrenzen (GeoJSON)</a>
+```
+````
+
 In diesem Abschnitt werden Ihnen die Daten vorgestellt, die zur Beantwortung der Leitfrage und als Datenbasis für ein Dashboard benötigt werden. Im nächsten Abschnitt werden diese dann eingelesen.
 
 Dabei handelt es sich um zwei zentrale Datensätze: 
