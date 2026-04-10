@@ -29,8 +29,6 @@ Nachdem die räumlichen Unterschiede der Bewässerung betrachtet wurden, richtet
 
 - Baumalter bzw. Pflanzjahr (wissenschaftlich ist belegt, dass besonders junge und teilweise auch sehr alte Bäume ein erhöhtes Wasservolumen benötigen),
 
-- sowie infrastrukturelle Faktoren wie die Nähe zu Pumpen.
-
 Um diese Aspekte besser zu verstehen, untersucht er zwei zentrale Fragen:
 
 **1. Wie hat sich die Bewässerungsmenge über die Jahre entwickelt?**
