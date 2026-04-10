@@ -64,9 +64,9 @@ Die Benutzeroberfläche besteht aus zwei Teilen:
 
 - einem Inhaltsbereich (``tabItem``) mit:
 
-    - Karte mit Baumbestands anzeige
+    - Karte mit Baumbestandsanzeige
 
-    - Dropdowns zur Auswahl des Zeitraums, des Bezirks, des lor und der Baumgattung
+    - Dropdowns zur Auswahl des Zeitraums, des Bezirks, des lor <span style="color: red;">(des was?)</span>  und der Baumgattung
 
 
 ````{dropdown} Navigation in der Seitenleiste
@@ -143,7 +143,7 @@ Wenn jemand hinein- oder herauszoomt, soll die App das mitbekommen und später d
 :class: hinweis, dropdown
 Diese Funktion überwacht die Zoomstufe der Karte:
 - `$(document).ready(...)` wartet, bis die Seite vollständig geladen ist
-- `$('#map').find('div.leaflet-container')` findet die Leaflet-Karte im DOM
+- `$('#map').find('div.leaflet-container')` findet die Leaflet-Karte im DOM <span style="color: red;">DOM erklären oder ALternative finden?</span> 
 - `leafletMap.on('zoomend', ...)` registriert einen Event-Listener für Zoom-Ereignisse
 - `Shiny.setInputValue('map_zoom', ...)` sendet die aktuelle Zoomstufe an die Shiny-App zurück
 
@@ -152,6 +152,8 @@ Wenn Nutzer:innen herein- oder herauszoomen, wird die aktuelle Zoomstufe (`map_z
 
 ## Karte zeichnen mit Leaflet
 Jetzt entsteht die eigentliche Karte. Jeder Berliner Bezirk wird farblich gestaltet: Dunklere Farben zeigen hohes Engagement, hellere Bereiche niedrigere Bewässerungsraten. Beim Überfahren mit der Maus erscheinen die genauen Zahlen – wie viele Bäume es gibt, wie viele gegossen wurden und der prozentuale Anteil.
+
+<span style="color: red;">Ich würde den folgenden Codeblock wegen seiner Größe aufteilen oder inline kommentieren</span>
 
 ````{dropdown} Code
 ```r
