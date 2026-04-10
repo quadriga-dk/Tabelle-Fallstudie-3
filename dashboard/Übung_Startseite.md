@@ -230,7 +230,7 @@ Amir muss den Filtercode nur einmal schreiben. Alle Visualisierungen und Kennzah
 #### Dynamische Anzeige
 
 Eine dynamische Anzeige bedeutet, dass sich die Inhalte des Dashboards automatisch ändern, abhängig davon, was Sie auswählen.
-Um solche dynamischen Anzeigen zu erstellen, muss das Dashboard Entscheidungen treffen: „Wenn dies ausgewählt ist, dann eige das – ansonsten zeige etwas anderes."
+Um solche dynamischen Anzeigen zu erstellen, muss das Dashboard Entscheidungen treffen: „Wenn dies ausgewählt ist, dann zeige das – ansonsten zeige etwas anderes."
 
 In der Programmierung verwendet man dafür **if-else-Anweisungen**:
 
@@ -298,7 +298,7 @@ output$total_trees <- renderValueBox({
 
 - ``output$total_trees`` ist das, was in die Box ``valueBoxOutput("total_trees")`` geschrieben wird.
 - ``renderValueBox({...})`` sagt: „Berechne, was in die Box geschrieben wird.“
-- ``n_distinct(...)``: zählt eindeutige Werte.
+- ``n_distinct(...)``: zählt eindeutige Werte und verhindert somit, dass ein Baum mehrfach in die Rechnung einfließt.
 - ``formatC(...)``: formatiert Zahlen, z. B. mit Tausenderpunkten.
 - ``icon("tree")`` zeigt ein Baum-Icon.
 - ``color = "green"`` färbt die Box grün.
@@ -387,7 +387,7 @@ Ein Wert von `1.250.000 Litern` wird zu `1,25 ML`, angezeigt als `"1,25 Mega Lit
 Das Dashboard ist nun funktionsfähig: Nutzer:innen können Bezirke auswählen und sehen sofort, wie viele Bäume in diesen Bezirken gegossen wurden – im Verhältnis zum Gesamtbestand. Die Trennung von UI und Server ermöglicht es Amir, später weitere Analysen hinzuzufügen, ohne die bestehende Struktur grundlegend ändern zu müssen.
 
 
-Überblick der Funktionen/Operatoren
+Überblick der Funktionen/Operatoren <span style="color:red">Ist diese gewollt nicht vollständig?</span>
 
 | Funktion/Operator | Bedeutung|
 |-------------------|----------|
@@ -518,7 +518,7 @@ Er möchte verstehen, welche **Kontextfaktoren** zu den Unterschieden führen k�
 
 - **Räumlich** – etwa Unterschiede zwischen Bezirken oder die Baumdichte in einem Gebiet.
 
-- **Zeitlich** – wie sich das Engagement im Jahresverlauf entwickelt oder ob das Pflanzjahr der Bäume eine Rolle spielt.
+- **Zeitlich** – wie sich das Engagement im Jahresverlauf entwickelt oder, ob das Pflanzjahr der Bäume eine Rolle spielt.
 
 - **Infrastrukturell** – zum Beispiel, ob die Verfügbarkeit von Pumpen Einfluss auf das Gießverhalten hat.
 
