@@ -298,7 +298,7 @@ Die beobachteten starken Peaks deuten also weniger auf ein „mehr Engagement ü
 Mehrere Faktoren schränken die Interpretierbarkeit des Trends ein:
 
 - Die **Anzahl der Bäume je Pflanzjahr** ist nicht konstant; einzelne Jahrgänge sind stark unter- oder überrepräsentiert.
-- Das Bewässerungsverhalten hängt zusätzlich vom **lokalen Kontext** (Bezirk, Pumpendichte, Freiwilligenaktivität) ab, der im Aggregat verschleiert wird.
+- Das Bewässerungsverhalten hängt zusätzlich vom **lokalen Kontext** (Bezirk, Freiwilligenaktivität) ab, der im Aggregat verschleiert wird.
 - Stark schwankende Jahrgangswerte könnten auch auf **Einzelbäume mit extrem vielen Gießungen** zurückzuführen sein.
 
 ### Überleitung zum nächsten Analyse-Schritt
