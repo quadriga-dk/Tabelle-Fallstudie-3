@@ -222,7 +222,7 @@ Mit den aggregierten und umgerechneten Daten erstellt Amir nun das Balkendiagram
 - `plot.margin = margin(10, 10, 10, 10)` – ausreichend Abstand, damit Beschriftungen nicht abgeschnitten werden
 ````
 
-### Info button observer
+### Info button observer (was genau ist das?)
 
 ````{dropdown} Code
 ```r
