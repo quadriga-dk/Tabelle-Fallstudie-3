@@ -520,8 +520,6 @@ Er möchte verstehen, welche **Kontextfaktoren** zu den Unterschieden führen k�
 
 - **Zeitlich** – wie sich das Engagement im Jahresverlauf entwickelt oder, ob das Pflanzjahr der Bäume eine Rolle spielt.
 
-- **Infrastrukturell** – zum Beispiel, ob die Verfügbarkeit von Pumpen Einfluss auf das Gießverhalten hat.
-
 ````{admonition} Daraus ergeben sich neue Fragen:
 :class: frage-feedback
 
