@@ -29,8 +29,6 @@ Nachdem die räumlichen Unterschiede der Bewässerung betrachtet wurden, richtet
 
 - Baumalter bzw. Pflanzjahr (wissenschaftlich ist belegt, dass besonders junge und teilweise auch sehr alte Bäume ein erhöhtes Wasservolumen benötigen),
 
-- sowie infrastrukturelle Faktoren wie die Nähe zu Pumpen.
-
 Um diese Aspekte besser zu verstehen, untersucht er zwei zentrale Fragen:
 
 **1. Wie hat sich die Bewässerungsmenge über die Jahre entwickelt?**
@@ -336,7 +334,7 @@ Die beobachteten starken Peaks deuten also weniger auf ein „mehr Engagement ü
 Mehrere Faktoren schränken die Interpretierbarkeit des Trends ein:
 
 - Die **Anzahl der Bäume je Pflanzjahr** ist nicht konstant; einzelne Jahrgänge sind stark unter- oder überrepräsentiert.
-- Das Bewässerungsverhalten hängt zusätzlich vom **lokalen Kontext** (Bezirk, Pumpendichte, Freiwilligenaktivität) ab, der im Aggregat verschleiert wird.
+- Das Bewässerungsverhalten hängt zusätzlich vom **lokalen Kontext** (Bezirk, Freiwilligenaktivität) ab, der im Aggregat verschleiert wird.
 - Stark schwankende Jahrgangswerte könnten auch auf **Einzelbäume mit extrem vielen Gießungen** zurückzuführen sein.
 
 ````{admonition} Gesamter Code für diesen Schritt
