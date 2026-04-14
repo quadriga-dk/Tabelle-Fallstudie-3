@@ -43,6 +43,25 @@ Zusätzlich plant er **Filtermöglichkeiten** nach **Bezirk**, um die Kennzahlen
 Als Nächstes bauen wir die Startseite des Dashboards mit R. Nach jedem Codeabschnitt werden kurz die verwendeten Techniken und Befehle erklärt. Wir widmen uns sowohl der Benutzeroberfläche (UI) als auch der Serverseite des R-Shiny-Dashboards.
 
 ## Benutzeroberfläche (UI)
+
+````{admonition} Platzierung des UI Codes
+:class: hinweis
+
+Alle in diesem Abschnitt folgenden Code-Bausteine für die Benutzeroberfläche gehören in die `ui`-Struktur, die wir in den Vorbereitungen definiert haben:
+
+```r
+ui <- dashboardPage(
+  dashboardHeader(...),
+  dashboardSidebar(
+    # ... Hier kommt der Code für die Seitenleiste hin ...
+  ),
+  dashboardBody(
+    # ... Hier kommt der Code für den Inhaltsbereich hin ...
+  )
+)
+```
+````
+
 Amir entscheidet sich für ein System der Benutzeroberfläche, die aus zwei Teilen besteht:
 
 - einer Seitenleiste (``sidebarMenu``) mit der Navigation
@@ -132,40 +151,19 @@ Mit `fluidRow` stehen die beiden Kennzahlenkacheln nebeneinander:
 - `valueBoxOutput("total_trees", width = 6)` – reserviert Platz für die erste Kennzahl (halbe Breite)
 - `valueBoxOutput("total_tree_watered", width = 6)` – reserviert Platz für die zweite Kennzahl (halbe Breite)
 
-````
-
-#### Filter für Bezirke hinzufügen
-
-Unterhalb der Kennzahlen fügt Amir einen Filter hinzu, mit dem Nutzer:innen einzelne oder mehrere Bezirke auswählen können.
-````{dropdown} Code
-```r
-selectInput(
-            "bezirk",
-            "Bezirk auswählen:",
-            choices = c("Alle", unique(df$bezirk)),
-            selected = "Alle",
-            multiple = TRUE
-          )
-          
-selectInput("start_year", ...)
-
-```
-````
-````{admonition} Erläuterung des Codes
-:class: hinweis, dropdown
-
 **`selectInput(...)`** erstellt ein Dropdown-Menü (also eine Auswahlliste) mit:
 - ``"bezirk"`` ist der Name, unter dem Shiny diesen Input später erkennt → input$bezirk
 - ``"Bezirk auswählen:"`` ist der Text, der über dem Menü steht.
-- `choices = c("Alle", unique(df$bezirk))` definiert die Auswahlmöglichkeiten:
-  - ``df$bezirk`` heißt: Aus der Tabelle df nimm die Spalte bezirk.
-  - ``unique(df$bezirk)`` bedeutet: Nur jeden Bezirk einmal anzeigen – keine Dopplungen.
+- `choices = c("Alle", unique(df_merged$bezirk))` definiert die Auswahlmöglichkeiten:
+  - ``df_merged$bezirk`` heißt: Aus der Tabelle df_merged nimm die Spalte bezirk.
+  - ``unique(df_merged$bezirk)`` bedeutet: Nur jeden Bezirk einmal anzeigen – keine Dopplungen.
   - ``c(...)`` macht daraus eine Liste aller Bezirke plus **“Alle”**.
 - `selected = "Alle"` legt fest, dass beim Start alle Bezirke angezeigt werden.
 - ``multiple = TRUE`` heißt: Man darf mehrere Bezirke gleichzeitig auswählen.
 
 Diese Filterauswahl wird im Server verarbeitet und bestimmt, welche Daten für die Kennzahl der gegossenen Bäume verwendet werden.
 ````
+
 
 Mit diesem Aufbau hat Amir die **Struktur** seiner Startseite definiert:
 - Eine klare Navigation über die Seitenleiste
@@ -175,6 +173,19 @@ Mit diesem Aufbau hat Amir die **Struktur** seiner Startseite definiert:
 Was noch fehlt, ist die Intelligenz: Die tatsächliche Berechnung der Kennzahlen und die Reaktion auf Nutzer:inneneingaben. Dafür ist der Server zuständig.
 
 ## Server – Die Logik hinter dem Dashboard
+
+````{admonition} Platzierung des Server Codes
+:class: hinweis
+
+Alle in diesem Abschnitt folgenden Code-Bausteine für den Server gehören in die `server`-Funktion, die wir in den Vorbereitungen definiert haben:
+
+```r
+server <- function(input, output) { 
+  # Hier folgt der R-Code zur Datenverarbeitung...
+}
+```
+````
+
 In Shiny beobachtet der Server kontinuierlich die Eingabefelder (`input$...`) und **aktualisiert automatisch** alle Ausgaben (`output$...`), die von diesen Eingaben abhängen.
 
 Für Amirs Dashboard bedeutet das konkret:
@@ -213,28 +224,9 @@ filteredData <- reactive({
 **`req(input$bezirk)`**  
 - sorgt dafür, dass die Funktion nur ausgeführt wird, wenn bestimmte Eingaben vorhanden sind.
 
-**Die Filterlogik**  
-```r
-if (!("Alle" %in% input$bezirk)) {
-  df_filtered <- df_filtered %>% filter(bezirk %in% input$bezirk)
-}
-```
-Diese Bedingung implementiert die eigentliche Filterung:
-- Falls "Alle" in der Auswahl enthalten ist → keine Einschränkung, alle Daten bleiben erhalten
-- Falls nur bestimmte Bezirke ausgewählt wurden → behalte nur die Zeilen, deren `bezirk` in der Auswahl (`input$bezirk`) vorkommt
+**Dynamische Anzeige**
+Damit das Dashboard Entscheidungen treffen kann (z. B. beim Filtern oder Anpassen von Ansichten), nutzt  es `if`-Anweisungen und Operatoren:
 
-**Warum ist diese Struktur wichtig?**  
-Amir muss den Filtercode nur einmal schreiben. Alle Visualisierungen und Kennzahlen, die `filteredData()` verwenden, greifen automatisch auf die aktuell gefilterte Version der Daten zu. Das vermeidet Redundanz und macht den Code wartbar.
-````
-
-#### Dynamische Anzeige
-
-Eine dynamische Anzeige bedeutet, dass sich die Inhalte des Dashboards automatisch ändern, abhängig davon, was Sie auswählen.
-Um solche dynamischen Anzeigen zu erstellen, muss das Dashboard Entscheidungen treffen: „Wenn dies ausgewählt ist, dann zeige das – ansonsten zeige etwas anderes."
-
-In der Programmierung verwendet man dafür **if-else-Anweisungen**:
-
-````{dropdown} Code
 ```r
 if (Bedingung) {
   # wird ausgeführt, wenn die Bedingung wahr ist
@@ -242,18 +234,25 @@ if (Bedingung) {
   # wird ausgeführt, wenn die Bedingung falsch ist
 }
 ```
-Diese Struktur nennt man **Bedingung**. Sie steuert den Ablauf des Codes abhängig von bestimmten Eingaben.
 
-**Operatoren**
-- ``%in%``: prüft, ob ein Wert in einer Liste enthalten ist.
-- ``<-``: weist einer Variable einen Wert zu (z. B. ``x <- 3``).
-- ``|`` = ODER, ``&`` = UND
+**Die Filterlogik**  
+```r
+if (!("Alle" %in% input$bezirk)) {
+  df_filtered <- df_filtered %>% filter(bezirk %in% input$bezirk)
+}
+``` 
+Diese Bedingung implementiert die eigentliche Filterung:
+- Falls "Alle" in der Auswahl enthalten ist → keine Einschränkung, alle Daten bleiben erhalten
+- Falls nur bestimmte Bezirke ausgewählt wurden → behalte nur die Zeilen, deren `bezirk` in der Auswahl (`input$bezirk`) vorkommt
+
+**Warum ist diese Struktur wichtig?**  
+Amir muss den Filtercode nur einmal schreiben. Alle Visualisierungen und Kennzahlen, die `filteredData()` verwenden, greifen automatisch auf die aktuell gefilterte Version der Daten zu. Das vermeidet Redundanz und macht den Code wartbar.
 
 ````
 
-##### Praktisches Beispiel für das Dashboard
+### Praktisches Beispiel für das Dashboard
 
-````{dropdown} total_trees oder total_tree_watered
+````{dropdown} Code
 ```r
 output$dynamic_tree_box <- renderUI({
   if ("Baumbestand Stand 2025" %in% input$start_year) {
@@ -403,7 +402,7 @@ Das Dashboard ist nun funktionsfähig: Nutzer:innen können Bezirke auswählen u
 
 
 ````{admonition} Gesamter Code
-:class: hinweis, dropdown
+:class: solution, dropdown
 
 ```r
 # UI-Definition
@@ -416,20 +415,23 @@ ui <- dashboardPage(
   ),
   dashboardBody(
     tabItems(
-      tabItem(tabName = "start",
-              box(title = "Overview", status = "primary", solidHeader = TRUE, width = 12,
-                  fluidRow(
-                    valueBoxOutput("total_trees", width = 6),
-                    valueBoxOutput("total_tree_watered", width = 6)
-                  ),
-                  fluidRow(
-                    column(width = 6,
-                           selectInput("bezirk", "Bezirk auswählen:", 
-                                       choices = c("Alle", unique(df_merged$bezirk)), 
-                                       selected = "Alle", multiple = TRUE)
-                    )
-                  )
+      tabItem(
+        tabName = "start",
+        box(title = "Overview", status = "primary", solidHeader = TRUE, width = 12,
+            # Row for value boxes
+            fluidRow(
+              valueBoxOutput("total_trees", width = 6),
+              valueBoxOutput("total_tree_watered", width = 6)
+            ),
+            #  Row for the Bezirk filter
+            fluidRow(
+              column(width = 6,
+                      selectInput("bezirk", "Bezirk auswählen:", 
+                                  choices = c("Alle", unique(df_merged$bezirk)), 
+                                  selected = "Alle", multiple = TRUE)
               )
+            )
+        )
       )
     )
   )
@@ -438,6 +440,7 @@ ui <- dashboardPage(
 # Server-Logik
 server <- function(input, output, session) {
   
+  # Hilfsfunktion für Einheiten
   convert_units <- function(liters) {
     if (liters >= 1e6) {
       return(list(value = round(liters / 1e6, 2), unit = "ML"))
@@ -456,6 +459,8 @@ server <- function(input, output, session) {
            unit)
   }
   
+  # ---- Gefilterte Daten ----
+  # ---- Reactive: filtered data ----
   filteredData <- reactive({
     req(input$bezirk)
     
@@ -469,6 +474,7 @@ server <- function(input, output, session) {
     df_filtered
   })
   
+  # ---- ValueBoxes ----
   output$total_trees <- renderValueBox({
     valueBox(
       formatC(n_distinct(df_merged$gisid), format = "d", big.mark = "."),
@@ -488,6 +494,8 @@ server <- function(input, output, session) {
     )
   })
 }
+
+shinyApp(ui = ui, server = server)
 ```
 ````
 

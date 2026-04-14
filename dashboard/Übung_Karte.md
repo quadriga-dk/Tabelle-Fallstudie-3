@@ -32,7 +32,7 @@ zweiter Reiter des Dashboards - Karte; Die Abbildung zeigt eine Karte aller Berl
 ``` 
 
 ```{admonition} Die Karte erfüllt mehrere Ziele gleichzeitig:
-:class: keypoint
+:class: lernziele
 
 - Sie zeigt für **jeden Bezirk**, wie viele Bäume dort stehen und wie viele davon gegossen wurden.
 
@@ -58,35 +58,25 @@ Technisch nutzt Amir dafür ein Zusammenspiel aus:
 Durch diese Kombination entsteht eine sowohl leicht verständliche als auch analytisch wertvolle Darstellung. Nutzer:innen können sofort erkennen, wie die Bewässerungsaktivität räumlich verteilt ist und welche Bezirke auffallen – im positiven oder negativen Sinne.
 
 ## Benutzeroberfläche (UI)
-Die Benutzeroberfläche besteht aus zwei Teilen:
 
-- einer Seitenleiste (``sidebarMenu``) mit der Navigation
-
-- einem Inhaltsbereich (``tabItem``) mit:
-
-    - Karte mit Baumbestandsanzeige
-
-    - Dropdowns zur Auswahl des Zeitraums, des Bezirks, des lor <span style="color: red;">(des was?)</span>  und der Baumgattung
-
+Da die Grundstruktur der Benutzeroberfläche bereits in der vorherigen Übung aufgebaut wurde, erweitern wir diese nun lediglich um die Elemente für die Karte. Wir ergänzen:  
+- die **Seitenleiste** (`sidebarMenu`) um einen neuen Navigationspunkt für die Karte.
+- den **Inhaltsbereich** (`tabItems`) um ein neues `tabItem`, in dem die Karte dargestellt wird.
 
 ````{dropdown} Navigation in der Seitenleiste
 ```r
 dashboardSidebar(
   sidebarMenu(
+    menuItem("Startseite", tabName = "start", icon = icon("home")),
+    # NEU: Menüpunkt für die Karte hinzufügen
     menuItem("Karte", tabName = "map", icon = icon("map"))
   )
 )
 ```
-- ``sidebarMenu(...)`` ist die Hauptnavigation des Dashboards.
-- ``menuItem(...)`` erzeugt einen Menüpunkt:
-- ``"Karte"`` ist der angezeigte Name.
-- ``tabName = "map"`` verbindet den Menüpunkt mit dem Tab.
-- ``icon("map")`` zeigt ein kleines Karten Symbol an.
-
-Mit ``menuItem(...)`` wird ein weiterer Navigationspunkt eingebunden. "map" als tabName verknüpft ihn mit dem Kartentab.
+Wie bereits von der Startseite bekannt, erzeugt `menuItem(...)` einen neuen Eintrag in der Seitenleiste. Durch `tabName = "map"` verknüpfen wir diesen mit dem noch zu erstellenden Inhaltsbereich.
 ````
 
-## UI: Karte mit Filter-Boxen
+### Inhaltsbereich: Karte mit Filter-Boxen
 
 Amir möchte, dass die Leaflet-Karte zentral dargestellt wird und sofort ins Auge fällt. Die Karte soll nicht nur schön aussehen, sondern auf einen Blick zeigen, wo in Berlin besonders viel gegossen wird. Darunter sollen Filter es ermöglichen, die Ansicht auf bestimmte Bezirke oder Zeiträume einzugrenzen.
 
@@ -121,36 +111,41 @@ Amir möchte, dass die Leaflet-Karte zentral dargestellt wird und sofort ins Aug
 
 ````
 
-## Zoom Javascript
-Wenn jemand hinein- oder herauszoomt, soll die App das mitbekommen und später darauf reagieren können – etwa um bei starkem Zoom mehr Details anzuzeigen. Ein kleines JavaScript-Skript erfasst die Zoomstufe im Hintergrund.
+
+## Server
+
+### Bewässerungsstatistik pro Bezirk berechnen
+
+Bevor die Karte gezeichnet werden kann, müssen für jeden Berliner Bezirk die relevanten Kennzahlen berechnet werden: Wie viele Bäume stehen dort insgesamt? Wie viele davon wurden gegossen? Und welcher Anteil wurde bewässert?
 
 ````{dropdown} Code
 ```r
-    tags$script(HTML("
-      $(document).ready(function() {
-        var map = $('#map').find('div.leaflet-container')[0];
-        if (map) {
-          var leafletMap = $(map).data('leaflet-map');
-          leafletMap.on('zoomend', function() {
-            Shiny.setInputValue('map_zoom', leafletMap.getZoom());
-          });
-        }
-      });
-    ")),
+  data_by_bezirk <- reactive({
+    df_merged %>%
+      group_by(bezirk) %>%
+      summarise(
+        n_total = n_distinct(gisid),
+        n_watered = n_distinct(gisid[!is.na(timestamp)]),
+        pct_watered = round((n_watered / n_total) * 100, 1)
+      ) %>%
+      ungroup()
+  })
 ```
 ````
 ````{admonition} Erklärung des Codes
 :class: hinweis, dropdown
-Diese Funktion überwacht die Zoomstufe der Karte:
-- `$(document).ready(...)` wartet, bis die Seite vollständig geladen ist
-- `$('#map').find('div.leaflet-container')` findet die Leaflet-Karte im DOM <span style="color: red;">DOM erklären oder ALternative finden?</span> 
-- `leafletMap.on('zoomend', ...)` registriert einen Event-Listener für Zoom-Ereignisse
-- `Shiny.setInputValue('map_zoom', ...)` sendet die aktuelle Zoomstufe an die Shiny-App zurück
 
-Wenn Nutzer:innen herein- oder herauszoomen, wird die aktuelle Zoomstufe (`map_zoom`) automatisch aktualisiert und an die App übermittelt.
+- `reactive({...})` – erzeugt eine reaktive Funktion, die automatisch neu berechnet wird, wenn sich die Eingaben ändern
+- `group_by(bezirk)` – gruppiert alle Bäume nach Bezirk
+- `n_distinct(gisid)` – zählt die eindeutigen Baum-IDs (jeder Baum wird nur einmal gezählt)
+- `n_distinct(gisid[!is.na(timestamp)])` – zählt nur Bäume, die mindestens einmal gegossen wurden (erkennbar am Zeitstempel)
+- `pct_watered` – berechnet den prozentualen Anteil bewässerter Bäume pro Bezirk
+- `ungroup()` – löst die Gruppierung auf
+
+Diese reaktive Funktion wird später im `renderLeaflet`-Block aufgerufen, um die Karte mit aktuellen Daten zu befüllen.
 ````
 
-## Karte zeichnen mit Leaflet
+### Karte zeichnen mit Leaflet
 Jetzt entsteht die eigentliche Karte. Jeder Berliner Bezirk wird farblich gestaltet: Dunklere Farben zeigen hohes Engagement, hellere Bereiche niedrigere Bewässerungsraten. Beim Überfahren mit der Maus erscheinen die genauen Zahlen – wie viele Bäume es gibt, wie viele gegossen wurden und der prozentuale Anteil.
 
 <span style="color: red;">Ich würde den folgenden Codeblock wegen seiner Größe aufteilen oder inline kommentieren</span>
@@ -244,7 +239,6 @@ Mit Farbskalen wie colorNumeric() können Bezirke automatisch nach Kennzahlen ei
 
 ````
 
-
 Durch die Bezirkskarte erhält Amir erstmals einen **räumlichen Überblick** darüber, in welchen Berliner Bezirken besonders viele Bäume gegossen wurden. Die Visualisierung zeigt deutlich, dass **Friedrichshain-Kreuzberg** den höchsten Anteil bewässerter Bäume aufweist, dicht gefolgt von **Mitte**. Damit beantwortet die Karte bereits einen wichtigen Teil der Leitfrage:
 **Wo engagieren sich Bürger:innen besonders häufig beim Gießen der Straßenbäume?**
 
@@ -254,3 +248,121 @@ Daher führt Amir die Analyse im nächsten Schritt weiter und widmet sich einer 
 **Wie viele Liter wurden tatsächlich pro Bezirk gegossen – absolut und im Verhältnis zur Gesamtzahl der Bäume?**
 
 Diese „Bewässerungsanalyse“ bildet die Grundlage der dritten Übung. Sie ermöglicht es, nicht nur die Häufigkeit, sondern auch die **Intensität des Gießens** zu messen und damit ein vollständigeres Bild des Engagements der Bürger:innen zu erhalten.
+
+
+````{admonition} Gesamter Code für diesen Schritt
+:class: solution, dropdown
+
+```r
+# UI-Definition
+ui <- dashboardPage(
+  dashboardHeader(title = "Gieß den Kiez Dashboard"),
+  dashboardSidebar(
+    sidebarMenu(
+      menuItem("Startseite", tabName = "start", icon = icon("home")),
+      # NEU: Navigation für die Karte
+      menuItem("Karte", tabName = "map", icon = icon("map"))
+    )
+  ),
+  dashboardBody(
+    tabItems(
+      # ... Code aus der Startseite (tabItem für "start") ...
+      
+      # NEU: Inhaltsbereich für die Karte
+      tabItem(
+        tabName = "map",
+        fluidRow(
+          box(
+            title = "Anteil bewässerter Bäume nach Bezirk",
+            status = "primary",
+            solidHeader = TRUE,
+            width = 12,
+            leafletOutput("map", height = "800px")
+          )
+        )
+      )
+    )
+  )
+)
+
+# Server-Logik
+server <- function(input, output, session) {
+  
+  # ... Code aus der Startseite (Hilfsfunktionen, filteredData, ValueBoxes) ...
+  
+  # NEU: Reaktive Datenberechnung: Bewässerungsstatistik pro Bezirk
+  data_by_bezirk <- reactive({
+    df_merged %>%
+      group_by(bezirk) %>%
+      summarise(
+        n_total = n_distinct(gisid),
+        n_watered = n_distinct(gisid[!is.na(timestamp)]),
+        pct_watered = round((n_watered / n_total) * 100, 1)
+      ) %>%
+      ungroup()
+  })
+
+  # NEU: Rendering der Leaflet-Karte
+  output$map <- renderLeaflet({
+    data_stats <- data_by_bezirk()
+    
+    map_data <- berlin_bezirke_sf %>%
+      left_join(data_stats, by = "bezirk") %>%
+      mutate(
+        n_total = replace_na(n_total, 0),
+        n_watered = replace_na(n_watered, 0),
+        pct_watered = replace_na(pct_watered, 0)
+      )
+    
+    pal <- colorNumeric(
+      palette = "Blues",
+      domain = map_data$pct_watered,
+      na.color = "transparent"
+    )
+    
+    leaflet(map_data) %>%
+      addProviderTiles(providers$CartoDB.Positron) %>%
+      addPolygons(
+        fillColor = ~pal(pct_watered),
+        weight = 1,
+        color = "white",
+        opacity = 0.7,
+        fillOpacity = 0.8,
+        smoothFactor = 0.3,
+        highlightOptions = highlightOptions(
+          weight = 2,
+          color = "black",
+          fillOpacity = 0.9,
+          bringToFront = TRUE
+        ),
+        label = ~lapply(
+          paste0(
+            "<b>", bezirk, "</b><br>",
+            "Gesamtbäume: ", formatC(n_total, format = "d", big.mark = " "),
+            "<br>",
+            "Bewässert: ", formatC(n_watered, format = "d", big.mark = " "),
+            "<br>",
+            "Anteil bewässert: ", pct_watered, "%"
+          ),
+          HTML
+        ),
+        labelOptions = labelOptions(
+          style = list("font-weight" = "normal", padding = "3px 8px"),
+          textsize = "13px",
+          direction = "auto"
+        )
+      ) %>%
+      addLegend(
+        position = "bottomright",
+        pal = pal,
+        values = ~pct_watered,
+        title = "Anteil bewässerter Bäume (%)",
+        opacity = 1
+      )
+  })
+}
+
+shinyApp(ui = ui, server = server)
+```
+````
+

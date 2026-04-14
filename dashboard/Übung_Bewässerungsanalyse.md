@@ -31,9 +31,6 @@ Um die Unterschiede sichtbar zu machen, entscheidet sich Amir, eine umfassendere
 So möchte Amir untersuchen, wie sich die Wahl der Operationalisierung – also „gezählte Bäume“ vs. „gegossene Liter“ – auf die Ergebnisse auswirkt. Die Frage lautet:
 Welche Geschichte erzählen die Daten, wenn man Liter statt Baumanzahl betrachtet?
 
-## Die Benutzeroberfläche (UI)
-In der UI definieren wir eine neue Tab-Seite namens "stats" mit zwei Diagrammfeldern. In jedem Diagrammfeld findet man je eines des beiden erstellten Diagramme.
-
 ```{figure} ../assets/Dashboard_Bewässerungsanalyse_1.png
 ---
 name: Dashboard Karte
@@ -42,28 +39,6 @@ alt: Ein Screenshot, der zeigt Dashboard Karte
 Balkendiagramm zur Bewässerung pro Bezirk (2020–2024). Die Abbildung zeigt die aggregierte Bewässerungsmenge in Millionen Litern für die einzelnen Berliner Bezirke im Zeitraum von 2020 bis 2024. Auf der x-Achse sind die Bezirke dargestellt, während die y-Achse die gesamte Bewässerungsmenge angibt. Das Diagramm ermöglicht einen direkten Vergleich der Bewässerungsintensität zwischen den Bezirken. (Quelle: eigene Ausarbeitung)
 ```
 
-
-````{dropdown} Code
-```r
-     tabItem(
-        tabName = "analysis",
-        fluidRow(
-          box(
-            title = tagList(
-              "Bewässerung pro Bezirk (2020-2024)",
-              div(
-                actionButton("info_btn_hbpb", label = "", icon = icon("info-circle")), 
-                style = "position: absolute; right: 15px; top: 5px;"
-                )
-              ), 
-              status = "primary", 
-              solidHeader = TRUE, 
-              width = 12,
-              plotOutput("hist_bewaesserung_pro_bezirk", height = "500px")
-              )
-        ),
-```
-````
 ```{figure} ../assets/Dashboard_Bewässerungsanalyse_2.png
 ---
 name: Dashboard Karte
@@ -72,37 +47,76 @@ width: 700px
 ---
 Durchschnittliche Bewässerungsmenge pro gegossenem Baum nach Bezirk. Die Abbildung zeigt die durchschnittliche Bewässerungsmenge pro gegossenem Baum in Litern für die einzelnen Berliner Bezirke. Auf der x-Achse sind die Bezirke dargestellt, während die y-Achse die durchschnittliche Bewässerungsmenge pro Baum angibt. Das Balkendiagramm verdeutlicht Unterschiede in der Bewässerungsintensität zwischen den Bezirken. (Quelle: eigene Ausarbeitung)
 ``` 
-````{dropdown} Code
+
+## Benutzeroberfläche (UI)
+
+Zunächst fügt Amir einen weiteren Menüpunkt zur Navigation hinzu, um den Bewässerungsanalyse-Tab zugänglich zu machen.
+
+````{dropdown} Navigation in der Seitenleiste
 ```r
-        fluidRow(
-          box(
-            title = tagList(
-              "Durchschnittliche Bewässerung pro gegossenem Baum",
-              div(
-                actionButton("info_btn_hbpb2", label = "", icon = icon("info-circle")),
-                style = "position: absolute; right: 15px; top: 5px;"
-              )
-            ),
-            status = "primary",
-            solidHeader = TRUE,
-            width = 12,
-            plotOutput("hist_bewaesserung_pro_baum", height = "500px")
-          )
-        )
-      )
+dashboardSidebar(
+  sidebarMenu(
+    menuItem("Startseite", tabName = "start", icon = icon("home")),
+    menuItem("Karte", tabName = "map", icon = icon("map")),
+    # NEU: Menüpunkt für die Bewässerungsanalyse hinzufügen
+    menuItem("Bewässerungsanalyse", tabName = "analysis", icon = icon("chart-area"))
+  )
+)
 ```
 ````
+
+### Inhaltsbereich: Diagramme
+
+Der Inhaltsbereich enthält die Diagramme. Da die Tabellen hier fest vorgegeben sind (für ganz Berlin vergleichend), benötigen wir für diese Seite keine Filter-Dropdowns.
+
+````{dropdown} Code
+```r
+tabItem(
+  tabName = "analysis",
+  fluidRow(
+    box(
+      title = tagList(
+        "Bewässerung pro Bezirk (2020-2024)",
+        div(
+          actionButton("info_btn_hbpb", label = "", icon = icon("info-circle")), 
+          style = "position: absolute; right: 15px; top: 5px;"
+        )
+      ), 
+      status = "primary", 
+      solidHeader = TRUE, 
+      width = 12,
+      plotOutput("hist_bewaesserung_pro_bezirk", height = "500px")
+    )
+  ),
+  fluidRow(
+    box(
+      title = tagList(
+        "Durchschnittliche Bewässerung pro gegossenem Baum",
+        div(
+          actionButton("info_btn_hbpb2", label = "", icon = icon("info-circle")),
+          style = "position: absolute; right: 15px; top: 5px;"
+        )
+      ),
+      status = "primary",
+      solidHeader = TRUE,
+      width = 12,
+      plotOutput("hist_bewaesserung_pro_baum", height = "500px")
+    )
+  )
+)
+```
+````
+
 ````{admonition} Erklärung der Elemente
 :class: hinweis, dropdown
 
-- ``tagList(...)``: Wird genutzt, um mehrere UI-Elemente im Titel der Box zu kombinieren – hier der Titeltext und der Informations-Button. So kann der Info-Button elegant im Titelbereich platziert werden.
+- `tagList(...)`: Wird genutzt, um mehrere UI-Elemente im Titel der Box zu kombinieren – hier der Titeltext und der Informations-Button. So kann der Info-Button elegant im Titelbereich platziert werden.
 
-- ``actionButton``: Erstellt einen klickbaren Button. Dieser Button wird später dazu genutzt, **kontextbezogene Erklärungen oder Hilfetexte** zu öffnen (z. B. via ``observeEvent()`` + ``showModal()``). Der Button hat die ID ``"info_btn_hbpb"`` und wird später verwendet, um eine Erklärung zur Grafik anzuzeigen. Gleiches gilt für ``"info_btn_hbpb2"``
+- `actionButton`: Erstellt einen klickbaren Button. Dieser Button wird später dazu genutzt, **kontextbezogene Erklärungen oder Hilfetexte** zu öffnen (z. B. via `observeEvent()` + `showModal()`). Der Button hat die ID `"info_btn_hbpb"` und wird später verwendet, um eine Erklärung zur Grafik anzuzeigen. Gleiches gilt für `"info_btn_hbpb2"`.
 
-- ``plotOutput(...)``
-Platzhalter für ein Diagramm, das im Server-Teil gerendert wird.
- - ``hist_bewaesserung_pro_bezirk`` zeigt die **Gesamtwassermenge pro Bezirk**
- - ``hist_bewaesserung_pro_baum`` zeigt die **durchschnittliche Wassermenge pro gegossenem Baum**
+- `plotOutput(...)`: Platzhalter für ein Diagramm, das im Server-Teil gerendert wird.
+  - `hist_bewaesserung_pro_bezirk` zeigt die **Gesamtwassermenge pro Bezirk**.
+  - `hist_bewaesserung_pro_baum` zeigt die **durchschnittliche Wassermenge pro gegossenem Baum**.
 
 ````
 
@@ -192,6 +206,24 @@ Mit den aggregierten und umgerechneten Daten erstellt Amir nun das Balkendiagram
       ) +
       scale_fill_discrete(name = "Bezirk")
   })
+
+  # Info button observer
+  observeEvent(input$info_btn_hbpb, {
+    showModal(modalDialog(
+      title = "Information: Bewässerung pro Bezirk",
+      HTML("
+      <p>Diese Grafik zeigt die <strong>gesamte Bewässerungsmenge</strong> für jeden Berliner Bezirk im Zeitraum 2020-2024.</p>
+      <ul>
+        <li>Die Daten werden automatisch in die passende Einheit (Liter, m³ oder Megaliter) umgerechnet</li>
+        <li>Die Bezirke werden entlang der x-Achse dargestellt</li>
+        <li>Die Höhe der Balken entspricht der gesamten Bewässerungsmenge</li>
+      </ul>
+    "),
+      easyClose = TRUE,
+      footer = modalButton("Schließen")
+    ))
+  })
+
 ```
 ````
 
@@ -220,43 +252,6 @@ Mit den aggregierten und umgerechneten Daten erstellt Amir nun das Balkendiagram
 - `axis.text.x = element_text(angle = 55, ...)` – Bezirksnamen schräg gestellt, um Überlappungen zu vermeiden
 - `panel.grid.major.x = element_blank()` – vertikale Gitterlinien entfernt für klareres Bild
 - `plot.margin = margin(10, 10, 10, 10)` – ausreichend Abstand, damit Beschriftungen nicht abgeschnitten werden
-````
-
-### Info button observer (was genau ist das?)
-
-````{dropdown} Code
-```r
-  observeEvent(input$info_btn_hbpb, {
-    showModal(modalDialog(
-      title = "Information: Bewässerung pro Bezirk",
-      HTML("
-      <p>Diese Grafik zeigt die <strong>gesamte Bewässerungsmenge</strong> für jeden Berliner Bezirk im Zeitraum 2020-2024.</p>
-      <ul>
-        <li>Die Daten werden automatisch in die passende Einheit (Liter, m³ oder Megaliter) umgerechnet</li>
-        <li>Die Bezirke werden entlang der x-Achse dargestellt</li>
-        <li>Die Höhe der Balken entspricht der gesamten Bewässerungsmenge</li>
-      </ul>
-    "),
-      easyClose = TRUE,
-      footer = modalButton("Schließen")
-    ))
-  })
-```
-````
-
-````{admonition} Erklärung der Elemente
-:class: hinweis, dropdown
-
-- ``observeEvent()`` - Reagiert auf ein Ereignis – in diesem Fall das Klicken des Info-Buttons.
-- ``input$info_btn_hbpb`` - ID des Buttons aus der Benutzeroberfläche. Sobald dieser geklickt wird, öffnet sich das Modal.
-- ``showModal()`` - Zeigt ein Pop-up-Fenster über der Anwendung. Nützlich für Hinweise, Hilfetexte und Zusatzinfos.
-- ``modalDialog()`` - Erzeugt das Dialogfenster selbst. Es enthält:
-  - einen **Titel**,
-  - **HTML-formatierten Text**, z. B. fett `<strong>` oder Listen,
-  - eine **Schließen-Schaltfläche**.
-- ``HTML("…")`` - Ermöglicht echte HTML-Struktur (Absätze, Listen, Hervorhebungen), statt einfachem Text.
-- ``easyClose = TRUE`` - Das Fenster kann auch durch Klick außerhalb des Modals geschlossen werden.
-- ``modalButton("Schließen")`` - Fügt unten rechts den Schließen-Button hinzu.
 ````
 
 
@@ -305,7 +300,7 @@ Das zweite Diagramm zeigt eine andere Perspektive: Statt der Gesamtmenge wird hi
       scale_fill_discrete()
   })
 
-  # Info button observer for second graph
+  # Info button observer
   observeEvent(input$info_btn_hbpb2, {
     showModal(modalDialog(
       title = "Information: Bewässerung pro gegossenem Baum",
@@ -373,3 +368,180 @@ In den nächsten beiden Reitern werden diese Perspektiven vertieft:
 - In der **Baumstatistik** analysieren wir die Zusammensetzung des Baumbestands: Alter, Gattung, Verteilung im Stadtraum und deren potenzieller Einfluss auf Bewässerungsbedarfe.
 
 Damit erweitern wir die Analyse von einer rein mengenbasierten Betrachtung hin zu einem Verständnis, das **räumliche**, **zeitliche** und **ökologische Faktoren** integriert.
+
+
+````{admonition} Gesamter Code für diesen Schritt
+:class: solution, dropdown
+
+```r
+# UI-Definition
+ui <- dashboardPage(
+  dashboardHeader(title = "Gieß den Kiez Dashboard"),
+  dashboardSidebar(
+    sidebarMenu(
+      menuItem("Startseite", tabName = "start", icon = icon("home")),
+      menuItem("Karte", tabName = "map", icon = icon("map")),
+      menuItem("Zeitverlauf", tabName = "stats", icon = icon("bar-chart")),
+      menuItem("Baumstatistik", tabName = "engagement", icon = icon("hands-helping"))
+      # NEU: Navigation für die Bewässerungsanalyse
+      menuItem("Bewässerungsanalyse", tabName = "analysis", icon = icon("chart-area"))
+    )
+  ),
+  dashboardBody(
+    tabItems(
+      # ... tabItem für "start", "map", "stats" & "engagement" ...
+      
+      # NEU: Inhaltsbereich für die Bewässerungsanalyse
+      tabItem(
+        tabName = "analysis",
+        fluidRow(
+          box(
+            title = tagList(
+              "Bewässerung pro Bezirk (2020-2024)",
+              div(
+                actionButton("info_btn_hbpb", label = "", icon = icon("info-circle")), 
+                style = "position: absolute; right: 15px; top: 5px;"
+              )
+            ), 
+            status = "primary", 
+            solidHeader = TRUE, 
+            width = 12,
+            plotOutput("hist_bewaesserung_pro_bezirk", height = "500px")
+          )
+        ),
+        fluidRow(
+          box(
+            title = tagList(
+              "Durchschnittliche Bewässerung pro gegossenem Baum",
+              div(
+                actionButton("info_btn_hbpb2", label = "", icon = icon("info-circle")),
+                style = "position: absolute; right: 15px; top: 5px;"
+              )
+            ),
+            status = "primary",
+            solidHeader = TRUE,
+            width = 12,
+            plotOutput("hist_bewaesserung_pro_baum", height = "500px")
+          )
+        )
+      )
+    )
+  )
+)
+
+# Server-Logik
+server <- function(input, output, session) {
+  
+  # ... Code aus der Startseite, Karte, Zeitverlauf und Statistik ...
+
+  output$hist_bewaesserung_pro_bezirk <- renderPlot({
+    df_agg <- df_merged %>%
+      filter(!is.na(bezirk)) %>%  
+      group_by(bezirk) %>%
+      summarise(total_water = sum(bewaesserungsmenge_in_liter, na.rm = TRUE)) %>%
+      ungroup() %>%
+      arrange(desc(total_water))
+      
+    df_agg <- df_agg %>%
+      mutate(
+        converted = purrr::map(total_water, convert_units), 
+        value = sapply(converted, `[[`, "value"),  
+        unit = sapply(converted, `[[`, "unit")  
+      )
+      
+    ggplot(df_agg, aes(x = reorder(bezirk, -value), y = value, fill = bezirk)) +
+      geom_bar(stat = "identity", color = "white", alpha = 0.7, width = 0.8) +
+      labs(
+        title = NULL,
+        x = "Bezirke in Berlin",
+        y = paste0("Gesamte Bewässerungsmenge (", unique(df_agg$unit), ")")
+      ) +
+      theme_light() +
+      theme(
+        legend.position = "none",
+        axis.text.x = element_text(angle = 55, hjust = 1, size = 10),
+        panel.grid.major.x = element_blank(),
+        plot.margin = margin(10, 10, 10, 10)
+      ) +
+      scale_fill_discrete(name = "Bezirk")
+  })
+
+  observeEvent(input$info_btn_hbpb, {
+    showModal(modalDialog(
+      title = "Information: Bewässerung pro Bezirk",
+      HTML("
+      <p>Diese Grafik zeigt die <strong>gesamte Bewässerungsmenge</strong> für jeden Berliner Bezirk im Zeitraum 2020-2024.</p>
+      <ul>
+        <li>Die Daten werden automatisch in die passende Einheit (Liter, m³ oder Megaliter) umgerechnet</li>
+        <li>Die Bezirke werden entlang der x-Achse dargestellt</li>
+        <li>Die Höhe der Balken entspricht der gesamten Bewässerungsmenge</li>
+      </ul>
+    "),
+      easyClose = TRUE,
+      footer = modalButton("Schließen")
+    ))
+  })
+
+  # Plot: Durchschnittliche Bewässerung pro gegossenem Baum
+  output$hist_bewaesserung_pro_baum <- renderPlot({
+    df_agg <- df_merged %>%
+      filter(!is.na(bezirk)) %>%
+      group_by(bezirk) %>%
+      summarise(
+        total_water = sum(bewaesserungsmenge_in_liter, na.rm = TRUE),
+        trees_watered = n_distinct(gml_id)
+      ) %>%
+      ungroup() %>%
+      mutate(water_per_tree = total_water / trees_watered) %>%
+      arrange(desc(water_per_tree))
+    
+    df_agg <- df_agg %>%
+      mutate(
+        converted = purrr::map(water_per_tree, convert_units), 
+        value = sapply(converted, `[[`, "value"),  
+        unit = sapply(converted, `[[`, "unit")  
+      )
+    
+    ggplot(df_agg, aes(x = reorder(bezirk, -value), y = value, fill = bezirk)) +
+      geom_bar(stat = "identity", color = "white", alpha = 0.7, width = 0.8) +
+      labs(
+        title = NULL,
+        x = "Bezirke in Berlin",
+        y = paste0("Durchschnittliche Bewässerung pro Baum (", unique(df_agg$unit), ")")
+      ) +
+      theme_light() +
+      theme(
+        legend.position = "none",
+        axis.text.x = element_text(angle = 55, hjust = 1, size = 10),
+        panel.grid.major.x = element_blank(),
+        plot.margin = margin(10, 10, 10, 10)
+      ) +
+      scale_fill_discrete()
+  })
+
+  observeEvent(input$info_btn_hbpb2, {
+    showModal(modalDialog(
+      title = "Information: Bewässerung pro gegossenem Baum",
+      HTML("
+      <p>Diese Grafik zeigt die <strong>durchschnittliche Bewässerungsmenge pro gegossenem Baum</strong> in jedem Bezirk.</p>
+      <ul>
+        <li>Berechnung: Gesamtwasser geteilt durch Anzahl der tatsächlich gegossenen Bäume</li>
+        <li>Zeigt die Intensität der Bewässerung und das Engagement der Bürger</li>
+        <li>Höhere Werte bedeuten mehr Wasser pro Baum, der Pflege erhielt</li>
+      </ul>
+      <p><strong>Wichtige Hinweise:</strong></p>
+      <ul>
+        <li>Vergleiche zwischen Bezirken müssen mit Vorsicht interpretiert werden</li>
+        <li>Baumalter, Arten und lokale Bedingungen variieren stark</li>
+        <li>Zeigt nicht Bäume, die Wasser brauchten aber keins erhielten</li>
+      </ul>
+    "),
+      easyClose = TRUE,
+      footer = modalButton("Schließen")
+    ))
+  })
+}
+
+shinyApp(ui = ui, server = server)
+```
+````
