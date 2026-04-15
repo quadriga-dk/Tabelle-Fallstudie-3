@@ -20,12 +20,25 @@ Bei seiner Recherche stößt er auf die Plattform <a href="https://www.giessdenk
 ```{admonition} Hinweis
 :class: hinweis
 
-Der Code ist am Ende jedes Unterkapitels in einer eingeklappten Box 'Gesamter Code' zusammengefasst. So haben Sie die Wahl, ob Sie den Code Stück für Stück oder in ganzen Blöcken eingeben.
+Der Code ist am Ende jedes Unterkapitels in einer eingeklappten Box 'Gesamter Code' zusammengefasst. So haben Sie die Wahl, ob Sie den Code Stück für Stück oder in ganzen Blöcken eingeben. Geben Sie in jedem Fall Code in der Konsole ein oder erstellen Sie ein neues normales R-Script, welches Sie anschließend ausführen können. Fügen Sie *nicht* in das R-Shiny-Script ein.
 
 ```
 ````
+**Arbeitsverzeichnis setzen**
 
-<font color="red">Screenshot einfügen, der zeigt, wie die Eingabe des gesamten Codes bei R Shiny aussieht.</font> Mit Hinweis versehen: Dies ist der Code den Sie im folgenden Schritt für Schritt eingeben werden. Den gesamten Code finden Sie am Ende dieses Abschnitts.
+Damit die eingegebenen Kommandos im richtigen Verzeichnis ausgeführt werden, muss zunächst das Arbeitsverzeichnis korrekt gesetzt werden: 
+
+1. Rufen Sie (wenn nicht schon aufgerufen) den Ordner auf, in dem Ihr R-Shiny-Script gespeichert ist.
+2. Unter *Session* finden Sie den Reiter *Set Working Directory*.
+3. Klicken Sie auf *To Source File Location* .
+
+```{figure} ../assets/R_Studio_Arbeitsverzeichnis.png
+---
+name: screenshot-r-arbeitsverzeichnis
+alt: Ein Screenshot, der zeigt, wie man das Arbeitsverzeichnis setzt
+---
+Anleitung zum Setzen des Arbeitsverzeichnisses
+``` 
 
 **Installieren der Bibliotheken**
 
@@ -47,7 +60,6 @@ library(stringr)
 **Laden der Baumkatasterdaten**
 
 Die Berliner Baumdaten werden über eine WFS-Schnittstelle (Web Feature Service) bezogen. Dabei werden sowohl Anlagenbäume als auch Straßenbäume geladen. Dies geschieht mit dem Befehl `st_read`.
-<font color="red">Hier könnte man dem User den Link zu den Daten geben, damit er diese herunterlädt und in sein Working Directory hinzufügt. Dazu müsste man ihm aber erklären wie man das korret settet, was gar nicht so einfach ist. Solange der Link gültig ist, lädt der Code zwar die Datei automatisch, speichert sie jedoch nicht im Directory.</font>
 
 ```r
 #0 CSV File lokalisieren bzw. laden
