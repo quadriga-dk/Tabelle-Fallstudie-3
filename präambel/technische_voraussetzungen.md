@@ -40,7 +40,7 @@ Dieses JupyterBook besteht aus mehreren Kapiteln, die jeweils als einzelne [Open
 1. Öffnen Sie RStudio.  
 2. Ein Shiny Web App Skript, in dem Sie Befehle eingeben können, öffnen Sie
 unter *Files*:
-<span style="color:red">*Nachdem man "Shiny Web App" ausgefwählt hat, öffnet sich ein Fenster mit potenziell unklaren Speicherpräferenzen. Dieses würde ich erklären*</span>
+3. Nun öffnet sich ein Setup-Fenster. Dort können Sie zunächst den Namen für den Ordner wählen, in dem Ihre App angelegt wird. Danach können Sie auswählen, ob die Hauptkomponenten der App in einer oder mehreren Dateien speichern möchten (zweiteres erleichtert die Instandhaltung großer Projekte). Für unsere Fallstudie genügt "Single File". Schließlich können Sie auswählen, wo der neue Projektordner auf Ihrem PC angelegt werden soll.
  
 ```{figure} ../assets/R_Studio_open_new_script.png
 ---
