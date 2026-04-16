@@ -382,7 +382,7 @@ ui <- dashboardPage(
       menuItem("Startseite", tabName = "start", icon = icon("home")),
       menuItem("Karte", tabName = "map", icon = icon("map")),
       menuItem("Zeitverlauf", tabName = "stats", icon = icon("bar-chart")),
-      menuItem("Baumstatistik", tabName = "engagement", icon = icon("hands-helping"))
+      menuItem("Baumstatistik", tabName = "engagement", icon = icon("hands-helping")),
       # NEU: Navigation für die Bewässerungsanalyse
       menuItem("Bewässerungsanalyse", tabName = "analysis", icon = icon("chart-area"))
     )
