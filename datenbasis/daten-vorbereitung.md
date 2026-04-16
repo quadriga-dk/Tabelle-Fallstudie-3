@@ -232,7 +232,14 @@ url_geojson <- "https://raw.githubusercontent.com/quadriga-dk/Tabelle-Fallstudie
 if (file.exists(local_geojson)) {
   bezirksgrenzen <- st_read(local_geojson)
 } else {
-  bezirksgrenzen <- st_read(url_geojson)
+
+  if (!dir.exists("data")) {
+    dir.create("data")
+  }
+  
+  download.file(url = url_geojson, destfile = local_geojson)
+  
+  bezirksgrenzen <- st_read(local_geojson)
 }
 ```
 - Es wird eine digitale Karte geladen, auf der die Bezirksgrenzen Berlins eingezeichnet sind.
@@ -340,7 +347,14 @@ url_geojson <- "https://raw.githubusercontent.com/quadriga-dk/Tabelle-Fallstudie
 if (file.exists(local_geojson)) {
   bezirksgrenzen <- st_read(local_geojson)
 } else {
-  bezirksgrenzen <- st_read(url_geojson)
+
+  if (!dir.exists("data")) {
+    dir.create("data")
+  }
+  
+  download.file(url = url_geojson, destfile = local_geojson)
+  
+  bezirksgrenzen <- st_read(local_geojson)
 }
 
 # 2. Lade die Baumdaten
