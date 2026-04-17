@@ -15,9 +15,10 @@ Dabei fällt ihm das Berliner Projekt Gieß den Kiez ein, welches diese Daten be
 ```{admonition} Daten herunterladen
 :class: hinweis
 
-Laden Sie die Dateien herunter und speichern Sie diese in Ihrem Projektverzeichnis im Ordner `data/`:  
+Laden Sie die Dateien herunter und speichern Sie diese in Ihrem in Kapitel 1.2 (VOR VERÖFFENTLICHUNG ÜBERPRÜFEN, OB KAPITEL NOCH KORREKT!) erstellten Projektverzeichnis im Ordner `data/` bzw. erstellen Sie diesen zunächst:  
 <a href="https://raw.githubusercontent.com/technologiestiftung/giessdenkiez-de-opendata/main/daten/giessdenkiez_bew%C3%A4sserungsdaten.csv" class="download-link" target='_blank'>Bewässerungsdaten (CSV)</a>  
 <a href="https://tsb-opendata.s3.eu-central-1.amazonaws.com/bezirksgrenzen/bezirksgrenzen.geojson" class="download-link" target='_blank'>Bezirksgrenzen (GeoJSON)</a>
+(Wichtig: Die CSV File lädt nicht automatisch herunter und im Fenster, welches sich neu öffnet ist nicht klar, dass mit Ctrl+S bzw Cmd+S die Datei als CSV-File gespeichert werden kann. Darauf sollte hingewiesen werden, sofern wir all diese Dateien nicht in einer eigenen Repo speichern)
 ```
 ````
 
