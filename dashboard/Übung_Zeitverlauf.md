@@ -133,7 +133,7 @@ tabItem(
 **Filterelemente:**
 
 - `sliderInput("trend_year", ...)` – ein Schieberegler zur Auswahl eines Pflanzjahr-Bereichs
-  - Die Min/Max-Werte passen sich automatisch an die vorhandenen Daten an
+  - Als Min-Wert ist das Jahr 1800 gewählt. Als Max-Wert das Vorjahr des Systemjahres (Beispiel: Wenn der Kalender auf Ihrem Rechner auf 2026 gestellt ist, ist der Max-Wert 2025)
   - Nutzer:innen können gezielt nur junge Bäume, nur Altbestand oder ein bestimmtes Jahrzehnt untersuchen
   
 - `selectInput("trend_bezirk_pj", ...)` – ein Dropdown zur Bezirksauswahl
