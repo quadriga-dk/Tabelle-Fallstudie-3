@@ -328,12 +328,12 @@ Hier gibt es einen entscheidenden Unterschied:
 - `icon("tint")` (ein Tropfen-Symbol) und `color = "blue"` heben die Wasserthematik visuell hervor
 
 **Warum diese Unterscheidung zwischen `df_merged` und `filteredData()`?**  
-- Die **Gesamtzahl der Bäume** ist eine konstante Referenzgröße – sie soll sich nicht ändern, egal welche Bezirke betrachtet werden <span style="color: red;">Ist das nicht irreführend? Wenn ich z.B. einen oder mehrere Bezirke auswähle, irritiert es mich unterbewusst, dass sich die Gesamtanzahl der Bäume nicht ändert. Es wird auch nicht wirklich erwähnt, dass es sich hierbei um ganz Berlin handelt. Ich würde das also entweder dazuschreiben oder noch eine dritte ValueBox bzw. zweite Kennzahl in der grünen ValueBox hinzugfügen, welche sich auf der Gesamtanzahl an Bäumen in den ausgewählten Bezirken bezieht.</span>
+- Die **Gesamtzahl der Bäume** ist eine konstante Referenzgröße – sie soll sich nicht ändern, egal welche Bezirke betrachtet werden
 - Die **Anzahl gegossener Bäume** hingegen ist bezirksspezifisch und soll auf die Filterauswahl reagieren
 
 Durch diese bewusste Trennung ermöglicht Amir den Nutzer:innen, das Engagement in einzelnen Bezirken mit der Gesamtsituation zu vergleichen.
 ````
-
+<span style="color: red;">Ist es nicht irreführend, dass die Gesamtzahl der Bäume unabhängig von den ausgewählten Bezirken konstant ist? Wenn ich z.B. einen oder mehrere Bezirke auswähle, irritiert es mich unterbewusst, dass sich die Gesamtanzahl der Bäume nicht ändert. Es wird auch nicht wirklich erwähnt, dass es sich hierbei um ganz Berlin handelt. Ich würde das also entweder dazuschreiben oder noch eine dritte ValueBox bzw. zweite Kennzahl in der grünen ValueBox hinzugfügen, welche sich auf der Gesamtanzahl an Bäumen in den ausgewählten Bezirken bezieht.</span>
 ### Einheiten clever umrechnen
 
 Bei der Darstellung von Wassermengen steht Amir vor einer Herausforderung: Die Rohdaten enthalten Literangaben, die je nach Größenordnung unterschiedlich formatiert werden sollten. Eine Menge von 50 Litern ist überschaubar, aber 1.250.000 Liter sind schwer zu erfassen. Amir möchte, dass das Dashboard automatisch in sinnvolle Einheiten umrechnet – etwa Kubikmeter (m³) oder Megaliter (ML).
