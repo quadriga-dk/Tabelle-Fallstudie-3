@@ -93,10 +93,10 @@ tabItem(
           sliderInput(
             "trend_year",
             "Pflanzjahre filtern:",
-            min = 1900,
-            max = max(df_merged$pflanzjahr, na.rm = TRUE),
-            value = c(min(df_merged$pflanzjahr, na.rm = TRUE),
-                      max(df_merged$pflanzjahr, na.rm = TRUE)),
+                  min = 1800,
+                  max = as.numeric(format(Sys.Date(), "%Y")) - 1,
+                  value = c(1800,
+                            as.numeric(format(Sys.Date(), "%Y")) - 1),
             step = 1,
             sep = ""
           )
@@ -379,10 +379,10 @@ ui <- dashboardPage(
                 sliderInput(
                   "trend_year",
                   "Pflanzjahre filtern:",
-                  min = 1900,
-                  max = max(df_merged$pflanzjahr, na.rm = TRUE),
-                  value = c(min(df_merged$pflanzjahr, na.rm = TRUE),
-                            max(df_merged$pflanzjahr, na.rm = TRUE)),
+                  min = 1800,
+                  max = as.numeric(format(Sys.Date(), "%Y")) - 1,
+                  value = c(1800,
+                            as.numeric(format(Sys.Date(), "%Y")) - 1),
                   step = 1,
                   sep = ""
                 )
