@@ -20,8 +20,8 @@ Screenshot des Dashoards Digitale Verwaltung mit Fokus auf Online-Verfügbarkeit
 ```
 
 
-Um diese Vorteile nachvollziehbar und nutzbar zu machen, wird in dieser Fallstudie ein Dashboard mit R Shiny erstellt.  
-Dazu wird auf die Abfrage von Baumkatasterdaten der Fallstudie <a href="https://quadriga-dk.github.io/Tabelle-Fallstudie-2/Titelseite.html" class="external-link" target="_blank">Offene Daten im urbanen Raum</a> aufgebaut. Inspiriert von der Plattform <a href="https://citylab-berlin.org/de/projects/giess-den-kiez/" class="external-link" target="_blank">Gieß den Kiez</a>, einer interaktiven und kartenbasierten Plattform zur Wässerung von Straßenbäumen, wird unter Einbindung von Bewässerungsdaten folgende Leitfrage formuliert:
+Um diese Vorteile nachvollziehbar und nutzbar zu machen, werden Sie in dieser Fallstudie ein Dashboard mit R Shiny erstellen.  
+Dazu werden Sie auf die Abfrage von Baumkatasterdaten der Fallstudie <a href="https://quadriga-dk.github.io/Tabelle-Fallstudie-2/Titelseite.html" class="external-link" target="_blank">Offene Daten im urbanen Raum</a> aufgebauen. Inspiriert von der Plattform <a href="https://citylab-berlin.org/de/projects/giess-den-kiez/" class="external-link" target="_blank">Gieß den Kiez</a>, einer interaktiven und kartenbasierten Plattform zur Wässerung von Straßenbäumen, wird unter Einbindung von Bewässerungsdaten folgende Leitfrage formuliert:
 
 `````{admonition} Forschungsfrage
 :class: keypoint

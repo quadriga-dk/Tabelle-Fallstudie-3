@@ -19,7 +19,7 @@ Bewässerung.
 ```
 Ein Beispiel für Engagement: Bewässerung mit einem Gartenschlauch, <a href="https://creativecommons.org/publicdomain/zero/1.0/legalcode.de" class="external-link" target="_blank">CC 0</a> via <a href="https://pxhere.com/de/photo/946995" class="external-link" target="_blank">pxhere</a>.
 
-Für die Operationalisierung der Forschungsfrage (**Wo lassen sich die höchsten Ausprägungen des Engagements von Bürger:innen bei der Bewässerung städtischer Bäume in Berlin feststellen?**) müssen daher zwei Fragen adressiert werden:
+Für die Operationalisierung der Forschungsfrage (**Wo lassen sich die höchsten Ausprägungen des Engagements von Bürger:innen bei der Bewässerung städtischer Bäume in Berlin feststellen?**) müssen Sie daher zwei Fragen adressieren:
 
 - Was bedeutet Engagement von Bürger:innen bei der Bewässerung städtischer Bäume in Berlin? 
 - Wie kann dieses gemessen werden? 

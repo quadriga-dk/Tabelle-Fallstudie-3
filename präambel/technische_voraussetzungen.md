@@ -8,7 +8,7 @@ lang: de-DE
 
 Diese Fallstudie umfasst erklärende Texte, Code in der Programmiersprache R sowie Übungen und Assessments zur Selbstüberprüfung. 
 
-Wir bieten drei verschiedene Zugangswege:
+Es bestehen drei verschiedene Zugangswege:
 
 📘 Book-Only Mode: Im Browser lesen Sie unser interaktives Lehrbuch mit eingeschränkten Interaktionsmöglichkeiten. Dies erfordert keine Programmierkenntnisse oder Erfahrung mit Jupyter Notebooks.  
 🌨️ Cloud Mode: Ausführen und Anpassen der enthaltenen Jupyter Notebooks über Google Colab oder Binder. Kapitel mit ausführbaren Notebooks sind durch ein Raketen-Symbol (🚀) gekennzeichnet - klicken Sie darauf, um das Notebook in Colab zu öffnen.  
@@ -24,8 +24,8 @@ Wählen Sie den Ansatz, der am besten zu Ihren Anforderungen passt. Sie können 
 Um der Übungseinheit effektiv folgen zu können, installieren Sie bitte vorab **R**. Zudem benötigen Sie eine geeignete Entwicklungsumgebung. Hierfür bietet sich **RStudio** an. Die Computersprache **R** und **RStudio** können Sie direkt vom Entwickler bzw. Maintainer <a href="https://posit.co/download/rstudio-desktop/" class="external-link" target="_blank">Posit</a> beziehen.  
 
 **Hinweis**  
-Die Übungen sind auf der Basis von R 4.4.3 entwickelt worden und zur Nutzung von RStudio 2024.09.0 Build 375 über Windows konzipiert. Bei der Nutzung einer anderen RStudio Version oder eines anderen Betriebssystems können Funktionen eventuell variieren.  
-Eine Anleitung für die ersten Schritte in RStudio findet sich weiter unten in diesem Abschnitt.  
+Die Übungen sind auf der Basis von R 4.4.3 entwickelt worden und zur Nutzung von RStudio 2024.09.0 Build 375 über Windows konzipiert. Sollten Sie eine andere RStudio Version oder ein anderes Betriebssystem nutzen, können einige Funktionen eventuell variieren.  
+Eine Anleitung für die ersten Schritte in RStudio finden Sie weiter unten in diesem Abschnitt.  
 
 ## Nutzung dieses JupyterBooks
 
@@ -63,22 +63,22 @@ Interface von RStudio.
 **RStudio besteht aus vier Hauptbereichen:**
 
 **R Skript:**  
-Im R Skript werden Befehle eingegeben, die **R** ausführen soll.
+Im R Skript geben Sie Befehle ein, die **R** ausführen soll.
 Um einen Befehl auszuführen, drücken Sie `Strg + Enter`, um eine einzelne Zeile zu starten, oder markieren Sie den gewünschten Code-Abschnitt und drücke erneut `Strg + Enter`, um mehrere Zeilen gleichzeitig auszuführen. Alternativ können Sie den Run-App-Button in der oberen rechten Ecke des Skript-Fensters nutzen oder die Tastenkombination `Strg + Shift + S` verwenden.
 Ein Beispielbefehl ist das vorab eingetragene Skript, das automatisch beim Erstellen einer neuen Shiny-Web-App generiert wird.
-Das Skript kann gespeichert und später erneut geöffnet werden.
+Sie können das Skript speichern und später erneut öffnen.
 
 **Console:**  
-Hier werden Befehle direkt ausgeführt und deren Ergebnisse sowie eventuelle Fehlermeldungen angezeigt.
+Hier führen Sie Befehle direkt aus und bekommen deren Ergebnisse sowie eventuelle Fehlermeldungen angezeigt.
 
 **Environment:**  
-Dieser Bereich zeigt alle geladenen Objekte, Datensätze und Variablen an. Auch selbst erstellte Listen oder Datenframes werden hier verwaltet.  
+Dieser Bereich zeigt alle geladenen Objekte, Datensätze und Variablen an. Auch von Ihnen selbst erstellte Listen oder Datenframes werden hier verwaltet.  
 
 **Files:**  
-Hier können Sie Dateien anzeigen, verwalten und importieren. Zudem bietet dieser Bereich Zugriff auf Verzeichnisse und gespeicherte Projekte.
+Hier können Sie Dateien anzeigen, verwalten und importieren. Zudem bietet dieser Bereich Ihnen Zugriff auf Verzeichnisse und gespeicherte Projekte.
 
 **Web-App:**  
-Ein weiteres Anzeigefenster ist die Web-App: Dieses öffnet sich, sobald der dazugehörige Befehl im R-Skript ausgeführt wurde, automatisch.  In diesem Bereich wird die visuelle Ausgabe der Shiny-App dargestellt. Je nach Einstellung öffnet sich das Fenster entweder direkt in RStudio oder in einem externen Browser.  
+Ein weiteres Anzeigefenster ist die Web-App: Dieses öffnet sich, sobald Sie den dazugehörigen Befehl im R-Skript ausgeführt haben, automatisch.  In diesem Bereich wird die visuelle Ausgabe der Shiny-App dargestellt. Je nach Einstellung öffnet sich das Fenster entweder direkt in RStudio oder in einem externen Browser.  
 
 ```{figure} ../assets/R_Studio_Shiny_App.png
 ---

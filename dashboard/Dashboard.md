@@ -25,7 +25,7 @@ Mit Ihren Rückmeldungen können wir unser interaktives Lehrbuch gezielt an Ihre
 :end-before: "<!-- END: Ein Dashboard bauen -->"
 ```
 
-Nachdem im vorherigen Kapitel dargelegt wurde, dass Dashboards eine gute Möglichkeit sind, um Daten aus der Verwaltung nutzer:innenfreundlich aufzubereiten und zu visualisieren, werden Sie in diesem Kapitel durch den Bau eines Dashboards mit R Shiny geführt. Je nach Vorkenntnissen und gewählter [Ausführungsmethode](technische_voraussetzungen) kann die Bearbeitungszeit variieren.
+Nachdem im vorherigen Kapitel dargelegt wurde, dass Dashboards eine gute Möglichkeit sind, um Daten aus der Verwaltung nutzer:innenfreundlich aufzubereiten und zu visualisieren, werden Sie in diesem Kapitel durch den Bau eines Dashboards mit R Shiny geführt. Je nach Ihren Vorkenntnissen und gewählter [Ausführungsmethode](technische_voraussetzungen) kann die Bearbeitungszeit variieren.
 Für den Fall, dass Sie das Dashboard nicht selbst bauen wollen oder können, sind einige Visualisierungen interaktiv gestaltet worden, sodass Sie nachempfinden können, welchen Unterschied es macht, Variablen in Visualisierungen ändern zu können. 
 
 <span style="color:red">*Bild einfügen von Verortung in Fallstudien-Struktur*</span>

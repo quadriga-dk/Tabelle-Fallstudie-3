@@ -24,14 +24,14 @@ Screenshot des Dashoards des Projekts Gieß den Kiez vom 13.03.2026.
 
 ## Grundlagen
 
-Da es bereits einige Lernressourcen zum Thema Datenvisualisierung gibt, verlinken wir an dieser Stelle einige Empfehlungen:
+Da es bereits einige Lernressourcen zum Thema Datenvisualisierung gibt, hier einige Empfehlungen:
 
-- Wer noch wenig Erfahrung mit Datenvisualisierung hat, findet im  <a href="https://civic-data.de/datenvisualisierung-einfuehrung/" target="_blank">Blog-Eintrag</a> des Civic Data Labs</a> einen zugänglichen Einstieg ins Thema – ganz ohne Programmierkenntnisse.
+- Wenn Sie noch wenig Erfahrung mit Datenvisualisierung haben, finden Sie im  <a href="https://civic-data.de/datenvisualisierung-einfuehrung/" target="_blank">Blog-Eintrag</a> des Civic Data Labs</a> einen zugänglichen Einstieg ins Thema – ganz ohne Programmierkenntnisse.
 - Das <a href="https://future-skills-journey.de/was-ist-datenvisualisierung?show_status_form=1" target="_blank">Einsteigervideo</a> der RWTH Aachen erklärt in 14 Minuten kompakt, was Datenvisualisierung ist und welche Arten von Visualisierungen es gibt – ergänzt durch Reflexionsfragen zur Vertiefung.
-- Wer auf der Suche nach weiteren Lernressourcen zu Datenvisualisierung ist, findet beim <a href="https://civic-data.de/datenlebenszyklus/daten-visualisieren/" target="_blank">Civic Data Lab</a>  eine umfassende Sammlung an externen Empfehlungen – strukturiert nach Anfänger:in, Fortgeschrittene und Expert:in, mit passenden Kursen, Cheat Sheets und Praxistipps zu Tools wie Datawrapper, Excel, ggplot2, Tableau und Power BI. Schaut dort gerne rein, um eure Vorerfahrungen mit dem Thema besser einschätzen zu können.  
+- Wenn Sie auf der Suche nach weiteren Lernressourcen zu Datenvisualisierung sind, finden Sie beim <a href="https://civic-data.de/datenlebenszyklus/daten-visualisieren/" target="_blank">Civic Data Lab</a>  eine umfassende Sammlung an externen Empfehlungen – strukturiert nach Anfänger:in, Fortgeschrittene und Expert:in, mit passenden Kursen, Cheat Sheets und Praxistipps zu Tools wie Datawrapper, Excel, ggplot2, Tableau und Power BI. Schauen Sie dort gerne rein, um Ihre Vorerfahrungen mit dem Thema besser einschätzen zu können.  
 - Das Civic Data Lab hat darüber hinaus einen eigenen Lernraum geschaffen, in dem es einen Kurs zu <a href="https://moodle.gi.de/moodle/enrol/index.php?id=16" target="_blank">Datenvisualisierung und Storytelling</a> gibt. Der Kurs vermittelt in drei aufeinander aufbauenden Modulen sowohl die Konzepte hinter Visualisierung und Storytelling als auch praktische Methoden und lehrt, warum und wie man Daten als Geschichte erzählt.
 - Im Rahmen von <a href="https://www.quadriga-dk.de/de/" target="_blank">Quadriga</a> wurde in einer anderen Fallstudie über Studentische Filme bereits ein <a href="https://quadriga-dk.github.io/Bewegtes-Bild-Fallstudie-2/auswertung/visualisierung.html" target="_blank">Kapitel über Visualisierung</a> kreiert, in das ein Blick auch aus Perspektive der Verwaltung(swissenschaft) lohnt.
-- Wer bereits Grundkenntnisse mitbringt, findet im <a href="https://www.skala-campus.org/artikel/tipps-daten-visualisieren-excel/" target="_blank">Blog-Beitrag</a> „Daten visualisieren (III): Datenvisualisierungs-Tools im Überblick" von Nina Hauser auf dem Skala Campus einen strukturierten Überblick über gängige Tools zur Datenvisualisierung. 
+- Wenn Sie bereits Grundkenntnisse mitbringen, finden Sie im <a href="https://www.skala-campus.org/artikel/tipps-daten-visualisieren-excel/" target="_blank">Blog-Beitrag</a> „Daten visualisieren (III): Datenvisualisierungs-Tools im Überblick" von Nina Hauser auf dem Skala Campus einen strukturierten Überblick über gängige Tools zur Datenvisualisierung. 
 
 
 

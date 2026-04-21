@@ -15,4 +15,4 @@ lang: de-DE
 ```
 
 Im zurückliegenden Kapitel wurde die [Leitfrage](fragestellung) der vorliegenden Fallstudie formuliert. Um diese Leitfrage für eine explorative Analyse nutzbar zu machen, wurde eine [Operationalisierung](operationalisierung) vorgenommen, durch die Messparameter definiert werden konnten, die zur Beantwortung der Frage führen können.  
-Im nächsten Kapitel wird auf die Datengrundlage eingegangen, auf der die anzuwendende Analyse basiert.
+Im nächsten Kapitel werden Sie auf die Datengrundlage eingehen, auf der die anzuwendende Analyse basiert.

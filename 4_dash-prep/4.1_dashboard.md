@@ -70,7 +70,7 @@ In einer zunehmend datengetriebenen Welt ermöglicht Ihnen die Datenkompetenz im
   
 - **Politikbewertung und Wirkungsanalyse**: Durch die Möglichkeit, Daten nach Jahr und Bezirk zu filtern, können Sie die Auswirkungen spezifischer Politikmaßnahmen oder Kampagnen über die Zeit und in verschiedenen geografischen Gebieten verfolgen. Dies unterstützt die empirische Politikforschung und die Evaluierung von Programmen.
   
-- **Transparenz und Kommunikation**: Dashboards bieten eine klare, zugängliche Darstellung komplexer Daten. Dies ist für die Kommunikation von Forschungsergebnissen an Entscheidungsträger, die Öffentlichkeit oder andere Stakeholder unerlässlich und fördert die Transparenz administrativer Prozesse.
+- **Transparenz und Kommunikation**: Dashboards bieten eine klare, zugängliche Darstellung komplexer Daten. Dies ist für die Kommunikation von Forschungsergebnissen an Entscheidungsträger, die Öffentlichkeit oder andere Stakeholder:innen unerlässlich und fördert die Transparenz administrativer Prozesse.
   
 - **Identifizierung von Handlungsbedarfen**: Durch die Visualisierung von Kennzahlen können Sie schnell erkennen, in welchen Bereichen oder Zeiträumen besonderer Handlungsbedarf besteht oder wo Initiativen erfolgreich sind.
 

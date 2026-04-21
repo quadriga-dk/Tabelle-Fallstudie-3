@@ -20,13 +20,13 @@ Bei seiner Recherche stößt er auf die Plattform <a href="https://www.giessdenk
 ```{admonition} Hinweis
 :class: hinweis
 
-Der Code ist am Ende jedes Unterkapitels in einer eingeklappten Box 'Gesamter Code' zusammengefasst. So haben Sie die Wahl, ob Sie den Code Stück für Stück oder in ganzen Blöcken eingeben. Geben Sie in jedem Fall Code in der Konsole ein oder erstellen Sie ein neues normales R-Script, welches Sie anschließend ausführen können. Fügen Sie *nicht* in das R-Shiny-Script ein.
+Der Code ist am Ende jedes Unterkapitels in einer eingeklappten Box 'Gesamter Code' zusammengefasst. So haben Sie die Wahl, ob Sie den Code Stück für Stück oder in ganzen Blöcken eingeben. Geben Sie in jedem Fall Code in der Konsole ein oder erstellen Sie ein neues normales R-Script, welches Sie anschließend ausführen können. Fügen Sie den Code bitte *nicht* in das R-Shiny-Script ein.
 
 ```
 ````
 **Arbeitsverzeichnis setzen**
 
-Damit die eingegebenen Kommandos im richtigen Verzeichnis ausgeführt werden, muss zunächst das Arbeitsverzeichnis korrekt gesetzt werden: 
+Damit die eingegebenen Kommandos im richtigen Verzeichnis ausgeführt werden, müssen Sie zunächst das Arbeitsverzeichnis korrekt setzen: 
 
 1. Rufen Sie (wenn nicht schon aufgerufen) den Ordner auf, in dem Ihr R-Shiny-Script gespeichert ist.
 2. Unter *Session* finden Sie den Reiter *Set Working Directory*.
@@ -42,7 +42,7 @@ Anleitung zum Setzen des Arbeitsverzeichnisses
 
 **Installieren der Bibliotheken**
 
-Bevor die Daten eingelesen werden können, müssen Sie folgende Bibliotheken (und, sofern noch nicht geschehen, davor noch die daugehörigen Pakete) laden:
+Bevor Sie die Daten einlesen können, müssen Sie folgende Bibliotheken (und, sofern noch nicht geschehen, davor noch die dazugehörigen Pakete) laden:
 
 
 ```r
@@ -59,7 +59,7 @@ library(stringr)
 
 **Laden der Baumkatasterdaten**
 
-Die Berliner Baumdaten werden über eine WFS-Schnittstelle (Web Feature Service) bezogen. Dabei werden sowohl Anlagenbäume als auch Straßenbäume geladen. Dies geschieht mit dem Befehl `st_read`.
+Die Berliner Baumdaten beziehen Sie über eine WFS-Schnittstelle (Web Feature Service). Dabei werden sowohl Anlagenbäume als auch Straßenbäume geladen. Dies geschieht mit dem Befehl `st_read`.
 
 ```r
 #0 CSV File lokalisieren bzw. laden
@@ -80,10 +80,10 @@ strassenbaeume <- st_read("WFS:https://gdi.berlin.de/services/wfs/baumbestand", 
 
 **Laden und Bereinigung der Gießdaten**
 
-Die Gießdaten stammen aus einer CSV-Datei des Projekts „Gieß den Kiez“. Sie werden eingelesen und anschließend bereinigt, d. h.:
+Die Gießdaten stammen aus einer CSV-Datei des Projekts „Gieß den Kiez“. Sie lesen diese erst ein und anschließend bereinigen Sie sie, d. h.:
 
-- Ungültige oder fehlende Koordinaten (Längen-/Breitengrad) werden entfernt.
-- Datensätze ohne Straßenname oder mit fehlerhaften Gattungsbezeichnungen (z. B. numerische Werte) werden ausgeschlossen.
+- Sie entfernen Ungültige oder fehlende Koordinaten (Längen-/Breitengrad).
+- Sie schließen Datensätze ohne Straßenname oder mit fehlerhaften Gattungsbezeichnungen (z. B. numerische Werte) aus.
 
 ```r
 # 2. Bewässerungsdaten laden und bereinigen
@@ -102,7 +102,7 @@ EPSG:4326 (WGS 84) beschreibt die Erdoberfläche mit geografischen Koordinaten i
 
 ```
 ````
-Die beiden Baumdatenquellen werden vereinheitlicht (gemeinsames Koordinatensystem EPSG:4326) und zusammengeführt. Danach werden die Koordinaten explizit extrahiert und die Geometriedaten, also die technische Standortinformation jedes Baumes in einem speziellen räumlichen Format (z. B. die `geom`-Spalte mit Einträgen wie `c(" 394532.3", "5811461.0")`) entfernt, um die Dateigröße zu reduzieren und die Weiterverarbeitung zu erleichtern. 
+Sie vereinheitlichen die beiden Baumdatenquellen (gemeinsames Koordinatensystem EPSG:4326) und führen diese zusammen. Danach extrahieren Sie explizit die Koordinaten und entfernen die Geometriedaten, also die technische Standortinformation jedes Baumes in einem speziellen räumlichen Format (z. B. die `geom`-Spalte mit Einträgen wie `c(" 394532.3", "5811461.0")`), um die Dateigröße zu reduzieren und die Weiterverarbeitung zu erleichtern. 
 
 ```r
 # 3. Bäume zusammenführen
@@ -117,7 +117,7 @@ baumbestand$lat <- coords[, "Y"]
 
 **Harmonisierung und Verknüpfung der Daten**
 
-Die eindeutige Baumkennung `gisid` wird so angepasst, dass sie mit der id aus den Gießdaten übereinstimmt (Unterstrich wird zu Doppelpunkt). Dadurch können die beiden Datensätze über einen sogenannten "Left Join" zusammengeführt werden.
+Die eindeutige Baumkennung `gisid` passen Sie so an, dass sie mit der id aus den Gießdaten übereinstimmt (Unterstrich wird zu Doppelpunkt). Dadurch können Sie die beiden Datensätze über einen sogenannten "Left Join" zusammenführen.
 
 ```r
 # 5. Geometrie entfernen
@@ -146,7 +146,7 @@ df_merged <- df_merged %>%
 
 **Speichern der kombinierten Daten**
 
-Die aufbereiteten Daten werden als CSV-Datei gespeichert. Eine Ausgabe relevanter Kennzahlen (z. B. Anzahl verknüpfter Bäume) dient der Kontrolle.
+Die aufbereiteten Daten speichern Sie als CSV-Datei. Eine Ausgabe relevanter Kennzahlen (z. B. Anzahl verknüpfter Bäume) dient der Kontrolle.
 
 ```r
 # 9. Ergebnis speichern
@@ -154,7 +154,7 @@ if (!dir.exists("data")) dir.create("data")
 write.csv2(df_merged, "data/df_merged_final.csv", row.names = FALSE, fileEncoding = "UTF-8")
 ```
 
-Wenn Sie möchten, schauen Sie sich den gesamten Code als einen Block an, bevor wir Baumdaten den Berliner Bezirken zuordnen:
+Wenn Sie möchten, schauen Sie sich den gesamten Code als einen Block an, bevor Sie Baumdaten den Berliner Bezirken zuordnen:
 
 ````{admonition} Gesamter Code
 :class: hinweis, dropdown
@@ -228,15 +228,15 @@ cat("Anzahl Bäume mit Bewässerungsdaten:", sum(!is.na(df_merged$bewaesserungsm
 
 **Zielsetzung**
 
-Einige Bäume verfügen nicht über eine Angabe zu ihrem Bezirk. Um eine aggregierte räumliche Analyse (z. B. Gießverhalten nach Bezirk) zu ermöglichen, werden fehlende Bezirksangaben durch räumliches Verschneiden mit offiziellen Bezirkspolygonen ergänzt.
+Einige Bäume verfügen nicht über eine Angabe zu ihrem Bezirk. Um eine aggregierte räumliche Analyse (z. B. Gießverhalten nach Bezirk) zu ermöglichen, ergänzen Sie fehlende Bezirksangaben durch räumliches Verschneiden mit offiziellen Bezirkspolygonen.
 
 **Methodik**
 
-- Bäume ohne Bezirk werden in räumliche Objekte konvertiert (sf-Objekte).
+- Bäume ohne Bezirk konvertieren Sie in räumliche Objekte (sf-Objekte).
 
-- Mittels eines „spatial join“ wird ermittelt, in welchem Bezirk sich jeder Baum befindet.
+- Mittels eines „spatial join“ ermitteln Sie, in welchem Bezirk sich jeder Baum befindet.
 
-- Das Ergebnis wird mit den ursprünglichen Daten wieder zusammengeführt.
+- Das Ergebnis führen Sie mit den ursprünglichen Daten wieder zusammen.
 
 **Code Erklärung:**
 
@@ -261,7 +261,7 @@ if (file.exists(local_geojson)) {
   bezirksgrenzen <- st_read(local_geojson)
 }
 ```
-- Es wird eine digitale Karte geladen, auf der die Bezirksgrenzen Berlins eingezeichnet sind.
+- Sie laden eine digitale Karte, auf der die Bezirksgrenzen Berlins eingezeichnet sind.
 - Jeder Bezirk hat dabei ein sogenanntes „Polygon“ – eine Art Umrisslinie.
 
 **2. Die Baumdaten laden**
@@ -269,7 +269,7 @@ if (file.exists(local_geojson)) {
 ```r
 df_baeume <- read.csv("data/df_merged_final.csv", sep = ";", stringsAsFactors = FALSE)
 ```
-- Die Tabelle mit Baumdaten wird eingelesen. Jeder Eintrag beschreibt einen Baum: z. B. seine Art, Pflanzjahr und die Koordinaten, wo er steht.
+- Sie lesen die Tabelle mit den Baumdaten ein. Jeder Eintrag beschreibt einen Baum: z. B. seine Art, Pflanzjahr und die Koordinaten, wo er steht.
 - Manche Bäume haben schon einen Bezirk eingetragen, andere nicht.
 
 **3. Koordinaten umwandeln**
@@ -282,7 +282,7 @@ df_baeume <- df_baeume %>%
   )
 
 ```
-- Manche Koordinaten sind falsch formatiert (mit Komma statt Punkt, z. B. „13,405“ statt „13.405“). Das wird korrigiert, damit der Computer die Zahlen richtig versteht.
+- Manche Koordinaten sind falsch formatiert (mit Komma statt Punkt, z. B. „13,405“ statt „13.405“). Das korrigieren Sie, damit der Computer die Zahlen richtig versteht.
 
 **4. Zwei Gruppen bilden:** 
 
@@ -298,8 +298,8 @@ df_ohne_bezirk <- df_baeume %>% filter(is.na(bezirk) & !is.na(lng) & !is.na(lat)
 ```r
 df_ohne_bezirk_sf <- st_as_sf(df_ohne_bezirk, coords = c("lng", "lat"), crs = 4326, remove = FALSE)
 ```
-- Die zweite Gruppe wird in ein spezielles Format (sogenannte sf-Objekte) umgewandelt.
-- Das ist notwendig, damit man mit Geodaten (Karten und Punkten auf Karten) arbeiten kann.
+- Die zweite Gruppe wandeln Sie in ein spezielles Format (sogenannte sf-Objekte) um.
+- Das ist notwendig, damit Sie mit Geodaten (Karten und Punkten auf Karten) arbeiten können.
 
 **6. Bezirksgrenzen vorbereiten**
 
@@ -308,8 +308,8 @@ bezirksgrenzen <- st_transform(bezirksgrenzen, crs = st_crs(df_ohne_bezirk_sf)) 
   rename(bezirk = Gemeinde_name)
 ```
 
-- Die Karte der Bezirke wird ins gleiche geografische System wie die Baumdaten gebracht (Koordinatensystem).
-- Außerdem wird der Name des Bezirksfeldes vereinfacht in „bezirk“.
+- Die Karte der Bezirke bringen Sie ins gleiche geografische System wie die Baumdaten (Koordinatensystem).
+- Außerdem vereinfachen Sie den Namen des Bezirksfeldes in „bezirk“.
 
 **7. Räumlicher Vergleich: Welcher Baum liegt in welchem Bezirk?**
 
@@ -317,8 +317,8 @@ bezirksgrenzen <- st_transform(bezirksgrenzen, crs = st_crs(df_ohne_bezirk_sf)) 
 df_ohne_bezirk_joined <- st_join(df_ohne_bezirk_sf, bezirksgrenzen["bezirk"], left = TRUE)
 ```
 
-- Jetzt wird für jeden Baum ohne Bezirk geschaut, ob er innerhalb eines Bezirks liegt.
-- Dafür wird überprüft, welches Bezirks-Polygon (d. h. die digitale Umrissfläche eines Bezirks, die dessen geografische Grenzen als geschlossene Fläche auf der Karte abbildet) den jeweiligen Baum „einschließt".
+- Jetzt schauen Sie für jeden Baum ohne Bezirk, ob er innerhalb eines Bezirks liegt.
+- Dafür überprüfen Sie, welches Bezirks-Polygon (d. h. die digitale Umrissfläche eines Bezirks, die dessen geografische Grenzen als geschlossene Fläche auf der Karte abbildet) den jeweiligen Baum „einschließt".
 - Dieser Vorgang heißt „spatial join“ – also ein räumliches Verbinden.
 
 **8. Ergebnis bereinigen und in normales Tabellenformat bringen**
@@ -329,16 +329,16 @@ df_ohne_bezirk_filled <- df_ohne_bezirk_joined %>%
   select(-bezirk.x, -bezirk.y) %>%
   st_drop_geometry()
 ```
-- Die berechneten Bezirksangaben werden in die Tabelle übernommen.
-- Zusätzliche technische Spalten werden entfernt.
-- Die geografischen Informationen werden wieder „fallen lassen“, damit es wieder eine normale Tabelle ist.
+- Die berechneten Bezirksangaben übernehmen Sie in die Tabelle.
+- Zusätzliche technische Spalten entfernen Sie.
+- Die geografischen Informationen "lassen" Sie wieder „fallen“, damit es wieder eine normale Tabelle ist.
 
 **9. Beide Gruppen wieder zusammenfügen**
 ```r
 df_baeume_final <- bind_rows(df_mit_bezirk, df_ohne_bezirk_filled)
 ```
 
-- Jetzt werden alle Bäume wieder in einer Tabelle vereint:
+- Jetzt vereinen Sie alle Bäume wieder in einer Tabelle:
 
     - Die, die schon einen Bezirk hatten.
     - Und die, denen jetzt ein Bezirk zugeordnet wurde.
@@ -348,9 +348,9 @@ df_baeume_final <- bind_rows(df_mit_bezirk, df_ohne_bezirk_filled)
 if (!dir.exists("data")) dir.create("data")
 write.csv2(df_baeume_final, file = "data/df_merged_final.csv", row.names = FALSE)
 ```
-- Die neue Tabelle mit allen Bäumen und Bezirken wird als Datei gespeichert.
+- Die neue Tabelle mit allen Bäumen und Bezirken speichern Sie als Datei.
 
-Am Ende haben Sie wieder die Möglichkeit, sich den gesamten Code anzusehen, bevor wir im nächsten Kapitel die Entwicklungsumgebung auf den Bau des Dashboards vorbereiten.
+Am Ende haben Sie wieder die Möglichkeit, sich den gesamten Code anzusehen, bevor Sie im nächsten Kapitel die Entwicklungsumgebung auf den Bau des Dashboards vorbereiten.
 
 ````{admonition} Gesamter Code
 :class: hinweis, dropdown
