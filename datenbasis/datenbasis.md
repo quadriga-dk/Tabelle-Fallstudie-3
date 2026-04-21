@@ -22,7 +22,7 @@ Laden Sie die Dateien herunter und speichern Sie diese in Ihrem in Kapitel 1.2 (
 ```
 ````
 
-In diesem Abschnitt werden Ihnen die Daten vorgestellt, die zur Beantwortung der Leitfrage und als Datenbasis für ein Dashboard benötigt werden. Im nächsten Abschnitt werden diese dann eingelesen.
+In diesem Abschnitt werden Ihnen die Daten vorgestellt, die zur Beantwortung der Leitfrage und als Datenbasis für ein Dashboard benötigt werden. Im nächsten Abschnitt werden Sie diese dann einlesen.
 
 Dabei handelt es sich um zwei zentrale Datensätze: 
 - Daten über den Berliner Baumbestand
@@ -44,7 +44,7 @@ Die Datensätze enthalten u.a. Informationen zu:
 - Standortmerkmale wie Straße: ``strname``, Hausnummer: ``hausnr``, Zusatz: ``zusatz``, Bezirk: ``bezirk``, Geometrie: ``geom`` (enthält Längen- und Breitengrad in anderem Format) und Standortnummer: ``standortnr``
 - Pflanzjahr: ``pflanzjahr``
 
-Sie dienen dazu, die Struktur des städtischen Baumbestands besser zu verstehen und in Beziehung zu den Gießdaten zu setzen. Das ist besonders wichtig, weil sich über die Identifikatoren die Informationen zu jedem einzelnen Baum sinnvoll zusammenführen lassen.
+Zweck dieser Informationen ist das Verständnis über die Struktur des städtischen Baumbestands zu verbessern und diese in Beziehung zu den Gießdaten zu setzen. Das ist besonders wichtig, weil sich über die Identifikatoren die Informationen zu jedem einzelnen Baum sinnvoll zusammenführen lassen.
 
 ```{figure} /assets/WFS_Screenshot_20260324.png
 ---
@@ -79,7 +79,7 @@ Screenshot der Visualisierung der Berliner Bezirksgrenzen auf der Seite des Date
 
 ## Gieß den Kiez – Bewässerungsdaten (Govdata)
 
-Die Datenplattform <a href="https://citylab-berlin.org/en/projects/giessdenkiez/" class="external-link" target="_blank">Gieß den Kiez</a> ist eine digitale Beteiligungsplattform, die Bewässerungsbedarfe von Straßenbäumen in Berlin erfasst und es Bürger:innen ermöglicht, Gießaktivitäten zu dokumentieren und zu koordinieren. Wir beziehen die Bewässerungsdaten über das Portal <a href="https://www.govdata.de/suche/daten/giess-den-kiez-nutzungsdaten" class="external-link" target="_blank">GovData</a>. Der Datensatz enthält Informationen über einzelne Bewässerungsvorgänge.
+Die Datenplattform <a href="https://citylab-berlin.org/en/projects/giessdenkiez/" class="external-link" target="_blank">Gieß den Kiez</a> ist eine digitale Beteiligungsplattform, die Bewässerungsbedarfe von Straßenbäumen in Berlin erfasst und es Bürger:innen ermöglicht, Gießaktivitäten zu dokumentieren und zu koordinieren. Die Bewässerungsdaten stammen vom Portal <a href="https://www.govdata.de/suche/daten/giess-den-kiez-nutzungsdaten" class="external-link" target="_blank">GovData</a>. Der Datensatz enthält Informationen über einzelne Bewässerungsvorgänge.
 Jeder Eintrag ist einem bestimmten Baum zugeordnet (zu erkennen an der ID) und umfasst unter anderem:
 
 - Geokoordinaten (Längengrad: ``lng``, Breitengrad: ``lat``)

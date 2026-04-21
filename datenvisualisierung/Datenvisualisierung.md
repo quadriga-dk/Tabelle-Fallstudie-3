@@ -26,12 +26,12 @@ Mit Ihren Rückmeldungen können wir unser interaktives Lehrbuch gezielt an Ihre
 :end-before: "<!-- END: Datenvisualisierung -->"
 ```
 
-Nachdem im vorherigen Kapitel die Untersuchungsparameter festgelegt und die Datensätze bereinigt wurden, widmet sich dieses Kapitel der Vorbereitung des Dashboards, bevor im nächsten Kapitel die explorative Analyse mittels Visualisierungen begonnen werden kann (s. Abb. 4.1).  
+Nachdem Sie im vorherigen Kapitel die Untersuchungsparameter festgelegt und die Datensätze bereinigt haben, widmen Sie sich dieses Kapitel der Vorbereitung des Dashboards, bevor Sie im nächsten Kapitel mit der explorativen Analyse mittels Visualisierungen beginnen können (s. Abb. 4.1).  
 
 <span style="color:red">*Abb. 4.1: Bild einfügen von Verortung in Fallstudien-Struktur*</span>
 
 
-Zuerst wird dargelegt, was [Dashboards](dashboard_theorie) sind und welchen Vorteil sie für den Public Sector bieten. Danach können Sie in einem [Vergleich von Visualisierungstools](vergleich) nachvollziehen, warum dieses Lehrbuch die Applikation RShiny verwendet. Abschließend wird im letzten Abschnitt die [Entwicklungsumgebung vorbereitet](dashboard-vorbereitung).
+Zuerst wird dargelegt, was [Dashboards](dashboard_theorie) sind und welchen Vorteil sie für den Public Sector bieten. Danach können Sie in einem [Vergleich von Visualisierungstools](vergleich) nachvollziehen, warum dieses Lehrbuch die Applikation RShiny verwendet. Abschließend bereiten Sie im letzten Abschnitt die [Entwicklungsumgebung vor](dashboard-vorbereitung).
 
 
 ```{admonition} Bearbeitungszeit

@@ -32,7 +32,7 @@ Plomin, J., Walter, P., Schmeling, J., Dakruni, S. & Bingöl, C. (2025). _Visual
 ````
 `````
 
-In dieser Open Educational Resource (OER) wird ein Forschungsverlauf im Bereich der Verwaltungswissenschaft mithilfe eines <a href="https://jupyterbook.org/en/stable/intro.html" class="external-link" target="_blank">JupyterBooks</a> nachgezeichnet. Anhand einer wissenschaftlichen Leitfrage wird mit der Applikation <a href="https://shiny.posit.co/" class="external-link" target="_blank">R Shiny</a> ein Dasboard gebaut. In den einzelnen Kapiteln wird erläutert, welche Daten zur Lösung der Leitfrage und zum Bau des Dashboards benötigt und wie sie bearbeitet und visualisiert werden. Dabei werden Kompetenzen wie Datenvisualisierung und Kommunikation von Forschungsergebnissen behandelt.
+In dieser Open Educational Resource (OER) wird ein Forschungsverlauf im Bereich der Verwaltungswissenschaft mithilfe eines <a href="https://jupyterbook.org/en/stable/intro.html" class="external-link" target="_blank">JupyterBooks</a> nachgezeichnet. Anhand einer wissenschaftlichen Leitfrage werdem Sie mit der Applikation <a href="https://shiny.posit.co/" class="external-link" target="_blank">R Shiny</a> ein Dasboard bauen. In den einzelnen Kapiteln wird erläutert, welche Daten zur Lösung der Leitfrage und zum Bau des Dashboards benötigt und wie sie bearbeitet und visualisiert werden. Dabei werden Kompetenzen wie Datenvisualisierung und Kommunikation von Forschungsergebnissen behandelt.
 
 <span style="color:red">Bild einfügen: Framework oder etw. zu Dashboards -> UNSER Dashboard</span>.
 
@@ -74,8 +74,8 @@ Die Zielgruppe sind zudem promovierende und promovierte Wissenschaftler:innen, a
 
 - Im **1. Schritt** wird eine Fragestellung aufgebaut und operationalisiert.
 
-- Im **2. Schritt** wird der Untersuchungsgegenstand - also die Datengrundlage - beleuchtet und die Daten eingelesen und strukturiert.
+- Im **2. Schritt** werden Sie den Untersuchungsgegenstand - also die Datengrundlage - beleuchten und die Daten einlesen und strukturieren.
 
-- Im **3. Schritt** erfahren Sie was Dashboards sind, welche Bedeutung sie für die Verwaltung haben können, mit welchen Tools sie gebaut werden können und schließlich wie R Shiny eingerichtet wird, um damit ein Dashboard zu bauen.
+- Im **3. Schritt** erfahren Sie was Dashboards sind, welche Bedeutung sie für die Verwaltung haben können, mit welchen Tools Sie diese bauen können und schließlich wie Sie R Shiny einrichten, um damit ein Dashboard zu bauen.
 
 - Im **4. Schritt** führt Sie das Kapitel "Dashboards - Einzelelemente" Schritt für Schritt durch die Erweiterung eines Dashboards mit weiteren Visualisierungen wie Karten oder Zeitverläufen.

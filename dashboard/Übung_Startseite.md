@@ -40,7 +40,7 @@ Für die Startseite seiner Anwendung entscheidet sich Amir für eine **kompakte 
 
 Zusätzlich plant er **Filtermöglichkeiten** nach **Bezirk**, um die Kennzahlen gezielt einzugrenzen und regionale Unterschiede sichtbar zu machen. Damit lassen sich die Daten auch in einer feineren Granularität betrachten – von stadtweiter Übersicht bis hin zu einzelnen Bezirken. Die auf der Startseite dargestellten Kennzahlen werden dabei ausschließlich als **absolute Werte** angezeigt und **nicht ins Verhältnis** zueinander gesetzt. <span style="color:red;">Warum nicht?</span>
 
-Als Nächstes bauen wir die Startseite des Dashboards mit R. Nach jedem Codeabschnitt werden kurz die verwendeten Techniken und Befehle erklärt. Wir widmen uns sowohl der Benutzeroberfläche (UI) als auch der Serverseite des R-Shiny-Dashboards.
+Als Nächstes bauen Sie die Startseite des Dashboards mit R. Nach jedem Codeabschnitt werden kurz die verwendeten Techniken und Befehle erklärt. Sie widmen sich sowohl der Benutzeroberfläche (UI), als auch der Serverseite des R-Shiny-Dashboards.
 
 ## Benutzeroberfläche (UI)
 
