@@ -18,7 +18,7 @@ Er merkt schnell: Diese Darstellung zeigt zwar den Umfang des Engagements, aber 
 
 Diese Übung zeigt, wie sich durch unterschiedliche Kennzahlen neue Perspektiven auf dieselben Verwaltungsdaten ergeben. Während zuvor die Zahl der gegossenen Bäume im Mittelpunkt stand, wird nun die Bewässerungsmenge in Litern analysiert.
 
-Wir lernen dabei, wie Daten aggregiert, umgerechnet und visualisiert werden können, um Bezirke hinsichtlich ihrer gesamten Bewässerungsleistung oder der durchschnittlichen Wassermenge pro Baum zu vergleichen. Dadurch wird deutlich, dass die Auswahl der Messgröße – die Operationalisierung – zu verschiedenen analytischen Ergebnissen führen kann: Ein Bezirk, der bei der Anzahl gegossener Bäume gut abschneidet, liegt bei der Wassermenge möglicherweise nicht vorne (und umgekehrt).
+Sie lernen dabei, wie Daten aggregiert, umgerechnet und visualisiert werden können, um Bezirke hinsichtlich ihrer gesamten Bewässerungsleistung oder der durchschnittlichen Wassermenge pro Baum zu vergleichen. Dadurch wird deutlich, dass die Auswahl der Messgröße – die Operationalisierung – zu verschiedenen analytischen Ergebnissen führen kann: Ein Bezirk, der bei der Anzahl gegossener Bäume gut abschneidet, liegt bei der Wassermenge möglicherweise nicht vorne (und umgekehrt).
 
 ```
 
@@ -67,7 +67,7 @@ dashboardSidebar(
 
 ### Inhaltsbereich: Diagramme
 
-Der Inhaltsbereich enthält die Diagramme. Da die Tabellen hier fest vorgegeben sind (für ganz Berlin vergleichend), benötigen wir für diese Seite keine Filter-Dropdowns.
+Der Inhaltsbereich enthält die Diagramme. Da die Tabellen hier fest vorgegeben sind (für ganz Berlin vergleichend), werden für diese Seite keine Filter-Dropdowns benötigt.
 
 ````{dropdown} Code
 ```r
@@ -359,15 +359,15 @@ Die Wahl der Messgröße – „Wie viel Wasser insgesamt?“ vs. „Wie viel Wa
 Damit wird ein zentrales analytisches Prinzip deutlich:
 **Daten sind nicht neutral – die Art ihrer Aufbereitung formt das Narrativ.**
 
-Die Erkenntnis, dass unterschiedliche Kennzahlen zu unterschiedlichen Ergebnissen führen, macht deutlich, dass Engagement und Bewässerungsmuster nicht allein durch Bezirksvergleiche erklärbar sind. Um ein umfassenderes Bild zu erhalten, müssen wir zusätzlich berücksichtigen, **wie sich Bewässerung über die Zeit entwickelt** und wie **die Baumstruktur in den Bezirken aussieht**.
+Die Erkenntnis, dass unterschiedliche Kennzahlen zu unterschiedlichen Ergebnissen führen, macht deutlich, dass Engagement und Bewässerungsmuster nicht allein durch Bezirksvergleiche erklärbar sind. Um ein umfassenderes Bild zu erhalten, müssen Sie zusätzlich berücksichtigen, **wie sich Bewässerung über die Zeit entwickelt** und wie **die Baumstruktur in den Bezirken aussieht**.
 
 In den nächsten beiden Reitern werden diese Perspektiven vertieft:
 
-- Im **Zeitverlauf** betrachten wir, wie sich Bewässerungsaktivität über Monate und Jahre verändert – und ob sich saisonale Muster, Hitzewellen oder langfristige Trends erkennen lassen.
+- Im **Zeitverlauf** betrachten Sie, wie sich Bewässerungsaktivität über Monate und Jahre verändert – und ob sich saisonale Muster, Hitzewellen oder langfristige Trends erkennen lassen.
 
-- In der **Baumstatistik** analysieren wir die Zusammensetzung des Baumbestands: Alter, Gattung, Verteilung im Stadtraum und deren potenzieller Einfluss auf Bewässerungsbedarfe.
+- In der **Baumstatistik** analysieren Sie die Zusammensetzung des Baumbestands: Alter, Gattung, Verteilung im Stadtraum und deren potenzieller Einfluss auf Bewässerungsbedarfe.
 
-Damit erweitern wir die Analyse von einer rein mengenbasierten Betrachtung hin zu einem Verständnis, das **räumliche**, **zeitliche** und **ökologische Faktoren** integriert.
+Damit erweitern Sie die Analyse von einer rein mengenbasierten Betrachtung hin zu einem Verständnis, das **räumliche**, **zeitliche** und **ökologische Faktoren** integriert.
 
 
 ````{admonition} Gesamter Code für diesen Schritt
