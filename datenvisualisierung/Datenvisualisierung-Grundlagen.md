@@ -41,7 +41,7 @@ Da es bereits einige Lernressourcen zum Thema Datenvisualisierung gibt, hier ein
 
 ## Gestaltung von Dashboards
 
-Wo eine Visualisierung im Dashboard positioniert wird, kann Einfluss auf ihre (wahrgenommene) Bedeutung haben.
+Wo Sie eine Visualisierung im Dashboard positionieren, kann Einfluss auf ihre (wahrgenommene) Bedeutung haben.
 
 
 ## Haltung

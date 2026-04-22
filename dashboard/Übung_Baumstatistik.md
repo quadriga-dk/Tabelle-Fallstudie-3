@@ -14,7 +14,7 @@ Amir Weber möchte nachvollziehen, inwieweit die Art der Bäume und ihrer Umgebu
 ```{admonition} Zweck dieser Übung
 :class: lernziele
 
-In dieser Übung wollen wir herausfinden, ob die Baumart und räumliche Faktoren (Baumdichte) einen Einfluss auf das Engagement beim Gießen haben. Wir üben:
+In dieser Übung sollen Sie herausfinden, ob die Baumart und räumliche Faktoren (Baumdichte) einen Einfluss auf das Engagement beim Gießen haben. Sie üben:
 
 - Baumarten und deren Verteilung in Bezirken statistisch zu beschreiben,
 - relative Häufigkeiten und Top-Listen (z. B. meistgegossene Arten) zu interpretieren,
@@ -962,4 +962,4 @@ shinyApp(ui = ui, server = server)
 
 ### Überleitung zum nächsten Analyse-Schritt
 
-Da wir nun gesehen haben, dass die Baumdichte und räumliche Gegebenheiten relevanter für das Engagement sein könnten als rein baumbiologische Aspekte (wie die Gattung), sollten wir uns im nächsten Schritt noch konkreter ansehen, welche Rolle urbane Infrastruktur spielt. Eine naheliegende Hypothese: Bäume, die näher an Wasserpumpen stehen, werden häufiger gegossen. Darum dreht sich das nächste Kapitel.
+Da Sie nun gesehen haben, dass die Baumdichte und räumliche Gegebenheiten relevanter für das Engagement sein könnten als rein baumbiologische Aspekte (wie die Gattung), sollten Sie sich im nächsten Schritt noch konkreter ansehen, welche Rolle urbane Infrastruktur spielt. Eine naheliegende Hypothese: Bäume, die näher an Wasserpumpen stehen, werden häufiger gegossen. Darum dreht sich das nächste Kapitel.

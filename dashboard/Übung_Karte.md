@@ -14,7 +14,7 @@ Sein Ziel: Eine intuitive Karte von Berlin, die sofort erkennen lässt, in welch
 
 ```{admonition} Zweck dieser Übung
 :class: lernziele
-Das Erstellen einer [Leaflet-Karte](https://de.wikipedia.org/wiki/Leaflet) dient dazu, räumliche Informationen nutzbar zu machen, um Verwaltungsdaten visuell zugänglich und vergleichbar darzustellen. In dieser Übung lernen wir, wie Bezirksdaten mit statistischen Kennzahlen verknüpft und anschließend mithilfe einer Farbskala intuitiv interpretiert werden können. Die farbliche Hervorhebung des Anteils bewässerter Bäume ermöglicht es, Muster und regionale Unterschiede auf einen Blick zu erkennen und zusätzliche Antworten auf die Leitfrage zu gewinnen: In welchen Bezirken wird besonders viel gegossen?
+Das Erstellen einer [Leaflet-Karte](https://de.wikipedia.org/wiki/Leaflet) dient dazu, räumliche Informationen nutzbar zu machen, um Verwaltungsdaten visuell zugänglich und vergleichbar darzustellen. In dieser Übung lernen Sie, wie Bezirksdaten mit statistischen Kennzahlen verknüpft und anschließend mithilfe einer Farbskala intuitiv interpretiert werden können. Die farbliche Hervorhebung des Anteils bewässerter Bäume ermöglicht es, Muster und regionale Unterschiede auf einen Blick zu erkennen und zusätzliche Antworten auf die Leitfrage zu gewinnen: In welchen Bezirken wird besonders viel gegossen?
 ```
 
 Das Dashboard soll um eine **Bezirkskarte** erweitert werden. Nachdem die Startseite bereits erste Kennzahlen sichtbar macht, möchte Amir nun räumlich darstellen, **wo** in Berlin besonders viel gegossen wurde. Eine kartenbasierte Visualisierung eignet sich ideal, um regionale Muster zu erkennen, Hotspots sichtbar zu machen und Unterschiede zwischen den Bezirken intuitiv zu erfassen.
@@ -59,7 +59,7 @@ Durch diese Kombination entsteht eine sowohl leicht verständliche als auch anal
 
 ## Benutzeroberfläche (UI)
 
-Da die Grundstruktur der Benutzeroberfläche bereits in der vorherigen Übung aufgebaut wurde, erweitern wir diese nun lediglich um die Elemente für die Karte. Wir ergänzen:  
+Da die Grundstruktur der Benutzeroberfläche bereits in der vorherigen Übung aufgebaut wurde, werden diese nun lediglich um die Elemente für die Karte erweitert. Ergänzt werden:  
 - die **Seitenleiste** (`sidebarMenu`) um einen neuen Navigationspunkt für die Karte.
 - den **Inhaltsbereich** (`tabItems`) um ein neues `tabItem`, in dem die Karte dargestellt wird.
 
@@ -73,7 +73,7 @@ dashboardSidebar(
   )
 )
 ```
-Wie bereits von der Startseite bekannt, erzeugt `menuItem(...)` einen neuen Eintrag in der Seitenleiste. Durch `tabName = "map"` verknüpfen wir diesen mit dem noch zu erstellenden Inhaltsbereich.
+Wie bereits von der Startseite bekannt, erzeugt `menuItem(...)` einen neuen Eintrag in der Seitenleiste. Durch `tabName = "map"` wird dieser mit dem noch zu erstellenden Inhaltsbereich verknüpft.
 ````
 
 ### Inhaltsbereich: Karte mit Filter-Boxen
