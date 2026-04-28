@@ -21,7 +21,7 @@ Da das Paket möglicherweise aber zurückkommt, ist es weiter in dieser Auflistu
 ```
 ````
 
-Bevor wir mit dem Aufbau des Dashboards beginnen können, müssen wir die benötigten Pakete installieren und laden. Öffnen Sie RStudio und führen Sie folgenden Befehl aus, um die erforderlichen Pakete zu installieren:
+Bevor wir mit dem Aufbau des Dashboards beginnen können, müssen wir die benötigten Pakete installieren und laden. Öffnen Sie RStudio und führen Sie folgenden Befehl aus (indem Sie diese in die Konsole eingeben oder ein neues R-Skrip erstellen), um die erforderlichen Pakete zu installieren:
 
 ```r
 install.packages(c("shiny", "shinydashboard", 
