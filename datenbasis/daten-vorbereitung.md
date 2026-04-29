@@ -131,13 +131,25 @@ df_merged <- baumbestand %>%
   left_join(df_clean %>% select(id, bewaesserungsmenge_in_liter, timestamp),
             by = c("gisid" = "id"))
 ```
+**Entfernung von Einträgen mit ungültigen Pflanzjahren**
+
+Damit Sie in künftigen Operationen korrekt mit Pflanzjahren arbeiten können, filtern Sie sicherheitshalber alle Einträge mit ungültigem Pflanzjahr heraus. In diesem Fall entscheiden Sie, dass nicht-vierstellige Jahresangaben und Jahresangaben, welche in der Zukunft liegen, herausgefiltert werden sollen. Dafür orientieren Sie sich am Systemjahr auf ihrem Endgerät. Stellen Sie sicher, dass der Kalender ihres Endgerätes hierfür richtig eingestellt ist.
+
+```r
+# 8. Ungültige Pflanzjahre herausfiltern
+current_year <- as.integer(format(Sys.Date(), "%Y"))
+
+df_merged <- df_merged %>%
+  mutate(pflanzjahr = as.numeric(pflanzjahr)) %>%
+  filter(is.na(pflanzjahr) | (nchar(as.character(as.integer(pflanzjahr))) == 4 & pflanzjahr <= current_year)) 
+```
 
 **Speichern der kombinierten Daten**
 
 Die aufbereiteten Daten werden als CSV-Datei gespeichert. Eine Ausgabe relevanter Kennzahlen (z. B. Anzahl verknüpfter Bäume) dient der Kontrolle.
 
 ```r
-# 8. Ergebnis speichern
+# 9. Ergebnis speichern
 if (!dir.exists("data")) dir.create("data")
 write.csv2(df_merged, "data/df_merged_final.csv", row.names = FALSE, fileEncoding = "UTF-8")
 ```
@@ -193,11 +205,18 @@ df_merged <- baumbestand %>%
   left_join(df_clean %>% select(id, bewaesserungsmenge_in_liter, timestamp),
             by = c("gisid" = "id"))
 
-# 8. Ergebnis speichern
+# 8. Ungültige Pflanzjahre herausfiltern
+current_year <- as.integer(format(Sys.Date(), "%Y"))
+
+df_merged <- df_merged %>%
+  mutate(pflanzjahr = as.numeric(pflanzjahr)) %>%
+  filter(is.na(pflanzjahr) | (nchar(as.character(as.integer(pflanzjahr))) == 4 & pflanzjahr <= current_year)) 
+
+# 9. Ergebnis speichern
 if (!dir.exists("data")) dir.create("data")
 write.csv2(df_merged, "data/df_merged_final.csv", row.names = FALSE, fileEncoding = "UTF-8")
 
-# 9. Kontrolle: Anzahl der Zeilen
+# 10. Kontrolle: Anzahl der Zeilen
 cat("Anzahl Bäume nach Merge:", nrow(df_merged), "\n")
 cat("Anzahl eindeutiger Bäume (pitid):", n_distinct(df_merged$pitid), "\n")
 cat("Anzahl Bäume mit Bewässerungsdaten:", sum(!is.na(df_merged$bewaesserungsmenge_in_liter)), "\n")
