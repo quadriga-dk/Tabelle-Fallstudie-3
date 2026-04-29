@@ -6,8 +6,8 @@ lang: de-DE
 # Eine Karte erstellen
 ```{admonition} Story
 :class: story
-Nachdem Amir sein Dashboard eingerichtet und die wichtigsten Kennzahlen sichtbar gemacht hat, möchte er nun genauer verstehen, wo in Berlin besonders viel gegossen wird.
-Die Plattform [Gieß den Kiez](https://www.giessdenkiez.de/map?treeAgeMax=200&lang=de&lat=52.494590307846366&lng=13.388836926491992) zeigt ihm eindrucksvolle Karten, die Bezirke farblich nach bestimmten Kriterien hervorheben – das möchte Amir für seine Anwendung nachbauen.
+Nachdem Amir sein Dashboard mit Ihrer Unterstützung einrichten lassen und die wichtigsten Kennzahlen sichtbar machen lassen hat, möchte er nun genauer verstehen, wo in Berlin besonders viel gegossen wird.
+Die Plattform [Gieß den Kiez](https://www.giessdenkiez.de/map?treeAgeMax=200&lang=de&lat=52.494590307846366&lng=13.388836926491992) zeigt ihm eindrucksvolle Karten, die Bezirke farblich nach bestimmten Kriterien hervorheben – das möchte Amir für seine Anwendung nachbauen lassen.
 
 Sein Ziel: Eine intuitive Karte von Berlin, die sofort erkennen lässt, in welchen Bezirken viele Bäume gegossen wurden und wo eher weniger.
 ```
@@ -17,9 +17,9 @@ Sein Ziel: Eine intuitive Karte von Berlin, die sofort erkennen lässt, in welch
 Das Erstellen einer [Leaflet-Karte](https://de.wikipedia.org/wiki/Leaflet) dient dazu, räumliche Informationen nutzbar zu machen, um Verwaltungsdaten visuell zugänglich und vergleichbar darzustellen. In dieser Übung lernen Sie, wie Bezirksdaten mit statistischen Kennzahlen verknüpft und anschließend mithilfe einer Farbskala intuitiv interpretiert werden können. Die farbliche Hervorhebung des Anteils bewässerter Bäume ermöglicht es, Muster und regionale Unterschiede auf einen Blick zu erkennen und zusätzliche Antworten auf die Leitfrage zu gewinnen: In welchen Bezirken wird besonders viel gegossen?
 ```
 
-Das Dashboard soll um eine **Bezirkskarte** erweitert werden. Nachdem die Startseite bereits erste Kennzahlen sichtbar macht, möchte Amir nun räumlich darstellen, **wo** in Berlin besonders viel gegossen wurde. Eine kartenbasierte Visualisierung eignet sich ideal, um regionale Muster zu erkennen, Hotspots sichtbar zu machen und Unterschiede zwischen den Bezirken intuitiv zu erfassen.
+Das Dashboard soll um eine **Bezirkskarte** erweitert werden. Nachdem die Startseite bereits erste Kennzahlen sichtbar macht, werden Sie nun räumlich darstellen, **wo** in Berlin besonders viel gegossen wurde. Eine kartenbasierte Visualisierung eignet sich ideal, um regionale Muster zu erkennen, Hotspots sichtbar zu machen und Unterschiede zwischen den Bezirken intuitiv zu erfassen.
 
-Für diese Aufgabe nutzt Amir das Paket **Leaflet**, das interaktive Karten direkt in R-Shiny erzeugt. Ergänzt wird Leaflet durch **sf** zur Verarbeitung der Bezirks-Geodaten sowie durch Funktionen wie ```colorNumeric()```, mit denen eine aussagekräftige Farbskala erzeugt wird. Die Karte verknüpft also zwei Datenquellen:
+Für diese Aufgabe nutzen Sie das Paket **Leaflet**, das interaktive Karten direkt in R-Shiny erzeugt. Ergänzt wird Leaflet durch **sf** zur Verarbeitung der Bezirks-Geodaten sowie durch Funktionen wie ```colorNumeric()```, mit denen eine aussagekräftige Farbskala erzeugt wird. Die Karte verknüpft also zwei Datenquellen:
 die **räumliche Geometrie** der Berliner Bezirke und die **berechneten Kennzahlen** aus seinem Datensatz – insbesondere die Anzahl der Bäume sowie den Anteil der bewässerten Bäume pro Bezirk.
 
 ```{figure} ../assets/Dashboard_Karte.png
@@ -41,12 +41,12 @@ zweiter Reiter des Dashboards - Karte; Die Abbildung zeigt eine Karte aller Berl
 - Ein **Tooltip** zeigt beim Überfahren eines Bezirks die genauen Zahlen und den exakten Prozentsatz, sodass die Nutzer:innen nicht nur visuell, sondern auch quantitativ informiert werden.
 ```
 
-Durch die Visualisierung kann ebenso die zentrale Leitfrage beantwortet werden:
+Durch die Visualisierung können Sie ebenso die zentrale Leitfrage beantworten:
 **Wie stark engagieren sich die Berliner:innen für die Bäume in ihrer Stadt – und in welchen Bezirken ist dieses Engagement am höchsten?**  <span style="color: red;">Können wir diese Fragen wirklich beantworten? Wir haben zwar gute Baumkatasterdaten, aber das Engagement nur über die Messungen von Gieß den Kiez gegeben, was eine geringer Userbase hat. Dazu gibt es bestimmt auch Menschen, die gießen ohne das einzutragen (durch Unwissenheit, mangelndem Interesse oder bewusster Ablehnung). Für die FS ist das Beispiel sicherlich dennoch geeignet, allerdings sollten wir diese Gedanken eventuell erwähnen.</span>
 
 Eine **Choroplethenkarte** ist eine thematische Karte, bei der Flächen entsprechend statistischer Werte eingefärbt werden – in diesem Fall nach dem prozentualen Anteil gegossener Bäume pro Bezirk. Der entscheidende Mehrwert dieser Darstellungsform liegt in der simultanen räumlichen Vergleichbarkeit: man erfasst auf einen Blick, welche Bezirke gut versorgt sind und wo Handlungsbedarf besteht, ohne zwischen verschiedenen Ansichten wechseln zu müssen. Die geografische Anordnung ermöglicht es zudem, räumliche Muster zu erkennen – etwa ob zentrale Bezirke anders versorgt werden als Randbezirke, oder ob benachbarte Gebiete ähnliche Bewässerungsquoten aufweisen. Dunkle Schattierungen signalisieren hohe Bewässerungsraten, helle Bereiche weisen auf niedrigere Werte hin. Die Karte vereint explorative Analyse mit detaillierter Datenabfrage und macht räumliche Zusammenhänge zugänglich.
 
-Technisch nutzt Amir dafür ein Zusammenspiel aus:
+Technisch nutzen Sie dafür ein Zusammenspiel aus:
 
 - ```leaflet()``` – erstellt die interaktive Karte
 - ```addPolygons()``` – zeichnet die Bezirksflächen
@@ -59,7 +59,7 @@ Durch diese Kombination entsteht eine sowohl leicht verständliche als auch anal
 
 ## Benutzeroberfläche (UI)
 
-Da die Grundstruktur der Benutzeroberfläche bereits in der vorherigen Übung aufgebaut wurde, werden diese nun lediglich um die Elemente für die Karte erweitert. Ergänzt werden:  
+Da Sie die Grundstruktur der Benutzeroberfläche bereits in der vorherigen Übung aufgebaut haben, erweitert Sie diese nun lediglich um die Elemente für die Karte. Sie ergänzen:  
 - die **Seitenleiste** (`sidebarMenu`) um einen neuen Navigationspunkt für die Karte.
 - den **Inhaltsbereich** (`tabItems`) um ein neues `tabItem`, in dem die Karte dargestellt wird.
 
@@ -73,12 +73,12 @@ dashboardSidebar(
   )
 )
 ```
-Wie bereits von der Startseite bekannt, erzeugt `menuItem(...)` einen neuen Eintrag in der Seitenleiste. Durch `tabName = "map"` wird dieser mit dem noch zu erstellenden Inhaltsbereich verknüpft.
+Wie bereits von der Startseite bekannt, erzeugt `menuItem(...)` einen neuen Eintrag in der Seitenleiste. Durch `tabName = "map"` verknüpfen Sie diesen mit dem noch zu erstellenden Inhaltsbereich.
 ````
 
 ### Inhaltsbereich: Karte mit Filter-Boxen
 
-Amir möchte, dass die Leaflet-Karte zentral dargestellt wird und sofort ins Auge fällt. Die Karte soll nicht nur schön aussehen, sondern auf einen Blick zeigen, wo in Berlin besonders viel gegossen wird. Darunter sollen Filter es ermöglichen, die Ansicht auf bestimmte Bezirke oder Zeiträume einzugrenzen.
+Idealerweise stellen Sie die Leaflet-Karte zentral dar, sodass diese sofort ins Auge fällt. Die Karte soll nicht nur schön aussehen, sondern auf einen Blick zeigen, wo in Berlin besonders viel gegossen wird. Darunter sollen Filter es ermöglichen, die Ansicht auf bestimmte Bezirke oder Zeiträume einzugrenzen.
 
 ````{dropdown} Code
 ```r
@@ -116,7 +116,7 @@ Amir möchte, dass die Leaflet-Karte zentral dargestellt wird und sofort ins Aug
 
 ### Bewässerungsstatistik pro Bezirk berechnen
 
-Bevor die Karte gezeichnet werden kann, müssen für jeden Berliner Bezirk die relevanten Kennzahlen berechnet werden: Wie viele Bäume stehen dort insgesamt? Wie viele davon wurden gegossen? Und welcher Anteil wurde bewässert?
+Bevor die Karte gezeichnet werden kann, müssen Sie für jeden Berliner Bezirk die relevanten Kennzahlen berechnen: Wie viele Bäume stehen dort insgesamt? Wie viele davon wurden gegossen? Und welcher Anteil wurde bewässert?
 
 ````{dropdown} Code
 ```r
@@ -146,7 +146,7 @@ Diese reaktive Funktion wird später im `renderLeaflet`-Block aufgerufen, um die
 ````
 
 ### Karte zeichnen mit Leaflet
-Jetzt entsteht die eigentliche Karte. Jeder Berliner Bezirk wird farblich gestaltet: Dunklere Farben zeigen hohes Engagement, hellere Bereiche niedrigere Bewässerungsraten. Beim Überfahren mit der Maus erscheinen die genauen Zahlen – wie viele Bäume es gibt, wie viele gegossen wurden und der prozentuale Anteil.
+Jetzt entsteht die eigentliche Karte. Jeder Berliner Bezirk gestalten Sie farblich: Dunklere Farben zeigen hohes Engagement, hellere Bereiche niedrigere Bewässerungsraten. Beim Überfahren mit der Maus erscheinen die genauen Zahlen – wie viele Bäume es gibt, wie viele gegossen wurden und der prozentuale Anteil.
 
 <span style="color: red;">Ich würde den folgenden Codeblock wegen seiner Größe aufteilen oder inline kommentieren</span>
 
@@ -239,12 +239,12 @@ Mit Farbskalen wie colorNumeric() können Bezirke automatisch nach Kennzahlen ei
 
 ````
 
-Durch die Bezirkskarte erhält Amir erstmals einen **räumlichen Überblick** darüber, in welchen Berliner Bezirken besonders viele Bäume gegossen wurden. Die Visualisierung zeigt deutlich, dass **Friedrichshain-Kreuzberg** den höchsten Anteil bewässerter Bäume aufweist, dicht gefolgt von **Mitte**. Damit beantwortet die Karte bereits einen wichtigen Teil der Leitfrage:
+Durch die Bezirkskarte erhalten Sie erstmals einen **räumlichen Überblick** darüber, in welchen Berliner Bezirken besonders viele Bäume gegossen wurden. Die Visualisierung zeigt deutlich, dass **Friedrichshain-Kreuzberg** den höchsten Anteil bewässerter Bäume aufweist, dicht gefolgt von **Mitte**. Damit beantwortet die Karte bereits einen wichtigen Teil der Leitfrage:
 **Wo engagieren sich Bürger:innen besonders häufig beim Gießen der Straßenbäume?**
 
-Allerdings wird Amir bewusst, dass diese Darstellung nur einen Teil der Realität zeigt. Die Karte unterscheidet zwar zwischen *bewässert* und *nicht bewässert*, doch sie berücksichtigt nicht, **wie viel Wasser** tatsächlich in den Bezirken geflossen ist. Ein Baum, der einmal mit 5 Litern begossen wurde, gilt genauso als „bewässert“ wie ein Baum, der über Wochen hinweg hunderte Liter erhalten hat – und genau dieser Unterschied ist für eine belastbare Bewertung des Gießverhaltens entscheidend.
+Seien Sie sich jedoch bewusst, dass diese Darstellung nur einen Teil der Realität zeigt. Die Karte unterscheidet zwar zwischen *bewässert* und *nicht bewässert*, doch sie berücksichtigt nicht, **wie viel Wasser** tatsächlich in den Bezirken geflossen ist. Ein Baum, der einmal mit 5 Litern begossen wurde, gilt genauso als „bewässert“ wie ein Baum, der über Wochen hinweg hunderte Liter erhalten hat – und genau dieser Unterschied ist für eine belastbare Bewertung des Gießverhaltens entscheidend.
 
-Daher führt Amir die Analyse im nächsten Schritt weiter und widmet sich einer differenzierteren Betrachtung:
+Daher führen Sie die Analyse im nächsten Schritt weiter und widmen sich einer differenzierteren Betrachtung:
 **Wie viele Liter wurden tatsächlich pro Bezirk gegossen – absolut und im Verhältnis zur Gesamtzahl der Bäume?**
 
 Diese „Bewässerungsanalyse“ bildet die Grundlage der dritten Übung. Sie ermöglicht es, nicht nur die Häufigkeit, sondern auch die **Intensität des Gießens** zu messen und damit ein vollständigeres Bild des Engagements der Bürger:innen zu erhalten.

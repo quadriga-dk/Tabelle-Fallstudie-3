@@ -7,9 +7,9 @@ lang: de-DE
 ```{admonition} Story
 :class: story
 
-Nachdem Amir Weber die Bezirke und Bewässerungsmengen verglichen hat, interessiert ihn nun, **welche Rolle das Alter der Bäume** spielt.
+Nachdem Amir Weber die Bezirke und Bewässerungsmengen vergleichen lassen hat, interessiert ihn nun, **welche Rolle das Alter der Bäume** spielt.
 Er fragt sich, ob bestimmte Jahrgänge besonders häufig gegossen werden — etwa jüngere Bäume, die nach wissenschaftlicher Empfehlung mehr Wasser benötigen, oder ältere Bäume, die empfindlicher auf Trockenstress reagieren.
-Um dieser Frage nachzugehen, betrachtet er die gesamt gegossene Wassermenge pro Pflanzjahr und erhält so einen Überblick darüber, welche Baumkohorten am stärksten vom Engagement profitieren.
+Um dieser Frage nachzugehen, betrachten Sie die gesamt gegossene Wassermenge pro Pflanzjahr und erhalten so einen Überblick darüber, welche Baumkohorten am stärksten vom Engagement profitieren.
 
 ```
 
@@ -23,13 +23,13 @@ Diese Übung zeigt:
 
 ```
 
-Nachdem die räumlichen Unterschiede der Bewässerung betrachtet wurden, richtet Amir Weber seinen Fokus nun auf **zeitliche und altersbezogene Faktoren des Engagements**. Denn Bürgerengagement beim Gießen wird nicht nur durch den Bezirk geprägt, sondern auch durch:
+Nachdem Sie die räumlichen Unterschiede der Bewässerung betrachtet haben, richten Sie Ihren Fokus nun auf **zeitliche und altersbezogene Faktoren des Engagements**. Denn Bürgerengagement beim Gießen wird nicht nur durch den Bezirk geprägt, sondern auch durch:
 
 - zeitliche Muster (z. B. verändert sich die Bewässerungsaktivität über die Jahre?),
 
 - Baumalter bzw. Pflanzjahr (wissenschaftlich ist belegt, dass besonders junge und teilweise auch sehr alte Bäume ein erhöhtes Wasservolumen benötigen),
 
-Um diese Aspekte besser zu verstehen, untersucht er zwei zentrale Fragen:
+Um diese Aspekte besser zu verstehen, untersuchen Sie zwei zentrale Fragen:
 
 **1. Wie hat sich die Bewässerungsmenge über die Jahre entwickelt?**
 → Gibt es Trends, Spitzenjahre oder Rückgänge?
@@ -50,7 +50,7 @@ Zeitverlauf der Baumbewässerung (Quelle: eigene Ausarbeitung)
 
 ## Benutzeroberfläche (UI)
 
-Zunächst fügt Amir einen weiteren Menüpunkt zur Navigation hinzu, um den Zeitverlauf-Tab zugänglich zu machen.
+Zunächst fügen Sie einen weiteren Menüpunkt zur Navigation hinzu, um den Zeitverlauf-Tab zugänglich zu machen.
 
 ````{dropdown} Navigation in der Seitenleiste
 ```r
@@ -153,7 +153,7 @@ Diese Struktur gibt Nutzer:innen volle Kontrolle: Sie können sowohl den Zeitrau
 
 ### Daten vorbereiten und filtern
 
-Zunächst müssen die Rohdaten so vorbereitet werden, dass nur relevante Einträge berücksichtigt werden – also Bäume, die tatsächlich gegossen wurden und für die ein Pflanzjahr bekannt ist.
+Zunächst müssen Sie die Rohdaten so vorbereiten, dass nur relevante Einträge berücksichtigt werden – also Bäume, die tatsächlich gegossen wurden und für die ein Pflanzjahr bekannt ist.
 
 ````{dropdown} Code
 ```r
@@ -190,12 +190,12 @@ output$trend_water <- renderPlotly({
 - `input$trend_year[2]` ist der obere Wert
 - So können Nutzer:innen gezielt z. B. nur Bäume aus den Jahren 1950–2020 betrachten
 
-Durch diese mehrstufige Filterung erhält Amir einen sauberen Datensatz, der genau die Bäume enthält, die für die aktuelle Analyse relevant sind.
+Durch diese mehrstufige Filterung erhälen Sie einen sauberen Datensatz, der genau die Bäume enthält, die für die aktuelle Analyse relevant sind.
 ````
 
 ### Bewässerungsmenge pro Pflanzjahr berechnen
 
-Jetzt aggregiert Amir die Daten: Für jedes Pflanzjahr wird die gesamte gegossene Wassermenge sowie die Anzahl der bewässerten Bäume berechnet.
+Jetzt aggregiert Sie die Daten: Für jedes Pflanzjahr wird die gesamte gegossene Wassermenge sowie die Anzahl der bewässerten Bäume berechnet.
 
 ````{dropdown} Code
 ```r
@@ -226,7 +226,7 @@ Diese Aggregation beantwortet die zentrale Frage: „Welche Baumjahrgänge wurde
 
 ### Liniendiagramm erstellen
 
-Mit den aggregierten Daten erstellt Amir nun ein Liniendiagramm, das den Trend über die Pflanzjahre zeigt.
+Mit den aggregierten Daten erstellen Sie nun ein Liniendiagramm, das den Trend über die Pflanzjahre zeigt.
 
 ````{dropdown} Code
 ```r
