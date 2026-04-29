@@ -8,7 +8,7 @@ lang: de-DE
 ```{admonition} Story
 :class: story
 Dr. Amir Weber macht sich Gedanken, welche Daten er braucht und woher er sie beziehen kann. Wichtig sind vor allem Daten über den Baumbestand und Bewässerungsdaten.  
-Dabei fällt ihm das Berliner Projekt Gieß den Kiez ein, welches diese Daten bereits erhebt und zur Verfügung stellt. Er prüft zudem, welche Daten noch relevant sind und auf welche Weise sie beschafft werden können.
+Dabei fällt ihm das Berliner Projekt <a href="https://www.giessdenkiez.de/stats?lang=de" class="external-link" target="_blank">Gieß den Kiez</a> ein, welches diese Daten bereits erhebt und zur Verfügung stellt. Er prüft zudem, welche Daten noch relevant sind und auf welche Weise sie beschafft werden können.
 ```
 
 ````{margin}

@@ -6,10 +6,10 @@ lang: de-DE
 # Eine Karte erstellen
 ```{admonition} Story
 :class: story
-Nachdem Amir sein Dashboard mit Ihrer Unterstützung einrichten lassen und die wichtigsten Kennzahlen sichtbar machen lassen hat, möchte er nun genauer verstehen, wo in Berlin besonders viel gegossen wird.
-Die Plattform [Gieß den Kiez](https://www.giessdenkiez.de/map?treeAgeMax=200&lang=de&lat=52.494590307846366&lng=13.388836926491992) zeigt ihm eindrucksvolle Karten, die Bezirke farblich nach bestimmten Kriterien hervorheben – das möchte Amir für seine Anwendung nachbauen lassen.
+Nachdem Amir sein Dashboard mit Ihrer Unterstützung die wichtigsten Kennzahlen gesichtet hat, möchte er nun genauer verstehen, wo in Berlin besonders viel gegossen wird.
+Die Plattform [Gieß den Kiez](https://www.giessdenkiez.de/map?treeAgeMax=200&lang=de&lat=52.494590307846366&lng=13.388836926491992) zeigt ihm eindrucksvolle Karten, die Bezirke farblich nach bestimmten Kriterien hervorheben – das möchte Amir für seine Anwendung nachgebaut haben.
 
-Sein Ziel: Eine intuitive Karte von Berlin, die sofort erkennen lässt, in welchen Bezirken viele Bäume gegossen wurden und wo eher weniger.
+Sein Wunsch: Eine intuitive Karte von Berlin, die sofort erkennen lässt, in welchen Bezirken viele Bäume gegossen wurden und wo eher weniger.
 ```
 
 ```{admonition} Zweck dieser Übung
