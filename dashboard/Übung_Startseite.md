@@ -25,7 +25,7 @@ Damit liefert die Startseite einen kompakten, aber aussagekräftigen Überblick 
 
 So ist die Startseite nicht nur auf erstem Blick intuitiv und verständlich, sondern auch funktional der ideale Ausgangspunkt für die weitere Erkundung der Daten.
 
-Für den Einstieg arbeitet Amir mit dem Datensatz *„Gieß den Kiez – Bewässerungsdaten“* von **GovData**. Dieser Datensatz bietet detaillierte Informationen darüber, wann, wo und wie viel gegossen wurde. Er eignet sich ideal, um erste Analysen zum Gießverhalten zu erstellen, da er sowohl zeitliche als auch räumliche Bezüge enthält und öffentlich zugänglich ist.
+Für den Einstieg arbeiten Sie mit dem Datensatz *„Gieß den Kiez – Bewässerungsdaten“* von **GovData**. Dieser Datensatz bietet detaillierte Informationen darüber, wann, wo und wie viel gegossen wurde. Er eignet sich ideal, um erste Analysen zum Gießverhalten zu erstellen, da er sowohl zeitliche als auch räumliche Bezüge enthält und öffentlich zugänglich ist.
 
 
 ```{figure} ../assets/Dashboard_Startseite.png
@@ -40,7 +40,7 @@ Für die Startseite seiner Anwendung entscheidet sich Amir für eine **kompakte 
 
 Zusätzlich plant er **Filtermöglichkeiten** nach **Bezirk**, um die Kennzahlen gezielt einzugrenzen und regionale Unterschiede sichtbar zu machen. Damit lassen sich die Daten auch in einer feineren Granularität betrachten – von stadtweiter Übersicht bis hin zu einzelnen Bezirken. Die auf der Startseite dargestellten Kennzahlen werden dabei ausschließlich als **absolute Werte** angezeigt und **nicht ins Verhältnis** zueinander gesetzt. <span style="color:red;">Warum nicht?</span>
 
-Als Nächstes wird die Startseite des Dashboards mit R gebaut. Nach jedem Codeabschnitt werden kurz die verwendeten Techniken und Befehle erklärt. Dabei wird sich sowohl der Benutzeroberfläche (UI), als auch der Serverseite des R-Shiny-Dashboards gewidmet.
+Als Nächstes bauen Sie die Startseite des Dashboards mit R. Nach jedem Codeabschnitt werden kurz die verwendeten Techniken und Befehle erklärt. Dabei widmen Sie sich sowohl der Benutzeroberfläche (UI), als auch der Serverseite des R-Shiny-Dashboards.
 
 ## Benutzeroberfläche (UI)
 
@@ -62,7 +62,7 @@ ui <- dashboardPage(
 ```
 ````
 
-Amir entscheidet sich für ein System der Benutzeroberfläche, die aus zwei Teilen besteht:
+Das System Ihrer Benutzeroberfläche wird aus zwei Teilen bestehen:
 
 - einer Seitenleiste (``sidebarMenu``) mit der Navigation
 
@@ -72,7 +72,7 @@ Amir entscheidet sich für ein System der Benutzeroberfläche, die aus zwei Teil
 
     - Dropdowns zur Auswahl des Zeitraums und des Bezirks
 
-Somit lässt sich eine übersichtliche Navigationsstruktur etablieren.
+Somit können Sie eine übersichtliche Navigationsstruktur etablieren.
 
 ### Seitenleiste mit der Navigation (sidebarMenu)
 Die Seitenleiste enthält Menüpunkte, die jeweils einen Namen und ein Symbol zur besseren Orientierung bekommen.
@@ -97,12 +97,12 @@ dashboardSidebar(
 - `tabName = "start"` verknüpft diesen Menüpunkt mit dem zugehörigen Inhaltsbereich, welcher Inhalt angezeigt werden soll
 - `icon("home")` fügt ein kleines Haus-Symbol zur visuellen Orientierung hinzu
 
-Später kann Amir weitere Menüpunkte ergänzen – etwa für die Karte oder die Baumstatistik. Das Prinzip bleibt gleich: Jedes `menuItem` erhält einen Namen, ein Symbol und eine eindeutige `tabName`, die ihn mit dem entsprechenden Inhaltsbereich verbindet.
+Später können Sie weitere Menüpunkte ergänzen – etwa für die Karte oder die Baumstatistik. Das Prinzip bleibt gleich: Jedes `menuItem` erhält einen Namen, ein Symbol und eine eindeutige `tabName`, die ihn mit dem entsprechenden Inhaltsbereich verbindet.
 ````
 
 ### Inhaltsbereich
 
-Amir möchte, dass die beiden wichtigsten Zahlen – Gesamtzahl der Bäume und Anzahl gegossener Bäume. Darunter soll ein Filter es ermöglichen, die Ansicht auf bestimmte Bezirke einzugrenzen.
+Auf der Startseite des Dashboards visualisieren Sie die beiden zentralen Kennzahlen: die Gesamtzahl der Bäume sowie die Anzahl der bewässerten Bäume. Über einen integrierten Filter kann die Anzeige zudem auf spezifische Bezirke eingegrenzt werden.
 
 ````{dropdown} Code
 ```r
@@ -165,7 +165,7 @@ Diese Filterauswahl wird im Server verarbeitet und bestimmt, welche Daten für d
 ````
 
 
-Mit diesem Aufbau hat Amir die **Struktur** seiner Startseite definiert:
+Mit diesem Aufbau haben Sie die **Struktur** seiner Startseite definiert:
 - Eine klare Navigation über die Seitenleiste
 - Zwei zentrale Kennzahlen in prominenter Position
 - Ein Filter zur Eingrenzung nach Bezirken
@@ -188,7 +188,7 @@ server <- function(input, output) {
 
 In Shiny beobachtet der Server kontinuierlich die Eingabefelder (`input$...`) und **aktualisiert automatisch** alle Ausgaben (`output$...`), die von diesen Eingaben abhängen.
 
-Für Amirs Dashboard bedeutet das konkret:
+Für Ihr Dashboard bedeutet das konkret:
 - Sobald Nutzer:innen einen anderen Bezirk auswählen, wird der Datensatz im Hintergrund neu gefiltert
 - Die Kennzahlen werden neu berechnet und sofort in den ValueBoxen angezeigt
 - Alles geschieht ohne Verzögerung, ohne manuelles Nachladen
@@ -246,7 +246,7 @@ Diese Bedingung implementiert die eigentliche Filterung:
 - Falls nur bestimmte Bezirke ausgewählt wurden → behalte nur die Zeilen, deren `bezirk` in der Auswahl (`input$bezirk`) vorkommt
 
 **Warum ist diese Struktur wichtig?**  
-Amir muss den Filtercode nur einmal schreiben. Alle Visualisierungen und Kennzahlen, die `filteredData()` verwenden, greifen automatisch auf die aktuell gefilterte Version der Daten zu. Das vermeidet Redundanz und macht den Code wartbar.
+Sie müssen den Filtercode nur einmal schreiben. Alle Visualisierungen und Kennzahlen, die `filteredData()` verwenden, greifen automatisch auf die aktuell gefilterte Version der Daten zu. Das vermeidet Redundanz und macht den Code wartbar.
 
 ````
 
@@ -276,7 +276,7 @@ Wird nur „2020–2024“ ausgewählt, zeigt dynamic_tree_box nur gegossene Bä
 
 ### ValueBoxes: Kennzahlen anzeigen
 
-Nun kann Amir die beiden Kennzahlenkacheln mit Inhalten füllen. In der UI wurden diese bereits als `valueBoxOutput("total_trees")` und `valueBoxOutput("total_tree_watered")` angelegt – jetzt definiert er, was darin erscheinen soll.
+Nun können Sie die beiden Kennzahlenkacheln mit Inhalten füllen. In der UI wurden diese bereits als `valueBoxOutput("total_trees")` und `valueBoxOutput("total_tree_watered")` angelegt – jetzt definiert Sie, was darin erscheinen soll.
 
 
 ````{dropdown} Alle Bäume
@@ -323,7 +323,7 @@ output$total_tree_watered <- renderValueBox({
 :class: hinweis, dropdown
 
 Hier gibt es einen entscheidenden Unterschied:
-- Statt `df_merged` verwendet Amir nun `filteredData()` – die reaktive Datenquelle, die sich je nach Bezirksauswahl ändert
+- Statt `df_merged` verwenden Sie nun `filteredData()` – die reaktive Datenquelle, die sich je nach Bezirksauswahl ändert
 - `!is.na(filteredData()$timestamp)` filtert zusätzlich: Es werden nur Bäume gezählt, die mindestens einmal gegossen wurden (erkennbar an einem gültigen Zeitstempel)
 - `icon("tint")` (ein Tropfen-Symbol) und `color = "blue"` heben die Wasserthematik visuell hervor
 
@@ -331,14 +331,14 @@ Hier gibt es einen entscheidenden Unterschied:
 - Die **Gesamtzahl der Bäume** ist eine konstante Referenzgröße – sie soll sich nicht ändern, egal welche Bezirke betrachtet werden
 - Die **Anzahl gegossener Bäume** hingegen ist bezirksspezifisch und soll auf die Filterauswahl reagieren
 
-Durch diese bewusste Trennung ermöglicht Amir den Nutzer:innen, das Engagement in einzelnen Bezirken mit der Gesamtsituation zu vergleichen.
+Durch diese bewusste Trennung ermöglichen Sie den Nutzer:innen, das Engagement in einzelnen Bezirken mit der Gesamtsituation zu vergleichen.
 ````
 <span style="color: red;">Ist es nicht irreführend, dass die Gesamtzahl der Bäume unabhängig von den ausgewählten Bezirken konstant ist? Wenn ich z.B. einen oder mehrere Bezirke auswähle, irritiert es mich unterbewusst, dass sich die Gesamtanzahl der Bäume nicht ändert. Es wird auch nicht wirklich erwähnt, dass es sich hierbei um ganz Berlin handelt. Ich würde das also entweder dazuschreiben oder noch eine dritte ValueBox bzw. zweite Kennzahl in der grünen ValueBox hinzugfügen, welche sich auf der Gesamtanzahl an Bäumen in den ausgewählten Bezirken bezieht.</span>
 ### Einheiten clever umrechnen
 
-Bei der Darstellung von Wassermengen steht Amir vor einer Herausforderung: Die Rohdaten enthalten Literangaben, die je nach Größenordnung unterschiedlich formatiert werden sollten. Eine Menge von 50 Litern ist überschaubar, aber 1.250.000 Liter sind schwer zu erfassen. Amir möchte, dass das Dashboard automatisch in sinnvolle Einheiten umrechnet – etwa Kubikmeter (m³) oder Megaliter (ML).
+Bei der Darstellung von Wassermengen stehen Sie nun vor einer Herausforderung: Die Rohdaten enthalten Literangaben, die je nach Größenordnung unterschiedlich formatiert werden sollten. Eine Menge von 50 Litern ist überschaubar, aber 1.250.000 Liter sind schwer zu erfassen. Von Vorteil wäre es, wenn das Dashboard automatisch in sinnvolle Einheiten umrechnet – etwa Kubikmeter (m³) oder Megaliter (ML).
 
-Um dies zu erreichen, erstellt er Hilfsfunktionen, die die Umrechnung übernehmen und gleichzeitig die passende Einheit auswählen.
+Um dies zu erreichen, erstellen Sie Hilfsfunktionen, die die Umrechnung übernehmen und gleichzeitig die passende Einheit auswählen.
 
 ````{dropdown} Code
 ```r
@@ -500,7 +500,7 @@ shinyApp(ui = ui, server = server)
 ````
 
 ## Was muss Amir beim Bau eines Dashboards beachten? *(vorläufig)* 
-Bei der Gestaltung der Startseite sollte Amir darauf achten, dass die wichtigsten Informationen klar, gut lesbar und ohne unnötige Ablenkungen präsentiert werden. Besonders für einen ersten Überblick gilt: Weniger ist oft mehr.
+Bei der Gestaltung der Startseite sollten Sie darauf achten, dass die wichtigsten Informationen klar, gut lesbar und ohne unnötige Ablenkungen präsentiert werden. Besonders für einen ersten Überblick gilt: Weniger ist oft mehr.
 
 Für die Startseite heißt das vor allem:
 
@@ -518,11 +518,11 @@ Für die Startseite heißt das vor allem:
 
 ## Leitfrage und Ausblick
 
-Die zentrale Leitfrage von Amirs Fallstudie lautet: **Wo ist das höchste Bürgerengagement?**
+Die zentrale Leitfrage von Ihrer Fallstudie lautet: **Wo ist das höchste Bürgerengagement?**
 
-Mit den Daten aus Gieß den Kiez kann er diese Frage bereits auf der Startseite beantworten: Pro Bezirk lässt sich das Engagement direkt darstellen und vergleichen. Am meisten engagierten sich die Bürger:innen in **Mitte**, danach folgen **Tempelhof-Schöneberg** und **Charlottenburg-Wilmersdorf**. Damit ist die Hauptfrage zwar beantwortet – doch Amir interessiert sich nun für die **Geschichten hinter den Zahlen**.
+Mit den Daten aus Gieß den Kiez können Sie diese Frage bereits auf der Startseite beantworten: Pro Bezirk lässt sich das Engagement direkt darstellen und vergleichen. Am meisten engagierten sich die Bürger:innen in **Mitte**, danach folgen **Tempelhof-Schöneberg** und **Charlottenburg-Wilmersdorf**. Damit ist die Hauptfrage zwar beantwortet, jedoch nicht die **Geschichten hinter den Zahlen**.
 
-Er möchte verstehen, welche **Kontextfaktoren** zu den Unterschieden führen könnten:
+Es bleibt offen, welche **Kontextfaktoren** zu den Unterschieden führen könnten:
 
 - **Räumlich** – etwa Unterschiede zwischen Bezirken oder die Baumdichte in einem Gebiet.
 
