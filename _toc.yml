@@ -19,11 +19,13 @@ chapters:
     sections:
       - file: datenbasis/datenbasis
       - file: datenbasis/daten-vorbereitung
+      - file: datenbasis/3.3_resumee
   - file: datenvisualisierung/Datenvisualisierung
     sections:
       - file: datenvisualisierung/dashboard_theorie
       - file: datenvisualisierung/Vergleich
       - file: dashboard/dashboard-vorbereitung
+      - file: dashboard/4.4_resumee
   - file: dashboard/Dashboard
     sections:      
       - file: datenvisualisierung/Datenvisualisierung-Grundlagen
