@@ -20,15 +20,15 @@ chapters:
       - file: datenbasis/datenbasis
       - file: datenbasis/daten-vorbereitung
       - file: datenbasis/3.3_resumee
-  - file: datenvisualisierung/Datenvisualisierung
+  - file: 4_dash-prep/4.0_intro
     sections:
-      - file: datenvisualisierung/dashboard_theorie
-      - file: datenvisualisierung/Vergleich
-      - file: dashboard/dashboard-vorbereitung
-      - file: dashboard/4.4_resumee
+      - file: 4_dash-prep/4.1_dashboard
+      - file: 4_dash-prep/4.2_tools
+      - file: 4_dash-prep/4.3_preparation
+      - file: 4_dash-prep/4.4_resumee
   - file: dashboard/Dashboard
     sections:      
-      - file: datenvisualisierung/Datenvisualisierung-Grundlagen
+      - file: dashboard/Datenvisualisierung-Grundlagen
       - file: dashboard/Übung_Startseite
       - file: dashboard/Übung_Karte
       - file: dashboard/Übung_Zeitverlauf
