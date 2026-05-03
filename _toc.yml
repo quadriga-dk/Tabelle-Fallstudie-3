@@ -34,6 +34,7 @@ chapters:
       - file: dashboard/Übung_Zeitverlauf
       - file: dashboard/Übung_Baumstatistik
       - file: dashboard/Übung_Bewässerungsanalyse
+      - file: dashboard/resumee
   - file: Zusammenfassung
   - file: epilog/Epilog
     sections:
