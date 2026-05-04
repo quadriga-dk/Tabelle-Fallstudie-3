@@ -53,7 +53,7 @@ Er orientiert er sich an folgender Leitfrage:
 Wo lassen sich die höchsten Ausprägungen des Engagements von Bürger:innen bei der Bewässerung städtischer Bäume in Berlin feststellen? 
 ```
 
-## Relevanz für die Verwaltungswissenschaft
+## Bedeutung dieses Lehrbuchs für die Verwaltungswissenschaft
 
 <span style="color:red">folgendes noch überarbeiten</span>.
 
