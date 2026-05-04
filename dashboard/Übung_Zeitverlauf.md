@@ -93,10 +93,10 @@ tabItem(
           sliderInput(
             "trend_year",
             "Pflanzjahre filtern:",
-                  min = 1800,
-                  max = as.numeric(format(Sys.Date(), "%Y")) - 1,
-                  value = c(1800,
-                            as.numeric(format(Sys.Date(), "%Y")) - 1),
+            min = 1800,
+            max = max(df_merged$pflanzjahr, na.rm = TRUE),
+            value = c(1800,
+                      max(df_merged$pflanzjahr, na.rm = TRUE)),
             step = 1,
             sep = ""
           )
@@ -133,7 +133,7 @@ tabItem(
 **Filterelemente:**
 
 - `sliderInput("trend_year", ...)` – ein Schieberegler zur Auswahl eines Pflanzjahr-Bereichs
-  - Als Min-Wert ist das Jahr 1800 gewählt. Als Max-Wert das Vorjahr des Systemjahres (Beispiel: Wenn der Kalender auf Ihrem Rechner auf 2026 gestellt ist, ist der Max-Wert 2025)
+  - Als Min-Wert ist das Jahr 1800 gewählt. Als Max-Wert wird das aktuellste Pflanzjahr aus dem Datensatz ermittelt
   - Nutzer:innen können gezielt nur junge Bäume, nur Altbestand oder ein bestimmtes Jahrzehnt untersuchen
   
 - `selectInput("trend_bezirk_pj", ...)` – ein Dropdown zur Bezirksauswahl
@@ -380,9 +380,9 @@ ui <- dashboardPage(
                   "trend_year",
                   "Pflanzjahre filtern:",
                   min = 1800,
-                  max = as.numeric(format(Sys.Date(), "%Y")) - 1,
+                  max = max(df_merged$pflanzjahr, na.rm = TRUE),
                   value = c(1800,
-                            as.numeric(format(Sys.Date(), "%Y")) - 1),
+                            max(df_merged$pflanzjahr, na.rm = TRUE)),
                   step = 1,
                   sep = ""
                 )
