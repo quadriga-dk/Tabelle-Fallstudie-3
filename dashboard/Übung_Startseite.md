@@ -514,7 +514,7 @@ Für die Startseite heißt das vor allem:
 
 - **Kontext**: Kurze Hinweise oder Legenden, damit die Zahlen richtig interpretiert werden können.
 
-<span style="color: red;">*Diese Punkte bilden den Rahmen – nach weiterer Recherche lassen sich hier noch Best Practices und konkrete Gestaltungsrichtlinien ergänzen. Könnte man hier vielleicht noch als Visualisierungshilfe die Seite mit aufzählen welche Grafik die richtige ist je nachdem was man visuell darstellen möchte? https://datavizcatalogue.com*</span>
+<span style="color: red;">*Könnte man hier vielleicht noch als Visualisierungshilfe die Seite mit aufzählen welche Grafik die richtige ist je nachdem was man visuell darstellen möchte? https://datavizcatalogue.com*</span>
 
 ## Leitfrage und Ausblick
 
