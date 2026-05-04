@@ -16,19 +16,19 @@ Er merkt schnell: Diese Darstellung zeigt zwar den Umfang des Engagements, aber 
 ```{admonition} Zweck dieser Übung
 :class: lernziele
 
-Diese Übung zeigt, wie sich durch unterschiedliche Kennzahlen neue Perspektiven auf dieselben Verwaltungsdaten ergeben. Während zuvor die Zahl der gegossenen Bäume im Mittelpunkt stand, wird nun die Bewässerungsmenge in Litern analysiert.
+Diese Übung zeigt Ihnen, wie sich durch unterschiedliche Kennzahlen neue Perspektiven auf dieselben Verwaltungsdaten ergeben. Während zuvor die Zahl der gegossenen Bäume im Mittelpunkt stand, analysieren Sie nun die Bewässerungsmenge in Litern.
 
-Wir lernen dabei, wie Daten aggregiert, umgerechnet und visualisiert werden können, um Bezirke hinsichtlich ihrer gesamten Bewässerungsleistung oder der durchschnittlichen Wassermenge pro Baum zu vergleichen. Dadurch wird deutlich, dass die Auswahl der Messgröße – die Operationalisierung – zu verschiedenen analytischen Ergebnissen führen kann: Ein Bezirk, der bei der Anzahl gegossener Bäume gut abschneidet, liegt bei der Wassermenge möglicherweise nicht vorne (und umgekehrt).
+Sie lernen dabei, wie Daten aggregiert, umgerechnet und visualisiert werden können, um Bezirke hinsichtlich ihrer gesamten Bewässerungsleistung oder der durchschnittlichen Wassermenge pro Baum zu vergleichen. Dadurch wird deutlich, dass die Auswahl der Messgröße – die Operationalisierung – zu verschiedenen analytischen Ergebnissen führen kann: Ein Bezirk, der bei der Anzahl gegossener Bäume gut abschneidet, liegt bei der Wassermenge möglicherweise nicht vorne (und umgekehrt).
 
 ```
 
-Um die Unterschiede sichtbar zu machen, entscheidet sich Amir, eine umfassendere Analyse der Bewässerungsmenge durchzuführen:
+Um die Unterschiede sichtbar zu machen, führen Sie eine umfassendere Analyse der Bewässerungsmenge durch:
 
 - Wie viel Wasser wurde insgesamt pro Bezirk ausgebracht?
 - Wie viel Wasser erhielt ein durchschnittlich gegossener Baum?
 - Und verändert sich dadurch das Ranking der Bezirke?
 
-So möchte Amir untersuchen, wie sich die Wahl der Operationalisierung – also „gezählte Bäume“ vs. „gegossene Liter“ – auf die Ergebnisse auswirkt. Die Frage lautet:
+So helfen Sie Amir zu verstehen, wie sich die Wahl der Operationalisierung – also „gezählte Bäume“ vs. „gegossene Liter“ – auf die Ergebnisse auswirkt. Die Frage lautet:
 Welche Geschichte erzählen die Daten, wenn man Liter statt Baumanzahl betrachtet?
 
 ```{figure} ../assets/Dashboard_Bewässerungsanalyse_1.png
@@ -50,7 +50,7 @@ Durchschnittliche Bewässerungsmenge pro gegossenem Baum nach Bezirk. Die Abbild
 
 ## Benutzeroberfläche (UI)
 
-Zunächst fügt Amir einen weiteren Menüpunkt zur Navigation hinzu, um den Bewässerungsanalyse-Tab zugänglich zu machen.
+Zunächst fügen Sie einen weiteren Menüpunkt zur Navigation hinzu, um den Bewässerungsanalyse-Tab zugänglich zu machen.
 
 ````{dropdown} Navigation in der Seitenleiste
 ```r
@@ -67,7 +67,7 @@ dashboardSidebar(
 
 ### Inhaltsbereich: Diagramme
 
-Der Inhaltsbereich enthält die Diagramme. Da die Tabellen hier fest vorgegeben sind (für ganz Berlin vergleichend), benötigen wir für diese Seite keine Filter-Dropdowns.
+Der Inhaltsbereich enthält die Diagramme. Da die Tabellen hier fest vorgegeben sind (für ganz Berlin vergleichend), benötigen Sie für diese Seite keine Filter-Dropdowns.
 
 ````{dropdown} Code
 ```r
@@ -123,7 +123,7 @@ tabItem(
 ## Server
 ### Berechnung der Bewässerung
 
-Der erste Teil des Codes, der die **durchschnittliche Bewässerung pro Bezirk** darstellt, berechnet, wie viel Wasser insgesamt in jedem Bezirk verbraucht wurde.
+Im ersten Teil des Codes, der die **durchschnittliche Bewässerung pro Bezirk** darstellt, berechnen Sie, wie viel Wasser insgesamt in jedem Bezirk verbraucht wurde.
 
 ````{dropdown} Code
 ```r
@@ -153,7 +153,7 @@ Durch diese Aggregation wird sichtbar, welche Bezirke absolut gesehen die meiste
 
 ### Einheiten automatisch umrechnen
 
-Da die Wassermenge sehr groß sein kann (Millionen Liter), rechnet Amir die Werte in passende Einheiten um: Liter, Kubikmeter oder Megaliter – je nach Größenordnung.
+Da die Wassermenge sehr groß sein kann (Millionen Liter), rechnen Sie nun die Werte in passende Einheiten um: Liter, Kubikmeter oder Megaliter – je nach Größenordnung.
 
 ````{dropdown} Code
 ```r
@@ -359,15 +359,15 @@ Die Wahl der Messgröße – „Wie viel Wasser insgesamt?“ vs. „Wie viel Wa
 Damit wird ein zentrales analytisches Prinzip deutlich:
 **Daten sind nicht neutral – die Art ihrer Aufbereitung formt das Narrativ.**
 
-Die Erkenntnis, dass unterschiedliche Kennzahlen zu unterschiedlichen Ergebnissen führen, macht deutlich, dass Engagement und Bewässerungsmuster nicht allein durch Bezirksvergleiche erklärbar sind. Um ein umfassenderes Bild zu erhalten, müssen wir zusätzlich berücksichtigen, **wie sich Bewässerung über die Zeit entwickelt** und wie **die Baumstruktur in den Bezirken aussieht**.
+Die Erkenntnis, dass unterschiedliche Kennzahlen zu unterschiedlichen Ergebnissen führen, macht deutlich, dass Engagement und Bewässerungsmuster nicht allein durch Bezirksvergleiche erklärbar sind. Um ein umfassenderes Bild zu erhalten, müssen Sie zusätzlich berücksichtigen, **wie sich Bewässerung über die Zeit entwickelt** und wie **die Baumstruktur in den Bezirken aussieht**.
 
 In den nächsten beiden Reitern werden diese Perspektiven vertieft:
 
-- Im **Zeitverlauf** betrachten wir, wie sich Bewässerungsaktivität über Monate und Jahre verändert – und ob sich saisonale Muster, Hitzewellen oder langfristige Trends erkennen lassen.
+- Im **Zeitverlauf** betrachten Sie, wie sich Bewässerungsaktivität über Monate und Jahre verändert – und ob sich saisonale Muster, Hitzewellen oder langfristige Trends erkennen lassen.
 
-- In der **Baumstatistik** analysieren wir die Zusammensetzung des Baumbestands: Alter, Gattung, Verteilung im Stadtraum und deren potenzieller Einfluss auf Bewässerungsbedarfe.
+- In der **Baumstatistik** analysieren Sie die Zusammensetzung des Baumbestands: Alter, Gattung, Verteilung im Stadtraum und deren potenzieller Einfluss auf Bewässerungsbedarfe.
 
-Damit erweitern wir die Analyse von einer rein mengenbasierten Betrachtung hin zu einem Verständnis, das **räumliche**, **zeitliche** und **ökologische Faktoren** integriert.
+Damit erweitern Sie die Analyse von einer rein mengenbasierten Betrachtung hin zu einem Verständnis, das **räumliche**, **zeitliche** und **ökologische Faktoren** integriert.
 
 
 ````{admonition} Gesamter Code für diesen Schritt

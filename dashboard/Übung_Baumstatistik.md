@@ -7,14 +7,14 @@ lang: de-DE
 ```{admonition} Story
 :class: story
 
-Amir Weber möchte nachvollziehen, inwieweit die Art der Bäume und ihrer Umgebung das freiwillige Engagement beim Gießen beeinflussen. Nachdem er bereits zeitliche Muster analysiert hat, richtet er seinen Blick nun auf räumliche Faktoren (Baumdichte) sowie baumartspezifische Merkmale.
+Amir Weber möchte nachvollziehen, inwieweit die Art der Bäume und ihrer Umgebung das freiwillige Engagement beim Gießen beeinflussen. Nachdem Sie bereits zeitliche Muster analysiert haben, sollten Sie Ihren Blick nun auf räumliche Faktoren (Baumdichte) sowie baumartspezifische Merkmale richten.
 
 ```
 
 ```{admonition} Zweck dieser Übung
 :class: lernziele
 
-In dieser Übung wollen wir herausfinden, ob die Baumart und räumliche Faktoren (Baumdichte) einen Einfluss auf das Engagement beim Gießen haben. Wir üben:
+In dieser Übung sollen Sie herausfinden, ob die Baumart und räumliche Faktoren (Baumdichte) einen Einfluss auf das Engagement beim Gießen haben. Sie üben:
 
 - Baumarten und deren Verteilung in Bezirken statistisch zu beschreiben,
 - relative Häufigkeiten und Top-Listen (z. B. meistgegossene Arten) zu interpretieren,
@@ -24,9 +24,9 @@ und einfache Hypothesen über das Engagement – etwa bevorzugte Gattungen oder 
 
 ```
 
-Nachdem zuvor untersucht wurde, wie Pflanzjahr und Zeitverlauf das Gießverhalten beeinflussen, richtet sich der Blick nun auf räumliche und baumartspezifische Unterschiede innerhalb Berlins. Verschiedene Bezirke weisen sehr unterschiedliche Baumstrukturen auf: Manche besitzen eine hohe Dichte, andere sind von wenigen dominanten Gattungen geprägt (Nachweis dazu fehlt - woraus wird das zu diesem Zeitpunkt abgeleitet?).
+Nachdem Sie zuvor untersucht haben, wie Pflanzjahr und Zeitverlauf das Gießverhalten beeinflussen, richten Sie ihren Blick nun auf räumliche und baumartspezifische Unterschiede innerhalb Berlins. Verschiedene Bezirke weisen sehr unterschiedliche Baumstrukturen auf: Manche besitzen eine hohe Dichte, andere sind von wenigen dominanten Gattungen geprägt (Nachweis dazu fehlt - woraus wird das zu diesem Zeitpunkt abgeleitet?).
 
-Amir Weber will also überprüfen:
+Sie überprüfen also:
 
 - Ob bestimmte Baumgattungen häufiger gegossen werden als andere.
 - Ob die Baumdichte das Gießverhalten beeinflusst.
@@ -90,7 +90,7 @@ Vor allem hinsichtlich der Interpretation von Datenvisualisierungen sollten Sie 
 
 ## Benutzeroberfläche (UI)
 
-Zunächst fügt Amir einen weiteren Menüpunkt zur Navigation hinzu, um den Baumstatistik-Tab zugänglich zu machen.
+Zunächst fügen Sie einen weiteren Menüpunkt zur Navigation hinzu, um den Baumstatistik-Tab zugänglich zu machen.
 
 ````{dropdown} Navigation in der Seitenleiste
 ```r
@@ -224,7 +224,7 @@ Diese Struktur ermöglicht den Nutzer:innen interaktive Ansichten und ein klares
 
 ### Gestapeltes Balkendiagramm: Baumverteilung nach Bezirken
 
-Das erste Diagramm soll zeigen, wie viele Bäume in jedem Bezirk stehen und welche Gattungen dort dominieren. Um die Visualisierung übersichtlich zu halten, konzentriert sich Amir auf **die häufigsten Baumgattungen** – alle anderen werden unter "Sonstige" zusammengefasst.
+Das erste Diagramm soll zeigen, wie viele Bäume in jedem Bezirk stehen und welche Gattungen dort dominieren. Um die Visualisierung übersichtlich zu halten, konzentrieren Sie sich auf **die häufigsten Baumgattungen** – alle anderen fassen Sie unter "Sonstige" zusammen.
 
 ````{dropdown} Code
 ```r  
@@ -248,13 +248,13 @@ Das erste Diagramm soll zeigen, wie viele Bäume in jedem Bezirk stehen und welc
 - `head(input$top_n_species)` – wählt die Top-N häufigsten Gattungen (über UI-Slider steuerbar)
 - `pull(gattung_deutsch)` – extrahiert die Gattungsnamen als Vektor
 
-Diese Gattungsliste wird später verwendet, um alle anderen Gattungen als "Sonstige" zu kennzeichnen.
+Diese Gattungsliste verwenden Sie später, um alle anderen Gattungen als "Sonstige" zu kennzeichnen.
 ````
 
 
 ### Daten aggregieren und gruppieren
 
-Jetzt werden die Daten so aufbereitet, dass für jeden Bezirk gezählt wird, wie viele Bäume jeder Gattungsgruppe dort stehen.
+Jetzt bereiten Sie die Daten so auf, dass für jeden Bezirk gezählt wird, wie viele Bäume jeder Gattungsgruppe dort stehen.
 
 ````{dropdown} Code
 ```r
@@ -287,7 +287,7 @@ Jetzt werden die Daten so aufbereitet, dass für jeden Bezirk gezählt wird, wie
 
 ### Gestapeltes Balkendiagramm erstellen
 
-Mit den aggregierten Daten erstellt Amir nun das gestapelte Balkendiagramm, das die Baumverteilung nach Bezirken visualisiert.
+Mit den aggregierten Daten erstellen Sie nun das gestapelte Balkendiagramm, das die Baumverteilung nach Bezirken visualisiert.
 
 ````{dropdown} Code
 ```r
@@ -442,7 +442,7 @@ Das Kreisdiagramm zeigt intuitiv, welche Gattungen den Baumbestand dominieren �
 
 ### Baumdichte pro Fläche berechnen
 
-Um Bezirke fair vergleichen zu können, berechnet Amir die Baumdichte – also wie viele Bäume pro Quadratkilometer stehen. Ein großer Bezirk kann viele Bäume haben, aber trotzdem eine niedrige Dichte aufweisen.
+Um Bezirke fair vergleichen zu können, berechnen Sie die Baumdichte – also wie viele Bäume pro Quadratkilometer stehen. Ein großer Bezirk kann viele Bäume haben, aber trotzdem eine niedrige Dichte aufweisen.
 
 ````{dropdown} Code
 ```r
@@ -962,4 +962,4 @@ shinyApp(ui = ui, server = server)
 
 ### Überleitung zum nächsten Analyse-Schritt
 
-Da wir nun gesehen haben, dass die Baumdichte und räumliche Gegebenheiten relevanter für das Engagement sein könnten als rein baumbiologische Aspekte (wie die Gattung), sollten wir uns im nächsten Schritt noch konkreter ansehen, welche Rolle urbane Infrastruktur spielt. Eine naheliegende Hypothese: Bäume, die näher an Wasserpumpen stehen, werden häufiger gegossen. Darum dreht sich das nächste Kapitel.
+Da Sie nun gesehen haben, dass die Baumdichte und räumliche Gegebenheiten relevanter für das Engagement sein könnten als rein baumbiologische Aspekte (wie die Gattung), sollten Sie sich im nächsten Schritt noch konkreter ansehen, welche Rolle urbane Infrastruktur spielt. Eine naheliegende Hypothese: Bäume, die näher an Wasserpumpen stehen, werden häufiger gegossen. Darum dreht sich das nächste Kapitel.

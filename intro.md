@@ -41,7 +41,8 @@ In dieser Open Educational Resource (OER) wird ein Forschungsverlauf im Bereich 
 :class: story
 Dr. Amir Weber, ein Verwaltungswissenschaftler mit Interesse an kommunalen Daten und Bürgerbeteiligung, möchte ein Dashboard zur Visualisierung des Bewässerungsverhaltens von Bürger:innen erstellen, das auf offenen Datensätzen basiert.  
 In einer vorangegangenen  <a href="https://quadriga-dk.github.io/Tabelle-Fallstudie-2/Titelseite.html" class="external-link" target="_blank">Fallstudie</a> hat er exemplarisch aufgezeigt, wie geeignete Datensätze identifiziert und erschlossen werden können. Auf Grundlage von Datensätzen aus dem Bundesland Berlin möchte er nun eine ergebnisoffene, explorative Analyse durchführen, um darin enthaltende Erkenntnispotenziale zu identifizieren. Die gewonnenen Befunde werden in dieser Fallstudie parallel in Form von Dashboards aufbereitet, um die Daten für Bürger:innen und politische Entscheidungsträger:innen nachvollziehbar darzustellen.  
-Hierzu soll insbesondere das Ausmaß sowie die räumliche Verteilung der Bürgerbeteiligung sichtbar gemacht werden.
+Hierzu soll insbesondere das Ausmaß sowie die räumliche Verteilung der Bürgerbeteiligung sichtbar gemacht werden. 
+Sie werden Dr. Weber mit der Erstellung eines solchen Dashboards helfen.
 
 Er orientiert er sich an folgender Leitfrage: 
 ```
