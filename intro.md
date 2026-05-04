@@ -50,7 +50,7 @@ Er orientiert er sich an folgender Leitfrage:
 
 ```{admonition} Leitfrage
 :class: keypoint
-Wo lassen sich die höchsten Ausprägungen des Engagements von Bürger:innen bei der Bewässerung städtischer Bäume in Berlin feststellen? 
+Wo lassen sich die höchsten Ausprägungen des Engagements von Bürger:innen bei der Bewässerung städtischer Bäume in Berlin feststellen?
 ```
 
 ## Bedeutung dieses Lehrbuchs für die Verwaltungswissenschaft
