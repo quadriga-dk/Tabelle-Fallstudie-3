@@ -37,7 +37,7 @@ Mit dem Durchlaufen dieses Jupyter Books können Sie die folgenden Lernziele err
 <!-- learning-goal: Aufbau eines Dashboards -->
 1. Sie können den Aufbau und die Gliederung eines Dashboards erklären.
 <!-- competency: 4.2 Visualisierung | bloom: 2 Verstehen -->
-2. Sie können ein Dashboard mit R Shiny entwerfen.
+2. Sie können ein Dashboard mit R Shiny entwickeln und gestalten.
 <!-- competency: 4.2 Visualisierung | bloom: 3 Anwenden -->
 ```
 <!-- END: Ein Dashboard bauen --> 
