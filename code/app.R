@@ -49,21 +49,24 @@ ui <- dashboardPage(
   # 3. BODY: Inhaltsbereich
   dashboardBody(
     tabItems(
-      #5.2: Inhaltsbereich für Start
+      # 5.2: Inhaltsbereich für Start
       tabItem(
         tabName = "start",
         box(title = "Overview", status = "primary", solidHeader = TRUE, width = 12,
-            # Row for value boxes
             fluidRow(
-              valueBoxOutput("total_trees", width = 6),
-              valueBoxOutput("total_tree_watered", width = 6)
-            ),
-            #  Row for the Bezirk filter
-            fluidRow(
+              # Linke Spalte: Gesamte Bäume (oben) und gefilterte Bäume (darunter)
               column(width = 6,
-                     selectInput("bezirk", "Bezirk auswählen:", 
-                                 choices = c("Alle", unique(df_merged$bezirk)), 
-                                 selected = "Alle", multiple = TRUE)
+                     valueBoxOutput("total_trees", width = 12),
+                     valueBoxOutput("total_trees_filtered", width = 12)
+              ),
+              # Rechte Spalte: Gegossene Bäume (oben) und Bezirks-Filter (darunter)
+              column(width = 6,
+                     valueBoxOutput("total_tree_watered", width = 12),
+                     div(style = "padding: 10px 15px;", # Fügt etwas Abstand für den Filter hinzu
+                         selectInput("bezirk", "Bezirk auswählen:", 
+                                     choices = c("Alle", unique(df_merged$bezirk)), 
+                                     selected = "Alle", multiple = TRUE)
+                     )
               )
             )
         )
@@ -272,8 +275,27 @@ server <- function(input, output, session) {
            unit)
   }
   
+  # Reaktive Filter-Logik ("Alle" vs Spezifische Bezirke) 
+  prev_bezirk <- reactiveVal("Alle")
+  
+  observeEvent(input$bezirk, {
+    req(input$bezirk)
+    curr_bezirk <- input$bezirk
+    prev <- prev_bezirk()
+    
+    if ("Alle" %in% curr_bezirk && !("Alle" %in% prev)) {
+      updateSelectInput(session, "bezirk", selected = "Alle")
+      prev_bezirk("Alle")
+    } else if ("Alle" %in% curr_bezirk && length(curr_bezirk) > 1) {
+      new_selection <- curr_bezirk[curr_bezirk != "Alle"]
+      updateSelectInput(session, "bezirk", selected = new_selection)
+      prev_bezirk(new_selection)
+    } else {
+      prev_bezirk(curr_bezirk)
+    }
+  }, ignoreInit = TRUE)
+  
   # ---- Gefilterte Daten ----
-  # ---- Reactive: filtered data ----
   filteredData <- reactive({
     req(input$bezirk)
     
@@ -288,20 +310,33 @@ server <- function(input, output, session) {
   })
   
   # ---- ValueBoxes ----
+  
+  # Box 1: Gesamtzahl (Immer ganz Berlin)
   output$total_trees <- renderValueBox({
     valueBox(
       formatC(n_distinct(df_merged$gisid), format = "d", big.mark = "."),
-      "Gesamtzahl der Bäume",
+      "Gesamtzahl der Bäume (Berlin)",
       icon = icon("tree"),
       color = "green"
     )
   })
   
+  # Box 2: Gefilterte Zahl (Reagiert auf den Filter)
+  output$total_trees_filtered <- renderValueBox({
+    valueBox(
+      formatC(n_distinct(filteredData()$gisid), format = "d", big.mark = "."),
+      "Baumanzahl in ausgewählten Bezirken",
+      icon = icon("tree"),
+      color = "olive" 
+    )
+  })
+  
+  # Box 3: Gegossene Bäume (Reagiert auf den Filter)
   output$total_tree_watered <- renderValueBox({
     valueBox(
       formatC(n_distinct(filteredData()$gisid[!is.na(filteredData()$timestamp)]), 
               format = "d", big.mark = "."),
-      "Gesamtzahl der gegossenen Bäume",
+      "Gegossene Bäume (Auswahl)",
       icon = icon("tint"),
       color = "blue"
     )
