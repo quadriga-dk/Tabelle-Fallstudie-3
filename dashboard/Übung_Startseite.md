@@ -514,8 +514,6 @@ Für die Startseite heißt das vor allem:
 
 - **Kontext**: Kurze Hinweise oder Legenden, damit die Zahlen richtig interpretiert werden können.
 
-<span style="color: red;">*Könnte man hier vielleicht noch als Visualisierungshilfe die Seite mit aufzählen welche Grafik die richtige ist je nachdem was man visuell darstellen möchte? https://datavizcatalogue.com*</span>
-
 ## Leitfrage und Ausblick
 
 Die zentrale Leitfrage von Ihrer Fallstudie lautet: **Wo ist das höchste Bürgerengagement?**
