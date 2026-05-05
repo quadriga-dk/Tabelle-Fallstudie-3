@@ -63,7 +63,7 @@ ui <- dashboardPage(
               column(width = 6,
                      valueBoxOutput("total_tree_watered", width = 12),
                      div(style = "padding: 10px 15px;", # Fügt etwas Abstand für den Filter hinzu
-                         selectInput("bezirk", "Bezirk auswählen:", 
+                         selectInput("bezirk", "Bezirk auswählen (Mehrfachauswahl möglich):", 
                                      choices = c("Alle", sort(na.omit(unique(df_merged$bezirk)))), 
                                      selected = "Alle", multiple = TRUE)
                      )
@@ -275,7 +275,7 @@ server <- function(input, output, session) {
            unit)
   }
   
-  # Reaktive Filter-Logik ("Alle" vs Spezifische Bezirke) 
+  # --- Reaktive Bezirksauswahl ---
   prev_bezirk <- reactiveVal("Alle")
   
   observeEvent(input$bezirk, {

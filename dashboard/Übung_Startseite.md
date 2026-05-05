@@ -106,35 +106,26 @@ Auf der Startseite des Dashboards visualisieren Sie die beiden zentralen Kennzah
 
 ````{dropdown} Code
 ```r
-tabItems(
-  tabItem(
-    tabName = "start",
-    box(
-      title = "Overview",
-      status = "primary",
-      solidHeader = TRUE,
-      width = 12,
-      
-      fluidRow(
-        valueBoxOutput("total_trees", width = 6),
-        valueBoxOutput("total_tree_watered", width = 6)
-      ),
-      
-      fluidRow(
-        column(
-          width = 6,
-          selectInput(
-            "bezirk",
-            "Bezirk auswählen:",
-            choices = c("Alle", unique(df_merged$bezirk)),
-            selected = "Alle",
-            multiple = TRUE
-          )
+    tabItems(
+      tabItem(
+        tabName = "start",
+        box(title = "Overview", status = "primary", solidHeader = TRUE, width = 12,
+            fluidRow(
+              column(width = 6,
+                     valueBoxOutput("total_trees", width = 12),
+                     valueBoxOutput("total_trees_filtered", width = 12)
+              ),
+              column(width = 6,
+                     valueBoxOutput("total_tree_watered", width = 12),
+                     div(style = "padding: 10px 15px;", # Fügt etwas Abstand für den Filter hinzu
+                         selectInput("bezirk", "Bezirk auswählen:", 
+                                     choices = c("Alle", sort(na.omit(unique(df_merged$bezirk)))), 
+                                     selected = "Alle", multiple = TRUE)
+                     )
+              )
+            )
         )
       )
-    )
-  )
-)
 ```
 ````
 ````{admonition} Erklärung des Codes
@@ -142,26 +133,30 @@ tabItems(
 
 **`box(...)`** gruppiert alle Elemente visuell mit:
 - `title = "Overview"` – die Überschrift der Box
-- ``status = "primary"`` (Farbe)
-- ``solidHeader = TRUE`` (fester Rand)
-- ``width = 12`` (volle Breite – 12 ist die maximale Spaltenanzahl)
+- `status = "primary"` (Farbe)
+- `solidHeader = TRUE` (fester Rand)
+- `width = 12` (volle Breite – 12 ist die maximale Spaltenanzahl im Raster)
 
-**`fluidRow(...)`** ist das zentrale Element für horizontales Layout. Ohne diese Anweisung würden alle Elemente untereinander gestapelt. 
-Mit `fluidRow` stehen die beiden Kennzahlenkacheln nebeneinander:
-- `valueBoxOutput("total_trees", width = 6)` – reserviert Platz für die erste Kennzahl (halbe Breite)
-- `valueBoxOutput("total_tree_watered", width = 6)` – reserviert Platz für die zweite Kennzahl (halbe Breite)
+**`fluidRow(...)` und `column(...)`** strukturieren das Layout nun in zwei nebeneinanderstehende Hälften:
+- Die **linke Spalte** (`column(width = 6)`) enthält zwei Kennzahlenkacheln, die untereinander gestapelt werden (`width = 12` sorgt hier dafür, dass sie die linke Spalte komplett ausfüllen):
+  - `valueBoxOutput("total_trees", width = 12)` für die absolute Gesamtzahl aller Bäume.
+  - `valueBoxOutput("total_trees_filtered", width = 12)` für die Baumanzahl der aktuell ausgewählten Bezirke.
+- Die **rechte Spalte** (`column(width = 6)`) enthält ebenfalls eine Kennzahl und den Filter:
+  - `valueBoxOutput("total_tree_watered", width = 12)` für die gegossenen Bäume.
+  - `div(style = "padding: 10px 15px;", ...)` verpackt das Filter-Menü und fügt oben und unten etwas Abstand (Padding) ein, damit es optisch bündig abschließt.
 
-**`selectInput(...)`** erstellt ein Dropdown-Menü (also eine Auswahlliste) mit:
-- ``"bezirk"`` ist der Name, unter dem Shiny diesen Input später erkennt → input$bezirk
-- ``"Bezirk auswählen:"`` ist der Text, der über dem Menü steht.
-- `choices = c("Alle", unique(df_merged$bezirk))` definiert die Auswahlmöglichkeiten:
-  - ``df_merged$bezirk`` heißt: Aus der Tabelle df_merged nimm die Spalte bezirk.
-  - ``unique(df_merged$bezirk)`` bedeutet: Nur jeden Bezirk einmal anzeigen – keine Dopplungen.
-  - ``c(...)`` macht daraus eine Liste aller Bezirke plus **“Alle”**.
+**`selectInput(...)`** erstellt das Dropdown-Menü (Auswahlliste) mit:
+- `"bezirk"` ist der Name, unter dem Shiny diesen Input später im Server erkennt → `input$bezirk`
+- `"Bezirk auswählen:"` ist der Text, der über dem Menü steht.
+- `choices = c("Alle", sort(na.omit(unique(df_merged$bezirk))))` definiert die Auswahlmöglichkeiten:
+  - `unique(df_merged$bezirk)` bedeutet: Jeden Bezirk nur einmal anzeigen.
+  - `na.omit(...)` entfernt leere oder fehlerhafte Felder (NAs), sodass keine ungewollten Lücken im Menü auftauchen.
+  - `sort(...)` sortiert die übrig gebliebenen Bezirke schön alphabetisch (A-Z).
+  - `c(...)` macht daraus eine Liste und setzt den Eintrag **“Alle”** ganz nach oben.
 - `selected = "Alle"` legt fest, dass beim Start alle Bezirke angezeigt werden.
-- ``multiple = TRUE`` heißt: Man darf mehrere Bezirke gleichzeitig auswählen.
+- `multiple = TRUE` heißt: Man darf mehrere Bezirke gleichzeitig auswählen.
 
-Diese Filterauswahl wird im Server verarbeitet und bestimmt, welche Daten für die Kennzahl der gegossenen Bäume verwendet werden.
+Diese Filterauswahl wird im Server verarbeitet und bestimmt, welche Daten für die dynamischen Kacheln berechnet werden.
 ````
 
 
@@ -333,7 +328,60 @@ Hier gibt es einen entscheidenden Unterschied:
 
 Durch diese bewusste Trennung ermöglichen Sie den Nutzer:innen, das Engagement in einzelnen Bezirken mit der Gesamtsituation zu vergleichen.
 ````
-<span style="color: red;">Ist es nicht irreführend, dass die Gesamtzahl der Bäume unabhängig von den ausgewählten Bezirken konstant ist? Wenn ich z.B. einen oder mehrere Bezirke auswähle, irritiert es mich unterbewusst, dass sich die Gesamtanzahl der Bäume nicht ändert. Es wird auch nicht wirklich erwähnt, dass es sich hierbei um ganz Berlin handelt. Ich würde das also entweder dazuschreiben oder noch eine dritte ValueBox bzw. zweite Kennzahl in der grünen ValueBox hinzugfügen, welche sich auf der Gesamtanzahl an Bäumen in den ausgewählten Bezirken bezieht.</span>
+
+````{dropdown} Automatisches Abwählen von Bezirken
+```r
+  prev_bezirk <- reactiveVal("Alle")
+  
+  observeEvent(input$bezirk, {
+    req(input$bezirk)
+    curr_bezirk <- input$bezirk
+    prev <- prev_bezirk()
+    
+    if ("Alle" %in% curr_bezirk && !("Alle" %in% prev)) {
+      updateSelectInput(session, "bezirk", selected = "Alle")
+      prev_bezirk("Alle")
+    } else if ("Alle" %in% curr_bezirk && length(curr_bezirk) > 1) {
+      new_selection <- curr_bezirk[curr_bezirk != "Alle"]
+      updateSelectInput(session, "bezirk", selected = new_selection)
+      prev_bezirk(new_selection)
+    } else {
+      prev_bezirk(curr_bezirk)
+    }
+  }, ignoreInit = TRUE)
+```
+````
+
+````{admonition} Erklärung des Codes
+:class: hinweis, dropdown
+
+Dieser Code-Block löst ein logisches Problem: Aktuell ist es möglich die Option "Alle" gleichzeitig mit spezifischen Bezirken (z.B. "Treptow-Köpenick") auswählen. Der Code macht das Dropdown-Menü „intelligent“ und schließt diese Optionen gegenseitig aus.
+
+**`prev_bezirk <- reactiveVal("Alle")`** 
+Dies ist eine Art Kurzzeitgedächtnis (`reactiveVal`). Die App merkt sich hier, was der Nutzer *vor* dem letzten Klick ausgewählt hatte. Der Startwert ist „Alle“.
+
+**`observeEvent(input$bezirk, { ... })`** 
+Dies ist ein Beobachter. Er wartet im Hintergrund und führt den Code in den geschweiften Klammern `{}` *jedes Mal* aus, sobald der Nutzer im Dropdown-Menü (`input$bezirk`) etwas anklickt oder ändert.
+
+**`req(input$bezirk)`**
+Ein Sicherheitscheck. Der Code bricht hier sofort ab, falls die Auswahl komplett leer ist (z. B. wenn der Nutzer alles herausgelöscht hat).
+
+**Die if-else-Bedingung:**
+Zuerst werden der aktuelle Zustand (`curr_bezirk`) und der vorherige Zustand (`prev`) in Variablen gespeichert. Dann prüft die App drei Fälle:
+
+*   **Fall 1 (`if`):** `("Alle" %in% curr_bezirk && !("Alle" %in% prev))`
+    *Wurde „Alle“ gerade frisch angeklickt?* (Es ist in der aktuellen Auswahl, war aber vorher nicht da).
+    *Reaktion:* `updateSelectInput` zwingt das Dropdown-Menü dazu, nur noch „Alle“ anzuzeigen. Alle vorher ausgewählten Einzelbezirke werden gelöscht.
+*   **Fall 2 (`else if`):** `("Alle" %in% curr_bezirk && length(curr_bezirk) > 1)`
+    *Wurde ein neuer Bezirk angeklickt, während „Alle“ noch aktiv war?* („Alle“ ist in der Auswahl, aber die Liste ist jetzt länger als 1).
+    *Reaktion:* „Alle“ wird aus der aktuellen Auswahl herausgefiltert (`curr_bezirk != "Alle"`) und das Dropdown-Menü wird auf diese neue, um „Alle“ bereinigte Auswahl aktualisiert.
+*   **Fall 3 (`else`):** 
+    Wenn weder Fall 1 noch Fall 2 zutreffen, speichert die App einfach die aktuelle Auswahl im Kurzzeitgedächtnis (`prev_bezirk`), um für den nächsten Klick bereit zu sein.
+
+**`ignoreInit = TRUE`**
+Dies steht ganz am Ende und sagt der App: „Führe diese Überprüfung nicht sofort beim Start der App aus, sondern erst, wenn der Nutzer wirklich das erste Mal selbst klickt.“
+````
+
 ### Einheiten clever umrechnen
 
 Bei der Darstellung von Wassermengen stehen Sie nun vor einer Herausforderung: Die Rohdaten enthalten Literangaben, die je nach Größenordnung unterschiedlich formatiert werden sollten. Eine Menge von 50 Litern ist überschaubar, aber 1.250.000 Liter sind schwer zu erfassen. Von Vorteil wäre es, wenn das Dashboard automatisch in sinnvolle Einheiten umrechnet – etwa Kubikmeter (m³) oder Megaliter (ML).
@@ -412,30 +460,33 @@ ui <- dashboardPage(
     sidebarMenu(
       menuItem("Startseite", tabName = "start", icon = icon("home"))
     )
-  ),
+  )  
+),
   dashboardBody(
     tabItems(
       tabItem(
         tabName = "start",
         box(title = "Overview", status = "primary", solidHeader = TRUE, width = 12,
-            # Row for value boxes
             fluidRow(
-              valueBoxOutput("total_trees", width = 6),
-              valueBoxOutput("total_tree_watered", width = 6)
-            ),
-            #  Row for the Bezirk filter
-            fluidRow(
+              
               column(width = 6,
-                      selectInput("bezirk", "Bezirk auswählen:", 
-                                  choices = c("Alle", unique(df_merged$bezirk)), 
-                                  selected = "Alle", multiple = TRUE)
+                     valueBoxOutput("total_trees", width = 12),
+                     valueBoxOutput("total_trees_filtered", width = 12)
+              ),
+              
+              column(width = 6,
+                     valueBoxOutput("total_tree_watered", width = 12),
+                     div(style = "padding: 10px 15px;", # Fügt etwas Abstand für den Filter hinzu
+                         selectInput("bezirk", "Bezirk auswählen:", 
+                                     choices = c("Alle", sort(na.omit(unique(df_merged$bezirk)))), 
+                                     selected = "Alle", multiple = TRUE)
+                      )
               )
             )
         )
       )
     )
   )
-)
 
 # Server-Logik
 server <- function(input, output, session) {
@@ -459,8 +510,27 @@ server <- function(input, output, session) {
            unit)
   }
   
+  # --- Reaktive Bezirksauswahl ---
+  prev_bezirk <- reactiveVal("Alle")
+  
+  observeEvent(input$bezirk, {
+    req(input$bezirk)
+    curr_bezirk <- input$bezirk
+    prev <- prev_bezirk()
+    
+    if ("Alle" %in% curr_bezirk && !("Alle" %in% prev)) {
+      updateSelectInput(session, "bezirk", selected = "Alle")
+      prev_bezirk("Alle")
+    } else if ("Alle" %in% curr_bezirk && length(curr_bezirk) > 1) {
+      new_selection <- curr_bezirk[curr_bezirk != "Alle"]
+      updateSelectInput(session, "bezirk", selected = new_selection)
+      prev_bezirk(new_selection)
+    } else {
+      prev_bezirk(curr_bezirk)
+    }
+  }, ignoreInit = TRUE)
+  
   # ---- Gefilterte Daten ----
-  # ---- Reactive: filtered data ----
   filteredData <- reactive({
     req(input$bezirk)
     
@@ -475,20 +545,33 @@ server <- function(input, output, session) {
   })
   
   # ---- ValueBoxes ----
+  
+  # Box 1: Gesamtzahl (Immer ganz Berlin)
   output$total_trees <- renderValueBox({
     valueBox(
       formatC(n_distinct(df_merged$gisid), format = "d", big.mark = "."),
-      "Gesamtzahl der Bäume",
+      "Gesamtzahl der Bäume (Berlin)",
       icon = icon("tree"),
       color = "green"
     )
   })
   
+  # Box 2: Gefilterte Zahl (Reagiert auf den Filter)
+  output$total_trees_filtered <- renderValueBox({
+    valueBox(
+      formatC(n_distinct(filteredData()$gisid), format = "d", big.mark = "."),
+      "Baumanzahl in ausgewählten Bezirken",
+      icon = icon("tree"),
+      color = "olive" 
+    )
+  })
+  
+  # Box 3: Gegossene Bäume (Reagiert auf den Filter)
   output$total_tree_watered <- renderValueBox({
     valueBox(
       formatC(n_distinct(filteredData()$gisid[!is.na(filteredData()$timestamp)]), 
               format = "d", big.mark = "."),
-      "Gesamtzahl der gegossenen Bäume",
+      "Gegossene Bäume (Auswahl)",
       icon = icon("tint"),
       color = "blue"
     )
