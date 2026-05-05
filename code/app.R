@@ -64,7 +64,7 @@ ui <- dashboardPage(
                      valueBoxOutput("total_tree_watered", width = 12),
                      div(style = "padding: 10px 15px;", # Fügt etwas Abstand für den Filter hinzu
                          selectInput("bezirk", "Bezirk auswählen:", 
-                                     choices = c("Alle", unique(df_merged$bezirk)), 
+                                     choices = c("Alle", sort(na.omit(unique(df_merged$bezirk)))), 
                                      selected = "Alle", multiple = TRUE)
                      )
               )
