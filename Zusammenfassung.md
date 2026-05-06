@@ -14,8 +14,8 @@ Charlottenburg-Wilmersdorf belegt den dritten Platz hinsichtlich des bürgerscha
 Bezieht man jedoch das Verhältnis zwischen Bewässerungsmenge/Anzahl der Bäume im Bezirk, ergibt sich ein differenziertes Bild:
 
 - Friedrichshain-Kreuzberg weist hier das höchste Gießvolumen pro Baum auf.
-- Mitte folgt auf dem zweiten Platz.
-- Tempelhof-Schöneberg rangiert an dritter Stelle.
+- Tempelhof-Schäneberg folgt auf dem zweiten Platz.
+- Mitte rangiert an dritter Stelle.
 
 
 **Bewässerungstrend:**
