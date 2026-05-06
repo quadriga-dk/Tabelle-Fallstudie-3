@@ -7,7 +7,7 @@ lang: de-DE
 
 ## Vorkenntnisse
 
-Diese Fallstudie fokussiert Dashboards als Mittel der Visualisierung von Daten für den Public Sector. Im Kapitel [Dashboard](dashboard) können Sie selbst ein Dashboard bauen. Ein Dashboard ist eine graphische Benutzeroberfläche mit welcher man Daten, Kennzahlen und Informationen visualisieren kann. Dies setzt allerdings ein tieferes Verständnis der Funktionsweise der <a href="https://www.r-project.org" class="external-link" target="_blank">Programmiersprache R</a> voraus, sodass dieses Kapitel für *Fortgeschrittene* ist. 
+Diese Fallstudie fokussiert Dashboards als Mittel der Visualisierung von Daten für den Public Sector. Im Kapitel [Dashboard](dashboard) können Sie selbst ein Dashboard bauen. Ein Dashboard ist eine graphische Benutzeroberfläche mit welcher man Daten, Kennzahlen und Informationen visualisieren kann. Dies setzt jedoch ein vertieftes Verständnis der Funktionsweise der <a href="https://www.r-project.org" class="external-link" target="_blank">Programmiersprache R</a> voraus, sodass sich dieses Kapitel insbesondere an technisch versierte bzw. entsprechend erfahrene Personen richtet.
 
 ## Lernziele
 
@@ -37,7 +37,7 @@ Mit dem Durchlaufen dieses Jupyter Books können Sie die folgenden Lernziele err
 <!-- learning-goal: Aufbau eines Dashboards -->
 1. Sie können den Aufbau und die Gliederung eines Dashboards erklären.
 <!-- competency: 4.2 Visualisierung | bloom: 2 Verstehen -->
-2. Sie können ein Dashboard mit R Shiny entwerfen.
+2. Sie können ein Dashboard mit R Shiny entwickeln und gestalten.
 <!-- competency: 4.2 Visualisierung | bloom: 3 Anwenden -->
 ```
 <!-- END: Ein Dashboard bauen --> 
