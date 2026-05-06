@@ -4,7 +4,6 @@
 
 library(shiny)
 library(shinydashboard)
-library(lubridate)
 library(leaflet)
 library(dplyr)
 library(htmltools)
@@ -13,7 +12,7 @@ library(sf)
 library(tidyr)
 library(ggplot2)
 library(plotly)
-library(nngeo)
+
 
 # Bezirksgrenzen laden (Falls Sie die Daten nicht haben, laden Sie sie zuerst aus 3.1 herunter)
 bezirksgrenzen <- st_read("data/bezirksgrenzen.geojson", quiet = TRUE)
