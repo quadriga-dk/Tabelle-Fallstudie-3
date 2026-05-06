@@ -30,7 +30,7 @@ Die höchste Gesamtbewässerung wurde im **Jahr 2022** erreicht, mit einem Volum
 - Und wie robust sind unsere Befunde gegenüber unterschiedlichen Operationalisierungen?
 
 Grenzen der Operationalisierung:
-- Engagement kann anders definiert werden
+- Engagement kann anders definiert werden - z.b. haben wir nicht die Anzahl der Bevölkerung pro Bezirk einbezoegn. Dies wäre naheliegend bei Bürgerengagement pro Bezirk.
 - Gießverhalten kann unterschiedlich gemessen werden
 
 Grenzen der Datensätze
