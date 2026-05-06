@@ -517,7 +517,13 @@ Für die Startseite heißt das vor allem:
 
 Die zentrale Leitfrage von Ihrer Fallstudie lautet: **Wo ist das höchste Bürgerengagement?**
 
-Mit den Daten aus Gieß den Kiez können Sie diese Frage bereits auf der Startseite beantworten: Pro Bezirk lässt sich das Engagement direkt darstellen und vergleichen. Am meisten engagierten sich die Bürger:innen in **Mitte**, danach folgen **Tempelhof-Schöneberg** und **Charlottenburg-Wilmersdorf**. Damit ist die Hauptfrage zwar beantwortet, jedoch nicht die **Geschichten hinter den Zahlen**.
+Die Startseite des Dashboards ermöglicht einen ersten Überblick darüber, in welchen Bezirken absolut gesehen die meisten Bäume gegossen wurden. In absoluten Zahlen zeigt sich dabei das höchste Engagement bei den Bürger:innen in **Mitte**, gefolgt von **Tempelhof-Schöneberg** und **Charlottenburg-Wilmersdorf**. Für eine abschließende Beantwortung der Leitfrage reicht diese Betrachtung jedoch nicht aus, da ohne Normalisierung – etwa durch das Verhältnis gegossener Bäume zur Gesamtbaumzahl je Bezirk – keine validen Vergleiche zwischen den Bezirken gezogen werden können. 
+
+<span style="color:red">**Übung:**
+Berechnen Sie nun für jeden Berliner Bezirk das relative Bürger:innenengagement, indem Sie die Anzahl der gegossenen Bäume zur Gesamtbaumzahl des jeweiligen Bezirks ins Verhältnis setzen. Welcher Bezirk weist dabei den höchsten Anteil auf – und verändert sich die Rangfolge im Vergleich zur absoluten Betrachtung?
+Quiz mit 4 Bezirken als Antwortmöglichkeiten (siehe Quize 2. Fallstudie, die von Lamia erstellt wurden).</span>
+
+Damit ist die Leitfrage zwar beantwortet, jedoch nicht die **Geschichten hinter den Zahlen**.
 
 Es bleibt offen, welche **Kontextfaktoren** zu den Unterschieden führen könnten:
 
