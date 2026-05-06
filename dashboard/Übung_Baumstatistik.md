@@ -615,9 +615,9 @@ Diese Visualisierung macht sichtbar, welche Gattungen die meiste Aufmerksamkeit 
 
 ### Kritische Diskussion
 
-Die Analyse zeigt deutlich, dass der Berliner Baumbestand stark von wenigen Gattungen dominiert wird. **Linden machen berlinweit rund 55,6 % aller Straßenbäume aus**, was bedeutet, dass viele Muster der Verteilung zwangsläufig von dieser einen Gattung geprägt werden. Die Betrachtung der Gattungen ist daher zwar interessant, besitzt jedoch **nur begrenzte Aussagekraft**, da sie strukturelle Eigenheiten der Berliner Bepflanzung widerspiegelt und weniger das Verhalten der Bürgerinnen und Bürger.
+Die Analyse zeigt deutlich, dass bestimmte Baumgattungen besonders oft im Berliner Baumbestand vorkommen. **Ahorn, Linde und Eiche machen berlinweit gemeinsam rund 57,4 % aller Straßenbäume aus**, wohingegen sich alle anderen Baumgattungen 42,6% teilen. Das bedeutet, dass viele Muster der Verteilung zwangsläufig von dieser einen Gattung geprägt werden. Die Betrachtung der Gattungen ist daher zwar interessant, besitzt jedoch **nur begrenzte Aussagekraft**, da sie strukturelle Eigenheiten der Berliner Bepflanzung widerspiegelt und weniger das Verhalten der Bürgerinnen und Bürger.
 
-Beim Vergleich der Bezirke treten klare Unterschiede in der räumlichen Verteilung zutage. **Friedrichshain-Kreuzberg und Mitte weisen die höchsten Baumdichten pro km² auf**, was typisch für kompakte, urbane Bezirke mit vielen Straßenbäumen ist. Gleichzeitig besitzen **Mitte, Pankow und Charlottenburg-Wilmersdorf die größten absoluten Baumzahlen**, was vor allem auf großflächige Areale mit Mischbeständen und Gehölzflächen zurückzuführen ist.
+Beim Vergleich der Bezirke treten klare Unterschiede in der räumlichen Verteilung zutage. **Friedrichshain-Kreuzberg und Mitte weisen die höchsten Baumdichten pro km² auf**, was typisch für kompakte, urbane Bezirke mit vielen Straßenbäumen ist. Gleichzeitig besitzen **Steglitz-Zehlendorf, Pankow und Marzahn-Hellersdorf die größten absoluten Baumzahlen**, was vor allem auf großflächige Areale mit Mischbeständen und Gehölzflächen zurückzuführen ist.
 
 Setzt man diese Befunde in Bezug zu den Engagement-Daten, deutet sich ein Muster an:
 **Bezirke mit hoher Baumdichte zeigen tendenziell auch mehr Bürgerengagement**.
