@@ -434,19 +434,35 @@ Ein Wert von `1.250.000 Litern` wird zu `1,25 ML`, angezeigt als `"1,25 Mega Lit
 Das Dashboard ist nun funktionsfähig: Nutzer:innen können Bezirke auswählen und sehen sofort, wie viele Bäume in diesen Bezirken gegossen wurden – im Verhältnis zum Gesamtbestand. Die Trennung von UI und Server ermöglicht es Amir, später weitere Analysen hinzuzufügen, ohne die bestehende Struktur grundlegend ändern zu müssen.
 
 
-Überblick der Funktionen/Operatoren <span style="color:red">Ist diese gewollt nicht vollständig?</span>
+Überblick der Funktionen/Operatoren
 
-| Funktion/Operator | Bedeutung|
-|-------------------|----------|
-| ``<-``| weist einer Variable einen Wert zu|
-|``if (...)`` / ``else`` |	Bedingte Ausführung |
-|``%in%``	| prüft, ob ein Wert in einer Liste ist |
-| ``mean()`` |	Durchschnitt berechnen |
-|``sum()`` |	Summe berechnen |
-| ``switch()``	| wählt abhängig vom Wert einen Fall |
-| ``mutate()`` |	erzeugt oder verändert Spalten |
-| ``filter()`` |	filtert Zeilen in einem Datensatz |
-| ``is.na()`` |	prüft auf fehlende Werte |
+
+| Funktion/Operator | Bedeutung |
+|---|---|
+| `<-` | weist einer Variable einen Wert zu |
+| `if (...) / else` | Bedingte Ausführung |
+| `%in%` | prüft, ob ein Wert in einer Liste ist |
+| `switch()` | wählt abhängig vom Wert einen Fall |
+| `filter()` | filtert Zeilen in einem Datensatz |
+| `is.na()` | prüft auf fehlende Werte |
+| `%>%` | Pipe-Operator: leitet Ergebnis einer Funktion weiter |
+| `reactive({})` | erstellt einen reaktiven Ausdruck im Server |
+| `req()` | stellt sicher, dass ein Eingabewert vorhanden ist |
+| `renderValueBox()` | rendert eine `valueBox` reaktiv im Server |
+| `valueBox()` | erstellt eine farbige Kennzahlen-Box in der UI |
+| `valueBoxOutput()` | Platzhalter in der UI für eine reaktive `valueBox` |
+| `icon()` | bindet ein Font-Awesome-Icon ein |
+| `selectInput()` | erstellt ein Dropdown-Auswahlmenü |
+| `fluidRow()` | erstellt eine responsive Zeile im Grid-Layout |
+| `column()` | definiert eine Spaltenbreite innerhalb einer `fluidRow` |
+| `box()` | erstellt eine umrahmende Inhaltsbox in der UI |
+| `tabItems()` / `tabItem()` | strukturiert Inhalte in Tab-Bereiche |
+| `dashboardBody()` | definiert den Hauptinhaltsbereich des Dashboards |
+| `dashboardSidebar()` | definiert die Seitenleiste |
+| `sidebarMenu()` / `menuItem()` | erstellt ein Navigationsmenü in der Seitenleiste |
+| `dashboardHeader()` | definiert den Kopfbereich mit Titel |
+| `dashboardPage()` | erstellt das Grundlayout der Shiny-Dashboard-Seite |
+| `shinyApp()` | startet die Shiny-Anwendung mit UI und Server |
 
 
 ````{admonition} Gesamter Code
