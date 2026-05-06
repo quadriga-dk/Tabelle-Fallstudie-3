@@ -1,5 +1,13 @@
 ---
-lang: de-DE
+jupytext:
+  formats: md:myst
+  text_representation:
+    extension: .md
+    format_name: myst
+kernelspec:
+  display_name: Python 3
+  language: python
+  name: python3
 ---
 
 (landing-page)=
@@ -619,10 +627,47 @@ Die zentrale Leitfrage von Ihrer Fallstudie lautet: **Wo ist das höchste Bürge
 
 Die Startseite des Dashboards ermöglicht einen ersten Überblick darüber, in welchen Bezirken absolut gesehen die meisten Bäume gegossen wurden. In absoluten Zahlen zeigt sich dabei das höchste Engagement bei den Bürger:innen in **Mitte**, gefolgt von **Tempelhof-Schöneberg** und **Charlottenburg-Wilmersdorf**. Für eine abschließende Beantwortung der Leitfrage reicht diese Betrachtung jedoch nicht aus, da ohne Normalisierung – etwa durch das Verhältnis gegossener Bäume zur Gesamtbaumzahl je Bezirk – keine validen Vergleiche zwischen den Bezirken gezogen werden können. 
 
-<span style="color:red">**Übung:**
-Berechnen Sie nun für jeden Berliner Bezirk das relative Bürger:innenengagement, indem Sie die Anzahl der gegossenen Bäume zur Gesamtbaumzahl des jeweiligen Bezirks ins Verhältnis setzen. Welcher Bezirk weist dabei den höchsten Anteil auf – und verändert sich die Rangfolge im Vergleich zur absoluten Betrachtung?
-Quiz mit 4 Bezirken als Antwortmöglichkeiten (siehe Quize 2. Fallstudie, die von Lamia erstellt wurden).</span>
+**Übung:**
+```{code-cell} ipython3
+:tags: [remove-input]
+from jupyterquiz import display_quiz
 
+import sys
+sys.path.append("..")
+from quadriga import colors
+
+question = [
+    {
+        "question": "Berechnen Sie nun für jeden Berliner Bezirk das relative Bürger:innenengagement, indem Sie die Anzahl der gegossenen Bäume zur Gesamtbaumzahl des jeweiligen Bezirks ins Verhältnis setzen. Welcher Bezirk weist dabei den höchsten Anteil auf?",
+        "type": "multiple_choice",
+        "answers": [
+            {
+                "answer": "Friedrichshain-Kreuzberg",
+                "correct": True,
+                "feedback": """✓ Korrekt! """
+            },
+            {
+                "answer": "Mitte",
+                "correct": False,
+                "feedback": """× Nicht korrekt!"""
+            },
+            {
+                "answer": "Spandau",
+                "correct": False,
+                "feedback": """× Nicht korrekt!"""
+            },
+            {
+                "answer": "Neukölln",
+                "correct": False,
+                "feedback": """× Nicht korrekt!"""
+            }
+        ]
+    }
+]
+display_quiz(question, colors=colors.jupyterquiz)
+```
+
+<br>
 Damit ist die Leitfrage zwar beantwortet, jedoch nicht die **Geschichten hinter den Zahlen**.
 
 Es bleibt offen, welche **Kontextfaktoren** zu den Unterschieden führen könnten:
