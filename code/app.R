@@ -4,6 +4,7 @@
 
 library(shiny)
 library(shinydashboard)
+library(lubridate)
 library(leaflet)
 library(dplyr)
 library(htmltools)
@@ -12,7 +13,7 @@ library(sf)
 library(tidyr)
 library(ggplot2)
 library(plotly)
-
+library(nngeo)
 
 # Bezirksgrenzen laden (Falls Sie die Daten nicht haben, laden Sie sie zuerst aus 3.1 herunter)
 bezirksgrenzen <- st_read("data/bezirksgrenzen.geojson", quiet = TRUE)
@@ -52,21 +53,26 @@ ui <- dashboardPage(
       tabItem(
         tabName = "start",
         box(title = "Overview", status = "primary", solidHeader = TRUE, width = 12,
+            
+            div(style = "text-align: center; margin-top: 40px; margin-bottom: 30px;",
+                span(style = "font-size: 26px; font-weight: bold; color: #2d3436;", 
+                     textOutput("total_trees_label"))
+            ),
+            # Dropdown-Filter in voller Breite darüber
             fluidRow(
-              # Linke Spalte: Gesamte Bäume (oben) und gefilterte Bäume (darunter)
-              column(width = 6,
-                     valueBoxOutput("total_trees", width = 12),
-                     valueBoxOutput("total_trees_filtered", width = 12)
-              ),
-              # Rechte Spalte: Gegossene Bäume (oben) und Bezirks-Filter (darunter)
-              column(width = 6,
-                     valueBoxOutput("total_tree_watered", width = 12),
-                     div(style = "padding: 10px 15px;", # Fügt etwas Abstand für den Filter hinzu
+              column(width = 12,
+                     div(style = "padding: 10px 15px;", 
                          selectInput("bezirk", "Bezirk auswählen (Mehrfachauswahl möglich):", 
-                                     choices = c("Alle", sort(na.omit(unique(df_merged$bezirk)))), 
-                                     selected = "Alle", multiple = TRUE)
+                                     choices = c("Alle Bezirke", sort(na.omit(unique(df_merged$bezirk)))), 
+                                     selected = "Alle Bezirke", multiple = TRUE)
                      )
               )
+            ),
+            
+            # Zwei dynamische Kacheln nebeneinander
+            fluidRow(
+              valueBoxOutput("total_trees_filtered", width = 6),
+              valueBoxOutput("total_tree_watered", width = 6)
             )
         )
       ),
@@ -119,8 +125,8 @@ ui <- dashboardPage(
                 selectInput(
                   "trend_bezirk_pj",
                   "Bezirk auswählen:",
-                  choices = c("Alle", sort(unique(df_merged$bezirk))),
-                  selected = "Alle",
+                  choices = c("Alle Bezirke", sort(unique(df_merged$bezirk))),
+                  selected = "Alle Bezirke",
                   multiple = TRUE
                 )
               )
@@ -171,8 +177,8 @@ ui <- dashboardPage(
             selectInput(
               "pie_bezirk",
               "Bezirk auswählen:",
-              choices = c("Alle", sort(unique(df_merged$bezirk))),
-              selected = "Alle"
+              choices = c("Alle Bezirke", sort(unique(df_merged$bezirk))),
+              selected = "Alle Bezirke"
             ),
             plotOutput("tree_species_pie", height = "500px")
           ),         
@@ -205,8 +211,8 @@ ui <- dashboardPage(
             selectInput(
               "engagement_bezirk",
               "Bezirk auswählen:",
-              choices = c("Alle", sort(unique(df_merged$bezirk))),
-              selected = "Alle"
+              choices = c("Alle Bezirke", sort(unique(df_merged$bezirk))),
+              selected = "Alle Bezirke"
             ),
             plotOutput("top_watered_species", height = "500px")
           )
@@ -252,8 +258,8 @@ ui <- dashboardPage(
 
 # 4. SERVER: Backend-Logik, die Daten verarbeitet und an die UI generiert
 server <- function(input, output, session) {
-
-# ------------ 5.2 ------------
+  
+  # ------------ 5.2 ------------
   
   # Hilfsfunktion für Einheiten
   convert_units <- function(liters) {
@@ -274,25 +280,30 @@ server <- function(input, output, session) {
            unit)
   }
   
-  # --- Reaktive Bezirksauswahl ---
-  prev_bezirk <- reactiveVal("Alle")
+  # ---- Automatisches Abwwählen ----
+  prev_bezirk <- reactiveVal("Alle Bezirke")
   
   observeEvent(input$bezirk, {
-    req(input$bezirk)
+    if (is.null(input$bezirk)) {
+      updateSelectInput(session, "bezirk", selected = "Alle Bezirke")
+      prev_bezirk("Alle Bezirke")
+      return()
+    }
+    
     curr_bezirk <- input$bezirk
     prev <- prev_bezirk()
     
-    if ("Alle" %in% curr_bezirk && !("Alle" %in% prev)) {
-      updateSelectInput(session, "bezirk", selected = "Alle")
-      prev_bezirk("Alle")
-    } else if ("Alle" %in% curr_bezirk && length(curr_bezirk) > 1) {
-      new_selection <- curr_bezirk[curr_bezirk != "Alle"]
+    if ("Alle Bezirke" %in% curr_bezirk && !("Alle Bezirke" %in% prev)) {
+      updateSelectInput(session, "bezirk", selected = "Alle Bezirke")
+      prev_bezirk("Alle Bezirke")
+    } else if ("Alle Bezirke" %in% curr_bezirk && length(curr_bezirk) > 1) {
+      new_selection <- curr_bezirk[curr_bezirk != "Alle Bezirke"]
       updateSelectInput(session, "bezirk", selected = new_selection)
       prev_bezirk(new_selection)
     } else {
       prev_bezirk(curr_bezirk)
     }
-  }, ignoreInit = TRUE)
+  }, ignoreNULL = FALSE, ignoreInit = TRUE)
   
   # ---- Gefilterte Daten ----
   filteredData <- reactive({
@@ -301,7 +312,7 @@ server <- function(input, output, session) {
     df <- df_merged
     df_filtered <- df
     
-    if (!("Alle" %in% input$bezirk)) {
+    if (!("Alle Bezirke" %in% input$bezirk)) {
       df_filtered <- df_filtered %>% filter(bezirk %in% input$bezirk)
     }
     
@@ -310,21 +321,17 @@ server <- function(input, output, session) {
   
   # ---- ValueBoxes ----
   
-  # Box 1: Gesamtzahl (Immer ganz Berlin)
-  output$total_trees <- renderValueBox({
-    valueBox(
-      formatC(n_distinct(df_merged$gisid), format = "d", big.mark = "."),
-      "Gesamtzahl der Bäume (Berlin)",
-      icon = icon("tree"),
-      color = "green"
-    )
+  # Label 1: Gesamtzahl (Immer ganz Berlin)
+  output$total_trees_label <- renderText({
+    anzahl <- formatC(n_distinct(df_merged$gisid), format = "d", big.mark = ".")
+    paste("Gesamter Baumbestand in Berlin:", anzahl, "Bäume")
   })
   
   # Box 2: Gefilterte Zahl (Reagiert auf den Filter)
   output$total_trees_filtered <- renderValueBox({
     valueBox(
       formatC(n_distinct(filteredData()$gisid), format = "d", big.mark = "."),
-      "Baumanzahl in ausgewählten Bezirken",
+      "erfasste Bäume (Bezirksauswahl)",
       icon = icon("tree"),
       color = "olive" 
     )
@@ -335,14 +342,14 @@ server <- function(input, output, session) {
     valueBox(
       formatC(n_distinct(filteredData()$gisid[!is.na(filteredData()$timestamp)]), 
               format = "d", big.mark = "."),
-      "Gegossene Bäume (Auswahl)",
+      "bewässerte Bäume (Bezirksauswahl)",
       icon = icon("tint"),
       color = "blue"
     )
   })
-
-    
-# ------------ 5.3 ------------
+  
+  
+  # ------------ 5.3 ------------
   
   # Reaktive Datenberechnung: Bewässerungsstatistik pro Bezirk
   data_by_bezirk <- reactive({
@@ -414,17 +421,17 @@ server <- function(input, output, session) {
         opacity = 1
       )
   })
-
   
-# ------------ 5.4 ------------
-    
+  
+  # ------------ 5.4 ------------
+  
   # Trend: Bewässerung nach Pflanzjahr
   output$trend_water <- renderPlotly({
     filtered_data <- df_merged %>%
       filter(!is.na(bewaesserungsmenge_in_liter)) %>%  
       filter(!is.na(pflanzjahr))
     
-    if (!"Alle" %in% input$trend_bezirk_pj && length(input$trend_bezirk_pj) > 0) {
+    if (!"Alle Bezirke" %in% input$trend_bezirk_pj && length(input$trend_bezirk_pj) > 0) {
       filtered_data <- filtered_data %>%
         filter(bezirk %in% input$trend_bezirk_pj)
     }
@@ -485,7 +492,7 @@ server <- function(input, output, session) {
   })
   
   
-# ------------ 5.5 ------------
+  # ------------ 5.5 ------------
   
   # 1. Stacked Bar Chart - Baumverteilung mit Gattungen
   output$tree_distribution_stacked <- renderPlot({
@@ -542,7 +549,7 @@ server <- function(input, output, session) {
   # 2. Pie Chart - Gattungsverteilung
   output$tree_species_pie <- renderPlot({
     filtered_data <- df_merged
-    if (input$pie_bezirk != "Alle") {
+    if (input$pie_bezirk != "Alle Bezirke") {
       filtered_data <- filtered_data %>%
         filter(bezirk == input$pie_bezirk)
     }
@@ -653,7 +660,7 @@ server <- function(input, output, session) {
     filtered_data <- df_merged %>%
       filter(!is.na(bewaesserungsmenge_in_liter)) 
     
-    if (input$engagement_bezirk != "Alle") {
+    if (input$engagement_bezirk != "Alle Bezirke") {
       filtered_data <- filtered_data %>%
         filter(bezirk == input$engagement_bezirk)
     }
@@ -701,9 +708,9 @@ server <- function(input, output, session) {
       footer = modalButton("Schließen")
     ))
   })
-
-# ------------ 5.6 ------------  
-
+  
+  # ------------ 5.6 ------------  
+  
   output$hist_bewaesserung_pro_bezirk <- renderPlot({
     df_agg <- df_merged %>%
       filter(!is.na(bezirk)) %>%  
