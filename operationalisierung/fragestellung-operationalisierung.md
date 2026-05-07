@@ -29,9 +29,13 @@ Mit Ihren Rückmeldungen können wir unser interaktives Lehrbuch gezielt an Ihre
 
 In diesem einführenden Kapitel wird ein Erkenntnisinteresse formuliert, das in den nächsten Kapiteln die Vorbereitung, Aufbereitung und Analyse des Forschungsgegenstandes leitet (s. Abb. 2.1).
 
-
-<span style="color:red">*Abb. 2.1: Bild einfügen von Verortung in Fallstudien-Struktur*</span>
-
+```{figure} /assets/steps_cs3_1.png
+---
+name: steps of casestudy
+alt: Skizzenhafte Darstellung der 4 Schritte dieser Fallstudie mit Hervorhebung des 1. Schritts.
+---
+Der 1. von 4 Abschnitten dieser Fallstudie.
+```
 
 Dazu wird im ersten Schritt zunächst eine [Leitfrage](fragestellung) formuliert. Im zweiten Schritt erfolgt mit der [Operationalisierung](operationalisierung) die Festlegung von Parametern zur Erfassung des theoretischen Konzeptes, bevor das Kapitel mit einem [Resümee](fragestellung-resümee) abschließt.
 

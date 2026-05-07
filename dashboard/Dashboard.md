@@ -28,7 +28,13 @@ Mit Ihren Rückmeldungen können wir unser interaktives Lehrbuch gezielt an Ihre
 Nachdem im vorherigen Kapitel dargelegt wurde, dass Dashboards eine gute Möglichkeit sind, um Daten aus der Verwaltung nutzer:innenfreundlich aufzubereiten und zu visualisieren, werden Sie in diesem Kapitel durch den Bau eines Dashboards mit R Shiny geführt. Je nach Ihren Vorkenntnissen und gewählter [Ausführungsmethode](technische_voraussetzungen) kann die Bearbeitungszeit variieren.
 Für den Fall, dass Sie das Dashboard nicht selbst bauen wollen oder können, sind einige Visualisierungen interaktiv gestaltet worden, sodass Sie nachempfinden können, welchen Unterschied es macht, Variablen in Visualisierungen ändern zu können. 
 
-<span style="color:red">*Bild einfügen von Verortung in Fallstudien-Struktur*</span>
+```{figure} /assets/steps_cs3_4.png
+---
+name: steps of casestudy
+alt: Skizzenhafte Darstellung der 4 Schritte dieser Fallstudie mit Hervorhebung des 4. Schritts.
+---
+Der 4. von 4 Abschnitten dieser Fallstudie.
+```
 
 Bevor die einzelnen Elemente dem Dashboard zugefügt werden, geht der erste Abschnitt auf einige [Grundlagen der Datenvisualisierung](datenvisualisierung-methoden-werkzeuge) ein.  
 Anschließend wird eine [Startseite gestaltet](landing-page) und dem Dashboard weitere Elemente hinzugefügt: eine [Karte](map), ein [Zeitverlauf](zeitverlauf), eine [Baumstatistik](trees) und eine [Bewässerungsanalyse](watering).

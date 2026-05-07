@@ -68,6 +68,16 @@ Die Zielgruppe sind zudem promovierende und promovierte Wissenschaftler:innen, a
 
 ## Struktur der Fallstudie
 
+Die Fallstudie ist in 4 Schritte aufgeteilt, die den Kapiteln entsprechen (s. Abb. 2). 
+
+```{figure} /assets/steps_cs3.png
+---
+name: steps of casestudy
+alt: Skizzenhafte Darstellung der 4 Schritte dieser Fallstudie.
+---
+Visualisierung der 4 Schritte dieser Fallstudie.
+```
+
 - Im **1. Schritt** wird eine Fragestellung aufgebaut und operationalisiert (s. [Kap. 2](frage-operationalisierung)).
 
 - Im **2. Schritt** wird der Untersuchungsgegenstand - also die Datengrundlage - beleuchtet und die Daten eingelesen und strukturiert (s. [Kap. 3](datenbasis_intro)).
