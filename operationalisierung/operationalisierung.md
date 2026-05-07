@@ -24,7 +24,7 @@ Für die Operationalisierung der Forschungsfrage (**Wo lassen sich die höchsten
 - Was bedeutet Engagement von Bürger:innen bei der Bewässerung städtischer Bäume in Berlin? 
 - Wie kann dieses gemessen werden? 
 
-Anhand dieser beiden Fragen ensteht folgende Operationalisierung:
+Anhand dieser beiden Fragen entsteht folgende Operationalisierung:
 
 `````{admonition} Operationalisierung
 :class: hinweis

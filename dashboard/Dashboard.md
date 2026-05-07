@@ -2,7 +2,7 @@
 lang: de-DE
 ---
 
-(dashboard)=
+(dash-build-intro)=
 # Dashboard - Einzelelemente
 
 ````{margin}

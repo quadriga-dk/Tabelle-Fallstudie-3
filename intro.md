@@ -40,7 +40,7 @@ In dieser Open Educational Resource (OER) wird ein Forschungsverlauf im Bereich 
 ```{admonition} Die Forschung von Dr. Amir Weber
 :class: story
 Dr. Amir Weber, ein Verwaltungswissenschaftler mit Interesse an kommunalen Daten und Bürgerbeteiligung, möchte ein Dashboard zur Visualisierung des Bewässerungsverhaltens von Bürger:innen erstellen, das auf offenen Datensätzen basiert.  
-In einer vorangegangenen  <a href="https://quadriga-dk.github.io/Tabelle-Fallstudie-2/Titelseite.html" class="external-link" target="_blank">Fallstudie</a> hat er exemplarisch aufgezeigt, wie geeignete Datensätze identifiziert und erschlossen werden können. Auf Grundlage von Datensätzen aus dem Bundesland Berlin möchte er nun eine ergebnisoffene, explorative Analyse durchführen, um darin enthaltende Erkenntnispotenziale zu identifizieren. Die gewonnenen Befunde werden in dieser Fallstudie parallel in Form von Dashboards aufbereitet, um die Daten für Bürger:innen und politische Entscheidungsträger:innen nachvollziehbar darzustellen.  
+In einer vorangegangenen  <a href="https://quadriga-dk.github.io/Tabelle-Fallstudie-2/Titelseite.html" class="external-link" target="_blank">Fallstudie</a> hat er exemplarisch aufgezeigt, wie geeignete Datensätze identifiziert und erschlossen werden können. Auf Grundlage von Datensätzen aus dem Bundesland Berlin möchte er nun eine ergebnisoffene, explorative Analyse durchführen, um darin enthaltende Erkenntnispotenziale zu identifizieren. Die gewonnenen Befunde werden in dieser Fallstudie parallel in Form eines Dashboards aufbereitet, um die Daten für Bürger:innen und politische Entscheidungsträger:innen nachvollziehbar darzustellen.  
 Hierzu soll insbesondere das Ausmaß sowie die räumliche Verteilung der Bürgerbeteiligung sichtbar gemacht werden. 
 Sie werden Dr. Weber mit der Erstellung eines solchen Dashboards helfen.
 
@@ -55,10 +55,7 @@ Wo lassen sich die höchsten Ausprägungen des Engagements von Bürger:innen bei
 
 ## Bedeutung dieses Lehrbuchs für die Verwaltungswissenschaft
 
-<span style="color:red">folgendes noch überarbeiten</span>.
-
-Datenvisualisierungen sind ein bewährtes Mittel der …, um zu ... *wird ergänzt = nicht ihre Wichtigkeit, sondern ihre Wirkung/Funktionalität benennen.* (siehe Kapitel 3.2)
-Dashboards sind eine Möglichkeit zur Darstellung von Verwaltungsdaten, die zunehmend Verwendung findet (*Verweis auf Beispiele Aachen etc.*)
+Dashboards sind eine gute Möglichkeit, Daten des öffentlichen Sektors (Public Sector) übersichtlich darzustellen. Immer mehr Kommunen und Behörden arbeiten die von ihnen erhobenen oder verwalteten Daten auf, um eine anschauliche Übersicht über ihre Arbeit zu vermitteln. Dadurch können für Bürger:innen Mehrwerte entstehen - beispielsweise wenn sie Informationen über die Auslastung von Straßen erhalten. Mit Visualisierungen wie sie für Dashboards verwendet werden, können umfangreiche Datenbestände zusammengefasst und transparent gemacht sowie Probleme erkannt und Trends nachvollzogen werden (s. auch [Kap. 4.1](dashboard_theorie)).
 
 
 ## Zielgruppe
@@ -71,12 +68,10 @@ Die Zielgruppe sind zudem promovierende und promovierte Wissenschaftler:innen, a
 
 ## Struktur der Fallstudie
 
-<span style="color:red">folgendes noch überarbeiten</span>.
+- Im **1. Schritt** wird eine Fragestellung aufgebaut und operationalisiert (s. [Kap. 2](frage-operationalisierung)).
 
-- Im **1. Schritt** wird eine Fragestellung aufgebaut und operationalisiert.
+- Im **2. Schritt** wird der Untersuchungsgegenstand - also die Datengrundlage - beleuchtet und die Daten eingelesen und strukturiert (s. [Kap. 3](datenbasis_intro)).
 
-- Im **2. Schritt** wird der Untersuchungsgegenstand - also die Datengrundlage - beleuchtet und die Daten eingelesen und strukturiert.
+- Im **3. Schritt** erfahren Sie was Dashboards sind, welche Bedeutung sie für die Verwaltung bzw. Daten aus dem Public Sector haben, mit welchen Tools sie gebaut werden können und schließlich wie R Shiny eingerichtet wird, um damit ein Dashboard zu bauen (s. [Kap. 4](dash-prep-intro)).
 
-- Im **3. Schritt** erfahren Sie was Dashboards sind, welche Bedeutung sie für die Verwaltung haben können, mit welchen Tools sie gebaut werden können und schließlich wie R Shiny eingerichtet wird, um damit ein Dashboard zu bauen.
-
-- Im **4. Schritt** führt Sie das Kapitel "Dashboards - Einzelelemente" Schritt für Schritt durch die Erweiterung eines Dashboards mit weiteren Visualisierungen wie Karten oder Zeitverläufen.
+- Im **4. Schritt** führt Sie das Kapitel "Dashboards - Einzelelemente" Schritt für Schritt durch die Erweiterung eines Dashboards mit weiteren Visualisierungen wie Karten oder Zeitverläufen (s. [Kap. 5](dash-build-intro)).
