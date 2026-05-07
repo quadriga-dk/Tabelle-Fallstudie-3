@@ -215,7 +215,7 @@ filteredData <- reactive({
   df_filtered <- df
   
   # Filter nach Bezirk
-  if (!("Alle" %in% input$bezirk)) {
+  if (!("Alle Bezirke" %in% input$bezirk)) {
     df_filtered <- df_filtered %>% filter(bezirk %in% input$bezirk)
   }
   
@@ -247,12 +247,12 @@ if (Bedingung) {
 
 **Die Filterlogik**  
 ```r
-if (!("Alle" %in% input$bezirk)) {
+if (!("Alle Bezirke" %in% input$bezirk)) {
   df_filtered <- df_filtered %>% filter(bezirk %in% input$bezirk)
 }
 ``` 
 Diese Bedingung implementiert die eigentliche Filterung:
-- Falls "Alle" in der Auswahl enthalten ist → keine Einschränkung, alle Daten bleiben erhalten
+- Falls "Alle Bezirke" in der Auswahl enthalten ist → keine Einschränkung, alle Daten bleiben erhalten
 - Falls nur bestimmte Bezirke ausgewählt wurden → behalte nur die Zeilen, deren `bezirk` in der Auswahl (`input$bezirk`) vorkommt
 
 **Warum ist diese Struktur wichtig?**  
@@ -376,10 +376,10 @@ prev_bezirk <- reactiveVal("Alle Bezirke")
 ````{admonition} Erklärung des Codes
 :class: hinweis, dropdown
 
-Dieser Code-Block löst ein logisches Problem: Aktuell ist es möglich die Option "Alle" gleichzeitig mit spezifischen Bezirken (z.B. "Treptow-Köpenick") auswählen. Der Code macht das Dropdown-Menü „intelligent“ und schließt diese Optionen gegenseitig aus.
+Dieser Code-Block löst ein logisches Problem: Aktuell ist es möglich die Option "Alle Bezirke" gleichzeitig mit spezifischen Bezirken (z.B. "Treptow-Köpenick") auswählen. Der Code macht das Dropdown-Menü „intelligent“ und schließt diese Optionen gegenseitig aus.
 
-**`prev_bezirk <- reactiveVal("Alle")`** 
-Dies ist eine Art Kurzzeitgedächtnis (`reactiveVal`). Die App merkt sich hier, was der Nutzer *vor* dem letzten Klick ausgewählt hatte. Der Startwert ist „Alle“.
+**`prev_bezirk <- reactiveVal("Alle Bezirke")`** 
+Dies ist eine Art Kurzzeitgedächtnis (`reactiveVal`). Die App merkt sich hier, was der Nutzer *vor* dem letzten Klick ausgewählt hatte. Der Startwert ist „Alle Bezirke“.
 
 **`observeEvent(input$bezirk, { ... })`** 
 Dies ist ein Beobachter. Er wartet im Hintergrund und führt den Code in den geschweiften Klammern `{}` *jedes Mal* aus, sobald der Nutzer im Dropdown-Menü (`input$bezirk`) etwas anklickt oder ändert.
@@ -390,12 +390,12 @@ Ein Sicherheitscheck. Der Code bricht hier sofort ab, falls die Auswahl komplett
 **Die if-else-Bedingung:**
 Zuerst werden der aktuelle Zustand (`curr_bezirk`) und der vorherige Zustand (`prev`) in Variablen gespeichert. Dann prüft die App drei Fälle:
 
-*   **Fall 1 (`if`):** `("Alle" %in% curr_bezirk && !("Alle" %in% prev))`
-    *Wurde „Alle“ gerade frisch angeklickt?* (Es ist in der aktuellen Auswahl, war aber vorher nicht da).
-    *Reaktion:* `updateSelectInput` zwingt das Dropdown-Menü dazu, nur noch „Alle“ anzuzeigen. Alle vorher ausgewählten Einzelbezirke werden gelöscht.
-*   **Fall 2 (`else if`):** `("Alle" %in% curr_bezirk && length(curr_bezirk) > 1)`
-    *Wurde ein neuer Bezirk angeklickt, während „Alle“ noch aktiv war?* („Alle“ ist in der Auswahl, aber die Liste ist jetzt länger als 1).
-    *Reaktion:* „Alle“ wird aus der aktuellen Auswahl herausgefiltert (`curr_bezirk != "Alle"`) und das Dropdown-Menü wird auf diese neue, um „Alle“ bereinigte Auswahl aktualisiert.
+*   **Fall 1 (`if`):** `("Alle Bezirke" %in% curr_bezirk && !("Alle Bezirke" %in% prev))`
+    *Wurde „Alle Bezirke“ gerade frisch angeklickt?* (Es ist in der aktuellen Auswahl, war aber vorher nicht da).
+    *Reaktion:* `updateSelectInput` zwingt das Dropdown-Menü dazu, nur noch „Alle Bezirke“ anzuzeigen. Alle vorher ausgewählten Einzelbezirke werden gelöscht.
+*   **Fall 2 (`else if`):** `("Alle Bezirke" %in% curr_bezirk && length(curr_bezirk) > 1)`
+    *Wurde ein neuer Bezirk angeklickt, während „Alle Bezirke“ noch aktiv war?* („Alle Bezirke“ ist in der Auswahl, aber die Liste ist jetzt länger als 1).
+    *Reaktion:* „Alle Bezirke“ wird aus der aktuellen Auswahl herausgefiltert (`curr_bezirk != "Alle Bezirke"`) und das Dropdown-Menü wird auf diese neue, um „Alle Bezirke“ bereinigte Auswahl aktualisiert.
 *   **Fall 3 (`else`):** 
     Wenn weder Fall 1 noch Fall 2 zutreffen, speichert die App einfach die aktuelle Auswahl im Kurzzeitgedächtnis (`prev_bezirk`), um für den nächsten Klick bereit zu sein.
 
@@ -515,8 +515,8 @@ ui <- dashboardPage(
                      valueBoxOutput("total_tree_watered", width = 12),
                      div(style = "padding: 10px 15px;", # Fügt etwas Abstand für den Filter hinzu
                          selectInput("bezirk", "Bezirk auswählen:", 
-                                     choices = c("Alle", sort(na.omit(unique(df_merged$bezirk)))), 
-                                     selected = "Alle", multiple = TRUE)
+                                     choices = c("Alle Bezirke", sort(na.omit(unique(df_merged$bezirk)))), 
+                                     selected = "Alle Bezirke", multiple = TRUE)
                       )
               )
             )
@@ -548,18 +548,18 @@ server <- function(input, output, session) {
   }
   
   # --- Reaktive Bezirksauswahl ---
-  prev_bezirk <- reactiveVal("Alle")
+  prev_bezirk <- reactiveVal("Alle Bezirke")
   
   observeEvent(input$bezirk, {
     req(input$bezirk)
     curr_bezirk <- input$bezirk
     prev <- prev_bezirk()
     
-    if ("Alle" %in% curr_bezirk && !("Alle" %in% prev)) {
-      updateSelectInput(session, "bezirk", selected = "Alle")
-      prev_bezirk("Alle")
-    } else if ("Alle" %in% curr_bezirk && length(curr_bezirk) > 1) {
-      new_selection <- curr_bezirk[curr_bezirk != "Alle"]
+    if ("Alle Bezirke" %in% curr_bezirk && !("Alle Bezirke" %in% prev)) {
+      updateSelectInput(session, "bezirk", selected = "Alle Bezirke")
+      prev_bezirk("Alle Bezirke")
+    } else if ("Alle Bezirke" %in% curr_bezirk && length(curr_bezirk) > 1) {
+      new_selection <- curr_bezirk[curr_bezirk != "Alle Bezirke"]
       updateSelectInput(session, "bezirk", selected = new_selection)
       prev_bezirk(new_selection)
     } else {
@@ -574,7 +574,7 @@ server <- function(input, output, session) {
     df <- df_merged
     df_filtered <- df
     
-    if (!("Alle" %in% input$bezirk)) {
+    if (!("Alle Bezirke" %in% input$bezirk)) {
       df_filtered <- df_filtered %>% filter(bezirk %in% input$bezirk)
     }
     

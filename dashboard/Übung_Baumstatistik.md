@@ -152,8 +152,8 @@ tabItem(
       selectInput(
         "pie_bezirk",
         "Bezirk auswählen:",
-        choices = c("Alle", sort(unique(df_merged$bezirk))),
-        selected = "Alle"
+        choices = c("Alle Bezirke", sort(unique(df_merged$bezirk))),
+        selected = "Alle Bezirke"
       ),
       plotOutput("tree_species_pie", height = "500px")
     ),         
@@ -186,8 +186,8 @@ tabItem(
       selectInput(
         "engagement_bezirk",
         "Bezirk auswählen:",
-        choices = c("Alle", sort(unique(df_merged$bezirk))),
-        selected = "Alle"
+        choices = c("Alle Bezirke", sort(unique(df_merged$bezirk))),
+        selected = "Alle Bezirke"
       ),
       plotOutput("top_watered_species", height = "500px")
     )
@@ -357,7 +357,7 @@ Das Kreisdiagramm soll die prozentuale Zusammensetzung der Baumgattungen zeigen 
   # 2. Pie Chart - Gattungsverteilung
   output$tree_species_pie <- renderPlot({
     filtered_data <- df_merged
-    if (input$pie_bezirk != "Alle") {
+    if (input$pie_bezirk != "Alle Bezirke") {
       filtered_data <- filtered_data %>%
         filter(bezirk == input$pie_bezirk)
     }
@@ -536,7 +536,7 @@ Diese Visualisierung zeigt, welche Baumgattungen am häufigsten gegossen wurden.
     filtered_data <- df_merged %>%
       filter(!is.na(bewaesserungsmenge_in_liter)) 
     
-    if (input$engagement_bezirk != "Alle") {
+    if (input$engagement_bezirk != "Alle Bezirke") {
       filtered_data <- filtered_data %>%
         filter(bezirk == input$engagement_bezirk)
     }
@@ -690,8 +690,8 @@ ui <- dashboardPage(
             selectInput(
               "pie_bezirk",
               "Bezirk auswählen:",
-              choices = c("Alle", sort(unique(df_merged$bezirk))),
-              selected = "Alle"
+              choices = c("Alle Bezirke", sort(unique(df_merged$bezirk))),
+              selected = "Alle Bezirke"
             ),
             plotOutput("tree_species_pie", height = "500px")
           ),         
@@ -724,8 +724,8 @@ ui <- dashboardPage(
             selectInput(
               "engagement_bezirk",
               "Bezirk auswählen:",
-              choices = c("Alle", sort(unique(df_merged$bezirk))),
-              selected = "Alle"
+              choices = c("Alle Bezirke", sort(unique(df_merged$bezirk))),
+              selected = "Alle Bezirke"
             ),
             plotOutput("top_watered_species", height = "500px")
           )
@@ -795,7 +795,7 @@ server <- function(input, output, session) {
   # 2. Pie Chart - Gattungsverteilung
   output$tree_species_pie <- renderPlot({
     filtered_data <- df_merged
-    if (input$pie_bezirk != "Alle") {
+    if (input$pie_bezirk != "Alle Bezirke") {
       filtered_data <- filtered_data %>%
         filter(bezirk == input$pie_bezirk)
     }
@@ -906,7 +906,7 @@ server <- function(input, output, session) {
     filtered_data <- df_merged %>%
       filter(!is.na(bewaesserungsmenge_in_liter)) 
     
-    if (input$engagement_bezirk != "Alle") {
+    if (input$engagement_bezirk != "Alle Bezirke") {
       filtered_data <- filtered_data %>%
         filter(bezirk == input$engagement_bezirk)
     }

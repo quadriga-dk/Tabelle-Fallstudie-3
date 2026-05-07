@@ -106,8 +106,8 @@ tabItem(
           selectInput(
             "trend_bezirk_pj",
             "Bezirk auswählen:",
-            choices = c("Alle", sort(unique(df_merged$bezirk))),
-            selected = "Alle",
+            choices = c("Alle Bezirke", sort(unique(df_merged$bezirk))),
+            selected = "Alle Bezirke",
             multiple = TRUE
           )
         )
@@ -138,7 +138,7 @@ tabItem(
   
 - `selectInput("trend_bezirk_pj", ...)` – ein Dropdown zur Bezirksauswahl
   - `multiple = TRUE` ermöglicht die Auswahl mehrerer Bezirke gleichzeitig
-  - Standardwert ist "Alle"
+  - Standardwert ist "Alle Bezrike"
 
 **Visualisierung:**
 
@@ -163,7 +163,7 @@ output$trend_water <- renderPlotly({
     filter(!is.na(bewaesserungsmenge_in_liter)) %>%  
     filter(!is.na(pflanzjahr))
 
-  if (!"Alle" %in% input$trend_bezirk_pj && length(input$trend_bezirk_pj) > 0) {
+  if (!"Alle Bezirke" %in% input$trend_bezirk_pj && length(input$trend_bezirk_pj) > 0) {
     filtered_data <- filtered_data %>%
       filter(bezirk %in% input$trend_bezirk_pj)
   }
@@ -182,7 +182,7 @@ output$trend_water <- renderPlotly({
 - `filter(!is.na(pflanzjahr))` – nur Bäume mit bekanntem Pflanzjahr
 
 **Bezirksfilter:**  
-- Wenn "Alle" ausgewählt ist → keine Einschränkung
+- Wenn "Alle Bezirke" ausgewählt ist → keine Einschränkung
 - Wenn bestimmte Bezirke ausgewählt wurden → behalte nur diese
 
 **Pflanzjahr-Filter:**  
@@ -392,8 +392,8 @@ ui <- dashboardPage(
                 selectInput(
                   "trend_bezirk_pj",
                   "Bezirk auswählen:",
-                  choices = c("Alle", sort(unique(df_merged$bezirk))),
-                  selected = "Alle",
+                  choices = c("Alle Bezirke", sort(unique(df_merged$bezirk))),
+                  selected = "Alle Bezirke",
                   multiple = TRUE
                 )
               )
@@ -418,7 +418,7 @@ server <- function(input, output, session) {
       filter(!is.na(bewaesserungsmenge_in_liter)) %>%  
       filter(!is.na(pflanzjahr))
 
-    if (!"Alle" %in% input$trend_bezirk_pj && length(input$trend_bezirk_pj) > 0) {
+    if (!"Alle Bezirke" %in% input$trend_bezirk_pj && length(input$trend_bezirk_pj) > 0) {
       filtered_data <- filtered_data %>%
         filter(bezirk %in% input$trend_bezirk_pj)
     }
