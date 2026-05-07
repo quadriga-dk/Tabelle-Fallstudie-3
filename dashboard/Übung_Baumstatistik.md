@@ -30,12 +30,11 @@ Sie überprüfen also:
 
 - Ob bestimmte Baumgattungen häufiger gegossen werden als andere.
 - Ob die Baumdichte das Gießverhalten beeinflusst.
-Er vermutet, dass dicht bepflanzte Straßen oder Kieze mehr Interaktionen begünstigen – etwa nach dem Motto: „Wenn ich schon meinen Baum gieße, mache ich den daneben auch gleich mit.“
+Amir vermutet, dass dicht bepflanzte Straßen oder Kieze mehr Interaktionen begünstigen – etwa nach dem Motto: „Wenn ich schon meinen Baum gieße, mache ich den daneben auch gleich mit.“
 
-Die Funktion dieses Reiters besteht also darin, die Baumverteilung nach Bezirken sichtbar zu machen, die am häufigsten gegossenen Baumarten zu identifizieren und die Baumdichte im Verhältnis zur Bezirksfläche zu analysieren, um mögliche Muster im Engagement zu erkennen.
+Die Funktion einer Visualisierung besteht in diesem Fall darin, die Baumverteilung nach Bezirken sichtbar zu machen, die am häufigsten gegossenen Baumarten zu identifizieren und die Baumdichte im Verhältnis zur Bezirksfläche zu analysieren, um mögliche Muster im Engagement zu erkennen.
 
-Damit dient der Reiter als Grundlage, um zu verstehen, welche strukturellen Faktoren im Stadtraum das Engagement der Gießenden möglicherweise begünstigen.
-<span style="color: red;">Die Farben für die Bezirke und Baumarten unterscheiden sich von Plot zu Plot. Es wäre vielleicht besser, wenn diese über das ganze Dashboard hinweg einheitlich wären</span>
+Damit soll die Grundlage geschaffen werden, zu verstehen, welche strukturellen Faktoren im Stadtraum das Engagement der Gießenden möglicherweise begünstigen.
 
 
 
