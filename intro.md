@@ -34,7 +34,15 @@ Plomin, J., Walter, P., Schmeling, J., Dakruni, S. & Bingöl, C. (2025). _Visual
 
 In dieser Open Educational Resource (OER) wird ein Forschungsverlauf im Bereich der Verwaltungswissenschaft mithilfe eines <a href="https://jupyterbook.org/en/stable/intro.html" class="external-link" target="_blank">JupyterBooks</a> nachgezeichnet. Anhand einer wissenschaftlichen Leitfrage wird mit der Applikation <a href="https://shiny.posit.co/" class="external-link" target="_blank">R Shiny</a> ein Dasboard gebaut. In den einzelnen Kapiteln wird erläutert, welche Daten zur Lösung der Leitfrage und zum Bau des Dashboards benötigt und wie sie bearbeitet und visualisiert werden. Dabei werden Kompetenzen wie Datenvisualisierung und Kommunikation von Forschungsergebnissen behandelt.
 
-<span style="color:red">Bild einfügen: Framework oder etw. zu Dashboards -> UNSER Dashboard</span>.
+
+
+```{figure} assets/intro-collage.png
+---
+name: R Shiny Dashboard Collage
+alt: A collage, containing visualizations created using R Shiny
+---
+Collage des "Gieß den Kiez"-Dashboards, die beispielhaft die Datenvisualisierungs- und Analysemethoden dieses interaktiven Lehrbuchs demonstriert.
+``` 
 
 
 ```{admonition} Die Forschung von Dr. Amir Weber
