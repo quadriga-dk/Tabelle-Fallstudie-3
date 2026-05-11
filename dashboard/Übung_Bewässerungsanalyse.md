@@ -350,9 +350,9 @@ Diese Kennzahl zeigt, wie intensiv die Bäume gegossen wurden. Ein Bezirk mit ho
 ## Kritische Schlussfolgerung
 Die beiden Visualisierungen machen eindrucksvoll sichtbar, wie stark sich die Ergebnisse verändern, sobald man eine andere Operationalisierung wählt.
 
-Bei der **Gesamtbewässerungsmenge** liegen *Marzahn-Hellersdorf* und *Spandau* klar an der Spitze – Spandau sogar mit deutlichem Abstand. Das deutet darauf hin, dass in diesen Bezirken besonders große Wassermengen eingesetzt wurden, sei es aufgrund vieler gegossener Bäume, hohem individuellem Einsatz oder besonderen lokalen Bedingungen.
+Bei der **Gesamtbewässerungsmenge** liegen *Mitte*, *Charlottenburg-Wilmersdorf* und *Tempelhof-Schöneberg* an der Spitze. Das deutet darauf hin, dass in diesen Bezirken besonders große Wassermengen eingesetzt wurden, sei es aufgrund vieler gegossener Bäume, hohem individuellem Einsatz oder besonderen lokalen Bedingungen.
 
-Betrachtet man jedoch die **durchschnittliche Bewässerungsmenge pro Baum**, verschiebt sich das Bild vollständig: Hier treten Mitte und Friedrichshain-Kreuzberg wieder hervor. Die Bezirke, die bei der Gesamtmenge führend waren, liegen in dieser Metrik nicht mehr vorn.
+Betrachtet man jedoch die **durchschnittliche Bewässerungsmenge pro Baum**, verschiebt sich das Bild ein wenig: Hier tritt Friedrichshain-Kreuzberg am weitesten hervor.
 
 **Das zeigt klar**:
 Die Wahl der Messgröße – „Wie viel Wasser insgesamt?“ vs. „Wie viel Wasser pro Baum?“ – beeinflusst die Interpretation der Engagementmuster wesentlich. Unterschiedliche Kennzahlen erzählen *unterschiedliche Geschichten*, obwohl sie auf denselben Rohdaten basieren.
