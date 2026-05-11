@@ -11,26 +11,12 @@ Dr. Amir Weber macht sich Gedanken, welche Daten er braucht und woher er sie bez
 Dabei fällt ihm das Berliner Projekt <a href="https://www.giessdenkiez.de/stats?lang=de" class="external-link" target="_blank">Gieß den Kiez</a> ein, welches diese Daten bereits erhebt und zur Verfügung stellt. Er prüft zudem, welche Daten noch relevant sind und auf welche Weise sie beschafft werden können.
 ```
 
-````{margin}
-```{admonition} Daten herunterladen
-:class: hinweis
-
-Laden Sie die folgenden Dateien herunter und speichern Sie diese in Ihrem in Kapitel 1.2 erstellten Projektverzeichnis im Unterordner `data/` (erstellen Sie diesen, falls noch nicht vorhanden):
-
-**Bewässerungsdaten (CSV)**  
-*Tipp: Machen Sie einen Rechtsklick auf den Link und wählen Sie "Link speichern unter..." (oder "Ziel speichern unter..."), um die Datei direkt als CSV herunterzuladen.*  
-<a href="https://raw.githubusercontent.com/technologiestiftung/giessdenkiez-de-opendata/main/daten/giessdenkiez_bew%C3%A4sserungsdaten.csv" class="download-link" target='_blank'>🔗 Quelle</a>  
-<a href="https://raw.githubusercontent.com/quadriga-dk/Tabelle-Fallstudie-3/refs/heads/main/data/giessdenkiez_bew%C3%A4sserungsdaten.csv" class="download-link" target='_blank'> Backup: Download aus unserem System</a>  
-
-**Bezirksgrenzen (GeoJSON)**  
-<a href="https://tsb-opendata.s3.eu-central-1.amazonaws.com/bezirksgrenzen/bezirksgrenzen.geojson" class="download-link" target='_blank'>🔗 Quelle </a>
-<a href="https://raw.githubusercontent.com/quadriga-dk/Tabelle-Fallstudie-3/refs/heads/main/data/bezirksgrenzen.geojson" class="download-link" target='_blank'> Backup: Download aus unserem System</a>  
-
 In diesem Abschnitt werden Ihnen die Daten vorgestellt, die zur Beantwortung der Leitfrage und als Datenbasis für ein Dashboard benötigt werden. Im nächsten Abschnitt werden Sie diese dann einlesen.
 
-Dabei handelt es sich um zwei zentrale Datensätze: 
-- Daten über den Berliner Baumbestand
-- Bewässerungsdaten des Projekts <a href="https://citylab-berlin.org/en/projects/giessdenkiez/" class="external-link" target="_blank">Gieß den Kiez</a> 
+Dabei handelt es sich um drei zentrale Datenquellen: 
+- **Baumbestandsdaten** (Zugriff über WFS-Schnittstelle)
+- **Bezirksgrenzen** (GeoJSON-Format)
+- **Bewässerungsdaten** des Projekts <a href="https://citylab-berlin.org/en/projects/giessdenkiez/" class="external-link" target="_blank">Gieß den Kiez</a> (CSV-Format)
 
 ## Baumbestandsdaten (Berlin Open Data)
 
@@ -43,7 +29,7 @@ WFS steht für Web Feature Service, also einen Zugriff auf Geo-Objekte über ein
 Die Baumbestandsdaten stammen aus dem <a href="https://daten.berlin.de/" class="external-link" target="_blank">Berliner Open-Data-Portal</a> und umfassen sowohl Straßenbäume als auch Anlagebäume. Die Daten liegen im WFS-Format vor. 
 
 Die Datensätze enthalten u.a. Informationen zu:
-- Identifikatoren wie ``gml_id`` (ermöglicht Unterscheidung zwischen Anlagen- und Straßenbäumen), ``gisid`` und ``pitid`` <span style="color:red">*Wofür stehen letztere Indentifikatoren?*</span>
+- Identifikatoren wie ``gml_id`` (ermöglicht Unterscheidung zwischen Anlagen- und Straßenbäumen), ``gisid`` ((eindeutiger GIS-Bezeichner des Baums, zusammengesetzt aus einem Bereichscode und einer individuellen Baum-ID, z. B. 00008100_000bf613; auch als ``pitid`` mit Doppelpunkt-Trennzeichen vorhanden)
 - Botanische Klassifikation, z. B. Baumart: ``art_dtsch``, ``art_bot``, Gattung: ``gattung_deutsch``, ``gattung`` und Gruppe: ``art_gruppe``
 - Standortmerkmale wie Straße: ``strname``, Hausnummer: ``hausnr``, Zusatz: ``zusatz``, Bezirk: ``bezirk``, Geometrie: ``geom`` (enthält Längen- und Breitengrad in anderem Format) und Standortnummer: ``standortnr``
 - Pflanzjahr: ``pflanzjahr``
@@ -59,6 +45,7 @@ alt: Anzeige der beiden Layer Anlagenbäume und Straßenbäume im WFSExplorer vo
 ---
 Screenshot des WFSExplorers der Open Data Informationsstelle mit <a href="https://wfsexplorer.odis-berlin.de/?wfs=https%3A%2F%2Fgdi.berlin.de%2Fservices%2Fwfs%2Fbaumbestand" class="external-link" target="_blank">Anzeige</a> der verfügbaren Layer vom 24.03.2026.
 ```
+
 
 ## Bezirksgrenzen (Berlin Open Data)
 
@@ -81,6 +68,21 @@ alt: Einfache Visualisierung der Bezirksgrenzen in Berlin.
 Screenshot der Visualisierung der Berliner Bezirksgrenzen auf der Seite des Datensatzes vom 24.03.2026.
 ```
 
+````{margin}
+```{admonition} Daten herunterladen
+:class: hinweis
+
+Speichern Sie diese in Ihrem in Kapitel 1.2 erstellten Projektverzeichnis im Unterordner `data/` (erstellen Sie diesen, falls noch nicht vorhanden):  
+**Bewässerungsdaten (CSV)**  
+*Tipp: Machen Sie einen Rechtsklick auf den Link und wählen Sie "Link speichern unter..." (oder "Ziel speichern unter..."), um die Datei direkt herunterzuladen.*  
+<a href="https://raw.githubusercontent.com/technologiestiftung/giessdenkiez-de-opendata/main/daten/giessdenkiez_bew%C3%A4sserungsdaten.csv" class="download-link" target='_blank'>🔗 Quelle</a> | <a href="https://raw.githubusercontent.com/quadriga-dk/Tabelle-Fallstudie-3/refs/heads/main/data/giessdenkiez_bew%C3%A4sserungsdaten.csv" class="download-link" target='_blank'>Backup</a>  
+
+**Bezirksgrenzen (GeoJSON)**  
+<a href="https://tsb-opendata.s3.eu-central-1.amazonaws.com/bezirksgrenzen/bezirksgrenzen.geojson" class="download-link" target='_blank'>🔗 Quelle</a> | <a href="https://raw.githubusercontent.com/quadriga-dk/Tabelle-Fallstudie-3/refs/heads/main/data/bezirksgrenzen.geojson" class="download-link" target='_blank'>Backup</a>  
+
+*Baumbestandsdaten werden später direkt über WFS-Schnittstelle abgefragt.*
+```
+````
 ## Gieß den Kiez – Bewässerungsdaten (Govdata)
 
 Die Datenplattform <a href="https://citylab-berlin.org/en/projects/giessdenkiez/" class="external-link" target="_blank">Gieß den Kiez</a> ist eine digitale Beteiligungsplattform, die Bewässerungsbedarfe von Straßenbäumen in Berlin erfasst und es Bürger:innen ermöglicht, Gießaktivitäten zu dokumentieren und zu koordinieren. Die Bewässerungsdaten stammen vom Portal <a href="https://www.govdata.de/suche/daten/giess-den-kiez-nutzungsdaten" class="external-link" target="_blank">GovData</a>. Der Datensatz enthält Informationen über einzelne Bewässerungsvorgänge.
