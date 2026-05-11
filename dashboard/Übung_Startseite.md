@@ -117,30 +117,33 @@ Auf der Startseite des Dashboards visualisieren Sie die beiden zentralen Kennzah
 tabItems(
       tabItem(
         tabName = "start",
-        box(title = "Overview", status = "primary", solidHeader = TRUE, width = 12,
+        fluidRow(
+          box(width = 12,
+              # Label: Einfacher Text, Zahl hervorgehoben
+              div(style = "padding: 10px 15px 0 15px;",
+                  p(style = "font-size: 15px; margin-bottom: 2px;",
+                    "Gesamter Baumbestand in Berlin:"),
+                  span(style = "font-size: 28px; font-weight: bold; color: #3C6E97; margin-top: 0;",
+                    textOutput("total_trees_label"))
+              ),
+          
+              # Dropdown-Filter in voller Breite darüber
+              fluidRow(
+                column(width = 12,
+                       div(style = "padding: 10px 15px;", 
+                           selectInput("bezirk", "Bezirk auswählen (Mehrfachauswahl möglich):", 
+                                       choices = c("Alle Bezirke", sort(na.omit(unique(df_merged$bezirk)))), 
+                                       selected = "Alle Bezirke", multiple = TRUE)
+                       )
+                )
+              ),
             
-            # Label für die stadtweite Kennzahl (zentriert, groß, fett & tiefer gesetzt)
-            div(style = "text-align: center; margin-top: 40px; margin-bottom: 30px;",
-                span(style = "font-size: 26px; font-weight: bold; color: #2d3436;", 
-                     textOutput("total_trees_label"))
-            ),
-            
-            # Dropdown-Filter in voller Breite darüber
-            fluidRow(
-              column(width = 12,
-                     div(style = "padding: 10px 15px;", 
-                         selectInput("bezirk", "Bezirk auswählen (Mehrfachauswahl möglich):", 
-                                     choices = c("Alle Bezirke", sort(na.omit(unique(df_merged$bezirk)))), 
-                                     selected = "Alle Bezirke", multiple = TRUE)
-                     )
+              # Zwei dynamische Kacheln nebeneinander
+              fluidRow(
+                valueBoxOutput("total_trees_filtered", width = 6),
+                valueBoxOutput("total_tree_watered", width = 6)
               )
-            ),
-            
-            # Zwei reaktive Kacheln nebeneinander
-            fluidRow(
-              valueBoxOutput("total_trees_filtered", width = 6),
-              valueBoxOutput("total_tree_watered", width = 6)
-            )
+          )
         )
       )
     )
@@ -150,13 +153,10 @@ tabItems(
 :class: hinweis, dropdown
 
 **`box(...)`** gruppiert alle Elemente visuell mit:
-- `title = "Overview"` – die Überschrift der Box
-- `status = "primary"` (Farbe)
-- `solidHeader = TRUE` (fester Rand)
 - `width = 12` (volle Breite – 12 ist die maximale Spaltenanzahl im Raster)
 
 **Der Layout-Aufbau (vertikal strukturiert):**
-- **Das Text-Label (`textOutput("total_trees_label")`)**: Mithilfe von `span(...)` und `div(...)` wird die stadtweite Kennzahl mittig, groß und fett als einfacher Textstrang angezeigt.
+- **Das Text-Label (`textOutput("total_trees_label")`)**: Mithilfe von `span(...)` und `p(...)` wird die stadtweite Kennzahl als Text ergänzt durch eine formatierte Zahl hervorgehoben.
 - **Der Filterbereich (`fluidRow` & `selectInput`)**: Das Dropdown-Menü nimmt die volle Breite ein (`column(width = 12)`) und steht direkt über den Kacheln.
 - **Die Kacheln (`fluidRow` & `valueBoxOutput`)**: Die verbleibenden beiden Kacheln teilen sich nun horizontal den Platz. Durch `width = 6` passen genau zwei Stück nebeneinander.
 
@@ -286,14 +286,13 @@ Wird nur „2020–2024“ ausgewählt, zeigt dynamic_tree_box nur gegossene Bä
 
 ### ValueBoxes: Kennzahlen anzeigen
 
-Nun können Sie die beiden Kennzahlenkacheln mit Inhalten füllen. In der UI wurden diese bereits als `valueBoxOutput("total_trees")` und `valueBoxOutput("total_tree_watered")` angelegt – jetzt definiert Sie, was darin erscheinen soll.
+Nun können Sie die Kennzahlen mit Inhalten füllen. In der UI wurden diese bereits als Label `textOutput("total_trees_label")` und zwei Kacheln `valueBoxOutput("total_trees_filtered")` und `valueBoxOutput("total_tree_watered")` angelegt – jetzt definieren Sie, was darin erscheinen soll.
 
 
 ````{dropdown} Alle Bäume
 ```r
 output$total_trees_label <- renderText({
-  anzahl <- formatC(n_distinct(df_merged$gisid), format = "d", big.mark = ".")
-  paste("Gesamter Baumbestand in Berlin:", anzahl, "Bäume")
+  formatC(n_distinct(df_merged$gisid), format = "d", big.mark = ".")
 })
 
 output$total_trees_filtered <- renderValueBox({
@@ -313,7 +312,7 @@ output$total_trees_filtered <- renderValueBox({
 - ``output$total_trees_label`` ist das, was an das simple UI-Element ``textOutput("total_trees_label")`` gesendet wird.
 - ``renderText({...})`` berechnet reinen Text, anstelle einer visuell aufwändigen Kachel.
 - ``n_distinct(...)``: zählt eindeutige Bäume (verhindert doppelte Zählungen).
-- ``paste(...)`` verknüpft unseren Beschriftungstext mit der formatierten Zahl.
+- ``formatC(...)`` formatiert die Nummer ansprechend mit Tausendertrennzeichen.
 ````
 
 ````{dropdown} Gegossene Bäume
@@ -503,23 +502,33 @@ ui <- dashboardPage(
     tabItems(
       tabItem(
         tabName = "start",
-        box(title = "Overview", status = "primary", solidHeader = TRUE, width = 12,
-            fluidRow(
-              
-              column(width = 6,
-                     valueBoxOutput("total_trees", width = 12),
-                     valueBoxOutput("total_trees_filtered", width = 12)
+        fluidRow(
+          box(width = 12,
+              # Label: Einfacher Text, Zahl hervorgehoben
+              div(style = "padding: 10px 15px 0 15px;",
+                  p(style = "font-size: 15px; margin-bottom: 2px;",
+                    "Gesamter Baumbestand in Berlin:"),
+                  span(style = "font-size: 28px; font-weight: bold; color: #3C6E97; margin-top: 0;",
+                    textOutput("total_trees_label"))
               ),
-              
-              column(width = 6,
-                     valueBoxOutput("total_tree_watered", width = 12),
-                     div(style = "padding: 10px 15px;", # Fügt etwas Abstand für den Filter hinzu
-                         selectInput("bezirk", "Bezirk auswählen:", 
-                                     choices = c("Alle Bezirke", sort(na.omit(unique(df_merged$bezirk)))), 
-                                     selected = "Alle Bezirke", multiple = TRUE)
-                      )
+          
+              # Dropdown-Filter in voller Breite darüber
+              fluidRow(
+                column(width = 12,
+                       div(style = "padding: 10px 15px;", 
+                           selectInput("bezirk", "Bezirk auswählen (Mehrfachauswahl möglich):", 
+                                       choices = c("Alle Bezirke", sort(na.omit(unique(df_merged$bezirk)))), 
+                                       selected = "Alle Bezirke", multiple = TRUE)
+                       )
+                )
+              ),
+            
+              # Zwei dynamische Kacheln nebeneinander
+              fluidRow(
+                valueBoxOutput("total_trees_filtered", width = 6),
+                valueBoxOutput("total_tree_watered", width = 6)
               )
-            )
+          )
         )
       )
     )
@@ -551,7 +560,12 @@ server <- function(input, output, session) {
   prev_bezirk <- reactiveVal("Alle Bezirke")
   
   observeEvent(input$bezirk, {
-    req(input$bezirk)
+    if (is.null(input$bezirk)) {
+      updateSelectInput(session, "bezirk", selected = "Alle Bezirke")
+      prev_bezirk("Alle Bezirke")
+      return()
+    }
+    
     curr_bezirk <- input$bezirk
     prev <- prev_bezirk()
     
@@ -565,7 +579,7 @@ server <- function(input, output, session) {
     } else {
       prev_bezirk(curr_bezirk)
     }
-  }, ignoreInit = TRUE)
+  }, ignoreNULL = FALSE, ignoreInit = TRUE)
   
   # ---- Gefilterte Daten ----
   filteredData <- reactive({
@@ -583,21 +597,16 @@ server <- function(input, output, session) {
   
   # ---- ValueBoxes ----
   
-  # Box 1: Gesamtzahl (Immer ganz Berlin)
-  output$total_trees <- renderValueBox({
-    valueBox(
-      formatC(n_distinct(df_merged$gisid), format = "d", big.mark = "."),
-      "Gesamtzahl der Bäume (Berlin)",
-      icon = icon("tree"),
-      color = "green"
-    )
+  # Label 1: Gesamtzahl (Immer ganz Berlin)
+  output$total_trees_label <- renderText({
+    formatC(n_distinct(df_merged$gisid), format = "d", big.mark = ".")
   })
   
   # Box 2: Gefilterte Zahl (Reagiert auf den Filter)
   output$total_trees_filtered <- renderValueBox({
     valueBox(
       formatC(n_distinct(filteredData()$gisid), format = "d", big.mark = "."),
-      "Baumanzahl in ausgewählten Bezirken",
+      "erfasste Bäume (Bezirksauswahl)",
       icon = icon("tree"),
       color = "olive" 
     )
@@ -608,7 +617,7 @@ server <- function(input, output, session) {
     valueBox(
       formatC(n_distinct(filteredData()$gisid[!is.na(filteredData()$timestamp)]), 
               format = "d", big.mark = "."),
-      "Gegossene Bäume (Auswahl)",
+      "bewässerte Bäume (Bezirksauswahl)",
       icon = icon("tint"),
       color = "blue"
     )
