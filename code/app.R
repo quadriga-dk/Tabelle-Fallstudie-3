@@ -4,7 +4,6 @@
 
 library(shiny)
 library(shinydashboard)
-library(lubridate)
 library(leaflet)
 library(dplyr)
 library(htmltools)
