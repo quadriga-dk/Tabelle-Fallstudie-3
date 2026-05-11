@@ -550,6 +550,7 @@ server <- function(input, output, session) {
             panel.grid.major.x = element_blank())
   })
   
+  # Info button
   observeEvent(input$info_btn_bvnb, {
     showModal(modalDialog(
       title = "Information: Baumverteilung nach Bezirken",
