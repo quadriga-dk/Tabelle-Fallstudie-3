@@ -148,13 +148,14 @@ Diese reaktive Funktion wird später im `renderLeaflet`-Block aufgerufen, um die
 ### Karte zeichnen mit Leaflet
 Jetzt entsteht die eigentliche Karte. Jeder Berliner Bezirk gestalten Sie farblich: Dunklere Farben zeigen hohes Engagement, hellere Bereiche niedrigere Bewässerungsraten. Beim Überfahren mit der Maus erscheinen die genauen Zahlen – wie viele Bäume es gibt, wie viele gegossen wurden und der prozentuale Anteil.
 
-<span style="color: red;">Ich würde den folgenden Codeblock wegen seiner Größe aufteilen oder inline kommentieren</span>
 
 ````{dropdown} Code
 ```r
+  # Erstelle interaktive Leaflet-Karte mit Bezirksdaten
   output$map <- renderLeaflet({
     data_stats <- data_by_bezirk()
     
+    # Verbinde Bezirksgeometrien mit Statistiken, ersetze NA durch 0
     map_data <- berlin_bezirke_sf %>%
       left_join(data_stats, by = "bezirk") %>%
       mutate(
@@ -163,16 +164,18 @@ Jetzt entsteht die eigentliche Karte. Jeder Berliner Bezirk gestalten Sie farbli
         pct_watered = replace_na(pct_watered, 0)
       )
     
+    # Erstelle Farbskala: Blues-Palette basierend auf Bewässerungsanteil
     pal <- colorNumeric(
       palette = "Blues",
       domain = map_data$pct_watered,
       na.color = "transparent"
     )
     
+    # Baue Karte: Basiskarte + Bezirkspolygone + Legende
     leaflet(map_data) %>%
       addProviderTiles(providers$CartoDB.Positron) %>%
       addPolygons(
-        fillColor = ~pal(pct_watered),
+        fillColor = ~pal(pct_watered),  # Färbe Bezirke nach Bewässerungsanteil
         weight = 1,
         color = "white",
         opacity = 0.7,
@@ -184,6 +187,7 @@ Jetzt entsteht die eigentliche Karte. Jeder Berliner Bezirk gestalten Sie farbli
           fillOpacity = 0.9,
           bringToFront = TRUE
         ),
+        # Zeige Tooltip mit Bezirksnamen und Statistiken beim Hover
         label = ~lapply(
           paste0(
             "<b>", bezirk, "</b><br>",
@@ -201,6 +205,7 @@ Jetzt entsteht die eigentliche Karte. Jeder Berliner Bezirk gestalten Sie farbli
           direction = "auto"
         )
       ) %>%
+      # Füge Legende hinzu: erklärt Farbe = Bewässerungsanteil
       addLegend(
         position = "bottomright",
         pal = pal,
@@ -306,6 +311,7 @@ server <- function(input, output, session) {
   output$map <- renderLeaflet({
     data_stats <- data_by_bezirk()
     
+    # Verbinde Bezirksgeometrien mit Statistiken, ersetze NA durch 0
     map_data <- berlin_bezirke_sf %>%
       left_join(data_stats, by = "bezirk") %>%
       mutate(
@@ -314,16 +320,18 @@ server <- function(input, output, session) {
         pct_watered = replace_na(pct_watered, 0)
       )
     
+    # Erstelle Farbskala: Blues-Palette basierend auf Bewässerungsanteil
     pal <- colorNumeric(
       palette = "Blues",
       domain = map_data$pct_watered,
       na.color = "transparent"
     )
     
+    # Baue Karte: Basiskarte + Bezirkspolygone + Legende
     leaflet(map_data) %>%
       addProviderTiles(providers$CartoDB.Positron) %>%
       addPolygons(
-        fillColor = ~pal(pct_watered),
+        fillColor = ~pal(pct_watered),  # Färbe Bezirke nach Bewässerungsanteil
         weight = 1,
         color = "white",
         opacity = 0.7,
@@ -335,6 +343,7 @@ server <- function(input, output, session) {
           fillOpacity = 0.9,
           bringToFront = TRUE
         ),
+        # Zeige Tooltip mit Bezirksnamen und Statistiken beim Hover
         label = ~lapply(
           paste0(
             "<b>", bezirk, "</b><br>",
@@ -352,6 +361,7 @@ server <- function(input, output, session) {
           direction = "auto"
         )
       ) %>%
+      # Füge Legende hinzu: erklärt Farbe = Bewässerungsanteil
       addLegend(
         position = "bottomright",
         pal = pal,
