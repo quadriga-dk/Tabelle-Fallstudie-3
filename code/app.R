@@ -4,7 +4,6 @@
 
 library(shiny)
 library(shinydashboard)
-library(lubridate)
 library(leaflet)
 library(dplyr)
 library(htmltools)
@@ -13,7 +12,6 @@ library(sf)
 library(tidyr)
 library(ggplot2)
 library(plotly)
-library(nngeo)
 
 # Bezirksgrenzen laden (Falls Sie die Daten nicht haben, laden Sie sie zuerst aus 3.1 herunter)
 bezirksgrenzen <- st_read("data/bezirksgrenzen.geojson", quiet = TRUE)
@@ -25,6 +23,21 @@ df_merged <- read.csv2("data/df_merged_final.csv", fileEncoding = "UTF-8")
 berlin_bezirke_sf <- bezirksgrenzen %>%
   rename(bezirk = Gemeinde_name) %>%     # Spalte vereinheitlichen
   mutate(bezirk = str_to_title(bezirk))  # gleiche Schreibweise wie in df_merged
+
+# GLOBALE FARBPALETTE  - Einheitliches Farbschema für alle Grafiken
+GDK_PALETTE_BASE <- c(
+  "#3C6E97", "#6894B5", "#95BBD4", "#C8E0EF",
+  "#3E8395", "#67A7B6", "#98CBD6", "#D0EDF2",
+  "#508B71", "#7AB097", "#A5D2BC", "#D6EFE5",
+  "#4F626E", "#8D9FA9", "#B2C2CC", "#DCE6EB"
+  
+)
+
+GDK_ACCENT <- "#95BBD4"
+
+options(ggplot2.discrete.fill = function() scale_fill_manual(
+  values = colorRampPalette(GDK_PALETTE_BASE)(16)
+))
 
 # UI-Definition
 ui <- dashboardPage(
@@ -52,28 +65,33 @@ ui <- dashboardPage(
       # 5.2: Inhaltsbereich für Start
       tabItem(
         tabName = "start",
-        box(title = "Overview", status = "primary", solidHeader = TRUE, width = 12,
+        fluidRow(
+          box(width = 12,
+              # Label: Einfacher Text, Zahl hervorgehoben
+              div(style = "padding: 10px 15px 0 15px;",
+                  p(style = "font-size: 15px; margin-bottom: 2px;",
+                    "Gesamter Baumbestand in Berlin:"),
+                  span(style = "font-size: 28px; font-weight: bold; color: #3C6E97; margin-top: 0;",
+                    textOutput("total_trees_label"))
+              ),
+          
+              # Dropdown-Filter in voller Breite darüber
+              fluidRow(
+                column(width = 12,
+                       div(style = "padding: 10px 15px;", 
+                           selectInput("bezirk", "Bezirk auswählen (Mehrfachauswahl möglich):", 
+                                       choices = c("Alle Bezirke", sort(na.omit(unique(df_merged$bezirk)))), 
+                                       selected = "Alle Bezirke", multiple = TRUE)
+                       )
+                )
+              ),
             
-            div(style = "text-align: center; margin-top: 40px; margin-bottom: 30px;",
-                span(style = "font-size: 26px; font-weight: bold; color: #2d3436;", 
-                     textOutput("total_trees_label"))
-            ),
-            # Dropdown-Filter in voller Breite darüber
-            fluidRow(
-              column(width = 12,
-                     div(style = "padding: 10px 15px;", 
-                         selectInput("bezirk", "Bezirk auswählen (Mehrfachauswahl möglich):", 
-                                     choices = c("Alle Bezirke", sort(na.omit(unique(df_merged$bezirk)))), 
-                                     selected = "Alle Bezirke", multiple = TRUE)
-                     )
+              # Zwei dynamische Kacheln nebeneinander
+              fluidRow(
+                valueBoxOutput("total_trees_filtered", width = 6),
+                valueBoxOutput("total_tree_watered", width = 6)
               )
-            ),
-            
-            # Zwei dynamische Kacheln nebeneinander
-            fluidRow(
-              valueBoxOutput("total_trees_filtered", width = 6),
-              valueBoxOutput("total_tree_watered", width = 6)
-            )
+          )
         )
       ),
       # 5.3: Inhaltsbereich für die Karte
@@ -323,8 +341,7 @@ server <- function(input, output, session) {
   
   # Label 1: Gesamtzahl (Immer ganz Berlin)
   output$total_trees_label <- renderText({
-    anzahl <- formatC(n_distinct(df_merged$gisid), format = "d", big.mark = ".")
-    paste("Gesamter Baumbestand in Berlin:", anzahl, "Bäume")
+    formatC(n_distinct(df_merged$gisid), format = "d", big.mark = ".")
   })
   
   # Box 2: Gefilterte Zahl (Reagiert auf den Filter)
@@ -367,6 +384,7 @@ server <- function(input, output, session) {
   output$map <- renderLeaflet({
     data_stats <- data_by_bezirk()
     
+    # Verbinde Bezirksgeometrien mit Statistiken, ersetze NA durch 0
     map_data <- berlin_bezirke_sf %>%
       left_join(data_stats, by = "bezirk") %>%
       mutate(
@@ -375,16 +393,18 @@ server <- function(input, output, session) {
         pct_watered = replace_na(pct_watered, 0)
       )
     
+    # Erstelle Farbskala: Blues-Palette basierend auf Bewässerungsanteil
     pal <- colorNumeric(
       palette = "Blues",
       domain = map_data$pct_watered,
       na.color = "transparent"
     )
     
+    # Baue Karte: Basiskarte + Bezirkspolygone + Legende
     leaflet(map_data) %>%
       addProviderTiles(providers$CartoDB.Positron) %>%
       addPolygons(
-        fillColor = ~pal(pct_watered),
+        fillColor = ~pal(pct_watered),  # Färbe Bezirke nach Bewässerungsanteil
         weight = 1,
         color = "white",
         opacity = 0.7,
@@ -396,6 +416,7 @@ server <- function(input, output, session) {
           fillOpacity = 0.9,
           bringToFront = TRUE
         ),
+        # Zeige Tooltip mit Bezirksnamen und Statistiken beim Hover
         label = ~lapply(
           paste0(
             "<b>", bezirk, "</b><br>",
@@ -413,6 +434,7 @@ server <- function(input, output, session) {
           direction = "auto"
         )
       ) %>%
+      # Füge Legende hinzu: erklärt Farbe = Bewässerungsanteil
       addLegend(
         position = "bottomright",
         pal = pal,
@@ -496,53 +518,55 @@ server <- function(input, output, session) {
   
   # 1. Stacked Bar Chart - Baumverteilung mit Gattungen
   output$tree_distribution_stacked <- renderPlot({
+    n_gen <- input$top_n_species
+    
     top_genera <- df_merged %>%
-      filter(!is.na(gattung_deutsch)) %>%   
+      filter(!is.na(gattung_deutsch)) %>%
       count(gattung_deutsch, sort = TRUE) %>%
-      head(input$top_n_species) %>%
+      head(n_gen) %>%
       pull(gattung_deutsch)
     
     df_agg <- df_merged %>%
-      filter(!is.na(bezirk)) %>%  
-      mutate(gattung_grouped = ifelse(gattung_deutsch %in% top_genera, gattung_deutsch, "Sonstige")) %>%
+      filter(!is.na(bezirk)) %>%
+      mutate(gattung_grouped = ifelse(gattung_deutsch %in% top_genera,
+                                      gattung_deutsch, "Sonstige")) %>%
       group_by(bezirk, gattung_grouped) %>%
       summarise(count = n(), .groups = "drop") %>%
       group_by(bezirk) %>%
       mutate(percentage = count / sum(count) * 100) %>%
       ungroup()
     
-    df_agg$gattung_grouped <- factor(df_agg$gattung_grouped, 
+    df_agg$gattung_grouped <- factor(df_agg$gattung_grouped,
                                      levels = c(top_genera, "Sonstige"))
     
-    ggplot(df_agg, aes(x = reorder(bezirk, count, sum), y = count, fill = gattung_grouped)) +
-      geom_bar(stat = "identity", position = "stack", color = "white", size = 0.3) +
-      labs(
-        title = NULL,
-        x = "Bezirk",
-        y = "Anzahl Bäume",
-        fill = "Baumgattung"
-      ) +
+    # "Sonstige" bekommt Grau; Rest aus globaler Palette
+    fill_vals <- c(colorRampPalette(GDK_PALETTE_BASE)(n_gen), "#D3D3D3")
+    names(fill_vals) <- c(top_genera, "Sonstige")
+    
+    ggplot(df_agg, aes(x = reorder(bezirk, count, sum), y = count,
+                       fill = gattung_grouped)) +
+      geom_bar(stat = "identity", position = "stack", color = "white", linewidth = 0.3) +
+      scale_fill_manual(values = fill_vals, name = "Baumgattung") +
+      labs(x = "Bezirk", y = "Anzahl Bäume") +
       theme_light() +
-      theme(
-        axis.text.x = element_text(angle = 45, hjust = 1, size = 10),
-        legend.position = "right",
-        panel.grid.major.x = element_blank()
-      ) +
-      scale_fill_brewer(palette = "Set3")
+      theme(axis.text.x        = element_text(angle = 45, hjust = 1, size = 10),
+            legend.position    = "right",
+            panel.grid.major.x = element_blank())
   })
   
+  # Info button
   observeEvent(input$info_btn_bvnb, {
     showModal(modalDialog(
       title = "Information: Baumverteilung nach Bezirken",
       HTML("
-      <p>Diese Grafik zeigt die <strong>Gesamtanzahl und Zusammensetzung der Bäume</strong> in jedem Berliner Bezirk nach Gattung.</p>
-      <ul>
-        <li>Jeder Balken zeigt die Gesamtzahl der Bäume im Bezirk</li>
-        <li>Nutzen Sie den Slider, um mehr oder weniger Gattungen anzuzeigen</li>
-      </ul>
-    "),
-      easyClose = TRUE,
-      footer = modalButton("Schließen")
+        <p>Diese Grafik zeigt die <strong>Gesamtanzahl und Zusammensetzung der Bäume</strong>
+        in jedem Berliner Bezirk nach Gattung.</p>
+        <ul>
+          <li>Jeder Balken zeigt die Gesamtzahl der Bäume im Bezirk</li>
+          <li>Nutzen Sie den Slider, um mehr oder weniger Gattungen anzuzeigen</li>
+        </ul>
+      "),
+      easyClose = TRUE, footer = modalButton("Schließen")
     ))
   })
   
@@ -568,22 +592,26 @@ server <- function(input, output, session) {
         label = paste0(gattung_grouped, "\n", round(percentage, 1), "%")
       )
     
+    # new
+    n_slices  <- nrow(df_agg)
+    has_sonst <- "Sonstige" %in% df_agg$gattung_grouped
+    n_named   <- if (has_sonst) n_slices - 1 else n_slices
+    fill_vals <- c(colorRampPalette(GDK_PALETTE_BASE)(n_named),
+                   if (has_sonst) "#D3D3D3" else NULL)
+    names(fill_vals) <- df_agg$gattung_grouped
+    
     ggplot(df_agg, aes(x = "", y = count, fill = gattung_grouped)) +
-      geom_bar(stat = "identity", width = 1, color = "white", size = 0.5) +
+      geom_bar(stat = "identity", width = 1, color = "white", linewidth = 0.5) +
       coord_polar("y", start = 0) +
-      labs(
-        title = NULL,
-        fill = "Baumgattung"
-      ) +
+      scale_fill_manual(values = fill_vals, name = "Baumgattung") +
+      labs(title = NULL) +
       theme_void() +
-      theme(
-        legend.position = "right",
-        legend.text = element_text(size = 9)
-      ) +
-      scale_fill_brewer(palette = "Set3") +
-      geom_text(aes(label = ifelse(percentage > 3, paste0(round(percentage, 1), "%"), "")),
-                position = position_stack(vjust = 0.5),
-                color = "black")
+      theme(legend.position = "right",
+            legend.text     = element_text(size = 9)) +
+      geom_text(aes(label = ifelse(percentage > 3,
+                                   paste0(round(percentage, 1), "%"), "")),
+                position = position_stack(vjust = 0.5), color = "white",
+                fontface = "bold", size = 3.5)
   })
   
   observeEvent(input$info_btn_vdb, {

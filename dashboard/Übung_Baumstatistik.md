@@ -43,6 +43,7 @@ Damit soll die Grundlage geschaffen werden, zu verstehen, welche strukturellen F
 ---
 name: Dashboard Karte
 alt: Ein Screenshot, der zeigt Dashboard Karte
+width: 600px
 ---
 Baumverteilung nach Bezirken und Baumgattungen. Die Abbildung zeigt die Verteilung der Bäume in den Berliner Bezirken, aufgeschlüsselt nach Baumgattungen. Die Anzahl der Bäume ist für jeden Bezirk als gestapeltes Balkendiagramm dargestellt, wobei die einzelnen Farbsegmente unterschiedliche Baumgattungen repräsentieren. Über einen Schieberegler kann die Anzahl der angezeigten, häufigsten Baumgattungen (Top-N) interaktiv angepasst werden, während weniger häufige Gattungen unter „Sonstige“ zusammengefasst sind. (Quelle: eigene Ausarbeitung)
 ``` 
@@ -64,7 +65,7 @@ Das obenstehende Diagramm ist ein Kreisdiagramm (auch Tortendiagramm genannt), d
 ---
 name: Dashboard Karte
 alt: Ein Screenshot, der zeigt Dashboard Karte
-width: 650px
+width: 600px
 ---
 Top 10 gegossene Baumgattungen. Die Abbildung zeigt die Top 10 gegossenen Baumgattungen in Berlin in Form eines horizontalen Balkendiagramms. Über ein Auswahlfeld kann der betrachtete Bezirk festgelegt werden, wodurch sich die dargestellten Werte entsprechend anpassen. Die Balken repräsentieren die absolute Anzahl gegossener Bäume je Gattung, wobei die Linde mit deutlichem Abstand an erster Stelle steht, gefolgt von Ahorn (ca. 250.000) und weiteren Gattungen mit jeweils deutlich geringeren Werten. Die x-Achse zeigt die Anzahl gegossener Bäume, die y-Achse die Baumgattungen. (Quelle: eigene Ausarbeitung)
 ``` 
@@ -229,10 +230,12 @@ Das erste Diagramm soll zeigen, wie viele Bäume in jedem Bezirk stehen und welc
 ```r  
 # 1. Stacked Bar Chart - Baumverteilung mit Gattungen
   output$tree_distribution_stacked <- renderPlot({
+    n_gen <- input$top_n_species
+    
     top_genera <- df_merged %>%
       filter(!is.na(gattung_deutsch)) %>%   
       count(gattung_deutsch, sort = TRUE) %>%
-      head(input$top_n_species) %>%
+      head(n_gen) %>%
       pull(gattung_deutsch)
 ```
 ````
@@ -242,9 +245,10 @@ Das erste Diagramm soll zeigen, wie viele Bäume in jedem Bezirk stehen und welc
 
 **Top-Gattungen ermitteln:**
 
+- `n_gen <- input$top_n_species` – speichert den Slider-Wert in einer Variable
 - `filter(!is.na(gattung_deutsch))` – entfernt Bäume ohne Gattungsangabe
 - `count(gattung_deutsch, sort = TRUE)` – zählt jede Gattung und sortiert absteigend
-- `head(input$top_n_species)` – wählt die Top-N häufigsten Gattungen (über UI-Slider steuerbar)
+- `head(n_gen)` – wählt die Top-N häufigsten Gattungen (gesteuert durch die Variable `n_gen`)
 - `pull(gattung_deutsch)` – extrahiert die Gattungsnamen als Vektor
 
 Diese Gattungsliste verwenden Sie später, um alle anderen Gattungen als "Sonstige" zu kennzeichnen.
@@ -293,21 +297,21 @@ Mit den aggregierten Daten erstellen Sie nun das gestapelte Balkendiagramm, das 
     df_agg$gattung_grouped <- factor(df_agg$gattung_grouped, 
                                      levels = c(top_genera, "Sonstige"))
     
+    # "Sonstige" bekommt Grau; Rest aus globaler Palette
+    n_gen <- input$top_n_species
+    fill_vals <- c(colorRampPalette(GDK_PALETTE_BASE)(n_gen), "#D3D3D3")
+    names(fill_vals) <- c(top_genera, "Sonstige")
+    
     ggplot(df_agg, aes(x = reorder(bezirk, count, sum), y = count, fill = gattung_grouped)) +
-      geom_bar(stat = "identity", position = "stack", color = "white", size = 0.3) +
-      labs(
-        title = NULL,
-        x = "Bezirk",
-        y = "Anzahl Bäume",
-        fill = "Baumgattung"
-      ) +
+      geom_bar(stat = "identity", position = "stack", color = "white", linewidth = 0.3) +
+      scale_fill_manual(values = fill_vals, name = "Baumgattung") +
+      labs(x = "Bezirk", y = "Anzahl Bäume") +
       theme_light() +
       theme(
         axis.text.x = element_text(angle = 45, hjust = 1, size = 10),
         legend.position = "right",
         panel.grid.major.x = element_blank()
-      ) +
-      scale_fill_brewer(palette = "Set3")
+      )
   })
 
   # Info button
@@ -375,23 +379,26 @@ Das Kreisdiagramm soll die prozentuale Zusammensetzung der Baumgattungen zeigen 
         label = paste0(gattung_grouped, "\n", round(percentage, 1), "%")
       )
     
+    n_slices  <- nrow(df_agg)
+    has_sonst <- "Sonstige" %in% df_agg$gattung_grouped
+    n_named   <- if (has_sonst) n_slices - 1 else n_slices
+    fill_vals <- c(colorRampPalette(GDK_PALETTE_BASE)(n_named),
+                   if (has_sonst) "#D3D3D3" else NULL)
+    names(fill_vals) <- df_agg$gattung_grouped
+    
     ggplot(df_agg, aes(x = "", y = count, fill = gattung_grouped)) +
-      geom_bar(stat = "identity", width = 1, color = "white", size = 0.5) +
+      geom_bar(stat = "identity", width = 1, color = "white", linewidth = 0.5) +
       coord_polar("y", start = 0) +
-      labs(
-        title = NULL,
-        fill = "Baumgattung"
-      ) +
+      scale_fill_manual(values = fill_vals, name = "Baumgattung") +
+      labs(title = NULL) +
       theme_void() +
       theme(
         legend.position = "right",
         legend.text = element_text(size = 9)
       ) +
-      scale_fill_brewer(palette = "Set3") +
       geom_text(aes(label = ifelse(percentage > 3, paste0(round(percentage, 1), "%"), "")),
-                position = position_stack(vjust = 0.5),
-                size = 3,
-                color = "black")
+                position = position_stack(vjust = 0.5), color = "white",
+                fontface = "bold", size = 3.5)
   })
 
   # Info button
@@ -433,7 +440,8 @@ Das Kreisdiagramm soll die prozentuale Zusammensetzung der Baumgattungen zeigen 
 **Kreisdiagramm erstellen:**
 
 - `coord_polar("y", start = 0)` – wandelt ein Balkendiagramm in ein Kreisdiagramm um
-- `geom_text(...)` – fügt Prozentangaben hinzu (nur bei Segmenten > 3%)
+- `scale_fill_manual(values = fill_vals, name = "Baumgattung")` – nutzt die globale Farbpalette für konsistentes Design
+- `geom_text(...)` – fügt Prozentangaben hinzu (nur bei Segmenten > 3%), weiß und fett formatiert
 - `theme_void()` – entfernt Achsen und Gitter für eine klare Darstellung
 
 Das Kreisdiagramm zeigt intuitiv, welche Gattungen den Baumbestand dominieren – ideal für schnelle Vergleiche zwischen Bezirken.
@@ -741,10 +749,12 @@ server <- function(input, output, session) {
   
   # 1. Stacked Bar Chart - Baumverteilung mit Gattungen
   output$tree_distribution_stacked <- renderPlot({
+    n_gen <- input$top_n_species
+    
     top_genera <- df_merged %>%
       filter(!is.na(gattung_deutsch)) %>%   
       count(gattung_deutsch, sort = TRUE) %>%
-      head(input$top_n_species) %>%
+      head(n_gen) %>%
       pull(gattung_deutsch)
       
     df_agg <- df_merged %>%
@@ -759,21 +769,20 @@ server <- function(input, output, session) {
     df_agg$gattung_grouped <- factor(df_agg$gattung_grouped, 
                                      levels = c(top_genera, "Sonstige"))
     
+    # "Sonstige" bekommt Grau; Rest aus globaler Palette
+    fill_vals <- c(colorRampPalette(GDK_PALETTE_BASE)(input$top_n_species), "#D3D3D3")
+    names(fill_vals) <- c(top_genera, "Sonstige")
+    
     ggplot(df_agg, aes(x = reorder(bezirk, count, sum), y = count, fill = gattung_grouped)) +
-      geom_bar(stat = "identity", position = "stack", color = "white", size = 0.3) +
-      labs(
-        title = NULL,
-        x = "Bezirk",
-        y = "Anzahl Bäume",
-        fill = "Baumgattung"
-      ) +
+      geom_bar(stat = "identity", position = "stack", color = "white", linewidth = 0.3) +
+      scale_fill_manual(values = fill_vals, name = "Baumgattung") +
+      labs(x = "Bezirk", y = "Anzahl Bäume") +
       theme_light() +
       theme(
         axis.text.x = element_text(angle = 45, hjust = 1, size = 10),
         legend.position = "right",
         panel.grid.major.x = element_blank()
-      ) +
-      scale_fill_brewer(palette = "Set3")
+      )
   })
 
   observeEvent(input$info_btn_bvnb, {
@@ -813,22 +822,26 @@ server <- function(input, output, session) {
         label = paste0(gattung_grouped, "\n", round(percentage, 1), "%")
       )
     
+    n_slices  <- nrow(df_agg)
+    has_sonst <- "Sonstige" %in% df_agg$gattung_grouped
+    n_named   <- if (has_sonst) n_slices - 1 else n_slices
+    fill_vals <- c(colorRampPalette(GDK_PALETTE_BASE)(n_named),
+                   if (has_sonst) "#D3D3D3" else NULL)
+    names(fill_vals) <- df_agg$gattung_grouped
+    
     ggplot(df_agg, aes(x = "", y = count, fill = gattung_grouped)) +
-      geom_bar(stat = "identity", width = 1, color = "white", size = 0.5) +
+      geom_bar(stat = "identity", width = 1, color = "white", linewidth = 0.5) +
       coord_polar("y", start = 0) +
-      labs(
-        title = NULL,
-        fill = "Baumgattung"
-      ) +
+      scale_fill_manual(values = fill_vals, name = "Baumgattung") +
+      labs(title = NULL) +
       theme_void() +
       theme(
         legend.position = "right",
         legend.text = element_text(size = 9)
       ) +
-      scale_fill_brewer(palette = "Set3") +
       geom_text(aes(label = ifelse(percentage > 3, paste0(round(percentage, 1), "%"), "")),
-                position = position_stack(vjust = 0.5),
-                color = "black")
+                position = position_stack(vjust = 0.5), color = "white",
+                fontface = "bold", size = 3.5)
   })
 
   observeEvent(input$info_btn_vdb, {

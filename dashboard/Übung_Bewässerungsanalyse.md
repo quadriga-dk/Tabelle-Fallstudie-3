@@ -35,6 +35,7 @@ Welche Geschichte erzählen die Daten, wenn man Liter statt Baumanzahl betrachte
 ---
 name: Dashboard Karte
 alt: Ein Screenshot, der zeigt Dashboard Karte
+width: 600px
 ---
 Balkendiagramm zur Bewässerung pro Bezirk (2020–2024). Die Abbildung zeigt die aggregierte Bewässerungsmenge in Millionen Litern für die einzelnen Berliner Bezirke im Zeitraum von 2020 bis 2024. Auf der x-Achse sind die Bezirke dargestellt, während die y-Achse die gesamte Bewässerungsmenge angibt. Das Diagramm ermöglicht einen direkten Vergleich der Bewässerungsintensität zwischen den Bezirken. (Quelle: eigene Ausarbeitung)
 ```
@@ -43,7 +44,7 @@ Balkendiagramm zur Bewässerung pro Bezirk (2020–2024). Die Abbildung zeigt di
 ---
 name: Dashboard Karte
 alt: Ein Screenshot, der zeigt Dashboard Karte
-width: 700px
+width: 600px
 ---
 Durchschnittliche Bewässerungsmenge pro gegossenem Baum nach Bezirk. Die Abbildung zeigt die durchschnittliche Bewässerungsmenge pro gegossenem Baum in Litern für die einzelnen Berliner Bezirke. Auf der x-Achse sind die Bezirke dargestellt, während die y-Achse die durchschnittliche Bewässerungsmenge pro Baum angibt. Das Balkendiagramm verdeutlicht Unterschiede in der Bewässerungsintensität zwischen den Bezirken. (Quelle: eigene Ausarbeitung)
 ``` 
