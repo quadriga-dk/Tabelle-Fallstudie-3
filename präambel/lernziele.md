@@ -14,9 +14,9 @@ Diese Fallstudie fokussiert Dashboards als Mittel der Visualisierung von Daten f
 Mit dem Durchlaufen dieses Jupyter Books können Sie die folgenden Lernziele erreichen:
 
 <!-- START: Fragestellung und Operationalisierung -->
-```{admonition} [Lernziel: Formulieren der Forschungsfrage und Operationalisieren des Verfahrens](frage-operationalisierung)
+```{admonition} [Lernziel: Formulieren der Leitfrage und Operationalisieren des Verfahrens](frage-operationalisierung)
 :class: lernziele
-<!-- learning-goal: Formulieren der Forschungsfrage und Operationalisieren des Verfahrens -->
+<!-- learning-goal: Formulieren der Leitfrage und Operationalisieren des Verfahrens -->
 1. Sie können die Entwicklung einer Fragestellung in der Verwaltungswissenschaft am Beispiel der Ausprägungen des Engagements von Bürger:innen erläutern.
 <!-- competency: nicht anwendbar | bloom: 2 Verstehen -->
 ```
