@@ -318,7 +318,7 @@ Der Info-Button im Diagramm-Titel öffnet ein erläuterndes Pop-up-Fenster, das 
 - `modalButton("Schließen")` – fügt einen Schließen-Button hinzu
 ````
 
-### Kritische Diskussion
+## Reflexion
 Der dargestellte Trend der Bewässerungsmenge je Pflanzjahr zeigt zwar über den gesamten Zeitraum betrachtet einen **grundsätzlich steigenden Verlauf**, allerdings lässt sich **kein klar lineares oder systematisches Muster** erkennen. Stattdessen wirkt der Verlauf stark **heterogen**, mit ausgeprägten Spitzen und Einbrüchen in einzelnen Jahrgängen.
 
 Diese Ausschläge sprechen eher dafür, dass **strukturelle Eigenschaften der Bäume** – wie Alter, Größe und Wasserbedarf – eine wesentlich größere Rolle spielen als der zeitliche Trend selbst. Insbesondere wird sichtbar, dass **jüngere Bäume**, also jene mit einem **neueren Pflanzjahr**, deutlich häufiger und intensiver gegossen werden. Das deckt sich mit den fachlichen Erwartungen:
@@ -482,6 +482,39 @@ server <- function(input, output, session) {
 shinyApp(ui = ui, server = server)
 ```
 ````
+### Übung 
+
+Bei der gewählten Form der Darstellung handelt es sich um ein klassisches **Liniendiagramm (Line Graph)**. 
+
+Laut dem [*Data Visualization Catalogue*] (https://datavizcatalogue.com/methods/line_graph.html) eignen sich Liniendiagramme gut, um quantitative Werte über ein kontinuierliches Intervall oder einen bestimmten Zeitraum darzustellen. Sie werden am häufigsten eingesetzt, um **Trends aufzuzeigen** und zu analysieren, wie sich Daten über die Zeit verändert haben. 
+
+Die visuelle Stärke dieser Darstellung liegt in ihrer einfachen Lesbarkeit:
+* Ein Aufwärtstrend (steigende Linie) zeigt intuitiv eine Zunahme der Werte (in unserem Fall: mehr gegossene Liter für bestimmte Pflanzjahre).
+* Ein Abwärtstrend (fallende Linie) signalisiert eine Abnahme.
+* Der gesamte Verlauf der Linie über das Diagramm hinweg erzeugt Muster, die verborgene Trends innerhalb eines Datensatzes sichtbar machen.
+
+Unser Diagramm nutzt auf der y-Achse den quantitativen Wert (die aggregierte Wassermenge in Litern) und auf der x-Achse eine chronologische Abfolge (die Pflanzjahre), was exakt den Best Practices für Liniendiagramme entspricht. 
+
+Das Liniendiagramm ist jedoch nicht die einzige Möglichkeit, Daten über einen bestimmten Zeitraum hinweg darzustellen. Es gibt viele weitere Visualisierungsmethoden, die speziell darauf ausgelegt sind, Veränderungen im Zeitverlauf zu kommunizieren. 
+
+Nutzen Sie den [Data Visualization Catalogue](https://datavizcatalogue.com/search/over_time.html) (Filter: "Search by Function" > "Over Time"), um alternative Darstellungsformen zu recherchieren. 
+
+*Beispiele für solche Alternativen sind:*
+* **Area Graph** (Flächendiagramm)
+* **Bar Chart** (Säulendiagramm)
+* **Candlestick Chart** (Kerzendiagramm)
+* ... und viele mehr.
+
+Überlegen Sie sich, welche dieser Alternativen sich ebenfalls für die Darstellung unserer Bewässerungsdaten eignen könnten und wo deren Vor- und Nachteile gegenüber dem klassischen Liniendiagramm liegen.
+
+```{code-cell} ipython3
+:tags: [remove-input]
+import sys
+sys.path.append("../quadriga")
+from assessment import create_answer_box
+
+create_answer_box('linegraph-alternativen-1')
+```
 
 ### Überleitung zum nächsten Analyse-Schritt
 
