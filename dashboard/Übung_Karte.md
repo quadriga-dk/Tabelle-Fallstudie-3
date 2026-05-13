@@ -244,17 +244,6 @@ Mit Farbskalen wie colorNumeric() können Bezirke automatisch nach Kennzahlen ei
 
 ````
 
-Durch die Bezirkskarte erhalten Sie erstmals einen **räumlichen Überblick** darüber, in welchen Berliner Bezirken besonders viele Bäume gegossen wurden. Die Visualisierung zeigt deutlich, dass **Friedrichshain-Kreuzberg** den höchsten Anteil bewässerter Bäume aufweist, dicht gefolgt von **Mitte**. Damit beantwortet die Karte bereits einen wichtigen Teil der Leitfrage:
-**Wo engagieren sich Bürger:innen besonders häufig beim Gießen der Straßenbäume?**
-
-Seien Sie sich jedoch bewusst, dass diese Darstellung nur einen Teil der Realität zeigt. Die Karte unterscheidet zwar zwischen *bewässert* und *nicht bewässert*, doch sie berücksichtigt nicht, **wie viel Wasser** tatsächlich in den Bezirken geflossen ist. Ein Baum, der einmal mit 5 Litern begossen wurde, gilt genauso als „bewässert“ wie ein Baum, der über Wochen hinweg hunderte Liter erhalten hat – und genau dieser Unterschied ist für eine belastbare Bewertung des Gießverhaltens entscheidend.
-
-Daher führen Sie die Analyse im nächsten Schritt weiter und widmen sich einer differenzierteren Betrachtung:
-**Wie viele Liter wurden tatsächlich pro Bezirk gegossen – absolut und im Verhältnis zur Gesamtzahl der Bäume?**
-
-Diese „Bewässerungsanalyse“ bildet die Grundlage der dritten Übung. Sie ermöglicht es, nicht nur die Häufigkeit, sondern auch die **Intensität des Gießens** zu messen und damit ein vollständigeres Bild des Engagements der Bürger:innen zu erhalten.
-
-
 ````{admonition} Gesamter Code für diesen Schritt
 :class: solution, dropdown
 
@@ -371,6 +360,69 @@ server <- function(input, output, session) {
       )
   })
 }
+
+## Reflexion
+
+Durch die Bezirkskarte erhalten Sie erstmals einen **räumlichen Überblick** darüber, in welchen Berliner Bezirken besonders viele Bäume gegossen wurden. Die Visualisierung zeigt deutlich, dass **Friedrichshain-Kreuzberg** den höchsten Anteil bewässerter Bäume aufweist, dicht gefolgt von **Mitte**. Damit beantwortet die Karte bereits einen wichtigen Teil der Leitfrage:
+**Wo engagieren sich Bürger:innen besonders häufig beim Gießen der Straßenbäume?**
+
+### Übung
+
+Doch war die Choroplethenkarte wirklich die bestemögliche Entscheidung? Die Plattform [The Data Visualization Catalogue](https://datavizcatalogue.com/methods/choropleth.html) listet hierzu folgende Vor- und Nachteile auf:
+
+Doch war die Choroplethenkarte wirklich die bestmögliche Entscheidung? Die Plattform [The Data Visualization Catalogue](https://datavizcatalogue.com/methods/choropleth.html) listet hierzu folgende Vor- und Nachteile auf:
+
+| Vorteile | Nachteile |
+| :--- | :--- |
+| **Visualisierung von räumlichen Verteilungen:** Sie bieten eine Möglichkeit, Werte über ein geografisches Gebiet hinweg zu visualisieren und so Muster oder Variationen innerhalb eines Ortes aufzuzeigen. | **Ungenaues Ablesen:** Man kann spezifische Datenwerte nicht genau ablesen oder präzise miteinander vergleichen, wenn man sich nur auf die Farbschattierungen verlässt. |
+| **Klare Farbabstufungen:** Sie nutzen Farbverläufe (wie hell zu dunkel oder ineinander übergehende Farbtöne) effektiv, um Datenvariablen in den verschiedenen Regionen darzustellen. | **Flächenverzerrung (Area Bias):** Größere geografische Regionen wirken visuell dominanter als kleinere. Das verzerrt die Wahrnehmung des Betrachters für die eigentlichen Werte, die durch die Farbe dargestellt werden. |
+| | **Gefahr von methodischen Fehlern:** Es passiert schnell, dass fälschlicherweise absolute Rohdaten (wie die Gesamtbevölkerung) anstelle von korrekt normalisierten Werten (wie der Bevölkerungsdichte) dargestellt werden. |
+
+Gehen Sie nun auf die [Startseite](https://datavizcatalogue.com/index.html) der oben genannten Ressource. Dort finden Sie einen Katalog an unterschiedlichsten Visualieriungsmöglichkeiten für Daten. Wenn Sie über das Feld *"Search by Function"* nach *"Location"* filtern, werden Ihnen weitere Darstellungsmöglichkeiten angezeigt:
+
+```{figure} assets/Data_Viz_Cat.png
+---
+name: Selection of map visualisations
+alt: Screenshot from datavizcatalogue.com
+---
+Auswahl an Kartenvisualisierungen
+``` 
+
+*Übung*
+
+Arbeiten Sie die Vor- und Nachteile der vorgeschlagenen Alternativen aus und formulieren Vergleichen Sie diese mit der Chorolethenkarte:
+
+```{code-cell} ipython3
+:tags: [remove-input]
+import sys
+sys.path.append("../quadriga")
+from assessment import create_answer_box
+
+create_answer_box('choropleth-vergleich-1')
+```
+````{admonition} Lösungshinweise
+:class: solution, dropdown
+
+**Musterlösung:**
+
+*1. Bubble Map (Blasendiagramm-Karte):* Der entscheidende Vorteil gegenüber der Choroplethenkarte ist, dass die Flächenverzerrung ("Area Bias") komplett vermieden wird. Die Größe der Kreise hängt rein vom Datenwert ab, sodass kleine Bezirke mit hohen Werten nicht mehr optisch untergehen. Ein Nachteil ist jedoch, dass sich bei sehr hohen Werten große Blasen überlappen und benachbarte Regionen oder andere Datenpunkte verdecken können.
+
+*2. Connection Map (Verbindungskarte):* Diese Visualisierung ist hervorragend geeignet, um geografische Beziehungen, Netzwerke oder Routen aufzuzeigen. Für den reinen Vergleich von Mengen pro Bezirk (wie es die Choroplethenkarte tut) ist sie allerdings ungeeignet, da ihr Fokus auf der Verbindung zwischen Punkten liegt und nicht auf lokalen Summen.
+
+*3. Dot Map (Punktdichtekarte / Punktkarte):* Diese Form eignet sich um die tatsächliche räumliche Verteilung oder Ballungen (Cluster) von Daten intuitiv darzustellen, ohne von Bezirksgrößen abgelenkt zu werden. Ein Nachteil, den sie mit der Choroplethenkarte teilt, ist jedoch, dass sie eher einen guten Überblick liefert, sich exakte Zahlenwerte aber nur sehr schwer ablesen lassen.
+
+*4. Flow Map (Flusskarte):* Diese Karte punktet bei der Darstellung von Bewegungen (z. B. Migration, Warenfluss), wobei die Liniendicke die transportierte Menge anzeigt. Ein Nachteil ist die Gefahr der visuellen Überladung durch zu viele sich kreuzende Linien. Ähnlich wie die Connection Map ist sie als Alternative zur Choroplethenkarte für statische Bestandszählungen völlig unpassend.
+
+Trotz der Flächenverzerrung ist die Choroplethenkarte für dieses Dashboard der beste Kompromiss: Sie rückt den Bezirk als administrative Vergleichseinheit visuell klar in den Fokus und ist übersichtlicher als Punktekarten mit abertausenden Bäumen. Die Bubble map hingegen wäre eine gute Alternative, sofern sich die Blasen nicht visuell überschneiden.
+````
+
+Seien Sie sich jedoch bewusst, dass diese Darstellung nur einen Teil der Realität zeigt. Die Karte unterscheidet zwar zwischen *bewässert* und *nicht bewässert*, doch sie berücksichtigt nicht, **wie viel Wasser** tatsächlich in den Bezirken geflossen ist. Ein Baum, der einmal mit 5 Litern begossen wurde, gilt genauso als „bewässert“ wie ein Baum, der über Wochen hinweg hunderte Liter erhalten hat – und genau dieser Unterschied ist für eine belastbare Bewertung des Gießverhaltens entscheidend.
+
+Daher führen Sie die Analyse im nächsten Schritt weiter und widmen sich einer differenzierteren Betrachtung:
+**Wie viele Liter wurden tatsächlich pro Bezirk gegossen – absolut und im Verhältnis zur Gesamtzahl der Bäume?**
+
+Diese „Bewässerungsanalyse“ bildet die Grundlage der dritten Übung. Sie ermöglicht es, nicht nur die Häufigkeit, sondern auch die **Intensität des Gießens** zu messen und damit ein vollständigeres Bild des Engagements der Bürger:innen zu erhalten.
+
 
 shinyApp(ui = ui, server = server)
 ```
