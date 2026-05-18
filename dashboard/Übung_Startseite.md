@@ -643,13 +643,15 @@ Für die Startseite heißt das vor allem:
 
 - **Kontext**: Kurze Hinweise oder Legenden, damit die Zahlen richtig interpretiert werden können.
 
-## Leitfrage und Ausblick
+## Reflexion
 
 Die zentrale Leitfrage von Ihrer Fallstudie lautet: **Wo ist das höchste Bürgerengagement?**
 
 Die Startseite des Dashboards ermöglicht einen ersten Überblick darüber, in welchen Bezirken absolut gesehen die meisten Bäume gegossen wurden. In absoluten Zahlen zeigt sich dabei das höchste Engagement bei den Bürger:innen in **Mitte**, gefolgt von **Tempelhof-Schöneberg** und **Charlottenburg-Wilmersdorf**. Für eine abschließende Beantwortung der Leitfrage reicht diese Betrachtung jedoch nicht aus, da ohne Normalisierung – etwa durch das Verhältnis gegossener Bäume zur Gesamtbaumzahl je Bezirk – keine validen Vergleiche zwischen den Bezirken gezogen werden können. 
 
-**Übung:**
+### Übung
+An dieser Stelle können Sie Ihre bisher erlernten R-Fähigkeiten anwenden. Anstatt sich die Kennzahlen aus dem Dashboard rauszuschreiben und die Berechnungne mit einem Taschenrechener oder Excel durchzuführen, schreiben Sie doch ein kleines R-Script, welches diese Aufgabe erledigt. Sobald Sie das richtige Ergebnis berechnet haben, können Sie es unten im Quiz auswählen. Vergessen Sie hierbei nicht, wie bereits in vorherigen Kapiteln gezeigt, das Arbeitsverzeichnis korrekt zu setzen und die bereinigten Daten aus dem Datenverzeichnis auszulesen.
+
 ```{code-cell} ipython3
 :tags: [remove-input]
 from jupyterquiz import display_quiz
@@ -688,6 +690,26 @@ question = [
 ]
 display_quiz(question, colors=colors.jupyterquiz)
 ```
+
+
+````{admonition} Lösungsvorschlag
+:class: hinweis, dropdown
+library(dplyr)
+
+# 1. Lade die Daten
+df_merged <- read.csv2("data/df_merged_final.csv", fileEncoding = "UTF-8")
+
+# 2. Berechne den Bezirk mit der höchsten Gieß-Quote
+top_bezirk <- df_merged %>%
+  group_by(bezirk) %>%
+  summarise(ratio = n_distinct(gisid[!is.na(timestamp)]) / n_distinct(gisid)) %>%
+  slice_max(ratio, n = 1)
+
+# 3. Ergebnis anzeigen
+print(top_bezirk)
+```r
+```
+````
 
 <br>
 Damit ist die Leitfrage zwar beantwortet, jedoch nicht die **Geschichten hinter den Zahlen**.
