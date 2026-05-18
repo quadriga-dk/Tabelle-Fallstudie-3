@@ -620,6 +620,8 @@ Diese Visualisierung zeigt, welche Baumgattungen am häufigsten gegossen wurden.
 Diese Visualisierung macht sichtbar, welche Gattungen die meiste Aufmerksamkeit erhalten – allerdings korreliert dies stark mit der Verbreitung der jeweiligen Gattung im Stadtbild.
 ````
 
+##Reflexion 
+
 ### Kritische Diskussion
 
 Die Analyse zeigt deutlich, dass bestimmte Baumgattungen besonders oft im Berliner Baumbestand vorkommen. **Ahorn, Linde und Eiche machen berlinweit gemeinsam rund 57,4 % aller Straßenbäume aus**, wohingegen sich alle anderen Baumgattungen 42,6% teilen. Das bedeutet, dass viele Muster der Verteilung zwangsläufig von dieser einen Gattung geprägt werden. Die Betrachtung der Gattungen ist daher zwar interessant, besitzt jedoch **nur begrenzte Aussagekraft**, da sie strukturelle Eigenheiten der Berliner Bepflanzung widerspiegelt und weniger das Verhalten der Bürgerinnen und Bürger.
@@ -971,7 +973,19 @@ server <- function(input, output, session) {
 shinyApp(ui = ui, server = server)
 ```
 ````
+### Übung
 
+Auf dieser Seite wurde sich für mehrere Balkendiagramme und ein Kreisdiagramms entschieden. Dies sind Visualisierungsmethoden, die dabei helfen, die Unterschiede oder Gemeinsamkeiten zwischen Werten aufzuzeigen. Ein Unterschied zwischen diesen beiden Darstellungsformen ist, dass das Kreisdiagramm zu den Visualisierungen ohne Axenvergleich gehört. Das heißt, dass der Kreis selbst als Vergleichsmetrik zur Gesamtheit dient. Bitte schauen Sie sich auf der nachfolgende [Seite](https://datavizcatalogue.com/search/comparisons.html) Visualisierungsmethoden an, die alternativ aufzeigen, wie man Unterschiede oder Gemeinsamkeiten zwischen Werten darstellen kann. Dort wird auch in Visualisierungsmethoden mit und ohne Axenvergleich unterteilt Präferieren Sie unsere Visualisierungen oder würden Sie eine andere wählen? Mit welchen Argumenten?
+
+```{code-cell} ipython3
+:tags: [remove-input]
+import sys
+sys.path.append("../quadriga")
+from assessment import create_answer_box
+
+create_answer_box('baumstatistik-verlauf')
+```
+ 
 ### Überleitung zum nächsten Analyse-Schritt
 
 Da Sie nun gesehen haben, dass die Baumdichte und räumliche Gegebenheiten relevanter für das Engagement sein könnten als rein baumbiologische Aspekte (wie die Gattung), sollten Sie sich im nächsten Schritt noch konkreter ansehen, welche Rolle urbane Infrastruktur spielt. Eine naheliegende Hypothese: Bäume, die näher an Wasserpumpen stehen, werden häufiger gegossen. Darum dreht sich das nächste Kapitel.

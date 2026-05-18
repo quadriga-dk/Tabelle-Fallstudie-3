@@ -370,8 +370,6 @@ Durch die Bezirkskarte erhalten Sie erstmals einen **räumlichen Überblick** da
 
 Doch war die Choroplethenkarte wirklich die bestemögliche Entscheidung? Die Plattform [The Data Visualization Catalogue](https://datavizcatalogue.com/methods/choropleth.html) listet hierzu folgende Vor- und Nachteile auf:
 
-Doch war die Choroplethenkarte wirklich die bestmögliche Entscheidung? Die Plattform [The Data Visualization Catalogue](https://datavizcatalogue.com/methods/choropleth.html) listet hierzu folgende Vor- und Nachteile auf:
-
 | Vorteile | Nachteile |
 | :--- | :--- |
 | **Visualisierung von räumlichen Verteilungen:** Sie bieten eine Möglichkeit, Werte über ein geografisches Gebiet hinweg zu visualisieren und so Muster oder Variationen innerhalb eines Ortes aufzuzeigen. | **Ungenaues Ablesen:** Man kann spezifische Datenwerte nicht genau ablesen oder präzise miteinander vergleichen, wenn man sich nur auf die Farbschattierungen verlässt. |
