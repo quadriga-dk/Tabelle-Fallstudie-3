@@ -693,8 +693,8 @@ display_quiz(question, colors=colors.jupyterquiz)
 
 
 ````{admonition} Lösungsvorschlag
-```r
 :class: hinweis, dropdown
+```r
 library(dplyr)
 
 # 1. Lade die Daten
