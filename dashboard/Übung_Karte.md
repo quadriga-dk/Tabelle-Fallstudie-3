@@ -381,7 +381,7 @@ Doch war die Choroplethenkarte wirklich die bestemögliche Entscheidung? Die Pla
 
 Gehen Sie nun auf die [Startseite](https://datavizcatalogue.com/index.html) der oben genannten Ressource. Dort finden Sie einen Katalog an unterschiedlichsten Visualieriungsmöglichkeiten für Daten. Wenn Sie über das Feld *"Search by Function"* nach *"Location"* filtern, werden Ihnen weitere Darstellungsmöglichkeiten angezeigt:
 
-```{figure} assets/Data_Viz_Cat.png
+```{figure} ../assets/Data_Viz_Cat.png
 ---
 name: Selection of map visualisations
 alt: Screenshot from datavizcatalogue.com
