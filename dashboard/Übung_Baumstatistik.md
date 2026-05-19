@@ -995,4 +995,4 @@ create_answer_box('baumstatistik-verlauf')
  
 ### Überleitung zum nächsten Analyse-Schritt
 
-Da Sie nun gesehen haben, dass die Baumdichte und räumliche Gegebenheiten relevanter für das Engagement sein könnten als rein baumbiologische Aspekte (wie die Gattung), sollten Sie sich im nächsten Schritt noch konkreter ansehen, welche Rolle urbane Infrastruktur spielt. Eine naheliegende Hypothese: Bäume, die näher an Wasserpumpen stehen, werden häufiger gegossen. Darum dreht sich das nächste Kapitel.
+Sie haben nun gesehen, dass die Baumdichte und räumliche Gegebenheiten relevanter für das Engagement sein könnten als rein baumbiologische Aspekte (wie die Gattung). Sie haben jedoch vielleicht schon gemerkt, dass wir stets nur die Anzahl an gegeossenen Bäumen mit dem Bürgerengagement gleichstellen. Warum dies ein Problem dartsellen könnte, werden Sie im nächsten Kapitel herausfinden.

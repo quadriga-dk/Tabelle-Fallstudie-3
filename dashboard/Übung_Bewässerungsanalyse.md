@@ -360,17 +360,6 @@ Die Wahl der Messgröße – „Wie viel Wasser insgesamt?“ vs. „Wie viel Wa
 Damit wird ein zentrales analytisches Prinzip deutlich:
 **Daten sind nicht neutral – die Art ihrer Aufbereitung formt das Narrativ.**
 
-Die Erkenntnis, dass unterschiedliche Kennzahlen zu unterschiedlichen Ergebnissen führen, macht deutlich, dass Engagement und Bewässerungsmuster nicht allein durch Bezirksvergleiche erklärbar sind. Um ein umfassenderes Bild zu erhalten, müssen Sie zusätzlich berücksichtigen, **wie sich Bewässerung über die Zeit entwickelt** und wie **die Baumstruktur in den Bezirken aussieht**.
-
-In den nächsten beiden Reitern werden diese Perspektiven vertieft:
-
-- Im **Zeitverlauf** betrachten Sie, wie sich Bewässerungsaktivität über Monate und Jahre verändert – und ob sich saisonale Muster, Hitzewellen oder langfristige Trends erkennen lassen.
-
-- In der **Baumstatistik** analysieren Sie die Zusammensetzung des Baumbestands: Alter, Gattung, Verteilung im Stadtraum und deren potenzieller Einfluss auf Bewässerungsbedarfe.
-
-Damit erweitern Sie die Analyse von einer rein mengenbasierten Betrachtung hin zu einem Verständnis, das **räumliche**, **zeitliche** und **ökologische Faktoren** integriert.
-
-
 ````{admonition} Gesamter Code für diesen Schritt
 :class: solution, dropdown
 

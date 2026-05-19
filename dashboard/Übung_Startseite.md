@@ -12,7 +12,10 @@ kernelspec:
 
 (landing-page)=
 # Eine Startseite gestalten
-
+```{admonition} Story
+:class: story
+Nachdem Amir Weber sich die notwedigen Grundkenntnisse angeeignet hat, geht er zur Implementieren des Dashboards über.
+```
 
 ```{admonition} Zweck dieser Übung 
 :class: lernziele
