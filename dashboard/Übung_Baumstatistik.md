@@ -620,7 +620,7 @@ Diese Visualisierung zeigt, welche Baumgattungen am häufigsten gegossen wurden.
 Diese Visualisierung macht sichtbar, welche Gattungen die meiste Aufmerksamkeit erhalten – allerdings korreliert dies stark mit der Verbreitung der jeweiligen Gattung im Stadtbild.
 ````
 
-##Reflexion 
+## Reflexion 
 
 ### Kritische Diskussion
 
@@ -980,10 +980,9 @@ Auf dieser Seite wurde sich für mehrere Balkendiagramme und ein Kreisdiagramms 
 ```{code-cell} ipython3
 :tags: [remove-input]
 import sys
-from IPython.display import display
 sys.path.append("..")
 from quadriga.assessment import create_answer_box
-display(create_answer_box('baumstatistik-verlauf'))
+create_answer_box('baumstatistik-verlauf')
 ```
  
 ### Überleitung zum nächsten Analyse-Schritt
