@@ -369,8 +369,6 @@ shinyApp(ui = ui, server = server)
 Durch die Bezirkskarte erhalten Sie erstmals einen **räumlichen Überblick** darüber, in welchen Berliner Bezirken besonders viele Bäume gegossen wurden. Die Visualisierung zeigt deutlich, dass **Friedrichshain-Kreuzberg** den höchsten Anteil bewässerter Bäume aufweist, dicht gefolgt von **Mitte**. Damit beantwortet die Karte bereits einen wichtigen Teil der Leitfrage:
 **Wo engagieren sich Bürger:innen besonders häufig beim Gießen der Straßenbäume?**
 
-### Übung
-
 Doch war die Choroplethenkarte wirklich die bestemögliche Entscheidung? Die Plattform [The Data Visualization Catalogue](https://datavizcatalogue.com/methods/choropleth.html) listet hierzu folgende Vor- und Nachteile auf:
 
 | Vorteile | Nachteile |
@@ -389,7 +387,7 @@ alt: Screenshot from datavizcatalogue.com
 Auswahl an Kartenvisualisierungen
 ``` 
 
-*Übung*
+### Übung
 
 Arbeiten Sie die Vor- und Nachteile der vorgeschlagenen Alternativen aus und formulieren Vergleichen Sie diese mit der Chorolethenkarte:
 
