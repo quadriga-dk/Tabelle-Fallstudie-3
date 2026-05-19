@@ -486,7 +486,7 @@ shinyApp(ui = ui, server = server)
 
 Bei der gewählten Form der Darstellung handelt es sich um ein klassisches **Liniendiagramm (Line Graph)**. 
 
-Laut dem [*Data Visualization Catalogue*] (https://datavizcatalogue.com/methods/line_graph.html) eignen sich Liniendiagramme gut, um quantitative Werte über ein kontinuierliches Intervall oder einen bestimmten Zeitraum darzustellen. Sie werden am häufigsten eingesetzt, um **Trends aufzuzeigen** und zu analysieren, wie sich Daten über die Zeit verändert haben. 
+Laut dem [Data Visualization Catalogue](https://datavizcatalogue.com/methods/line_graph.html) eignen sich Liniendiagramme gut, um quantitative Werte über ein kontinuierliches Intervall oder einen bestimmten Zeitraum darzustellen. Sie werden am häufigsten eingesetzt, um **Trends aufzuzeigen** und zu analysieren, wie sich Daten über die Zeit verändert haben. 
 
 Die visuelle Stärke dieser Darstellung liegt in ihrer einfachen Lesbarkeit:
 * Ein Aufwärtstrend (steigende Linie) zeigt intuitiv eine Zunahme der Werte (in unserem Fall: mehr gegossene Liter für bestimmte Pflanzjahre).

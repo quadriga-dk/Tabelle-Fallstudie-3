@@ -404,13 +404,13 @@ create_answer_box('choropleth-vergleich-1')
 
 **Musterlösung:**
 
-*1. Bubble Map (Blasendiagramm-Karte):* Der entscheidende Vorteil gegenüber der Choroplethenkarte ist, dass die Flächenverzerrung ("Area Bias") komplett vermieden wird. Die Größe der Kreise hängt rein vom Datenwert ab, sodass kleine Bezirke mit hohen Werten nicht mehr optisch untergehen. Ein Nachteil ist jedoch, dass sich bei sehr hohen Werten große Blasen überlappen und benachbarte Regionen oder andere Datenpunkte verdecken können.
+**1. Bubble Map (Blasendiagramm-Karte):** Der entscheidende Vorteil gegenüber der Choroplethenkarte ist, dass die Flächenverzerrung ("Area Bias") komplett vermieden wird. Die Größe der Kreise hängt rein vom Datenwert ab, sodass kleine Bezirke mit hohen Werten nicht mehr optisch untergehen. Ein Nachteil ist jedoch, dass sich bei sehr hohen Werten große Blasen überlappen und benachbarte Regionen oder andere Datenpunkte verdecken können.
 
-*2. Connection Map (Verbindungskarte):* Diese Visualisierung ist hervorragend geeignet, um geografische Beziehungen, Netzwerke oder Routen aufzuzeigen. Für den reinen Vergleich von Mengen pro Bezirk (wie es die Choroplethenkarte tut) ist sie allerdings ungeeignet, da ihr Fokus auf der Verbindung zwischen Punkten liegt und nicht auf lokalen Summen.
+**2. Connection Map (Verbindungskarte):** Diese Visualisierung ist hervorragend geeignet, um geografische Beziehungen, Netzwerke oder Routen aufzuzeigen. Für den reinen Vergleich von Mengen pro Bezirk (wie es die Choroplethenkarte tut) ist sie allerdings ungeeignet, da ihr Fokus auf der Verbindung zwischen Punkten liegt und nicht auf lokalen Summen.
 
-*3. Dot Map (Punktdichtekarte / Punktkarte):* Diese Form eignet sich um die tatsächliche räumliche Verteilung oder Ballungen (Cluster) von Daten intuitiv darzustellen, ohne von Bezirksgrößen abgelenkt zu werden. Ein Nachteil, den sie mit der Choroplethenkarte teilt, ist jedoch, dass sie eher einen guten Überblick liefert, sich exakte Zahlenwerte aber nur sehr schwer ablesen lassen.
+**3. Dot Map (Punktdichtekarte / Punktkarte):** Diese Form eignet sich um die tatsächliche räumliche Verteilung oder Ballungen (Cluster) von Daten intuitiv darzustellen, ohne von Bezirksgrößen abgelenkt zu werden. Ein Nachteil, den sie mit der Choroplethenkarte teilt, ist jedoch, dass sie eher einen guten Überblick liefert, sich exakte Zahlenwerte aber nur sehr schwer ablesen lassen.
 
-*4. Flow Map (Flusskarte):* Diese Karte punktet bei der Darstellung von Bewegungen (z. B. Migration, Warenfluss), wobei die Liniendicke die transportierte Menge anzeigt. Ein Nachteil ist die Gefahr der visuellen Überladung durch zu viele sich kreuzende Linien. Ähnlich wie die Connection Map ist sie als Alternative zur Choroplethenkarte für statische Bestandszählungen völlig unpassend.
+**4. Flow Map (Flusskarte):** Diese Karte punktet bei der Darstellung von Bewegungen (z. B. Migration, Warenfluss), wobei die Liniendicke die transportierte Menge anzeigt. Ein Nachteil ist die Gefahr der visuellen Überladung durch zu viele sich kreuzende Linien. Ähnlich wie die Connection Map ist sie als Alternative zur Choroplethenkarte für statische Bestandszählungen völlig unpassend.
 
 Trotz der Flächenverzerrung ist die Choroplethenkarte für dieses Dashboard der beste Kompromiss: Sie rückt den Bezirk als administrative Vergleichseinheit visuell klar in den Fokus und ist übersichtlicher als Punktekarten mit abertausenden Bäumen. Die Bubble map hingegen wäre eine gute Alternative, sofern sich die Blasen nicht visuell überschneiden.
 ````
