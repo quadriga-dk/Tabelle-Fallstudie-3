@@ -980,7 +980,7 @@ Auf dieser Seite wurde sich für mehrere Balkendiagramme und ein Kreisdiagramms 
 ```{code-cell} ipython3
 :tags: [remove-input]
 import sys
-sys.path.append("..")
+sys.path.append("../quadriga")
 from quadriga.assessment import create_answer_box
 create_answer_box('baumstatistik-verlauf')
 ```
