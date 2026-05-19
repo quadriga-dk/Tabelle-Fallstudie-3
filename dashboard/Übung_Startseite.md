@@ -693,6 +693,7 @@ display_quiz(question, colors=colors.jupyterquiz)
 
 
 ````{admonition} Lösungsvorschlag
+```r
 :class: hinweis, dropdown
 library(dplyr)
 
@@ -707,7 +708,6 @@ top_bezirk <- df_merged %>%
 
 # 3. Ergebnis anzeigen
 print(top_bezirk)
-```r
 ```
 ````
 
