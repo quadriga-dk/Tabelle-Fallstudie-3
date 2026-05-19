@@ -981,7 +981,7 @@ Auf dieser Seite wurde sich für mehrere Balkendiagramme und ein Kreisdiagramms 
 :tags: [remove-input]
 import sys
 sys.path.append("../quadriga")
-from quadriga.assessment import create_answer_box
+from assessment import create_answer_box
 create_answer_box('baumstatistik-verlauf')
 ```
  
