@@ -361,6 +361,8 @@ server <- function(input, output, session) {
   })
 }
 
+shinyApp(ui = ui, server = server)
+
 ## Reflexion
 
 Durch die Bezirkskarte erhalten Sie erstmals einen **räumlichen Überblick** darüber, in welchen Berliner Bezirken besonders viele Bäume gegossen wurden. Die Visualisierung zeigt deutlich, dass **Friedrichshain-Kreuzberg** den höchsten Anteil bewässerter Bäume aufweist, dicht gefolgt von **Mitte**. Damit beantwortet die Karte bereits einen wichtigen Teil der Leitfrage:
@@ -420,9 +422,4 @@ Daher führen Sie die Analyse im nächsten Schritt weiter und widmen sich einer 
 **Wie viele Liter wurden tatsächlich pro Bezirk gegossen – absolut und im Verhältnis zur Gesamtzahl der Bäume?**
 
 Diese „Bewässerungsanalyse“ bildet die Grundlage der dritten Übung. Sie ermöglicht es, nicht nur die Häufigkeit, sondern auch die **Intensität des Gießens** zu messen und damit ein vollständigeres Bild des Engagements der Bürger:innen zu erhalten.
-
-
-shinyApp(ui = ui, server = server)
-```
-````
 
