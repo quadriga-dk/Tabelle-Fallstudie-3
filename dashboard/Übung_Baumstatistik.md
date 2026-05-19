@@ -983,7 +983,7 @@ import sys
 sys.path.append("../quadriga")
 from assessment import create_answer_box
 
-create_answer_box('baumstatistik-verlauf')
+create_answer_box('baumstatistik')
 ```
  
 ### Überleitung zum nächsten Analyse-Schritt

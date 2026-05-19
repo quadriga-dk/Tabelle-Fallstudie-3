@@ -499,7 +499,7 @@ Das Liniendiagramm ist jedoch nicht die einzige Möglichkeit, Daten über einen 
 
 Nutzen Sie den [Data Visualization Catalogue](https://datavizcatalogue.com/search/over_time.html) (Filter: "Search by Function" > "Over Time"), um alternative Darstellungsformen zu recherchieren. 
 
-*Beispiele für solche Alternativen sind:*
+Beispiele für solche Alternativen sind:
 * **Area Graph** (Flächendiagramm)
 * **Bar Chart** (Säulendiagramm)
 * **Candlestick Chart** (Kerzendiagramm)
