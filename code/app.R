@@ -279,25 +279,6 @@ server <- function(input, output, session) {
   
   # ------------ 5.2 ------------
   
-  # Hilfsfunktion für Einheiten
-  convert_units <- function(liters) {
-    if (liters >= 1e6) {
-      return(list(value = round(liters / 1e6, 2), unit = "ML"))
-    } else if (liters >= 1e3) {
-      return(list(value = round(liters / 1e3, 2), unit = "m³"))
-    } else {
-      return(list(value = round(liters, 2), unit = "L"))
-    }
-  }
-  
-  full_unit <- function(unit) {
-    switch(unit,
-           "ML" = "Mega Liter", 
-           "L" = "Liter", 
-           "m³" = "Kubikmeter",
-           unit)
-  }
-  
   # ---- Automatisches Abwwählen ----
   prev_bezirk <- reactiveVal("Alle Bezirke")
   
