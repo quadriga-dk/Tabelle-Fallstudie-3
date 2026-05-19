@@ -982,8 +982,8 @@ Auf dieser Seite wurde sich für mehrere Balkendiagramme und ein Kreisdiagramms 
 import sys
 sys.path.append("../quadriga")
 from assessment import create_answer_box
-
-create_answer_box('baumstatistik')
+from IPython.display import display
+display(create_answer_box('baumstatistik-verlauf'))
 ```
  
 ### Überleitung zum nächsten Analyse-Schritt
