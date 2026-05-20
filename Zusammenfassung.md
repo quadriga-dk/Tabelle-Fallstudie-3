@@ -3,7 +3,7 @@ lang: de-DE
 ---
 (reflexion)=
 # Zusammenfassung und Reflexion
-
+## Zusammenfassung
 Leitfrage: 
 **Wie stark engagieren sich die Berliner für ihr Bäume in ihrer Stadt? / Wo ist das höchste Bürgerengagement?**
 
@@ -21,26 +21,22 @@ Bezieht man jedoch das Verhältnis zwischen Bewässerungsmenge/Anzahl der Bäume
 **Bewässerungstrend:**
 Die höchste Gesamtbewässerung wurde im **Jahr 2022** erreicht, mit einem Volumen von **761,97 m³**. Im Vergleich zum Vorjahr (**2021: 273,71 m³**) bedeutet dies eine deutliche Steigerung des Engagements.
 
-# Reflexion
+## Reflexion
 
-*Einschätzung der Operationalisierung:*
-- *Was hat mit dieser Fragestellung funktioniert und was nicht?*
-- *Was sind Unsicherheitsfaktoren in der Untersuchung (z. B. sind alle Bäume in den Ausgangsdaten vorhanden?, Wie wird die Wassermenge bestimmt?)*
-- *Grenzen der Aussagen (Was können die Daten sagen und was nicht?)*
-- Und wie robust sind unsere Befunde gegenüber unterschiedlichen Operationalisierungen?
+Erinnern Sie sich noch einmal kurz an die ursprüngliche Leitfrage:
+`````{admonition} Leitfrage
+:class: keypoint
+Wo lassen sich die höchsten Ausprägungen des Engagements von Bürger:innen bei der Bewässerung städtischer Bäume in Berlin feststellen? 
+`````
 
-Grenzen der Operationalisierung:
-- Engagement kann anders definiert werden - z.b. haben wir nicht die Anzahl der Bevölkerung pro Bezirk einbezoegn. Dies wäre naheliegend bei Bürgerengagement pro Bezirk.
-- Gießverhalten kann unterschiedlich gemessen werden
+Rückblickend ist es Ihnen gelungen diese, gemäß der vorgenommenen Operationalisierung, zu beantworten. Sie haben herausgefunden, in welchen Berliner Bezirken wie viele, wie intensiv und welche Art Bäume gegossen wurden und diese Ergebnisse unter anderem in Relation mit dem gesamten Baumbestand in Relation gebracht. 
 
-Grenzen der Datensätze
-- Daten zum Bewässerungsverhalten stammen von Bürger:innen selbst und sind daher nur bedingt reliabel
+Seien Sie sich jedoch bewusst, dass Ihre Erarbeitung nur so aussagekräftig ist, wie die Daten, die Sie verwenden. Sofern Sie nicht selbst Urheber:in der von Ihnen verwendeten Daten sind, müssen Sie sicherstellen, dass der Quelle vertrauen. Ziehen Sie auch in Erwägung (falls vorhanden) die Datensätze unterschiedlicher Urheber, die vermeintlich die gleichen Daten erheben, miteinander zu vergleichen. Identifizieren Sie rechtzeitig potentielle Unsicherheitsfaktoren. In dieser Fallstudie könnten Sie sich beispielsweise Frage, ob denn wirklich alle Bäume in den Ausgangsdaten vorhanden sind. Oder hinterfragen Sie, mit welchen Methoden die Wassermenge bestimmt wird.
 
-Grenzen des Dashboards
-- Einbindung der Bürger:innen (z. B. durch eigenes Eintragen gegossener Wassermengen) bedarf eines interaktiven Dashboards, das die Möglichkeiten dieser Fallstudie übersteigt, von der Plattform GdK aber erfolgreich umgesetzt ist
+Des weiteren sollten Sie beachten, was Sie mit den Daten aussagen können und was nicht. So haben Sie bei der Operationalisierung zum Beispiel nicht die Bevölkerung Berlins und seiner Bezirke miteinbezogen. Demnach bewerten Sie die Ergebnisse nach dem Bewässrungszustand der Bäume und nicht nach dem Engagement pro Kopf. Das Enagagement einzelner sehr aktiver Gießer kompensiert also die Untätigkeit oder das mangelnder Enagement anderer Bürger im jeweiligen Bezirk.
 
-
-Ein möglicher Einflussfaktor: Die Erhebung differenziert nicht zwischen Straßenbäumen und Bäumen in Grünanlagen. Für eine aussagekräftigere Bewertung wäre eine separate Analyse dieser Baumtypen erforderlich.
+Darüber hinaus gilt zu beachten, dass bei *Gieß den Kiez* die Gießer ihr Enagement selbst dokumentieren. So gibt es unter Umständen auch Nutzer:innen, welcher nicht von Plattform wissen, ihre Ergebenisse nicht genaustens dokumentieren oder Bewusst auf eine Dokumentation verzichten. Auch mangelndes technisches Know-How, insbesondere bei älteren Bürger:innen, kann die Datenlagen potentiell verfälschen. Dazu
+differenziert die Erhebung nicht zwischen Straßenbäumen und Bäumen in Grünanlagen. Für eine aussagekräftigere Bewertung wäre eine separate Analyse dieser Baumtypen erforderlich. Eine weitere Frage wäre, ob die Aktiitäten von Forstämtern der Stadt Berlin in den Stadtwäldern einbegzogen wurde bzw. ob und wie diese einbezogen werden kann.
 
 
 **Refektion**
