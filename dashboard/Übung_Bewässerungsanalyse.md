@@ -152,12 +152,33 @@ Im ersten Teil des Codes, der die **durchschnittliche Bewässerung pro Bezirk** 
 Durch diese Aggregation wird sichtbar, welche Bezirke absolut gesehen die meisten Liter Wasser auf ihre Bäume gegossen haben.
 ````
 
-### Einheiten automatisch umrechnen
+### Einheiten clever umrechnen
 
-Da die Wassermenge sehr groß sein kann (Millionen Liter), rechnen Sie nun die Werte in passende Einheiten um: Liter, Kubikmeter oder Megaliter – je nach Größenordnung.
+Bei der Darstellung von Wassermengen stehen Sie vor einer Herausforderung: Die Rohdaten enthalten Literangaben, die je nach Größenordnung unterschiedlich formatiert werden sollten. Eine Menge von 50 Litern ist überschaubar, aber 1.250.000 Liter sind schwer zu erfassen. 
+
+Von Vorteil wäre es, wenn das Dashboard automatisch in sinnvolle Einheiten umrechnet – etwa Kubikmeter (m³) oder Megaliter (ML). Um dies zu erreichen, erstellen Sie zunächst Hilfsfunktionen für die Umrechnung und wenden diese anschließend direkt auf Ihren aggregierten Datensatz an.
 
 ````{dropdown} Code
 ```r
+    # Hilfsfunktion für Einheiten
+    convert_units <- function(liters) {
+      if (liters >= 1e6) {
+        return(list(value = round(liters / 1e6, 2), unit = "ML"))
+      } else if (liters >= 1e3) {
+        return(list(value = round(liters / 1e3, 2), unit = "m³"))
+      } else {
+        return(list(value = round(liters, 2), unit = "L"))
+      }
+    }
+    
+    full_unit <- function(unit) {
+      switch(unit,
+             "ML" = "Mega Liter", 
+             "L" = "Liter", 
+             "m³" = "Kubikmeter",
+             unit)
+    }
+    
     df_agg <- df_agg %>%
       mutate(
         converted = purrr::map(total_water, convert_units), 
@@ -170,16 +191,21 @@ Da die Wassermenge sehr groß sein kann (Millionen Liter), rechnen Sie nun die W
 ````{admonition} Erklärung des Codes
 :class: hinweis, dropdown
 
-**Einheiten umrechnen:**
+**1. Die Hilfsfunktionen erstellen:**
+*   **`convert_units(liters)`**: Nimmt einen Wert in Litern entgegen und entscheidet anhand der Größenordnung über die Einheit:
+    *   `if (liters >= 1e6)` – 1.000.000 Liter oder mehr werden zu Megaliter (ML).
+    *   `else if (liters >= 1e3)` – 1.000 Liter oder mehr werden zu Kubikmeter (m³).
+    *   `else` – Kleinere Mengen bleiben Liter (L).
+    *   Die Funktion gibt eine Liste mit dem gerundeten Wert (`value`) und der Einheit (`unit`) zurück.
+*   **`full_unit(unit)`**: Wandelt Kurzformen (wie "ML") mithilfe von `switch()` in ausgeschriebene Bezeichnungen ("Mega Liter") um, falls dies später für die Anzeige benötigt wird.
 
-- `purrr::map(total_water, convert_units)` – wendet die Funktion `convert_units()` auf jede Wassermenge an
-  - Diese Funktion entscheidet automatisch, welche Einheit sinnvoll ist (L, m³ oder ML)
-  - Das Ergebnis ist eine Liste mit `value` (Zahl) und `unit` (Einheit)
-- `sapply(converted, `[[`, "value")` – extrahiert den numerischen Wert
-- `sapply(converted, `[[`, "unit")` – extrahiert die Einheit
+**2. Auf den Datensatz anwenden:**
+*   **`purrr::map(total_water, convert_units)`**: Wendet die gerade erstellte Funktion `convert_units` auf jede Zeile der Spalte `total_water` an. Das Ergebnis ist eine neue Spalte `converted`, die aus Listen besteht.
+*   **`sapply(converted, `[[`, "value")`**: Extrahiert gezielt den numerischen Wert aus diesen Listen und speichert ihn in der neuen Spalte `value`.
+*   **`sapply(converted, `[[`, "unit")`**: Extrahiert analog dazu die berechnete Einheit und speichert sie in der Spalte `unit`.
 
 **Warum ist das wichtig?**  
-Ohne Umrechnung würden große Zahlen wie "2.500.000 L" schwer lesbar sein. Mit der automatischen Umrechnung wird daraus "2,5 ML" – viel übersichtlicher.
+Ohne Umrechnung wären große Zahlen wie "2.500.000 L" im Dashboard schwer zu erfassen. Durch diese Kombination aus Hilfsfunktion und `mutate` wird daraus automatisch ein übersichtliches "2,5 ML".
 ````
 
 
@@ -485,9 +511,28 @@ server <- function(input, output, session) {
       mutate(water_per_tree = total_water / trees_watered) %>%
       arrange(desc(water_per_tree))
     
+    # Hilfsfunktion für Einheiten
+    convert_units <- function(liters) {
+      if (liters >= 1e6) {
+        return(list(value = round(liters / 1e6, 2), unit = "ML"))
+      } else if (liters >= 1e3) {
+        return(list(value = round(liters / 1e3, 2), unit = "m³"))
+      } else {
+        return(list(value = round(liters, 2), unit = "L"))
+      }
+    }
+    
+    full_unit <- function(unit) {
+      switch(unit,
+             "ML" = "Mega Liter", 
+             "L" = "Liter", 
+             "m³" = "Kubikmeter",
+             unit)
+    }
+    
     df_agg <- df_agg %>%
       mutate(
-        converted = purrr::map(water_per_tree, convert_units), 
+        converted = purrr::map(total_water, convert_units), 
         value = sapply(converted, `[[`, "value"),  
         unit = sapply(converted, `[[`, "unit")  
       )

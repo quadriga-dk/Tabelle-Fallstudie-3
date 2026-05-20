@@ -72,9 +72,9 @@ ui <- dashboardPage(
                   p(style = "font-size: 15px; margin-bottom: 2px;",
                     "Gesamter Baumbestand in Berlin:"),
                   span(style = "font-size: 28px; font-weight: bold; color: #3C6E97; margin-top: 0;",
-                    textOutput("total_trees_label"))
+                       textOutput("total_trees_label"))
               ),
-          
+              
               # Dropdown-Filter in voller Breite darüber
               fluidRow(
                 column(width = 12,
@@ -85,7 +85,7 @@ ui <- dashboardPage(
                        )
                 )
               ),
-            
+              
               # Zwei dynamische Kacheln nebeneinander
               fluidRow(
                 valueBoxOutput("total_trees_filtered", width = 6),
@@ -727,6 +727,25 @@ server <- function(input, output, session) {
       summarise(total_water = sum(bewaesserungsmenge_in_liter, na.rm = TRUE)) %>%
       ungroup() %>%
       arrange(desc(total_water))
+    
+    # Hilfsfunktion für Einheiten
+    convert_units <- function(liters) {
+      if (liters >= 1e6) {
+        return(list(value = round(liters / 1e6, 2), unit = "ML"))
+      } else if (liters >= 1e3) {
+        return(list(value = round(liters / 1e3, 2), unit = "m³"))
+      } else {
+        return(list(value = round(liters, 2), unit = "L"))
+      }
+    }
+    
+    full_unit <- function(unit) {
+      switch(unit,
+             "ML" = "Mega Liter", 
+             "L" = "Liter", 
+             "m³" = "Kubikmeter",
+             unit)
+    }
     
     df_agg <- df_agg %>%
       mutate(
