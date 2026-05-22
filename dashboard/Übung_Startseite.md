@@ -47,7 +47,7 @@ alt: Ein Screenshot, der zeigt Dashboard Startseite
 Startseite des Dashboards; Die Startseite zeigt zwei Kacheln mit der Gesamtzahl der Bäume in Berlin sowie der Anzahl der bereits gegossenen Bäume, die eine Teilmenge des gesamten Baumbestands darstellen. Zusätzlich steht ein Filter zur Verfügung, mit dem der Baumbestand nach Bezirken ausgewählt und angezeigt werden kann. (Quelle: eigene Ausarbeitung)
 ``` 
 
-Für die Startseite seiner Anwendung möchte Amir eine **kompakte Kennzahlenübersicht** erstellen. Diese soll den Nutzer:innen helfen, sofort die Größenordnung des Gießverhaltens einzuschätzen – etwa, wie viele Bäume gegossen wurden, wie oft und mit welchem Wasservolumen. Der Mehrwert einer Startseite mit Kennzahlenkacheln umfasst also die schnellere Orientierung - Nutzer:innen erfassen auf einen Blick den aktuellen Stand der Gießaktivitäten, ohne durch die Anwendung navigieren zu müssen. Dies spart Zeit und erleichtert den Einstieg. Die Kennzahlen dienen als Ausgangspunkt: man kann von dort aus zu detaillierteren Visualisierungen und Analysen navigieren.
+Für die Startseite seiner Anwendung möchte Amir eine **kompakte Kennzahlenübersicht** erstellen. Diese soll den Nutzer:innen helfen, sofort die Größenordnung des Gießverhaltens einzuschätzen – etwa, wie viele Bäume insgesamt erfasst sind und wie viele davon gegossen wurden. Der Mehrwert einer Startseite mit Kennzahlenkacheln umfasst also die schnellere Orientierung - Nutzer:innen erfassen auf einen Blick den aktuellen Stand der Gießaktivitäten, ohne durch die Anwendung navigieren zu müssen. Dies spart Zeit und erleichtert den Einstieg. Die Kennzahlen dienen als Ausgangspunkt: man kann von dort aus zu detaillierteren Visualisierungen und Analysen navigieren.
 
 Zusätzlich plant er **Filtermöglichkeiten** nach **Bezirk**, um die Kennzahlen gezielt einzugrenzen und regionale Unterschiede sichtbar zu machen. Damit lassen sich die Daten auch in einer feineren Granularität betrachten – von stadtweiter Übersicht bis hin zu einzelnen Bezirken. Die auf der Startseite dargestellten Kennzahlen werden dabei ausschließlich als **absolute Werte** angezeigt und **nicht ins Verhältnis** zueinander gesetzt, da sie zunächst eine verlässliche Datengrundlage vermitteln sollen, bevor weiterführende Analysen und Vergleiche auf den Folgeseiten möglich werden.
 
@@ -405,59 +405,10 @@ Zuerst werden der aktuelle Zustand (`curr_bezirk`) und der vorherige Zustand (`p
 Dies steht ganz am Ende und sagt der App: „Führe diese Überprüfung nicht sofort beim Start der App aus, sondern erst, wenn der Nutzer wirklich das erste Mal selbst klickt.“
 ````
 
-### Einheiten clever umrechnen
-
-Bei der Darstellung von Wassermengen stehen Sie nun vor einer Herausforderung: Die Rohdaten enthalten Literangaben, die je nach Größenordnung unterschiedlich formatiert werden sollten. Eine Menge von 50 Litern ist überschaubar, aber 1.250.000 Liter sind schwer zu erfassen. Von Vorteil wäre es, wenn das Dashboard automatisch in sinnvolle Einheiten umrechnet – etwa Kubikmeter (m³) oder Megaliter (ML).
-
-Um dies zu erreichen, erstellen Sie Hilfsfunktionen, die die Umrechnung übernehmen und gleichzeitig die passende Einheit auswählen.
-
-````{dropdown} Code
-```r
-convert_units <- function(liters) {
-  if (liters >= 1e6) {
-    return(list(value = round(liters / 1e6, 2), unit = "ML"))
-  } else if (liters >= 1e3) {
-    return(list(value = round(liters / 1e3, 2), unit = "m³"))
-  } else {
-    return(list(value = round(liters, 2), unit = "L"))
-  }
-}
-
-full_unit <- function(unit) {
-  switch(unit,
-    "ML" = "Mega Liter", 
-    "m³" = "Kubikmeter", 
-    "L" = "Liter",
-    unit
-  )
-}
-```
-````
-
-````{admonition} Erklärung des Codes
-:class: hinweis, dropdown
-
-**`convert_units(liters)`**  
-Diese Funktion nimmt einen Wert in Litern entgegen und entscheidet anhand der Größenordnung, welche Einheit am sinnvollsten ist:
-- `if (liters >= 1e6)` – Falls die Menge 1.000.000 Liter oder mehr beträgt, rechne in Megaliter (ML) um (`1e6` = 1.000.000)
-- `else if (liters >= 1e3)` – Falls die Menge 1.000 Liter oder mehr beträgt, rechne in Kubikmeter (m³) um (`1e3` = 1.000)
-- `else` – Für kleinere Mengen bleiben Liter (L) die passende Einheit
-- `round(..., 2)` rundet auf zwei Nachkommastellen für bessere Lesbarkeit
-- Die Funktion gibt sowohl den umgerechneten Wert als auch die Einheit als Liste zurück
-
-**`full_unit(unit)` – Einheiten ausschreiben**  
-Diese Hilfsfunktion wandelt Kurzformen in ausgeschriebene Bezeichnungen um. Das verbessert die Verständlichkeit für Nutzer:innen:
-- `switch(unit, ...)` ist eine elegante Alternative zu mehreren `if`-Anweisungen – je nach Wert des Parameters wird der passende Text zurückgegeben
-- Falls keine Übereinstimmung gefunden wird, gibt die Funktion die Kurzform unverändert zurück
-
-**Beispiel:**  
-Ein Wert von `1.250.000 Litern` wird zu `1,25 ML`, angezeigt als `"1,25 Mega Liter"`.
-````
-
 Das Dashboard ist nun funktionsfähig: Nutzer:innen können Bezirke auswählen und sehen sofort, wie viele Bäume in diesen Bezirken gegossen wurden – im Verhältnis zum Gesamtbestand. Die Trennung von UI und Server ermöglicht es Amir, später weitere Analysen hinzuzufügen, ohne die bestehende Struktur grundlegend ändern zu müssen.
 
 
-Überblick der Funktionen/Operatoren
+**Überblick der Funktionen/Operatoren**
 
 
 | Funktion/Operator | Bedeutung |
@@ -465,7 +416,6 @@ Das Dashboard ist nun funktionsfähig: Nutzer:innen können Bezirke auswählen u
 | `<-` | weist einer Variable einen Wert zu |
 | `if (...) / else` | Bedingte Ausführung |
 | `%in%` | prüft, ob ein Wert in einer Liste ist |
-| `switch()` | wählt abhängig vom Wert einen Fall |
 | `filter()` | filtert Zeilen in einem Datensatz |
 | `is.na()` | prüft auf fehlende Werte |
 | `%>%` | Pipe-Operator: leitet Ergebnis einer Funktion weiter |
@@ -539,25 +489,6 @@ ui <- dashboardPage(
 
 # Server-Logik
 server <- function(input, output, session) {
-  
-  # Hilfsfunktion für Einheiten
-  convert_units <- function(liters) {
-    if (liters >= 1e6) {
-      return(list(value = round(liters / 1e6, 2), unit = "ML"))
-    } else if (liters >= 1e3) {
-      return(list(value = round(liters / 1e3, 2), unit = "m³"))
-    } else {
-      return(list(value = round(liters, 2), unit = "L"))
-    }
-  }
-  
-  full_unit <- function(unit) {
-    switch(unit,
-           "ML" = "Mega Liter", 
-           "L" = "Liter", 
-           "m³" = "Kubikmeter",
-           unit)
-  }
   
   # --- Reaktive Bezirksauswahl ---
   prev_bezirk <- reactiveVal("Alle Bezirke")
