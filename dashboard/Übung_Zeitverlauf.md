@@ -49,8 +49,8 @@ Die folgenden Visualisierungen zeigen deshalb sowohl **Trends im Jahresverlauf**
 
 ```{figure} ../assets/Dashboard_Zeitverlauf.png
 ---
-name: Dashboard Karte
-alt: Ein Screenshot, der zeigt Dashboard Karte
+name: Dashboard Zeitverlauf
+alt: Ein Screenshot, der die Zeitverlaufsseite des Dashboards zeigt
 width: 600px
 ---
 Zeitverlauf der Baumbewässerung (Quelle: eigene Ausarbeitung)

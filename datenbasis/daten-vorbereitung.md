@@ -10,7 +10,7 @@ Bevor Sie mit dem Bau eines Dashboards mit R Shiny beginnen können, müssen Sie
 ```{admonition} Story
 :class: story
 Dr. Amir Weber möchte sich zunächst einen schnellen Überblick verschaffen: Wie werden Bäume in Berlin gegossen und wie engagieren sich die Bürger:innen dabei? 
-Bei seiner Recherche nimmt er erneut die Plattform <a href="https://www.giessdenkiez.de/stats?lang=de" class="external-link" target="_blank">Gieß den Kiez</a> genauer unter die Lupe. Besonders beeindruckt ihn, wie anschaulich die Daten dort visualisiert sind (s. Abb. 4.1). Die Mischung aus Zahlen zu Bäumen und Gießenden, Karten und Zeitverläufen inspirieren ihn so sehr, dass er sie für seine eigene R-Shiny-Anwendung übernehmen möchte. Dazu benötigt er folgende Daten:
+Bei seiner Recherche nimmt er erneut die Plattform <a href="https://www.giessdenkiez.de/stats?lang=de" class="external-link" target="_blank">Gieß den Kiez</a> genauer unter die Lupe. Besonders beeindruckt ihn, wie anschaulich die Daten dort visualisiert sind {numref}Dashboard Gieß den Kiez. Die Mischung aus Zahlen zu Bäumen und Gießenden, Karten und Zeitverläufen inspirieren ihn so sehr, dass er sie für seine eigene R-Shiny-Anwendung übernehmen möchte. Dazu benötigt er folgende Daten:
 ```
 
 
@@ -239,8 +239,6 @@ Einige Bäume verfügen nicht über eine Angabe zu ihrem Bezirk. Um eine aggregi
 - Das Ergebnis führen Sie mit den ursprünglichen Daten wieder zusammen.
 
 **Code Erklärung:**
-
-<font color="red">Die [Quelle](https://daten.odis-berlin.de/de/dataset/bezirksgrenzen/) der geojson Datei wird im vorherigen Kapitel verlinkt, allerdings wird nicht gesagt, dass man diese herunterzuladen hat. Die Erklärung zur korrekten lokalen Speicherung und Pfadsetzung muss auch noch ausgearbeitet werden, da sich dies von Endgerät zu Endgerät unterscheidet.</font>
 
 **1. Die Bezirkskarte laden**
 

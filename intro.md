@@ -76,7 +76,7 @@ Die Zielgruppe sind zudem promovierende und promovierte Wissenschaftler:innen, a
 
 ## Struktur der Fallstudie
 
-Die Fallstudie ist in 4 Schritte aufgeteilt, die den Kapiteln entsprechen (s. Abb. 2). 
+Die Fallstudie ist in 4 Schritte aufgeteilt, die den Kapiteln entsprechen (s. {numref}steps of casestudy). 
 
 ```{figure} /assets/steps_cs3.png
 ---

@@ -22,7 +22,7 @@ Nachdem im vorherigen Kapitel [Fragestellung und Operationalisierung](frage-oper
 
 ```{figure} /assets/steps_cs3_2.png
 ---
-name: steps of casestudy
+name: steps of casestudy 2of4
 alt: Skizzenhafte Darstellung der 4 Schritte dieser Fallstudie mit Hervorhebung des 2. Schritts.
 ---
 Der 2. von 4 Abschnitten dieser Fallstudie.
