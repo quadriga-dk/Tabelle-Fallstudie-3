@@ -14,8 +14,7 @@ kernelspec:
 # Eine Karte erstellen
 ```{admonition} Story
 :class: story
-Nachdem Amir sein Dashboard mit Ihrer Unterstützung die wichtigsten Kennzahlen gesichtet hat, möchte er nun genauer verstehen, wo in Berlin besonders viel gegossen wird.
-Die Plattform [Gieß den Kiez](https://www.giessdenkiez.de/map?treeAgeMax=200&lang=de&lat=52.494590307846366&lng=13.388836926491992) zeigt ihm eindrucksvolle Karten, die Bezirke farblich nach bestimmten Kriterien hervorheben – das möchte Amir für seine Anwendung nachgebaut haben.
+Nachdem Amir mithilfe des Dashboards und Ihrer Unterstützung die wichtigsten Kennzahlen gesichtet hat, möchte er diese nun in Form einer intuitiven grafischen Darstellung visualisieren, um aufzuzeigen, in welchen Berliner Bezirken besonders viel gegossen wird. Die Plattform [Gieß den Kiez](https://www.giessdenkiez.de/map?treeAgeMax=200&lang=de&lat=52.494590307846366&lng=13.388836926491992) zeigt ihm eindrucksvolle Karten, die Bezirke farblich nach bestimmten Kriterien hervorheben – das möchte Amir für seine Anwendung nachbauen.
 
 Sein Wunsch: Eine intuitive Karte von Berlin, die sofort erkennen lässt, in welchen Bezirken viele Bäume gegossen wurden und wo eher weniger.
 ```
@@ -25,7 +24,7 @@ Sein Wunsch: Eine intuitive Karte von Berlin, die sofort erkennen lässt, in wel
 Das Erstellen einer [Leaflet-Karte](https://de.wikipedia.org/wiki/Leaflet) dient dazu, räumliche Informationen nutzbar zu machen, um Verwaltungsdaten visuell zugänglich und vergleichbar darzustellen. In dieser Übung lernen Sie, wie Bezirksdaten mit statistischen Kennzahlen verknüpft und anschließend mithilfe einer Farbskala intuitiv interpretiert werden können. Die farbliche Hervorhebung des Anteils bewässerter Bäume ermöglicht es, Muster und regionale Unterschiede auf einen Blick zu erkennen und zusätzliche Antworten auf die Leitfrage zu gewinnen: In welchen Bezirken wird besonders viel gegossen?
 ```
 
-Das Dashboard soll um eine **Bezirkskarte** erweitert werden. Nachdem die Startseite bereits erste Kennzahlen sichtbar macht, werden Sie nun räumlich darstellen, **wo** in Berlin besonders viel gegossen wurde. Eine kartenbasierte Visualisierung eignet sich ideal, um regionale Muster zu erkennen, Hotspots sichtbar zu machen und Unterschiede zwischen den Bezirken intuitiv zu erfassen.
+Das Dashboard soll um eine **Bezirkskarte** erweitert werden. Nachdem die Startseite bereits erste Kennzahlen sichtbar macht, werden Sie nun **räumlich darstellen**, wo in Berlin besonders viel gegossen wurde. Eine kartenbasierte Visualisierung eignet sich ideal, um regionale Muster zu erkennen, Hotspots sichtbar zu machen und Unterschiede zwischen den Bezirken intuitiv zu erfassen.
 
 Für diese Aufgabe nutzen Sie das Paket **Leaflet**, das interaktive Karten direkt in R-Shiny erzeugt. Ergänzt wird Leaflet durch **sf** zur Verarbeitung der Bezirks-Geodaten sowie durch Funktionen wie ```colorNumeric()```, mit denen eine aussagekräftige Farbskala erzeugt wird. Die Karte verknüpft also zwei Datenquellen:
 die **räumliche Geometrie** der Berliner Bezirke und die **berechneten Kennzahlen** aus seinem Datensatz – insbesondere die Anzahl der Bäume sowie den Anteil der bewässerten Bäume pro Bezirk.
