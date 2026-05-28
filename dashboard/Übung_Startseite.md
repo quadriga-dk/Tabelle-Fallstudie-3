@@ -581,7 +581,7 @@ Für die Startseite heißt das vor allem:
 
 Die zentrale Leitfrage von Ihrer Fallstudie lautet: **Wo lassen sich die höchsten Ausprägungen des Engagements von Bürger:innen bei der Bewässerung städtischer Bäume in Berlin feststellen?**
 
-Die Startseite des Dashboards ermöglicht einen ersten Überblick darüber, in welchen Bezirken absolut gesehen die meisten Bäume gegossen wurden. In absoluten Zahlen zeigt sich dabei das höchste Engagement bei den Bürger:innen in **Mitte**, gefolgt von **Tempelhof-Schöneberg** und **Charlottenburg-Wilmersdorf**. Für eine abschließende Beantwortung der Leitfrage reicht diese Betrachtung jedoch nicht aus, da ohne Normalisierung – etwa durch das Verhältnis gegossener Bäume zur Gesamtbaumzahl je Bezirk – keine validen Vergleiche zwischen den Bezirken gezogen werden können. 
+Die Startseite des Dashboards ermöglicht einen ersten Überblick darüber, in welchen Bezirken absolut gesehen die meisten Bäume gegossen wurden. In **absoluten Zahlen** zeigt sich dabei das höchste Engagement bei den Bürger:innen in **Mitte**, gefolgt von **Tempelhof-Schöneberg** und **Charlottenburg-Wilmersdorf**. Für eine abschließende Beantwortung der Leitfrage reicht diese Betrachtung jedoch nicht aus, da **ohne Normalisierung** – etwa durch das Verhältnis gegossener Bäume zur Gesamtbaumzahl je Bezirk – **keine validen Vergleiche zwischen den Bezirken** gezogen werden können. 
 
 ### Übung
 An dieser Stelle können Sie Ihre bisher erlernten R-Fähigkeiten anwenden. Anstatt sich die Kennzahlen aus dem Dashboard rauszuschreiben und die Berechnungne mit einem Taschenrechener oder Excel durchzuführen, schreiben Sie doch ein kleines R-Script, welches diese Aufgabe erledigt. Sobald Sie das richtige Ergebnis berechnet haben, können Sie es unten im Quiz auswählen. Vergessen Sie hierbei nicht, wie bereits in vorherigen Kapiteln gezeigt, das Arbeitsverzeichnis korrekt zu setzen und die bereinigten Daten aus dem Datenverzeichnis auszulesen.
@@ -646,7 +646,7 @@ print(top_bezirk)
 ````
 
 <br>
-Durch diese Auswertung ist die zentrale Leitfrage dieser Fallstudie zwar beantwortet, jedoch nicht die eventuell zugrunde liegenden Dynamiken und Kontextfaktoren.
+**Durch die Berechnung der relativen Zahlen konnte die zentrale Leitfrage dieser Fallstudie nun sinnvoll beantwortet werden.**  Ergänzend dazu kann eine vertiefte Betrachtung der zugrunde liegenden Dynamiken und Kontextfaktoren aufschlussreich sein.
 
 Welche **Kontextfaktoren** könnten zu den Unterschieden geführt haben?
 
