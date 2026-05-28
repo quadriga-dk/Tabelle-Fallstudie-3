@@ -49,8 +49,8 @@ Damit soll die Grundlage geschaffen werden, zu verstehen, welche strukturellen F
 
 ```{figure} ../assets/Dashboard_Baumstatistik_1.png
 ---
-name: Dashboard Karte
-alt: Ein Screenshot, der zeigt Dashboard Karte
+name: Baumverteilung nach Bezirken mit Baumgattungen
+alt: Gestapeltes Balkendiagramm
 width: 600px
 ---
 Baumverteilung nach Bezirken und Baumgattungen. Die Abbildung zeigt die Verteilung der Bäume in den Berliner Bezirken, aufgeschlüsselt nach Baumgattungen. Die Anzahl der Bäume ist für jeden Bezirk als gestapeltes Balkendiagramm dargestellt, wobei die einzelnen Farbsegmente unterschiedliche Baumgattungen repräsentieren. Über einen Schieberegler kann die Anzahl der angezeigten, häufigsten Baumgattungen (Top-N) interaktiv angepasst werden, während weniger häufige Gattungen unter „Sonstige“ zusammengefasst sind. (Quelle: eigene Ausarbeitung)
@@ -60,8 +60,8 @@ Das obenstehende Diagramm ist ein Balkendiagramm, genauer gesagt ein gestapeltes
 
 ```{figure} ../assets/Dashboard_Baumstatistik_2.png
 ---
-name: Dashboard Karte
-alt: Ein Screenshot, der zeigt Dashboard Karte
+name: Verteilung der Baumgattungen
+alt: Kreisdiagramm mit Anteilen der Baumgattungen am Gesamtbestand
 width: 600px
 ---
 Verteilung der Baumgattungen. Die Abbildung zeigt die prozentuale Verteilung der Baumgattungen im Berliner Baumbestand in Form eines Kreisdiagramms. Über ein Auswahlfeld kann der betrachtete Bezirk festgelegt werden, wodurch sich die dargestellte Verteilung entsprechend anpasst. Die einzelnen Kreissegmente repräsentieren die Anteile der jeweiligen Baumgattungen am Gesamtbestand des ausgewählten Bezirks. (Quelle: eigene Ausarbeitung)
@@ -71,8 +71,8 @@ Das obenstehende Diagramm ist ein Kreisdiagramm (auch Tortendiagramm genannt), d
 
 ```{figure} ../assets/Dashboard_Baumstatistik_3.png
 ---
-name: Dashboard Karte
-alt: Ein Screenshot, der zeigt Dashboard Karte
+name: Top 10 gegossene Baumgattungen
+alt: Balkendiagramm entsprechend Titel mit Drop-down menü für Bezirke
 width: 600px
 ---
 Top 10 gegossene Baumgattungen. Die Abbildung zeigt die Top 10 gegossenen Baumgattungen in Berlin in Form eines horizontalen Balkendiagramms. Über ein Auswahlfeld kann der betrachtete Bezirk festgelegt werden, wodurch sich die dargestellten Werte entsprechend anpassen. Die Balken repräsentieren die absolute Anzahl gegossener Bäume je Gattung, wobei die Linde mit deutlichem Abstand an erster Stelle steht, gefolgt von Ahorn (ca. 250.000) und weiteren Gattungen mit jeweils deutlich geringeren Werten. Die x-Achse zeigt die Anzahl gegossener Bäume, die y-Achse die Baumgattungen. (Quelle: eigene Ausarbeitung)
@@ -80,8 +80,8 @@ Top 10 gegossene Baumgattungen. Die Abbildung zeigt die Top 10 gegossenen Baumga
 
 ```{figure} ../assets/Dashboard_Baumstatistik_4.png
 ---
-name: Dashboard Karte
-alt: Ein Screenshot, der zeigt Dashboard Karte
+name: Baumdichte pro qkm
+alt: Vertikales Balkendiagramm dem Titel entsprechend
 width: 600px
 ---
 Baumdichte pro km². Die Abbildung zeigt die Baumdichte pro km² in den verschiedenen Berliner Bezirken in Form eines vertikalen Balkendiagramms. Die Balken repräsentieren die jeweilige Baumdichte, wobei Friedrichshain-Kreuzberg die höchste Dichte aufweist. Die x-Achse zeigt die Bezirke, die y-Achse die Anzahl der Bäume pro km². Die Darstellung ermöglicht einen direkten Vergleich der Baumdichte zwischen den zwölf Berliner Bezirken. (Quelle: eigene Ausarbeitung)
@@ -90,7 +90,7 @@ Baumdichte pro km². Die Abbildung zeigt die Baumdichte pro km² in den verschie
 ```{admonition} Was Sie beachten sollten
 :class: keypoint
 
-Nur weil Indikatoren nicht auftauchen, heißt es nicht, dass sie nicht wichtig sein können. Für das Verständnis der obigen Abbildung 4.8 'Top 10 gegossene Baumgattungen' ist beispielsweise eine Information zur Häufigkeit von Baumarten (wie in Abb. 4.7 dargestellt) unabdingbar. Und für eine korrekte Analyse der Abbildung 4.9 'Baumdichte pro km²' braucht es mindestens Hinweise zur Größe der Bezirke. Möglichicherweise wären auch Indikatoren wie Bevölkerungsdichte sinnvoll, um die angegebenen Werte zu kontextualisieren. 
+Nur weil Indikatoren nicht auftauchen, heißt es nicht, dass sie nicht wichtig sein können. Für das Verständnis der obigen {numref}`Top 10 gegossene Baumgattungen` ist beispielsweise eine Information zur Häufigkeit von Baumarten (wie in {numref}`Verteilung der Baumgattungen` dargestellt) unabdingbar. Und für eine korrekte Analyse der {numref}`Baumdichte pro qkm` (Baumdichte pro km²) braucht es mindestens Hinweise zur Größe der Bezirke. Möglichicherweise wären auch Indikatoren wie Bevölkerungsdichte sinnvoll, um die angegebenen Werte zu kontextualisieren. 
 
 Vor allem hinsichtlich der Interpretation von Datenvisualisierungen sollten Sie also darauf achten, sich nicht von den Indikatoren, die visuell hervorgehoben oder überhaupt dargestellt werden, in die Irre führen zu lassen. Es kann weitere Merkmale geben, die zum Verständnis oder der Analyse der Daten notwendig sind.
 

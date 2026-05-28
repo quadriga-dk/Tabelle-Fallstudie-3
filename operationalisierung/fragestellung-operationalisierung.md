@@ -27,11 +27,11 @@ Mit Ihren Rückmeldungen können wir unser interaktives Lehrbuch gezielt an Ihre
 ```
 
 
-In diesem einführenden Kapitel wird ein Erkenntnisinteresse formuliert, das in den nächsten Kapiteln die Vorbereitung, Aufbereitung und Analyse des Forschungsgegenstandes leitet (s. Abb. 2.1).
+In diesem einführenden Kapitel wird ein Erkenntnisinteresse formuliert, das in den nächsten Kapiteln die Vorbereitung, Aufbereitung und Analyse des Forschungsgegenstandes leitet (s. {numref}`steps of casestudy 1of4`).
 
 ```{figure} /assets/steps_cs3_1.png
 ---
-name: steps of casestudy
+name: steps of casestudy 1of4
 alt: Skizzenhafte Darstellung der 4 Schritte dieser Fallstudie mit Hervorhebung des 1. Schritts.
 ---
 Der 1. von 4 Abschnitten dieser Fallstudie.

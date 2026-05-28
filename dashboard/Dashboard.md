@@ -30,7 +30,7 @@ Für den Fall, dass Sie das Dashboard nicht selbst bauen wollen oder können, si
 
 ```{figure} /assets/steps_cs3_4.png
 ---
-name: steps of casestudy
+name: steps of casestudy 4of4
 alt: Skizzenhafte Darstellung der 4 Schritte dieser Fallstudie mit Hervorhebung des 4. Schritts.
 ---
 Der 4. von 4 Abschnitten dieser Fallstudie.
