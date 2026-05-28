@@ -645,8 +645,8 @@ print(top_bezirk)
 ```
 ````
 
-<br>
-**Durch die Berechnung der relativen Zahlen konnte die zentrale Leitfrage dieser Fallstudie nun sinnvoll beantwortet werden.**  Ergänzend dazu kann eine vertiefte Betrachtung der zugrunde liegenden Dynamiken und Kontextfaktoren aufschlussreich sein.
+<br> **Durch die Berechnung der relativen Zahlen konnte die zentrale Leitfrage dieser Fallstudie nun sinnvoll beantwortet werden.**  
+Ergänzend dazu kann eine vertiefte Betrachtung der zugrunde liegenden Dynamiken und Kontextfaktoren aufschlussreich sein.
 
 Welche **Kontextfaktoren** könnten zu den Unterschieden geführt haben?
 
