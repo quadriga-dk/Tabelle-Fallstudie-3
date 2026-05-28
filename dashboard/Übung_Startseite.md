@@ -646,7 +646,7 @@ print(top_bezirk)
 ````
 
 <br>
-Damit ist die Leitfrage zwar beantwortet, jedoch nicht die **Geschichten hinter den Zahlen**.
+Durch diese Auswertung ist die zentrale Leitfrage dieser Fallstudie zwar beantwortet, jedoch nicht die **Geschichten hinter den Zahlen**.
 
 Es bleibt offen, welche **Kontextfaktoren** zu den Unterschieden führen könnten:
 
