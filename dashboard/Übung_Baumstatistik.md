@@ -648,8 +648,8 @@ Eine vorschnelle Schlussfolgerung könnte darin bestehen anzunehmen, dass in dic
 Bislang wurden lediglich zwei Variablen, nämlich Baumdichte und Anteil bewässerter Bäume, miteinander in Beziehung gesetzt. Daraus lässt sich zwar eine Korrelation ableiten, jedoch kein kausaler Zusammenhang. Auf Grundlage der bisherigen Analyse kann daher nicht beurteilt werden, inwieweit eine hohe Baumdichte tatsächlich mit einem erhöhten Bewässerungsengagement zusammenhängt. Ebenso denkbar sind alternative Einflussfaktoren, etwa Unterschiede in der Bevölkerungsdichte, der sozialen Struktur, lokalen Initiativen oder der allgemeinen Sensibilisierung für städtische Umweltfragen.
 
 
-**Kernbotschaft**
-*Die Verteilung des Engagements folgt eher der Dichte und Sichtbarkeit von Bäumen in den Bezirken als der Art der Bäume. Baumgattungen erklären wenig – räumliche Faktoren jedoch deuten auf einiges hin.*
+**Kernbotschaft:**
+Die Analyse zeigt, dass das Bewässerungsengagement der Bürger:innen weniger von bestimmten Baumgattungen als eher von räumlichen und strukturellen Eigenschaften der Bezirke beeinflusst zu sein scheint. Besonders Bezirke mit hoher Baumdichte weisen tendenziell auch höhere Bewässerungsaktivitäten auf. Ob hier tatsächlich ein kausaler Zusammenhang besteht, kann durch die vorliegende Betrachtung jedoch keinesfalls belegt werden.
 
 
 ````{admonition} Gesamter Code für diesen Schritt
@@ -989,7 +989,13 @@ shinyApp(ui = ui, server = server)
 ````
 ### Übung
 
-Auf dieser Seite wurde sich für mehrere Balkendiagramme und ein Kreisdiagramms entschieden. Dies sind Visualisierungsmethoden, die dabei helfen, die Unterschiede oder Gemeinsamkeiten zwischen Werten aufzuzeigen. Ein Unterschied zwischen diesen beiden Darstellungsformen ist, dass das Kreisdiagramm zu den Visualisierungen ohne Axenvergleich gehört. Das heißt, dass der Kreis selbst als Vergleichsmetrik zur Gesamtheit dient. Bitte schauen Sie sich auf der nachfolgende [Seite](https://datavizcatalogue.com/search/comparisons.html) Visualisierungsmethoden an, die alternativ aufzeigen, wie man Unterschiede oder Gemeinsamkeiten zwischen Werten darstellen kann. Dort wird auch in Visualisierungsmethoden mit und ohne Axenvergleich unterteilt Präferieren Sie unsere Visualisierungen oder würden Sie eine andere wählen? Mit welchen Argumenten?
+Auf dieser Seite wurden mehrere Balkendiagramme sowie ein Kreisdiagramm verwendet. Beide Visualisierungsformen dienen dazu, Unterschiede und Gemeinsamkeiten zwischen verschiedenen Werten darzustellen. Während Balkendiagramme auf einem Achsenvergleich basieren und Werte entlang einer Skala vergleichbar machen, zählt das Kreisdiagramm zu den Darstellungsformen ohne Achsenvergleich. Hier dient der Kreis beziehungsweise dessen Gesamtfläche als Bezugspunkt für die einzelnen Anteile.
+
+Auf der nachfolgenden [Seite](https://datavizcatalogue.com/search/comparisons.html) Visualisierungsmethoden an, die alternativ aufzeigen, wie man Unterschiede oder Gemeinsamkeiten zwischen Werten darstellen kann.lernen Sie weitere Visualisierungsmethoden kennen, mit denen Unterschiede oder Gemeinsamkeiten zwischen Werten dargestellt werden können. Dabei wird ebenfalls zwischen Darstellungen mit und ohne Achsenvergleich unterschieden.
+
+Überlegen Sie kritisch:
+Präferieren Sie die hier verwendeten Visualisierungen oder würden Sie alternative Darstellungsformen wählen? Welche Argumente sprechen jeweils für oder gegen die unterschiedlichen Visualisierungsmethoden?
+
 
 ```{code-cell} ipython3
 :tags: [remove-input]
