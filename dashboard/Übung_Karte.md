@@ -384,7 +384,7 @@ Doch war die Choroplethenkarte wirklich die bestmögliche Visualisierungsform? D
 | **Klare Farbabstufungen:** Die Karte nutzt Farbverläufe (wie hell zu dunkel oder ineinander übergehende Farbtöne) effektiv, um Datenvariablen in den verschiedenen Regionen darzustellen. | **Flächenverzerrung (Area Bias):** Größere geografische Regionen wirken visuell dominanter als kleinere. Das verzerrt die Wahrnehmung des Betrachters für die eigentlichen Werte, die durch die Farbe dargestellt werden. |
 | | **Gefahr von methodischen Fehlern:** Es passiert schnell, dass fälschlicherweise absolute Rohdaten (wie die Gesamtbevölkerung) anstelle von korrekt normalisierten Werten (wie der Bevölkerungsdichte) dargestellt werden. |
 
-Gehen Sie nun auf die [Startseite](https://datavizcatalogue.com/index.html) der oben genannten Ressource. Dort finden Sie einen Katalog an unterschiedlichsten Visualieriungsmöglichkeiten für Daten. Wenn Sie über das Feld *"Search by Function"* nach *"Location"* filtern, werden Ihnen weitere Darstellungsmöglichkeiten angezeigt:
+Gehen Sie nun auf die [Startseite](https://datavizcatalogue.com/index.html) der oben genannten Ressource. Dort finden Sie einen Katalog an unterschiedlichsten Visualieriungsmöglichkeiten für Daten. Wenn Sie über das Feld *"Search by Function"* nach *"Location"* filtern, zusätzliche Darstellungsoptionen angezeigt, mit denen sich Daten über geografische Regionen hinweg visualisieren lassen:
 
 ```{figure} ../assets/Data_Viz_Cat.png
 ---
@@ -396,7 +396,7 @@ Auswahl an Kartenvisualisierungen
 
 ### Übung
 
-Arbeiten Sie die Vor- und Nachteile der vorgeschlagenen Alternativen aus und formulieren Vergleichen Sie diese mit der Chorolethenkarte:
+Erläutern Sie mithilfe der Plattform [The Data Visualization Catalogue](https://datavizcatalogue.com/methods/choropleth.html) die Vor- und Nachteile der vorgeschlagenen Alternativen und setzen Sie diese in Beziehung zu einer Choroplethenkarte.
 
 ```{code-cell} ipython3
 :tags: [remove-input]
