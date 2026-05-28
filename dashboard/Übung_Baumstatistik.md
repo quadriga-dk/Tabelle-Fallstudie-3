@@ -90,9 +90,9 @@ Nur weil bestimmte Kennzahlen in einer Analyse oder Visualisierung nicht berück
 
 Betrachten Sie Datenvisualisierungen daher stets kritisch und fragen Sie sich:
 
-Welche Kennzahlen wurden in die Darstellung einbezogen?
-Welche weiteren Kennzahlen wären für das Verständnis ebenfalls relevant gewesen?
-Welche Informationen fehlen möglicherweise zur Einordnung der Ergebnisse?
+- Welche Kennzahlen wurden in die Darstellung einbezogen?
+- Welche weiteren Kennzahlen wären für das Verständnis ebenfalls relevant gewesen?
+- Welche Informationen fehlen möglicherweise zur Einordnung der Ergebnisse?
 
 Fehlende Kontextinformationen können dazu führen, dass Zusammenhänge verzerrt oder unvollständig interpretiert werden.
 
