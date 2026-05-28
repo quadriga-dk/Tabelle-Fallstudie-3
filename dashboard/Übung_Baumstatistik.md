@@ -26,23 +26,19 @@ In dieser Übung sollen Sie herausfinden, ob die Baumart und räumliche Faktoren
 
 - Baumarten und deren Verteilung in Bezirken statistisch zu beschreiben,
 - relative Häufigkeiten und Top-Listen (z. B. meistgegossene Arten) zu interpretieren,
-- Baumdichte im Verhältnis zur Bezirksfläche quantitativ zu berechnen,
-
-und einfache Hypothesen über das Engagement – etwa bevorzugte Gattungen oder Nachbarschaftseffekte – mit Daten zu prüfen.
-
+- und Baumdichte im Verhältnis zur Bezirksfläche quantitativ zu berechnen.
 ```
 
-Nachdem Sie zuvor untersucht haben, wie Pflanzjahr und Zeitverlauf das Gießverhalten beeinflussen, richten Sie ihren Blick nun auf räumliche und baumartspezifische Unterschiede innerhalb Berlins. Verschiedene Bezirke weisen sehr unterschiedliche Baumstrukturen auf: Manche besitzen eine hohe Dichte, andere sind von wenigen dominanten Gattungen geprägt (Nachweis dazu fehlt - woraus wird das zu diesem Zeitpunkt abgeleitet?).
-
+Nachdem Sie zuvor untersucht haben, wie Pflanzjahr und Zeitverlauf das Gießverhalten beeinflussen, richten Sie ihren Blick nun auf räumliche und baumartspezifische Unterschiede innerhalb Berlins. Sie werden feststellen, dass die Berliner Bezirke sehr unterschiedliche Baumstrukturen aufweisen: Während einige durch eine hohe Dichte gekennzeichnet sind, dominieren in anderen nur wenige Baumgattungen.
 Sie überprüfen also:
 
 - Ob bestimmte Baumgattungen häufiger gegossen werden als andere.
 - Ob die Baumdichte das Gießverhalten beeinflusst.
-Amir vermutet, dass dicht bepflanzte Straßen oder Kieze mehr Interaktionen begünstigen – etwa nach dem Motto: „Wenn ich schon meinen Baum gieße, mache ich den daneben auch gleich mit.“
+Amir vermutet, dass dicht bepflanzte Straßen oder Kieze das Gießverhalten begünstigen – etwa nach dem Motto: „Wenn ich schon meinen Baum gieße, mache ich den daneben auch gleich mit.“
 
-Die Funktion einer Visualisierung besteht in diesem Fall darin, die Baumverteilung nach Bezirken sichtbar zu machen, die am häufigsten gegossenen Baumarten zu identifizieren und die Baumdichte im Verhältnis zur Bezirksfläche zu analysieren, um mögliche Muster im Engagement zu erkennen.
+Die Funktion einer Visualisierung soll in diesem Fall darin bestehen, die Baumverteilung nach Bezirken sichtbar zu machen, die am häufigsten gegossenen Baumarten zu identifizieren und die Baumdichte im Verhältnis zur Bezirksfläche zu analysieren, um mögliche Muster im Engagement zu erkennen.
 
-Damit soll die Grundlage geschaffen werden, zu verstehen, welche strukturellen Faktoren im Stadtraum das Engagement der Gießenden möglicherweise begünstigen.
+Dies soll weitere Erkenntnisse darüber liefern, welche strukturellen Faktoren im Stadtraum das Engagement der Gießenden möglicherweise begünstigen.
 
 
 
@@ -56,7 +52,7 @@ width: 600px
 Baumverteilung nach Bezirken und Baumgattungen. Die Abbildung zeigt die Verteilung der Bäume in den Berliner Bezirken, aufgeschlüsselt nach Baumgattungen. Die Anzahl der Bäume ist für jeden Bezirk als gestapeltes Balkendiagramm dargestellt, wobei die einzelnen Farbsegmente unterschiedliche Baumgattungen repräsentieren. Über einen Schieberegler kann die Anzahl der angezeigten, häufigsten Baumgattungen (Top-N) interaktiv angepasst werden, während weniger häufige Gattungen unter „Sonstige“ zusammengefasst sind. (Quelle: eigene Ausarbeitung)
 ``` 
 
-Das obenstehende Diagramm ist ein Balkendiagramm, genauer gesagt ein gestapeltes Balkendiagramm, das mehrere Informationsebenen gleichzeitig vermittelt. Der zentrale Mehrwert dieser Darstellungsform liegt darin, sowohl die Gesamtanzahl der Bäume pro Bezirk als auch deren Zusammensetzung nach Gattungen in einer einzigen Visualisierung zu vereinen. Die Balkenlänge zeigt auf einen Blick, welche Bezirke den größten Baumbestand haben, während die farbigen Segmente innerhalb jedes Balkens die Artenvielfalt und deren relative Anteile offenlegen. Dies ermöglicht direkte Vergleiche zwischen Bezirken: Nutzer:innen können nicht nur erkennen, dass Bezirk A mehr Bäume hat als Bezirk B, sondern auch, ob beide eine ähnliche Gattungsverteilung aufweisen oder ob bestimmte Arten in einzelnen Bezirken dominieren. Die Anpassung über den Top-N-Schieberegler reduziert visuelle Komplexität und ermöglicht es, den Fokus je nach Fragestellung auf die häufigsten Gattungen zu legen oder eine detailliertere Aufschlüsselung zu betrachten. Somit verbindet das gestapelte Balkendiagramm quantitative Präzision mit visueller Übersichtlichkeit und macht komplexe, mehrdimensionale Daten intuitiv erfassbar. Balkendiagramme zählen zu den etabliertesten Darstellungswerkzeugen der Datenvisualisierung – ihre breite Anwendung in dieser Fallstudie spiegelt ihre Vielseitigkeit und Lesbarkeit wider.
+Das obenstehende Diagramm ist ein Balkendiagramm, genauer gesagt ein gestapeltes Balkendiagramm, das mehrere Informationsebenen gleichzeitig vermittelt. Der zentrale Mehrwert dieser Darstellungsform liegt darin, sowohl die Gesamtanzahl der Bäume pro Bezirk als auch deren Zusammensetzung nach Gattungen in einer einzigen Visualisierung zu vereinen. Die Balkenlänge zeigt auf einen Blick, welche Bezirke den größten Baumbestand haben, während die farbigen Segmente innerhalb jedes Balkens die Artenvielfalt und deren relative Anteile offenlegen. Dies ermöglicht direkte Vergleiche zwischen Bezirken: Nutzer:innen können nicht nur erkennen, dass Bezirk A mehr Bäume hat als Bezirk B, sondern auch, ob beide eine ähnliche Gattungsverteilung aufweisen oder ob bestimmte Arten in einzelnen Bezirken dominieren. Die Anpassung über den Top-N-Schieberegler reduziert visuelle Komplexität und ermöglicht es, den Fokus je nach Fragestellung auf die häufigsten Gattungen zu legen oder eine detailliertere Aufschlüsselung zu betrachten. So macht das Balkendiagramm komplexe, mehrdimensionale Daten intuitiv erfassbar. Balkendiagramme zählen zu den etabliertesten Darstellungswerkzeugen der Datenvisualisierung – ihre breite Anwendung in dieser Fallstudie spiegelt ihre Vielseitigkeit und Lesbarkeit wider.
 
 ```{figure} ../assets/Dashboard_Baumstatistik_2.png
 ---
@@ -90,9 +86,17 @@ Baumdichte pro km². Die Abbildung zeigt die Baumdichte pro km² in den verschie
 ```{admonition} Was Sie beachten sollten
 :class: keypoint
 
-Nur weil Indikatoren nicht auftauchen, heißt es nicht, dass sie nicht wichtig sein können. Für das Verständnis der obigen {numref}`Top 10 gegossene Baumgattungen` ist beispielsweise eine Information zur Häufigkeit von Baumarten (wie in {numref}`Verteilung der Baumgattungen` dargestellt) unabdingbar. Und für eine korrekte Analyse der {numref}`Baumdichte pro qkm` (Baumdichte pro km²) braucht es mindestens Hinweise zur Größe der Bezirke. Möglichicherweise wären auch Indikatoren wie Bevölkerungsdichte sinnvoll, um die angegebenen Werte zu kontextualisieren. 
+Nur weil bestimmte Kennzahlen in einer Analyse oder Visualisierung nicht berücksichtigt wurden, bedeutet dies nicht, dass sie für die Interpretation irrelevant sind. Für das Verständnis der der oben dargestellten {numref}`Top 10 gegossene Baumgattungen` ist beispielsweise eine Information zur Häufigkeit von Baumarten (wie in {numref}`Verteilung der Baumgattungen` dargestellt) unabdingbar. Für eine korrekte Analyse der {numref}`Baumdichte pro qkm` (Baumdichte pro km²) braucht es mindestens Hinweise zur Größe der Bezirke. Darüber hinaus könnten zusätzliche Kontextinformationen, etwa zur Bevölkerungsdichte, sinnvoll sein, um die dargestellten Werte angemessen einordnen zu können.
 
-Vor allem hinsichtlich der Interpretation von Datenvisualisierungen sollten Sie also darauf achten, sich nicht von den Indikatoren, die visuell hervorgehoben oder überhaupt dargestellt werden, in die Irre führen zu lassen. Es kann weitere Merkmale geben, die zum Verständnis oder der Analyse der Daten notwendig sind.
+Betrachten Sie Datenvisualisierungen daher stets kritisch und fragen Sie sich:
+
+Welche Kennzahlen wurden in die Darstellung einbezogen?
+Welche weiteren Kennzahlen wären für das Verständnis ebenfalls relevant gewesen?
+Welche Informationen fehlen möglicherweise zur Einordnung der Ergebnisse?
+
+Fehlende Kontextinformationen können dazu führen, dass Zusammenhänge verzerrt oder unvollständig interpretiert werden.
+
+Insbesondere bei der Interpretation von Datenvisualisierungen ist daher Vorsicht geboten: Lassen Sie sich nicht ausschließlich von den visuell hervorgehobenen oder dargestellten Indikatoren leiten, sondern berücksichtigen Sie auch potenziell fehlende Einflussfaktoren und Kontextinformationen.
 
 ```
 
