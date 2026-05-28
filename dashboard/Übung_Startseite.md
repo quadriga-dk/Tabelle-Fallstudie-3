@@ -657,11 +657,9 @@ Welche **Kontextfaktoren** könnten zu den Unterschieden geführt haben?
 ````{admonition} Daraus ergeben sich neue Fragen:
 :class: frage-feedback
 
-- Wo treten die höchsten Ausprägungen des Bürgerengagements auf?
-
 - Welche zusätzlichen Datensätze lassen sich einbeziehen, um die Analyse zu vertiefen?
 
-- Wie können interaktive Dashboards diese Faktoren verständlich und vergleichbar darstellen?
+- Wie können interaktive Dashboards mögliche Kontextfaktoren verständlich und vergleichbar darstellen?
 ````
 
-Mit diesen Überlegungen ist der Grundstein für die **nächste Übung** gelegt – den Bau eines interaktiven Dashboards, das nicht nur die Kernaussage liefert, sondern auch die Hintergründe und KOntextfaktoren sichtbar macht.
+Aufbauend auf den bisherigen Ergebnissen folgt in der nächsten Übung die Erstellung einer Karte, die räumlich verdeutlicht, wo in Berlin besonders viel gegossen wurde.
