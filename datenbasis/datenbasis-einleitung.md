@@ -16,7 +16,10 @@ Mit Ihren Rückmeldungen können wir unser interaktives Lehrbuch gezielt an Ihre
 ```
 ````
 
-<span style="color:red">Lernziele festlegen (und in Lernziele.md kopieren)</span>
+```{include} ../präambel/lernziele.md
+:start-after: "<!-- START: Datenbasis (Korpusaufbau) -->"
+:end-before: "<!-- END: Datenbasis (Korpusaufbau) -->"
+```
 
 Nachdem im vorherigen Kapitel [Fragestellung und Operationalisierung](frage-operationalisierung) die Leitfrage formuliert und operationalisiert wurde, widmet sich dieses Kapitel der Datengrundlage für die Untersuchung. 
 
