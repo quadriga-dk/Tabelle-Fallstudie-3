@@ -646,9 +646,9 @@ print(top_bezirk)
 ````
 
 <br>
-Durch diese Auswertung ist die zentrale Leitfrage dieser Fallstudie zwar beantwortet, jedoch nicht die **Geschichten hinter den Zahlen**.
+Durch diese Auswertung ist die zentrale Leitfrage dieser Fallstudie zwar beantwortet, jedoch nicht die eventuell zugrunde liegenden Dynamiken und Kontextfaktoren.
 
-Es bleibt offen, welche **Kontextfaktoren** zu den Unterschieden führen könnten:
+Welche **Kontextfaktoren** könnten zu den Unterschieden geführt haben?
 
 - **Räumlich** – etwa Unterschiede zwischen Bezirken oder die Baumdichte in einem Gebiet.
 
@@ -664,4 +664,4 @@ Es bleibt offen, welche **Kontextfaktoren** zu den Unterschieden führen könnte
 - Wie können interaktive Dashboards diese Faktoren verständlich und vergleichbar darstellen?
 ````
 
-Mit diesen Überlegungen ist der Grundstein für die **nächste Übung** gelegt – den Bau eines interaktiven Dashboards, das nicht nur die Kernaussage liefert, sondern auch die Hintergründe sichtbar macht.
+Mit diesen Überlegungen ist der Grundstein für die **nächste Übung** gelegt – den Bau eines interaktiven Dashboards, das nicht nur die Kernaussage liefert, sondern auch die Hintergründe und KOntextfaktoren sichtbar macht.
