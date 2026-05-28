@@ -24,7 +24,7 @@ Sein Wunsch: Eine intuitive Karte von Berlin, die sofort erkennen lässt, in wel
 Das Erstellen einer [Leaflet-Karte](https://de.wikipedia.org/wiki/Leaflet) dient dazu, räumliche Informationen nutzbar zu machen, um Verwaltungsdaten visuell zugänglich und vergleichbar darzustellen. In dieser Übung lernen Sie, wie Bezirksdaten mit statistischen Kennzahlen verknüpft und anschließend mithilfe einer Farbskala intuitiv interpretiert werden können. Die farbliche Hervorhebung des Anteils bewässerter Bäume ermöglicht es, Muster und regionale Unterschiede auf einen Blick zu erkennen und zusätzliche Antworten auf die Leitfrage zu gewinnen: In welchen Bezirken wird besonders viel gegossen?
 ```
 
-Das Dashboard soll um eine **Bezirkskarte** erweitert werden. Nachdem die Startseite bereits erste Kennzahlen sichtbar macht, werden Sie nun **räumlich darstellen**, wo in Berlin besonders viel gegossen wurde. Eine kartenbasierte Visualisierung eignet sich ideal, um regionale Muster zu erkennen, Hotspots sichtbar zu machen und Unterschiede zwischen den Bezirken intuitiv zu erfassen.
+Das Dashboard soll um eine **Karte der Berliner Bezirke** erweitert werden. Nachdem die Startseite bereits erste Kennzahlen sichtbar macht, werden Sie nun **räumlich darstellen**, wo in Berlin besonders viel gegossen wurde. Eine kartenbasierte Visualisierung eignet sich ideal, um regionale Muster zu erkennen, Hotspots sichtbar zu machen und Unterschiede zwischen den Bezirken intuitiv zu erfassen.
 
 Für diese Aufgabe nutzen Sie das Paket **Leaflet**, das interaktive Karten direkt in R-Shiny erzeugt. Ergänzt wird Leaflet durch **sf** zur Verarbeitung der Bezirks-Geodaten sowie durch Funktionen wie ```colorNumeric()```, mit denen eine aussagekräftige Farbskala erzeugt wird. Die Karte verknüpft also zwei Datenquellen:
 die **räumliche Geometrie** der Berliner Bezirke und die **berechneten Kennzahlen** aus seinem Datensatz – insbesondere die Anzahl der Bäume sowie den Anteil der bewässerten Bäume pro Bezirk.
@@ -422,9 +422,9 @@ create_answer_box('choropleth-vergleich-1')
 Trotz der Flächenverzerrung ist die Choroplethenkarte für dieses Dashboard der beste Kompromiss: Sie rückt den Bezirk als administrative Vergleichseinheit visuell klar in den Fokus und ist übersichtlicher als Punktekarten mit abertausenden Bäumen. Die Bubble map hingegen wäre eine gute Alternative, sofern sich die Blasen nicht visuell überschneiden.
 ````
 
-Seien Sie sich jedoch bewusst, dass diese Darstellung nur einen Teil der Realität zeigt. Die Karte unterscheidet zwar zwischen *bewässert* und *nicht bewässert*, doch sie berücksichtigt nicht, **wie viel Wasser** tatsächlich in den Bezirken geflossen ist. Ein Baum, der einmal mit 5 Litern begossen wurde, gilt genauso als „bewässert“ wie ein Baum, der über Wochen hinweg hunderte Liter erhalten hat – und genau dieser Unterschied ist für eine belastbare Bewertung des Gießverhaltens entscheidend.
+Zurück zur zuvor erstellten Karte der Berliner Bezirke: Zwar wird zwischen *bewässert* und *nicht bewässert* unterschieden, doch sie berücksichtigt nicht, die tatsächlich verwendete Wassermenge in den einzelnen Bezirken bleibt jedoch unberücksichtigt. Ein Baum, der einmalig mit 5 Litern bewässert wurde, wird dabei ebenso als „bewässert“ klassifiziert wie ein Baum, der über einen längeren Zeitraum hinweg mehrere hundert Liter erhalten hat, obwohl dieser Unterschied für eine belastbare Bewertung des Gießverhaltens entscheidend ist.
 
-Daher führen Sie die Analyse im nächsten Schritt weiter und widmen sich einer differenzierteren Betrachtung:
+Daher soll im Folgenden als ein weiterer Kontextfaktor die ... und widmen sich einer differenzierteren Betrachtung:
 **Wie viele Liter wurden tatsächlich pro Bezirk gegossen – absolut und im Verhältnis zur Gesamtzahl der Bäume?**
 
 Diese „Bewässerungsanalyse“ bildet die Grundlage der dritten Übung. Sie ermöglicht es, nicht nur die Häufigkeit, sondern auch die **Intensität des Gießens** zu messen und damit ein vollständigeres Bild des Engagements der Bürger:innen zu erhalten.
