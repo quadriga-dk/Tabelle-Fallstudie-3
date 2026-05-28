@@ -22,6 +22,17 @@ Mit dem Durchlaufen dieses Jupyter Books können Sie die folgenden Lernziele err
 ```
 <!-- END: Fragestellung und Operationalisierung -->
 
+<!-- START: Datenbasis (Korpusaufbau) -->
+```{admonition} [Lernziel: Laden von Datensätzen in R Shiny](datenbasis_intro)
+:class: lernziele
+<!-- learning-goal: Laden von Datensätzen in R Shiny -->
+1. Sie können Datensätze in R Shiny laden.
+<!-- competency: 2.1 Erhebung | bloom: 3 Anwenden -->
+2. Sie können geladene Datensätze in R Shiny verändern. 
+<!-- competency: 2.3 Aufbereitung | bloom: 3 Anwenden -->
+```
+<!-- END: Datenbasis (Korpusaufbau) -->
+
 <!-- START: Datenvisualisierung -->
 ```{admonition} [Lernziel: Dashboards für Visualisierung und Kommunikation von Daten](datenvisualisierung)
 :class: lernziele
