@@ -56,7 +56,7 @@ Zunächst fügen Sie einen weiteren Menüpunkt zur Navigation hinzu, um den Bew�
 ````{dropdown} Navigation in der Seitenleiste
 ```r
 dashboardSidebar(
-  sidebarMenu(
+  sidebarMenu( id = "sidebarMenu",
     menuItem("Startseite", tabName = "start", icon = icon("home")),
     menuItem("Karte", tabName = "map", icon = icon("map")),
     # NEU: Menüpunkt für die Bewässerungsanalyse hinzufügen
@@ -122,35 +122,7 @@ tabItem(
 ````
 
 ## Server
-### Berechnung der Bewässerung
 
-Im ersten Teil des Codes, der die **durchschnittliche Bewässerung pro Bezirk** darstellt, berechnen Sie, wie viel Wasser insgesamt in jedem Bezirk verbraucht wurde.
-
-````{dropdown} Code
-```r
-  output$hist_bewaesserung_pro_bezirk <- renderPlot({
-    df_agg <- df_merged %>%
-      filter(!is.na(bezirk)) %>%  
-      group_by(bezirk) %>%
-      summarise(total_water = sum(bewaesserungsmenge_in_liter, na.rm = TRUE)) %>%
-      ungroup() %>%
-      arrange(desc(total_water))
-```
-````
-
-````{admonition} Erklärung des Codes
-:class: hinweis, dropdown
-
-**Daten aggregieren:**
-
-- `filter(!is.na(bezirk))` – entfernt Einträge ohne Bezirksangabe
-- `group_by(bezirk)` – gruppiert alle Bäume nach Bezirk
-- `summarise(total_water = sum(...))` – berechnet die Gesamtwassermenge pro Bezirk
-- `ungroup()` – löst die Gruppierung auf
-- `arrange(desc(total_water))` – sortiert Bezirke absteigend nach Wassermenge
-
-Durch diese Aggregation wird sichtbar, welche Bezirke absolut gesehen die meisten Liter Wasser auf ihre Bäume gegossen haben.
-````
 
 ### Einheiten clever umrechnen
 
@@ -208,7 +180,37 @@ Von Vorteil wäre es, wenn das Dashboard automatisch in sinnvolle Einheiten umre
 Ohne Umrechnung wären große Zahlen wie "2.500.000 L" im Dashboard schwer zu erfassen. Durch diese Kombination aus Hilfsfunktion und `mutate` wird daraus automatisch ein übersichtliches "2,5 ML".
 ````
 
+### Berechnung der Bewässerung
 
+Im ersten Teil des Codes, der die **durchschnittliche Bewässerung pro Bezirk** darstellt, berechnen Sie, wie viel Wasser insgesamt in jedem Bezirk verbraucht wurde.
+
+````{dropdown} Code
+```r
+  output$hist_bewaesserung_pro_bezirk <- renderPlot({
+    req(input$sidebarMenu == "analysis")
+    df_agg <- df_merged %>%
+      filter(!is.na(bezirk)) %>%  
+      group_by(bezirk) %>%
+      summarise(total_water = sum(bewaesserungsmenge_in_liter, na.rm = TRUE)) %>%
+      ungroup() %>%
+      arrange(desc(total_water))
+```
+````
+
+````{admonition} Erklärung des Codes
+:class: hinweis, dropdown
+
+**Daten aggregieren:**
+
+- `req(input$sidebarMenu == "analysis")` – rendert den Plot nur, wenn der Tab aktiv ist
+- `filter(!is.na(bezirk))` – entfernt Einträge ohne Bezirksangabe
+- `group_by(bezirk)` – gruppiert alle Bäume nach Bezirk
+- `summarise(total_water = sum(...))` – berechnet die Gesamtwassermenge pro Bezirk
+- `ungroup()` – löst die Gruppierung auf
+- `arrange(desc(total_water))` – sortiert Bezirke absteigend nach Wassermenge
+
+Durch diese Aggregation wird sichtbar, welche Bezirke absolut gesehen die meisten Liter Wasser auf ihre Bäume gegossen haben.
+````
 
 ### Balkendiagramm erstellen
 
@@ -290,6 +292,8 @@ Das zweite Diagramm zeigt eine andere Perspektive: Statt der Gesamtmenge wird hi
 ```r
   # Plot: Durchschnittliche Bewässerung pro gegossenem Baum
   output$hist_bewaesserung_pro_baum <- renderPlot({
+    req(input$sidebarMenu == "analysis")
+    
     df_agg <- df_merged %>%
       filter(!is.na(bezirk)) %>%
       group_by(bezirk) %>%
@@ -301,7 +305,6 @@ Das zweite Diagramm zeigt eine andere Perspektive: Statt der Gesamtmenge wird hi
       mutate(water_per_tree = total_water / trees_watered) %>%
       arrange(desc(water_per_tree))
     
-    # Convert units for water per tree
     df_agg <- df_agg %>%
       mutate(
         converted = purrr::map(water_per_tree, convert_units), 
@@ -309,7 +312,6 @@ Das zweite Diagramm zeigt eine andere Perspektive: Statt der Gesamtmenge wird hi
         unit = sapply(converted, `[[`, "unit")  
       )
     
-    # Create plot
     ggplot(df_agg, aes(x = reorder(bezirk, -value), y = value, fill = bezirk)) +
       geom_bar(stat = "identity", color = "white", alpha = 0.7, width = 0.8) +
       labs(
@@ -394,8 +396,8 @@ Damit wird ein zentrales analytisches Prinzip deutlich:
 ui <- dashboardPage(
   dashboardHeader(title = "Gieß den Kiez Dashboard"),
   dashboardSidebar(
-    sidebarMenu(
-      menuItem("Startseite", tabName = "start", icon = icon("home")),
+    sidebarMenu( id = "sidebarMenu",
+    menuItem("Startseite", tabName = "start", icon = icon("home")),
       menuItem("Karte", tabName = "map", icon = icon("map")),
       menuItem("Zeitverlauf", tabName = "stats", icon = icon("bar-chart")),
       menuItem("Baumstatistik", tabName = "engagement", icon = icon("hands-helping")),
@@ -450,7 +452,28 @@ server <- function(input, output, session) {
   
   # ... Code aus der Startseite, Karte, Zeitverlauf und Statistik ...
 
+  # Hilfsfunktion für Einheiten
+  convert_units <- function(liters) {
+    if (liters >= 1e6) {
+      return(list(value = round(liters / 1e6, 2), unit = "ML"))
+    } else if (liters >= 1e3) {
+      return(list(value = round(liters / 1e3, 2), unit = "m³"))
+    } else {
+      return(list(value = round(liters, 2), unit = "L"))
+    }
+  }
+  
+  full_unit <- function(unit) {
+    switch(unit,
+           "ML" = "Mega Liter", 
+           "L" = "Liter", 
+           "m³" = "Kubikmeter",
+           unit)
+  }
+
   output$hist_bewaesserung_pro_bezirk <- renderPlot({
+    req(input$sidebarMenu == "analysis")
+    
     df_agg <- df_merged %>%
       filter(!is.na(bezirk)) %>%  
       group_by(bezirk) %>%
@@ -500,6 +523,8 @@ server <- function(input, output, session) {
 
   # Plot: Durchschnittliche Bewässerung pro gegossenem Baum
   output$hist_bewaesserung_pro_baum <- renderPlot({
+    req(input$sidebarMenu == "analysis")
+    
     df_agg <- df_merged %>%
       filter(!is.na(bezirk)) %>%
       group_by(bezirk) %>%
@@ -511,28 +536,9 @@ server <- function(input, output, session) {
       mutate(water_per_tree = total_water / trees_watered) %>%
       arrange(desc(water_per_tree))
     
-    # Hilfsfunktion für Einheiten
-    convert_units <- function(liters) {
-      if (liters >= 1e6) {
-        return(list(value = round(liters / 1e6, 2), unit = "ML"))
-      } else if (liters >= 1e3) {
-        return(list(value = round(liters / 1e3, 2), unit = "m³"))
-      } else {
-        return(list(value = round(liters, 2), unit = "L"))
-      }
-    }
-    
-    full_unit <- function(unit) {
-      switch(unit,
-             "ML" = "Mega Liter", 
-             "L" = "Liter", 
-             "m³" = "Kubikmeter",
-             unit)
-    }
-    
     df_agg <- df_agg %>%
       mutate(
-        converted = purrr::map(total_water, convert_units), 
+        converted = purrr::map(water_per_tree, convert_units), 
         value = sapply(converted, `[[`, "value"),  
         unit = sapply(converted, `[[`, "unit")  
       )
@@ -577,6 +583,7 @@ server <- function(input, output, session) {
   })
 }
 
+# 5. Zusammenführung: Startet die Shiny-Anwendung
 shinyApp(ui = ui, server = server)
 ```
 ````

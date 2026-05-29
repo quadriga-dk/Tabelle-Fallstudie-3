@@ -107,7 +107,7 @@ Zunächst fügen Sie einen weiteren Menüpunkt zur Navigation hinzu, um den Baum
 ````{dropdown} Navigation in der Seitenleiste
 ```r
 dashboardSidebar(
-  sidebarMenu(
+  sidebarMenu( id = "sidebarMenu",
     menuItem("Startseite", tabName = "start", icon = icon("home")),
     menuItem("Karte", tabName = "map", icon = icon("map")),
     menuItem("Zeitverlauf", tabName = "stats", icon = icon("bar-chart")),
@@ -242,6 +242,7 @@ Das erste Diagramm soll zeigen, wie viele Bäume in jedem Bezirk stehen und welc
 ```r  
 # 1. Stacked Bar Chart - Baumverteilung mit Gattungen
   output$tree_distribution_stacked <- renderPlot({
+    req(input$sidebarMenu == "engagement")
     n_gen <- input$top_n_species
     
     top_genera <- df_merged %>%
@@ -257,6 +258,7 @@ Das erste Diagramm soll zeigen, wie viele Bäume in jedem Bezirk stehen und welc
 
 **Top-Gattungen ermitteln:**
 
+- `req(input$sidebarMenu == "engagement")` – rendert den Plot nur, wenn der aktuelle Tab "engagement" aktiv ist
 - `n_gen <- input$top_n_species` – speichert den Slider-Wert in einer Variable
 - `filter(!is.na(gattung_deutsch))` – entfernt Bäume ohne Gattungsangabe
 - `count(gattung_deutsch, sort = TRUE)` – zählt jede Gattung und sortiert absteigend
@@ -371,6 +373,7 @@ Das Kreisdiagramm soll die prozentuale Zusammensetzung der Baumgattungen zeigen 
 ```r
   # 2. Pie Chart - Gattungsverteilung
   output$tree_species_pie <- renderPlot({
+    req(input$sidebarMenu == "engagement")
     filtered_data <- df_merged
     if (input$pie_bezirk != "Alle Bezirke") {
       filtered_data <- filtered_data %>%
@@ -467,6 +470,7 @@ Um Bezirke fair vergleichen zu können, berechnen Sie die Baumdichte – also wi
 ```r
   # 3. Baumdichte pro Bezirksfläche
   output$tree_density_area <- renderPlot({
+    req(input$sidebarMenu == "engagement")
     bezirk_flaeche <- data.frame(
       bezirk = c("Charlottenburg-Wilmersdorf", "Friedrichshain-Kreuzberg", "Lichtenberg",
                  "Marzahn-Hellersdorf", "Mitte", "Neukölln", "Pankow",
@@ -552,6 +556,7 @@ Diese Visualisierung zeigt, welche Baumgattungen am häufigsten gegossen wurden.
 ```r
   # 4. Top 10 gegossene Baumgattungen
   output$top_watered_species <- renderPlot({
+    req(input$sidebarMenu == "engagement")
     filtered_data <- df_merged %>%
       filter(!is.na(bewaesserungsmenge_in_liter)) 
     
@@ -660,7 +665,7 @@ Die Analyse zeigt, dass das Bewässerungsengagement der Bürger:innen weniger vo
 ui <- dashboardPage(
   dashboardHeader(title = "Gieß den Kiez Dashboard"),
   dashboardSidebar(
-    sidebarMenu(
+    sidebarMenu( id = "sidebarMenu", 
       menuItem("Startseite", tabName = "start", icon = icon("home")),
       menuItem("Karte", tabName = "map", icon = icon("map")),
       menuItem("Zeitverlauf", tabName = "stats", icon = icon("bar-chart")),
@@ -765,6 +770,7 @@ server <- function(input, output, session) {
   
   # 1. Stacked Bar Chart - Baumverteilung mit Gattungen
   output$tree_distribution_stacked <- renderPlot({
+    req(input$sidebarMenu == "engagement")
     n_gen <- input$top_n_species
     
     top_genera <- df_merged %>%
@@ -818,6 +824,7 @@ server <- function(input, output, session) {
 
   # 2. Pie Chart - Gattungsverteilung
   output$tree_species_pie <- renderPlot({
+    req(input$sidebarMenu == "engagement")
     filtered_data <- df_merged
     if (input$pie_bezirk != "Alle Bezirke") {
       filtered_data <- filtered_data %>%
@@ -877,6 +884,7 @@ server <- function(input, output, session) {
 
   # 3. Baumdichte pro Bezirksfläche
   output$tree_density_area <- renderPlot({
+    req(input$sidebarMenu == "engagement")
     bezirk_flaeche <- data.frame(
       bezirk = c("Charlottenburg-Wilmersdorf", "Friedrichshain-Kreuzberg", "Lichtenberg",
                  "Marzahn-Hellersdorf", "Mitte", "Neukölln", "Pankow",
@@ -931,6 +939,7 @@ server <- function(input, output, session) {
 
   # 4. Top 10 gegossene Baumgattungen
   output$top_watered_species <- renderPlot({
+    req(input$sidebarMenu == "engagement")
     filtered_data <- df_merged %>%
       filter(!is.na(bewaesserungsmenge_in_liter)) 
     

@@ -113,6 +113,26 @@ df_ohne_bezirk_filled <- df_ohne_bezirk_joined %>%
 # 9. Zusammenführen mit ursprünglichen Daten, die bereits einen Bezirk hatten
 df_baeume_final <- bind_rows(df_mit_bezirk, df_ohne_bezirk_filled)
 
-# 10. Ergebnis speichern
+
+# 10. Auf die 7 benötigten Spalten reduzieren
+df_final <- df_baeume_final %>%
+  select(
+    gml_id,
+    gisid,
+    gattung_deutsch,
+    pflanzjahr,
+    bezirk,
+    bewaesserungsmenge_in_liter,
+    timestamp
+  )
+
+# 11. Ergebnis speichern
 if (!dir.exists("data")) dir.create("data")
-write.csv2(df_baeume_final, file = "data/df_merged_final.csv", row.names = FALSE)
+
+# Als CSV speichern (menschenlesbar, teilbar, in Excel öffnbar)
+write.csv2(df_final, "data/df_merged_final.csv", row.names = FALSE, fileEncoding = "UTF-8")
+
+# Als RDS speichern (R Data Serialization, maschinenlesbar, schnelleres Laden)
+saveRDS(df_final, "data/df_merged_final.rds")
+
+cat("Fertig! Zeilen:", nrow(df_final), "| Spalten:", ncol(df_final), "\n")

@@ -17,7 +17,7 @@ library(plotly)
 bezirksgrenzen <- st_read("data/bezirksgrenzen.geojson", quiet = TRUE)
 
 # Bewässerungsdaten laden (Der gesamte Prozess für df_merged_final befindet sich in 3.2)
-df_merged <- read.csv2("data/df_merged_final.csv", fileEncoding = "UTF-8")
+df_merged <- readRDS("data/df_merged_final.rds")
 
 # Bezirksgrenzen vorbereiten
 berlin_bezirke_sf <- bezirksgrenzen %>%
@@ -46,7 +46,7 @@ ui <- dashboardPage(
   
   # 2. SIDEBAR: Seitliche Navigationsleiste mit Menüeinträgen
   dashboardSidebar(
-    sidebarMenu(
+    sidebarMenu( id = "sidebarMenu", 
       menuItem("Startseite", tabName = "start", icon = icon("home")),
       # Navigation für die Karte
       menuItem("Karte", tabName = "map", icon = icon("map")),
@@ -363,6 +363,7 @@ server <- function(input, output, session) {
   
   # Rendering der Leaflet-Karte
   output$map <- renderLeaflet({
+    req(input$sidebarMenu == "map")
     data_stats <- data_by_bezirk()
     
     # Verbinde Bezirksgeometrien mit Statistiken, ersetze NA durch 0
@@ -430,6 +431,7 @@ server <- function(input, output, session) {
   
   # Trend: Bewässerung nach Pflanzjahr
   output$trend_water <- renderPlotly({
+    req(input$sidebarMenu == "stats") 
     filtered_data <- df_merged %>%
       filter(!is.na(bewaesserungsmenge_in_liter)) %>%  
       filter(!is.na(pflanzjahr))
@@ -499,6 +501,7 @@ server <- function(input, output, session) {
   
   # 1. Stacked Bar Chart - Baumverteilung mit Gattungen
   output$tree_distribution_stacked <- renderPlot({
+    req(input$sidebarMenu == "engagement")
     n_gen <- input$top_n_species
     
     top_genera <- df_merged %>%
@@ -553,6 +556,8 @@ server <- function(input, output, session) {
   
   # 2. Pie Chart - Gattungsverteilung
   output$tree_species_pie <- renderPlot({
+    req(input$sidebarMenu == "engagement")
+    
     filtered_data <- df_merged
     if (input$pie_bezirk != "Alle Bezirke") {
       filtered_data <- filtered_data %>%
@@ -612,6 +617,8 @@ server <- function(input, output, session) {
   
   # 3. Baumdichte pro Bezirksfläche
   output$tree_density_area <- renderPlot({
+    req(input$sidebarMenu == "engagement")
+    
     bezirk_flaeche <- data.frame(
       bezirk = c("Charlottenburg-Wilmersdorf", "Friedrichshain-Kreuzberg", "Lichtenberg",
                  "Marzahn-Hellersdorf", "Mitte", "Neukölln", "Pankow",
@@ -666,6 +673,8 @@ server <- function(input, output, session) {
   
   # 4. Top 10 gegossene Baumgattungen
   output$top_watered_species <- renderPlot({
+    req(input$sidebarMenu == "engagement")
+    
     filtered_data <- df_merged %>%
       filter(!is.na(bewaesserungsmenge_in_liter)) 
     
@@ -718,34 +727,36 @@ server <- function(input, output, session) {
     ))
   })
   
-  # ------------ 5.6 ------------  
+  # ------------ 5.6 ------------ 
+  
+  # Hilfsfunktion für Einheiten
+  convert_units <- function(liters) {
+    if (liters >= 1e6) {
+      return(list(value = round(liters / 1e6, 2), unit = "ML"))
+    } else if (liters >= 1e3) {
+      return(list(value = round(liters / 1e3, 2), unit = "m³"))
+    } else {
+      return(list(value = round(liters, 2), unit = "L"))
+    }
+  }
+  
+  full_unit <- function(unit) {
+    switch(unit,
+           "ML" = "Mega Liter", 
+           "L" = "Liter", 
+           "m³" = "Kubikmeter",
+           unit)
+  }
   
   output$hist_bewaesserung_pro_bezirk <- renderPlot({
+    req(input$sidebarMenu == "analysis")
+    
     df_agg <- df_merged %>%
       filter(!is.na(bezirk)) %>%  
       group_by(bezirk) %>%
       summarise(total_water = sum(bewaesserungsmenge_in_liter, na.rm = TRUE)) %>%
       ungroup() %>%
       arrange(desc(total_water))
-    
-    # Hilfsfunktion für Einheiten
-    convert_units <- function(liters) {
-      if (liters >= 1e6) {
-        return(list(value = round(liters / 1e6, 2), unit = "ML"))
-      } else if (liters >= 1e3) {
-        return(list(value = round(liters / 1e3, 2), unit = "m³"))
-      } else {
-        return(list(value = round(liters, 2), unit = "L"))
-      }
-    }
-    
-    full_unit <- function(unit) {
-      switch(unit,
-             "ML" = "Mega Liter", 
-             "L" = "Liter", 
-             "m³" = "Kubikmeter",
-             unit)
-    }
     
     df_agg <- df_agg %>%
       mutate(
@@ -789,6 +800,8 @@ server <- function(input, output, session) {
   
   # Plot: Durchschnittliche Bewässerung pro gegossenem Baum
   output$hist_bewaesserung_pro_baum <- renderPlot({
+    req(input$sidebarMenu == "analysis")
+    
     df_agg <- df_merged %>%
       filter(!is.na(bezirk)) %>%
       group_by(bezirk) %>%
@@ -823,7 +836,7 @@ server <- function(input, output, session) {
       ) +
       scale_fill_discrete()
   })
-  
+    
   observeEvent(input$info_btn_hbpb2, {
     showModal(modalDialog(
       title = "Information: Bewässerung pro gegossenem Baum",
