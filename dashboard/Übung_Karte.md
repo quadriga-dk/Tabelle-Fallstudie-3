@@ -426,7 +426,7 @@ Trotz der Flächenverzerrung ist die Choroplethenkarte für dieses Dashboard der
 
 Zurück zur zuvor erstellten Karte der Berliner Bezirke: Zwar wird zwischen *bewässert* und *nicht bewässert* unterschieden, doch sie berücksichtigt nicht, die tatsächlich verwendete Wassermenge in den einzelnen Bezirken bleibt jedoch unberücksichtigt. Ein Baum, der einmalig mit 5 Litern bewässert wurde, wird dabei ebenso als „bewässert“ klassifiziert wie ein Baum, der über einen längeren Zeitraum hinweg mehrere hundert Liter erhalten hat, obwohl dieser Unterschied für eine belastbare Bewertung des Gießverhaltens entscheidend ist.
 
-Daher soll im Folgenden als ein weiterer Kontextfaktor die ... und widmen sich einer differenzierteren Betrachtung:
+Daher soll im Folgenden als ein weiterer Kontextfaktor die Bewässerungsmenge analysiert werden und Sie widmen sich einer differenzierteren Betrachtung:
 **Wie viele Liter wurden tatsächlich pro Bezirk gegossen – absolut und im Verhältnis zur Gesamtzahl der Bäume?**
 
 Diese „Bewässerungsanalyse“ bildet die Grundlage der dritten Übung. Sie ermöglicht es, nicht nur die Häufigkeit, sondern auch die **Intensität des Gießens** zu messen und damit ein vollständigeres Bild des Engagements der Bürger:innen zu erhalten.
