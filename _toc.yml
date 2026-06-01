@@ -31,9 +31,9 @@ chapters:
       - file: dashboard/Datenvisualisierung-Grundlagen
       - file: dashboard/Übung_Startseite
       - file: dashboard/Übung_Karte
+      - file: dashboard/Übung_Bewässerungsanalyse
       - file: dashboard/Übung_Zeitverlauf
       - file: dashboard/Übung_Baumstatistik
-      - file: dashboard/Übung_Bewässerungsanalyse
       - file: dashboard/resumee
   - file: Zusammenfassung
   - file: epilog/Epilog
