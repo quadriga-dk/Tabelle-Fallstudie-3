@@ -16,7 +16,7 @@ Er merkt schnell: Diese Darstellung zeigt zwar den Umfang des Engagements, aber 
 ```{admonition} Zweck dieser Übung
 :class: lernziele
 
-Diese Übung zeigt Ihnen, wie sich durch unterschiedliche Kennzahlen neue Perspektiven auf dieselben Verwaltungsdaten ergeben. Während zuvor die Zahl der gegossenen Bäume im Mittelpunkt stand, analysieren Sie nun die Bewässerungsmenge in Litern.
+Diese Übung zeigt Ihnen, wie sich durch unterschiedliche Kennzahlen neue Perspektiven auf eine Fragestellung ergeben. Während zuvor die Zahl der gegossenen Bäume im Mittelpunkt stand, analysieren Sie nun die Bewässerungsmenge in Litern.
 
 Sie lernen dabei, wie Daten aggregiert, umgerechnet und visualisiert werden können, um Bezirke hinsichtlich ihrer gesamten Bewässerungsleistung oder der durchschnittlichen Wassermenge pro Baum zu vergleichen. Dadurch wird deutlich, dass die Auswahl der Messgröße – die Operationalisierung – zu verschiedenen analytischen Ergebnissen führen kann: Ein Bezirk, der bei der Anzahl gegossener Bäume gut abschneidet, liegt bei der Wassermenge möglicherweise nicht vorne (und umgekehrt).
 
