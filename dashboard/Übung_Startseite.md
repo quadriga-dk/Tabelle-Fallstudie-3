@@ -651,20 +651,5 @@ print(top_bezirk)
 ````
 
 <br> **Durch die Berechnung der relativen Zahlen konnte die zentrale Leitfrage dieser Fallstudie nun sinnvoll beantwortet werden.**  
-Ergänzend dazu kann eine vertiefte Betrachtung der zugrunde liegenden Dynamiken und Kontextfaktoren aufschlussreich sein.
 
-Welche **Kontextfaktoren** könnten zu den Unterschieden geführt haben?
-
-- **Räumlich** – etwa Unterschiede zwischen Bezirken oder die Baumdichte in einem Gebiet.
-
-- **Zeitlich** – wie sich das Engagement im Jahresverlauf entwickelt oder, ob das Pflanzjahr der Bäume eine Rolle spielt.
-
-````{admonition} Daraus ergeben sich neue Fragen:
-:class: frage-feedback
-
-- Welche zusätzlichen Datensätze lassen sich einbeziehen, um die Analyse zu vertiefen?
-
-- Wie können interaktive Dashboards mögliche Kontextfaktoren verständlich und vergleichbar darstellen?
-````
-
-Aufbauend auf den bisherigen Ergebnissen folgt in der nächsten Übung die Erstellung einer Karte, die räumlich verdeutlicht, wo in Berlin besonders viel gegossen wurde.
+Aufbauend auf diesen Ergebnissen folgt in der nächsten Übung die Erstellung einer Karte, die räumlich verdeutlicht, wo in Berlin besonders viel gegossen wurde.
