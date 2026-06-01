@@ -376,17 +376,36 @@ Diese Kennzahl zeigt, wie intensiv die Bäume gegossen wurden. Ein Bezirk mit ho
 ````
 
 ## Kritische Schlussfolgerung
-Die beiden Visualisierungen machen eindrucksvoll sichtbar, wie stark sich die Ergebnisse verändern, sobald man eine andere Operationalisierung wählt.
+Die Visualisierungen zeigen anschaulich, wie deutlich sich die Ergebnisse und folglich die Beantwortung der Leitfrage durch eine veränderte Operationalisierung verschieben können:
 
-Bei der **Gesamtbewässerungsmenge** liegen *Mitte*, *Charlottenburg-Wilmersdorf* und *Tempelhof-Schöneberg* an der Spitze. Das deutet darauf hin, dass in diesen Bezirken besonders große Wassermengen eingesetzt wurden, sei es aufgrund vieler gegossener Bäume, hohem individuellem Einsatz oder besonderen lokalen Bedingungen.
+Bei der **Gesamtbewässerungsmenge** liegen nun **Mitte**, **Charlottenburg-Wilmersdorf** und **Tempelhof-Schöneberg** an der Spitze. Das deutet darauf hin, dass in diesen Bezirken besonders große Wassermengen eingesetzt wurden, sei es aufgrund vieler gegossener Bäume, hohem individuellem Einsatz oder besonderen lokalen Bedingungen.
 
-Betrachtet man jedoch die **durchschnittliche Bewässerungsmenge pro Baum**, verschiebt sich das Bild ein wenig: Hier tritt Friedrichshain-Kreuzberg am weitesten hervor.
+Betrachtet man jedoch die **durchschnittliche Bewässerungsmenge pro Baum**, verschiebt sich das Bild: Hier tritt **Friedrichshain-Kreuzberg** am weitesten hervor.
 
 **Das zeigt klar**:
-Die Wahl der Messgröße – „Wie viel Wasser insgesamt?“ vs. „Wie viel Wasser pro Baum?“ – beeinflusst die Interpretation der Engagementmuster wesentlich. Unterschiedliche Kennzahlen erzählen *unterschiedliche Geschichten*, obwohl sie auf denselben Rohdaten basieren.
+Die Wahl der Messgröße – „Wie viel Wasser insgesamt?“ vs. „Wie viel Wasser pro Baum?“ – beeinflusst die Interpretation des Engagements wesentlich. Unterschiedliche Kennzahlen können *unterschiedliche Geschichten* erzählen, auch sie auf denselben Rohdaten basieren.
 
 Damit wird ein zentrales analytisches Prinzip deutlich:
 **Daten sind nicht neutral – die Art ihrer Aufbereitung formt das Narrativ.**
+
+Ergänzend zu der Leitfrage soll nun eine vertiefte Betrachtung der zugrunde liegenden Dynamiken und Kontextfaktoren erfolgen. Welche **Kontextfaktoren** könnten zu den Unterschieden geführt haben?
+
+- **Räumlich** – etwa Unterschiede in der Baumdichte in einem Gebiet.
+
+- **Zeitlich** – wie sich das Engagement im Jahresverlauf entwickelt oder ob das Alter der Bäume eine Rolle spielt.
+
+````{admonition} Daraus ergeben sich neue Fragen:
+:class: frage-feedback
+
+- Welche zusätzlichen Datensätze lassen sich einbeziehen, um die Analyse zu vertiefen?
+
+- Wie können interaktive Dashboards mögliche Kontextfaktoren verständlich und vergleichbar darstellen?
+````
+
+
+
+
+
 
 ````{admonition} Gesamter Code für diesen Schritt
 :class: solution, dropdown
