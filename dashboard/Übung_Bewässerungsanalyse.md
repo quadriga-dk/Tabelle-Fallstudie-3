@@ -10,7 +10,7 @@ lang: de-DE
 Nachdem Amir mithilfe der Bezirkskarte herausgefunden hat, in welchen Teilen Berlins besonders viele Bäume gegossen wurden, stellt er sich eine neue Frage:
 Reicht es wirklich aus, nur zu zählen, wie viele Bäume gegossen wurden?
 
-Er merkt schnell: Diese Darstellung zeigt zwar den Umfang des Engagements, aber nicht die Intensität der Bewässerung. Ein Bezirk könnte viele Bäume gegossen haben – aber jeweils nur sehr wenig. Ein anderer Bezirk könnte weniger Bäume bewässert haben, dafür aber mit viel mehr Wasser pro Baum.
+Er merkt schnell: Diese Darstellung zeigt zwar den Umfang des Engagements, aber nicht die Intensität der Bewässerung. So könnten die Bürger:innen eines Bezirks eine große Anzahl von Bäumen gegossen haben, dabei jedoch jeweils nur geringe Wassermengen eingesetzt haben. In einem anderen Bezirk könnten hingegen weniger Bäume bewässert worden sein, die Bürger:innen hätten dafür jedoch deutlich größere Wassermengen pro Baum herangeschleppt und damit einen höheren Aufwand pro Baum betrieben.
 ```
 
 ```{admonition} Zweck dieser Übung
