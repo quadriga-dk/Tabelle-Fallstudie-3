@@ -429,5 +429,5 @@ Zurück zur zuvor erstellten Karte der Berliner Bezirke: Zwar wird zwischen *bew
 Daher soll im Folgenden als ein weiterer Kontextfaktor die Bewässerungsmenge analysiert werden und Sie widmen sich einer differenzierteren Betrachtung:
 **Wie viele Liter wurden tatsächlich pro Bezirk gegossen – absolut und im Verhältnis zur Gesamtzahl der Bäume?**
 
-Diese „Bewässerungsanalyse“ bildet die Grundlage der dritten Übung. Sie ermöglicht es, nicht nur die Häufigkeit, sondern auch die **Intensität des Gießens** zu messen und damit ein vollständigeres Bild des Engagements der Bürger:innen zu erhalten.
+Diese „Bewässerungsanalyse“ ermöglicht es, nicht nur die Häufigkeit, sondern auch die **Intensität des Gießens** zu messen und damit ein vollständigeres Bild des Engagements der Bürger:innen zu erhalten.
 
