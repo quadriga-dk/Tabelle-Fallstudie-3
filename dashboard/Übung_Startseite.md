@@ -92,7 +92,7 @@ Hier können Sie zwischen verschiedenen Dashboard-Bereichen wechseln (etwa von d
 ````{dropdown} Code
 ```r
 dashboardSidebar(
-  sidebarMenu(
+  sidebarMenu( id = "sidebarMenu",
     menuItem("Startseite", tabName = "start", icon = icon("home"))
   )
 )
@@ -386,8 +386,8 @@ Dies ist eine Art Kurzzeitgedächtnis (`reactiveVal`). Die App merkt sich hier, 
 **`observeEvent(input$bezirk, { ... })`** 
 Dies ist ein Beobachter. Er wartet im Hintergrund und führt den Code in den geschweiften Klammern `{}` *jedes Mal* aus, sobald der Nutzer im Dropdown-Menü (`input$bezirk`) etwas anklickt oder ändert.
 
-**`req(input$bezirk)`**
-Ein Sicherheitscheck. Der Code bricht hier sofort ab, falls die Auswahl komplett leer ist (z. B. wenn der Nutzer alles herausgelöscht hat).
+**`if (is.null(input$bezirk)) { ... return() }`**
+Ein Sicherheitscheck. Falls die Auswahl komplett leer ist (z. B. wenn Nutzer:innen alles herausgelöscht haben), zwingt der Code das Dropdown-Menü dazu, wieder „Alle Bezirke“ auszuwählen, und bricht dann ab (`return()`).
 
 **Die if-else-Bedingung:**
 Zuerst werden der aktuelle Zustand (`curr_bezirk`) und der vorherige Zustand (`prev`) in Variablen gespeichert. Dann prüft die App drei Fälle:
@@ -444,13 +444,17 @@ Das Dashboard ist nun funktionsfähig: Nutzer:innen können Bezirke auswählen u
 ```r
 # UI-Definition
 ui <- dashboardPage(
+  # 1. HEADER: Titelbereich des Dashboards
   dashboardHeader(title = "Gieß den Kiez Dashboard"),
+  
+  # 2. SIDEBAR: Seitliche Navigationsleiste mit Menüeinträgen
   dashboardSidebar(
-    sidebarMenu(
+    sidebarMenu( id = "sidebarMenu", 
       menuItem("Startseite", tabName = "start", icon = icon("home"))
     )
-  )  
-),
+  ),
+  
+  # 3. BODY: Inhaltsbereich
   dashboardBody(
     tabItems(
       tabItem(
@@ -462,9 +466,9 @@ ui <- dashboardPage(
                   p(style = "font-size: 15px; margin-bottom: 2px;",
                     "Gesamter Baumbestand in Berlin:"),
                   span(style = "font-size: 28px; font-weight: bold; color: #3C6E97; margin-top: 0;",
-                    textOutput("total_trees_label"))
+                       textOutput("total_trees_label"))
               ),
-          
+              
               # Dropdown-Filter in voller Breite darüber
               fluidRow(
                 column(width = 12,
@@ -475,7 +479,7 @@ ui <- dashboardPage(
                        )
                 )
               ),
-            
+              
               # Zwei dynamische Kacheln nebeneinander
               fluidRow(
                 valueBoxOutput("total_trees_filtered", width = 6),
@@ -486,6 +490,7 @@ ui <- dashboardPage(
       )
     )
   )
+)
 
 # Server-Logik
 server <- function(input, output, session) {

@@ -73,7 +73,7 @@ Da Sie die Grundstruktur der Benutzeroberfläche bereits in der vorherigen Übun
 ````{dropdown} Navigation in der Seitenleiste
 ```r
 dashboardSidebar(
-  sidebarMenu(
+  sidebarMenu( id = "sidebarMenu",
     menuItem("Startseite", tabName = "start", icon = icon("home")),
     # NEU: Menüpunkt für die Karte hinzufügen
     menuItem("Karte", tabName = "map", icon = icon("map"))
@@ -112,7 +112,6 @@ Idealerweise stellen Sie die Leaflet-Karte zentral dar, sodass diese sofort ins 
     - ``solidHeader = TRUE`` – durchgezogene Kopfzeile
     - ``width = 12`` – Box nimmt die volle Seitenbreite ein (12 = max. Spaltenzahl)
 - ``fluidRow(...)`` sorgt für eine horizontale Anordnung (z. B. nebeneinander statt untereinander).
-- ``multiple = TRUE`` bedeutet, dass man mehrere Optionen gleichzeitig auswählen kann.
  
 ``fluidRow()`` ordnet Inhalte nebeneinander. ``box(...)`` gruppiert UI-Elemente visuell und funktional.
 
@@ -160,6 +159,7 @@ Jetzt entsteht die eigentliche Karte. Jeder Berliner Bezirk gestalten Sie farbli
 ```r
   # Erstelle interaktive Leaflet-Karte mit Bezirksdaten
   output$map <- renderLeaflet({
+    req(input$sidebarMenu == "map")
     data_stats <- data_by_bezirk()
     
     # Verbinde Bezirksgeometrien mit Statistiken, ersetze NA durch 0
@@ -227,6 +227,7 @@ Jetzt entsteht die eigentliche Karte. Jeder Berliner Bezirk gestalten Sie farbli
 :class: hinweis, dropdown
 
 - ``renderLeaflet({...})``: Erzeugt eine Leaflet-Karte, die dynamisch auf Eingaben reagieren kann.
+- ``req(input$sidebarMenu == "map")``: Stellt sicher, dass die Karte nur gerendert wird, wenn der Tab "Karte" aktiv ist. Dadurch wird unnötige Rechenleistung gespart.
 - ``data_stats <- data_by_bezirk()``: Holt aggregierte Statistiken pro Bezirk (z. B. Anzahl Bäume, Anteil bewässert).
 - ``left_join(...)``: Verknüpft die Berliner Bezirks-Polygone (``berlin_bezirke_sf``) mit deinen Statistikdaten.
 - ``mutate(...)`` + ``replace_na(...)``: Stellt sicher, dass fehlende Werte (``NA``) durch 0 ersetzt werden, damit später keine Fehlfarben entstehen.
@@ -259,7 +260,7 @@ Mit Farbskalen wie colorNumeric() können Bezirke automatisch nach Kennzahlen ei
 ui <- dashboardPage(
   dashboardHeader(title = "Gieß den Kiez Dashboard"),
   dashboardSidebar(
-    sidebarMenu(
+    sidebarMenu( id = "sidebarMenu",
       menuItem("Startseite", tabName = "start", icon = icon("home")),
       # NEU: Navigation für die Karte
       menuItem("Karte", tabName = "map", icon = icon("map"))
@@ -305,6 +306,7 @@ server <- function(input, output, session) {
 
   # NEU: Rendering der Leaflet-Karte
   output$map <- renderLeaflet({
+    req(input$sidebarMenu == "map")
     data_stats <- data_by_bezirk()
     
     # Verbinde Bezirksgeometrien mit Statistiken, ersetze NA durch 0

@@ -63,7 +63,7 @@ Zunächst fügen Sie einen weiteren Menüpunkt zur Navigation hinzu, um den Zeit
 ````{dropdown} Navigation in der Seitenleiste
 ```r
 dashboardSidebar(
-  sidebarMenu(
+  sidebarMenu( id = "sidebarMenu",
     menuItem("Startseite", tabName = "start", icon = icon("home")),
     menuItem("Karte", tabName = "map", icon = icon("map")),
     # NEU: Menüpunkt für die Zeitverlauf hinzufügen
@@ -167,6 +167,7 @@ Zunächst müssen Sie die Rohdaten so vorbereiten, dass nur relevante Einträge 
 ```r
 # Trend: Bewässerung nach Pflanzjahr
 output$trend_water <- renderPlotly({
+  req(input$sidebarMenu == "stats") 
   filtered_data <- df_merged %>%
     filter(!is.na(bewaesserungsmenge_in_liter)) %>%  
     filter(!is.na(pflanzjahr))
@@ -186,6 +187,7 @@ output$trend_water <- renderPlotly({
 :class: hinweis, dropdown
 
 **Grundfilterung:**  
+- `req(input$sidebarMenu == "stats")` – stellt sicher, dass der Plot nur berechnet wird, wenn der Tab "Zeitverlauf" aktiv ist.
 - `filter(!is.na(bewaesserungsmenge_in_liter))` – nur Bäume, die tatsächlich gegossen wurden
 - `filter(!is.na(pflanzjahr))` – nur Bäume mit bekanntem Pflanzjahr
 
@@ -353,7 +355,7 @@ Mehrere Faktoren schränken die Interpretierbarkeit des Trends ein:
 ui <- dashboardPage(
   dashboardHeader(title = "Gieß den Kiez Dashboard"),
   dashboardSidebar(
-    sidebarMenu(
+    sidebarMenu( id = "sidebarMenu",
       # Code aus der Startseite und Karte
       menuItem("Startseite", tabName = "start", icon = icon("home")),
       menuItem("Karte", tabName = "map", icon = icon("map")),
@@ -422,6 +424,7 @@ server <- function(input, output, session) {
   
   # NEU: Trend: Bewässerung nach Pflanzjahr
   output$trend_water <- renderPlotly({
+    req(input$sidebarMenu == "stats") 
     filtered_data <- df_merged %>%
       filter(!is.na(bewaesserungsmenge_in_liter)) %>%  
       filter(!is.na(pflanzjahr))
