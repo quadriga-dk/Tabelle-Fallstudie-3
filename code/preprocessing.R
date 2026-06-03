@@ -1,5 +1,5 @@
 ## Code for 3.2. Vorbereitung der Daten: Einlesen und Bereinigung
-## Creates the df_merged_final.csv file needed for the dashboard
+## Creates the df_merged_final.rds file needed for the dashboard
 
 library(sf)
 library(dplyr)
@@ -126,13 +126,15 @@ df_final <- df_baeume_final %>%
     timestamp
   )
 
-# 11. Ergebnis speichern
-if (!dir.exists("data")) dir.create("data")
-
-# Als CSV speichern (menschenlesbar, teilbar, in Excel öffnbar)
-write.csv2(df_final, "data/df_merged_final.csv", row.names = FALSE, fileEncoding = "UTF-8")
-
-# Als RDS speichern (R Data Serialization, maschinenlesbar, schnelleres Laden)
+# RDS speichern (wird im Dashboard später verwendet)
 saveRDS(df_final, "data/df_merged_final.rds")
 
+# Optional: Als CSV speichern (menschenlesbar, in Excel öffnbar, aber langsamer zu laden)
+write.csv2(df_final, "data/df_merged_final.csv", row.names = FALSE, fileEncoding = "UTF-8")
+
+# Kontrolle: Daten kurz anschauen
 cat("Fertig! Zeilen:", nrow(df_final), "| Spalten:", ncol(df_final), "\n")
+
+# Um die RDS-Datei später zu inspizieren, nutzen Sie:
+df_check <- readRDS("data/df_merged_final.rds")
+View(df_check)  # Öffnet die Tabelle in R Studio
