@@ -10,16 +10,15 @@ lang: de-DE
 In dieser Fallstudie wird mit Hilfe der Applikation R Shiny ein Dashboard erstellt. Daher bietet diese Open Educational Resource (OER) keinen 🌨️ Cloud Mode an.  
 Es wird empfohlen, die Lehreinheit im 📘 Book-Only Mode durchzugehen. Dabei lesen Sie unser interaktives Lehrbuch im Browser. Parallel dazu können Sie mit R Shiny an der Umsetzung des Dashboards arbeiten. Selbstverständlich können Sie die Lerneinheit auch im 💻 Local Mode ausführen: Dazu können Sie sich die Dateien über Zenodo oder <a href="https://github.com/quadriga-dk/Tabelle-Fallstudie-3" class="external-link" target="_blank">GitHub</a> herunterladen. Dies ermöglicht die Nutzung lokaler Daten und umfassende Anpassungen.  
 
-Um den in der OER vorhandenen R-Code parallel zum Lesen des Jupyter Books in RStudio zu bearbeiten, müssen Sie sich R und RStudio installieren. Eine Anleitung dazu finden Sie weiter unten.
+Um den in der OER vorhandenen R-Code parallel zum Lesen des Jupyter Books in RStudio zu bearbeiten, müssen Sie sich R und RStudio installieren. 
 
 
 ## Installieren von R und RStudio
 
-Um der Übungseinheit effektiv folgen zu können, installieren Sie bitte vorab **R**. Zudem benötigen Sie eine geeignete Entwicklungsumgebung. Hierfür bietet sich **RStudio** an. Die Computersprache **R** und **RStudio** können Sie direkt vom Entwickler bzw. Maintainer <a href="https://posit.co/download/rstudio-desktop/" class="external-link" target="_blank">Posit</a> beziehen.  
+Um der Übungseinheit effektiv folgen zu können, installieren Sie bitte vorab **R**. Zudem benötigen Sie eine geeignete Entwicklungsumgebung. Hierfür bietet sich **RStudio** an. Die Programmiersprache **R** und **RStudio** können Sie direkt vom Entwickler bzw. Maintainer <a href="https://posit.co/download/rstudio-desktop/" class="external-link" target="_blank">Posit</a> beziehen.  
 
 **Hinweis**  
-Die Übungen sind auf der Basis von R 4.4.3 entwickelt worden und zur Nutzung von RStudio 2024.09.0 Build 375 über Windows konzipiert. Sollten Sie eine andere RStudio Version oder ein anderes Betriebssystem nutzen, können einige Funktionen eventuell variieren. <span style="color: red;">Ist das so?</span>
-Eine Anleitung für die ersten Schritte in RStudio finden Sie weiter unten in diesem Abschnitt.  
+Die Übungen sind auf der Basis von R 4.4.3 entwickelt worden und zur Nutzung von RStudio 2024.09.0 Build 375 über Windows konzipiert. Sollten Sie eine andere RStudio Version oder ein anderes Betriebssystem nutzen, können einige Funktionen eventuell variieren. <span style="color: red;">Ist das so?</span>  
 
 
 ------------------------------------------------------------------------
