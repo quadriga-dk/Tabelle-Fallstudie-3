@@ -356,21 +356,37 @@ df_final <- df_baeume_final %>%
 ```
 - Um die App performant zu halten und unnötigen Ballast zu entfernen, reduzieren Sie die finale Tabelle auf die 7 Spalten, die für das Dashboard tatsächlich gebraucht werden.
 
-**11. Neue, vollständige Tabelle in verschiedenen Formaten speichern**
+**11. Neue, vollständige Tabelle speichern**
+
+````{margin}
+```{admonition} Was ist eine RDS-Datei?
+:class: hinweis
+
+Das native Serialisierungsformat von R, die R-Objekte (wie DataFrames) in einem komprimierten, binären Format spechiert.    
+Die Dateigröße ist wesentlich **kleiner und kompakter** als bei einer herkömmlichen CSV-Datei, wodurch sie deutlich **schneller** lädt und sich perfekt für R-Shiny und andere R-basierte Anwendungen eignet.
+```
+````
 
 ```r
-# Als CSV speichern (menschenlesbar, teilbar, in Excel öffnbar)
-write.csv2(df_final, "data/df_merged_final.csv", row.names = FALSE, fileEncoding = "UTF-8")
-
-# Als RDS speichern (R Data Serialization, maschinenlesbar, schnelleres Laden)
+# RDS speichern (wird im Dashboard später verwendet)
 saveRDS(df_final, "data/df_merged_final.rds")
 
+# Optional: Als CSV speichern (menschenlesbar, in Excel öffnbar, aber langsamer zu laden)
+write.csv2(df_final, "data/df_merged_final.csv", row.names = FALSE, fileEncoding = "UTF-8")
+
+# Kontrolle: Daten kurz anschauen
 cat("Fertig! Zeilen:", nrow(df_final), "| Spalten:", ncol(df_final), "\n")
+
+# Um die RDS-Datei später zu inspizieren, nutzen Sie:
+df_check <- readRDS("data/df_merged_final.rds")
+View(df_check)  # Öffnet die Tabelle in R Studio
 ```
 
-- Die neue Tabelle mit allen Bäumen und Bezirken speichern Sie als CSV-Datei (inklusive korrekter UTF-8-Zeichenkodierung für Sonderzeichen).
+- Die neue Tabelle mit allen Bäumen und Bezirken speichern Sie als `.rds`-Datei. Dieses Format wird später beim Bau des Dashboards verwendet.
 
-- Zusätzlich speichern Sie die Daten als .rds-Datei. Dieses R-spezifische Format lädt in R-Shiny deutlich schneller als eine herkömmliche CSV-Datei.
+- Das zusätzliche Speichern als CSV ist optional, falls Sie die Daten auch in Excel oder anderen Programmen öffnen möchten.
+
+- Mit `readRDS()` können Sie die RDS-Datei jederzeit in R Studio laden und mit `View()` inspizieren.
 
 
 Am Ende haben Sie wieder die Möglichkeit, sich den gesamten Code anzusehen, bevor Sie im nächsten Kapitel die Entwicklungsumgebung auf den Bau des Dashboards vorbereiten.
@@ -445,13 +461,17 @@ df_final <- df_baeume_final %>%
   )
 
 # 11. Ergebnis speichern
-# Als CSV speichern (menschenlesbar, teilbar, in Excel öffnbar)
-write.csv2(df_final, "data/df_merged_final.csv", row.names = FALSE, fileEncoding = "UTF-8")
-
-# Als RDS speichern (R Data Serialization, maschinenlesbar, schnelleres Laden)
+# RDS speichern (wird im Dashboard später verwendet)
 saveRDS(df_final, "data/df_merged_final.rds")
 
+# Optional: Als CSV speichern
+write.csv2(df_final, "data/df_merged_final.csv", row.names = FALSE, fileEncoding = "UTF-8")
+
 cat("Fertig! Zeilen:", nrow(df_final), "| Spalten:", ncol(df_final), "\n")
+
+# Um die RDS-Datei später zu inspizieren:
+df_check <- readRDS("data/df_merged_final.rds")
+View(df_check)
 ```
 
 ````
