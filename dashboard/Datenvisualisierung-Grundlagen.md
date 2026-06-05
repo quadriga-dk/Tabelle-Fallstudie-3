@@ -77,4 +77,5 @@ Wer sich der **Manipulationsmöglichkeiten** bewusst ist und **Visualisierungen 
 
 ```{bibliography}
 :filter: docname in docnames
+:list: bullet
 ```
