@@ -49,7 +49,7 @@ Startseite des Dashboards: Auf der Startseite können ein oder mehrere Bezirke �
 
 Für die Startseite seiner Anwendung möchte Amir eine **kompakte Kennzahlenübersicht** erstellen. Diese soll den Nutzer:innen helfen, sofort die Größenordnung des Gießverhaltens einzuschätzen – etwa, wie viele Bäume insgesamt erfasst sind und wie viele davon gegossen wurden. Der Mehrwert einer Startseite mit Kennzahlenkacheln umfasst also die schnellere Orientierung - Nutzer:innen erfassen auf einen Blick den aktuellen Stand der Gießaktivitäten, ohne durch die Anwendung navigieren zu müssen. Dies spart Zeit und erleichtert den Einstieg. Die Kennzahlen dienen als Ausgangspunkt: man kann von dort aus zu detaillierteren Visualisierungen und Analysen navigieren.
 
-Zusätzlich plant er **Filtermöglichkeiten** nach **Bezirk**, um die Kennzahlen gezielt einzugrenzen und regionale Unterschiede sichtbar zu machen. Damit lassen sich die Daten auch in einer feineren Granularität betrachten – von stadtweiter Übersicht bis hin zu einzelnen Bezirken. Die auf der Startseite dargestellten Kennzahlen werden dabei ausschließlich als **absolute Werte** angezeigt und **nicht ins Verhältnis** zueinander gesetzt, da sie zunächst eine verlässliche Datengrundlage vermitteln sollen, bevor weiterführende Analysen und Vergleiche auf den Folgeseiten möglich werden.
+Zusätzlich plant er **Filtermöglichkeiten** nach **Bezirk**, um die Kennzahlen gezielt einzugrenzen und regionale Unterschiede sichtbar zu machen. Damit lassen sich die Daten auch in einer feineren Granularität betrachten – von stadtweiter Übersicht bis hin zu einzelnen Bezirken. Die auf der Startseite dargestellten Kennzahlen werden dabei ausschließlich als **absolute Werte** angezeigt und **nicht ins Verhältnis** zueinander gesetzt, da sie zunächst eine verlässliche Datengrundlage vermitteln sollen, bevor weiterführende Analysen und Vergleiche umgesetzt werden.
 
 Als Nächstes bauen Sie die Startseite des Dashboards mit R. Nach jedem Codeabschnitt werden kurz die verwendeten Techniken und Befehle erklärt. Dabei widmen Sie sich sowohl der Benutzeroberfläche (UI), als auch der Serverseite des R-Shiny-Dashboards.
 
@@ -567,7 +567,7 @@ shinyApp(ui = ui, server = server)
 ```
 ````
 
-## Was muss Amir beim Bau eines Dashboards beachten? *(vorläufig)* 
+## Was muss Amir beim Bau eines Dashboards beachten?  
 Bei der Gestaltung der Startseite sollten Sie darauf achten, dass die wichtigsten Informationen klar, gut lesbar und ohne unnötige Ablenkungen präsentiert werden. Besonders für einen ersten Überblick gilt: Weniger ist oft mehr.
 
 Für die Startseite heißt das vor allem:
@@ -588,9 +588,11 @@ Die zentrale Leitfrage der Fallstudie lautet: **Wo lassen sich die höchsten Aus
 
 Die Startseite des Dashboards ermöglicht einen ersten Überblick darüber, in welchen Bezirken es wieviele Bäume gibt und wieviele davon gegossen wurden. In **absoluten Zahlen** zeigt sich dabei das höchste Engagement bei den Bürger:innen in **Mitte**, gefolgt von **Tempelhof-Schöneberg** und **Charlottenburg-Wilmersdorf**.  
 
-Für eine abschließende Beantwortung der Leitfrage reicht diese Betrachtung jedoch nicht aus, da **ohne Normalisierung** – etwa durch das Verhältnis gegossener Bäume zur Gesamtbaumzahl je Bezirk – **keine validen Vergleiche zwischen den Bezirken** gezogen werden können. 
+Für eine abschließende Beantwortung der Leitfrage reicht diese Betrachtung jedoch nicht aus, da **ohne Normalisierung** – etwa durch das Verhältnis gegossener Bäume zur Gesamtbaumzahl je Bezirk – **keine validen Vergleiche zwischen den Bezirken** gezogen werden können. Fahren Sie daher mit der folgenden Übung fort.
 
 ### Übung
+Berechnen Sie nun für jeden Berliner Bezirk das relative Bürger:innenengagement, indem Sie die Anzahl der gegossenen Bäume zur Gesamtbaumzahl des jeweiligen Bezirks ins Verhältnis setzen.
+
 An dieser Stelle können Sie Ihre bisher erlernten R-Fähigkeiten anwenden. Anstatt sich die Kennzahlen aus dem Dashboard rauszuschreiben und die Berechnungen mit einem Taschenrechener oder Excel durchzuführen, schreiben Sie doch ein kleines R-Script, welches diese Aufgabe erledigt. Sobald Sie das richtige Ergebnis berechnet haben, können Sie es unten im Quiz auswählen. Vergessen Sie hierbei nicht, wie bereits in vorherigen Kapiteln gezeigt, das Arbeitsverzeichnis korrekt zu setzen und die bereinigten Daten aus dem Datenverzeichnis auszulesen.
 
 ```{code-cell} ipython3
@@ -603,7 +605,7 @@ from quadriga import colors
 
 question = [
     {
-        "question": "Berechnen Sie nun für jeden Berliner Bezirk das relative Bürger:innenengagement, indem Sie die Anzahl der gegossenen Bäume zur Gesamtbaumzahl des jeweiligen Bezirks ins Verhältnis setzen. Welcher Bezirk weist dabei den höchsten Anteil auf?",
+        "question": "Berechnen Sie für jeden Berliner Bezirk das relative Bürger:innenengagement, indem Sie die Anzahl der gegossenen Bäume zur Gesamtbaumzahl des jeweiligen Bezirks ins Verhältnis setzen. Welcher Bezirk weist dabei den höchsten Anteil auf?",
         "type": "multiple_choice",
         "answers": [
             {
@@ -652,6 +654,6 @@ print(top_bezirk)
 ```
 ````
 
-**Durch die Berechnung der relativen Zahlen konnte die zentrale Leitfrage dieser Fallstudie nun sinnvoll beantwortet werden.**  
+**Durch die Berechnung der relativen Zahlen konnte die zentrale Leitfrage dieser Fallstudie nun sinnvoll beantwortet werden, wo  sich die höchsten Ausprägungen des Engagements von Bürger:innen in Berlin feststellen lässt.**  
 
-Allerdings ist es recht aufwendig, den Bezirk mit dem höchsten Engagement auf diese Weise zu ermitteln. Daher werden Sie im nächsten Abschnitt aufbauend auf diesen Ergebnissen eine weitere Visualisierung in Form einer Karte erstellen, die räumlich abbildet, in welchem Berliner Bezirk wieviel gegossen wurde.
+Im nächsten Abschnitt werden Sie aufbauend auf diesen Ergebnissen eine weitere Visualisierung in Form einer Karte erstellen, die nochmal räumlich abbildet, in welchem Berliner Bezirk wieviel gegossen wurde.
