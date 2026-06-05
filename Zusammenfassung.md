@@ -25,7 +25,9 @@ Bezieht man jedoch das Verhältnis zwischen Bewässerungsmenge/Anzahl der Bäume
 **Bewässerungstrend:**
 Die höchste Gesamtbewässerung wurde im **Jahr 2022** erreicht, mit einem Volumen von **761,97 m³**. Im Vergleich zum Vorjahr (**2021: 273,71 m³**) bedeutet dies eine deutliche Steigerung des Engagements.
 
-Sie haben folgendes gelernt (Lernziele)
+## Gelerntes
+
+abschnitt über das gelernte, der nochmal alles erworbene zusammenfasst (Lernziele?)*
 
 ## Reflexion
 
@@ -55,3 +57,6 @@ Das Dashboard hat aufgrund des Fallstudien-Charakters dieser Lerneinheit technis
 - Nächste Schritte, die man mit Dashboards machen könnte (Tragen Büger:innen Daten überhaupt bei, Usability Tests etc.) - Für Bürgerengagement müsste Schnittstelle vorhanden sein, bei der Bürger:innen ihre Nutzungsdaten einpflegen können
 - Entscheidend ist dabei auch, sich seiner unbewussten Haltungen bewusst zu werden. 
 
+## Ausblick
+
+*Weiterführende Materialien sowie Anregungen wenn man sich weiterbilden möchte ( & warum sich das lohnt)*
