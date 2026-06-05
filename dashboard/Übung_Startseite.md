@@ -24,19 +24,19 @@ Der Aufbau eines Dashboards als Form der Visualisierung in der Verwaltungswissen
 
 ```
 
-Die **Startseite** seines Dashboards soll als zentrale Übersicht und Einstiegspunkt dienen. Hier werden die wichtigsten Kennzahlen sofort sichtbar:
+Die **Startseite** von Amirs Dashboard soll als zentrale Übersicht und Einstiegspunkt dienen. Hier werden die wichtigsten Kennzahlen für das Bundesland Berlin sofort sichtbar:
 
-- **Gesamtanzahl der Bäume**  
-- **Anzahl gegossener Bäume**
+- **Anzahl der erfassten Bäume**  
+- **Anzahl bewässerter Bäume**
 
 Damit liefert die Startseite einen kompakten, aber aussagekräftigen Überblick über das Engagement der Bürger:innen. Sie beantwortet bereits auf den ersten Blick zentrale Fragen der Analyse:  
 
-**1. Wie groß ist der Gesamtbestand an Bäumen?**  
+**1. Wie groß ist der Bestand an erfassten Bäumen?**  
 **2. Wie viele davon wurden aktiv bewässert?**
 
 So ist die Startseite nicht nur auf erstem Blick intuitiv und verständlich, sondern auch funktional der ideale Ausgangspunkt für die weitere Erkundung der Daten.
 
-Für den Einstieg arbeiten Sie mit dem Datensatz *„Gieß den Kiez – Bewässerungsdaten“* von **GovData**. Dieser Datensatz bietet detaillierte Informationen darüber, wann, wo und wie viel gegossen wurde. Er eignet sich ideal, um erste Analysen zum Gießverhalten zu erstellen, da er sowohl zeitliche als auch räumliche Bezüge enthält und öffentlich zugänglich ist.
+Für den Einstieg arbeiten Sie mit dem Datensatz *„Gieß den Kiez – Bewässerungsdaten“* von **GovData**. Dieser Datensatz bietet detaillierte Informationen darüber, wann, wo und wieviel in Berlin gegossen wurde. Er eignet sich ideal, um erste Analysen zum Gießverhalten zu erstellen, da er sowohl zeitliche als auch räumliche Bezüge enthält und öffentlich zugänglich ist.
 
 
 ```{figure} ../assets/Dashboard_Startseite.png
@@ -44,7 +44,7 @@ Für den Einstieg arbeiten Sie mit dem Datensatz *„Gieß den Kiez – Bewässe
 name: Dashboard Startseite
 alt: Ein Screenshot, der zeigt Dashboard Startseite
 ---
-Startseite des Dashboards; Die Startseite zeigt zwei Kacheln mit der Gesamtzahl der Bäume in Berlin sowie der Anzahl der bereits gegossenen Bäume, die eine Teilmenge des gesamten Baumbestands darstellen. Zusätzlich steht ein Filter zur Verfügung, mit dem der Baumbestand nach Bezirken ausgewählt und angezeigt werden kann. (Quelle: eigene Ausarbeitung)
+Startseite des Dashboards: Auf der Startseite können ein oder mehrere Bezirke über eine Filterfunktion ausgewählt werden. Die beiden Kacheln zeigen jeweils die Anzahl der erfassten Bäume sowie die Anzahl der bereits bewässerten Bäume für die jeweilige Bezirksauswahl. Zusätzlich wird der Berliner Gesamtbestand an Bäumen als Referenz angegeben. (Quelle: eigene Ausarbeitung)
 ``` 
 
 Für die Startseite seiner Anwendung möchte Amir eine **kompakte Kennzahlenübersicht** erstellen. Diese soll den Nutzer:innen helfen, sofort die Größenordnung des Gießverhaltens einzuschätzen – etwa, wie viele Bäume insgesamt erfasst sind und wie viele davon gegossen wurden. Der Mehrwert einer Startseite mit Kennzahlenkacheln umfasst also die schnellere Orientierung - Nutzer:innen erfassen auf einen Blick den aktuellen Stand der Gießaktivitäten, ohne durch die Anwendung navigieren zu müssen. Dies spart Zeit und erleichtert den Einstieg. Die Kennzahlen dienen als Ausgangspunkt: man kann von dort aus zu detaillierteren Visualisierungen und Analysen navigieren.
