@@ -24,10 +24,10 @@ Sein Wunsch: Eine intuitive Karte von Berlin, die sofort erkennen lässt, in wel
 Das Erstellen einer [Leaflet-Karte](https://de.wikipedia.org/wiki/Leaflet) dient dazu, räumliche Informationen nutzbar zu machen, um Verwaltungsdaten visuell zugänglich und vergleichbar darzustellen. In dieser Übung lernen Sie, wie Bezirksdaten mit statistischen Kennzahlen verknüpft und anschließend mithilfe einer Farbskala intuitiv interpretiert werden können. Die farbliche Hervorhebung des Anteils bewässerter Bäume ermöglicht es, Muster und regionale Unterschiede auf einen Blick zu erkennen und zusätzliche Antworten auf die Leitfrage zu gewinnen: In welchen Bezirken wird besonders viel gegossen?
 ```
 
-Das Dashboard soll um eine **Karte der Berliner Bezirke** erweitert werden. Nachdem die Startseite bereits erste Kennzahlen sichtbar macht, werden Sie nun **räumlich darstellen**, wo in Berlin besonders viel gegossen wurde. Eine kartenbasierte Visualisierung eignet sich ideal, um regionale Muster zu erkennen, Hotspots sichtbar zu machen und Unterschiede zwischen den Bezirken intuitiv zu erfassen.
+Das bestehdende Dashboard soll um eine **Karte der Berliner Bezirke** erweitert werden. Nachdem die Startseite bereits erste Kennzahlen sichtbar macht, werden Sie nun **räumlich darstellen**, wo in Berlin besonders viel gegossen wurde. Eine kartenbasierte Visualisierung eignet sich ideal, um regionale Muster zu erkennen, Hotspots sichtbar zu machen und Unterschiede zwischen den Bezirken intuitiv zu erfassen.
 
 Für diese Aufgabe nutzen Sie das Paket **Leaflet**, das interaktive Karten direkt in R-Shiny erzeugt. Ergänzt wird Leaflet durch **sf** zur Verarbeitung der Bezirks-Geodaten sowie durch Funktionen wie ```colorNumeric()```, mit denen eine aussagekräftige Farbskala erzeugt wird. Die Karte verknüpft also zwei Datenquellen:
-die **räumliche Geometrie** der Berliner Bezirke und die **berechneten Kennzahlen** aus seinem Datensatz – insbesondere die Anzahl der Bäume sowie den Anteil der bewässerten Bäume pro Bezirk.
+die **räumliche Geometrie** der Berliner Bezirke und die **berechneten Kennzahlen** aus seinem Datensatz - insbesondere die Anzahl der Bäume sowie den Anteil der bewässerten Bäume pro Bezirk.
 
 ```{figure} ../assets/Dashboard_Karte.png
 ---
@@ -35,7 +35,7 @@ name: Dashboard Karte
 alt: Ein Screenshot, der zeigt Dashboard Karte
 width: 450px
 ---
-zweiter Reiter des Dashboards - Karte; Die Abbildung zeigt eine Karte aller Berliner Bezirke. Die Farbsättigung eines Bezirks entspricht dem prozentualen Anteil der gegossenen Bäume an der Gesamtzahl der Bäume im jeweiligen Bezirk. Die genaue Zuordnung der Farbskala ist in der Legende erläutert.  (Quelle: eigene Ausarbeitung)
+Zweiter Reiter des Dashboards - Karte: Die Abbildung zeigt eine Karte aller Berliner Bezirke. Die Farbsättigung eines Bezirks entspricht dem prozentualen Anteil der gegossenen Bäume an der Gesamtzahl der Bäume im jeweiligen Bezirk. Die genaue Zuordnung der Farbskala ist in der Legende erläutert.  (Quelle: eigene Ausarbeitung)
 ``` 
 
 ```{admonition} Die Karte erfüllt mehrere Ziele gleichzeitig:
@@ -51,7 +51,7 @@ zweiter Reiter des Dashboards - Karte; Die Abbildung zeigt eine Karte aller Berl
 Durch die Visualisierung können Sie ebenso die zentrale Leitfrage beantworten:
 **Wo lassen sich die höchsten Ausprägungen des Engagements von Bürger:innen bei der Bewässerung städtischer Bäume in Berlin feststellen?**  
 
-Eine **Choroplethenkarte** ist eine thematische Karte, bei der Flächen entsprechend statistischer Werte eingefärbt werden – in diesem Fall nach dem prozentualen Anteil gegossener Bäume pro Bezirk. Der entscheidende Mehrwert dieser Darstellungsform liegt in der simultanen räumlichen Vergleichbarkeit: man erfasst auf einen Blick, welche Bezirke gut versorgt sind und wo Handlungsbedarf besteht, ohne zwischen verschiedenen Ansichten wechseln zu müssen. Die geografische Anordnung ermöglicht es zudem, räumliche Muster zu erkennen – etwa ob zentrale Bezirke anders versorgt werden als Randbezirke, oder ob benachbarte Gebiete ähnliche Bewässerungsquoten aufweisen. Dunkle Schattierungen signalisieren hohe Bewässerungsraten, helle Bereiche weisen auf niedrigere Werte hin. Die Karte vereint explorative Analyse mit detaillierter Datenabfrage und macht räumliche Zusammenhänge zugänglich.
+Eine **Choroplethenkarte** ist eine thematische Karte, bei der Flächen entsprechend statistischer Werte eingefärbt werden, in diesem Fall nach dem prozentualen Anteil gegossener Bäume pro Bezirk. Der entscheidende Mehrwert dieser Darstellungsform liegt in der simultanen räumlichen Vergleichbarkeit: man erfasst auf einen Blick, welche Bezirke gut versorgt sind und wo Handlungsbedarf besteht, ohne zwischen verschiedenen Ansichten wechseln zu müssen. Die geografische Anordnung ermöglicht es zudem, räumliche Muster zu erkennen. So lässt sich beispielsweise untersuchen, ob zentrale Bezirke anders versorgt werden als Randbezirke oder ob benachbarte Gebiete ähnliche Bewässerungsquoten aufweisen. Dunkle Schattierungen signalisieren hohe Bewässerungsraten, helle Bereiche weisen auf niedrigere Werte hin. Die Karte vereint explorative Analyse mit detaillierter Datenabfrage und macht räumliche Zusammenhänge zugänglich.
 
 Technisch nutzen Sie dafür ein Zusammenspiel aus:
 
@@ -62,7 +62,7 @@ Technisch nutzen Sie dafür ein Zusammenspiel aus:
 - **Tooltips (HTML)** – zeigen detaillierte Kennzahlen beim Hover
 - **Legende** (```addLegend()```) – erklärt die Farbcodierung
 
-Durch diese Kombination entsteht eine sowohl leicht verständliche als auch analytisch wertvolle Darstellung. Nutzer:innen können sofort erkennen, wie die Bewässerungsaktivität räumlich verteilt ist und welche Bezirke auffallen – im positiven oder negativen Sinne.
+Durch diese Kombination entsteht eine leicht verständliche Darstellung. Nutzer:innen können sofort erkennen, wie die Bewässerungsaktivität räumlich verteilt ist und welche Bezirke auffallen – im positiven oder negativen Sinne.
 
 ## Benutzeroberfläche (UI)
 
@@ -152,7 +152,7 @@ Diese reaktive Funktion wird später im `renderLeaflet`-Block aufgerufen, um die
 ````
 
 ### Karte zeichnen mit Leaflet
-Jetzt entsteht die eigentliche Karte. Jeder Berliner Bezirk gestalten Sie farblich: Dunklere Farben zeigen hohes Engagement, hellere Bereiche niedrigere Bewässerungsraten. Beim Überfahren mit der Maus erscheinen die genauen Zahlen – wie viele Bäume es gibt, wie viele gegossen wurden und der prozentuale Anteil.
+Jetzt entsteht die eigentliche Karte. Jeden Berliner Bezirk gestalten Sie farblich: Dunklere Farbtöne stehen für hohe Bewässerungsraten, hellere Farbtöne für niedrigere Bewässerungsraten. Beim Überfahren eines Bezirks mit der Maus werden die genauen Werte angezeigt. Dazu gehören die Anzahl der erfassten Bäume, die gegossenen Bäume sowie der prozentuale Anteil der gegossenen Bäume.
 
 
 ````{dropdown} Code
@@ -376,7 +376,7 @@ shinyApp(ui = ui, server = server)
 ## Reflexion
 
 Die Leitfrage, in welchem Berliner Bezirk die höchsten Ausprägungen des Bürger:innenengagements bei der Bewässerung städtischer Bäume festzustellen sind, wurde bereits in Kapitel 5.2 beantwortet. Allerdings ist es mit der in Kapitel 5.2. gewählten Darstellungsform etwas umständlich das Ergebnis herauszubekommen, da alle Bezirke einzeln durchgeklickt werden müssen.  
-Durch die in diesem Kapitel ergänzend gestaltete Karte der Bezirke entsteht nun **erstmals ein räumlicher Gesamtüberblick** über die Verteilung der Bewässerungsaktivitäten innerhalb Berlins. Die Visualisierung bestätigt die bisherigen Ergebnisse und zeigt, dass **Friedrichshain-Kreuzberg** den höchsten Anteil bewässerter Bäume aufweist, dicht gefolgt von **Mitte**.
+Durch die in diesem Kapitel ergänzend gestaltete Karte der Bezirke entsteht nun **erstmals ein räumlicher Gesamtüberblick** über die Verteilung der Bewässerungsaktivitäten innerhalb Berlins. Die Visualisierung bestätigt die bisherigen Ergebnisse und zeigt, dass **Friedrichshain-Kreuzberg**, gefolgt von **Tempelhof-Schöneberg** und **Mitte**, die höchsten Anteile bewässerter Bäume aufweisen.
 
 
 Doch war die Choroplethenkarte wirklich die bestmögliche Visualisierungsform? Die Plattform [The Data Visualization Catalogue](https://datavizcatalogue.com/methods/choropleth.html) listet hierzu folgende Vor- und Nachteile auf:
@@ -385,7 +385,7 @@ Doch war die Choroplethenkarte wirklich die bestmögliche Visualisierungsform? D
 | :--- | :--- |
 | **Visualisierung von räumlichen Verteilungen:** Eine Choroplethenkarte bietet die Möglichkeit, Werte über ein geografisches Gebiet hinweg zu visualisieren und so Muster oder Variationen innerhalb eines Ortes aufzuzeigen. | **Ungenaues Ablesen:** Man kann spezifische Datenwerte nicht genau ablesen oder präzise miteinander vergleichen, wenn man sich nur auf die Farbschattierungen verlässt. |
 | **Klare Farbabstufungen:** Die Karte nutzt Farbverläufe (wie hell zu dunkel oder ineinander übergehende Farbtöne) effektiv, um Datenvariablen in den verschiedenen Regionen darzustellen. | **Flächenverzerrung (Area Bias):** Größere geografische Regionen wirken visuell dominanter als kleinere. Das verzerrt die Wahrnehmung des Betrachters für die eigentlichen Werte, die durch die Farbe dargestellt werden. |
-| | **Gefahr von methodischen Fehlern:** Es passiert schnell, dass fälschlicherweise absolute Rohdaten (wie die Gesamtbevölkerung) anstelle von korrekt normalisierten Werten (wie der Bevölkerungsdichte) dargestellt werden. |
+| | **Gefahr von methodischen Fehlern:** Es passiert schnell, dass fälschlicherweise absolute Rohdaten (wie z.B. die Gesamtbevölkerung) anstelle von korrekt normalisierten Werten (wie der Bevölkerungsdichte) dargestellt werden. |
 
 Gehen Sie nun auf die [Startseite](https://datavizcatalogue.com/index.html) der oben genannten Ressource. Dort finden Sie einen Katalog an unterschiedlichsten Visualieriungsmöglichkeiten für Daten. Wenn Sie über das Feld *"Search by Function"* nach *"Location"* filtern, werden zusätzliche Darstellungsoptionen angezeigt, mit denen sich Daten über geografische Regionen hinweg visualisieren lassen:
 
