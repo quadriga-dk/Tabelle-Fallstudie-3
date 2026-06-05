@@ -44,6 +44,10 @@ Da es bereits einige Lernressourcen zum Thema Datenvisualisierung gibt, hier ein
 
 Wo Sie eine Visualisierung im Dashboard positionieren, kann Einfluss auf ihre (wahrgenommene) Bedeutung haben.
 
+## Visualisierung als Kommunikation
+
+*Visualisierungen von Forschungsergebnissen dienen auch der Wissenschaftskommunikation. Da bildlich vereinfachte Darstellung von Daten, beispielsweise in einem Kreisdiagramm ... sind auch für Laien verständlich/ eignen sich zur Kommunikation von Ergebnissen in die Welt (durch Presse/Print etc.), für Präsentationen*
+
 
 ## Reflexion
 
