@@ -41,7 +41,7 @@ In dieser Open Educational Resource (OER) wird ein Forschungsverlauf im Bereich 
 name: R Shiny Dashboard Collage
 alt: A collage, containing visualizations created using R Shiny
 ---
-Collage des "Gieß den Kiez"-Dashboards, die beispielhaft die Datenvisualisierungs- und Analysemethoden dieses interaktiven Lehrbuchs demonstriert.
+Collage von Eindrücken des in dieser Fallstudie erstellten Dashboards, die beispielhaft die Datenvisualisierungs- und Analysemethoden dieses interaktiven Lehrbuchs demonstriert.
 ``` 
 
 

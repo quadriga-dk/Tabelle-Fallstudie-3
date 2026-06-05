@@ -10,6 +10,14 @@ lang: de-DE
 Dr. Amir Weber macht sich Gedanken, welche Daten er braucht und woher er sie beziehen kann. Wichtig sind vor allem Daten über den Baumbestand und Bewässerungsdaten.  
 Dabei fällt ihm das Berliner Projekt <a href="https://www.giessdenkiez.de/stats?lang=de" class="external-link" target="_blank">Gieß den Kiez</a> ein, welches diese Daten bereits erhebt und zur Verfügung stellt. Er prüft zudem, welche Daten noch relevant sind und auf welche Weise sie beschafft werden können.
 ```
+````{margin}
+```{admonition} Gieß den Kiez
+:class: hinweis
+Die Plattform <a href="https://www.giessdenkiez.de/stats?lang=de" class="external-link" target="_blank">Gieß den Kiez</a> ermöglicht Bürger:innen für einen Baum eine Patenschaft zu übernehmen und sich um die Bewässerung zu kümmern. Die gegossene Menge Wasser kann auf der Plattform eingetragen werden, sodass sich ein stets aktuelles Bild des Wasserbedarfs der Bäume zeigen lässt (s. 3.1.3).  
+Schauen Sie mal rein!
+
+```
+````
 
 In diesem Abschnitt werden Ihnen die Daten vorgestellt, die zur Beantwortung der Leitfrage und als Datenbasis für ein Dashboard benötigt werden. Im nächsten Abschnitt werden Sie diese dann einlesen.
 
