@@ -24,6 +24,7 @@ Screenshot des Dashoards des Projekts Gieß den Kiez vom 13.03.2026.
 
 ## Grundlagen
 
+Visualisierungen sind bildliche Darstellungen von Daten und sollen deren Verständnis erleichtern. Sie können mit unterschiedlichen Methoden erstellt werden und viele verschiedene Darstellungsformen haben {cite}`freyberg_visualisierung_2023`.
 Da es bereits einige Lernressourcen zum Thema Datenvisualisierung gibt, hier einige Empfehlungen:
 
 - Wenn Sie noch wenig Erfahrung mit Datenvisualisierung haben, finden Sie im  <a href="https://civic-data.de/datenvisualisierung-einfuehrung/" target="_blank">Blog-Eintrag</a> des Civic Data Labs</a> einen zugänglichen Einstieg ins Thema – ganz ohne Programmierkenntnisse.
@@ -44,9 +45,11 @@ Da es bereits einige Lernressourcen zum Thema Datenvisualisierung gibt, hier ein
 Wo Sie eine Visualisierung im Dashboard positionieren, kann Einfluss auf ihre (wahrgenommene) Bedeutung haben.
 
 
-## Haltung
+## Reflexion
 
-Haltung wird neben Wissen und Fähigkeiten oft als einer von drei Teilen genannt, wenn es um Kompetenzbildung geht (*LitV: Schüller o.ä.*). Das bedeutet eine kritische Perspektive einnehmen - nicht nur bei der Nutzung der Daten anderer, sondern auch bei der Erstellung, Analyse, Auswertung und Publikation eigener Forschungsergebnisse bzw. Daten. Dies gilt insbesondere für Visualisierungen, da sie in der Regel bereits eine vereinfachte Darstellung eines komplexen Sachverhaltes sind, einen Abstraktionsgrad aufweisen und den Blick der Nutzenden auch un- bzw. unterbewusst bereits in eine bestimmte Richtung lenken können (Einsatz von Farben etc.). 
+Es gilt, Visualisierungen kritisch zu reflektieren, da sie in der Regel bereits eine vereinfachte Darstellung eines komplexen Sachverhaltes sind, einen Abstraktionsgrad aufweisen und den Blick der Nutzenden auch un- bzw. unterbewusst bereits in eine bestimmte Richtung lenken können (Einsatz von Farben etc.). 
+
+Die visuelle Darstellung kann mehr Aspekte sichtbar machen als die ursprünglichen Daten. Dies können eben Formen und Farben sein. Eine Sichtbarmachung dieser Aspekte ermöglicht beispielsweise erst eine explorative Analyse {cite}`freyberg_visualisierung_2023`. Allerdings gilt es eben auch, sich von diesen Aspekten nicht blenden zu lassen. 
 
 Im Gegensatz zu einer Tabelle sind Visualisierungen oft ansprechender gestaltet. Durch Farbgebungen lässt sich ein starker Fokus setzen, was allerdings auch dazu genutzt werden kann, um das Hauptaugenmerk abzulenken.  
 Zudem ist eine Visualisierung immer auch eine Abstraktion. Sie bricht das (Forschungs-)Ergebnis auf einige Aspekte herunter und unterstreicht diese damit. Daher liegt darin auch eine Gefahr von Missinterpretationen. Die Gefahr besteht sowohl im Entwerfen eigener Grafiken, als auch in der fälschlichen Wahrnehmung der Grafiken anderer.
@@ -70,4 +73,8 @@ Die Manipulation einer Visualisierung erfolgt daher nicht zwangsweise bewusst.
 Wer sich der **Manipulationsmöglichkeiten** bewusst ist und **Visualisierungen kritisch analysiert**, läuft weniger Gefahr, Visualisierungen zu missinterpretieren.
 ```
 
+**Literatur**
 
+```{bibliography}
+:filter: docname in docnames
+```
