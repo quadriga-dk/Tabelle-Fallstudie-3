@@ -387,7 +387,7 @@ Doch war die Choroplethenkarte wirklich die bestmögliche Visualisierungsform? D
 | **Klare Farbabstufungen:** Die Karte nutzt Farbverläufe (wie hell zu dunkel oder ineinander übergehende Farbtöne) effektiv, um Datenvariablen in den verschiedenen Regionen darzustellen. | **Flächenverzerrung (Area Bias):** Größere geografische Regionen wirken visuell dominanter als kleinere. Das verzerrt die Wahrnehmung des Betrachters für die eigentlichen Werte, die durch die Farbe dargestellt werden. |
 | | **Gefahr von methodischen Fehlern:** Es passiert schnell, dass fälschlicherweise absolute Rohdaten (wie z.B. die Gesamtbevölkerung) anstelle von korrekt normalisierten Werten (wie der Bevölkerungsdichte) dargestellt werden. |
 
-Gehen Sie nun auf die [Startseite](https://datavizcatalogue.com/index.html) der oben genannten Ressource. Dort finden Sie einen Katalog an unterschiedlichsten Visualieriungsmöglichkeiten für Daten. Wenn Sie über das Feld *"Search by Function"* nach *"Location"* filtern, werden zusätzliche Darstellungsoptionen angezeigt, mit denen sich Daten über geografische Regionen hinweg visualisieren lassen:
+Gehen Sie nun auf die [Startseite](https://datavizcatalogue.com/index.html) der Plattform The Data Visualization Catalogue. Dort finden Sie einen Katalog an unterschiedlichsten Visualieriungsmöglichkeiten für Daten. Wenn Sie über das Feld *"Search by Function"* nach *"Location"* filtern, werden zusätzliche Darstellungsoptionen angezeigt, mit denen sich Daten über geografische Regionen hinweg visualisieren lassen:
 
 ```{figure} ../assets/Data_Viz_Cat.png
 ---
@@ -399,7 +399,7 @@ Auswahl an Kartenvisualisierungen
 
 ### Übung
 
-Erläutern Sie mithilfe der Plattform [The Data Visualization Catalogue](https://datavizcatalogue.com/methods/choropleth.html) die Vor- und Nachteile der vorgeschlagenen Alternativen und setzen Sie diese in Beziehung zu einer Choroplethenkarte.
+Erläutern Sie mithilfe der Plattform [The Data Visualization Catalogue](https://datavizcatalogue.com/search/location.html) die Vor- und Nachteile der vorgeschlagenen Alternativen für geografische Darstellungen und setzen Sie diese in Beziehung zu einer Choroplethenkarte.
 
 ```{code-cell} ipython3
 :tags: [remove-input]
@@ -422,12 +422,12 @@ create_answer_box('choropleth-vergleich-1')
 
 **4. Flow Map (Flusskarte):** Diese Karte punktet bei der Darstellung von Bewegungen (z. B. Migration, Warenfluss), wobei die Liniendicke die transportierte Menge anzeigt. Ein Nachteil ist die Gefahr der visuellen Überladung durch zu viele sich kreuzende Linien. Ähnlich wie die Connection Map ist sie als Alternative zur Choroplethenkarte für statische Bestandszählungen völlig unpassend.
 
-**Zusammenfassung:** Trotz der Flächenverzerrung ist die Choroplethenkarte für dieses Dashboard der beste Kompromiss: Sie rückt den Bezirk als administrative Vergleichseinheit visuell klar in den Fokus und ist übersichtlicher als Punktekarten mit abertausenden Bäumen. Die Bubble map hingegen wäre eine gute Alternative, sofern sich die Blasen nicht visuell überschneiden.
+**Zusammenfassung:** Trotz der Flächenverzerrung ist die Choroplethenkarte für dieses Dashboard der beste Kompromiss: Sie rückt den Bezirk als administrative Vergleichseinheit visuell klar in den Fokus und ist übersichtlicher als Punktekarten mit abertausenden Bäumen. Die Bubble Map hingegen wäre eine gute Alternative, sofern sich die Blasen nicht visuell überschneiden.
 ````
 
-Zurück zur zuvor erstellten Karte der Berliner Bezirke: Zwar wird zwischen *bewässert* und *nicht bewässert* unterschieden, doch sie berücksichtigt nicht die tatsächlich verwendete Wassermenge in den einzelnen Bezirken. Ein Baum, der einmalig mit 5 Litern bewässert wurde, wird dabei ebenso als „bewässert“ klassifiziert wie ein Baum, der über einen längeren Zeitraum hinweg mehrere hundert Liter erhalten hat, obwohl dieser Unterschied für eine belastbare Bewertung des Gießverhaltens entscheidend ist.
+Zurück zur hier erstellten Choroplethenkarte der Berliner Bezirke: Zwar wird zwischen *bewässert* und *nicht bewässert* unterschieden, doch die Karte berücksichtigt nicht die tatsächlich verwendete Wassermenge in den einzelnen Bezirken. Ein Baum, der einmalig mit 5 Litern bewässert wurde, wird dabei ebenso als „bewässert“ klassifiziert wie ein Baum, der über einen längeren Zeitraum hinweg mehrere hundert Liter erhalten hat, obwohl dieser Unterschied für eine belastbare Bewertung des Gießverhaltens entscheidend ist.
 
-Daher soll im Folgenden als ein weiterer Kontextfaktor die Bewässerungsmenge analysiert werden und Sie widmen sich einer differenzierteren Betrachtung:
+Daher soll im Folgenden die Bewässerungsmenge analysiert werden und Sie widmen sich einer differenzierteren Betrachtung:
 **Wie viele Liter wurden tatsächlich pro Bezirk gegossen – absolut und im Verhältnis zur Gesamtzahl der Bäume?**
 
 Diese „Bewässerungsanalyse“ ermöglicht es, nicht nur die Häufigkeit, sondern auch die **Intensität des Gießens** zu messen und damit ein vollständigeres Bild des Engagements der Bürger:innen zu erhalten.
