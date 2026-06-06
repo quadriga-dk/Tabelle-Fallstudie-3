@@ -390,8 +390,8 @@ Damit wird ein zentrales analytisches Prinzip deutlich:
 
 Ergänzend zu der Leitfrage soll nun eine vertiefte Betrachtung der zugrunde liegenden Dynamiken und Kontextfaktoren erfolgen. Welche **Kontextfaktoren** könnten zu den Unterschieden geführt haben?
 
-- **Zeitlich** – wie sich das Engagement im Jahresverlauf entwickelt oder ob das Alter der Bäume eine Rolle spielt (Kapitel 5.5)
-- **Räumlich** – etwa Unterschiede in der Baumdichte in einem Gebiet (Kapitel 5.6)
+- **Zeitlich** – etwa durch Veränderungen des Engagements im Jahresverlauf oder durch das Alter der Bäume (Kapitel 5.5)
+- **Räumlich** – beispielsweise durch Unterschiede in der Baumdichte eines Gebiets (Kapitel 5.6)
 
 ````{admonition} Daraus ergeben sich neue Fragen:
 :class: frage-feedback
