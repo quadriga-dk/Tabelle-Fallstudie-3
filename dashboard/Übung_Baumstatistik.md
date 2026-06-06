@@ -36,7 +36,8 @@ Sie überprüfen also:
 - Ob die Baumdichte das Gießverhalten beeinflusst.
 Amir vermutet, dass dicht bepflanzte Straßen oder Kieze das Gießverhalten begünstigen – etwa nach dem Motto: „Wenn ich schon meinen Baum gieße, mache ich den daneben auch gleich mit.“
 
-Die Funktion einer Visualisierung soll in diesem Fall darin bestehen, die Baumverteilung nach Bezirken sichtbar zu machen, die am häufigsten gegossenen Baumarten zu identifizieren und die Baumdichte im Verhältnis zur Bezirksfläche zu analysieren, um mögliche Muster im Engagement zu erkennen.
+Die Visualisierung soll die Verteilung der Bäume auf die Berliner Bezirke sichtbar machen und die am häufigsten gegossenen Baumarten identifizieren. Darüber hinaus dient sie der Analyse der Baumdichte im Verhältnis zur Bezirksfläche, um mögliche räumliche Muster im Engagement zu erkennen.
+
 
 Dies soll weitere Erkenntnisse darüber liefern, welche strukturellen Faktoren im Stadtraum das Engagement der Gießenden möglicherweise begünstigen.
 
@@ -52,7 +53,7 @@ width: 600px
 Baumverteilung nach Bezirken und Baumgattungen. Die Abbildung zeigt die Verteilung der Bäume in den Berliner Bezirken, aufgeschlüsselt nach Baumgattungen. Die Anzahl der Bäume ist für jeden Bezirk als gestapeltes Balkendiagramm dargestellt, wobei die einzelnen Farbsegmente unterschiedliche Baumgattungen repräsentieren. Über einen Schieberegler kann die Anzahl der angezeigten, häufigsten Baumgattungen (Top-N) interaktiv angepasst werden, während weniger häufige Gattungen unter „Sonstige“ zusammengefasst sind. (Quelle: eigene Ausarbeitung)
 ``` 
 
-Das obenstehende Diagramm ist ein Balkendiagramm, genauer gesagt ein gestapeltes Balkendiagramm, das mehrere Informationsebenen gleichzeitig vermittelt. Der zentrale Mehrwert dieser Darstellungsform liegt darin, sowohl die Gesamtanzahl der Bäume pro Bezirk als auch deren Zusammensetzung nach Gattungen in einer einzigen Visualisierung zu vereinen. Die Balkenlänge zeigt auf einen Blick, welche Bezirke den größten Baumbestand haben, während die farbigen Segmente innerhalb jedes Balkens die Artenvielfalt und deren relative Anteile offenlegen. Dies ermöglicht direkte Vergleiche zwischen Bezirken: Nutzer:innen können nicht nur erkennen, dass Bezirk A mehr Bäume hat als Bezirk B, sondern auch, ob beide eine ähnliche Gattungsverteilung aufweisen oder ob bestimmte Arten in einzelnen Bezirken dominieren. Die Anpassung über den Top-N-Schieberegler reduziert visuelle Komplexität und ermöglicht es, den Fokus je nach Fragestellung auf die häufigsten Gattungen zu legen oder eine detailliertere Aufschlüsselung zu betrachten. So macht das Balkendiagramm komplexe, mehrdimensionale Daten intuitiv erfassbar. Balkendiagramme zählen zu den etabliertesten Darstellungswerkzeugen der Datenvisualisierung – ihre breite Anwendung in dieser Fallstudie spiegelt ihre Vielseitigkeit und Lesbarkeit wider.
+Das obenstehende Diagramm ist ein Balkendiagramm, genauer gesagt ein gestapeltes Balkendiagramm, das mehrere Informationsebenen gleichzeitig vermittelt. Der zentrale Mehrwert dieser Darstellungsform liegt darin, sowohl die Gesamtanzahl der Bäume pro Bezirk als auch deren Zusammensetzung nach Gattungen in einer einzigen Visualisierung zu vereinen. Die Balkenlänge zeigt auf einen Blick, welche Bezirke den größten Baumbestand haben, während die farbigen Segmente innerhalb jedes Balkens die Artenvielfalt und deren relative Anteile offenlegen. Dies ermöglicht direkte Vergleiche zwischen Bezirken: Nutzer:innen können nicht nur erkennen, dass Bezirk A mehr Bäume hat als Bezirk B, sondern auch, ob beide eine ähnliche Gattungsverteilung aufweisen oder ob bestimmte Arten in einzelnen Bezirken dominieren. Die Anpassung über den Top-N-Schieberegler reduziert visuelle Komplexität und ermöglicht es, den Fokus je nach Fragestellung auf die häufigsten Gattungen zu legen oder eine detailliertere Aufschlüsselung zu betrachten. So macht das Balkendiagramm komplexe, mehrdimensionale Daten intuitiv erfassbar. Balkendiagramme zählen zu den etabliertesten Darstellungswerkzeugen der Datenvisualisierung - ihre breite Anwendung in dieser Fallstudie spiegelt ihre Vielseitigkeit und Lesbarkeit wider.
 
 ```{figure} ../assets/Dashboard_Baumstatistik_2.png
 ---
@@ -86,7 +87,7 @@ Baumdichte pro km². Die Abbildung zeigt die Baumdichte pro km² in den verschie
 ```{admonition} Was Sie beachten sollten
 :class: keypoint
 
-Nur weil bestimmte Kennzahlen in einer Analyse oder Visualisierung nicht berücksichtigt wurden, bedeutet dies nicht, dass sie für die Interpretation irrelevant sind. Für das Verständnis der der oben dargestellten {numref}`Top 10 gegossene Baumgattungen` ist beispielsweise eine Information zur Häufigkeit von Baumarten (wie in {numref}`Verteilung der Baumgattungen` dargestellt) unabdingbar. Für eine korrekte Analyse der {numref}`Baumdichte pro qkm` (Baumdichte pro km²) braucht es mindestens Hinweise zur Größe der Bezirke. Darüber hinaus könnten zusätzliche Kontextinformationen, etwa zur Bevölkerungsdichte, sinnvoll sein, um die dargestellten Werte angemessen einordnen zu können.
+Nur weil bestimmte Kennzahlen in einer Analyse oder Visualisierung nicht berücksichtigt wurden, bedeutet dies nicht, dass sie für die Interpretation irrelevant sind. Für das Verständnis der oben dargestellten {numref}`Top 10 gegossene Baumgattungen` ist beispielsweise eine Information zur Häufigkeit von Baumarten (wie in {numref}`Verteilung der Baumgattungen` dargestellt) unabdingbar. Für eine korrekte Analyse der {numref}`Baumdichte pro qkm` (Baumdichte pro km²) braucht es mindestens Hinweise zur Größe der Bezirke. Darüber hinaus könnten zusätzliche Kontextinformationen, etwa zur Bevölkerungsdichte, sinnvoll sein, um die dargestellten Werte angemessen einordnen zu können.
 
 Betrachten Sie Datenvisualisierungen daher stets kritisch und fragen Sie sich:
 
@@ -236,7 +237,7 @@ Diese Struktur ermöglicht den Nutzer:innen interaktive Ansichten und ein klares
 
 ### Gestapeltes Balkendiagramm: Baumverteilung nach Bezirken
 
-Das erste Diagramm soll zeigen, wie viele Bäume in jedem Bezirk stehen und welche Gattungen dort dominieren. Um die Visualisierung übersichtlich zu halten, konzentrieren Sie sich auf **die häufigsten Baumgattungen** – alle anderen fassen Sie unter "Sonstige" zusammen.
+Das erste Diagramm soll zeigen, wie viele Bäume in jedem Bezirk stehen und welche Gattungen dort dominieren. Um die Visualisierung übersichtlich zu halten, konzentrieren Sie sich auf **die häufigsten Baumgattungen** - alle anderen fassen Sie unter "Sonstige" zusammen.
 
 ````{dropdown} Code
 ```r  
@@ -367,7 +368,7 @@ Mit den aggregierten Daten erstellen Sie nun das gestapelte Balkendiagramm, das 
 
 ### Kreisdiagramm: Gattungsverteilung
 
-Das Kreisdiagramm soll die prozentuale Zusammensetzung der Baumgattungen zeigen – entweder für ganz Berlin oder für einen ausgewählten Bezirk. Diese Darstellung macht auf einen Blick deutlich, welche Gattungen dominieren.
+Das Kreisdiagramm soll die prozentuale Zusammensetzung der Baumgattungen zeigen, entweder für ganz Berlin oder für einen ausgewählten Bezirk. Diese Darstellung macht auf einen Blick deutlich, welche Gattungen dominieren.
 
 ````{dropdown} Code
 ```r
@@ -464,7 +465,7 @@ Das Kreisdiagramm zeigt intuitiv, welche Gattungen den Baumbestand dominieren �
 
 ### Baumdichte pro Fläche berechnen
 
-Um Bezirke fair vergleichen zu können, berechnen Sie die Baumdichte – also wie viele Bäume pro Quadratkilometer stehen. Ein großer Bezirk kann viele Bäume haben, aber trotzdem eine niedrige Dichte aufweisen.
+Um Bezirke fair vergleichen zu können, berechnen Sie die Baumdichte, also wie viele Bäume pro Quadratkilometer stehen. Ein großer Bezirk kann viele Bäume haben, aber trotzdem eine niedrige Dichte aufweisen.
 
 ````{dropdown} Code
 ```r
@@ -550,7 +551,7 @@ Diese Normalisierung ermöglicht faire Vergleiche: Ein kleiner, urbaner Bezirk k
 
 ### Top 10 gegossene Baumgattungen
 
-Diese Visualisierung zeigt, welche Baumgattungen am häufigsten gegossen wurden. Das hilft zu verstehen, ob bestimmte Gattungen mehr Aufmerksamkeit erhalten – möglicherweise weil sie häufiger vorkommen oder als besonders pflegebedürftig wahrgenommen werden.
+Diese Visualisierung zeigt, welche Baumgattungen am häufigsten gegossen wurden. Das hilft zu verstehen, ob bestimmte Gattungen mehr Aufmerksamkeit erhalten, möglicherweise weil sie häufiger vorkommen oder als besonders pflegebedürftig wahrgenommen werden.
 
 ````{dropdown} Code
 ```r
@@ -641,16 +642,16 @@ Diese Visualisierung macht sichtbar, welche Gattungen die meiste Aufmerksamkeit 
 
 ### Kritische Diskussion
 
-Die Analyse zeigt deutlich, dass bestimmte Baumgattungen besonders oft im Berliner Baumbestand vorkommen. **Ahorn, Linde und Eiche machen berlinweit gemeinsam rund 57,4 % aller Straßenbäume aus**, wohingegen sich alle anderen Baumgattungen 42,6% teilen. Das bedeutet, dass viele Muster der Verteilung zwangsläufig von dieser einen Gattung geprägt werden. 
+Die Analyse zeigt deutlich, dass bestimmte Baumgattungen besonders oft im Berliner Baumbestand vorkommen. **Ahorn, Linde und Eiche** machen berlinweit gemeinsam rund **57,4 % aller Straßenbäume aus**, wohingegen sich alle anderen Baumgattungen 42,6% teilen. Das bedeutet, dass viele Muster der Verteilung zwangsläufig von dieser einen Gattung geprägt werden. 
 
 Hinsichtlich des Engagements der Bürger:innen besitzen die **Baumgattungen jedoch nur einen begrenzten Erklärungswert.** Zwar zeigt sich, dass bestimmte Gattungen besonders häufig bewässert werden, dies steht jedoch vor allem im Zusammenhang mit ihrer allgemeinen Verbreitung im Berliner Stadtbild. Dass beispielsweise Linden besonders häufig gegossen werden, lässt sich daher in erster Linie durch ihre hohe Präsenz erklären und nicht zwangsläufig durch eine erhöhte Pflegebedürftigkeit oder besondere Beliebtheit. Die Betrachtung der Baumgattungen liefert zwar zusätzliche interessante Einblicke, trägt jedoch nur eingeschränkt dazu bei, das Bewässerungsengagement der Bürger:innen zu erklären.
 
-Beim Vergleich der Bezirke zeigen sich deutliche Unterschiede in der Baumdichte. **Friedrichshain-Kreuzberg und Mitte weisen die höchsten Baumdichten pro km² auf**, es handelt sich um kompakte, urbane Bezirke. Gleichzeitig besitzen **Steglitz-Zehlendorf, Pankow und Marzahn-Hellersdorf die größten absoluten Baumzahlen**, was vor allem auf großflächige Areale mit Mischbeständen und Gehölzflächen zurückzuführen ist.
+Beim Vergleich der Bezirke zeigen sich deutliche Unterschiede in der Baumdichte. **Friedrichshain-Kreuzberg und Mitte** weisen die **höchsten Baumdichten pro km² auf**, es handelt sich um kompakte, urbane Bezirke. Gleichzeitig besitzen **Steglitz-Zehlendorf, Pankow und Marzahn-Hellersdorf** die **größten absoluten Baumzahlen**, was vor allem auf großflächige Areale mit Mischbeständen und Gehölzflächen zurückzuführen ist.
 
 Setzt man diese Befunde in Beziehung zu den Daten darüber, in welchen Bezirken besonders viel gegossen wurde, deutet sich ein mögliches Muster an: Die beiden Bezirke mit der höchsten Baumdichte pro Quadratkilometer weisen zugleich auch den höchsten Anteil bewässerter Bäume auf.
-Eine vorschnelle Schlussfolgerung könnte darin bestehen anzunehmen, dass in dichter bebauten Bezirken wie Friedrichshain-Kreuzberg und Mitte mehr Menschen auf engem Raum mit Straßenbäumen in Kontakt kommen und dadurch häufiger die Möglichkeit nutzen, diese zu bewässern. Eine solche Interpretation sollte jedoch mit größter Vorsicht betrachtet werden.
+Eine vorschnelle Schlussfolgerung könnte darin bestehen anzunehmen, dass in dichter besiedelten Bezirken wie Friedrichshain-Kreuzberg und Mitte mehr Menschen auf engem Raum mit Straßenbäumen in Kontakt kommen und dadurch häufiger die Möglichkeit nutzen, diese zu bewässern. Eine solche Interpretation sollte jedoch mit größter Vorsicht betrachtet werden.
 
-Bislang wurden lediglich zwei Variablen, nämlich Baumdichte und Anteil bewässerter Bäume, miteinander in Beziehung gesetzt. Daraus lässt sich zwar eine Korrelation ableiten, jedoch kein kausaler Zusammenhang. Auf Grundlage der bisherigen Analyse kann daher nicht beurteilt werden, inwieweit eine hohe Baumdichte tatsächlich mit einem erhöhten Bewässerungsengagement zusammenhängt. Ebenso denkbar sind alternative Einflussfaktoren, etwa Unterschiede in der Bevölkerungsdichte, der sozialen Struktur, lokalen Initiativen oder der allgemeinen Sensibilisierung für städtische Umweltfragen.
+Bislang wurden lediglich zwei Variablen, nämlich Baumdichte und Anteil bewässerter Bäume, miteinander in Beziehung gesetzt. Aus diesen beiden Variablen lässt sich zwar eine Korrelation ableiten, jedoch kein kausaler Zusammenhang! Auf Grundlage der bisherigen Analyse kann daher nicht beurteilt werden, inwieweit eine hohe Baumdichte tatsächlich mit einem erhöhten Bewässerungsengagement zusammenhängt. Ebenso denkbar sind alternative Einflussfaktoren, etwa Unterschiede in der Bevölkerungsdichte, der sozialen Struktur, lokalen Initiativen oder der allgemeinen Sensibilisierung für städtische Umweltfragen.
 
 
 **Kernbotschaft:**
@@ -1000,7 +1001,7 @@ shinyApp(ui = ui, server = server)
 
 Auf dieser Seite wurden mehrere Balkendiagramme sowie ein Kreisdiagramm verwendet. Beide Visualisierungsformen dienen dazu, Unterschiede und Gemeinsamkeiten zwischen verschiedenen Werten darzustellen. Während Balkendiagramme auf einem Achsenvergleich basieren und Werte entlang einer Skala vergleichbar machen, zählt das Kreisdiagramm zu den Darstellungsformen ohne Achsenvergleich. Hier dient der Kreis beziehungsweise dessen Gesamtfläche als Bezugspunkt für die einzelnen Anteile.
 
-Auf der nachfolgenden [Seite](https://datavizcatalogue.com/search/comparisons.html) Visualisierungsmethoden an, die alternativ aufzeigen, wie man Unterschiede oder Gemeinsamkeiten zwischen Werten darstellen kann.lernen Sie weitere Visualisierungsmethoden kennen, mit denen Unterschiede oder Gemeinsamkeiten zwischen Werten dargestellt werden können. Dabei wird ebenfalls zwischen Darstellungen mit und ohne Achsenvergleich unterschieden.
+Die Plattform [The Data Visualization Catalogue](https://datavizcatalogue.com/search/comparisons.html) stellt verschiedene Visualisierungsmethoden vor, die zeigen, wie Unterschiede oder Gemeinsamkeiten zwischen Werten dargestellt werden können. Entdecken Sie zusätzliche Möglichkeiten zur Visualisierung solcher Vergleiche, unterteilt in Darstellungen mit und ohne Achsenvergleich.
 
 Überlegen Sie kritisch:
 Präferieren Sie die hier verwendeten Visualisierungen oder würden Sie alternative Darstellungsformen wählen? Welche Argumente sprechen jeweils für oder gegen die unterschiedlichen Visualisierungsmethoden?
@@ -1014,6 +1015,3 @@ from assessment import create_answer_box
 create_answer_box('baumstatistik-verlauf')
 ```
  
-### Überleitung zum nächsten Analyse-Schritt
-
-Sie haben nun gesehen, dass die Baumdichte und räumliche Gegebenheiten relevanter für das Engagement sein könnten als rein baumbiologische Aspekte (wie die Gattung). Sie haben jedoch vielleicht schon gemerkt, dass wir stets nur die Anzahl an gegeossenen Bäumen mit dem Bürgerengagement gleichstellen. Warum dies ein Problem dartsellen könnte, werden Sie im nächsten Kapitel herausfinden.
