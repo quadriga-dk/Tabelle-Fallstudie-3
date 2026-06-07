@@ -66,7 +66,7 @@ Durch diese Kombination entsteht eine leicht verständliche Darstellung. Nutzer:
 
 ## Benutzeroberfläche (UI)
 
-Da Sie die Grundstruktur der Benutzeroberfläche bereits in der vorherigen Übung aufgebaut haben, erweitert Sie diese nun lediglich um die Elemente für die Karte. Sie ergänzen:  
+Da Sie die Grundstruktur der Benutzeroberfläche bereits in der vorherigen Übung aufgebaut haben, erweitern Sie diese nun lediglich um die Elemente für die Karte. Sie ergänzen:  
 - die **Seitenleiste** (`sidebarMenu`) um einen neuen Navigationspunkt für die Karte.
 - den **Inhaltsbereich** (`tabItems`) um ein neues `tabItem`, in dem die Karte dargestellt wird.
 
