@@ -29,7 +29,7 @@ In dieser Übung sollen Sie herausfinden, ob die Baumart und räumliche Faktoren
 - und Baumdichte im Verhältnis zur Bezirksfläche quantitativ zu berechnen.
 ```
 
-Nachdem Sie zuvor untersucht haben, wie Pflanzjahr und Zeitverlauf das Gießverhalten beeinflussen, richten Sie ihren Blick nun auf räumliche und baumartspezifische Unterschiede innerhalb Berlins. Sie werden feststellen, dass die Berliner Bezirke sehr unterschiedliche Baumstrukturen aufweisen: Während einige durch eine hohe Dichte gekennzeichnet sind, dominieren in anderen nur wenige Baumgattungen.
+Nachdem Sie zuvor untersucht haben, wie Pflanzjahr und Zeitverlauf das Gießverhalten beeinflussen, richten Sie Ihren Blick nun auf räumliche und baumartspezifische Unterschiede innerhalb Berlins. Sie werden feststellen, dass die Berliner Bezirke sehr unterschiedliche Baumstrukturen aufweisen: Während einige durch eine hohe Dichte gekennzeichnet sind, dominieren in anderen nur wenige Baumgattungen.
 Sie überprüfen also:
 
 - Ob bestimmte Baumgattungen häufiger gegossen werden als andere.
