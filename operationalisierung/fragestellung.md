@@ -16,7 +16,7 @@ width: 100%
 name: Dashboard Digitale Verwaltung 
 alt: Das Dashboard Digitale Verwaltung mit Informationen zur Online-Verfügbarkeit von Verwaltungsleistungen für das Land Berlin.
 ---
-Screenshot des Dashoards Digitale Verwaltung mit Fokus auf Online-Verfügbarkeit von Verwaltungsleistungen für das Land Berlin vom 17.03.2026.
+Screenshot des Dashboards Digitale Verwaltung mit Fokus auf Online-Verfügbarkeit von Verwaltungsleistungen für das Land Berlin vom 17.03.2026.
 ```
 
 
