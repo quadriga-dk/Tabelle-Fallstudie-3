@@ -54,7 +54,7 @@ Sowohl die Art der gewählten Visualisierung als auch die Skalierung der Achsen,
 Das Dashboard hat aufgrund des Fallstudien-Charakters dieser Lerneinheit technische Grenzen. So bedarf beispielsweise die aktive Einbindung von Nutzenden (z. B. durch eigenes Eintragen gegossener Wassermengen, wie sie von der Plattform Gieß den Kiez erfolgreich implementiert ist) eines interaktiven Dashboards, das die Möglichkeiten dieses Lernszenarios übersteigt.
 
 <span style="color: red;">Kann das raus?</span>
-- Nächste Schritte, die man mit Dashboards machen könnte (Tragen Büger:innen Daten überhaupt bei, Usability Tests etc.) - Für Bürgerengagement müsste Schnittstelle vorhanden sein, bei der Bürger:innen ihre Nutzungsdaten einpflegen können
+- Nächste Schritte, die man mit Dashboards machen könnte (Tragen Bürger:innen Daten überhaupt bei, Usability Tests etc.) - Für Bürgerengagement müsste Schnittstelle vorhanden sein, bei der Bürger:innen ihre Nutzungsdaten einpflegen können
 - Entscheidend ist dabei auch, sich seiner unbewussten Haltungen bewusst zu werden. 
 
 ## Ausblick
