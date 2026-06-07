@@ -45,7 +45,7 @@ Um diese Aspekte besser zu verstehen, untersuchen Sie zwei zentrale Fragen:
 **2. Werden bestimmte Baumjahrgänge (Pflanzjahre) häufiger gegossen als andere?**
 → Deutet das auf besondere Pflegebedarfe oder engagiertes Handeln hin?
 
-Die folgenden Visualisierungen zeigen deshalb sowohl **Trends im Jahresverlauf** als auch die **insgesamt gegossene Wassermenge pro Pflanzjahr**, um das Zusammenspiel zwischen Baumalter, Bedarf und Engagement sichtbar zu machen. Eine chronologische Trenddarstellung ermöglicht es, zeitliche Entwicklungen und Muster im Gießverhalten zu erkennen. Nutzer:innen können nachvollziehen, wie sich die Bewässerungsaktivität über die Jahren hinweg verändert. Solche Erkenntnisse helfen nicht nur bei der Einschätzung des aktuellen Bedarfs, sondern auch bei der Planung zukünftiger Gießaktionen. Darüber hinaus macht die Visualisierung Schwankungen sichtbar. Für die Community kann die Trendlinie zudem motivierend wirken: Ein Aufwärtstrend zeigt wachsendes Engagement, während ein Abfall zum Handeln aufrufen kann. Langfristig liefert die chronologische Darstellung wertvolle Daten für die Evaluation von Maßnahmen und hilft zu verstehen, wann und warum Menschen aktiv werden - eine wichtige Grundlage für die Weiterentwicklung von Plattformen und gezielten Kommunikationsstrategien.
+Die folgenden Visualisierungen zeigen deshalb sowohl **Trends im Jahresverlauf** als auch die **insgesamt gegossene Wassermenge pro Pflanzjahr**, um das Zusammenspiel zwischen Baumalter, Bedarf und Engagement sichtbar zu machen. Eine chronologische Trenddarstellung ermöglicht es, zeitliche Entwicklungen und Muster im Gießverhalten zu erkennen. Nutzer:innen können nachvollziehen, wie sich die Bewässerungsaktivität über die Jahre hinweg verändert. Solche Erkenntnisse helfen nicht nur bei der Einschätzung des aktuellen Bedarfs, sondern auch bei der Planung zukünftiger Gießaktionen. Darüber hinaus macht die Visualisierung Schwankungen sichtbar. Für die Community kann die Trendlinie zudem motivierend wirken: Ein Aufwärtstrend zeigt wachsendes Engagement, während ein Abfall zum Handeln aufrufen kann. Langfristig liefert die chronologische Darstellung wertvolle Daten für die Evaluation von Maßnahmen und hilft zu verstehen, wann und warum Menschen aktiv werden - eine wichtige Grundlage für die Weiterentwicklung von Plattformen und gezielten Kommunikationsstrategien.
 
 ```{figure} ../assets/Dashboard_Zeitverlauf.png
 ---
@@ -205,7 +205,7 @@ Durch diese mehrstufige Filterung erhälen Sie einen sauberen Datensatz, der gen
 
 ### Bewässerungsmenge pro Pflanzjahr berechnen
 
-Jetzt aggregiert Sie die Daten: Für jedes Pflanzjahr wird die gesamte gegossene Wassermenge sowie die Anzahl der bewässerten Bäume berechnet.
+Jetzt aggregieren Sie die Daten: Für jedes Pflanzjahr wird die gesamte gegossene Wassermenge sowie die Anzahl der bewässerten Bäume berechnet.
 
 ````{dropdown} Code
 ```r
