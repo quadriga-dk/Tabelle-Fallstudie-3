@@ -82,7 +82,7 @@ strassenbaeume <- st_read("WFS:https://gdi.berlin.de/services/wfs/baumbestand", 
 
 Die Gießdaten stammen aus einer CSV-Datei des Projekts „Gieß den Kiez“. Sie lesen diese erst ein und anschließend bereinigen Sie sie, d. h.:
 
-- Sie entfernen Ungültige oder fehlende Koordinaten (Längen-/Breitengrad).
+- Sie entfernen ungültige oder fehlende Koordinaten (Längen-/Breitengrad).
 - Sie schließen Datensätze ohne Straßenname oder mit fehlerhaften Gattungsbezeichnungen (z. B. numerische Werte) aus.
 
 ```r
@@ -133,7 +133,7 @@ df_merged <- baumbestand %>%
 ```
 **Entfernung von Einträgen mit ungültigen Pflanzjahren**
 
-Damit Sie in künftigen Operationen korrekt mit Pflanzjahren arbeiten können, filtern Sie sicherheitshalber alle Einträge mit ungültigem Pflanzjahr heraus. In diesem Fall entscheiden Sie, dass nicht-vierstellige Jahresangaben und Jahresangaben, welche in der Zukunft liegen, herausgefiltert werden sollen. Dafür orientieren Sie sich am Systemjahr auf ihrem Endgerät. Stellen Sie sicher, dass der Kalender ihres Endgerätes hierfür richtig eingestellt ist.
+Damit Sie in künftigen Operationen korrekt mit Pflanzjahren arbeiten können, filtern Sie sicherheitshalber alle Einträge mit ungültigem Pflanzjahr heraus. In diesem Fall entscheiden Sie, dass nicht-vierstellige Jahresangaben und Jahresangaben, welche in der Zukunft liegen, herausgefiltert werden sollen. Dafür orientieren Sie sich am Systemjahr auf ihrem Endgerät. Stellen Sie sicher, dass der Kalender Ihres Endgerätes hierfür richtig eingestellt ist.
 
 ```r
 # 8. Ungültige Pflanzjahre herausfiltern
@@ -238,7 +238,7 @@ Einige Bäume verfügen nicht über eine Angabe zu ihrem Bezirk. Um eine aggregi
 
 - Das Ergebnis führen Sie mit den ursprünglichen Daten wieder zusammen.
 
-**Code Erklärung:**
+**Code-Erklärung:**
 
 **1. Die Bezirkskarte laden**
 
