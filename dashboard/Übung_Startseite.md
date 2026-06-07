@@ -14,7 +14,7 @@ kernelspec:
 # Eine Startseite gestalten
 ```{admonition} Story
 :class: story
-Nachdem Amir Weber sich die notwedigen Grundkenntnisse angeeignet hat, geht er zur Implementieren des Dashboards über.
+Nachdem Amir Weber sich die notwedigen Grundkenntnisse angeeignet hat, geht er zur Implementierung des Dashboards über.
 ```
 
 ```{admonition} Zweck dieser Übung 
@@ -34,7 +34,7 @@ Damit liefert die Startseite einen kompakten, aber aussagekräftigen Überblick 
 **1. Wie groß ist der Bestand an erfassten Bäumen?**  
 **2. Wie viele davon wurden aktiv bewässert?**
 
-So ist die Startseite nicht nur auf erstem Blick intuitiv und verständlich, sondern auch funktional der ideale Ausgangspunkt für die weitere Erkundung der Daten.
+So ist die Startseite nicht nur auf den ersten Blick intuitiv und verständlich, sondern auch funktional der ideale Ausgangspunkt für die weitere Erkundung der Daten.
 
 Für den Einstieg arbeiten Sie mit dem Datensatz *„Gieß den Kiez – Bewässerungsdaten“* von **GovData**. Dieser Datensatz bietet detaillierte Informationen darüber, wann, wo und wieviel in Berlin gegossen wurde. Er eignet sich ideal, um erste Analysen zum Gießverhalten zu erstellen, da er sowohl zeitliche als auch räumliche Bezüge enthält und öffentlich zugänglich ist.
 
@@ -164,8 +164,8 @@ tabItems(
 - **Die Kacheln (`fluidRow` & `valueBoxOutput`)**: Die verbleibenden beiden Kacheln teilen sich nun horizontal den Platz. Durch `width = 6` passen genau zwei Stück nebeneinander.
 
 **`selectInput(...)`** erstellt das Dropdown-Menü (Auswahlliste) mit:
-- `"bezirk"` ist dy diesen Input später im Server erkennt → `input$bezirk`
-- `"Bezirk auswählen ..."` ist der Text,er Name, unter dem Shin der über dem Menü steht.
+- `"bezirk"` ist die eindeutige ID des Dropdown-Filters. Über `input$bezirk` kann der Server später auf die ausgewählten Bezirke zugreifen.
+- `"Bezirk auswählen ..."` ist die Beschriftung (Label) des Dropdown-Filters. Dieser Text wird in der Benutzeroberfläche oberhalb des Auswahlfeldes angezeigt.
 - `choices = c("Alle Bezirke", sort(na.omit(unique(df_merged$bezirk))))` definiert die Auswahlmöglichkeiten:
   - `unique(df_merged$bezirk)` bedeutet: Jeden Bezirk nur einmal anzeigen.
   - `na.omit(...)` entfernt leere oder fehlerhafte Felder (NAs).
@@ -593,7 +593,7 @@ Für eine abschließende Beantwortung der Leitfrage reicht diese Betrachtung jed
 ### Übung
 Berechnen Sie nun für jeden Berliner Bezirk das relative Bürger:innenengagement, indem Sie die Anzahl der gegossenen Bäume zur Gesamtbaumzahl des jeweiligen Bezirks ins Verhältnis setzen.
 
-An dieser Stelle können Sie Ihre bisher erlernten R-Fähigkeiten anwenden. Anstatt sich die Kennzahlen aus dem Dashboard rauszuschreiben und die Berechnungen mit einem Taschenrechener oder Excel durchzuführen, schreiben Sie doch ein kleines R-Script, welches diese Aufgabe erledigt. Sobald Sie das richtige Ergebnis berechnet haben, können Sie es unten im Quiz auswählen. Vergessen Sie hierbei nicht, wie bereits in vorherigen Kapiteln gezeigt, das Arbeitsverzeichnis korrekt zu setzen und die bereinigten Daten aus dem Datenverzeichnis auszulesen.
+An dieser Stelle können Sie Ihre bisher erlernten R-Fähigkeiten anwenden. Anstatt sich die Kennzahlen aus dem Dashboard rauszuschreiben und die Berechnungen mit einem Taschenrechner oder Excel durchzuführen, schreiben Sie doch ein kleines R-Script, welches diese Aufgabe erledigt. Sobald Sie das richtige Ergebnis berechnet haben, können Sie es unten im Quiz auswählen. Vergessen Sie hierbei nicht, wie bereits in vorherigen Kapiteln gezeigt, das Arbeitsverzeichnis korrekt zu setzen und die bereinigten Daten aus dem Datenverzeichnis auszulesen.
 
 ```{code-cell} ipython3
 :tags: [remove-input]
