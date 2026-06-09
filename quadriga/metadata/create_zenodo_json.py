@@ -253,15 +253,15 @@ def create_zenodo_json() -> bool | None:
         description = "<p>" + metadata.get("description") + "</p>"
 
         description_base = f"""
-<p>Das interaktive Lehrbuch kann als <a href="{metadata.get("url")}" target="_blank">Web-Version</a> verwendet, zur individuellen Anpassung heruntergeladen werden und steht darüber hinaus auch auf <a href="{metadata.get("git")}" target="_blank">GitHub</a> zur Verfügung.</p>
-<p>Die QUADRIGA-OER sind nach einem einheitlichen <a href="https://quadriga-dk.github.io/Book_Template" target="_blank">Template</a> gestaltet, werden nach einem <a href="{metadata.get("quality-assurance").get("description", "TODO")}" target="_blank">standardisierten Verfahren qualitätsgeprüft</a> und <a href="https://doi.org/10.5281/zenodo.18184772" target="_blank">mit Metadaten ausgezeichnet</a>.</p>
+<p>Dieses interaktive Lehrbuch kann als <a href="{metadata.get("url")}" target="_blank">Web-Version</a> verwendet, zur individuellen Anpassung heruntergeladen werden und steht darüber hinaus auch auf <a href="{metadata.get("git")}" target="_blank">GitHub</a> zur Verfügung.</p>
+<p>Die QUADRIGA-OER sind nach einem einheitlichen <a href="https://quadriga-dk.github.io/Book_Template" target="_blank">Template</a> gestaltet, werden nach einem standardisierten Verfahren <a href="{metadata.get("quality-assurance").get("description", "TODO")}" target="_blank">qualitätsgeprüft</a> und mit Metadaten nach dem <a href="https://doi.org/10.5281/zenodo.18184772" target="_blank">QUADRIGA-Metadatenschema</a> ausgezeichnet.</p>
 <h5>QUADRIGA Datenkompetenzzentrum</h5>
 <p>QUADRIGA ist das Datenkompetenzzentrum der Wissenschaftsregion Berlin-Brandenburg. Für die beiden Anwendungsdomänen Digital Humanities und Verwaltungswissenschaft entstehen unter der Einbindung der Expertise der beiden Disziplinen Informatik und Informationswissenschaft Selbstlernangebote, die als OER in Form von Jupyter Books zur freien Nachnutzung zur Verfügung gestellt werden. Um den Forschungsprozess möglichst realistisch abzubilden, basieren die OER auf Fallstudien, denen wiederum ein eigens für das Projekt entwickeltes <a href="https://doi.org/10.5281/zenodo.14747822" target="_blank">Datenkompetenzframework</a> zugrunde liegt. Die Fallstudien nehmen drei für die Anwendungsdomänen repräsentativen Datentypen in den Blick: Bewegtes Bild, Tabelle und Text.</p>
 <p>Zu den Zielgruppen von QUADRIGA zählen insbesondere promovierende und promovierte Wissenschaftler*innen der genannten Disziplinen, die den Umgang mit digitalen Daten, Methoden und Werkzeugen erlernen und weiterentwickeln wollen.</p>
-<p>QUADRIGA ist eins von 11 Datenkompetenzzentren in Deutschland und wird vom <a href="https://www.bmftr.bund.de/DE/Forschung/Wissenschaftssystem/Forschungsdaten/DatenkompetenzenInDerWissenschaft/datenkompetenzeninderwissenschaft.html" target="_blank">Bundesministerium für Forschung, Technologie und Raumfahrt (BMFTR)</a> und von der Europäischen Union im Rahmen von “NextGenerationEU” finanziert. Zu den Verbundpartnern zählen:
+<p>QUADRIGA ist eins von 11 Datenkompetenzzentren in Deutschland und wird vom <a href="https://www.bmftr.bund.de/DE/Forschung/Wissenschaftssystem/Forschungsdaten/DatenkompetenzenInDerWissenschaft/datenkompetenzeninderwissenschaft.html" target="_blank">Bundesministerium für Forschung, Technologie und Raumfahrt (BMFTR)</a> und von der Europäischen Union im Rahmen von <a href="https://next-generation-eu.europa.eu/index_de" target="_blank">NextGenerationEU</a> finanziert. Zu den Verbundpartnern zählen:
   <ul>
     <li>Universität Potsdam (Verbundkoordination) <i>(Förderkennzeichen: 16DKZ2034A)</i></li>
-    <li>Filmuniversität Babelsberg <i>(Förderkennzeichen: 16DKZ2034B)</i></li>
+    <li>Filmuniversität Babelsberg KONRAD WOLF <i>(Förderkennzeichen: 16DKZ2034B)</i></li>
     <li>Fachhochschule Potsdam <i>(Förderkennzeichen: 16DKZ2034C)</i></li>
     <li>Fraunhofer FOKUS <i>(Förderkennzeichen: 16DKZ2034D)</i></li>
     <li>Freie Universität Berlin <i>(Förderkennzeichen: 16DKZ2034E)</i></li>
@@ -323,15 +323,13 @@ def create_zenodo_json() -> bool | None:
         if license_id:
             # Zenodo expects license IDs like "CC-BY-SA-4.0"
             # Clean up common variations
-            license_clean = str(license_id).upper().replace("_", "-")
+            license_clean = str(license_id).upper().replace("_", "-").replace(" ", "-")
             zenodo_metadata["license"] = license_clean
             logger.info("Added license: %s", license_clean)
 
         # language
         if pref.get("languages"):
-            lang = (
-                pref["languages"][0] if isinstance(pref["languages"], list) else pref["languages"]
-            )
+            lang = pref["languages"][0] if isinstance(pref["languages"], list) else pref["languages"]
             zenodo_metadata["language"] = lang
             logger.info("Added language: %s", lang)
 
@@ -346,15 +344,11 @@ def create_zenodo_json() -> bool | None:
         related_identifiers = []
         repo_url = pref.get("repository-code")
         if repo_url:
-            related_identifiers.append(
-                {"identifier": repo_url, "relation": "isSupplementedBy", "scheme": "url"}
-            )
+            related_identifiers.append({"identifier": repo_url, "relation": "isSupplementedBy", "scheme": "url"})
             logger.info("Added repository URL as related identifier")
         url = pref.get("url")
         if url and url != repo_url:
-            related_identifiers.append(
-                {"identifier": url, "relation": "isAlternateIdentifier", "scheme": "url"}
-            )
+            related_identifiers.append({"identifier": url, "relation": "isAlternateIdentifier", "scheme": "url"})
             logger.info("Added URL as related identifier")
 
         if related_identifiers:

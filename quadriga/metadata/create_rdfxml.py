@@ -17,7 +17,13 @@ import xml.etree.ElementTree as ET
 from pathlib import Path
 from typing import Any
 
-from rdflib import RDF, Graph, Literal, Namespace, URIRef  # type: ignore[import-not-found]
+from rdflib import (  # type: ignore[import-not-found]
+    RDF,
+    Graph,
+    Literal,
+    Namespace,
+    URIRef,
+)
 from rdflib.namespace import DCTERMS, SKOS, XSD  # type: ignore[import-not-found]
 
 from .utils import extract_keywords, get_file_path, get_repo_root, load_yaml_file
@@ -97,9 +103,7 @@ def clean_doi(doi_string: str) -> str | None:
     return doi.strip()
 
 
-def add_person(
-    graph: Graph, person_data: Any, base_uri: str, person_type: str, index: int
-) -> URIRef | None:
+def add_person(graph: Graph, person_data: Any, base_uri: str, person_type: str, index: int) -> URIRef | None:
     """
     Add a person (author or contributor) to the RDF graph.
 
@@ -153,9 +157,7 @@ def add_person(
             graph.add((orcid_node, RDF.type, SCHEMA.PropertyValue))
             graph.add((orcid_node, SCHEMA.propertyID, Literal("ORCID")))
             graph.add((orcid_node, SCHEMA.value, Literal(clean_orcid_id)))
-            graph.add(
-                (orcid_node, SCHEMA.url, URIRef(f"https://orcid.org/{clean_orcid_id}"))
-            )
+            graph.add((orcid_node, SCHEMA.url, URIRef(f"https://orcid.org/{clean_orcid_id}")))
             graph.add((person_uri, SCHEMA.identifier, orcid_node))
 
     # affiliation -> schema:affiliation (mapped in both author and contributor)
@@ -236,9 +238,7 @@ def add_learning_objective(
     return obj_uri
 
 
-def add_chapter(
-    graph: Graph, chapter_data: Any, base_uri: str, chapter_index: int
-) -> URIRef | None:
+def add_chapter(graph: Graph, chapter_data: Any, base_uri: str, chapter_index: int) -> URIRef | None:
     """
     Add a chapter to the RDF graph as a LearningResource.
 
@@ -290,9 +290,7 @@ def add_chapter(
     # learning-objectives -> educationalAlignment with AlignmentObject
     if chapter_data.get("learning-objectives"):
         for obj_index, obj_data in enumerate(chapter_data["learning-objectives"]):
-            obj_uri = add_learning_objective(
-                graph, obj_data, base_uri, chapter_index, obj_index
-            )
+            obj_uri = add_learning_objective(graph, obj_data, base_uri, chapter_index, obj_index)
             if obj_uri:
                 graph.add((chapter_uri, SCHEMA.educationalAlignment, obj_uri))
 
@@ -395,9 +393,7 @@ def create_rdfxml() -> bool | None:
 
         # schema-version -> schema:schemaVersion
         if "schema-version" in metadata:
-            graph.add(
-                (resource_uri, SCHEMA.schemaVersion, Literal(str(metadata["schema-version"])))
-            )
+            graph.add((resource_uri, SCHEMA.schemaVersion, Literal(str(metadata["schema-version"]))))
             logger.info("Added schema version: %s", metadata["schema-version"])
 
         # url -> schema:url (exactMatch)
@@ -548,9 +544,7 @@ def create_rdfxml() -> bool | None:
                                 )
                             )
                     elif isinstance(content_license_data, str):
-                        graph.add(
-                            (content_license_node, SCHEMA.license, URIRef(content_license_data))
-                        )
+                        graph.add((content_license_node, SCHEMA.license, URIRef(content_license_data)))
                     graph.add((resource_uri, SCHEMA.license, content_license_node))
             logger.info("Added license information")
 
@@ -566,9 +560,7 @@ def create_rdfxml() -> bool | None:
 
         # table-of-contents -> dcterms:tableOfContents (exactMatch)
         if "table-of-contents" in metadata:
-            graph.add(
-                (resource_uri, DCTERMS.tableOfContents, Literal(metadata["table-of-contents"]))
-            )
+            graph.add((resource_uri, DCTERMS.tableOfContents, Literal(metadata["table-of-contents"])))
             logger.info("Added table of contents")
 
         # ===== ADDITIONAL METADATA =====
@@ -616,7 +608,7 @@ def create_rdfxml() -> bool | None:
                 ET.register_namespace(prefix, uri)
 
             # Parse, sort elements recursively, and re-serialize
-            root = ET.fromstring(xml_str)  # noqa: S314 — parsing our own rdflib output
+            root = ET.fromstring(xml_str)
             _sort_xml_element(root)
             ET.indent(root, space="  ")
 

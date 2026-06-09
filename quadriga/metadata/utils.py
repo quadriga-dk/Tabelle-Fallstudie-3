@@ -41,10 +41,7 @@ def get_repo_root() -> Path:
         found_files = [f for f in required_files if (repo_root / f).exists()]
 
         if len(found_files) < 1:
-            msg = (
-                f"Repository root at {repo_root} doesn't contain expected files "
-                "(_config.yml or _toc.yml)"
-            )
+            msg = f"Repository root at {repo_root} doesn't contain expected files (_config.yml or _toc.yml)"
             raise FileNotFoundError(msg)
     except Exception:
         logger.exception("Error resolving repository root")
@@ -68,6 +65,31 @@ def get_file_path(relative_path: str | Path, repo_root: Path | None = None) -> P
     if repo_root is None:
         repo_root = get_repo_root()
     return repo_root / Path(relative_path)
+
+
+def iter_toc_files(node: dict | list):
+    """Yield all 'file' path strings from a parsed _toc.yml, at any nesting depth.
+
+    _toc.yml entries can be deeply nested under chapters, sections, and parts.
+    This walks the entire tree and yields each file path in document order.
+
+    Example — given::
+
+        chapters:
+          - file: einstieg/toc
+            sections:
+              - file: einstieg/Lernziele
+
+    Yields: ``"einstieg/toc"``, ``"einstieg/Lernziele"``
+    """
+    if isinstance(node, dict):
+        if "file" in node:
+            yield node["file"]
+        for v in node.values():
+            yield from iter_toc_files(v)
+    elif isinstance(node, list):
+        for item in node:
+            yield from iter_toc_files(item)
 
 
 # ---- YAML Handling ----
@@ -105,9 +127,7 @@ def load_yaml_file(file_path: str | Path) -> dict | list | None:
         return None
 
 
-def save_yaml_file(
-    file_path: str | Path, data: dict | list, schema_comment: str | None = None
-) -> bool:
+def save_yaml_file(file_path: str | Path, data: dict | list, schema_comment: str | None = None) -> bool:
     """
     Save Python object as YAML to the specified file.
 

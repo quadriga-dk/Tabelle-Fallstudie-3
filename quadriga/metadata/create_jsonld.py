@@ -516,9 +516,7 @@ def create_jsonld() -> bool | None:
 
         # target-group -> schema:audience (closeMatch) and lrmi:educationalAudience (closeMatch)
         if metadata.get("target-group"):
-            jsonld["audience"] = [
-                {"@type": "Audience", "audienceType": group} for group in metadata["target-group"]
-            ]
+            jsonld["audience"] = [{"@type": "Audience", "audienceType": group} for group in metadata["target-group"]]
             logger.info("Added %d target groups", len(jsonld["audience"]))
 
         # time-required -> schema:timeRequired (exactMatch)
