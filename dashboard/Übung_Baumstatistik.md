@@ -50,10 +50,10 @@ name: Baumverteilung nach Bezirken mit Baumgattungen
 alt: Gestapeltes Balkendiagramm
 width: 600px
 ---
-Baumverteilung nach Bezirken und Baumgattungen. Die Abbildung zeigt die Verteilung der Bäume in den Berliner Bezirken, aufgeschlüsselt nach Baumgattungen. Die Anzahl der Bäume ist für jeden Bezirk als gestapeltes Balkendiagramm dargestellt, wobei die einzelnen Farbsegmente unterschiedliche Baumgattungen repräsentieren. Über einen Schieberegler kann die Anzahl der angezeigten, häufigsten Baumgattungen (Top-N) interaktiv angepasst werden, während weniger häufige Gattungen unter „Sonstige“ zusammengefasst sind. (Quelle: eigene Ausarbeitung)
+Baumverteilung nach Bezirken und Baumgattungen. Die Abbildung zeigt die Verteilung der Bäume in den Berliner Bezirken, aufgeschlüsselt nach Baumgattungen. Die Anzahl der Bäume ist für jeden Bezirk als gestapeltes Balkendiagramm dargestellt, wobei die einzelnen Farbsegmente unterschiedliche Baumgattungen repräsentieren. Über einen Schieberegler kann die Anzahl der angezeigten, häufigsten Baumgattungen interaktiv angepasst werden, während weniger häufige Gattungen unter „Sonstige“ zusammengefasst sind. (Quelle: eigene Ausarbeitung)
 ``` 
 
-Das obenstehende Diagramm ist ein Balkendiagramm, genauer gesagt ein gestapeltes Balkendiagramm, das mehrere Informationsebenen gleichzeitig vermittelt. Der zentrale Mehrwert dieser Darstellungsform liegt darin, sowohl die Gesamtanzahl der Bäume pro Bezirk als auch deren Zusammensetzung nach Gattungen in einer einzigen Visualisierung zu vereinen. Die Balkenlänge zeigt auf einen Blick, welche Bezirke den größten Baumbestand haben, während die farbigen Segmente innerhalb jedes Balkens die Artenvielfalt und deren relative Anteile offenlegen. Dies ermöglicht direkte Vergleiche zwischen Bezirken: Nutzer:innen können nicht nur erkennen, dass Bezirk A mehr Bäume hat als Bezirk B, sondern auch, ob beide eine ähnliche Gattungsverteilung aufweisen oder ob bestimmte Arten in einzelnen Bezirken dominieren. Die Anpassung über den Top-N-Schieberegler reduziert visuelle Komplexität und ermöglicht es, den Fokus je nach Fragestellung auf die häufigsten Gattungen zu legen oder eine detailliertere Aufschlüsselung zu betrachten. So macht das Balkendiagramm komplexe, mehrdimensionale Daten intuitiv erfassbar. Balkendiagramme zählen zu den etabliertesten Darstellungswerkzeugen der Datenvisualisierung - ihre breite Anwendung in dieser Fallstudie spiegelt ihre Vielseitigkeit und Lesbarkeit wider.
+Das obenstehende Diagramm ist ein Balkendiagramm, genauer gesagt ein gestapeltes Balkendiagramm, das mehrere Informationsebenen gleichzeitig vermittelt. Der zentrale Mehrwert dieser Darstellungsform liegt darin, sowohl die Gesamtanzahl der Bäume pro Bezirk als auch deren Zusammensetzung nach Gattungen in einer einzigen Visualisierung zu vereinen. Die Balkenlänge zeigt auf einen Blick, welche Bezirke den größten Baumbestand haben, während die farbigen Segmente innerhalb jedes Balkens die Artenvielfalt und deren relative Anteile offenlegen. Dies ermöglicht direkte Vergleiche zwischen Bezirken: Nutzer:innen können nicht nur erkennen, dass Bezirk A mehr Bäume hat als Bezirk B, sondern auch, ob beide eine ähnliche Gattungsverteilung aufweisen oder ob bestimmte Arten in einzelnen Bezirken dominieren. Die Anpassung über den Schieberegler reduziert visuelle Komplexität und ermöglicht es, den Fokus je nach Fragestellung auf die häufigsten Gattungen zu legen oder eine detailliertere Aufschlüsselung zu betrachten. So macht das Balkendiagramm komplexe, mehrdimensionale Daten intuitiv erfassbar. Balkendiagramme zählen zu den etabliertesten Darstellungswerkzeugen der Datenvisualisierung - ihre breite Anwendung in dieser Fallstudie spiegelt ihre Vielseitigkeit und Lesbarkeit wider.
 
 ```{figure} ../assets/Dashboard_Baumstatistik_2.png
 ---
@@ -68,11 +68,11 @@ Das obenstehende Diagramm ist ein Kreisdiagramm (auch Tortendiagramm genannt), d
 
 ```{figure} ../assets/Dashboard_Baumstatistik_3.png
 ---
-name: Top 10 gegossene Baumgattungen
+name: Die 10 meistgegossenen Baumgattungen
 alt: Balkendiagramm entsprechend Titel mit Drop-down menü für Bezirke
 width: 600px
 ---
-Top 10 gegossene Baumgattungen. Die Abbildung zeigt die Top 10 gegossenen Baumgattungen in Berlin in Form eines horizontalen Balkendiagramms. Über ein Auswahlfeld kann der betrachtete Bezirk festgelegt werden, wodurch sich die dargestellten Werte entsprechend anpassen. Die Balken repräsentieren die absolute Anzahl gegossener Bäume je Gattung, wobei die Linde mit deutlichem Abstand an erster Stelle steht, gefolgt von Ahorn (ca. 250.000) und weiteren Gattungen mit jeweils deutlich geringeren Werten. Die x-Achse zeigt die Anzahl gegossener Bäume, die y-Achse die Baumgattungen. (Quelle: eigene Ausarbeitung)
+Die 10 meistgegossenen Baumgattungen. Die Abbildung zeigt die 10 meist gegossenen Baumgattungen in Berlin in Form eines horizontalen Balkendiagramms. Über ein Auswahlfeld kann der betrachtete Bezirk festgelegt werden, wodurch sich die dargestellten Werte entsprechend anpassen. Die Balken repräsentieren die absolute Anzahl gegossener Bäume je Gattung, wobei die Linde mit deutlichem Abstand an erster Stelle steht, gefolgt von Ahorn (ca. 250.000) und weiteren Gattungen mit jeweils deutlich geringeren Werten. Die x-Achse zeigt die Anzahl gegossener Bäume, die y-Achse die Baumgattungen. (Quelle: eigene Ausarbeitung)
 ``` 
 
 ```{figure} ../assets/Dashboard_Baumstatistik_4.png
@@ -87,7 +87,7 @@ Baumdichte pro km². Die Abbildung zeigt die Baumdichte pro km² in den verschie
 ```{admonition} Was Sie beachten sollten
 :class: keypoint
 
-Nur weil bestimmte Kennzahlen in einer Analyse oder Visualisierung nicht berücksichtigt wurden, bedeutet dies nicht, dass sie für die Interpretation irrelevant sind. Für das Verständnis der oben dargestellten {numref}`Top 10 gegossene Baumgattungen` ist beispielsweise eine Information zur Häufigkeit von Baumarten (wie in {numref}`Verteilung der Baumgattungen` dargestellt) unabdingbar. Für eine korrekte Analyse der {numref}`Baumdichte pro qkm` (Baumdichte pro km²) braucht es mindestens Hinweise zur Größe der Bezirke. Darüber hinaus könnten zusätzliche Kontextinformationen, etwa zur Bevölkerungsdichte, sinnvoll sein, um die dargestellten Werte angemessen einordnen zu können.
+Nur weil bestimmte Kennzahlen in einer Analyse oder Visualisierung nicht berücksichtigt wurden, bedeutet dies nicht, dass sie für die Interpretation irrelevant sind. Für das Verständnis der oben dargestellten {numref}`Die 10 meistgegossenen Baumgattungen` ist beispielsweise eine Information zur Häufigkeit von Baumarten (wie in {numref}`Verteilung der Baumgattungen` dargestellt) unabdingbar. Für eine korrekte Analyse der {numref}`Baumdichte pro qkm` (Baumdichte pro km²) braucht es mindestens Hinweise zur Größe der Bezirke. Darüber hinaus könnten zusätzliche Kontextinformationen, etwa zur Bevölkerungsdichte, sinnvoll sein, um die dargestellten Werte angemessen einordnen zu können.
 
 Betrachten Sie Datenvisualisierungen daher stets kritisch und fragen Sie sich:
 
@@ -141,7 +141,7 @@ tabItem(
       width = 12,
       sliderInput(
         "top_n_species",
-        "Top N Baumgattungen anzeigen:",
+        "Ändern Sie den Detailgrad der Auffächerung, indem Sie mit dem Schieberegler die Anzahl an Baumgattungen bestimmen (sortiert nach Häufigkeit - absteigend)",
         min = 3,
         max = 15,
         value = 8,
@@ -187,7 +187,7 @@ tabItem(
   fluidRow(
     box(
       title = tagList(
-        "Top 10 gegossene Baumgattungen",
+        "Die 10 meistgegossenen Baumgattungen",
         div(
           actionButton("info_btn_hgb", label = "", icon = icon("info-circle")),
           style = "position: absolute; right: 15px; top: 5px;"
@@ -263,7 +263,7 @@ Das erste Diagramm soll zeigen, wie viele Bäume in jedem Bezirk stehen und welc
 - `n_gen <- input$top_n_species` – speichert den Slider-Wert in einer Variable
 - `filter(!is.na(gattung_deutsch))` – entfernt Bäume ohne Gattungsangabe
 - `count(gattung_deutsch, sort = TRUE)` – zählt jede Gattung und sortiert absteigend
-- `head(n_gen)` – wählt die Top-N häufigsten Gattungen (gesteuert durch die Variable `n_gen`)
+- `head(n_gen)` – wählt die häufigsten Gattungen (gesteuert durch die Variable `n_gen`)
 - `pull(gattung_deutsch)` – extrahiert die Gattungsnamen als Vektor
 
 Diese Gattungsliste verwenden Sie später, um alle anderen Gattungen als "Sonstige" zu kennzeichnen.
@@ -294,7 +294,7 @@ Jetzt bereiten Sie die Daten so auf, dass für jeden Bezirk gezählt wird, wie v
 
 - `filter(!is.na(bezirk))` – entfernt Bäume ohne Bezirkszuordnung
 - `mutate(gattung_grouped = ...)` – gruppiert Gattungen:
-  - Wenn die Gattung zu den Top-N gehört → behalte den Namen
+  - Wenn die Gattung zu der ausgewählten Anzahl gehört → behalte den Namen
   - Ansonsten → kennzeichne als "Sonstige"
 - `group_by(bezirk, gattung_grouped)` – gruppiert nach Bezirk und Gattungsgruppe
 - `summarise(count = n())` – zählt Bäume pro Gruppe
@@ -424,7 +424,7 @@ Das Kreisdiagramm soll die prozentuale Zusammensetzung der Baumgattungen zeigen,
       HTML("
       <p>Diese Grafik zeigt die <strong>prozentuale Verteilung der Baumgattungen</strong>.</p>
       <ul>
-        <li>Zeigt die Top 10 häufigsten Baumgattungen (z.B. LINDE, AHORN, EICHE)</li>
+        <li>Zeigt die 10 meistgegossenen Baumgattungen (z.B. LINDE, AHORN, EICHE)</li>
         <li>Alle anderen Gattungen werden als 'Sonstige' zusammengefasst</li>
         <li>Kann auf einzelne Bezirke gefiltert werden</li>
         <li>Hilft zu verstehen, welche Gattungen in Berlin dominieren</li>
@@ -449,7 +449,7 @@ Das Kreisdiagramm soll die prozentuale Zusammensetzung der Baumgattungen zeigen,
 **Datenaufbereitung:**
 
 - `count(gattung_deutsch, sort = TRUE)` – zählt jede Gattung
-- `row_number() <= 10` – markiert die Top-10-Gattungen, alle anderen werden zu "Sonstige"
+- `row_number() <= 10` – markiert die 10 meistgegossenen Gattungen, alle anderen werden zu "Sonstige"
 - `group_by(gattung_grouped)` – fasst gleiche Gruppen zusammen
 - `mutate(percentage = ...)` – berechnet prozentuale Anteile
 
@@ -549,13 +549,13 @@ Um Bezirke fair vergleichen zu können, berechnen Sie die Baumdichte, also wie v
 Diese Normalisierung ermöglicht faire Vergleiche: Ein kleiner, urbaner Bezirk kann trotz weniger Bäume eine höhere Dichte haben als ein großer, ländlicher Bezirk.
 ````
 
-### Top 10 gegossene Baumgattungen
+### Die 10 meistgegossenen Baumgattungen
 
 Diese Visualisierung zeigt, welche Baumgattungen am häufigsten gegossen wurden. Das hilft zu verstehen, ob bestimmte Gattungen mehr Aufmerksamkeit erhalten, möglicherweise weil sie häufiger vorkommen oder als besonders pflegebedürftig wahrgenommen werden.
 
 ````{dropdown} Code
 ```r
-  # 4. Top 10 gegossene Baumgattungen
+  # 4. Die 10 meistgegossenen Baumgattungen
   output$top_watered_species <- renderPlot({
     req(input$sidebarMenu == "engagement")
     filtered_data <- df_merged %>%
@@ -568,7 +568,7 @@ Diese Visualisierung zeigt, welche Baumgattungen am häufigsten gegossen wurden.
     
     df_agg <- filtered_data %>%
       filter(!is.na(gattung_deutsch)) %>%   
-      group_by(gattung_deutsch) %>%
+      group_by(gattunTop 10g_deutsch) %>%
       summarise(
         count = n(),
         total_water = sum(bewaesserungsmenge_in_liter, na.rm = TRUE)
@@ -596,7 +596,7 @@ Diese Visualisierung zeigt, welche Baumgattungen am häufigsten gegossen wurden.
   # Info button
   observeEvent(input$info_btn_hgb, {
     showModal(modalDialog(
-      title = "Information: Top 10 gegossene Baumgattungen",
+      title = "Information: Die 10 meistgegossenen Baumgattungen",
       HTML("
       <p>Diese Grafik zeigt die <strong>am häufigsten gegossenen Baumgattungen</strong>.</p>
       <ul>
@@ -621,14 +621,14 @@ Diese Visualisierung zeigt, welche Baumgattungen am häufigsten gegossen wurden.
 - `filter(!is.na(bewaesserungsmenge_in_liter))` – behalte nur Bäume, die tatsächlich bewässert wurden
 - Optional: Filterung nach Bezirk, falls ausgewählt
 
-**Top-10-Gattungen ermitteln:**
+**Die 10 meistgegossenen Baumgattungen ermitteln:**
 
 - `group_by(gattung_deutsch)` – gruppiert nach Gattung
 - `summarise(count = n(), total_water = sum(...))` – berechnet zwei Kennzahlen:
   - `count` – wie viele Bäume dieser Gattung gegossen wurden
   - `total_water` – wie viel Wasser insgesamt auf diese Gattung gegossen wurde
 - `arrange(desc(count))` – sortiert absteigend nach Häufigkeit
-- `head(10)` – wählt die Top 10 aus
+- `head(10)` – wählt die 10 meistgegossenen Baumgattungen
 
 **Horizontales Balkendiagramm:**
 
@@ -695,7 +695,7 @@ ui <- dashboardPage(
             width = 12,
             sliderInput(
               "top_n_species",
-              "Top N Baumgattungen anzeigen:",
+              "Ändern Sie den Detailgrad der Auffächerung, indem Sie mit dem Schieberegler die Anzahl an Baumgattungen bestimmen (sortiert nach Häufigkeit - absteigend)",
               min = 3,
               max = 15,
               value = 8,
@@ -741,7 +741,7 @@ ui <- dashboardPage(
         fluidRow(
           box(
             title = tagList(
-              "Top 10 gegossene Baumgattungen",
+              "Die 10 meistgegossenen Baumgattungen",
               div(
                 actionButton("info_btn_hgb", label = "", icon = icon("info-circle")),
                 style = "position: absolute; right: 15px; top: 5px;"
@@ -874,7 +874,7 @@ server <- function(input, output, session) {
       HTML("
       <p>Diese Grafik zeigt die <strong>prozentuale Verteilung der Baumgattungen</strong>.</p>
       <ul>
-        <li>Zeigt die Top 10 häufigsten Baumgattungen (z.B. LINDE, AHORN, EICHE)</li>
+        <li>Zeigt die 10 meistgegossenen Baumgattungen (z.B. LINDE, AHORN, EICHE)</li>
         <li>Hilft zu verstehen, welche Gattungen in Berlin dominieren</li>
       </ul>
     "),
@@ -938,7 +938,7 @@ server <- function(input, output, session) {
     ))
   })
 
-  # 4. Top 10 gegossene Baumgattungen
+  # 4. Die 10 meistgegossenen Baumgattungen
   output$top_watered_species <- renderPlot({
     req(input$sidebarMenu == "engagement")
     filtered_data <- df_merged %>%
@@ -978,7 +978,7 @@ server <- function(input, output, session) {
 
   observeEvent(input$info_btn_hgb, {
     showModal(modalDialog(
-      title = "Information: Top 10 gegossene Baumgattungen",
+      title = "Information: Die 10 meistgegossenen Baumgattungen",
       HTML("
       <p>Diese Grafik zeigt die <strong>am häufigsten gegossenen Baumgattungen</strong>.</p>
       <ul>

@@ -171,7 +171,7 @@ ui <- dashboardPage(
             width = 12,
             sliderInput(
               "top_n_species",
-              "Top N Baumgattungen anzeigen:",
+              "Ändern Sie den Detailgrad der Auffächerung, indem Sie mit dem Schieberegler die Anzahl an Baumgattungen bestimmen (sortiert nach Häufigkeit - absteigend)",
               min = 3,
               max = 15,
               value = 8,
@@ -217,7 +217,7 @@ ui <- dashboardPage(
         fluidRow(
           box(
             title = tagList(
-              "Top 10 gegossene Baumgattungen",
+              "Die 10 meistgegossenen Baumgattungen",
               div(
                 actionButton("info_btn_hgb", label = "", icon = icon("info-circle")),
                 style = "position: absolute; right: 15px; top: 5px;"
@@ -606,7 +606,7 @@ server <- function(input, output, session) {
       HTML("
       <p>Diese Grafik zeigt die <strong>prozentuale Verteilung der Baumgattungen</strong>.</p>
       <ul>
-        <li>Zeigt die Top 10 häufigsten Baumgattungen (z.B. LINDE, AHORN, EICHE)</li>
+        <li>Zeigt die 10 meistgegossenen Baumgattungen (z.B. LINDE, AHORN, EICHE)</li>
         <li>Hilft zu verstehen, welche Gattungen in Berlin dominieren</li>
       </ul>
     "),
@@ -671,7 +671,7 @@ server <- function(input, output, session) {
     ))
   })
   
-  # 4. Top 10 gegossene Baumgattungen
+  # 4. Die 10 meistgegossenen Baumgattungen
   output$top_watered_species <- renderPlot({
     req(input$sidebarMenu == "engagement")
     
@@ -712,7 +712,7 @@ server <- function(input, output, session) {
   
   observeEvent(input$info_btn_hgb, {
     showModal(modalDialog(
-      title = "Information: Top 10 gegossene Baumgattungen",
+      title = "Information: Die 10 meistgegossenen Baumgattungen",
       HTML("
       <p>Diese Grafik zeigt die <strong>am häufigsten gegossenen Baumgattungen</strong>.</p>
       <ul>
