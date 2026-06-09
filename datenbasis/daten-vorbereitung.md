@@ -240,7 +240,7 @@ Einige Bäume verfügen nicht über eine Angabe zu ihrem Bezirk. Um eine aggregi
 
 **Code-Erklärung:**
 
-**1. Die Bezirkskarte laden**
+**1. Die Bezirksdatebn laden**
 
 ```r
 local_geojson <- "data/bezirksgrenzen.geojson"
@@ -259,7 +259,7 @@ if (file.exists(local_geojson)) {
   bezirksgrenzen <- st_read(local_geojson)
 }
 ```
-- Sie laden eine digitale Karte, auf der die Bezirksgrenzen Berlins eingezeichnet sind.
+- Sie laden eine [geoJSON-Datei](https://de.wikipedia.org/wiki/GeoJSON), welche die geographischen Eckdaten der Berliner Stadtbezirke enthält.
 - Jeder Bezirk hat dabei ein sogenanntes „Polygon“ – eine Art Umrisslinie.
 
 **2. Die Baumdaten laden**
@@ -297,7 +297,7 @@ df_ohne_bezirk <- df_baeume %>% filter(is.na(bezirk) & !is.na(lng) & !is.na(lat)
 df_ohne_bezirk_sf <- st_as_sf(df_ohne_bezirk, coords = c("lng", "lat"), crs = 4326, remove = FALSE)
 ```
 - Die zweite Gruppe wandeln Sie in ein spezielles Format (sogenannte sf-Objekte) um.
-- Das ist notwendig, damit Sie mit Geodaten (Karten und Punkten auf Karten) arbeiten können.
+- Das ist notwendig, damit Sie mit Geodaten arbeiten können.
 
 **6. Bezirksgrenzen vorbereiten**
 
@@ -306,7 +306,7 @@ bezirksgrenzen <- st_transform(bezirksgrenzen, crs = st_crs(df_ohne_bezirk_sf)) 
   rename(bezirk = Gemeinde_name)
 ```
 
-- Die Karte der Bezirke bringen Sie ins gleiche geografische System wie die Baumdaten (Koordinatensystem).
+- Die geographischen Daten der Bezirke bringen Sie ins gleiche geografische System wie die Baumdaten (Koordinatensystem).
 - Außerdem vereinfachen Sie den Namen des Bezirksfeldes in „bezirk“.
 
 **7. Räumlicher Vergleich: Welcher Baum liegt in welchem Bezirk?**
