@@ -63,7 +63,7 @@ Wo lassen sich die höchsten Ausprägungen des Engagements von Bürger:innen bei
 
 ## Bedeutung dieses Lehrbuchs für die Verwaltungswissenschaft
 
-Dashboards sind eine gute Möglichkeit, Daten des öffentlichen Sektors (Public Sector) übersichtlich darzustellen. Immer mehr Kommunen und Behörden arbeiten die von ihnen erhobenen oder verwalteten Daten auf, um eine anschauliche Übersicht über ihre Arbeit zu vermitteln. Dadurch können für Bürger:innen Mehrwerte entstehen - beispielsweise wenn sie Informationen über die Auslastung von Straßen erhalten. Mit Visualisierungen wie sie für Dashboards verwendet werden, können umfangreiche Datenbestände zusammengefasst und transparent gemacht sowie Probleme erkannt und Trends nachvollzogen werden (s. auch [Kap. 4.1](dashboard_theorie)).
+Dashboards sind eine gute Möglichkeit, Daten des öffentlichen Sektors (Public Sector) übersichtlich darzustellen. Immer mehr Kommunen und Behörden arbeiten die von ihnen erhobenen oder verwalteten Daten auf, um eine anschauliche Übersicht über ihre Arbeit zu vermitteln. Dadurch können für Bürger:innen Mehrwerte entstehen, zum Beispiel wenn sie Informationen über die Auslastung von Straßen erhalten. Mit Visualisierungen wie sie für Dashboards verwendet werden, können umfangreiche Datenbestände zusammengefasst und transparent gemacht sowie Probleme erkannt und Trends nachvollzogen werden (s. auch [Kap. 4.1](dashboard_theorie)).
 
 
 ## Zielgruppe
@@ -88,7 +88,7 @@ Visualisierung der 4 Schritte dieser Fallstudie.
 
 - Im **1. Schritt** wird eine Fragestellung aufgebaut und operationalisiert (s. [Kap. 2](frage-operationalisierung)).
 
-- Im **2. Schritt** wird der Untersuchungsgegenstand - also die Datengrundlage - beleuchtet und die Daten eingelesen und strukturiert (s. [Kap. 3](datenbasis_intro)).
+- Im **2. Schritt** wird der Untersuchungsgegenstand, also die Datengrundlage, beleuchtet und die Daten eingelesen und strukturiert (s. [Kap. 3](datenbasis_intro)).
 
 - Im **3. Schritt** erfahren Sie was Dashboards sind, welche Bedeutung sie für die Verwaltung bzw. Daten aus dem Public Sector haben, mit welchen Tools sie gebaut werden können und schließlich wie R Shiny eingerichtet wird, um damit ein Dashboard zu bauen (s. [Kap. 4](dash-prep-intro)).
 

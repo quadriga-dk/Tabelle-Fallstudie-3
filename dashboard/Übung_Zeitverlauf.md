@@ -16,7 +16,7 @@ kernelspec:
 :class: story
 
 Nachdem Amir Weber die Bezirke und Bewässerungsmengen verglichen hat, interessiert ihn nun, **welche Rolle das Alter der Bäume** spielt.
-Er fragt sich, ob bestimmte Jahrgänge besonders häufig gegossen werden - etwa jüngere Bäume, die nach wissenschaftlicher Empfehlung mehr Wasser benötigen, oder ältere Bäume, die empfindlicher auf Trockenstress reagieren.
+Er fragt sich, ob bestimmte Jahrgänge besonders häufig gegossen werden, wie etwa jüngere Bäume, die nach wissenschaftlicher Empfehlung mehr Wasser benötigen, oder ältere Bäume, die empfindlicher auf Trockenstress reagieren.
 Um dieser Frage nachzugehen, betrachten Sie die gesamte gegossene Wassermenge pro Pflanzjahr und erhalten so einen Überblick darüber, welche Baumkohorten am stärksten vom Engagement der Bürger:innen profitieren.
 
 ```
@@ -45,7 +45,7 @@ Um diese Aspekte besser zu verstehen, untersuchen Sie zwei zentrale Fragen:
 **2. Werden bestimmte Baumjahrgänge (Pflanzjahre) häufiger gegossen als andere?**
 → Deutet das auf besondere Pflegebedarfe oder engagiertes Handeln hin?
 
-Die folgenden Visualisierungen zeigen deshalb sowohl **Trends im Jahresverlauf** als auch die **insgesamt gegossene Wassermenge pro Pflanzjahr**, um das Zusammenspiel zwischen Baumalter, Bedarf und Engagement sichtbar zu machen. Eine chronologische Trenddarstellung ermöglicht es, zeitliche Entwicklungen und Muster im Gießverhalten zu erkennen. Nutzer:innen können nachvollziehen, wie sich die Bewässerungsaktivität über die Jahre hinweg verändert. Solche Erkenntnisse helfen nicht nur bei der Einschätzung des aktuellen Bedarfs, sondern auch bei der Planung zukünftiger Gießaktionen. Darüber hinaus macht die Visualisierung Schwankungen sichtbar. Für die Community kann die Trendlinie zudem motivierend wirken: Ein Aufwärtstrend zeigt wachsendes Engagement, während ein Abfall zum Handeln aufrufen kann. Langfristig liefert die chronologische Darstellung wertvolle Daten für die Evaluation von Maßnahmen und hilft zu verstehen, wann und warum Menschen aktiv werden - eine wichtige Grundlage für die Weiterentwicklung von Plattformen und gezielten Kommunikationsstrategien.
+Die folgenden Visualisierungen zeigen deshalb sowohl **Trends im Jahresverlauf** als auch die **insgesamt gegossene Wassermenge pro Pflanzjahr**, um das Zusammenspiel zwischen Baumalter, Bedarf und Engagement sichtbar zu machen. Eine chronologische Trenddarstellung ermöglicht es, zeitliche Entwicklungen und Muster im Gießverhalten zu erkennen. Nutzer:innen können nachvollziehen, wie sich die Bewässerungsaktivität über die Jahre hinweg verändert. Solche Erkenntnisse helfen nicht nur bei der Einschätzung des aktuellen Bedarfs, sondern auch bei der Planung zukünftiger Gießaktionen. Darüber hinaus macht die Visualisierung Schwankungen sichtbar. Für die Community kann die Trendlinie zudem motivierend wirken: Ein Aufwärtstrend zeigt wachsendes Engagement, während ein Abfall zum Handeln aufrufen kann. Langfristig liefert die chronologische Darstellung wertvolle Daten für die Evaluation von Maßnahmen und hilft zu verstehen, wann und warum Menschen aktiv werden, was eine wichtige Grundlage für die Weiterentwicklung von Plattformen und gezielten Kommunikationsstrategien darstellt.
 
 ```{figure} ../assets/Dashboard_Zeitverlauf.png
 ---
@@ -161,7 +161,7 @@ Diese Struktur gibt Nutzer:innen volle Kontrolle: Sie können sowohl den Zeitrau
 
 ### Daten vorbereiten und filtern
 
-Zunächst müssen Sie die Rohdaten so vorbereiten, dass nur relevante Einträge berücksichtigt werden – also Bäume, die tatsächlich gegossen wurden und für die ein Pflanzjahr bekannt ist.
+Zunächst müssen Sie die Rohdaten so vorbereiten, dass nur relevante Einträge berücksichtigt werden. In diesem Fall Bäume, die tatsächlich gegossen wurden und für die ein Pflanzjahr bekannt ist.
 
 ````{dropdown} Code
 ```r
@@ -309,7 +309,7 @@ Der Info-Button im Diagramm-Titel öffnet ein erläuterndes Pop-up-Fenster, das 
         <li>Bewegen Sie die Maus über die Punkte für Details</li>
         <li>Mehrere Bezirke können gleichzeitig ausgewählt werden</li>
       </ul>
-      <p><strong>Ergebnis:</strong> Die Daten zeigen keine wesentlichen Auffälligkeiten - das Pflanzjahr scheint kein entscheidender Faktor für das Bewässerungsengagement zu sein.</p>
+      <p><strong>Ergebnis:</strong> Die Daten zeigen keine wesentlichen Auffälligkeiten. Das Pflanzjahr scheint kein entscheidender Faktor für das Bewässerungsengagement zu sein.</p>
     "),
       easyClose = TRUE,
       footer = modalButton("Schließen")
@@ -331,7 +331,7 @@ Der Info-Button im Diagramm-Titel öffnet ein erläuterndes Pop-up-Fenster, das 
 ## Reflexion
 Der dargestellte Trend der Bewässerungsmenge je Pflanzjahr zeigt zwar über den gesamten Zeitraum betrachtet einen **grundsätzlich steigenden Verlauf**, allerdings lässt sich **kein klar lineares oder systematisches Muster** erkennen. Stattdessen wirkt der Verlauf stark **heterogen**, mit ausgeprägten Spitzen und Einbrüchen in einzelnen Jahrgängen.
 
-Diese Ausschläge könnten dafür sprechen, dass **strukturelle Eigenschaften der Bäume** - wie Alter, Größe und Wasserbedarf - eine wesentlich größere Rolle spielen als der zeitliche Trend selbst. Insbesondere wird sichtbar, dass **jüngere Bäume**, also jene mit einem **neueren Pflanzjahr**, deutlich häufiger und intensiver gegossen werden. Das deckt sich mit den fachlichen Erwartungen:
+Diese Ausschläge könnten dafür sprechen, dass **strukturelle Eigenschaften der Bäume** (z.B. wie Alter, Größe und Wasserbedarf) eine wesentlich größere Rolle spielen als der zeitliche Trend selbst. Insbesondere wird sichtbar, dass **jüngere Bäume**, also jene mit einem **neueren Pflanzjahr**, deutlich häufiger und intensiver gegossen werden. Das deckt sich mit den fachlichen Erwartungen:
 
 - Jungbäume haben ein **unterentwickeltes Wurzelsystem**,
 - sind schlechter in der Lage, **tiefere Bodenfeuchte zu erschließen**,
@@ -497,7 +497,7 @@ shinyApp(ui = ui, server = server)
 
 Bei der gewählten Form der Darstellung handelt es sich um ein klassisches **Liniendiagramm (Line Graph)**. 
 
-Laut dem [Data Visualization Catalogue](https://datavizcatalogue.com/methods/line_graph.html) eignen sich Liniendiagramme gut, um quantitative Werte über ein kontinuierliches Intervall oder einen bestimmten Zeitraum darzustellen. Sie werden am häufigsten eingesetzt, um **Trends aufzuzeigen** und zu analysieren, wie sich Daten über die Zeit verändert haben. 
+Laut dem <a href="https://datavizcatalogue.com/methods/location.html" class="external-link" target="_blank">The Data Visualization Catalogue</a> eignen sich Liniendiagramme gut, um quantitative Werte über ein kontinuierliches Intervall oder einen bestimmten Zeitraum darzustellen. Sie werden am häufigsten eingesetzt, um **Trends aufzuzeigen** und zu analysieren, wie sich Daten über die Zeit verändert haben. 
 
 Die visuelle Stärke dieser Darstellung liegt in ihrer einfachen Lesbarkeit:
 * Ein Aufwärtstrend (steigende Linie) zeigt intuitiv eine Zunahme der Werte (in unserem Fall: mehr gegossene Liter für bestimmte Pflanzjahre).
@@ -508,7 +508,7 @@ Unser Diagramm nutzt auf der y-Achse den quantitativen Wert (die aggregierte Was
 
 Das Liniendiagramm ist jedoch nicht die einzige Möglichkeit, Daten über einen bestimmten Zeitraum hinweg darzustellen. Es gibt viele weitere Visualisierungsmethoden, die speziell darauf ausgelegt sind, Veränderungen im Zeitverlauf zu kommunizieren. 
 
-Nutzen Sie den [Data Visualization Catalogue](https://datavizcatalogue.com/search/over_time.html) (Filter: "Search by Function" > "Over Time"), um alternative Darstellungsformen zu recherchieren. 
+Nutzen Sie den <a href="https://datavizcatalogue.com/methods/location.html" class="external-link" target="_blank">The Data Visualization Catalogue</a> (Filter: "Search by Function" > "Over Time"), um alternative Darstellungsformen zu recherchieren. 
 
 Beispiele für solche Alternativen sind:
 * **Area Graph** (Flächendiagramm)
@@ -529,4 +529,4 @@ create_answer_box('linegraph-alternativen-1')
 
 ### Überleitung zum nächsten Analyse-Schritt
 
-Die bisherige Betrachtung nach Pflanzjahren legt nahe, dass das Engagement nicht nur zeitlich, sondern vor allem **strukturell** geprägt ist — insbesondere durch Unterschiede im Alter der Bäume und damit verbundenem Wasserbedarf. Um diese Muster besser zu verstehen, ist es sinnvoll, das Bewässerungsverhalten im Kontext der **räumlichen und biologischen Baumstruktur** zu betrachten.
+Die bisherige Betrachtung nach Pflanzjahren legt nahe, dass das Engagement nicht nur zeitlich, sondern vor allem **strukturell** geprägt ist, und das insbesondere durch Unterschiede im Alter der Bäume und damit verbundenem Wasserbedarf. Um diese Muster besser zu verstehen, ist es sinnvoll, das Bewässerungsverhalten im Kontext der **räumlichen und biologischen Baumstruktur** zu betrachten.

@@ -5,7 +5,7 @@ lang: de-DE
 (daten-vorbereitung)=
 # Vorbereitung der Daten: Einlesen und Bereinigung
 
-Bevor Sie mit dem Bau eines Dashboards mit R Shiny beginnen können, müssen Sie die Daten einholen und bearbeiten. Dazu werden verschiedene Datensätze – der Berliner Baumkataster sowie manuell dokumentierte Gießdaten – zusammengeführt und so aufbereitet, dass sie für Visualisierungen und eine explorative Analyse verwendet werden können.
+Bevor Sie mit dem Bau eines Dashboards mit R Shiny beginnen können, müssen Sie die Daten einholen und bearbeiten. Dazu werden verschiedene Datensätze, nämlich der Berliner Baumkataster sowie manuell dokumentierte Gießdaten, Szusammengeführt und so aufbereitet, dass sie für Visualisierungen und eine explorative Analyse verwendet werden können.
 
 ```{admonition} Story
 :class: story
@@ -260,7 +260,7 @@ if (file.exists(local_geojson)) {
 }
 ```
 - Sie laden eine [geoJSON-Datei](https://de.wikipedia.org/wiki/GeoJSON), welche die geographischen Eckdaten der Berliner Stadtbezirke enthält.
-- Jeder Bezirk hat dabei ein sogenanntes „Polygon“ – eine Art Umrisslinie.
+- Jeder Bezirk hat dabei ein sogenanntes „Polygon“, was eine Art Umrisslinie ist.
 
 **2. Die Baumdaten laden**
 
@@ -317,7 +317,7 @@ df_ohne_bezirk_joined <- st_join(df_ohne_bezirk_sf, bezirksgrenzen["bezirk"], le
 
 - Jetzt schauen Sie für jeden Baum ohne Bezirk, ob er innerhalb eines Bezirks liegt.
 - Dafür überprüfen Sie, welches Bezirks-Polygon (d. h. die digitale Umrissfläche eines Bezirks, die dessen geografische Grenzen als geschlossene Fläche auf der Karte abbildet) den jeweiligen Baum „einschließt".
-- Dieser Vorgang heißt „spatial join“ – also ein räumliches Verbinden.
+- Dieser Vorgang heißt „spatial join“, also ein "räumliches Verbinden".
 
 **8. Ergebnis bereinigen und in normales Tabellenformat bringen**
 

@@ -18,7 +18,7 @@ Er merkt schnell: Diese Darstellung zeigt zwar den Umfang des Engagements, aber 
 
 Diese Übung zeigt Ihnen, wie sich durch unterschiedliche Kennzahlen neue Perspektiven auf eine Fragestellung ergeben. Während zuvor die Zahl der gegossenen Bäume im Mittelpunkt stand, analysieren Sie nun die Bewässerungsmenge in Litern.
 
-Sie lernen dabei, wie Daten aggregiert, umgerechnet und visualisiert werden können, um Bezirke hinsichtlich ihrer gesamten Bewässerungsleistung oder der durchschnittlichen Wassermenge pro Baum zu vergleichen. Dadurch wird deutlich, dass die Auswahl der Messgröße – die Operationalisierung – zu verschiedenen analytischen Ergebnissen führen kann: Ein Bezirk, der bei der Anzahl gegossener Bäume gut abschneidet, liegt bei der Wassermenge möglicherweise nicht vorne (und umgekehrt).
+Sie lernen dabei, wie Daten aggregiert, umgerechnet und visualisiert werden können, um Bezirke hinsichtlich ihrer gesamten Bewässerungsleistung oder der durchschnittlichen Wassermenge pro Baum zu vergleichen. Dadurch wird deutlich, dass die Auswahl der Messgröß (die Operationalisierung) zu verschiedenen analytischen Ergebnissen führen kann: Ein Bezirk, der bei der Anzahl gegossener Bäume gut abschneidet, liegt bei der Wassermenge möglicherweise nicht vorne (und umgekehrt).
 
 ```
 
@@ -28,7 +28,7 @@ Um die Unterschiede sichtbar zu machen, führen Sie eine umfassendere Analyse de
 - Wie viel Wasser erhielt ein durchschnittlich gegossener Baum?
 - Und verändert sich dadurch das Ranking der Bezirke?
 
-So helfen Sie Amir zu verstehen, wie sich die Wahl der Operationalisierung – also „gezählte Bäume“ vs. „gegossene Liter“ – auf die Ergebnisse auswirkt. Die Frage lautet:
+So helfen Sie Amir zu verstehen, wie sich die Wahl der Operationalisierung, also „gezählte Bäume“ vs. „gegossene Liter“, auf die Ergebnisse auswirkt. Die Frage lautet:
 Welche Geschichte erzählen die Daten, wenn man Liter statt Baumanzahl betrachtet?
 
 ```{figure} ../assets/Dashboard_Bewässerungsanalyse_1.png
@@ -37,7 +37,7 @@ name: Bewässerung pro Bezirk
 alt: Balkendiagramm Gesamte Bewässerungsmenge pro Bezirk
 width: 600px
 ---
-Balkendiagramm zur Bewässerung pro Bezirk (2020–2024). Die Abbildung zeigt die aggregierte Bewässerungsmenge in Millionen Litern für die einzelnen Berliner Bezirke im Zeitraum von 2020 bis 2024. Auf der x-Achse sind die Bezirke dargestellt, während die y-Achse die gesamte Bewässerungsmenge angibt. Das Diagramm ermöglicht einen direkten Vergleich der Bewässerungsintensität zwischen den Bezirken. (Quelle: eigene Ausarbeitung)
+Balkendiagramm zur Bewässerung pro Bezirk. Die Abbildung zeigt die aggregierte Bewässerungsmenge in Millionen Litern für die einzelnen Berliner Bezirke. Auf der x-Achse sind die Bezirke dargestellt, während die y-Achse die gesamte Bewässerungsmenge angibt. Das Diagramm ermöglicht einen direkten Vergleich der Bewässerungsintensität zwischen den Bezirken. (Quelle: eigene Ausarbeitung)
 ```
 
 ```{figure} ../assets/Dashboard_Bewässerungsanalyse_2.png
@@ -128,7 +128,7 @@ tabItem(
 
 Bei der Darstellung von Wassermengen stehen Sie vor einer Herausforderung: Die Rohdaten enthalten Literangaben, die je nach Größenordnung unterschiedlich formatiert werden sollten. Eine Menge von 50 Litern ist überschaubar, aber 1.250.000 Liter sind schwer zu erfassen. 
 
-Von Vorteil wäre es, wenn das Dashboard automatisch in sinnvolle Einheiten umrechnet – etwa Kubikmeter (m³) oder Megaliter (ML). Um dies zu erreichen, erstellen Sie zunächst Hilfsfunktionen für die Umrechnung und wenden diese anschließend direkt auf Ihren aggregierten Datensatz an.
+Von Vorteil wäre es, wenn das Dashboard automatisch in sinnvolle Einheiten umrechnet, wie etwa Kubikmeter (m³) oder Megaliter (ML). Um dies zu erreichen, erstellen Sie zunächst Hilfsfunktionen für die Umrechnung und wenden diese anschließend direkt auf Ihren aggregierten Datensatz an.
 
 ````{dropdown} Code
 ```r
@@ -383,10 +383,10 @@ Bei der **Gesamtbewässerungsmenge** liegen nun **Mitte**, **Charlottenburg-Wilm
 Betrachtet man jedoch die **durchschnittliche Bewässerungsmenge pro Baum**, verschiebt sich das Bild: Hier tritt **Friedrichshain-Kreuzberg** am weitesten hervor.
 
 **Das zeigt klar**:
-Die Wahl der Messgröße – „Wie viel Wasser insgesamt?“ vs. „Wie viel Wasser pro Baum?“ – beeinflusst die Interpretation des Engagements wesentlich. Unterschiedliche Kennzahlen können *unterschiedliche Geschichten* erzählen, auch sie auf denselben Rohdaten basieren.
+Die Wahl der Messgröße, also „Wie viel Wasser insgesamt?“ vs. „Wie viel Wasser pro Baum?“, beeinflusst die Interpretation des Engagements wesentlich. Unterschiedliche Kennzahlen können *unterschiedliche Geschichten* erzählen, auch sie auf denselben Rohdaten basieren.
 
 Damit wird ein zentrales analytisches Prinzip deutlich:
-**Daten sind nicht neutral – die Art ihrer Aufbereitung formt das Narrativ.**
+**Daten sind nicht neutral. Die Art ihrer Aufbereitung formt das Narrativ.**
 
 Ergänzend zu der Leitfrage soll nun eine vertiefte Betrachtung der zugrunde liegenden Dynamiken und Kontextfaktoren erfolgen. Welche **Kontextfaktoren** könnten zu den Unterschieden geführt haben?
 
