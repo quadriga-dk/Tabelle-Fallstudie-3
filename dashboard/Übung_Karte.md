@@ -394,7 +394,7 @@ Gehen Sie nun auf die [Startseite](https://datavizcatalogue.com/index.html) der 
 name: Selection of map visualisations
 alt: Screenshot from datavizcatalogue.com
 ---
-Auswahl an Kartenvisualisierungen
+Auswahl an Kartenvisualisierungen [Quelle: [DataVizCatalogue abgerufen am 10.06.2026](https://datavizcatalogue.com/search/location.html)]
 ``` 
 
 ### Übung
