@@ -586,7 +586,15 @@ Für die Startseite heißt das vor allem:
 
 Die zentrale Leitfrage der Fallstudie lautet: **Wo lassen sich die höchsten Ausprägungen des Engagements von Bürger:innen bei der Bewässerung städtischer Bäume in Berlin feststellen?**
 
-Die Startseite des Dashboards ermöglicht einen ersten Überblick darüber, in welchen Bezirken es wieviele Bäume gibt und wieviele davon gegossen wurden. In **absoluten Zahlen** zeigt sich dabei das höchste Engagement bei den Bürger:innen in **Mitte**, gefolgt von **Tempelhof-Schöneberg** und **Charlottenburg-Wilmersdorf**.  
+Die Startseite des Dashboards ermöglicht einen ersten Überblick darüber, in welchen Bezirken es wieviele Bäume gibt und wieviele davon gegossen wurden. In **absoluten Zahlen** zeigt sich dabei das höchste Engagement bei den Bürger:innen in **Mitte**, gefolgt von **Tempelhof-Schöneberg** und **Friedrichshain-Kreuzberg**.  
+
+```{figure} ../assets/Dashboard_Startseite_Bezirk.png
+---
+name: Dashboard Startseite Bezirk
+alt: Ein Screenshot, der zeigt Dashboard Startseite mit Bezirk, wo absolut die meisten Bäume gegossen werden
+---
+Startseite, jedoch ist nur der Bezirk Mitte ausgewählt (dort wurde in absoluten Zahlen die meisten Bäume gegossen) (Quelle: eigene Ausarbeitung)
+``` 
 
 Für eine abschließende Beantwortung der Leitfrage reicht diese Betrachtung jedoch nicht aus, da **ohne Normalisierung** – etwa durch das Verhältnis gegossener Bäume zur Gesamtbaumzahl je Bezirk – **keine validen Vergleiche zwischen den Bezirken** gezogen werden können. Fahren Sie daher mit der folgenden Übung fort.
 
