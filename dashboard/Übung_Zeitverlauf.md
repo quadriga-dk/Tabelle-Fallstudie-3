@@ -354,18 +354,21 @@ Mehrere Faktoren schränken die Interpretierbarkeit des Trends ein:
 # UI-Definition
 ui <- dashboardPage(
   dashboardHeader(title = "Gieß den Kiez Dashboard"),
+  
   dashboardSidebar(
     sidebarMenu( id = "sidebarMenu",
-      # Code aus der Startseite und Karte
+      # Code aus den vorherigen Schritten Startseite, Karte und Bewässerungsanalyse
       menuItem("Startseite", tabName = "start", icon = icon("home")),
       menuItem("Karte", tabName = "map", icon = icon("map")),
+      menuItem("Bewässerungsanalyse", tabName = "analysis", icon = icon("chart-area")),
       # NEU: Navigation für den Zeitverlauf
       menuItem("Zeitverlauf", tabName = "stats", icon = icon("bar-chart"))
     )
   ),
+  
   dashboardBody(
     tabItems(
-      # ... Code aus der Startseite und Karte (tabItem für "start" & "map") ...
+      # ... Code aus Startseite, Karte & Bewässerungsanalyse (tabItem für "start", "map" & "analysis") ...
       
       # NEU: Inhaltsbereich für den Zeitverlauf
       tabItem(
@@ -420,7 +423,7 @@ ui <- dashboardPage(
 # Server-Logik
 server <- function(input, output, session) {
   
-  # ... Code aus der Startseite und Karte (Hilfsfunktionen, filteredData, ValueBoxes, data_by_bezirk, Leaflet-Karte) ...
+  # ... Code aus Startseite, Karte & Bewässerungsanalyse (Hilfsfunktionen, filteredData, Leaflet, hist_bewaesserung etc.) ...
   
   # NEU: Trend: Bewässerung nach Pflanzjahr
   output$trend_water <- renderPlotly({
@@ -428,15 +431,15 @@ server <- function(input, output, session) {
     filtered_data <- df_merged %>%
       filter(!is.na(bewaesserungsmenge_in_liter)) %>%  
       filter(!is.na(pflanzjahr))
-
+    
     if (!"Alle Bezirke" %in% input$trend_bezirk_pj && length(input$trend_bezirk_pj) > 0) {
       filtered_data <- filtered_data %>%
         filter(bezirk %in% input$trend_bezirk_pj)
     }
-
+    
     filtered_data <- filtered_data %>%
       filter(pflanzjahr >= input$trend_year[1] & pflanzjahr <= input$trend_year[2])
-
+    
     plot_data <- filtered_data %>%
       group_by(pflanzjahr) %>%
       summarize(
@@ -444,7 +447,7 @@ server <- function(input, output, session) {
         count_trees = n_distinct(gml_id)
       ) %>%
       ungroup()
-
+    
     plot <- ggplot(plot_data, aes(x = pflanzjahr, y = total_water)) +
       geom_line(color = "#2E86AB", size = 1) +
       geom_point(
@@ -459,11 +462,11 @@ server <- function(input, output, session) {
         y = "Gesamtbewässerung (Liter)"
       ) +
       theme(panel.grid.minor = element_blank())
-
+    
     ggplotly(plot, tooltip = "text") %>%
       layout(hovermode = "closest")
   })
-
+  
   # NEU: Info button observer
   observeEvent(input$info_btn_tdbjp, {
     showModal(modalDialog(

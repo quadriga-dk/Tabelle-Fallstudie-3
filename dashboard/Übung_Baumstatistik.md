@@ -665,18 +665,22 @@ Die Analyse zeigt, dass das Bewässerungsengagement der Bürger:innen weniger vo
 # UI-Definition
 ui <- dashboardPage(
   dashboardHeader(title = "Gieß den Kiez Dashboard"),
+  
   dashboardSidebar(
     sidebarMenu( id = "sidebarMenu", 
+      # Code aus den vorherigen Schritten
       menuItem("Startseite", tabName = "start", icon = icon("home")),
       menuItem("Karte", tabName = "map", icon = icon("map")),
+      menuItem("Bewässerungsanalyse", tabName = "analysis", icon = icon("chart-area")),
       menuItem("Zeitverlauf", tabName = "stats", icon = icon("bar-chart")),
       # NEU: Navigation für die Baumstatistik
       menuItem("Baumstatistik", tabName = "engagement", icon = icon("hands-helping"))
     )
   ),
+  
   dashboardBody(
     tabItems(
-      # ... tabItem für "start", "map" & "stats" ...
+      # ... Code aus Startseite, Karte, Bewässerungsanalyse & Zeitverlauf (tabItem für "start", "map", "analysis" & "stats") ...
       
       # NEU: Inhaltsbereich für die Baumstatistik
       tabItem(
@@ -767,7 +771,7 @@ ui <- dashboardPage(
 # Server-Logik
 server <- function(input, output, session) {
   
-  # ... Code aus der Startseite, Karte und Zeitverlauf ...
+  # ... Code aus der Startseite, Karte, Bewässerungsanalyse und Zeitverlauf ...
   
   # 1. Stacked Bar Chart - Baumverteilung mit Gattungen
   output$tree_distribution_stacked <- renderPlot({

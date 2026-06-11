@@ -77,7 +77,7 @@ tabItem(
   fluidRow(
     box(
       title = tagList(
-        "Bewässerung pro Bezirk (2020-2024)",
+        "Bewässerung pro Bezirk (2020-2026)",
         div(
           actionButton("info_btn_hbpb", label = "", icon = icon("info-circle")), 
           style = "position: absolute; right: 15px; top: 5px;"
@@ -241,7 +241,7 @@ Mit den aggregierten und umgerechneten Daten erstellt Amir nun das Balkendiagram
     showModal(modalDialog(
       title = "Information: Bewässerung pro Bezirk",
       HTML("
-      <p>Diese Grafik zeigt die <strong>gesamte Bewässerungsmenge</strong> für jeden Berliner Bezirk im Zeitraum 2020-2024.</p>
+      <p>Diese Grafik zeigt die <strong>gesamte Bewässerungsmenge</strong> für jeden Berliner Bezirk im Zeitraum 2020-2026.</p>
       <ul>
         <li>Die Daten werden automatisch in die passende Einheit (Liter, m³ oder Megaliter) umgerechnet</li>
         <li>Die Bezirke werden entlang der x-Achse dargestellt</li>
@@ -413,19 +413,19 @@ Ergänzend zu der Leitfrage soll nun eine vertiefte Betrachtung der zugrunde lie
 # UI-Definition
 ui <- dashboardPage(
   dashboardHeader(title = "Gieß den Kiez Dashboard"),
+  
   dashboardSidebar(
     sidebarMenu( id = "sidebarMenu",
-    menuItem("Startseite", tabName = "start", icon = icon("home")),
+      menuItem("Startseite", tabName = "start", icon = icon("home")),
       menuItem("Karte", tabName = "map", icon = icon("map")),
-      menuItem("Zeitverlauf", tabName = "stats", icon = icon("bar-chart")),
-      menuItem("Baumstatistik", tabName = "engagement", icon = icon("hands-helping")),
       # NEU: Navigation für die Bewässerungsanalyse
       menuItem("Bewässerungsanalyse", tabName = "analysis", icon = icon("chart-area"))
     )
   ),
+  
   dashboardBody(
     tabItems(
-      # ... tabItem für "start", "map", "stats" & "engagement" ...
+      # ... tabItem für "start" und "map" ...
       
       # NEU: Inhaltsbereich für die Bewässerungsanalyse
       tabItem(
@@ -433,7 +433,7 @@ ui <- dashboardPage(
         fluidRow(
           box(
             title = tagList(
-              "Bewässerung pro Bezirk (2020-2024)",
+              "Bewässerung pro Bezirk (2020-2026)",
               div(
                 actionButton("info_btn_hbpb", label = "", icon = icon("info-circle")), 
                 style = "position: absolute; right: 15px; top: 5px;"
@@ -468,8 +468,8 @@ ui <- dashboardPage(
 # Server-Logik
 server <- function(input, output, session) {
   
-  # ... Code aus der Startseite, Karte, Zeitverlauf und Statistik ...
-
+  # ... Code aus der Startseite und Karte
+  
   # Hilfsfunktion für Einheiten
   convert_units <- function(liters) {
     if (liters >= 1e6) {
@@ -488,7 +488,7 @@ server <- function(input, output, session) {
            "m³" = "Kubikmeter",
            unit)
   }
-
+  
   output$hist_bewaesserung_pro_bezirk <- renderPlot({
     req(input$sidebarMenu == "analysis")
     
@@ -498,14 +498,14 @@ server <- function(input, output, session) {
       summarise(total_water = sum(bewaesserungsmenge_in_liter, na.rm = TRUE)) %>%
       ungroup() %>%
       arrange(desc(total_water))
-      
+    
     df_agg <- df_agg %>%
       mutate(
         converted = purrr::map(total_water, convert_units), 
         value = sapply(converted, `[[`, "value"),  
         unit = sapply(converted, `[[`, "unit")  
       )
-      
+    
     ggplot(df_agg, aes(x = reorder(bezirk, -value), y = value, fill = bezirk)) +
       geom_bar(stat = "identity", color = "white", alpha = 0.7, width = 0.8) +
       labs(
@@ -522,12 +522,12 @@ server <- function(input, output, session) {
       ) +
       scale_fill_discrete(name = "Bezirk")
   })
-
+  
   observeEvent(input$info_btn_hbpb, {
     showModal(modalDialog(
       title = "Information: Bewässerung pro Bezirk",
       HTML("
-      <p>Diese Grafik zeigt die <strong>gesamte Bewässerungsmenge</strong> für jeden Berliner Bezirk im Zeitraum 2020-2024.</p>
+      <p>Diese Grafik zeigt die <strong>gesamte Bewässerungsmenge</strong> für jeden Berliner Bezirk im Zeitraum 2020-2026.</p>
       <ul>
         <li>Die Daten werden automatisch in die passende Einheit (Liter, m³ oder Megaliter) umgerechnet</li>
         <li>Die Bezirke werden entlang der x-Achse dargestellt</li>
@@ -538,7 +538,7 @@ server <- function(input, output, session) {
       footer = modalButton("Schließen")
     ))
   })
-
+  
   # Plot: Durchschnittliche Bewässerung pro gegossenem Baum
   output$hist_bewaesserung_pro_baum <- renderPlot({
     req(input$sidebarMenu == "analysis")
@@ -577,7 +577,7 @@ server <- function(input, output, session) {
       ) +
       scale_fill_discrete()
   })
-
+  
   observeEvent(input$info_btn_hbpb2, {
     showModal(modalDialog(
       title = "Information: Bewässerung pro gegossenem Baum",
