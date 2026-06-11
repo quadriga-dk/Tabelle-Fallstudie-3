@@ -47,9 +47,9 @@ alt: Ein Screenshot, der zeigt Dashboard Startseite
 Startseite des Dashboards: Auf der Startseite können ein oder mehrere Bezirke über eine Filterfunktion ausgewählt werden. Die beiden Kacheln zeigen jeweils die Anzahl der erfassten Bäume sowie die Anzahl der bereits bewässerten Bäume für die jeweilige Bezirksauswahl. Zusätzlich wird der Berliner Gesamtbestand an Bäumen als Referenz angegeben. (Quelle: eigene Ausarbeitung)
 ``` 
 
-Für die Startseite seiner Anwendung möchte Amir eine **kompakte Kennzahlenübersicht** erstellen. Diese soll den Nutzer:innen helfen, sofort die Größenordnung des Gießverhaltens einzuschätzen – etwa, wie viele Bäume insgesamt erfasst sind und wie viele davon gegossen wurden. Der Mehrwert einer Startseite mit Kennzahlenkacheln umfasst also die schnellere Orientierung - Nutzer:innen erfassen auf einen Blick den aktuellen Stand der Gießaktivitäten, ohne durch die Anwendung navigieren zu müssen. Dies spart Zeit und erleichtert den Einstieg. Die Kennzahlen dienen als Ausgangspunkt: man kann von dort aus zu detaillierteren Visualisierungen und Analysen navigieren.
+Für die Startseite seiner Anwendung möchte Amir eine **kompakte Kennzahlenübersicht** erstellen. Diese soll den Nutzer:innen helfen, sofort die Größenordnung des Gießverhaltens einzuschätzen. Zum Beispiel, wie viele Bäume insgesamt erfasst sind und wie viele davon gegossen wurden. Der Mehrwert einer Startseite mit Kennzahlenkacheln umfasst also die schnellere Orientierung. Nutzer:innen erfassen auf einen Blick den aktuellen Stand der Gießaktivitäten, ohne durch die Anwendung navigieren zu müssen. Dies spart Zeit und erleichtert den Einstieg. Die Kennzahlen dienen als Ausgangspunkt: man kann von dort aus zu detaillierteren Visualisierungen und Analysen navigieren.
 
-Zusätzlich plant er **Filtermöglichkeiten** nach **Bezirk**, um die Kennzahlen gezielt einzugrenzen und regionale Unterschiede sichtbar zu machen. Damit lassen sich die Daten auch in einer feineren Granularität betrachten – von stadtweiter Übersicht bis hin zu einzelnen Bezirken. Die auf der Startseite dargestellten Kennzahlen werden dabei ausschließlich als **absolute Werte** angezeigt und **nicht ins Verhältnis** zueinander gesetzt, da sie zunächst eine verlässliche Datengrundlage vermitteln sollen, bevor weiterführende Analysen und Vergleiche umgesetzt werden.
+Zusätzlich plant er **Filtermöglichkeiten** nach **Bezirk**, um die Kennzahlen gezielt einzugrenzen und regionale Unterschiede sichtbar zu machen. Damit lassen sich die Daten auch in einer feineren Granularität, von stadtweiter Übersicht bis hin zu einzelnen Bezirken, betrachten. Die auf der Startseite dargestellten Kennzahlen werden dabei ausschließlich als **absolute Werte** angezeigt und **nicht ins Verhältnis** zueinander gesetzt, da sie zunächst eine verlässliche Datengrundlage vermitteln sollen, bevor weiterführende Analysen und Vergleiche umgesetzt werden.
 
 Als Nächstes bauen Sie die Startseite des Dashboards mit R. Nach jedem Codeabschnitt werden kurz die verwendeten Techniken und Befehle erklärt. Dabei widmen Sie sich sowohl der Benutzeroberfläche (UI), als auch der Serverseite des R-Shiny-Dashboards.
 
@@ -289,7 +289,7 @@ Wird nur „2020–2024“ ausgewählt, zeigt dynamic_tree_box nur gegossene Bä
 
 ### ValueBoxes: Kennzahlen anzeigen
 
-Nun können Sie die Kennzahlen mit Inhalten füllen. In der UI wurden diese bereits als Label `textOutput("total_trees_label")` und zwei Kacheln `valueBoxOutput("total_trees_filtered")` und `valueBoxOutput("total_tree_watered")` angelegt – jetzt definieren Sie, was darin erscheinen soll.
+Nun können Sie die Kennzahlen mit Inhalten füllen. In der UI wurden diese bereits als Label `textOutput("total_trees_label")` und zwei Kacheln `valueBoxOutput("total_trees_filtered")` und `valueBoxOutput("total_tree_watered")` angelegt. Nun definieren Sie, was darin erscheinen soll.
 
 
 ````{dropdown} Alle Bäume
@@ -405,7 +405,7 @@ Zuerst werden der aktuelle Zustand (`curr_bezirk`) und der vorherige Zustand (`p
 Dies steht ganz am Ende und sagt der App: „Führe diese Überprüfung nicht sofort beim Start der App aus, sondern erst, wenn der Nutzer wirklich das erste Mal selbst klickt.“
 ````
 
-Das Dashboard ist nun funktionsfähig: Nutzer:innen können Bezirke auswählen und sehen sofort, wie viele Bäume in diesen Bezirken gegossen wurden – im Verhältnis zum Gesamtbestand. Die Trennung von UI und Server ermöglicht es Amir, später weitere Analysen hinzuzufügen, ohne die bestehende Struktur grundlegend ändern zu müssen.
+Das Dashboard ist nun funktionsfähig: Nutzer:innen können Bezirke auswählen und sehen sofort, wie viele Bäume in diesen Bezirken, im Verhältnis zum Gesamtbestand, gegossen wurden. Die Trennung von UI und Server ermöglicht es Amir, später weitere Analysen hinzuzufügen, ohne die bestehende Struktur grundlegend ändern zu müssen.
 
 
 **Überblick der Funktionen/Operatoren**
@@ -586,7 +586,15 @@ Für die Startseite heißt das vor allem:
 
 Die zentrale Leitfrage der Fallstudie lautet: **Wo lassen sich die höchsten Ausprägungen des Engagements von Bürger:innen bei der Bewässerung städtischer Bäume in Berlin feststellen?**
 
-Die Startseite des Dashboards ermöglicht einen ersten Überblick darüber, in welchen Bezirken es wieviele Bäume gibt und wieviele davon gegossen wurden. In **absoluten Zahlen** zeigt sich dabei das höchste Engagement bei den Bürger:innen in **Mitte**, gefolgt von **Tempelhof-Schöneberg** und **Charlottenburg-Wilmersdorf**.  
+Die Startseite des Dashboards ermöglicht einen ersten Überblick darüber, in welchen Bezirken es wieviele Bäume gibt und wieviele davon gegossen wurden. In **absoluten Zahlen** zeigt sich dabei das höchste Engagement bei den Bürger:innen in **Mitte**, gefolgt von **Tempelhof-Schöneberg** und **Friedrichshain-Kreuzberg**.  
+
+```{figure} ../assets/Dashboard_Startseite_Bezirk.png
+---
+name: Dashboard Startseite Bezirk
+alt: Ein Screenshot, der zeigt Dashboard Startseite mit Bezirk, wo absolut die meisten Bäume gegossen werden
+---
+Startseite, jedoch ist nur der Bezirk Mitte ausgewählt (dort wurde in absoluten Zahlen die meisten Bäume gegossen) (Quelle: eigene Ausarbeitung)
+``` 
 
 Für eine abschließende Beantwortung der Leitfrage reicht diese Betrachtung jedoch nicht aus, da **ohne Normalisierung** – etwa durch das Verhältnis gegossener Bäume zur Gesamtbaumzahl je Bezirk – **keine validen Vergleiche zwischen den Bezirken** gezogen werden können. Fahren Sie daher mit der folgenden Übung fort.
 
