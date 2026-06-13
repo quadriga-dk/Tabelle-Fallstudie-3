@@ -50,12 +50,12 @@ ui <- dashboardPage(
       menuItem("Startseite", tabName = "start", icon = icon("home")),
       # Navigation für die Karte
       menuItem("Karte", tabName = "map", icon = icon("map")),
+      # Navigation für die Bewässerungsanalyse
+      menuItem("Bewässerungsanalyse", tabName = "analysis", icon = icon("chart-area")),
       # Navigation für den Zeitverlauf
       menuItem("Zeitverlauf", tabName = "stats", icon = icon("bar-chart")),
       # Navigation für die Baumstatistik
-      menuItem("Baumstatistik", tabName = "engagement", icon = icon("hands-helping")),
-      # Navigation für die Bewässerungsanalyse
-      menuItem("Bewässerungsanalyse", tabName = "analysis", icon = icon("chart-area"))
+      menuItem("Baumstatistik", tabName = "engagement", icon = icon("hands-helping"))
     )
   ),
   
@@ -108,7 +108,42 @@ ui <- dashboardPage(
         )
       ),
       
-      # 5.4: Inhaltsbereich für den Zeitverlauf
+      # 5.4: Inhaltsbereich für die Bewässerungsanalyse
+      tabItem(
+        tabName = "analysis",
+        fluidRow(
+          box(
+            title = tagList(
+              "Bewässerung pro Bezirk (2020-2026)",
+              div(
+                actionButton("info_btn_hbpb", label = "", icon = icon("info-circle")), 
+                style = "position: absolute; right: 15px; top: 5px;"
+              )
+            ), 
+            status = "primary", 
+            solidHeader = TRUE, 
+            width = 12,
+            plotOutput("hist_bewaesserung_pro_bezirk", height = "500px")
+          )
+        ),
+        fluidRow(
+          box(
+            title = tagList(
+              "Durchschnittliche Bewässerung pro gegossenem Baum",
+              div(
+                actionButton("info_btn_hbpb2", label = "", icon = icon("info-circle")),
+                style = "position: absolute; right: 15px; top: 5px;"
+              )
+            ),
+            status = "primary",
+            solidHeader = TRUE,
+            width = 12,
+            plotOutput("hist_bewaesserung_pro_baum", height = "500px")
+          )
+        )
+      ),
+
+      # 5.5: Inhaltsbereich für den Zeitverlauf
       tabItem(
         tabName = "stats",
         fluidRow(
@@ -154,7 +189,8 @@ ui <- dashboardPage(
           )
         )
       ),
-      # 5.5: Inhaltsbereich für die Baumstatistik
+
+      # 5.6: Inhaltsbereich für die Baumstatistik
       tabItem(
         tabName = "engagement",
         fluidRow(
@@ -171,7 +207,7 @@ ui <- dashboardPage(
             width = 12,
             sliderInput(
               "top_n_species",
-              "Top N Baumgattungen anzeigen:",
+              "Ändern Sie den Detailgrad der Auffächerung, indem Sie mit dem Schieberegler die Anzahl an Baumgattungen bestimmen (sortiert nach Häufigkeit - absteigend)",
               min = 3,
               max = 15,
               value = 8,
@@ -217,7 +253,7 @@ ui <- dashboardPage(
         fluidRow(
           box(
             title = tagList(
-              "Top 10 gegossene Baumgattungen",
+              "Die 10 meistgegossenen Baumgattungen",
               div(
                 actionButton("info_btn_hgb", label = "", icon = icon("info-circle")),
                 style = "position: absolute; right: 15px; top: 5px;"
@@ -233,40 +269,6 @@ ui <- dashboardPage(
               selected = "Alle Bezirke"
             ),
             plotOutput("top_watered_species", height = "500px")
-          )
-        )
-      ),
-      # 5.6: Inhaltsbereich für die Bewässerungsanalyse
-      tabItem(
-        tabName = "analysis",
-        fluidRow(
-          box(
-            title = tagList(
-              "Bewässerung pro Bezirk (2020-2024)",
-              div(
-                actionButton("info_btn_hbpb", label = "", icon = icon("info-circle")), 
-                style = "position: absolute; right: 15px; top: 5px;"
-              )
-            ), 
-            status = "primary", 
-            solidHeader = TRUE, 
-            width = 12,
-            plotOutput("hist_bewaesserung_pro_bezirk", height = "500px")
-          )
-        ),
-        fluidRow(
-          box(
-            title = tagList(
-              "Durchschnittliche Bewässerung pro gegossenem Baum",
-              div(
-                actionButton("info_btn_hbpb2", label = "", icon = icon("info-circle")),
-                style = "position: absolute; right: 15px; top: 5px;"
-              )
-            ),
-            status = "primary",
-            solidHeader = TRUE,
-            width = 12,
-            plotOutput("hist_bewaesserung_pro_baum", height = "500px")
           )
         )
       )
@@ -425,9 +427,142 @@ server <- function(input, output, session) {
         opacity = 1
       )
   })
+
+
+  # ------------ 5.4  ------------ 
   
+  # Hilfsfunktion für Einheiten
+  convert_units <- function(liters) {
+    if (liters >= 1e6) {
+      return(list(value = round(liters / 1e6, 2), unit = "ML"))
+    } else if (liters >= 1e3) {
+      return(list(value = round(liters / 1e3, 2), unit = "m³"))
+    } else {
+      return(list(value = round(liters, 2), unit = "L"))
+    }
+  }
   
-  # ------------ 5.4 ------------
+  full_unit <- function(unit) {
+    switch(unit,
+           "ML" = "Mega Liter", 
+           "L" = "Liter", 
+           "m³" = "Kubikmeter",
+           unit)
+  }
+  
+  output$hist_bewaesserung_pro_bezirk <- renderPlot({
+    req(input$sidebarMenu == "analysis")
+    
+    df_agg <- df_merged %>%
+      filter(!is.na(bezirk)) %>%  
+      group_by(bezirk) %>%
+      summarise(total_water = sum(bewaesserungsmenge_in_liter, na.rm = TRUE)) %>%
+      ungroup() %>%
+      arrange(desc(total_water))
+    
+    df_agg <- df_agg %>%
+      mutate(
+        converted = purrr::map(total_water, convert_units), 
+        value = sapply(converted, `[[`, "value"),  
+        unit = sapply(converted, `[[`, "unit")  
+      )
+    
+    ggplot(df_agg, aes(x = reorder(bezirk, -value), y = value, fill = bezirk)) +
+      geom_bar(stat = "identity", color = "white", alpha = 0.7, width = 0.8) +
+      labs(
+        title = NULL,
+        x = "Bezirke in Berlin",
+        y = paste0("Gesamte Bewässerungsmenge (", unique(df_agg$unit), ")")
+      ) +
+      theme_light() +
+      theme(
+        legend.position = "none",
+        axis.text.x = element_text(angle = 55, hjust = 1, size = 10),
+        panel.grid.major.x = element_blank(),
+        plot.margin = margin(10, 10, 10, 10)
+      ) +
+      scale_fill_discrete(name = "Bezirk")
+  })
+  
+  observeEvent(input$info_btn_hbpb, {
+    showModal(modalDialog(
+      title = "Information: Bewässerung pro Bezirk",
+      HTML("
+      <p>Diese Grafik zeigt die <strong>gesamte Bewässerungsmenge</strong> für jeden Berliner Bezirk im Zeitraum 2020-2026.</p>
+      <ul>
+        <li>Die Daten werden automatisch in die passende Einheit (Liter, m³ oder Megaliter) umgerechnet</li>
+        <li>Die Bezirke werden entlang der x-Achse dargestellt</li>
+        <li>Die Höhe der Balken entspricht der gesamten Bewässerungsmenge</li>
+      </ul>
+    "),
+      easyClose = TRUE,
+      footer = modalButton("Schließen")
+    ))
+  })
+  
+  # Plot: Durchschnittliche Bewässerung pro gegossenem Baum
+  output$hist_bewaesserung_pro_baum <- renderPlot({
+    req(input$sidebarMenu == "analysis")
+    
+    df_agg <- df_merged %>%
+      filter(!is.na(bezirk)) %>%
+      group_by(bezirk) %>%
+      summarise(
+        total_water = sum(bewaesserungsmenge_in_liter, na.rm = TRUE),
+        trees_watered = n_distinct(gml_id)
+      ) %>%
+      ungroup() %>%
+      mutate(water_per_tree = total_water / trees_watered) %>%
+      arrange(desc(water_per_tree))
+    
+    df_agg <- df_agg %>%
+      mutate(
+        converted = purrr::map(water_per_tree, convert_units), 
+        value = sapply(converted, `[[`, "value"),  
+        unit = sapply(converted, `[[`, "unit")  
+      )
+    
+    ggplot(df_agg, aes(x = reorder(bezirk, -value), y = value, fill = bezirk)) +
+      geom_bar(stat = "identity", color = "white", alpha = 0.7, width = 0.8) +
+      labs(
+        title = NULL,
+        x = "Bezirke in Berlin",
+        y = paste0("Durchschnittliche Bewässerung pro Baum (", unique(df_agg$unit), ")")
+      ) +
+      theme_light() +
+      theme(
+        legend.position = "none",
+        axis.text.x = element_text(angle = 55, hjust = 1, size = 10),
+        panel.grid.major.x = element_blank(),
+        plot.margin = margin(10, 10, 10, 10)
+      ) +
+      scale_fill_discrete()
+  })
+    
+  observeEvent(input$info_btn_hbpb2, {
+    showModal(modalDialog(
+      title = "Information: Bewässerung pro gegossenem Baum",
+      HTML("
+      <p>Diese Grafik zeigt die <strong>durchschnittliche Bewässerungsmenge pro gegossenem Baum</strong> in jedem Bezirk.</p>
+      <ul>
+        <li>Berechnung: Gesamtwasser geteilt durch Anzahl der tatsächlich gegossenen Bäume</li>
+        <li>Zeigt die Intensität der Bewässerung und das Engagement der Bürger</li>
+        <li>Höhere Werte bedeuten mehr Wasser pro Baum, der Pflege erhielt</li>
+      </ul>
+      <p><strong>Wichtige Hinweise:</strong></p>
+      <ul>
+        <li>Vergleiche zwischen Bezirken müssen mit Vorsicht interpretiert werden</li>
+        <li>Baumalter, Arten und lokale Bedingungen variieren stark</li>
+        <li>Zeigt nicht Bäume, die Wasser brauchten aber keins erhielten</li>
+      </ul>
+    "),
+      easyClose = TRUE,
+      footer = modalButton("Schließen")
+    ))
+  })
+
+  
+  # ------------ 5.5 ------------
   
   # Trend: Bewässerung nach Pflanzjahr
   output$trend_water <- renderPlotly({
@@ -497,7 +632,7 @@ server <- function(input, output, session) {
   })
   
   
-  # ------------ 5.5 ------------
+  # ------------ 5.6  ------------
   
   # 1. Stacked Bar Chart - Baumverteilung mit Gattungen
   output$tree_distribution_stacked <- renderPlot({
@@ -606,7 +741,7 @@ server <- function(input, output, session) {
       HTML("
       <p>Diese Grafik zeigt die <strong>prozentuale Verteilung der Baumgattungen</strong>.</p>
       <ul>
-        <li>Zeigt die Top 10 häufigsten Baumgattungen (z.B. LINDE, AHORN, EICHE)</li>
+        <li>Zeigt die 10 meistgegossenen Baumgattungen (z.B. LINDE, AHORN, EICHE)</li>
         <li>Hilft zu verstehen, welche Gattungen in Berlin dominieren</li>
       </ul>
     "),
@@ -671,7 +806,7 @@ server <- function(input, output, session) {
     ))
   })
   
-  # 4. Top 10 gegossene Baumgattungen
+  # 4. Die 10 meistgegossenen Baumgattungen
   output$top_watered_species <- renderPlot({
     req(input$sidebarMenu == "engagement")
     
@@ -712,7 +847,7 @@ server <- function(input, output, session) {
   
   observeEvent(input$info_btn_hgb, {
     showModal(modalDialog(
-      title = "Information: Top 10 gegossene Baumgattungen",
+      title = "Information: Die 10 meistgegossenen Baumgattungen",
       HTML("
       <p>Diese Grafik zeigt die <strong>am häufigsten gegossenen Baumgattungen</strong>.</p>
       <ul>
@@ -720,138 +855,6 @@ server <- function(input, output, session) {
         <li>Zeigt, welche Gattungen am meisten Unterstützung erhalten</li>
         <li>Kann auf einzelne Bezirke gefiltert werden</li>
         <li>Hilft zu verstehen, welche Gattungen besondere Aufmerksamkeit bekommen</li>
-      </ul>
-    "),
-      easyClose = TRUE,
-      footer = modalButton("Schließen")
-    ))
-  })
-  
-  # ------------ 5.6 ------------ 
-  
-  # Hilfsfunktion für Einheiten
-  convert_units <- function(liters) {
-    if (liters >= 1e6) {
-      return(list(value = round(liters / 1e6, 2), unit = "ML"))
-    } else if (liters >= 1e3) {
-      return(list(value = round(liters / 1e3, 2), unit = "m³"))
-    } else {
-      return(list(value = round(liters, 2), unit = "L"))
-    }
-  }
-  
-  full_unit <- function(unit) {
-    switch(unit,
-           "ML" = "Mega Liter", 
-           "L" = "Liter", 
-           "m³" = "Kubikmeter",
-           unit)
-  }
-  
-  output$hist_bewaesserung_pro_bezirk <- renderPlot({
-    req(input$sidebarMenu == "analysis")
-    
-    df_agg <- df_merged %>%
-      filter(!is.na(bezirk)) %>%  
-      group_by(bezirk) %>%
-      summarise(total_water = sum(bewaesserungsmenge_in_liter, na.rm = TRUE)) %>%
-      ungroup() %>%
-      arrange(desc(total_water))
-    
-    df_agg <- df_agg %>%
-      mutate(
-        converted = purrr::map(total_water, convert_units), 
-        value = sapply(converted, `[[`, "value"),  
-        unit = sapply(converted, `[[`, "unit")  
-      )
-    
-    ggplot(df_agg, aes(x = reorder(bezirk, -value), y = value, fill = bezirk)) +
-      geom_bar(stat = "identity", color = "white", alpha = 0.7, width = 0.8) +
-      labs(
-        title = NULL,
-        x = "Bezirke in Berlin",
-        y = paste0("Gesamte Bewässerungsmenge (", unique(df_agg$unit), ")")
-      ) +
-      theme_light() +
-      theme(
-        legend.position = "none",
-        axis.text.x = element_text(angle = 55, hjust = 1, size = 10),
-        panel.grid.major.x = element_blank(),
-        plot.margin = margin(10, 10, 10, 10)
-      ) +
-      scale_fill_discrete(name = "Bezirk")
-  })
-  
-  observeEvent(input$info_btn_hbpb, {
-    showModal(modalDialog(
-      title = "Information: Bewässerung pro Bezirk",
-      HTML("
-      <p>Diese Grafik zeigt die <strong>gesamte Bewässerungsmenge</strong> für jeden Berliner Bezirk im Zeitraum 2020-2024.</p>
-      <ul>
-        <li>Die Daten werden automatisch in die passende Einheit (Liter, m³ oder Megaliter) umgerechnet</li>
-        <li>Die Bezirke werden entlang der x-Achse dargestellt</li>
-        <li>Die Höhe der Balken entspricht der gesamten Bewässerungsmenge</li>
-      </ul>
-    "),
-      easyClose = TRUE,
-      footer = modalButton("Schließen")
-    ))
-  })
-  
-  # Plot: Durchschnittliche Bewässerung pro gegossenem Baum
-  output$hist_bewaesserung_pro_baum <- renderPlot({
-    req(input$sidebarMenu == "analysis")
-    
-    df_agg <- df_merged %>%
-      filter(!is.na(bezirk)) %>%
-      group_by(bezirk) %>%
-      summarise(
-        total_water = sum(bewaesserungsmenge_in_liter, na.rm = TRUE),
-        trees_watered = n_distinct(gml_id)
-      ) %>%
-      ungroup() %>%
-      mutate(water_per_tree = total_water / trees_watered) %>%
-      arrange(desc(water_per_tree))
-    
-    df_agg <- df_agg %>%
-      mutate(
-        converted = purrr::map(water_per_tree, convert_units), 
-        value = sapply(converted, `[[`, "value"),  
-        unit = sapply(converted, `[[`, "unit")  
-      )
-    
-    ggplot(df_agg, aes(x = reorder(bezirk, -value), y = value, fill = bezirk)) +
-      geom_bar(stat = "identity", color = "white", alpha = 0.7, width = 0.8) +
-      labs(
-        title = NULL,
-        x = "Bezirke in Berlin",
-        y = paste0("Durchschnittliche Bewässerung pro Baum (", unique(df_agg$unit), ")")
-      ) +
-      theme_light() +
-      theme(
-        legend.position = "none",
-        axis.text.x = element_text(angle = 55, hjust = 1, size = 10),
-        panel.grid.major.x = element_blank(),
-        plot.margin = margin(10, 10, 10, 10)
-      ) +
-      scale_fill_discrete()
-  })
-    
-  observeEvent(input$info_btn_hbpb2, {
-    showModal(modalDialog(
-      title = "Information: Bewässerung pro gegossenem Baum",
-      HTML("
-      <p>Diese Grafik zeigt die <strong>durchschnittliche Bewässerungsmenge pro gegossenem Baum</strong> in jedem Bezirk.</p>
-      <ul>
-        <li>Berechnung: Gesamtwasser geteilt durch Anzahl der tatsächlich gegossenen Bäume</li>
-        <li>Zeigt die Intensität der Bewässerung und das Engagement der Bürger</li>
-        <li>Höhere Werte bedeuten mehr Wasser pro Baum, der Pflege erhielt</li>
-      </ul>
-      <p><strong>Wichtige Hinweise:</strong></p>
-      <ul>
-        <li>Vergleiche zwischen Bezirken müssen mit Vorsicht interpretiert werden</li>
-        <li>Baumalter, Arten und lokale Bedingungen variieren stark</li>
-        <li>Zeigt nicht Bäume, die Wasser brauchten aber keins erhielten</li>
       </ul>
     "),
       easyClose = TRUE,

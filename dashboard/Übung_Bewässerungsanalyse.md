@@ -18,7 +18,7 @@ Er merkt schnell: Diese Darstellung zeigt zwar den Umfang des Engagements, aber 
 
 Diese Übung zeigt Ihnen, wie sich durch unterschiedliche Kennzahlen neue Perspektiven auf eine Fragestellung ergeben. Während zuvor die Zahl der gegossenen Bäume im Mittelpunkt stand, analysieren Sie nun die Bewässerungsmenge in Litern.
 
-Sie lernen dabei, wie Daten aggregiert, umgerechnet und visualisiert werden können, um Bezirke hinsichtlich ihrer gesamten Bewässerungsleistung oder der durchschnittlichen Wassermenge pro Baum zu vergleichen. Dadurch wird deutlich, dass die Auswahl der Messgröße – die Operationalisierung – zu verschiedenen analytischen Ergebnissen führen kann: Ein Bezirk, der bei der Anzahl gegossener Bäume gut abschneidet, liegt bei der Wassermenge möglicherweise nicht vorne (und umgekehrt).
+Sie lernen dabei, wie Daten aggregiert, umgerechnet und visualisiert werden können, um Bezirke hinsichtlich ihrer gesamten Bewässerungsleistung oder der durchschnittlichen Wassermenge pro Baum zu vergleichen. Dadurch wird deutlich, dass die Auswahl der Messgröß (die Operationalisierung) zu verschiedenen analytischen Ergebnissen führen kann: Ein Bezirk, der bei der Anzahl gegossener Bäume gut abschneidet, liegt bei der Wassermenge möglicherweise nicht vorne (und umgekehrt).
 
 ```
 
@@ -28,7 +28,7 @@ Um die Unterschiede sichtbar zu machen, führen Sie eine umfassendere Analyse de
 - Wie viel Wasser erhielt ein durchschnittlich gegossener Baum?
 - Und verändert sich dadurch das Ranking der Bezirke?
 
-So helfen Sie Amir zu verstehen, wie sich die Wahl der Operationalisierung – also „gezählte Bäume“ vs. „gegossene Liter“ – auf die Ergebnisse auswirkt. Die Frage lautet:
+So helfen Sie Amir zu verstehen, wie sich die Wahl der Operationalisierung, also „gezählte Bäume“ vs. „gegossene Liter“, auf die Ergebnisse auswirkt. Die Frage lautet:
 Welche Geschichte erzählen die Daten, wenn man Liter statt Baumanzahl betrachtet?
 
 ```{figure} ../assets/Dashboard_Bewässerungsanalyse_1.png
@@ -37,7 +37,7 @@ name: Bewässerung pro Bezirk
 alt: Balkendiagramm Gesamte Bewässerungsmenge pro Bezirk
 width: 600px
 ---
-Balkendiagramm zur Bewässerung pro Bezirk (2020–2024). Die Abbildung zeigt die aggregierte Bewässerungsmenge in Millionen Litern für die einzelnen Berliner Bezirke im Zeitraum von 2020 bis 2024. Auf der x-Achse sind die Bezirke dargestellt, während die y-Achse die gesamte Bewässerungsmenge angibt. Das Diagramm ermöglicht einen direkten Vergleich der Bewässerungsintensität zwischen den Bezirken. (Quelle: eigene Ausarbeitung)
+Balkendiagramm zur Bewässerung pro Bezirk (2020-2026). Die Abbildung zeigt die aggregierte Bewässerungsmenge in Millionen Litern für die einzelnen Berliner Bezirke. Auf der x-Achse sind die Bezirke dargestellt, während die y-Achse die gesamte Bewässerungsmenge angibt. Das Diagramm ermöglicht einen direkten Vergleich der Bewässerungsintensität zwischen den Bezirken. (Quelle: eigene Ausarbeitung)
 ```
 
 ```{figure} ../assets/Dashboard_Bewässerungsanalyse_2.png
@@ -46,7 +46,7 @@ name: Durchschnittliche Bewässerung pro gegossenem Baum
 alt: Baumdiagramm entsprechend dem Titel nach Bezirk
 width: 600px
 ---
-Durchschnittliche Bewässerungsmenge pro gegossenem Baum nach Bezirk. Die Abbildung zeigt die durchschnittliche Bewässerungsmenge pro gegossenem Baum in Litern für die einzelnen Berliner Bezirke. Auf der x-Achse sind die Bezirke dargestellt, während die y-Achse die durchschnittliche Bewässerungsmenge pro Baum angibt. Das Balkendiagramm verdeutlicht Unterschiede in der Bewässerungsintensität zwischen den Bezirken. (Quelle: eigene Ausarbeitung)
+Durchschnittliche Bewässerungsmenge pro gegossenem Baum nach Bezirk (2020-2026). Die Abbildung zeigt die durchschnittliche Bewässerungsmenge pro gegossenem Baum in Litern für die einzelnen Berliner Bezirke. Auf der x-Achse sind die Bezirke dargestellt, während die y-Achse die durchschnittliche Bewässerungsmenge pro Baum angibt. Das Balkendiagramm verdeutlicht Unterschiede in der Bewässerungsintensität zwischen den Bezirken. (Quelle: eigene Ausarbeitung)
 ``` 
 
 ## Benutzeroberfläche (UI)
@@ -77,7 +77,7 @@ tabItem(
   fluidRow(
     box(
       title = tagList(
-        "Bewässerung pro Bezirk (2020-2024)",
+        "Bewässerung pro Bezirk (2020-2026)",
         div(
           actionButton("info_btn_hbpb", label = "", icon = icon("info-circle")), 
           style = "position: absolute; right: 15px; top: 5px;"
@@ -128,7 +128,7 @@ tabItem(
 
 Bei der Darstellung von Wassermengen stehen Sie vor einer Herausforderung: Die Rohdaten enthalten Literangaben, die je nach Größenordnung unterschiedlich formatiert werden sollten. Eine Menge von 50 Litern ist überschaubar, aber 1.250.000 Liter sind schwer zu erfassen. 
 
-Von Vorteil wäre es, wenn das Dashboard automatisch in sinnvolle Einheiten umrechnet – etwa Kubikmeter (m³) oder Megaliter (ML). Um dies zu erreichen, erstellen Sie zunächst Hilfsfunktionen für die Umrechnung und wenden diese anschließend direkt auf Ihren aggregierten Datensatz an.
+Von Vorteil wäre es, wenn das Dashboard automatisch in sinnvolle Einheiten umrechnet, wie etwa Kubikmeter (m³) oder Megaliter (ML). Um dies zu erreichen, erstellen Sie zunächst Hilfsfunktionen für die Umrechnung und wenden diese anschließend direkt auf Ihren aggregierten Datensatz an.
 
 ````{dropdown} Code
 ```r
@@ -241,7 +241,7 @@ Mit den aggregierten und umgerechneten Daten erstellt Amir nun das Balkendiagram
     showModal(modalDialog(
       title = "Information: Bewässerung pro Bezirk",
       HTML("
-      <p>Diese Grafik zeigt die <strong>gesamte Bewässerungsmenge</strong> für jeden Berliner Bezirk im Zeitraum 2020-2024.</p>
+      <p>Diese Grafik zeigt die <strong>gesamte Bewässerungsmenge</strong> für jeden Berliner Bezirk im Zeitraum 2020-2026.</p>
       <ul>
         <li>Die Daten werden automatisch in die passende Einheit (Liter, m³ oder Megaliter) umgerechnet</li>
         <li>Die Bezirke werden entlang der x-Achse dargestellt</li>
@@ -383,10 +383,10 @@ Bei der **Gesamtbewässerungsmenge** liegen nun **Mitte**, **Charlottenburg-Wilm
 Betrachtet man jedoch die **durchschnittliche Bewässerungsmenge pro Baum**, verschiebt sich das Bild: Hier tritt **Friedrichshain-Kreuzberg** am weitesten hervor.
 
 **Das zeigt klar**:
-Die Wahl der Messgröße – „Wie viel Wasser insgesamt?“ vs. „Wie viel Wasser pro Baum?“ – beeinflusst die Interpretation des Engagements wesentlich. Unterschiedliche Kennzahlen können *unterschiedliche Geschichten* erzählen, auch sie auf denselben Rohdaten basieren.
+Die Wahl der Messgröße, also „Wie viel Wasser insgesamt?“ vs. „Wie viel Wasser pro Baum?“, beeinflusst die Interpretation des Engagements wesentlich. Unterschiedliche Kennzahlen können *unterschiedliche Geschichten* erzählen, auch sie auf denselben Rohdaten basieren.
 
 Damit wird ein zentrales analytisches Prinzip deutlich:
-**Daten sind nicht neutral – die Art ihrer Aufbereitung formt das Narrativ.**
+**Daten sind nicht neutral. Die Art ihrer Aufbereitung formt das Narrativ.**
 
 Ergänzend zu der Leitfrage soll nun eine vertiefte Betrachtung der zugrunde liegenden Dynamiken und Kontextfaktoren erfolgen. Welche **Kontextfaktoren** könnten zu den Unterschieden geführt haben?
 
@@ -413,19 +413,19 @@ Ergänzend zu der Leitfrage soll nun eine vertiefte Betrachtung der zugrunde lie
 # UI-Definition
 ui <- dashboardPage(
   dashboardHeader(title = "Gieß den Kiez Dashboard"),
+  
   dashboardSidebar(
     sidebarMenu( id = "sidebarMenu",
-    menuItem("Startseite", tabName = "start", icon = icon("home")),
+      menuItem("Startseite", tabName = "start", icon = icon("home")),
       menuItem("Karte", tabName = "map", icon = icon("map")),
-      menuItem("Zeitverlauf", tabName = "stats", icon = icon("bar-chart")),
-      menuItem("Baumstatistik", tabName = "engagement", icon = icon("hands-helping")),
       # NEU: Navigation für die Bewässerungsanalyse
       menuItem("Bewässerungsanalyse", tabName = "analysis", icon = icon("chart-area"))
     )
   ),
+  
   dashboardBody(
     tabItems(
-      # ... tabItem für "start", "map", "stats" & "engagement" ...
+      # ... tabItem für "start" und "map" ...
       
       # NEU: Inhaltsbereich für die Bewässerungsanalyse
       tabItem(
@@ -433,7 +433,7 @@ ui <- dashboardPage(
         fluidRow(
           box(
             title = tagList(
-              "Bewässerung pro Bezirk (2020-2024)",
+              "Bewässerung pro Bezirk (2020-2026)",
               div(
                 actionButton("info_btn_hbpb", label = "", icon = icon("info-circle")), 
                 style = "position: absolute; right: 15px; top: 5px;"
@@ -468,8 +468,8 @@ ui <- dashboardPage(
 # Server-Logik
 server <- function(input, output, session) {
   
-  # ... Code aus der Startseite, Karte, Zeitverlauf und Statistik ...
-
+  # ... Code aus der Startseite und Karte
+  
   # Hilfsfunktion für Einheiten
   convert_units <- function(liters) {
     if (liters >= 1e6) {
@@ -488,7 +488,7 @@ server <- function(input, output, session) {
            "m³" = "Kubikmeter",
            unit)
   }
-
+  
   output$hist_bewaesserung_pro_bezirk <- renderPlot({
     req(input$sidebarMenu == "analysis")
     
@@ -498,14 +498,14 @@ server <- function(input, output, session) {
       summarise(total_water = sum(bewaesserungsmenge_in_liter, na.rm = TRUE)) %>%
       ungroup() %>%
       arrange(desc(total_water))
-      
+    
     df_agg <- df_agg %>%
       mutate(
         converted = purrr::map(total_water, convert_units), 
         value = sapply(converted, `[[`, "value"),  
         unit = sapply(converted, `[[`, "unit")  
       )
-      
+    
     ggplot(df_agg, aes(x = reorder(bezirk, -value), y = value, fill = bezirk)) +
       geom_bar(stat = "identity", color = "white", alpha = 0.7, width = 0.8) +
       labs(
@@ -522,12 +522,12 @@ server <- function(input, output, session) {
       ) +
       scale_fill_discrete(name = "Bezirk")
   })
-
+  
   observeEvent(input$info_btn_hbpb, {
     showModal(modalDialog(
       title = "Information: Bewässerung pro Bezirk",
       HTML("
-      <p>Diese Grafik zeigt die <strong>gesamte Bewässerungsmenge</strong> für jeden Berliner Bezirk im Zeitraum 2020-2024.</p>
+      <p>Diese Grafik zeigt die <strong>gesamte Bewässerungsmenge</strong> für jeden Berliner Bezirk im Zeitraum 2020-2026.</p>
       <ul>
         <li>Die Daten werden automatisch in die passende Einheit (Liter, m³ oder Megaliter) umgerechnet</li>
         <li>Die Bezirke werden entlang der x-Achse dargestellt</li>
@@ -538,7 +538,7 @@ server <- function(input, output, session) {
       footer = modalButton("Schließen")
     ))
   })
-
+  
   # Plot: Durchschnittliche Bewässerung pro gegossenem Baum
   output$hist_bewaesserung_pro_baum <- renderPlot({
     req(input$sidebarMenu == "analysis")
@@ -577,7 +577,7 @@ server <- function(input, output, session) {
       ) +
       scale_fill_discrete()
   })
-
+  
   observeEvent(input$info_btn_hbpb2, {
     showModal(modalDialog(
       title = "Information: Bewässerung pro gegossenem Baum",

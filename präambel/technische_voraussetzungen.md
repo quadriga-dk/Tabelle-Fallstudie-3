@@ -18,8 +18,7 @@ Um den in der OER vorhandenen R-Code parallel zum Lesen des Jupyter Books in RSt
 Um der Übungseinheit effektiv folgen zu können, installieren Sie bitte vorab **R**. Zudem benötigen Sie eine geeignete Entwicklungsumgebung. Hierfür bietet sich **RStudio** an. Die Programmiersprache **R** und **RStudio** können Sie direkt vom Entwickler bzw. Maintainer <a href="https://posit.co/download/rstudio-desktop/" class="external-link" target="_blank">Posit</a> beziehen.  
 
 **Hinweis**  
-Die Übungen sind auf der Basis von R 4.4.3 entwickelt worden und zur Nutzung von RStudio 2024.09.0 Build 375 über Windows konzipiert. Sollten Sie eine andere RStudio Version oder ein anderes Betriebssystem nutzen, können einige Funktionen eventuell variieren. <span style="color: red;">Ist das so?</span>  
-
+Die Übungen sind auf der Basis von R 4.4.3 entwickelt worden und zur Nutzung von RStudio 2024.09.0 Build 375 über Windows konzipiert. Sollten Sie eine andere RStudio Version oder ein anderes Betriebssystem nutzen, können einige Funktionen eventuell variieren.
 
 ------------------------------------------------------------------------
 
