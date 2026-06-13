@@ -5,7 +5,8 @@ lang: de-DE
 (datenvisualisierung-methoden-werkzeuge)=
 # Datenvisualisierung in Dashboards
 
-Datenvisualisierung ist die grafische Repräsentation von Daten und Informationen. Dieses Kapitel gibt einen Überblick zu den Grundlagen von Datenvisualisierungen.
+Datenvisualisierung ist die grafische Repräsentation von Daten und Informationen.  
+Dieses Kapitel gibt einen kurzen Einblick in das Feld Datenvisualisierungen und gibt Ihnen nützliche Links zur weiteren Information an die Hand, da das Thema Datenvisualisierung derart umfassend ist, dass es in dieser Lektion nicht erschöpfend dargestellt werden kann.
 
 ```{admonition} Story
 :class: story
@@ -25,7 +26,7 @@ Screenshot des Dashoards des Projekts Gieß den Kiez vom 13.03.2026.
 ## Grundlagen
 
 Visualisierungen sind bildliche Darstellungen von Daten und sollen deren Verständnis erleichtern. Sie können mit unterschiedlichen Methoden erstellt werden und viele verschiedene Darstellungsformen haben {cite}`freyberg_visualisierung_2023`.
-Da es bereits einige Lernressourcen zum Thema Datenvisualisierung gibt, hier einige Empfehlungen:
+Da es bereits einige Lernressourcen zum Thema Datenvisualisierung gibt, finden Sie hier einige Empfehlungen:
 
 - Wenn Sie noch wenig Erfahrung mit Datenvisualisierung haben, finden Sie im  <a href="https://civic-data.de/datenvisualisierung-einfuehrung/" class="external-link" target="_blank">Blog-Eintrag</a> des Civic Data Labs</a> einen zugänglichen Einstieg ins Thema – ganz ohne Programmierkenntnisse.
 - Das <a href="https://future-skills-journey.de/was-ist-datenvisualisierung?show_status_form=1" class="external-link" target="_blank">Einsteigervideo</a> der RWTH Aachen erklärt in 14 Minuten kompakt, was Datenvisualisierung ist und welche Arten von Visualisierungen es gibt – ergänzt durch Reflexionsfragen zur Vertiefung.
@@ -38,6 +39,7 @@ Da es bereits einige Lernressourcen zum Thema Datenvisualisierung gibt, hier ein
 
 ## Methoden und Werkzeuge
 
+Das Visualisieren von Daten wird zunehmend eine Frage der Beherrschung von Code bzw. Programmiersprachen {cite}`heinicker_anderes_visualisieren`.
 *Was braucht es für eine gelungene Datenvisualisierung?*
 
 ## Gestaltung von Dashboards
@@ -46,14 +48,16 @@ Wo Sie eine Visualisierung im Dashboard positionieren, kann Einfluss auf ihre (w
 
 ## Visualisierung als Kommunikation
 
+Visuelle Darstellungen können helfen, Komplexes verständlich zu machen und auf das Wesentliche zu reduzieren. Visuelle Darstellungen sind dabei seit jeher ein zentrales Hilfsmittel, denn als kulturelle Werkzeuge strukturieren sie seit der frühen Menschheitsgeschichte unsere Vorstellungen von Raum und Zeit. {cite}`heinicker_anderes_visualisieren`.
 *Visualisierungen von Forschungsergebnissen dienen auch der Wissenschaftskommunikation. Da bildlich vereinfachte Darstellung von Daten, beispielsweise in einem Kreisdiagramm ... sind auch für Laien verständlich/ eignen sich zur Kommunikation von Ergebnissen in die Welt (durch Presse/Print etc.), für Präsentationen*
 
 
 ## Reflexion
 
-Es gilt, Visualisierungen kritisch zu reflektieren, da sie in der Regel bereits eine vereinfachte Darstellung eines komplexen Sachverhaltes sind, einen Abstraktionsgrad aufweisen und den Blick der Nutzenden auch un- bzw. unterbewusst bereits in eine bestimmte Richtung lenken können (Einsatz von Farben etc.). 
+Datenvisualisierungen bilden nicht die Realität ab, sondern sind immer Verzerrungen derselben {cite}`heinicker_anderes_visualisieren`. Es gilt, Visualisierungen kritisch zu reflektieren, da sie bereits eine vereinfachte Darstellung eines komplexen Sachverhaltes sind, einen Abstraktionsgrad aufweisen und den Blick der Nutzenden auch un- bzw. unterbewusst bereits in eine bestimmte Richtung lenken können (Einsatz von Farben, Auswahl der Visualisierungsform etc.). Darüber hinaus dürfen die Kenntnisse der Zielgruppe nicht überschätzt werden, wenn eine Visualisierung der Intention gerecht interpretiert werden soll {cite}`greussing_datenvisualisierung`.
 
 Die visuelle Darstellung kann mehr Aspekte sichtbar machen als die ursprünglichen Daten. Dies können eben Formen und Farben sein. Eine Sichtbarmachung dieser Aspekte ermöglicht beispielsweise erst eine explorative Analyse {cite}`freyberg_visualisierung_2023`. Allerdings gilt es eben auch, sich von diesen Aspekten nicht blenden zu lassen. 
+Zu beachten ist dabei zudem, dass Datenvisualisierungen künstliche Konstruktionen sind, die ein bestimmtes Denken operationalisieren. Sie sind also immer im Kontext der Gesellschaften und Vorstellungswelten zu sehen, aus der sie stammen {cite}`heinicker_anderes_visualisieren`.
 
 Im Gegensatz zu einer Tabelle sind Visualisierungen oft ansprechender gestaltet. Durch Farbgebungen lässt sich ein starker Fokus setzen, was allerdings auch dazu genutzt werden kann, um das Hauptaugenmerk abzulenken.  
 Zudem ist eine Visualisierung immer auch eine Abstraktion. Sie bricht das (Forschungs-)Ergebnis auf einige Aspekte herunter und unterstreicht diese damit. Daher liegt darin auch eine Gefahr von Missinterpretationen. Die Gefahr besteht sowohl im Entwerfen eigener Grafiken, als auch in der fälschlichen Wahrnehmung der Grafiken anderer.

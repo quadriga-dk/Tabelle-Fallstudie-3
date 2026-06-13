@@ -36,6 +36,9 @@ Mit dem Durchlaufen dieses Jupyter Books können Sie die folgenden Lernziele err
 <!-- START: Datenvisualisierung -->
 ```{admonition} [Lernziel: Dashboards für Visualisierung und Kommunikation von Daten](datenvisualisierung)
 :class: lernziele
+<!-- learning-goal: Datenvisualisierung -->
+1. Sie können grundlegende Aspekte der Datenvisualisierung benennen.
+<!-- competency: 4.2 Visualisierung | bloom: 1 Erinnern -->
 <!-- learning-goal: Dashboards für Visualisierung und Kommunikation von Daten -->
 1. Sie können die Bedeutung von Dashboards für die Datenkommunikation erläutern.
 <!-- competency: 5.3 Kommunikation | bloom: 2 Verstehen -->
