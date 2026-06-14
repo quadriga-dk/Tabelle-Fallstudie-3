@@ -425,7 +425,7 @@ create_answer_box('choropleth-vergleich-1')
 **Zusammenfassung:** Trotz der Flächenverzerrung ist die Choroplethenkarte für dieses Dashboard der beste Kompromiss: Sie rückt den Bezirk als administrative Vergleichseinheit visuell klar in den Fokus und ist übersichtlicher als Punktekarten mit abertausenden Bäumen. Die Bubble Map hingegen wäre eine gute Alternative, sofern sich die Blasen nicht visuell überschneiden.
 ````
 
-Zurück zur hier erstellten Choroplethenkarte der Berliner Bezirke: Zwar wird zwischen *bewässert* und *nicht bewässert* unterschieden, doch die Karte berücksichtigt nicht die tatsächlich verwendete Wassermenge in den einzelnen Bezirken. Ein Baum, der einmalig mit 5 Litern bewässert wurde, wird dabei ebenso als „bewässert“ klassifiziert wie ein Baum, der über einen längeren Zeitraum hinweg mehrere hundert Liter erhalten hat, obwohl dieser Unterschied für eine belastbare Bewertung des Gießverhaltens entscheidend ist.
+Zurück zur hier erstellten Choroplethenkarte der Berliner Bezirke: Zwar wird zwischen *bewässert* und *nicht bewässert* unterschieden, doch die Karte berücksichtigt nicht die tatsächlich verwendete Wassermenge in den einzelnen Bezirken. Ein Baum, der mit 5 Litern bewässert wurde, wird dabei ebenso als „bewässert“ klassifiziert wie ein Baum, der mehrere hundert Liter erhalten hat, obwohl dieser Unterschied für eine belastbare Bewertung des Gießverhaltens entscheidend ist.
 
 Daher soll im Folgenden die Bewässerungsmenge analysiert werden und Sie widmen sich einer differenzierteren Betrachtung:
 **Wie viele Liter wurden tatsächlich pro Bezirk gegossen (absolut und im Verhältnis zur Gesamtzahl der Bäume)?**
