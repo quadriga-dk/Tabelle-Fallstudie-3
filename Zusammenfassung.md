@@ -24,7 +24,7 @@ Mit dem Durchlaufen dieser Fallstudie wurden zentrale Datenkompetenzen erworben:
 
 ## Reflexion
 
-Die Leitfrage konnte gemäß der vorgenommenen Operationalisierung beantwortet werden. Die Analyse hat jedoch verdeutlicht, dass die Ergebnisse keine statischen Fakten sind, sondern maßgeblich durch die methodischen Entscheidungen während des Forschungsprozesses geformt werden. Für eine vertiefte Analyse sollten zusätzliche Einflussfaktoren berücksichtigt werden:
+Die Leitfrage konnte gemäß der vorgenommenen Operationalisierung beantwortet werden. Die Analyse hat jedoch verdeutlicht, dass die Ergebnisse keine statischen Fakten sind, sondern maßgeblich durch die methodischen Entscheidungen während des Forschungsprozesses geformt werden. Für eine vertiefte Analyse sollten zusätzliche Einflussfaktoren zukünftig berücksichtigt werden:
 
 **Leitfrage und räumliche Kontextfaktoren**  
 Die Fallstudie betrachtete die Berliner Bezirke als räumliche Einheiten, ohne deren heterogene städtische Beschaffenheit zu berücksichtigen. Faktoren wie Bevölkerungszahl und -dichte, Baumdichte, Verhältnis von Bäumen zu Einwohner:innen, Nähe zu Gewässern sowie Wetter-, Klima- und Emissionsdaten blieben unbeachtet. Dadurch lassen sich die Ergebnisse kaum einordnen oder Handlungsoptionen ableiten.
