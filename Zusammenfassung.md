@@ -6,24 +6,13 @@ lang: de-DE
 ## Zusammenfassung
 
 In dieser Fallstudie wurde im Rahmen einer Persona-Story um den Forscher Dr. Amir Weber ein Dashboard gebaut. Im Mittelpunkt stand dabei die Leitfrage:
-**Wo lassen sich die höchsten Ausprägungen des Engagements von Bürger:innen bei der Bewässerung städtischer Bäume in Berlin feststellen?**  
-Diese Leitfrage wurde zunächst operationalisiert, indem Engagement als Anzahl gegossener Bäume definiert wurde.
+**Wo lassen sich die höchsten Ausprägungen des Engagements von Bürger:innen bei der Bewässerung städtischer Bäume in Berlin feststellen?** Dabei wurde deutlich, dass die Antwort maßgeblich von der gewählten Operationalisierung abhängt.
 
-Beantwortung der Leitfrage:
+**Vom Absoluten zum Relativen:** Ein erster Blick auf die absoluten Zahlen der Startseite sah den Bezirk Mitte an der Spitze. Da dies jedoch die unterschiedliche Größe der Bezirke ignoriert, ermöglichte erst die Normalisierung einen fairen Vergleich. Hier verschob sich das Ergebnis: Friedrichshain-Kreuzberg weist den höchsten prozentualen Anteil bewässerter Bäume auf.
 
-Die höchste Beteiligung am Gießen von Stadtbäumen wurde im Bezirk Mitte festgestellt.
-Es folgt Tempelhof-Schöneberg mit der zweithöchsten Beteiligung.
-Charlottenburg-Wilmersdorf belegt den dritten Platz hinsichtlich des bürgerschaftlichen Engagements.
+**Masse vs. Intensität:** Ein weiterer Perspektivwechsel erfolgte durch die Analyse der Wassermengen. Während der Bezirk Mitte bei der Gesamtmenge (m³) führt, offenbarte die Kennzahl „Liter pro Baum“, dass die Pflegeintensität in Friedrichshain-Kreuzberg am höchsten ist. Die Wahl der Messgröße (Baumanzahl vs. Volumen) formt somit aktiv das Narrativ der Daten.
 
-Berücksichtigt man jedoch die Bewässerungsmenge im Verhältnis zur Anzahl der Bäume im jeweiligen Bezirk, ergibt sich ein differenzierteres Bild:
-
-- Friedrichshain-Kreuzberg weist hier das höchste Gießvolumen pro Baum auf.
-- Tempelhof-Schöneberg folgt auf dem zweiten Platz.
-- Mitte rangiert an dritter Stelle.
-
-
-**Bewässerungstrend:**
-Die höchste Gesamtbewässerung wurde im **Jahr 2022** erreicht, mit einem Volumen von **761,97 m³**. Im Vergleich zum Vorjahr (**2021: 273,71 m³**) bedeutet dies eine deutliche Steigerung des Engagements.
+Die Fallstudie demonstriert, dass Daten nicht neutral sind. Je nach Operationalisierung, ob über die absolute Wassermenge oder die relative Intensität („Liter pro Baum“), fällt die Antwort auf die Leitfrage unterschiedlich aus. Das Zusammenspiel verschiedener Visualisierungen bricht ein eindimensionales Bild auf und macht die multidimensionale Natur des bürgerschaftlichen Engagements sichtbar.
 
 ## Gelerntes
 Mit dem Durchlaufen dieser Fallstudie wurden zentrale Datenkompetenzen erworben:
