@@ -9,13 +9,13 @@ In dieser Fallstudie wurde im Rahmen einer Persona-Story um den Forscher Dr. Ami
 **Wo lassen sich die höchsten Ausprägungen des Engagements von Bürger:innen bei der Bewässerung städtischer Bäume in Berlin feststellen?**  
 Diese Leitfrage wurde zunächst operationalisiert, indem Engagement als Anzahl gegossener Bäume definiert wurde.
 
-Lösung der Leitfrage
+Beantwortung der Leitfrage:
 
 Die höchste Beteiligung am Gießen von Stadtbäumen wurde im Bezirk Mitte festgestellt.
 Es folgt Tempelhof-Schöneberg mit der zweithöchsten Beteiligung.
 Charlottenburg-Wilmersdorf belegt den dritten Platz hinsichtlich des bürgerschaftlichen Engagements.
 
-Bezieht man jedoch das Verhältnis zwischen Bewässerungsmenge/Anzahl der Bäume im Bezirk, ergibt sich ein differenziertes Bild:
+Berücksichtigt man jedoch die Bewässerungsmenge im Verhältnis zur Anzahl der Bäume im jeweiligen Bezirk, ergibt sich ein differenzierteres Bild:
 
 - Friedrichshain-Kreuzberg weist hier das höchste Gießvolumen pro Baum auf.
 - Tempelhof-Schöneberg folgt auf dem zweiten Platz.
