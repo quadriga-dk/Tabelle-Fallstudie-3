@@ -36,16 +36,6 @@ Da es bereits einige Lernressourcen zum Thema Datenvisualisierung gibt, finden S
 - Wenn Sie bereits Grundkenntnisse mitbringen, finden Sie im <a href="https://www.skala-campus.org/artikel/tipps-daten-visualisieren-excel/" class="external-link" target="_blank">Blog-Beitrag</a> „Daten visualisieren (III): Datenvisualisierungs-Tools im Überblick" von Nina Hauser auf dem Skala Campus einen strukturierten Überblick über gängige Tools zur Datenvisualisierung. 
 
 
-
-## Methoden und Werkzeuge
-
-Das Visualisieren von Daten wird zunehmend eine Frage der Beherrschung von Code bzw. Programmiersprachen {cite}`heinicker_anderes_visualisieren`.
-*Was braucht es für eine gelungene Datenvisualisierung?*
-
-## Gestaltung von Dashboards
-
-Wo Sie eine Visualisierung im Dashboard positionieren, kann Einfluss auf ihre (wahrgenommene) Bedeutung haben.
-
 ## Visualisierung als Kommunikation
 
 Visuelle Darstellungen können helfen, Komplexes verständlich zu machen und auf das Wesentliche zu reduzieren. Visuelle Darstellungen sind dabei seit jeher ein zentrales Hilfsmittel, denn als kulturelle Werkzeuge strukturieren sie seit der frühen Menschheitsgeschichte unsere Vorstellungen von Raum und Zeit. {cite}`heinicker_anderes_visualisieren`.
