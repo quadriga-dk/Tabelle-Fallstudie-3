@@ -30,5 +30,4 @@ Die Reflexion der Grenzen und Beschränkungen, die mit der eigenen Operationalis
 
 ```{bibliography}
 :filter: docname in docnames
-:list: bullet
 ```
