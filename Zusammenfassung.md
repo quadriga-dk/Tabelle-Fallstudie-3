@@ -26,8 +26,13 @@ Berücksichtigt man jedoch die Bewässerungsmenge im Verhältnis zur Anzahl der 
 Die höchste Gesamtbewässerung wurde im **Jahr 2022** erreicht, mit einem Volumen von **761,97 m³**. Im Vergleich zum Vorjahr (**2021: 273,71 m³**) bedeutet dies eine deutliche Steigerung des Engagements.
 
 ## Gelerntes
+Mit dem Durchlaufen dieser Fallstudie wurden zentrale Kompetenzen der Verwaltungswissenschaft und Datenanalyse erworben:
 
-abschnitt über das gelernte, der nochmal alles erworbene zusammenfasst (Lernziele?)*
+- Operationalisierung: Die Fähigkeit, ein abstraktes Konzept wie „Bürgerengagement“ in messbare Kennzahlen zu übersetzen und die Auswirkungen dieser Wahl auf das Analyseergebnis kritisch zu hinterfragen.
+- Datenverarbeitung: Das Einlesen, Bereinigen und Zusammenführen heterogener Datensätze (WFS, CSV, GeoJSON) sowie die Durchführung räumlicher Verschneidungen („Spatial Joins“) in R.
+- Visualisierungskompetenz: Der Aufbau eines Dashboards mit R Shiny sowie die Erstellung interaktiver Karten (Leaflet), Balkendiagramme (ggplot2) und Liniendiagramme (Plotly) zur Kommunikation von Forschungsergebnissen.
+- Kritische Reflexion: Das Erkennen von Verzerrungen in Darstellungen, wie etwa dem „Area Bias“ bei Choroplethenkarten.
+
 
 ## Reflexion
 
@@ -52,10 +57,6 @@ Sowohl die Art der gewählten Visualisierung als auch die Skalierung der Achsen,
 
 **Dashboard**
 Das Dashboard hat aufgrund des Fallstudien-Charakters dieser Lerneinheit technische Grenzen. So bedarf beispielsweise die aktive Einbindung von Nutzenden (z. B. durch eigenes Eintragen gegossener Wassermengen, wie sie von der Plattform Gieß den Kiez erfolgreich implementiert ist) eines interaktiven Dashboards, das die Möglichkeiten dieses Lernszenarios übersteigt.
-
-<span style="color: red;">Kann das raus?</span>
-- Nächste Schritte, die man mit Dashboards machen könnte (Tragen Bürger:innen Daten überhaupt bei, Usability Tests etc.) Für Bürgerengagement müsste Schnittstelle vorhanden sein, bei der Bürger:innen ihre Nutzungsdaten einpflegen können
-- Entscheidend ist dabei auch, sich seiner unbewussten Haltungen bewusst zu werden. 
 
 ## Ausblick
 
