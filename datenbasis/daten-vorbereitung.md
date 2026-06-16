@@ -259,7 +259,7 @@ if (file.exists(local_geojson)) {
   bezirksgrenzen <- st_read(local_geojson)
 }
 ```
-- Sie laden eine [geoJSON-Datei](https://de.wikipedia.org/wiki/GeoJSON), welche die geographischen Eckdaten der Berliner Stadtbezirke enthält.
+- Sie laden eine <a href="https://de.wikipedia.org/wiki/GeoJSON" class="external-link" target="_blank">geoJSON-Datei</a>, welche die geographischen Eckdaten der Berliner Stadtbezirke enthält.
 - Jeder Bezirk hat dabei ein sogenanntes „Polygon“, was eine Art Umrisslinie ist.
 
 **2. Die Baumdaten laden**
