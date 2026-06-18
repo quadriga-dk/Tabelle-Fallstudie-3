@@ -1005,7 +1005,7 @@ shinyApp(ui = ui, server = server)
 
 Auf dieser Seite wurden mehrere Balkendiagramme sowie ein Kreisdiagramm verwendet. Beide Visualisierungsformen dienen dazu, Unterschiede und Gemeinsamkeiten zwischen verschiedenen Werten darzustellen. Während Balkendiagramme auf einem Achsenvergleich basieren und Werte entlang einer Skala vergleichbar machen, zählt das Kreisdiagramm zu den Darstellungsformen ohne Achsenvergleich. Hier dient der Kreis beziehungsweise dessen Gesamtfläche als Bezugspunkt für die einzelnen Anteile.
 
-Die Plattform [The Data Visualization Catalogue](https://datavizcatalogue.com/search/comparisons.html) stellt verschiedene Visualisierungsmethoden vor, die zeigen, wie Unterschiede oder Gemeinsamkeiten zwischen Werten dargestellt werden können. Entdecken Sie zusätzliche Möglichkeiten zur Visualisierung solcher Vergleiche, unterteilt in Darstellungen mit und ohne Achsenvergleich.
+Die Plattform <a href="https://datavizcatalogue.com/methods/location.html" class="external-link" target="_blank"> stellt verschiedene Visualisierungsmethoden vor, die zeigen, wie Unterschiede oder Gemeinsamkeiten zwischen Werten dargestellt werden können. Entdecken Sie zusätzliche Möglichkeiten zur Visualisierung solcher Vergleiche, unterteilt in Darstellungen mit und ohne Achsenvergleich.
 
 Überlegen Sie kritisch:
 Präferieren Sie die hier verwendeten Visualisierungen oder würden Sie alternative Darstellungsformen wählen? Welche Argumente sprechen jeweils für oder gegen die unterschiedlichen Visualisierungsmethoden?

@@ -37,7 +37,7 @@ name: Bewässerung pro Bezirk
 alt: Balkendiagramm Gesamte Bewässerungsmenge pro Bezirk
 width: 600px
 ---
-Balkendiagramm zur Bewässerung pro Bezirk (2020-2026). Die Abbildung zeigt die aggregierte Bewässerungsmenge in Millionen Litern für die einzelnen Berliner Bezirke. Auf der x-Achse sind die Bezirke dargestellt, während die y-Achse die gesamte Bewässerungsmenge angibt. Das Diagramm ermöglicht einen direkten Vergleich der Bewässerungsintensität zwischen den Bezirken. (Quelle: eigene Ausarbeitung)
+Balkendiagramm zur Bewässerung pro Bezirk (hier 2020 bis 03/2026). Die Abbildung zeigt die aggregierte Bewässerungsmenge in Millionen Litern für die einzelnen Berliner Bezirke. Auf der x-Achse sind die Bezirke dargestellt, während die y-Achse die gesamte Bewässerungsmenge angibt. Das Diagramm ermöglicht einen direkten Vergleich der Bewässerungsintensität zwischen den Bezirken. (Quelle: eigene Ausarbeitung)
 ```
 
 ```{figure} ../assets/Dashboard_Bewässerungsanalyse_2.png
@@ -46,7 +46,7 @@ name: Durchschnittliche Bewässerung pro gegossenem Baum
 alt: Baumdiagramm entsprechend dem Titel nach Bezirk
 width: 600px
 ---
-Durchschnittliche Bewässerungsmenge pro gegossenem Baum nach Bezirk (2020-2026). Die Abbildung zeigt die durchschnittliche Bewässerungsmenge pro gegossenem Baum in Litern für die einzelnen Berliner Bezirke. Auf der x-Achse sind die Bezirke dargestellt, während die y-Achse die durchschnittliche Bewässerungsmenge pro Baum angibt. Das Balkendiagramm verdeutlicht Unterschiede in der Bewässerungsintensität zwischen den Bezirken. (Quelle: eigene Ausarbeitung)
+Durchschnittliche Bewässerungsmenge pro gegossenem Baum nach Bezirk (hier 2020 bis 03/2026). Die Abbildung zeigt die durchschnittliche Bewässerungsmenge pro gegossenem Baum in Litern für die einzelnen Berliner Bezirke. Auf der x-Achse sind die Bezirke dargestellt, während die y-Achse die durchschnittliche Bewässerungsmenge pro Baum angibt. Das Balkendiagramm verdeutlicht Unterschiede in der Bewässerungsintensität zwischen den Bezirken. (Quelle: eigene Ausarbeitung)
 ``` 
 
 ## Benutzeroberfläche (UI)
@@ -77,7 +77,7 @@ tabItem(
   fluidRow(
     box(
       title = tagList(
-        "Bewässerung pro Bezirk (2020-2026)",
+        "Bewässerung pro Bezirk",
         div(
           actionButton("info_btn_hbpb", label = "", icon = icon("info-circle")), 
           style = "position: absolute; right: 15px; top: 5px;"
@@ -241,7 +241,7 @@ Mit den aggregierten und umgerechneten Daten erstellt Amir nun das Balkendiagram
     showModal(modalDialog(
       title = "Information: Bewässerung pro Bezirk",
       HTML("
-      <p>Diese Grafik zeigt die <strong>gesamte Bewässerungsmenge</strong> für jeden Berliner Bezirk im Zeitraum 2020-2026.</p>
+      <p>Diese Grafik zeigt die <strong>gesamte Bewässerungsmenge</strong> für jeden Berliner Bezirk.</p>
       <ul>
         <li>Die Daten werden automatisch in die passende Einheit (Liter, m³ oder Megaliter) umgerechnet</li>
         <li>Die Bezirke werden entlang der x-Achse dargestellt</li>
@@ -433,7 +433,7 @@ ui <- dashboardPage(
         fluidRow(
           box(
             title = tagList(
-              "Bewässerung pro Bezirk (2020-2026)",
+              "Bewässerung pro Bezirk",
               div(
                 actionButton("info_btn_hbpb", label = "", icon = icon("info-circle")), 
                 style = "position: absolute; right: 15px; top: 5px;"
@@ -527,7 +527,7 @@ server <- function(input, output, session) {
     showModal(modalDialog(
       title = "Information: Bewässerung pro Bezirk",
       HTML("
-      <p>Diese Grafik zeigt die <strong>gesamte Bewässerungsmenge</strong> für jeden Berliner Bezirk im Zeitraum 2020-2026.</p>
+      <p>Diese Grafik zeigt die <strong>gesamte Bewässerungsmenge</strong> für jeden Berliner Bezirk.</p>
       <ul>
         <li>Die Daten werden automatisch in die passende Einheit (Liter, m³ oder Megaliter) umgerechnet</li>
         <li>Die Bezirke werden entlang der x-Achse dargestellt</li>

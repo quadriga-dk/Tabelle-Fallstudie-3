@@ -102,6 +102,6 @@ Jeder Eintrag ist einem bestimmten Baum zugeordnet (zu erkennen an der ID) und u
 - Zeitpunkt der letzten Bewässerung: ``timestamp`` 
 - Menge der Bewässerung in Litern: ``bewaesserungsmenge_in_liter``
 
-Die Daten geben Rückschlüsse auf Muster im Gießverhalten der Bevölkerung in dem Zeitraum 2020-2024 und ermöglichen die Gestaltung von Visualisierungen aus räumlich und zeitlich differenzierten Informationen zur städtischen Baumbewässerung.
+Zum Zeitpunkt der Erstellung dieses Dashboards, ergeben die Daten Rückschlüsse auf Muster im Gießverhalten der Bevölkerung in dem Zeitraum 2020-03/2024 und ermöglichen die Gestaltung von Visualisierungen aus räumlich und zeitlich differenzierten Informationen zur städtischen Baumbewässerung. Wenn Sie die Bewässerungsdaten direkt von der Quelle herunterladen, sind diese womöglich aktualisiert, weswegen Ihre Ergebnisse von den Ergebnissen in der Fallstudie abweichen könnten. Wenn Sie ein Dashboard mit den aktuellsten Daten erstellen möchten, sollten Sie die Daten direkt von der Quelle beziehen. Wenn Sie Ihre Ergebnisse jedoch auf Korrektheit abgleichen möchten, laden Sie bitte die Daten vom Backup-Server herunter. Auf diese Weise können Sie nachvollziehen, ob Sie den nachfolgenden Schritten richtig gefolgt sind.
 
 
