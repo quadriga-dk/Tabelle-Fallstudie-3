@@ -6,10 +6,10 @@ root: intro
 options: 
   numbered: 3
 chapters:
-  - file: präambel/Präambel
+  - file: 1_einstieg/1.0_einleitung
     sections:
-      - file: präambel/lernziele
-      - file: präambel/technische_voraussetzungen
+      - file: 1_einstieg/1.1_lernziele
+      - file: 1_einstieg/1.2_technische-voraussetzungen
   - file: operationalisierung/fragestellung-operationalisierung
     sections:
       - file: operationalisierung/fragestellung
@@ -36,10 +36,10 @@ chapters:
       - file: dashboard/Übung_Baumstatistik
       - file: dashboard/resumee
   - file: Zusammenfassung
-  - file: epilog/Epilog
+  - file: 7_abschluss/7.0_einleitung
     sections:
-      - file: epilog/fragen_und_feedback
-      - file: epilog/literaturverzeichnis
-      - file: epilog/authors
-      - file: epilog/quadriga
-      - file: epilog/impressum
+      - file: 7_abschluss/7.1_fragen-feedback
+      - file: 7_abschluss/7.2_literaturverzeichnis
+      - file: 7_abschluss/7.3_authors
+      - file: 7_abschluss/7.4_quadriga
+      - file: 7_abschluss/7.5_impressum
