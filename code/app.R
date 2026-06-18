@@ -114,7 +114,7 @@ ui <- dashboardPage(
         fluidRow(
           box(
             title = tagList(
-              "Bewässerung pro Bezirk (2020-2026)",
+              "Bewässerung pro Bezirk",
               div(
                 actionButton("info_btn_hbpb", label = "", icon = icon("info-circle")), 
                 style = "position: absolute; right: 15px; top: 5px;"
@@ -488,7 +488,7 @@ server <- function(input, output, session) {
     showModal(modalDialog(
       title = "Information: Bewässerung pro Bezirk",
       HTML("
-      <p>Diese Grafik zeigt die <strong>gesamte Bewässerungsmenge</strong> für jeden Berliner Bezirk im Zeitraum 2020-2026.</p>
+      <p>Diese Grafik zeigt die <strong>gesamte Bewässerungsmenge</strong> für jeden Berliner Bezirk.</p>
       <ul>
         <li>Die Daten werden automatisch in die passende Einheit (Liter, m³ oder Megaliter) umgerechnet</li>
         <li>Die Bezirke werden entlang der x-Achse dargestellt</li>
