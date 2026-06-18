@@ -394,7 +394,7 @@ Gehen Sie nun auf die  <a href="https://datavizcatalogue.com/methods/Index.html"
 name: Selection of map visualisations
 alt: Screenshot from datavizcatalogue.com
 ---
-Auswahl an Kartenvisualisierungen [Quelle: [DataVizCatalogue abgerufen am 10.06.2026](https://datavizcatalogue.com/search/location.html)]
+Auswahl an Kartenvisualisierungen [Quelle: <a href="https://datavizcatalogue.com/methods/location.html" class="external-link" target="_blank">The Data Visualization Catalogue (abgerufen am 10.06.2026)</a>]
 ``` 
 
 ### Übung
