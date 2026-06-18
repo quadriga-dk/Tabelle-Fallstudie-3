@@ -7,13 +7,13 @@
   </schema:AlignmentObject>
   <schema:Book rdf:about="https://quadriga-dk.github.io/Book_Template/">
     <dc:type>Jupyter Book</dc:type>
-    <dcterms:tableOfContents>- Einstieg
+    <dcterms:tableOfContents>- [Missing: 1]
 - Fragestellung und Operationalisierung
 - Datenbasis (Korpusaufbau)
 - [Missing: 4]
 - Dashboard - Einzelelemente
 - Zusammenfassung und Reflexion
-- Abschluss</dcterms:tableOfContents>
+- [Missing: 7]</dcterms:tableOfContents>
     <dcterms:type>Jupyter Book</dcterms:type>
     <lrmi:learningResourceType>Jupyter Book</lrmi:learningResourceType>
     <schema:about>
