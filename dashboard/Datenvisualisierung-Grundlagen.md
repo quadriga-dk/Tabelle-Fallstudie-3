@@ -5,10 +5,8 @@ lang: de-DE
 (datenvisualisierung-methoden-werkzeuge)=
 # Datenvisualisierung in Dashboards
 
-Datenvisualisierung ist die grafische Repräsentation von Daten und Informationen und deren Umsetzung wird zunehmend eine Frage der Beherrschung von Code bzw. Programmiersprachen {cite}`heinicker_anderes_visualisieren_2024`.  
-
 Dieses Unterkapitel soll nicht der grundlegenden Einführung in Methoden und Werkzeuge der Datenvisualisierung dienen, denn diesbezüglich gibt es bereits viele Materialien. Weiter unten finden Sie eine Auswahl an nützlichen Links zu Blogs, Kursen, Videos u. a. m., die helfen können in das Thema einzusteigen oder Wissen aufzufrischen.  
-Stattdessen erfahren Sie hier etwas zur kritischen Reflexion von Datenvisualisierungen. Vor allem bei Dashboards, die in der Regel mehrere Visualisierungen zeigen, müssen einzelne Grafiken noch schneller erfasst werden. Diese Fülle von Informationen bei gleichzeitiger Abstraktion der Datenbasis bietet vielfältiges Potential, sollte aber immer auch kritisch hinterfragt werden.
+Stattdessen erfahren Sie hier etwas zur kritischen Reflexion von Datenvisualisierungen. Vor allem bei Dashboards, die in der Regel mehrere Visualisierungen zeigen, müssen einzelne Grafiken noch schneller erfasst werden (s. z. B. Abb. 5.2). Diese Fülle von Informationen bei gleichzeitiger Abstraktion der Datenbasis bietet vielfältiges Potential, sollte aber immer auch kritisch hinterfragt werden.
 
 
 ```{figure} /assets/GdK_Screenshot_20260313.png
@@ -18,12 +16,12 @@ width: 75%
 name: Dashboard Gieß den Kiez 
 alt: Das Dashboard des Projektes "Gieß des Kiez" mit Visualisierungen zur Bewässerung von Bäumen in Berlin.
 ---
-Screenshot des Dashoards des Projekts Gieß den Kiez vom 13.03.2026.
+Screenshot des Dashoards des Projekts Gieß den Kiez vom 13.03.2026, das verschiedene Darstellungen zum Thema Bewässerung von Stadtbäumen zeigt.
 ```
 
 ## Grundlagen
 
-Visualisierungen sind bildliche Darstellungen von Daten und sollen deren Verständnis erleichtern. Sie können mit unterschiedlichen Methoden erstellt werden und viele verschiedene Darstellungsformen haben {cite}`freyberg_visualisierung_2023`.
+Visualisierungen sind bildliche Darstellungen von Daten und sollen deren Verständnis erleichtern. Sie können mit unterschiedlichen Methoden erstellt werden und viele verschiedene Darstellungsformen haben {cite}`freyberg_visualisierung_2023`. Darüber hinaus ist die Umsetzung von Datenvisualisierung zunehmend eine Frage der Beherrschung von Code bzw. Programmiersprachen {cite}`heinicker_anderes_visualisieren_2024`.   
 Da es bereits einige Lernressourcen zum Thema Datenvisualisierung gibt, finden Sie hier einige Empfehlungen:
 
 **Einstiegslevel:**
@@ -46,26 +44,23 @@ Da es bereits einige Lernressourcen zum Thema Datenvisualisierung gibt, finden S
 
 ## Visualisierung als Kommunikation
 
-Visuelle Darstellungen können helfen, Komplexes verständlich zu machen und auf das Wesentliche zu reduzieren. Dabei sind sie seit jeher ein zentrales Hilfsmittel, denn als kulturelle Werkzeuge strukturieren sie seit der frühen Menschheitsgeschichte unsere Vorstellungen von Raum und Zeit. {cite}`heinicker_anderes_visualisieren_2024`.  
+Visuelle Darstellungen können helfen, Komplexes verständlich zu machen und auf das Wesentliche zu reduzieren. Dabei sind sie seit jeher ein zentrales Hilfsmittel, denn als kulturelle Werkzeuge strukturieren sie seit der frühen Menschheitsgeschichte unsere Vorstellungen von Raum und Zeit {cite}`heinicker_anderes_visualisieren_2024`.  
 Vor allem in der Wissenschaftskommunikation, in Bezug auf das Veranschaulichen von langen Texten, komplexen Analysen oder vielschichtigen Tabellen haben Visualisierungen ihren Reiz. Visualisierungen wie Diagrammen wird ohnehin eine gewissen Wissenschaftlichkeit, Sachlichkeit und damit Richtigkeit zugewiesen, was aber auch in die Irre führen kann. So wirken Texte mit Visualisierungen glaubhafter als solche ohne Darstellungen. Und auch das Design von interaktiven Grafiken ist entscheidend, denn die Voreinstellungen prägen bereits die Meinung der Nutzer:innen {cite}`greussing_datenvisualisierung_2019`.  
-Durch die SARS-CoV-2-Pandemie ("Corona") sind Datenvisualisierungen und Dashboards als Darstellungen großer Datenmengen in der breiten Öffentlichkeit ins Bewusstsein getreten. Diese Darstellungsformen wurden gewählt, weil sie einen schnellen Überblick bieten können und bei richtigem Design auch für Laien verständlich sind {cite}`schmidt_blick_2020`.
-Oft wurden dabei gefärbte Flächenkarten, so genannte Choroplethenkarten, verwendet. Auf diese Darstellungsform geht das [Kapitel 5.3 Eine Karte erstellen](map) genauer ein. Hier gilt es unter anderem zu beachten, dass die Darstellungen immer Aggregationen der dahinter stehenden Zahlen sind und nicht so "absolut" sind, wie sie erscheinen {cite}`schmidt_blick_2020`.
-
-- Interessanterweise wird das Vorhandensein von Quellenangaben zu Datenvisualisierungen zwar als wichtig genannt, allerdings werden diese so gut wie nicht aufgerufen (ebd)
-- generell ist das Interesse an Details von interaktiven Visualisierungen gering (ebd)
-
-
+Durch die SARS-CoV-2-Pandemie ("Corona") sind Datenvisualisierungen und Dashboards als Darstellungen großer Datenmengen der breiten Öffentlichkeit ins Bewusstsein getreten. Diese Darstellungsformen wurden gewählt, weil sie einen schnellen Überblick bieten können und bei richtigem Design auch für Laien verständlich sind {cite}`schmidt_blick_2020`.
+Oft wurden dabei gefärbte Flächenkarten, so genannte Choroplethenkarten, verwendet. Auf diese Darstellungsform geht das Kapitel [5.3 Eine Karte erstellen](map) genauer ein. Allgemein gilt es unter anderem zu beachten, dass die Darstellungen immer Aggregationen der dahinter stehenden Zahlen sind und nicht so "absolut" sind, wie sie erscheinen. Ein Problem sind beispielsweise fehlende Daten, denn diese sind nur sehr umständlich visualisierbar {cite}`schmidt_blick_2020`. Allerdings zeigen Studien auch, das eine Detailtiefe teilweise gar nicht erwünscht ist. Zumindest bei interaktiven Visualisierungen sei das Interesse an Details eher gering {cite}`greussing_datenvisualisierung_2019`.
 
 
 ## Reflexion
 
-Datenvisualisierungen bilden nicht die Realität ab, sondern sind immer Verzerrungen derselben {cite}`heinicker_anderes_visualisieren_2024`. Es gilt, Visualisierungen kritisch zu reflektieren, da sie bereits eine vereinfachte Darstellung eines komplexen Sachverhaltes sind, einen Abstraktionsgrad aufweisen und den Blick der Nutzenden auch un- bzw. unterbewusst bereits in eine bestimmte Richtung lenken können (Einsatz von Farben, Auswahl der Visualisierungsform etc.). Darüber hinaus dürfen die Kenntnisse der Zielgruppe nicht überschätzt werden, wenn eine Visualisierung der Intention entsprechend interpretiert werden soll {cite}`greussing_datenvisualisierung_2019`.
+Datenvisualisierungen bilden nicht die Realität ab, sondern sind immer Verzerrungen derselben {cite}`heinicker_anderes_visualisieren_2024`. Es gilt, Visualisierungen kritisch zu reflektieren, da sie bereits eine vereinfachte Darstellung eines komplexen Sachverhaltes sind, einen Abstraktionsgrad aufweisen und den Blick der Nutzenden auch un- bzw. unterbewusst bereits in eine bestimmte Richtung lenken können, z. B. durch den Einsatz von Farben, die Auswahl der Visualisierungsform etc. Darüber hinaus dürfen die Kenntnisse der Zielgruppe nicht überschätzt werden, wenn eine Visualisierung der Intention entsprechend interpretiert werden soll {cite}`greussing_datenvisualisierung_2019`.
 
 Die visuelle Darstellung kann mehr Aspekte sichtbar machen als die ursprünglichen Daten. Dies können eben Formen und Farben sein. Eine Sichtbarmachung dieser Aspekte ermöglicht beispielsweise erst eine explorative Analyse {cite}`freyberg_visualisierung_2023`. Allerdings gilt es eben auch, sich von diesen Aspekten nicht blenden zu lassen. 
 Zu beachten ist dabei zudem, dass Datenvisualisierungen künstliche Konstruktionen sind, die ein bestimmtes Denken operationalisieren. Sie sind also immer im Kontext der Gesellschaften und Vorstellungswelten zu sehen, aus der sie stammen {cite}`heinicker_anderes_visualisieren_2024`.
 
 Im Gegensatz zu einer Tabelle sind Visualisierungen oft ansprechender gestaltet. Durch Farbgebungen lässt sich ein starker Fokus setzen, was allerdings auch dazu genutzt werden kann, um das Hauptaugenmerk abzulenken {cite}`greussing_datenvisualisierung_2019`.  
 Zudem ist eine Visualisierung immer auch eine Abstraktion. Sie bricht das (Forschungs-)Ergebnis auf einige Aspekte herunter und unterstreicht diese damit. Daher liegt darin auch eine Gefahr von Missinterpretationen. Die Gefahr besteht sowohl im Entwerfen eigener Grafiken, als auch in der fälschlichen Wahrnehmung der Grafiken anderer.
+
+Quellen bzw. Links zu den Originaldaten sollten immer angegeben werden. Interessanterweise werden die Quellen zwar so gut wie nicht aufgerufen, obwohl ihr Vorhandensein als wichtig genannt wird {cite}`greussing_datenvisualisierung_2019`. Aber vor allem im wissenschaftlichen Kontext entsprichen Quellenangaben natürlich der <a href="https://zenodo.org/records/14281892" class="external-link" target="_blank">Guten wissenschaftlichen Praxis</a>.
 
 
 ```{admonition} zusätzliche Materialien
