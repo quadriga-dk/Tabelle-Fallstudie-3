@@ -31,6 +31,16 @@ Um die Unterschiede sichtbar zu machen, führen Sie eine umfassendere Analyse de
 So helfen Sie Amir zu verstehen, wie sich die Wahl der Operationalisierung, also „gezählte Bäume“ vs. „gegossene Liter“, auf die Ergebnisse auswirkt. Die Frage lautet:
 Welche Geschichte erzählen die Daten, wenn man Liter statt Baumanzahl betrachtet?
 
+````{margin}
+```{admonition} Dashboard erkunden
+:class: hinweis
+
+Das fertige Dashboard können Sie hier direkt im Browser erkunden, während Sie die 
+folgenden Abschnitte durcharbeiten:  
+<a href="https://quadriga-dk.github.io/Visualisierung_in_der_Verwaltung/" target="_blank" class="external-link">Dashboard öffnen</a>
+```
+````
+
 ```{figure} ../assets/Dashboard_Bewässerungsanalyse_1.png
 ---
 name: Bewässerung pro Bezirk

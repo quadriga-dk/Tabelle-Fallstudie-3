@@ -38,6 +38,15 @@ So ist die Startseite nicht nur auf den ersten Blick intuitiv und verständlich,
 
 Für den Einstieg arbeiten Sie mit dem Datensatz *„Gieß den Kiez – Bewässerungsdaten“* von **GovData**. Dieser Datensatz bietet detaillierte Informationen darüber, wann, wo und wieviel in Berlin gegossen wurde. Er eignet sich ideal, um erste Analysen zum Gießverhalten zu erstellen, da er sowohl zeitliche als auch räumliche Bezüge enthält und öffentlich zugänglich ist.
 
+````{margin}
+```{admonition} Dashboard erkunden
+:class: hinweis
+
+Das fertige Dashboard können Sie hier direkt im Browser erkunden, während Sie die 
+folgenden Abschnitte durcharbeiten:  
+<a href="https://quadriga-dk.github.io/Visualisierung_in_der_Verwaltung/" target="_blank" class="external-link">Dashboard öffnen</a>
+```
+````
 
 ```{figure} ../assets/Dashboard_Startseite.png
 ---

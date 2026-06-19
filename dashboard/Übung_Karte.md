@@ -29,6 +29,16 @@ Das bestehdende Dashboard soll um eine **Karte der Berliner Bezirke** erweitert 
 Für diese Aufgabe nutzen Sie das Paket **Leaflet**, das interaktive Karten direkt in R-Shiny erzeugt. Ergänzt wird Leaflet durch **sf** zur Verarbeitung der Bezirks-Geodaten sowie durch Funktionen wie ```colorNumeric()```, mit denen eine aussagekräftige Farbskala erzeugt wird. Die Leaflet-Karte verknüpft also zwei Datenquellen:
 die **räumliche Geometrie** der Berliner Bezirke und die **berechneten Kennzahlen** aus seinem Datensatz (insbesondere die Anzahl der Bäume sowie den Anteil der bewässerten Bäume pro Bezirk).
 
+````{margin}
+```{admonition} Dashboard erkunden
+:class: hinweis
+
+Das fertige Dashboard können Sie hier direkt im Browser erkunden, während Sie die 
+folgenden Abschnitte durcharbeiten:  
+<a href="https://quadriga-dk.github.io/Visualisierung_in_der_Verwaltung/" target="_blank" class="external-link">Dashboard öffnen</a>
+```
+````
+
 ```{figure} ../assets/Dashboard_Karte.png
 ---
 name: Dashboard Karte

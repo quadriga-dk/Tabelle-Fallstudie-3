@@ -41,7 +41,15 @@ Die Visualisierung soll die Verteilung der Bäume auf die Berliner Bezirke sicht
 
 Dies soll weitere Erkenntnisse darüber liefern, welche strukturellen Faktoren im Stadtraum das Engagement der Gießenden möglicherweise begünstigen.
 
+````{margin}
+```{admonition} Dashboard erkunden
+:class: hinweis
 
+Das fertige Dashboard können Sie hier direkt im Browser erkunden, während Sie die 
+folgenden Abschnitte durcharbeiten:  
+<a href="https://quadriga-dk.github.io/Visualisierung_in_der_Verwaltung/" target="_blank" class="external-link">Dashboard öffnen</a>
+```
+````
 
 
 ```{figure} ../assets/Dashboard_Baumstatistik_1.png
@@ -1005,9 +1013,9 @@ shinyApp(ui = ui, server = server)
 
 Auf dieser Seite wurden mehrere Balkendiagramme sowie ein Kreisdiagramm verwendet. Beide Visualisierungsformen dienen dazu, Unterschiede und Gemeinsamkeiten zwischen verschiedenen Werten darzustellen. Während Balkendiagramme auf einem Achsenvergleich basieren und Werte entlang einer Skala vergleichbar machen, zählt das Kreisdiagramm zu den Darstellungsformen ohne Achsenvergleich. Hier dient der Kreis beziehungsweise dessen Gesamtfläche als Bezugspunkt für die einzelnen Anteile.
 
-Die Plattform <a href="https://datavizcatalogue.com/methods/location.html" class="external-link" target="_blank"> stellt verschiedene Visualisierungsmethoden vor, die zeigen, wie Unterschiede oder Gemeinsamkeiten zwischen Werten dargestellt werden können. Entdecken Sie zusätzliche Möglichkeiten zur Visualisierung solcher Vergleiche, unterteilt in Darstellungen mit und ohne Achsenvergleich.
+<a href="https://datavizcatalogue.com/methods/location.html" class="external-link" target="_blank">Die Plattform</a> stellt verschiedene Visualisierungsmethoden vor, die zeigen, wie Unterschiede oder Gemeinsamkeiten zwischen Werten dargestellt werden können. Entdecken Sie zusätzliche Möglichkeiten zur Visualisierung solcher Vergleiche, unterteilt in Darstellungen mit und ohne Achsenvergleich.
 
-Überlegen Sie kritisch:
+Überlegen Sie kritisch:  
 Präferieren Sie die hier verwendeten Visualisierungen oder würden Sie alternative Darstellungsformen wählen? Welche Argumente sprechen jeweils für oder gegen die unterschiedlichen Visualisierungsmethoden?
 
 
