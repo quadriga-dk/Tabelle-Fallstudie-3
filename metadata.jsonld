@@ -12,29 +12,103 @@
     "LearningResource"
   ],
   "name": "Visualisierung in der Verwaltung: Ein Dashboard für Baum- und Bewässerungsdaten. QUADRIGA Open Educational Resources: Tabelle 3",
-  "description": "Diese OER führt in die Erstellung von QUADRIGA-OERs ein, bietet Inhalte für Nutzer:innen der OERs und dient gleichzeitig als Template für die Erstellung eigener OERs auf Basis der QUADRIGA-Empfehlungen.",
+  "description": "In dieser Open Educational Resource wird mit der Applikation R Shiny ein Dashboard gebaut, das das Engagement der Bürger:innen in Bezug auf die Bewässerung städtischer Bäumen visualisiert. Dabei werden Kompetenzen im Bereich Visualisierung und Kommunikation von Daten vermittelt.",
   "identifier": {
     "@type": "PropertyValue",
     "propertyID": "DOI",
-    "value": "https://doi.org",
-    "url": "https://doi.org"
+    "value": "TODO",
+    "url": "TODO"
   },
   "version": "0.0.1",
   "schemaVersion": "1.0.0",
-  "url": "https://quadriga-dk.github.io/Book_Template/",
+  "url": "https://quadriga-dk.github.io/Tabelle-Fallstudie-3/",
   "workExample": {
     "@type": "SoftwareSourceCode",
     "name": "Source Code Repository",
-    "codeRepository": "https://github.com/quadriga-dk/Book_Template"
+    "codeRepository": "https://github.com/quadriga-dk/Tabelle-Fallstudie-3/"
   },
-  "datePublished": "2025-10-30",
-  "dateModified": "2025-03-11",
+  "datePublished": "2025-03-21",
+  "dateModified": "2026-06-26",
   "author": [
+    {
+      "@type": "Person",
+      "givenName": "Jana",
+      "familyName": "Plomin",
+      "name": "Jana Plomin",
+      "identifier": {
+        "@type": "PropertyValue",
+        "propertyID": "ORCID",
+        "value": "0000-0003-0127-7493",
+        "url": "https://orcid.org/0000-0003-0127-7493"
+      },
+      "affiliation": {
+        "@type": "Organization",
+        "name": "Fraunhofer-Institut für Offene Kommunikationssysteme FOKUS"
+      }
+    },
     {
       "@type": "Person",
       "givenName": "Paul",
       "familyName": "Walter",
-      "name": "Paul Walter"
+      "name": "Paul Walter",
+      "identifier": {
+        "@type": "PropertyValue",
+        "propertyID": "ORCID",
+        "value": "0000-0002-9236-3268",
+        "url": "https://orcid.org/0000-0002-9236-3268"
+      },
+      "affiliation": {
+        "@type": "Organization",
+        "name": "Fachhochschule Potsdam"
+      }
+    },
+    {
+      "@type": "Person",
+      "givenName": "Juliane",
+      "familyName": "Schmeling",
+      "name": "Juliane Schmeling",
+      "identifier": {
+        "@type": "PropertyValue",
+        "propertyID": "ORCID",
+        "value": "0009-0005-9814-1139",
+        "url": "https://orcid.org/0009-0005-9814-1139"
+      },
+      "affiliation": {
+        "@type": "Organization",
+        "name": "Fraunhofer-Institut für Offene Kommunikationssysteme FOKUS"
+      }
+    },
+    {
+      "@type": "Person",
+      "givenName": "Sami",
+      "familyName": "Dakruni",
+      "name": "Sami Dakruni",
+      "identifier": {
+        "@type": "PropertyValue",
+        "propertyID": "ORCID",
+        "value": "0009-0009-8541-6358",
+        "url": "https://orcid.org/0009-0009-8541-6358"
+      },
+      "affiliation": {
+        "@type": "Organization",
+        "name": "Fraunhofer-Institut für Offene Kommunikationssysteme FOKUS"
+      }
+    },
+    {
+      "@type": "Person",
+      "givenName": "Cemre",
+      "familyName": "Bingöl",
+      "name": "Cemre Bingöl",
+      "identifier": {
+        "@type": "PropertyValue",
+        "propertyID": "ORCID",
+        "value": "0009-0009-2345-4973",
+        "url": "https://orcid.org/0009-0009-2345-4973"
+      },
+      "affiliation": {
+        "@type": "Organization",
+        "name": "Fraunhofer-Institut für Offene Kommunikationssysteme FOKUS"
+      }
     }
   ],
   "contributor": [
@@ -75,28 +149,120 @@
       "givenName": "Lamia",
       "familyName": "Islam",
       "name": "Lamia Islam",
+      "identifier": {
+        "@type": "PropertyValue",
+        "propertyID": "ORCID",
+        "value": "0009-0001-1879-9880",
+        "url": "https://orcid.org/0009-0001-1879-9880"
+      },
       "affiliation": {
         "@type": "Organization",
         "name": "Universität Potsdam"
+      }
+    },
+    {
+      "@type": "Person",
+      "givenName": "Ralf",
+      "familyName": "Porębski",
+      "name": "Ralf Porębski",
+      "affiliation": {
+        "@type": "Organization",
+        "name": "Fraunhofer-Institut für Offene Kommunikationssysteme FOKUS"
+      }
+    },
+    {
+      "@type": "Person",
+      "givenName": "Vivien",
+      "familyName": "Petras",
+      "name": "Vivien Petras",
+      "identifier": {
+        "@type": "PropertyValue",
+        "propertyID": "ORCID",
+        "value": "0000-0002-8113-1509",
+        "url": "https://orcid.org/0000-0002-8113-1509"
+      },
+      "affiliation": {
+        "@type": "Organization",
+        "name": "Humboldt-Universität zu Berlin, Institut für Bibliotheks- und Informationswissenschaft"
+      }
+    },
+    {
+      "@type": "Person",
+      "givenName": "Heike",
+      "familyName": "Neuroth",
+      "name": "Heike Neuroth",
+      "identifier": {
+        "@type": "PropertyValue",
+        "propertyID": "ORCID",
+        "value": "0000-0002-3637-3154",
+        "url": "https://orcid.org/0000-0002-3637-3154"
+      },
+      "affiliation": {
+        "@type": "Organization",
+        "name": "Fachhochschule Potsdam"
       }
     }
   ],
   "inLanguage": "de",
   "keywords": [
-    "Open Educational Resource"
+    "Verwaltung",
+    "Verwaltungswissenschaft",
+    "Public Sector",
+    "Tabelle",
+    "Lerneinheit",
+    "Open Educational Resource",
+    "Dashboard",
+    "Datenvisualisierung",
+    "Datenkommunikation"
   ],
   "about": [
+    {
+      "@type": "Thing",
+      "name": "Verwaltung"
+    },
+    {
+      "@type": "Thing",
+      "name": "Verwaltungswissenschaft"
+    },
+    {
+      "@type": "Thing",
+      "name": "Public Sector"
+    },
+    {
+      "@type": "Thing",
+      "name": "Tabelle"
+    },
+    {
+      "@type": "Thing",
+      "name": "Lerneinheit"
+    },
     {
       "@type": "Thing",
       "name": "Open Educational Resource"
     },
     {
       "@type": "Thing",
-      "name": "übergreifend"
+      "name": "Dashboard"
     },
     {
       "@type": "Thing",
-      "name": "übergreifend"
+      "name": "Datenvisualisierung"
+    },
+    {
+      "@type": "Thing",
+      "name": "Datenkommunikation"
+    },
+    {
+      "@type": "Thing",
+      "name": "Verwaltungswissenschaften"
+    },
+    {
+      "@type": "Thing",
+      "name": "Informationswissenschaft"
+    },
+    {
+      "@type": "Thing",
+      "name": "Tabelle"
     }
   ],
   "audience": [
@@ -117,38 +283,111 @@
       "audienceType": "Hochschullehrende"
     }
   ],
-  "timeRequired": "PT10H",
+  "timeRequired": "TODO",
   "license": [
     {
       "@type": "CreativeWork",
       "name": "Source Code",
-      "license": "https://www.gnu.org/licenses/agpl-3.0.html"
+      "license": "https://opensource.org/licenses/MIT"
     },
     {
       "@type": "CreativeWork",
       "name": "Content",
-      "license": "https://creativecommons.org/licenses/by-sa/4.0/"
+      "license": "https://creativecommons.org/licenses/by/4.0/"
     }
   ],
   "hasPart": [
     {
       "@type": "LearningResource",
-      "name": "Präambel",
-      "description": "TODO",
-      "url": "TODO",
+      "name": "Fragestellung und Operationalisierung",
+      "description": "In diesem einführenden Kapitel wird das Erkenntnisinteresse formuliert.",
+      "url": "https://quadriga-dk.github.io/Tabelle-Fallstudie-3/operationalisierung/fragestellung-operationalisierung.html",
       "timeRequired": "TODO",
-      "teaches": "TODO",
+      "teaches": "Formulieren der Leitfrage und Operationalisieren des Verfahrens",
       "educationalAlignment": [
         {
           "@type": "AlignmentObject",
-          "targetName": "test",
+          "targetName": "Sie können die Entwicklung einer Fragestellung in der Verwaltungswissenschaft am Beispiel der Ausprägungen des Engagements von Bürger:innen erläutern.",
           "educationalFramework": "QUADRIGA Competency Framework",
-          "targetDescription": "Competency: Orientierungswissen | Bloom's: 1 Erinnern | Data Flow: übergreifend"
+          "targetDescription": "Competency: Orientierungswissen | Bloom's: 2 Verstehen | Data Flow: übergreifend",
+          "lrmi:assesses": "keins"
+        }
+      ]
+    },
+    {
+      "@type": "LearningResource",
+      "name": "Datenbasis",
+      "description": "Dieses Kapitel widmet sich der Datengrundlage der Untersuchung.",
+      "url": "https://quadriga-dk.github.io/Tabelle-Fallstudie-3/datenbasis/datenbasis-einleitung.html",
+      "timeRequired": "TODO",
+      "teaches": "Laden von Datensätzen in R Shiny",
+      "educationalAlignment": [
+        {
+          "@type": "AlignmentObject",
+          "targetName": "Sie können Datensätze in R Shiny laden.",
+          "educationalFramework": "QUADRIGA Competency Framework",
+          "targetDescription": "Competency: 2.1 Erhebung | Bloom's: 3 Anwenden | Data Flow: 2 Erhebung und Aufbereitung",
+          "lrmi:assesses": "keins"
+        },
+        {
+          "@type": "AlignmentObject",
+          "targetName": "Sie können geladene Datensätze in R Shiny verändern.",
+          "educationalFramework": "QUADRIGA Competency Framework",
+          "targetDescription": "Competency: 2.3 Aufbereitung | Bloom's: 3 Anwenden | Data Flow: 2 Erhebung und Aufbereitung",
+          "lrmi:assesses": "keins"
+        }
+      ]
+    },
+    {
+      "@type": "LearningResource",
+      "name": "Dashboard - Vorbereitung",
+      "description": "Dieses Kapitel widmet sich der Vorbereitung des Dashboards.",
+      "url": "https://quadriga-dk.github.io/Tabelle-Fallstudie-3/4_dash-prep/4.0_intro.html",
+      "timeRequired": "TODO",
+      "teaches": "Dashboards für Visualisierung und Kommunikation von Daten",
+      "educationalAlignment": [
+        {
+          "@type": "AlignmentObject",
+          "targetName": "Sie können grundlegende Aspekte der Datenvisualisierung benennen.",
+          "educationalFramework": "QUADRIGA Competency Framework",
+          "targetDescription": "Competency: 4.2 Visualisierung | Bloom's: 1 Erinnern | Data Flow: 4 Analyse",
+          "lrmi:assesses": "keins"
+        },
+        {
+          "@type": "AlignmentObject",
+          "targetName": "Sie können die Bedeutung von Dashboards für die Datenkommunikation erläutern.",
+          "educationalFramework": "QUADRIGA Competency Framework",
+          "targetDescription": "Competency: 5.3 Kommunikation | Bloom's: 2 Verstehen | Data Flow: 5 Publikation und Nachnutzung",
+          "lrmi:assesses": "keins"
+        }
+      ]
+    },
+    {
+      "@type": "LearningResource",
+      "name": "Dashboard - Einzelelemente",
+      "description": "Dieses Kapitel widmet sich dem Aufbau eines Dashboards mit R Shiny.",
+      "url": "https://quadriga-dk.github.io/Tabelle-Fallstudie-3/dashboard/Dashboard.html",
+      "timeRequired": "TODO",
+      "teaches": "Aufbau eines Dashboards",
+      "educationalAlignment": [
+        {
+          "@type": "AlignmentObject",
+          "targetName": "Sie können den Aufbau und die Gliederung eines Dashboards erklären.",
+          "educationalFramework": "QUADRIGA Competency Framework",
+          "targetDescription": "Competency: 4.2 Visualisierung | Bloom's: 2 Verstehen | Data Flow: 4 Analyse",
+          "lrmi:assesses": "keins"
+        },
+        {
+          "@type": "AlignmentObject",
+          "targetName": "Sie können ein Dashboard mit R Shiny entwickeln und gestalten.",
+          "educationalFramework": "QUADRIGA Competency Framework",
+          "targetDescription": "Competency: 4.2 Visualisierung | Bloom's: 3 Anwenden | Data Flow: 4 Analyse",
+          "lrmi:assesses": "keins"
         }
       ]
     }
   ],
-  "dcterms:tableOfContents": "- [Missing: 1]\n- Fragestellung und Operationalisierung\n- Datenbasis (Korpusaufbau)\n- [Missing: 4]\n- Dashboard - Einzelelemente\n- Zusammenfassung und Reflexion\n- [Missing: 7]",
+  "dcterms:tableOfContents": "- [Missing: 1]\n- Fragestellung und Operationalisierung\n- [Missing: 3]\n- [Missing: 4]\n- Dashboard - Einzelelemente\n- Zusammenfassung und Reflexion\n- [Missing: 7]",
   "funding": "Die vorliegenden Open Educational Resources wurden durch das Datenkompetenzzentrum QUADRIGA erstellt.\n\nFörderkennzeichen: 16DKZ2034",
   "learningResourceType": "Jupyter Book",
   "lrmi:learningResourceType": "Jupyter Book",
