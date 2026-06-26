@@ -92,4 +92,4 @@ Visualisierung der 4 Schritte dieser Fallstudie.
 
 - Im **3. Schritt** erfahren Sie was Dashboards sind, welche Bedeutung sie für die Verwaltung bzw. Daten aus dem Public Sector haben, mit welchen Tools sie gebaut werden können und schließlich wie R Shiny eingerichtet wird, um damit ein Dashboard zu bauen (s. [Kap. 4](dash-prep-intro)).
 
-- Im **4. Schritt** führt Sie das Kapitel "Dashboards - Einzelelemente" Schritt für Schritt durch die Erweiterung eines Dashboards mit weiteren Visualisierungen wie Karten oder Zeitverläufen (s. [Kap. 5](dash-build-intro)).
+- Im **4. Schritt** führt Sie das Kapitel "Dashboards - Einzelelemente" Schritt für Schritt durch den Aufbau eines Dashboards mit Visualisierungen wie Karten oder Zeitverläufen (s. [Kap. 5](dash-build-intro)).

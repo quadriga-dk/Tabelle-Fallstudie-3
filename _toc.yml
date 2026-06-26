@@ -15,7 +15,7 @@ chapters:
       - file: operationalisierung/fragestellung
       - file: operationalisierung/operationalisierung
       - file: operationalisierung/resümee
-  - file: datenbasis/datenbasis-einleitung
+  - file: datenbasis/3.0_datenbasis-intro
     sections:
       - file: datenbasis/datenbasis
       - file: datenbasis/daten-vorbereitung

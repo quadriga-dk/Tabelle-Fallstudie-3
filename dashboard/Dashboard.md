@@ -20,9 +20,9 @@ Mit Ihren Rückmeldungen können wir unser interaktives Lehrbuch gezielt an Ihre
 ```
 ````
 
-```{include} ../präambel/lernziele.md
-:start-after: "<!-- START: Ein Dashboard bauen -->"
-:end-before: "<!-- END: Ein Dashboard bauen -->"
+```{include} ../1_einstieg/1.1_lernziele.md
+:start-after: "<!-- START: Dashboard - Einzelelemente -->"
+:end-before: "<!-- END: Dashboard - Einzelelemente -->"
 ```
 
 Nachdem im vorherigen Kapitel dargelegt wurde, dass Dashboards eine gute Möglichkeit sind, um Daten aus der Verwaltung nutzer:innenfreundlich aufzubereiten und zu visualisieren, werden Sie in diesem Kapitel durch den Bau eines Dashboards mit R Shiny geführt. Je nach Ihren Vorkenntnissen und gewählter [Ausführungsmethode](technische_voraussetzungen) kann die Bearbeitungszeit variieren.

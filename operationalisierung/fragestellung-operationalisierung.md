@@ -21,7 +21,7 @@ Mit Ihren Rückmeldungen können wir unser interaktives Lehrbuch gezielt an Ihre
 ````
 
 
-```{include} ../präambel/lernziele.md
+```{include} ../1_einstieg/1.1_lernziele.md
 :start-after: "<!-- START: Fragestellung und Operationalisierung -->"
 :end-before: "<!-- END: Fragestellung und Operationalisierung -->"
 ```
@@ -39,5 +39,12 @@ Der 1. von 4 Abschnitten dieser Fallstudie.
 
 Dazu wird im ersten Schritt zunächst eine [Leitfrage](fragestellung) formuliert. Im zweiten Schritt erfolgt mit der [Operationalisierung](operationalisierung) die Festlegung von Parametern zur Erfassung des theoretischen Konzeptes, bevor das Kapitel mit einem [Resümee](fragestellung-resümee) abschließt.
 
+```{admonition} Bearbeitungszeit
+:class: zeitinfo
+Die geschätzte Bearbeitungszeit dieser Lerneinheit beträgt ca. ... Dies schließt die gekennzeichneten Übungsaufgaben, deren Bearbeitungsdauer individuell variiert, aus. 
 
+Die geschätzte Bearbeitungsdauer **inklusive** der einzelnen Übungsaufgaben beträgt ca. ...
+
+Bitte beachten Sie: Die tatsächliche Bearbeitungsdauer kann je nach Ihren Vorkenntnissen unterschiedlich ausfallen. Die angegebene Zeitangabe dient lediglich als Orientierungshilfe.
+```
 
