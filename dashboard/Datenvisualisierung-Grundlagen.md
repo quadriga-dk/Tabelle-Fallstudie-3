@@ -63,7 +63,7 @@ Zudem ist eine Visualisierung immer auch eine Abstraktion. Sie bricht das (Forsc
 Quellen bzw. Links zu den Originaldaten sollten immer angegeben werden. Interessanterweise werden die Quellen zwar so gut wie nicht aufgerufen, obwohl ihr Vorhandensein als wichtig genannt wird {cite}`greussing_datenvisualisierung_2019`. Aber vor allem im wissenschaftlichen Kontext entsprichen Quellenangaben natürlich der <a href="https://zenodo.org/records/14281892" class="external-link" target="_blank">Guten wissenschaftlichen Praxis</a>.
 
 
-```{admonition} zusätzliche Materialien
+```{admonition} Zusätzliche Materialien
 :class: seealso
 Das <a href="https://civic-data.de/" class="external-link" target="_blank">Civic Data Lab</a> hat eine <a href="https://civic-data.de/app/uploads/Checkliste-Datenvisualisierung.pdf" class="external-link" target="_blank">Checkliste</a> veröffentlicht, die dabei helfen kann, Visualisierungen kritisch zu lesen. Im Fokus steht dabei, woher die Daten kommen und wie sie grafisch dargestellt werden. 
 ```
