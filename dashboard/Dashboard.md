@@ -20,13 +20,16 @@ Mit Ihren Rückmeldungen können wir unser interaktives Lehrbuch gezielt an Ihre
 ```
 ````
 
-```{include} ../1_einstieg/1.1_lernziele.md
+Nachdem im vorherigen Kapitel dargelegt wurde, dass Dashboards eine gute Möglichkeit sind, um Daten aus der Verwaltung nutzer:innenfreundlich aufzubereiten und zu visualisieren, werden Sie in diesem Kapitel durch den Bau eines Dashboards mit R Shiny geführt. Je nach Ihren Vorkenntnissen und gewählter [Ausführungsmethode](technische_voraussetzungen) kann die Bearbeitungszeit variieren.
+Für den Fall, dass Sie das Dashboard nicht selbst bauen wollen oder können, sind einige Visualisierungen interaktiv gestaltet worden, sodass Sie nachempfinden können, welchen Unterschied es macht, Variablen in Visualisierungen ändern zu können.  
+Dabei können Sie folgende Lernziele erreichen:
+
+```{include} /1_einstieg/1.1_lernziele.md
 :start-after: "<!-- START: Dashboard - Einzelelemente -->"
 :end-before: "<!-- END: Dashboard - Einzelelemente -->"
 ```
 
-Nachdem im vorherigen Kapitel dargelegt wurde, dass Dashboards eine gute Möglichkeit sind, um Daten aus der Verwaltung nutzer:innenfreundlich aufzubereiten und zu visualisieren, werden Sie in diesem Kapitel durch den Bau eines Dashboards mit R Shiny geführt. Je nach Ihren Vorkenntnissen und gewählter [Ausführungsmethode](technische_voraussetzungen) kann die Bearbeitungszeit variieren.
-Für den Fall, dass Sie das Dashboard nicht selbst bauen wollen oder können, sind einige Visualisierungen interaktiv gestaltet worden, sodass Sie nachempfinden können, welchen Unterschied es macht, Variablen in Visualisierungen ändern zu können. 
+Dies ist damit der 3. der 4 Abschnitte dieser OER wie Abb. 4.1 zeigt.
 
 ```{figure} /assets/steps_cs3_4.png
 ---

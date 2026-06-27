@@ -20,13 +20,6 @@ Mit Ihren Rückmeldungen können wir unser interaktives Lehrbuch gezielt an Ihre
 ```
 ````
 
-
-```{include} ../1_einstieg/1.1_lernziele.md
-:start-after: "<!-- START: Fragestellung und Operationalisierung -->"
-:end-before: "<!-- END: Fragestellung und Operationalisierung -->"
-```
-
-
 In diesem einführenden Kapitel wird ein Erkenntnisinteresse formuliert, das in den nächsten Kapiteln die Vorbereitung, Aufbereitung und Analyse des Forschungsgegenstandes leitet (s. {numref}`steps of casestudy 1of4`).
 
 ```{figure} /assets/steps_cs3_1.png
@@ -38,6 +31,15 @@ Der 1. von 4 Abschnitten dieser Fallstudie.
 ```
 
 Dazu wird im ersten Schritt zunächst eine [Leitfrage](fragestellung) formuliert. Im zweiten Schritt erfolgt mit der [Operationalisierung](operationalisierung) die Festlegung von Parametern zur Erfassung des theoretischen Konzeptes, bevor das Kapitel mit einem [Resümee](fragestellung-resümee) abschließt.
+
+In diesem Kapitel können Sie folgendes Lernziel erreichen:
+
+```{include} /1_einstieg/1.1_lernziele.md
+:start-after: "<!-- START: Fragestellung und Operationalisierung -->"
+:end-before: "<!-- END: Fragestellung und Operationalisierung -->"
+```
+
+---
 
 ```{admonition} Bearbeitungszeit
 :class: zeitinfo
