@@ -1,15 +1,52 @@
 <?xml version='1.0' encoding='utf-8'?>
 <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:lrmi="http://purl.org/dcx/lrmi-terms/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:schema="http://schema.org/">
-  <schema:AlignmentObject rdf:about="https://quadriga-dk.github.io/Book_Template/#chapter_0_objective_0">
+  <schema:AlignmentObject rdf:about="https://quadriga-dk.github.io/Tabelle-Fallstudie-3/#chapter_0_objective_0">
+    <lrmi:assesses>keins</lrmi:assesses>
     <schema:educationalFramework>QUADRIGA Competency Framework</schema:educationalFramework>
-    <schema:targetDescription>Competency: Orientierungswissen | Bloom's: 1 Erinnern | Data Flow: übergreifend</schema:targetDescription>
-    <schema:targetName>test</schema:targetName>
+    <schema:targetDescription>Competency: Orientierungswissen | Bloom's: 2 Verstehen | Data Flow: übergreifend</schema:targetDescription>
+    <schema:targetName>Sie können die Entwicklung einer Fragestellung in der Verwaltungswissenschaft am Beispiel der Ausprägungen des Engagements von Bürger:innen erläutern.</schema:targetName>
   </schema:AlignmentObject>
-  <schema:Book rdf:about="https://quadriga-dk.github.io/Book_Template/">
+  <schema:AlignmentObject rdf:about="https://quadriga-dk.github.io/Tabelle-Fallstudie-3/#chapter_1_objective_0">
+    <lrmi:assesses>keins</lrmi:assesses>
+    <schema:educationalFramework>QUADRIGA Competency Framework</schema:educationalFramework>
+    <schema:targetDescription>Competency: 2.1 Erhebung | Bloom's: 3 Anwenden | Data Flow: 2 Erhebung und Aufbereitung</schema:targetDescription>
+    <schema:targetName>Sie können Datensätze in R Shiny laden.</schema:targetName>
+  </schema:AlignmentObject>
+  <schema:AlignmentObject rdf:about="https://quadriga-dk.github.io/Tabelle-Fallstudie-3/#chapter_1_objective_1">
+    <lrmi:assesses>keins</lrmi:assesses>
+    <schema:educationalFramework>QUADRIGA Competency Framework</schema:educationalFramework>
+    <schema:targetDescription>Competency: 2.3 Aufbereitung | Bloom's: 3 Anwenden | Data Flow: 2 Erhebung und Aufbereitung</schema:targetDescription>
+    <schema:targetName>Sie können geladene Datensätze in R Shiny verändern.</schema:targetName>
+  </schema:AlignmentObject>
+  <schema:AlignmentObject rdf:about="https://quadriga-dk.github.io/Tabelle-Fallstudie-3/#chapter_2_objective_0">
+    <lrmi:assesses>keins</lrmi:assesses>
+    <schema:educationalFramework>QUADRIGA Competency Framework</schema:educationalFramework>
+    <schema:targetDescription>Competency: 4.2 Visualisierung | Bloom's: 1 Erinnern | Data Flow: 4 Analyse</schema:targetDescription>
+    <schema:targetName>Sie können grundlegende Aspekte der Datenvisualisierung benennen.</schema:targetName>
+  </schema:AlignmentObject>
+  <schema:AlignmentObject rdf:about="https://quadriga-dk.github.io/Tabelle-Fallstudie-3/#chapter_2_objective_1">
+    <lrmi:assesses>keins</lrmi:assesses>
+    <schema:educationalFramework>QUADRIGA Competency Framework</schema:educationalFramework>
+    <schema:targetDescription>Competency: 5.3 Kommunikation | Bloom's: 2 Verstehen | Data Flow: 5 Publikation und Nachnutzung</schema:targetDescription>
+    <schema:targetName>Sie können die Bedeutung von Dashboards für die Datenkommunikation erläutern.</schema:targetName>
+  </schema:AlignmentObject>
+  <schema:AlignmentObject rdf:about="https://quadriga-dk.github.io/Tabelle-Fallstudie-3/#chapter_3_objective_0">
+    <lrmi:assesses>keins</lrmi:assesses>
+    <schema:educationalFramework>QUADRIGA Competency Framework</schema:educationalFramework>
+    <schema:targetDescription>Competency: 4.2 Visualisierung | Bloom's: 2 Verstehen | Data Flow: 4 Analyse</schema:targetDescription>
+    <schema:targetName>Sie können den Aufbau und die Gliederung eines Dashboards erklären.</schema:targetName>
+  </schema:AlignmentObject>
+  <schema:AlignmentObject rdf:about="https://quadriga-dk.github.io/Tabelle-Fallstudie-3/#chapter_3_objective_1">
+    <lrmi:assesses>keins</lrmi:assesses>
+    <schema:educationalFramework>QUADRIGA Competency Framework</schema:educationalFramework>
+    <schema:targetDescription>Competency: 4.2 Visualisierung | Bloom's: 3 Anwenden | Data Flow: 4 Analyse</schema:targetDescription>
+    <schema:targetName>Sie können ein Dashboard mit R Shiny entwickeln und gestalten.</schema:targetName>
+  </schema:AlignmentObject>
+  <schema:Book rdf:about="https://quadriga-dk.github.io/Tabelle-Fallstudie-3/">
     <dc:type>Jupyter Book</dc:type>
     <dcterms:tableOfContents>- [Missing: 1]
 - Fragestellung und Operationalisierung
-- Datenbasis (Korpusaufbau)
+- [Missing: 3]
 - [Missing: 4]
 - Dashboard - Einzelelemente
 - Zusammenfassung und Reflexion
@@ -17,141 +54,356 @@
     <dcterms:type>Jupyter Book</dcterms:type>
     <lrmi:learningResourceType>Jupyter Book</lrmi:learningResourceType>
     <schema:about>
-      <schema:Thing rdf:about="https://quadriga-dk.github.io/Book_Template/#keyword_0">
+      <schema:Thing rdf:about="https://quadriga-dk.github.io/Tabelle-Fallstudie-3/#keyword_0">
+        <schema:name>Verwaltung</schema:name>
+      </schema:Thing>
+    </schema:about>
+    <schema:about>
+      <schema:Thing rdf:about="https://quadriga-dk.github.io/Tabelle-Fallstudie-3/#keyword_1">
+        <schema:name>Verwaltungswissenschaft</schema:name>
+      </schema:Thing>
+    </schema:about>
+    <schema:about>
+      <schema:Thing rdf:about="https://quadriga-dk.github.io/Tabelle-Fallstudie-3/#keyword_2">
+        <schema:name>Public Sector</schema:name>
+      </schema:Thing>
+    </schema:about>
+    <schema:about>
+      <schema:Thing rdf:about="https://quadriga-dk.github.io/Tabelle-Fallstudie-3/#keyword_3">
+        <schema:name>Tabelle</schema:name>
+      </schema:Thing>
+    </schema:about>
+    <schema:about>
+      <schema:Thing rdf:about="https://quadriga-dk.github.io/Tabelle-Fallstudie-3/#keyword_4">
+        <schema:name>Lerneinheit</schema:name>
+      </schema:Thing>
+    </schema:about>
+    <schema:about>
+      <schema:Thing rdf:about="https://quadriga-dk.github.io/Tabelle-Fallstudie-3/#keyword_5">
         <schema:name>Open Educational Resource</schema:name>
       </schema:Thing>
     </schema:about>
     <schema:about>
-      <schema:Thing rdf:about="https://quadriga-dk.github.io/Book_Template/#discipline_0">
-        <schema:name>übergreifend</schema:name>
+      <schema:Thing rdf:about="https://quadriga-dk.github.io/Tabelle-Fallstudie-3/#keyword_6">
+        <schema:name>Dashboard</schema:name>
       </schema:Thing>
     </schema:about>
     <schema:about>
-      <schema:Thing rdf:about="https://quadriga-dk.github.io/Book_Template/#research_object_0">
-        <schema:name>übergreifend</schema:name>
+      <schema:Thing rdf:about="https://quadriga-dk.github.io/Tabelle-Fallstudie-3/#keyword_7">
+        <schema:name>Datenvisualisierung</schema:name>
+      </schema:Thing>
+    </schema:about>
+    <schema:about>
+      <schema:Thing rdf:about="https://quadriga-dk.github.io/Tabelle-Fallstudie-3/#keyword_8">
+        <schema:name>Datenkommunikation</schema:name>
+      </schema:Thing>
+    </schema:about>
+    <schema:about>
+      <schema:Thing rdf:about="https://quadriga-dk.github.io/Tabelle-Fallstudie-3/#discipline_0">
+        <schema:name>Verwaltungswissenschaften</schema:name>
+      </schema:Thing>
+    </schema:about>
+    <schema:about>
+      <schema:Thing rdf:about="https://quadriga-dk.github.io/Tabelle-Fallstudie-3/#discipline_1">
+        <schema:name>Informationswissenschaft</schema:name>
+      </schema:Thing>
+    </schema:about>
+    <schema:about>
+      <schema:Thing rdf:about="https://quadriga-dk.github.io/Tabelle-Fallstudie-3/#research_object_0">
+        <schema:name>Tabelle</schema:name>
       </schema:Thing>
     </schema:about>
     <schema:audience>
-      <schema:Audience rdf:about="https://quadriga-dk.github.io/Book_Template/#audience_0">
+      <schema:Audience rdf:about="https://quadriga-dk.github.io/Tabelle-Fallstudie-3/#audience_0">
         <schema:audienceType>Forschende (PostDoc)</schema:audienceType>
       </schema:Audience>
     </schema:audience>
     <schema:audience>
-      <schema:Audience rdf:about="https://quadriga-dk.github.io/Book_Template/#audience_1">
+      <schema:Audience rdf:about="https://quadriga-dk.github.io/Tabelle-Fallstudie-3/#audience_1">
         <schema:audienceType>Forschende (Projektleitung)</schema:audienceType>
       </schema:Audience>
     </schema:audience>
     <schema:audience>
-      <schema:Audience rdf:about="https://quadriga-dk.github.io/Book_Template/#audience_2">
+      <schema:Audience rdf:about="https://quadriga-dk.github.io/Tabelle-Fallstudie-3/#audience_2">
         <schema:audienceType>Promovierende</schema:audienceType>
       </schema:Audience>
     </schema:audience>
     <schema:audience>
-      <schema:Audience rdf:about="https://quadriga-dk.github.io/Book_Template/#audience_3">
+      <schema:Audience rdf:about="https://quadriga-dk.github.io/Tabelle-Fallstudie-3/#audience_3">
         <schema:audienceType>Hochschullehrende</schema:audienceType>
       </schema:Audience>
     </schema:audience>
     <schema:author>
-      <schema:Person rdf:about="https://quadriga-dk.github.io/Book_Template/#author_0">
+      <schema:Person rdf:about="https://quadriga-dk.github.io/Tabelle-Fallstudie-3/#author_0">
+        <schema:affiliation rdf:resource="https://quadriga-dk.github.io/Tabelle-Fallstudie-3/#author_0_org" />
+        <schema:familyName>Plomin</schema:familyName>
+        <schema:givenName>Jana</schema:givenName>
+        <schema:identifier rdf:resource="https://quadriga-dk.github.io/Tabelle-Fallstudie-3/#author_0_orcid" />
+        <schema:name>Jana Plomin</schema:name>
+      </schema:Person>
+    </schema:author>
+    <schema:author>
+      <schema:Person rdf:about="https://quadriga-dk.github.io/Tabelle-Fallstudie-3/#author_1">
+        <schema:affiliation rdf:resource="https://quadriga-dk.github.io/Tabelle-Fallstudie-3/#author_1_org" />
         <schema:familyName>Walter</schema:familyName>
         <schema:givenName>Paul</schema:givenName>
+        <schema:identifier rdf:resource="https://quadriga-dk.github.io/Tabelle-Fallstudie-3/#author_1_orcid" />
         <schema:name>Paul Walter</schema:name>
       </schema:Person>
     </schema:author>
+    <schema:author>
+      <schema:Person rdf:about="https://quadriga-dk.github.io/Tabelle-Fallstudie-3/#author_2">
+        <schema:affiliation rdf:resource="https://quadriga-dk.github.io/Tabelle-Fallstudie-3/#author_2_org" />
+        <schema:familyName>Schmeling</schema:familyName>
+        <schema:givenName>Juliane</schema:givenName>
+        <schema:identifier rdf:resource="https://quadriga-dk.github.io/Tabelle-Fallstudie-3/#author_2_orcid" />
+        <schema:name>Juliane Schmeling</schema:name>
+      </schema:Person>
+    </schema:author>
+    <schema:author>
+      <schema:Person rdf:about="https://quadriga-dk.github.io/Tabelle-Fallstudie-3/#author_3">
+        <schema:affiliation rdf:resource="https://quadriga-dk.github.io/Tabelle-Fallstudie-3/#author_3_org" />
+        <schema:familyName>Dakruni</schema:familyName>
+        <schema:givenName>Sami</schema:givenName>
+        <schema:identifier rdf:resource="https://quadriga-dk.github.io/Tabelle-Fallstudie-3/#author_3_orcid" />
+        <schema:name>Sami Dakruni</schema:name>
+      </schema:Person>
+    </schema:author>
+    <schema:author>
+      <schema:Person rdf:about="https://quadriga-dk.github.io/Tabelle-Fallstudie-3/#author_4">
+        <schema:affiliation rdf:resource="https://quadriga-dk.github.io/Tabelle-Fallstudie-3/#author_4_org" />
+        <schema:familyName>Bingöl</schema:familyName>
+        <schema:givenName>Cemre</schema:givenName>
+        <schema:identifier rdf:resource="https://quadriga-dk.github.io/Tabelle-Fallstudie-3/#author_4_orcid" />
+        <schema:name>Cemre Bingöl</schema:name>
+      </schema:Person>
+    </schema:author>
     <schema:contributor>
-      <schema:Person rdf:about="https://quadriga-dk.github.io/Book_Template/#contributor_0">
-        <schema:affiliation rdf:resource="https://quadriga-dk.github.io/Book_Template/#contributor_0_org" />
+      <schema:Person rdf:about="https://quadriga-dk.github.io/Tabelle-Fallstudie-3/#contributor_0">
+        <schema:affiliation rdf:resource="https://quadriga-dk.github.io/Tabelle-Fallstudie-3/#contributor_0_org" />
         <schema:familyName>Schnaitter</schema:familyName>
         <schema:givenName>Hannes</schema:givenName>
-        <schema:identifier rdf:resource="https://quadriga-dk.github.io/Book_Template/#contributor_0_orcid" />
+        <schema:identifier rdf:resource="https://quadriga-dk.github.io/Tabelle-Fallstudie-3/#contributor_0_orcid" />
         <schema:name>Hannes Schnaitter</schema:name>
       </schema:Person>
     </schema:contributor>
     <schema:contributor>
-      <schema:Person rdf:about="https://quadriga-dk.github.io/Book_Template/#contributor_1">
-        <schema:affiliation rdf:resource="https://quadriga-dk.github.io/Book_Template/#contributor_1_org" />
+      <schema:Person rdf:about="https://quadriga-dk.github.io/Tabelle-Fallstudie-3/#contributor_1">
+        <schema:affiliation rdf:resource="https://quadriga-dk.github.io/Tabelle-Fallstudie-3/#contributor_1_org" />
         <schema:familyName>Samoilova</schema:familyName>
         <schema:givenName>Evgenia</schema:givenName>
-        <schema:identifier rdf:resource="https://quadriga-dk.github.io/Book_Template/#contributor_1_orcid" />
+        <schema:identifier rdf:resource="https://quadriga-dk.github.io/Tabelle-Fallstudie-3/#contributor_1_orcid" />
         <schema:name>Evgenia Samoilova</schema:name>
       </schema:Person>
     </schema:contributor>
     <schema:contributor>
-      <schema:Person rdf:about="https://quadriga-dk.github.io/Book_Template/#contributor_2">
-        <schema:affiliation rdf:resource="https://quadriga-dk.github.io/Book_Template/#contributor_2_org" />
+      <schema:Person rdf:about="https://quadriga-dk.github.io/Tabelle-Fallstudie-3/#contributor_2">
+        <schema:affiliation rdf:resource="https://quadriga-dk.github.io/Tabelle-Fallstudie-3/#contributor_2_org" />
         <schema:familyName>Islam</schema:familyName>
         <schema:givenName>Lamia</schema:givenName>
+        <schema:identifier rdf:resource="https://quadriga-dk.github.io/Tabelle-Fallstudie-3/#contributor_2_orcid" />
         <schema:name>Lamia Islam</schema:name>
       </schema:Person>
     </schema:contributor>
-    <schema:dateModified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2025-03-11</schema:dateModified>
-    <schema:datePublished rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2025-10-30</schema:datePublished>
-    <schema:description>Diese OER führt in die Erstellung von QUADRIGA-OERs ein, bietet Inhalte für Nutzer:innen der OERs und dient gleichzeitig als Template für die Erstellung eigener OERs auf Basis der QUADRIGA-Empfehlungen.</schema:description>
+    <schema:contributor>
+      <schema:Person rdf:about="https://quadriga-dk.github.io/Tabelle-Fallstudie-3/#contributor_3">
+        <schema:affiliation rdf:resource="https://quadriga-dk.github.io/Tabelle-Fallstudie-3/#contributor_3_org" />
+        <schema:familyName>Porębski</schema:familyName>
+        <schema:givenName>Ralf</schema:givenName>
+        <schema:name>Ralf Porębski</schema:name>
+      </schema:Person>
+    </schema:contributor>
+    <schema:contributor>
+      <schema:Person rdf:about="https://quadriga-dk.github.io/Tabelle-Fallstudie-3/#contributor_4">
+        <schema:affiliation rdf:resource="https://quadriga-dk.github.io/Tabelle-Fallstudie-3/#contributor_4_org" />
+        <schema:familyName>Petras</schema:familyName>
+        <schema:givenName>Vivien</schema:givenName>
+        <schema:identifier rdf:resource="https://quadriga-dk.github.io/Tabelle-Fallstudie-3/#contributor_4_orcid" />
+        <schema:name>Vivien Petras</schema:name>
+      </schema:Person>
+    </schema:contributor>
+    <schema:contributor>
+      <schema:Person rdf:about="https://quadriga-dk.github.io/Tabelle-Fallstudie-3/#contributor_5">
+        <schema:affiliation rdf:resource="https://quadriga-dk.github.io/Tabelle-Fallstudie-3/#contributor_5_org" />
+        <schema:familyName>Neuroth</schema:familyName>
+        <schema:givenName>Heike</schema:givenName>
+        <schema:identifier rdf:resource="https://quadriga-dk.github.io/Tabelle-Fallstudie-3/#contributor_5_orcid" />
+        <schema:name>Heike Neuroth</schema:name>
+      </schema:Person>
+    </schema:contributor>
+    <schema:dateModified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2026-06-26</schema:dateModified>
+    <schema:datePublished rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2025-03-21</schema:datePublished>
+    <schema:description>In dieser Open Educational Resource wird mit der Applikation R Shiny ein Dashboard gebaut, das das Engagement der Bürger:innen in Bezug auf die Bewässerung städtischer Bäumen visualisiert. Dabei werden Kompetenzen im Bereich Visualisierung und Kommunikation von Daten vermittelt.</schema:description>
     <schema:funding>Die vorliegenden Open Educational Resources wurden durch das Datenkompetenzzentrum QUADRIGA erstellt.
 
 Förderkennzeichen: 16DKZ2034</schema:funding>
     <schema:hasPart>
-      <schema:LearningResource rdf:about="https://quadriga-dk.github.io/Book_Template/#chapter_0">
-        <schema:description>TODO</schema:description>
-        <schema:educationalAlignment rdf:resource="https://quadriga-dk.github.io/Book_Template/#chapter_0_objective_0" />
-        <schema:name>Präambel</schema:name>
-        <schema:teaches>TODO</schema:teaches>
+      <schema:LearningResource rdf:about="https://quadriga-dk.github.io/Tabelle-Fallstudie-3/#chapter_0">
+        <schema:description>In diesem einführenden Kapitel wird das Erkenntnisinteresse formuliert.</schema:description>
+        <schema:educationalAlignment rdf:resource="https://quadriga-dk.github.io/Tabelle-Fallstudie-3/#chapter_0_objective_0" />
+        <schema:name>Fragestellung und Operationalisierung</schema:name>
+        <schema:teaches>Formulieren der Leitfrage und Operationalisieren des Verfahrens</schema:teaches>
         <schema:timeRequired>TODO</schema:timeRequired>
-        <schema:url rdf:resource="TODO" />
+        <schema:url rdf:resource="https://quadriga-dk.github.io/Tabelle-Fallstudie-3/operationalisierung/fragestellung-operationalisierung.html" />
+      </schema:LearningResource>
+    </schema:hasPart>
+    <schema:hasPart>
+      <schema:LearningResource rdf:about="https://quadriga-dk.github.io/Tabelle-Fallstudie-3/#chapter_1">
+        <schema:description>Dieses Kapitel widmet sich der Datengrundlage der Untersuchung.</schema:description>
+        <schema:educationalAlignment rdf:resource="https://quadriga-dk.github.io/Tabelle-Fallstudie-3/#chapter_1_objective_0" />
+        <schema:educationalAlignment rdf:resource="https://quadriga-dk.github.io/Tabelle-Fallstudie-3/#chapter_1_objective_1" />
+        <schema:name>Datenbasis</schema:name>
+        <schema:teaches>Laden von Datensätzen in R Shiny</schema:teaches>
+        <schema:timeRequired>TODO</schema:timeRequired>
+        <schema:url rdf:resource="https://quadriga-dk.github.io/Tabelle-Fallstudie-3/datenbasis/datenbasis-einleitung.html" />
+      </schema:LearningResource>
+    </schema:hasPart>
+    <schema:hasPart>
+      <schema:LearningResource rdf:about="https://quadriga-dk.github.io/Tabelle-Fallstudie-3/#chapter_2">
+        <schema:description>Dieses Kapitel widmet sich der Vorbereitung des Dashboards.</schema:description>
+        <schema:educationalAlignment rdf:resource="https://quadriga-dk.github.io/Tabelle-Fallstudie-3/#chapter_2_objective_0" />
+        <schema:educationalAlignment rdf:resource="https://quadriga-dk.github.io/Tabelle-Fallstudie-3/#chapter_2_objective_1" />
+        <schema:name>Dashboard - Vorbereitung</schema:name>
+        <schema:teaches>Dashboards für Visualisierung und Kommunikation von Daten</schema:teaches>
+        <schema:timeRequired>TODO</schema:timeRequired>
+        <schema:url rdf:resource="https://quadriga-dk.github.io/Tabelle-Fallstudie-3/4_dash-prep/4.0_intro.html" />
+      </schema:LearningResource>
+    </schema:hasPart>
+    <schema:hasPart>
+      <schema:LearningResource rdf:about="https://quadriga-dk.github.io/Tabelle-Fallstudie-3/#chapter_3">
+        <schema:description>Dieses Kapitel widmet sich dem Aufbau eines Dashboards mit R Shiny.</schema:description>
+        <schema:educationalAlignment rdf:resource="https://quadriga-dk.github.io/Tabelle-Fallstudie-3/#chapter_3_objective_0" />
+        <schema:educationalAlignment rdf:resource="https://quadriga-dk.github.io/Tabelle-Fallstudie-3/#chapter_3_objective_1" />
+        <schema:name>Dashboard - Einzelelemente</schema:name>
+        <schema:teaches>Aufbau eines Dashboards</schema:teaches>
+        <schema:timeRequired>TODO</schema:timeRequired>
+        <schema:url rdf:resource="https://quadriga-dk.github.io/Tabelle-Fallstudie-3/dashboard/Dashboard.html" />
       </schema:LearningResource>
     </schema:hasPart>
     <schema:identifier>
-      <schema:PropertyValue rdf:about="https://quadriga-dk.github.io/Book_Template/#doi">
+      <schema:PropertyValue rdf:about="https://quadriga-dk.github.io/Tabelle-Fallstudie-3/#doi">
         <schema:propertyID>DOI</schema:propertyID>
-        <schema:url rdf:resource="https://doi.org" />
-        <schema:value>https://doi.org</schema:value>
+        <schema:url rdf:resource="TODO" />
+        <schema:value>TODO</schema:value>
       </schema:PropertyValue>
     </schema:identifier>
     <schema:inLanguage>de</schema:inLanguage>
+    <schema:keywords>Dashboard</schema:keywords>
+    <schema:keywords>Datenkommunikation</schema:keywords>
+    <schema:keywords>Datenvisualisierung</schema:keywords>
+    <schema:keywords>Lerneinheit</schema:keywords>
     <schema:keywords>Open Educational Resource</schema:keywords>
+    <schema:keywords>Public Sector</schema:keywords>
+    <schema:keywords>Tabelle</schema:keywords>
+    <schema:keywords>Verwaltung</schema:keywords>
+    <schema:keywords>Verwaltungswissenschaft</schema:keywords>
     <schema:learningResourceType>Jupyter Book</schema:learningResourceType>
     <schema:license>
-      <schema:CreativeWork rdf:about="https://quadriga-dk.github.io/Book_Template/#license_code">
-        <schema:license rdf:resource="https://www.gnu.org/licenses/agpl-3.0.html" />
+      <schema:CreativeWork rdf:about="https://quadriga-dk.github.io/Tabelle-Fallstudie-3/#license_code">
+        <schema:license rdf:resource="https://opensource.org/licenses/MIT" />
         <schema:name>Source Code</schema:name>
       </schema:CreativeWork>
     </schema:license>
     <schema:license>
-      <schema:CreativeWork rdf:about="https://quadriga-dk.github.io/Book_Template/#license_content">
-        <schema:license rdf:resource="https://creativecommons.org/licenses/by-sa/4.0/" />
+      <schema:CreativeWork rdf:about="https://quadriga-dk.github.io/Tabelle-Fallstudie-3/#license_content">
+        <schema:license rdf:resource="https://creativecommons.org/licenses/by/4.0/" />
         <schema:name>Content</schema:name>
       </schema:CreativeWork>
     </schema:license>
     <schema:name>Visualisierung in der Verwaltung: Ein Dashboard für Baum- und Bewässerungsdaten. QUADRIGA Open Educational Resources: Tabelle 3</schema:name>
     <schema:schemaVersion>1.0.0</schema:schemaVersion>
-    <schema:timeRequired>PT10H</schema:timeRequired>
-    <schema:url rdf:resource="https://quadriga-dk.github.io/Book_Template/" />
+    <schema:timeRequired>TODO</schema:timeRequired>
+    <schema:url rdf:resource="https://quadriga-dk.github.io/Tabelle-Fallstudie-3/" />
     <schema:version>0.0.1</schema:version>
     <schema:workExample>
-      <schema:SoftwareSourceCode rdf:about="https://quadriga-dk.github.io/Book_Template/#repository">
-        <schema:codeRepository rdf:resource="https://github.com/quadriga-dk/Book_Template" />
+      <schema:SoftwareSourceCode rdf:about="https://quadriga-dk.github.io/Tabelle-Fallstudie-3/#repository">
+        <schema:codeRepository rdf:resource="https://github.com/quadriga-dk/Tabelle-Fallstudie-3/" />
         <schema:name>Source Code Repository</schema:name>
       </schema:SoftwareSourceCode>
     </schema:workExample>
     <rdf:type rdf:resource="http://schema.org/LearningResource" />
   </schema:Book>
-  <schema:Organization rdf:about="https://quadriga-dk.github.io/Book_Template/#contributor_0_org">
+  <schema:Organization rdf:about="https://quadriga-dk.github.io/Tabelle-Fallstudie-3/#author_0_org">
+    <schema:name>Fraunhofer-Institut für Offene Kommunikationssysteme FOKUS</schema:name>
+  </schema:Organization>
+  <schema:Organization rdf:about="https://quadriga-dk.github.io/Tabelle-Fallstudie-3/#author_1_org">
+    <schema:name>Fachhochschule Potsdam</schema:name>
+  </schema:Organization>
+  <schema:Organization rdf:about="https://quadriga-dk.github.io/Tabelle-Fallstudie-3/#author_2_org">
+    <schema:name>Fraunhofer-Institut für Offene Kommunikationssysteme FOKUS</schema:name>
+  </schema:Organization>
+  <schema:Organization rdf:about="https://quadriga-dk.github.io/Tabelle-Fallstudie-3/#author_3_org">
+    <schema:name>Fraunhofer-Institut für Offene Kommunikationssysteme FOKUS</schema:name>
+  </schema:Organization>
+  <schema:Organization rdf:about="https://quadriga-dk.github.io/Tabelle-Fallstudie-3/#author_4_org">
+    <schema:name>Fraunhofer-Institut für Offene Kommunikationssysteme FOKUS</schema:name>
+  </schema:Organization>
+  <schema:Organization rdf:about="https://quadriga-dk.github.io/Tabelle-Fallstudie-3/#contributor_0_org">
     <schema:name>Humboldt-Universität zu Berlin, Institut für Bibliotheks- und Informationswissenschaft</schema:name>
   </schema:Organization>
-  <schema:Organization rdf:about="https://quadriga-dk.github.io/Book_Template/#contributor_1_org">
+  <schema:Organization rdf:about="https://quadriga-dk.github.io/Tabelle-Fallstudie-3/#contributor_1_org">
     <schema:name>Universität Potsdam</schema:name>
   </schema:Organization>
-  <schema:Organization rdf:about="https://quadriga-dk.github.io/Book_Template/#contributor_2_org">
+  <schema:Organization rdf:about="https://quadriga-dk.github.io/Tabelle-Fallstudie-3/#contributor_2_org">
     <schema:name>Universität Potsdam</schema:name>
   </schema:Organization>
-  <schema:PropertyValue rdf:about="https://quadriga-dk.github.io/Book_Template/#contributor_0_orcid">
+  <schema:Organization rdf:about="https://quadriga-dk.github.io/Tabelle-Fallstudie-3/#contributor_3_org">
+    <schema:name>Fraunhofer-Institut für Offene Kommunikationssysteme FOKUS</schema:name>
+  </schema:Organization>
+  <schema:Organization rdf:about="https://quadriga-dk.github.io/Tabelle-Fallstudie-3/#contributor_4_org">
+    <schema:name>Humboldt-Universität zu Berlin, Institut für Bibliotheks- und Informationswissenschaft</schema:name>
+  </schema:Organization>
+  <schema:Organization rdf:about="https://quadriga-dk.github.io/Tabelle-Fallstudie-3/#contributor_5_org">
+    <schema:name>Fachhochschule Potsdam</schema:name>
+  </schema:Organization>
+  <schema:PropertyValue rdf:about="https://quadriga-dk.github.io/Tabelle-Fallstudie-3/#author_0_orcid">
+    <schema:propertyID>ORCID</schema:propertyID>
+    <schema:url rdf:resource="https://orcid.org/0000-0003-0127-7493" />
+    <schema:value>0000-0003-0127-7493</schema:value>
+  </schema:PropertyValue>
+  <schema:PropertyValue rdf:about="https://quadriga-dk.github.io/Tabelle-Fallstudie-3/#author_1_orcid">
+    <schema:propertyID>ORCID</schema:propertyID>
+    <schema:url rdf:resource="https://orcid.org/0000-0002-9236-3268" />
+    <schema:value>0000-0002-9236-3268</schema:value>
+  </schema:PropertyValue>
+  <schema:PropertyValue rdf:about="https://quadriga-dk.github.io/Tabelle-Fallstudie-3/#author_2_orcid">
+    <schema:propertyID>ORCID</schema:propertyID>
+    <schema:url rdf:resource="https://orcid.org/0009-0005-9814-1139" />
+    <schema:value>0009-0005-9814-1139</schema:value>
+  </schema:PropertyValue>
+  <schema:PropertyValue rdf:about="https://quadriga-dk.github.io/Tabelle-Fallstudie-3/#author_3_orcid">
+    <schema:propertyID>ORCID</schema:propertyID>
+    <schema:url rdf:resource="https://orcid.org/0009-0009-8541-6358" />
+    <schema:value>0009-0009-8541-6358</schema:value>
+  </schema:PropertyValue>
+  <schema:PropertyValue rdf:about="https://quadriga-dk.github.io/Tabelle-Fallstudie-3/#author_4_orcid">
+    <schema:propertyID>ORCID</schema:propertyID>
+    <schema:url rdf:resource="https://orcid.org/0009-0009-2345-4973" />
+    <schema:value>0009-0009-2345-4973</schema:value>
+  </schema:PropertyValue>
+  <schema:PropertyValue rdf:about="https://quadriga-dk.github.io/Tabelle-Fallstudie-3/#contributor_0_orcid">
     <schema:propertyID>ORCID</schema:propertyID>
     <schema:url rdf:resource="https://orcid.org/0000-0002-1602-6032" />
     <schema:value>0000-0002-1602-6032</schema:value>
   </schema:PropertyValue>
-  <schema:PropertyValue rdf:about="https://quadriga-dk.github.io/Book_Template/#contributor_1_orcid">
+  <schema:PropertyValue rdf:about="https://quadriga-dk.github.io/Tabelle-Fallstudie-3/#contributor_1_orcid">
     <schema:propertyID>ORCID</schema:propertyID>
     <schema:url rdf:resource="https://orcid.org/0000-0003-3858-901X" />
     <schema:value>0000-0003-3858-901X</schema:value>
+  </schema:PropertyValue>
+  <schema:PropertyValue rdf:about="https://quadriga-dk.github.io/Tabelle-Fallstudie-3/#contributor_2_orcid">
+    <schema:propertyID>ORCID</schema:propertyID>
+    <schema:url rdf:resource="https://orcid.org/0009-0001-1879-9880" />
+    <schema:value>0009-0001-1879-9880</schema:value>
+  </schema:PropertyValue>
+  <schema:PropertyValue rdf:about="https://quadriga-dk.github.io/Tabelle-Fallstudie-3/#contributor_4_orcid">
+    <schema:propertyID>ORCID</schema:propertyID>
+    <schema:url rdf:resource="https://orcid.org/0000-0002-8113-1509" />
+    <schema:value>0000-0002-8113-1509</schema:value>
+  </schema:PropertyValue>
+  <schema:PropertyValue rdf:about="https://quadriga-dk.github.io/Tabelle-Fallstudie-3/#contributor_5_orcid">
+    <schema:propertyID>ORCID</schema:propertyID>
+    <schema:url rdf:resource="https://orcid.org/0000-0002-3637-3154" />
+    <schema:value>0000-0002-3637-3154</schema:value>
   </schema:PropertyValue>
 </rdf:RDF>

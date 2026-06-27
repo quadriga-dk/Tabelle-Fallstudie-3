@@ -56,20 +56,23 @@ keywords:
 - en: Dashboard
 - de: Datenvisualisierung
 - de: Datenkommunikation
-description: In dieser Open Educational Resource wird mit der Applikation R Shiny ein Dashboard gebaut, das das Engagement der Bürger:innen in Bezug auf die Bewässerung städtischer Bäumen visualisiert. Dabei werden Kompetenzen im Bereich Visualisierung und Kommunikation von Daten vermittelt.
-table-of-contents: '- [Einstieg
+description: In dieser Open Educational Resource wird mit der Applikation R Shiny
+  ein Dashboard gebaut, das das Engagement der Bürger:innen in Bezug auf die Bewässerung
+  städtischer Bäumen visualisiert. Dabei werden Kompetenzen im Bereich Visualisierung
+  und Kommunikation von Daten vermittelt.
+table-of-contents: '- [Missing: 1]
 
   - Fragestellung und Operationalisierung
 
-  - Datenbasis
+  - [Missing: 3]
 
-  - Dashboard - Vorbereitung
+  - [Missing: 4]
 
   - Dashboard - Einzelelemente
 
   - Zusammenfassung und Reflexion
 
-  - Abschluss'
+  - [Missing: 7]'
 discipline:
 - Verwaltungswissenschaften
 - Informationswissenschaft
@@ -139,18 +142,19 @@ used-tools:
 - name: RStudio
   url: https://posit.co/download/rstudio-desktop/
 chapters:
-- title: 'Fragestellung und Operationalisierung'
+- title: Fragestellung und Operationalisierung
   description: In diesem einführenden Kapitel wird das Erkenntnisinteresse formuliert.
   url: https://quadriga-dk.github.io/Tabelle-Fallstudie-3/operationalisierung/fragestellung-operationalisierung.html
   learning-goal: Formulieren der Leitfrage und Operationalisieren des Verfahrens
   time-required: TODO
   learning-objectives:
-  - learning-objective: Sie können die Entwicklung einer Fragestellung in der Verwaltungswissenschaft am Beispiel der Ausprägungen des Engagements von Bürger:innen erläutern.
+  - learning-objective: Sie können die Entwicklung einer Fragestellung in der Verwaltungswissenschaft
+      am Beispiel der Ausprägungen des Engagements von Bürger:innen erläutern.
     competency: Orientierungswissen
     data-flow: übergreifend
     blooms-category: 2 Verstehen
     assessment: keins
-- title: 'Datenbasis'
+- title: Datenbasis
   description: Dieses Kapitel widmet sich der Datengrundlage der Untersuchung.
   url: https://quadriga-dk.github.io/Tabelle-Fallstudie-3/datenbasis/datenbasis-einleitung.html
   learning-goal: Laden von Datensätzen in R Shiny
@@ -169,7 +173,7 @@ chapters:
   supplemented-by:
   - https://raw.githubusercontent.com/technologiestiftung/giessdenkiez-de-opendata/main/daten/giessdenkiez_bew%C3%A4sserungsdaten.csv
   - https://tsb-opendata.s3.eu-central-1.amazonaws.com/bezirksgrenzen/bezirksgrenzen.geojson
-- title: 'Dashboard - Vorbereitung'
+- title: Dashboard - Vorbereitung
   description: Dieses Kapitel widmet sich der Vorbereitung des Dashboards.
   url: https://quadriga-dk.github.io/Tabelle-Fallstudie-3/4_dash-prep/4.0_intro.html
   learning-goal: Dashboards für Visualisierung und Kommunikation von Daten
@@ -180,18 +184,20 @@ chapters:
     data-flow: 4 Analyse
     blooms-category: 1 Erinnern
     assessment: keins
-  - learning-objective: Sie können die Bedeutung von Dashboards für die Datenkommunikation erläutern.
+  - learning-objective: Sie können die Bedeutung von Dashboards für die Datenkommunikation
+      erläutern.
     competency: 5.3 Kommunikation
     data-flow: 5 Publikation und Nachnutzung
     blooms-category: 2 Verstehen
     assessment: keins
-- title: 'Dashboard - Einzelelemente'
+- title: Dashboard - Einzelelemente
   description: Dieses Kapitel widmet sich dem Aufbau eines Dashboards mit R Shiny.
   url: https://quadriga-dk.github.io/Tabelle-Fallstudie-3/dashboard/Dashboard.html
   learning-goal: Aufbau eines Dashboards
   time-required: TODO
   learning-objectives:
-  - learning-objective: Sie können den Aufbau und die Gliederung eines Dashboards erklären.
+  - learning-objective: Sie können den Aufbau und die Gliederung eines Dashboards
+      erklären.
     competency: 4.2 Visualisierung
     data-flow: 4 Analyse
     blooms-category: 2 Verstehen

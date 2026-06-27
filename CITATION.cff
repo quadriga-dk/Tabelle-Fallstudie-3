@@ -2,23 +2,50 @@
 cff-version: 1.2.0
 title: 'Visualisierung in der Verwaltung: Ein Dashboard für Baum- und Bewässerungsdaten.
   QUADRIGA Open Educational Resources: Tabelle 3'
-abstract: Diese OER führt in die Erstellung von QUADRIGA-OERs ein, bietet Inhalte
-  für Nutzer:innen der OERs und dient gleichzeitig als Template für die Erstellung
-  eigener OERs auf Basis der QUADRIGA-Empfehlungen.
+abstract: In dieser Open Educational Resource wird mit der Applikation R Shiny ein
+  Dashboard gebaut, das das Engagement der Bürger:innen in Bezug auf die Bewässerung
+  städtischer Bäumen visualisiert. Dabei werden Kompetenzen im Bereich Visualisierung
+  und Kommunikation von Daten vermittelt.
 type: software
 message: Please cite this software using the metadata from `preferred-citation` in
   `CITATION.cff`.
 authors: &id001
+- given-names: Jana
+  family-names: Plomin
+  orcid: https://orcid.org/0000-0003-0127-7493
+  affiliation: Fraunhofer-Institut für Offene Kommunikationssysteme FOKUS
 - given-names: Paul
   family-names: Walter
+  orcid: https://orcid.org/0000-0002-9236-3268
+  affiliation: Fachhochschule Potsdam
+- given-names: Juliane
+  family-names: Schmeling
+  orcid: https://orcid.org/0009-0005-9814-1139
+  affiliation: Fraunhofer-Institut für Offene Kommunikationssysteme FOKUS
+- given-names: Sami
+  family-names: Dakruni
+  orcid: https://orcid.org/0009-0009-8541-6358
+  affiliation: Fraunhofer-Institut für Offene Kommunikationssysteme FOKUS
+- given-names: Cemre
+  family-names: Bingöl
+  orcid: https://orcid.org/0009-0009-2345-4973
+  affiliation: Fraunhofer-Institut für Offene Kommunikationssysteme FOKUS
 identifiers:
 - type: doi
   value: 10.5281/zenodo.14970672
   description: Zenodo
-repository-code: https://github.com/quadriga-dk/Book_Template
-url: https://quadriga-dk.github.io/Book_Template/
+repository-code: https://github.com/quadriga-dk/Tabelle-Fallstudie-3/
+url: https://quadriga-dk.github.io/Tabelle-Fallstudie-3/
 keywords: &id002
+- Verwaltung
+- Verwaltungswissenschaft
+- Public Sector
+- Tabelle
+- Lerneinheit
 - Open Educational Resource
+- Dashboard
+- Datenvisualisierung
+- Datenkommunikation
 license: CC-BY-SA-4.0
 references:
 - title: Jupyter Book
@@ -27,14 +54,14 @@ references:
   - name: The Jupyter Book Community
     website: https://github.com/jupyter-book/jupyter-book/graphs/contributors
 preferred-citation:
-  year: '2025'
+  year: '2026'
   authors: *id001
   title: 'Visualisierung in der Verwaltung: Ein Dashboard für Baum- und Bewässerungsdaten.
     QUADRIGA Open Educational Resources: Tabelle 3'
   type: book
   doi: 10.5281/zenodo.14970672
-  url: https://quadriga-dk.github.io/Book_Template/
-  repository-code: https://github.com/quadriga-dk/Book_Template
+  url: https://quadriga-dk.github.io/Tabelle-Fallstudie-3/
+  repository-code: https://github.com/quadriga-dk/Tabelle-Fallstudie-3/
   license: CC-BY-SA-4.0
   languages:
   - deu
