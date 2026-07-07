@@ -3,7 +3,7 @@
 
 format: jb-book
 root: intro
-options: 
+options:
   numbered: 3
 chapters:
   - file: 1_einstieg/1.0_einleitung
@@ -27,7 +27,7 @@ chapters:
       - file: 4_dash-prep/4.3_preparation
       - file: 4_dash-prep/4.4_resumee
   - file: dashboard/Dashboard
-    sections:      
+    sections:
       - file: dashboard/Datenvisualisierung-Grundlagen
       - file: dashboard/Übung_Startseite
       - file: dashboard/Übung_Karte
