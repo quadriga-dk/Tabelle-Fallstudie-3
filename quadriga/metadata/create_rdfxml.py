@@ -26,7 +26,7 @@ from rdflib import (  # type: ignore[import-not-found]
 )
 from rdflib.namespace import DCTERMS, SKOS, XSD  # type: ignore[import-not-found]
 
-from .utils import extract_keywords, get_file_path, get_repo_root, load_yaml_file
+from .utils import clean_orcid, extract_keywords, get_doi, get_file_path, get_repo_root, load_yaml_file
 
 logging.basicConfig(level=logging.INFO, format="%(levelname)s: %(message)s")
 logger = logging.getLogger(__name__)
@@ -53,54 +53,6 @@ def _sort_xml_element(element: ET.Element) -> None:
         _sort_xml_element(child)
     children.sort(key=lambda e: (e.tag, sorted(e.attrib.items()), e.text or ""))
     element[:] = children
-
-
-def clean_orcid(orcid_string: str) -> str | None:
-    """
-    Extract ORCID identifier from an ORCID string or URL.
-
-    Args:
-        orcid_string (str): ORCID string which may include URL prefix
-
-    Returns
-    -------
-        str: Clean ORCID identifier (e.g., "0000-0002-1602-6032")
-    """
-    if not orcid_string:
-        return None
-
-    orcid = str(orcid_string)
-    prefixes = ["https://orcid.org/", "http://orcid.org/", "orcid:"]
-    for prefix in prefixes:
-        if orcid.startswith(prefix):
-            orcid = orcid[len(prefix) :]
-            break
-
-    return orcid.strip()
-
-
-def clean_doi(doi_string: str) -> str | None:
-    """
-    Extract DOI identifier from a DOI string or URL.
-
-    Args:
-        doi_string (str): DOI string which may include URL prefix
-
-    Returns
-    -------
-        str: Clean DOI identifier (e.g., "10.5281/zenodo.14970672")
-    """
-    if not doi_string:
-        return None
-
-    doi = str(doi_string)
-    prefixes = ["https://doi.org/", "http://doi.org/", "doi:"]
-    for prefix in prefixes:
-        if doi.startswith(prefix):
-            doi = doi[len(prefix) :]
-            break
-
-    return doi.strip()
 
 
 def add_person(graph: Graph, person_data: Any, base_uri: str, person_type: str, index: int) -> URIRef | None:
@@ -374,17 +326,18 @@ def create_rdfxml() -> bool | None:
             logger.info("Added description")
 
         # identifier (DOI) -> schema:identifier (exactMatch)
-        if "identifier" in metadata:
-            clean_doi_id = clean_doi(metadata["identifier"])
-            if clean_doi_id:
-                # Create PropertyValue node for DOI
-                doi_node = URIRef(f"{base_uri}#doi")
-                graph.add((doi_node, RDF.type, SCHEMA.PropertyValue))
-                graph.add((doi_node, SCHEMA.propertyID, Literal("DOI")))
-                graph.add((doi_node, SCHEMA.value, Literal(clean_doi_id)))
-                graph.add((doi_node, SCHEMA.url, URIRef(metadata["identifier"])))
-                graph.add((resource_uri, SCHEMA.identifier, doi_node))
-                logger.info("Added DOI identifier: %s", clean_doi_id)
+        doi = get_doi(metadata)
+        if doi:
+            # Create PropertyValue node for DOI
+            doi_node = URIRef(f"{base_uri}#doi")
+            graph.add((doi_node, RDF.type, SCHEMA.PropertyValue))
+            graph.add((doi_node, SCHEMA.propertyID, Literal("DOI")))
+            graph.add((doi_node, SCHEMA.value, Literal(doi)))
+            graph.add((doi_node, SCHEMA.url, URIRef(f"https://doi.org/{doi}")))
+            graph.add((resource_uri, SCHEMA.identifier, doi_node))
+            logger.info("Added DOI identifier: %s", doi)
+        else:
+            logger.warning("No DOI found in metadata.yml 'identifier' field")
 
         # version -> schema:version (exactMatch)
         if "version" in metadata:
