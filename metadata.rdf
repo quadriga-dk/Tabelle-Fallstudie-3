@@ -1,10 +1,9 @@
 <?xml version='1.0' encoding='utf-8'?>
 <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:lrmi="http://purl.org/dcx/lrmi-terms/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:schema="http://schema.org/">
   <schema:AlignmentObject rdf:about="https://quadriga-dk.github.io/Tabelle-Fallstudie-3/#chapter_0_objective_0">
-    <lrmi:assesses>keins</lrmi:assesses>
     <schema:educationalFramework>QUADRIGA Competency Framework</schema:educationalFramework>
-    <schema:targetDescription>Competency: Orientierungswissen | Bloom's: 2 Verstehen | Data Flow: übergreifend</schema:targetDescription>
-    <schema:targetName>Sie können die Entwicklung einer Fragestellung in der Verwaltungswissenschaft am Beispiel der Ausprägungen des Engagements von Bürger:innen erläutern.</schema:targetName>
+    <schema:targetDescription>Competency: nicht anwendbar | Bloom's: 2 Verstehen | Data Flow: nicht anwendbar</schema:targetDescription>
+    <schema:targetName>Sie können die Entwicklung einer Fragestellung und ihre Operationalisierung am Beispiel der Ausprägungen des Engagements von Bürger:innen erläutern.</schema:targetName>
   </schema:AlignmentObject>
   <schema:AlignmentObject rdf:about="https://quadriga-dk.github.io/Tabelle-Fallstudie-3/#chapter_1_objective_0">
     <lrmi:assesses>keins</lrmi:assesses>
@@ -44,13 +43,13 @@
   </schema:AlignmentObject>
   <schema:Book rdf:about="https://quadriga-dk.github.io/Tabelle-Fallstudie-3/">
     <dc:type>Jupyter Book</dc:type>
-    <dcterms:tableOfContents>- [Missing: 1]
+    <dcterms:tableOfContents>- Einstieg
 - Fragestellung und Operationalisierung
-- [Missing: 3]
-- [Missing: 4]
+- Datenbasis
+- Dashboard - Vorbereitung
 - Dashboard - Einzelelemente
 - Zusammenfassung und Reflexion
-- [Missing: 7]</dcterms:tableOfContents>
+- Abschluss</dcterms:tableOfContents>
     <dcterms:type>Jupyter Book</dcterms:type>
     <lrmi:learningResourceType>Jupyter Book</lrmi:learningResourceType>
     <schema:about>
@@ -280,13 +279,6 @@ Förderkennzeichen: 16DKZ2034</schema:funding>
         <schema:url rdf:resource="https://quadriga-dk.github.io/Tabelle-Fallstudie-3/dashboard/Dashboard.html" />
       </schema:LearningResource>
     </schema:hasPart>
-    <schema:identifier>
-      <schema:PropertyValue rdf:about="https://quadriga-dk.github.io/Tabelle-Fallstudie-3/#doi">
-        <schema:propertyID>DOI</schema:propertyID>
-        <schema:url rdf:resource="TODO" />
-        <schema:value>TODO</schema:value>
-      </schema:PropertyValue>
-    </schema:identifier>
     <schema:inLanguage>de</schema:inLanguage>
     <schema:keywords>Dashboard</schema:keywords>
     <schema:keywords>Datenkommunikation</schema:keywords>

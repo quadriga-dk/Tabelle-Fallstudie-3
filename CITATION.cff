@@ -30,10 +30,6 @@ authors: &id001
   family-names: Bingöl
   orcid: https://orcid.org/0009-0009-2345-4973
   affiliation: Fraunhofer-Institut für Offene Kommunikationssysteme FOKUS
-identifiers:
-- type: doi
-  value: 10.5281/zenodo.14970672
-  description: Zenodo
 repository-code: https://github.com/quadriga-dk/Tabelle-Fallstudie-3/
 url: https://quadriga-dk.github.io/Tabelle-Fallstudie-3/
 keywords: &id002
@@ -46,7 +42,7 @@ keywords: &id002
 - Dashboard
 - Datenvisualisierung
 - Datenkommunikation
-license: CC-BY-SA-4.0
+license: CC-BY-4.0
 references:
 - title: Jupyter Book
   type: software
@@ -59,13 +55,12 @@ preferred-citation:
   title: 'Visualisierung in der Verwaltung: Ein Dashboard für Baum- und Bewässerungsdaten.
     QUADRIGA Open Educational Resources: Tabelle 3'
   type: book
-  doi: 10.5281/zenodo.14970672
   url: https://quadriga-dk.github.io/Tabelle-Fallstudie-3/
   repository-code: https://github.com/quadriga-dk/Tabelle-Fallstudie-3/
-  license: CC-BY-SA-4.0
+  license: CC-BY-4.0
   languages:
   - deu
-  copyright: CC-BY-SA-4.0
+  copyright: CC-BY-4.0
   keywords: *id002
   version: 0.0.1
 version: 0.0.1

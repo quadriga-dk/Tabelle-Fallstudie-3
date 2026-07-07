@@ -13,12 +13,6 @@
   ],
   "name": "Visualisierung in der Verwaltung: Ein Dashboard für Baum- und Bewässerungsdaten. QUADRIGA Open Educational Resources: Tabelle 3",
   "description": "In dieser Open Educational Resource wird mit der Applikation R Shiny ein Dashboard gebaut, das das Engagement der Bürger:innen in Bezug auf die Bewässerung städtischer Bäumen visualisiert. Dabei werden Kompetenzen im Bereich Visualisierung und Kommunikation von Daten vermittelt.",
-  "identifier": {
-    "@type": "PropertyValue",
-    "propertyID": "DOI",
-    "value": "TODO",
-    "url": "TODO"
-  },
   "version": "0.0.1",
   "schemaVersion": "1.0.0",
   "url": "https://quadriga-dk.github.io/Tabelle-Fallstudie-3/",
@@ -307,10 +301,9 @@
       "educationalAlignment": [
         {
           "@type": "AlignmentObject",
-          "targetName": "Sie können die Entwicklung einer Fragestellung in der Verwaltungswissenschaft am Beispiel der Ausprägungen des Engagements von Bürger:innen erläutern.",
+          "targetName": "Sie können die Entwicklung einer Fragestellung und ihre Operationalisierung am Beispiel der Ausprägungen des Engagements von Bürger:innen erläutern.",
           "educationalFramework": "QUADRIGA Competency Framework",
-          "targetDescription": "Competency: Orientierungswissen | Bloom's: 2 Verstehen | Data Flow: übergreifend",
-          "lrmi:assesses": "keins"
+          "targetDescription": "Competency: nicht anwendbar | Bloom's: 2 Verstehen | Data Flow: nicht anwendbar"
         }
       ]
     },
@@ -387,7 +380,7 @@
       ]
     }
   ],
-  "dcterms:tableOfContents": "- [Missing: 1]\n- Fragestellung und Operationalisierung\n- [Missing: 3]\n- [Missing: 4]\n- Dashboard - Einzelelemente\n- Zusammenfassung und Reflexion\n- [Missing: 7]",
+  "dcterms:tableOfContents": "- Einstieg\n- Fragestellung und Operationalisierung\n- Datenbasis\n- Dashboard - Vorbereitung\n- Dashboard - Einzelelemente\n- Zusammenfassung und Reflexion\n- Abschluss",
   "funding": "Die vorliegenden Open Educational Resources wurden durch das Datenkompetenzzentrum QUADRIGA erstellt.\n\nFörderkennzeichen: 16DKZ2034",
   "learningResourceType": "Jupyter Book",
   "lrmi:learningResourceType": "Jupyter Book",

@@ -60,19 +60,19 @@ description: In dieser Open Educational Resource wird mit der Applikation R Shin
   ein Dashboard gebaut, das das Engagement der Bürger:innen in Bezug auf die Bewässerung
   städtischer Bäumen visualisiert. Dabei werden Kompetenzen im Bereich Visualisierung
   und Kommunikation von Daten vermittelt.
-table-of-contents: '- [Missing: 1]
+table-of-contents: '- Einstieg
 
   - Fragestellung und Operationalisierung
 
-  - [Missing: 3]
+  - Datenbasis
 
-  - [Missing: 4]
+  - Dashboard - Vorbereitung
 
   - Dashboard - Einzelelemente
 
   - Zusammenfassung und Reflexion
 
-  - [Missing: 7]'
+  - Abschluss'
 discipline:
 - Verwaltungswissenschaften
 - Informationswissenschaft
@@ -129,7 +129,7 @@ contributors:
   credit:
   - Funding acquisition
   affiliation: Fachhochschule Potsdam
-identifier: TODO
+identifier: https://doi.org/10.5281/zenodo.TODOTODO
 git: https://github.com/quadriga-dk/Tabelle-Fallstudie-3/
 url: https://quadriga-dk.github.io/Tabelle-Fallstudie-3/
 prerequisites:
@@ -148,12 +148,11 @@ chapters:
   learning-goal: Formulieren der Leitfrage und Operationalisieren des Verfahrens
   time-required: TODO
   learning-objectives:
-  - learning-objective: Sie können die Entwicklung einer Fragestellung in der Verwaltungswissenschaft
+  - learning-objective: Sie können die Entwicklung einer Fragestellung und ihre Operationalisierung
       am Beispiel der Ausprägungen des Engagements von Bürger:innen erläutern.
-    competency: Orientierungswissen
-    data-flow: übergreifend
+    competency: nicht anwendbar
+    data-flow: nicht anwendbar
     blooms-category: 2 Verstehen
-    assessment: keins
 - title: Datenbasis
   description: Dieses Kapitel widmet sich der Datengrundlage der Untersuchung.
   url: https://quadriga-dk.github.io/Tabelle-Fallstudie-3/datenbasis/datenbasis-einleitung.html
