@@ -102,7 +102,7 @@ Somit können Sie eine übersichtliche Navigationsstruktur etablieren.
 ---
 name: Dashboard Seitenleiste
 alt: Seitenleiste der Startseite des Dashboards
-width: 100%
+width: 50%
 ---
 Seitenleiste der Startseite des Dashboards
 ``` 
@@ -111,16 +111,16 @@ Seitenleiste der Startseite des Dashboards
 ---
 name: Dashboard Startseite Inhaltsbereich
 alt: Inhaltsbereich der Startseite des Dashboards
-width: 50%
+width: 25%
 ---
 Inhaltsbeireich der Startseite des Dashboards
 ``` 
 
-```{figure} ../assets/Dropdown.png
+```{figure} ../assets/Dropdowns.png
 ---
 name: Dashboard Startseite Inhaltsbereich
 alt: Dropdownmenü im Inhaltsbereich der Startseite des Dashboards
-width: 50%
+width: 25%
 ---
 Dropdownmenü im Inhaltsbereich der Startseite des Dashboards
 ``` 
