@@ -59,7 +59,7 @@ Startseite des Dashboards: Auf der Startseite können ein oder mehrere Bezirke �
 Für die Startseite plant Amir eine Kennzahlenübersicht zur schnellen Nutzer*innenorientierung. Für Nutzende soll direkt ablesbar sein:
 
 a) die Größenordnung des Gießverhaltens einzuschätzen (z. B. wie viele Bäume insgesamt erfasst sind, wie viele davon gegossen wurden)
-b) Stand der Gießaktivitäten
+b) Stand der Gießaktivitäten.
 Von dort aus können sie anschließend weiter navigieren.
 
 Zusätzlich plant er **Filtermöglichkeiten** nach **Bezirken**, um Kennzahlen einzugrenzen und regionale Unterschiede sichtbar zu machen. Die auf der Startseite dargestellten Kennzahlen werden dabei ausschließlich als **absolute Werte** angezeigt und **nicht ins Verhältnis** zueinander gesetzt.
@@ -88,15 +88,51 @@ ui <- dashboardPage(
 
 Das System Ihrer Benutzeroberfläche wird aus zwei Teilen bestehen:
 
-- einer Seitenleiste (``sidebarMenu``) mit der Navigation
+- einer Seitenleiste (``sidebarMenu``) mit der Navigation ({numref}`Dashboard Seitenleiste`)
 
 - einem Inhaltsbereich (``tabItem``) mit:
 
-    - sog. ValueBoxen für wichtige Kennzahlen
+    - sog. ValueBoxen für wichtige Kennzahlen ({numref}`Dashboard Startseite Inhaltsbereich`)
 
-    - Dropdowns zur Auswahl des Zeitraums und des Bezirks
+    - Dropdowns zur Auswahl des Zeitraums und des Bezirks ({numref}`Dropdown`)
 
 Somit können Sie eine übersichtliche Navigationsstruktur etablieren.
+
+```{figure} ../assets/Seitenleiste.png
+---
+name: Dashboard Seitenleiste
+alt: Seitenleiste der Startseite des Dashboards
+width: 25%
+align: center
+---
+Seitenleiste der Startseite des Dashboards
+``` 
+
+::::{grid} 2
+:gutter: 3
+
+:::{grid-item}
+```{figure} ../assets/Inhaltsbereich.png
+---
+name: Dashboard Startseite Inhaltsbereich
+alt: Inhaltsbereich der Startseite des Dashboards
+width: 100%
+---
+Inhaltsbereich der Startseite des Dashboards
+``` 
+:::
+
+:::{grid-item}
+```{figure} ../assets/Dropdowns.png
+---
+name: Dropdown
+alt: Dropdownmenü im Inhaltsbereich der Startseite des Dashboards
+width: 100%
+---
+Dropdownmenü im Inhaltsbereich der Startseite des Dashboards
+```  
+:::
+::::
 
 ### Seitenleiste mit der Navigation (sidebarMenu)
 Die Seitenleiste enthält Menüpunkte, die jeweils einen Namen und ein Symbol zur besseren Orientierung bekommen.
@@ -612,9 +648,20 @@ Startseite, jedoch ist nur der Bezirk Mitte ausgewählt (dort wurde in absoluten
 Für eine abschließende Beantwortung der Leitfrage reicht diese Betrachtung jedoch nicht aus, da **ohne Normalisierung** – etwa durch das Verhältnis gegossener Bäume zur Gesamtbaumzahl je Bezirk – **keine validen Vergleiche zwischen den Bezirken** gezogen werden können. Fahren Sie daher mit der folgenden Übung fort.
 
 ### Übung
+
+````{margin}
+```{admonition} Hinweis
+:class: hinweis
+
+Vergessen Sie nicht, wie bereits in vorherigen Kapiteln gezeigt, das [Arbeitsverzeichnis korrekt zu setzen](daten-vorbereitung) und die bereinigten Daten aus dem Datenverzeichnis auszulesen.
+
+```
+````
+
 Berechnen Sie nun für jeden Berliner Bezirk das relative Bürger:innenengagement, indem Sie die Anzahl der gegossenen Bäume zur Gesamtbaumzahl des jeweiligen Bezirks ins Verhältnis setzen.
 
 An dieser Stelle können Sie Ihre bisher erlernten R-Fähigkeiten anwenden. Anstatt sich die Kennzahlen aus dem Dashboard rauszuschreiben und die Berechnungen mit einem Taschenrechner oder Excel durchzuführen, schreiben Sie doch ein kleines R-Script, welches diese Aufgabe erledigt. Sobald Sie das richtige Ergebnis berechnet haben, können Sie es unten im Quiz auswählen. Vergessen Sie hierbei nicht, wie bereits in vorherigen Kapiteln gezeigt, das Arbeitsverzeichnis korrekt zu setzen und die bereinigten Daten aus dem Datenverzeichnis auszulesen.
+
 
 ```{code-cell} ipython3
 :tags: [remove-input]
