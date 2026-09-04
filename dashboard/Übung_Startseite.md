@@ -103,27 +103,36 @@ Somit können Sie eine übersichtliche Navigationsstruktur etablieren.
 name: Dashboard Seitenleiste
 alt: Seitenleiste der Startseite des Dashboards
 width: 25%
+align: center
 ---
 Seitenleiste der Startseite des Dashboards
 ``` 
 
+::::{grid} 2
+:gutter: 3
+
+:::{grid-item}
 ```{figure} ../assets/Inhaltsbereich.png
 ---
 name: Dashboard Startseite Inhaltsbereich
 alt: Inhaltsbereich der Startseite des Dashboards
-width: 50%
+width: 100%
 ---
-Inhaltsbeireich der Startseite des Dashboards
+Inhaltsbereich der Startseite des Dashboards
 ``` 
+:::
 
+:::{grid-item}
 ```{figure} ../assets/Dropdowns.png
 ---
 name: Dropdown
 alt: Dropdownmenü im Inhaltsbereich der Startseite des Dashboards
-width: 50%
+width: 100%
 ---
 Dropdownmenü im Inhaltsbereich der Startseite des Dashboards
-``` 
+```  
+:::
+::::
 
 ### Seitenleiste mit der Navigation (sidebarMenu)
 Die Seitenleiste enthält Menüpunkte, die jeweils einen Namen und ein Symbol zur besseren Orientierung bekommen.
