@@ -88,13 +88,13 @@ ui <- dashboardPage(
 
 Das System Ihrer Benutzeroberfläche wird aus zwei Teilen bestehen:
 
-- einer Seitenleiste (``sidebarMenu``) mit der Navigation
+- einer Seitenleiste (``sidebarMenu``) mit der Navigation ({numref}`Dashboard Seitenleiste`)
 
 - einem Inhaltsbereich (``tabItem``) mit:
 
-    - sog. ValueBoxen für wichtige Kennzahlen
+    - sog. ValueBoxen für wichtige Kennzahlen ({numref}`Dashboard Startseite Inhaltsbereich`)
 
-    - Dropdowns zur Auswahl des Zeitraums und des Bezirks
+    - Dropdowns zur Auswahl des Zeitraums und des Bezirks ({numref}`Dropdownmenü im Inhaltsbereich der Startseite des Dashboards`)
 
 Somit können Sie eine übersichtliche Navigationsstruktur etablieren.
 
