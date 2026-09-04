@@ -59,7 +59,7 @@ Startseite des Dashboards: Auf der Startseite können ein oder mehrere Bezirke �
 Für die Startseite plant Amir eine Kennzahlenübersicht zur schnellen Nutzer*innenorientierung. Für Nutzende soll direkt ablesbar sein:
 
 a) die Größenordnung des Gießverhaltens einzuschätzen (z. B. wie viele Bäume insgesamt erfasst sind, wie viele davon gegossen wurden)
-b) Stand der Gießaktivitäten
+b) Stand der Gießaktivitäten.
 Von dort aus können sie anschließend weiter navigieren.
 
 Zusätzlich plant er **Filtermöglichkeiten** nach **Bezirken**, um Kennzahlen einzugrenzen und regionale Unterschiede sichtbar zu machen. Die auf der Startseite dargestellten Kennzahlen werden dabei ausschließlich als **absolute Werte** angezeigt und **nicht ins Verhältnis** zueinander gesetzt.
@@ -97,6 +97,33 @@ Das System Ihrer Benutzeroberfläche wird aus zwei Teilen bestehen:
     - Dropdowns zur Auswahl des Zeitraums und des Bezirks
 
 Somit können Sie eine übersichtliche Navigationsstruktur etablieren.
+
+```{figure} ../assets/Seitenleiste.png
+---
+name: Dashboard Seitenleiste
+alt: Seitenleiste der Startseite des Dashboards
+width: 100%
+---
+Seitenleiste der Startseite des Dashboards
+``` 
+
+```{figure} ../assets/Inhaltsbereich.png
+---
+name: Dashboard Startseite Inhaltsbereich
+alt: Inhaltsbereich der Startseite des Dashboards
+width: 50%
+---
+Inhaltsbeireich der Startseite des Dashboards
+``` 
+
+```{figure} ../assets/Dropdown.png
+---
+name: Dashboard Startseite Inhaltsbereich
+alt: Dropdownmenü im Inhaltsbereich der Startseite des Dashboards
+width: 50%
+---
+Dropdownmenü im Inhaltsbereich der Startseite des Dashboards
+``` 
 
 ### Seitenleiste mit der Navigation (sidebarMenu)
 Die Seitenleiste enthält Menüpunkte, die jeweils einen Namen und ein Symbol zur besseren Orientierung bekommen.
