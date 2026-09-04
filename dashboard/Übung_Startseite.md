@@ -94,7 +94,7 @@ Das System Ihrer Benutzeroberfläche wird aus zwei Teilen bestehen:
 
     - sog. ValueBoxen für wichtige Kennzahlen ({numref}`Dashboard Startseite Inhaltsbereich`)
 
-    - Dropdowns zur Auswahl des Zeitraums und des Bezirks ({numref}`Dropdownmenü im Inhaltsbereich der Startseite des Dashboards`)
+    - Dropdowns zur Auswahl des Zeitraums und des Bezirks ({numref}`Dropdown`)
 
 Somit können Sie eine übersichtliche Navigationsstruktur etablieren.
 
@@ -118,7 +118,7 @@ Inhaltsbeireich der Startseite des Dashboards
 
 ```{figure} ../assets/Dropdowns.png
 ---
-name: Dashboard Startseite Inhaltsbereich
+name: Dropdown
 alt: Dropdownmenü im Inhaltsbereich der Startseite des Dashboards
 width: 50%
 ---
