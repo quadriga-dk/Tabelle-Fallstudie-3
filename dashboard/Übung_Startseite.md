@@ -652,6 +652,15 @@ Berechnen Sie nun für jeden Berliner Bezirk das relative Bürger:innenengagemen
 
 An dieser Stelle können Sie Ihre bisher erlernten R-Fähigkeiten anwenden. Anstatt sich die Kennzahlen aus dem Dashboard rauszuschreiben und die Berechnungen mit einem Taschenrechner oder Excel durchzuführen, schreiben Sie doch ein kleines R-Script, welches diese Aufgabe erledigt. Sobald Sie das richtige Ergebnis berechnet haben, können Sie es unten im Quiz auswählen. Vergessen Sie hierbei nicht, wie bereits in vorherigen Kapiteln gezeigt, das Arbeitsverzeichnis korrekt zu setzen und die bereinigten Daten aus dem Datenverzeichnis auszulesen.
 
+````{margin}
+```{admonition} Hinweis
+:class: hinweis
+
+Vergessen Sie nicht, wie bereits in vorherigen Kapiteln gezeigt, das [Arbeitsverzeichnis korrekt zu setzen](daten-vorbereitung) und die bereinigten Daten aus dem Datenverzeichnis auszulesen.
+
+```
+````
+
 ```{code-cell} ipython3
 :tags: [remove-input]
 from jupyterquiz import display_quiz
