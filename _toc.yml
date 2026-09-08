@@ -20,12 +20,14 @@ chapters:
       - file: datenbasis/datenbasis
       - file: datenbasis/daten-vorbereitung
       - file: datenbasis/3.3_resumee
+      - file: datenbasis/assessment
   - file: 4_dash-prep/4.0_intro
     sections:
       - file: 4_dash-prep/4.1_dashboard
       - file: 4_dash-prep/4.2_tools
       - file: 4_dash-prep/4.3_preparation
       - file: 4_dash-prep/4.4_resumee
+      - file: 4_dash-prep/assessment
   - file: dashboard/Dashboard
     sections:
       - file: dashboard/Datenvisualisierung-Grundlagen
@@ -35,6 +37,7 @@ chapters:
       - file: dashboard/Übung_Zeitverlauf
       - file: dashboard/Übung_Baumstatistik
       - file: dashboard/resumee
+      - file: dashboard/assessment
   - file: Zusammenfassung
   - file: 7_abschluss/7.0_einleitung
     sections:
