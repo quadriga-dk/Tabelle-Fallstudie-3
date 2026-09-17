@@ -27,7 +27,7 @@ Mit Ihren Rückmeldungen können wir unser interaktives Lehrbuch gezielt an Ihre
 ```{literalinclude} /CITATION.bib
 :language: bibtex
 ```
-Plomin, J., Walter, P., Schmeling, J., Dakruni, S. & Bingöl, C. (2025). _Visualisierung in der Verwaltung: Ein Dashboard für Baum- und Bewässerungsdaten. QUADRIGA Open Educational Resources: Tabelle 3_
+Walter, P., Plomin, J., Schmeling, J., Dakruni, S. & Bingöl, C. (2026). _Visualisierung in der Verwaltung: Ein Dashboard für Baum- und Bewässerungsdaten. QUADRIGA Open Educational Resources: Tabelle 3_
 
 ````
 `````
@@ -44,11 +44,17 @@ alt: A collage, containing visualizations created using R Shiny
 Collage von Eindrücken des in dieser Fallstudie erstellten Dashboards, die beispielhaft die Datenvisualisierungs- und Analysemethoden dieses interaktiven Lehrbuchs demonstriert.
 ``` 
 
+````{margin}
+```{admonition} QUADRIGA OER
+:class: hinweis
+Sie finden alle Open Educational Resources (OER) bzw. Fallstudien des Datenkompetenzzentrums <a href="https://www.quadriga-dk.de/de" class="external-link" target="_blank">QUADRIGA</a> auf folgender <a href="https://quadriga-dk.github.io/fallstudien/" class="external-link" target="_blank">Übersichtsseite</a> zusammengestellt.
+```
+````
 
 ```{admonition} Die Forschung von Dr. Amir Weber
 :class: story
 Dr. Amir Weber, ein Verwaltungswissenschaftler mit Interesse an kommunalen Daten und Bürgerbeteiligung, möchte ein Dashboard zur Visualisierung des Bewässerungsverhaltens von Bürger:innen erstellen, das auf offenen Datensätzen basiert.  
-In einer vorangegangenen  <a href="https://quadriga-dk.github.io/Tabelle-Fallstudie-2/Titelseite.html" class="external-link" target="_blank">Fallstudie</a> hat er exemplarisch aufgezeigt, wie geeignete Datensätze identifiziert und erschlossen werden können. Auf Grundlage von Datensätzen aus dem Bundesland Berlin möchte er nun eine ergebnisoffene, explorative Analyse durchführen, um darin enthaltende Erkenntnispotenziale zu identifizieren. Die gewonnenen Befunde werden in dieser Fallstudie parallel in Form eines Dashboards aufbereitet, um die Daten für Bürger:innen und politische Entscheidungsträger:innen nachvollziehbar darzustellen.  
+In einer anderen <a href="https://quadriga-dk.github.io/Tabelle-Fallstudie-2/Titelseite.html" class="external-link" target="_blank">Open Educational Resource</a> des Projekts QUADRIGA hat er exemplarisch aufgezeigt, wie geeignete Datensätze identifiziert und erschlossen werden können. Auf Grundlage von Datensätzen aus dem Bundesland Berlin möchte er nun eine ergebnisoffene, explorative Analyse durchführen, um darin enthaltende Erkenntnispotenziale zu identifizieren. Die gewonnenen Befunde werden in dieser Fallstudie parallel in Form eines Dashboards aufbereitet, um die Daten für Bürger:innen und politische Entscheidungsträger:innen nachvollziehbar darzustellen.  
 Hierzu soll insbesondere das Ausmaß sowie die räumliche Verteilung der Bürgerbeteiligung sichtbar gemacht werden. 
 Sie werden Dr. Weber mit der Erstellung eines solchen Dashboards helfen.
 
