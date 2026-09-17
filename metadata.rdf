@@ -134,19 +134,19 @@
     <schema:author>
       <schema:Person rdf:about="https://quadriga-dk.github.io/Tabelle-Fallstudie-3/#author_0">
         <schema:affiliation rdf:resource="https://quadriga-dk.github.io/Tabelle-Fallstudie-3/#author_0_org" />
-        <schema:familyName>Plomin</schema:familyName>
-        <schema:givenName>Jana</schema:givenName>
+        <schema:familyName>Walter</schema:familyName>
+        <schema:givenName>Paul</schema:givenName>
         <schema:identifier rdf:resource="https://quadriga-dk.github.io/Tabelle-Fallstudie-3/#author_0_orcid" />
-        <schema:name>Jana Plomin</schema:name>
+        <schema:name>Paul Walter</schema:name>
       </schema:Person>
     </schema:author>
     <schema:author>
       <schema:Person rdf:about="https://quadriga-dk.github.io/Tabelle-Fallstudie-3/#author_1">
         <schema:affiliation rdf:resource="https://quadriga-dk.github.io/Tabelle-Fallstudie-3/#author_1_org" />
-        <schema:familyName>Walter</schema:familyName>
-        <schema:givenName>Paul</schema:givenName>
+        <schema:familyName>Plomin</schema:familyName>
+        <schema:givenName>Jana</schema:givenName>
         <schema:identifier rdf:resource="https://quadriga-dk.github.io/Tabelle-Fallstudie-3/#author_1_orcid" />
-        <schema:name>Paul Walter</schema:name>
+        <schema:name>Jana Plomin</schema:name>
       </schema:Person>
     </schema:author>
     <schema:author>
@@ -315,10 +315,10 @@ Förderkennzeichen: 16DKZ2034</schema:funding>
     <rdf:type rdf:resource="http://schema.org/LearningResource" />
   </schema:Book>
   <schema:Organization rdf:about="https://quadriga-dk.github.io/Tabelle-Fallstudie-3/#author_0_org">
-    <schema:name>Fraunhofer-Institut für Offene Kommunikationssysteme FOKUS</schema:name>
+    <schema:name>Fachhochschule Potsdam</schema:name>
   </schema:Organization>
   <schema:Organization rdf:about="https://quadriga-dk.github.io/Tabelle-Fallstudie-3/#author_1_org">
-    <schema:name>Fachhochschule Potsdam</schema:name>
+    <schema:name>Fraunhofer-Institut für Offene Kommunikationssysteme FOKUS</schema:name>
   </schema:Organization>
   <schema:Organization rdf:about="https://quadriga-dk.github.io/Tabelle-Fallstudie-3/#author_2_org">
     <schema:name>Fraunhofer-Institut für Offene Kommunikationssysteme FOKUS</schema:name>
@@ -349,13 +349,13 @@ Förderkennzeichen: 16DKZ2034</schema:funding>
   </schema:Organization>
   <schema:PropertyValue rdf:about="https://quadriga-dk.github.io/Tabelle-Fallstudie-3/#author_0_orcid">
     <schema:propertyID>ORCID</schema:propertyID>
-    <schema:url rdf:resource="https://orcid.org/0000-0003-0127-7493" />
-    <schema:value>0000-0003-0127-7493</schema:value>
+    <schema:url rdf:resource="https://orcid.org/0000-0002-9236-3268" />
+    <schema:value>0000-0002-9236-3268</schema:value>
   </schema:PropertyValue>
   <schema:PropertyValue rdf:about="https://quadriga-dk.github.io/Tabelle-Fallstudie-3/#author_1_orcid">
     <schema:propertyID>ORCID</schema:propertyID>
-    <schema:url rdf:resource="https://orcid.org/0000-0002-9236-3268" />
-    <schema:value>0000-0002-9236-3268</schema:value>
+    <schema:url rdf:resource="https://orcid.org/0000-0003-0127-7493" />
+    <schema:value>0000-0003-0127-7493</schema:value>
   </schema:PropertyValue>
   <schema:PropertyValue rdf:about="https://quadriga-dk.github.io/Tabelle-Fallstudie-3/#author_2_orcid">
     <schema:propertyID>ORCID</schema:propertyID>

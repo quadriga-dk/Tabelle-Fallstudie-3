@@ -26,22 +26,6 @@
   "author": [
     {
       "@type": "Person",
-      "givenName": "Jana",
-      "familyName": "Plomin",
-      "name": "Jana Plomin",
-      "identifier": {
-        "@type": "PropertyValue",
-        "propertyID": "ORCID",
-        "value": "0000-0003-0127-7493",
-        "url": "https://orcid.org/0000-0003-0127-7493"
-      },
-      "affiliation": {
-        "@type": "Organization",
-        "name": "Fraunhofer-Institut für Offene Kommunikationssysteme FOKUS"
-      }
-    },
-    {
-      "@type": "Person",
       "givenName": "Paul",
       "familyName": "Walter",
       "name": "Paul Walter",
@@ -54,6 +38,22 @@
       "affiliation": {
         "@type": "Organization",
         "name": "Fachhochschule Potsdam"
+      }
+    },
+    {
+      "@type": "Person",
+      "givenName": "Jana",
+      "familyName": "Plomin",
+      "name": "Jana Plomin",
+      "identifier": {
+        "@type": "PropertyValue",
+        "propertyID": "ORCID",
+        "value": "0000-0003-0127-7493",
+        "url": "https://orcid.org/0000-0003-0127-7493"
+      },
+      "affiliation": {
+        "@type": "Organization",
+        "name": "Fraunhofer-Institut für Offene Kommunikationssysteme FOKUS"
       }
     },
     {
