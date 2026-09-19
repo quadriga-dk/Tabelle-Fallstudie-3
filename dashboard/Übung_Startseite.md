@@ -720,6 +720,7 @@ top_bezirk <- df_merged %>%
 # 3. Ergebnis anzeigen
 print(top_bezirk)
 ```
+**Hinweis:** Sofern Sie bisher mit den Datensätzen gearbeitet haben, welche in [Kapitel 3.1.3](datenbasis) zur Verfügung gestellt wurden, wird mit einem Wert von **0.0326** (bzw. **3,26 %**) Friedrichshain-Kreuzberg als der Bezirk mit der höchsten Gieß-Quote ausgegeben werden. Dieser Wert bedeutet, dass 3,26 % aller verzeichneten Bäume in diesem Bezirk mindestens einmal gegossen wurden. Sollten Sie die aktuellen Datensätze heruntergeladen haben, kann dieser Wert abweichen.
 ````
 
 **Durch die Berechnung der relativen Zahlen konnte die zentrale Leitfrage dieser Fallstudie nun sinnvoll beantwortet werden, wo  sich die höchsten Ausprägungen des Engagements von Bürger:innen in Berlin feststellen lässt.**  

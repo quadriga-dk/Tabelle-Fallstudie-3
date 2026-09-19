@@ -12,22 +12,32 @@ kernelspec:
 
 (map)=
 # Eine Karte erstellen
+
+````{margin}
+```{admonition} Hinweis
+:class: hinweis
+Die Plattform <a href="https://www.giessdenkiez.de/" class="external-link" target="_blank">Gieß den Kiez</a> zeigt ihm eindrucksvolle Karten, die Bezirke farblich nach bestimmten Kriterien hervorheben – das möchte Amir für seine Anwendung nachbauen.
+```
+````
+
 ```{admonition} Story
 :class: story
-Nachdem Amir mithilfe des Dashboards und Ihrer Unterstützung die wichtigsten Kennzahlen gesichtet hat, möchte er diese nun in Form einer intuitiven grafischen Darstellung visualisieren, um aufzuzeigen, in welchen Berliner Bezirken besonders viel gegossen wird. Die Plattform <a href="https://www.giessdenkiez.de/" class="external-link" target="_blank">Gieß den Kiez</a> zeigt ihm eindrucksvolle Karten, die Bezirke farblich nach bestimmten Kriterien hervorheben – das möchte Amir für seine Anwendung nachbauen.
-
-Sein Wunsch: Eine intuitive Karte von Berlin, die sofort erkennen lässt, in welchen Bezirken viele Bäume gegossen wurden und wo eher weniger.
+Amir hat mithilfe des Dashboards und Ihrer Unterstützung die wichtigsten Kennzahlen gesichtet.
+Nun möchte er zu der Frage, in welchen Berliner Bezirken besonders viel gegossen wird, eine geeignete Datenvisualisierung erstellen.
+Helfen Sie ihm dabei!
 ```
 
 ```{admonition} Zweck dieser Übung
 :class: lernziele
-Das Erstellen einer <a href="https://de.wikipedia.org/wiki/Leaflet" class="external-link" target="_blank">Leaflet-Karte</a> dient dazu, räumliche Informationen nutzbar zu machen, um Verwaltungsdaten visuell zugänglich und vergleichbar darzustellen. In dieser Übung lernen Sie, wie Bezirksdaten mit statistischen Kennzahlen verknüpft und anschließend mithilfe einer Farbskala intuitiv interpretiert werden können. Die farbliche Hervorhebung des Anteils bewässerter Bäume ermöglicht es, Muster und regionale Unterschiede auf einen Blick zu erkennen und zusätzliche Antworten auf die Leitfrage zu gewinnen: In welchen Bezirken wird besonders viel gegossen?
+
+ In dieser Übung lernen Sie, wie Bezirksdaten mit statistischen Kennzahlen verknüpft und anschließend mithilfe einer Farbskala dargestellt werden können. Dazu erstellen Sie eine <a href="https://de.wikipedia.org/wiki/Leaflet" class="external-link" target="_blank">Leaflet-Karte</a>. Diese dient dazu, räumliche Informationen nutzbar zu machen, um Verwaltungsdaten visuell zugänglich und vergleichbar darzustellen. In dieser Übung lernen Sie, wie Bezirksdaten mit statistischen Kennzahlen verknüpft und anschließend mithilfe einer Farbskala intuitiv interpretiert werden können. Die farbliche Hervorhebung des Anteils bewässerter Bäume ermöglicht es, Muster und regionale Unterschiede auf einen Blick zu erkennen und zusätzliche Antworten auf die Leitfrage zu gewinnen: In welchen Bezirken wird besonders viel gegossen?
 ```
-
-Das bestehdende Dashboard soll um eine **Karte der Berliner Bezirke** erweitert werden. Nachdem die Startseite bereits erste Kennzahlen sichtbar macht, werden Sie nun **räumlich darstellen**, wo in Berlin besonders viel gegossen wurde. Eine kartenbasierte Visualisierung eignet sich ideal, um regionale Muster zu erkennen, Hotspots sichtbar zu machen und Unterschiede zwischen den Bezirken intuitiv zu erfassen.
-
-Für diese Aufgabe nutzen Sie das Paket **Leaflet**, das interaktive Karten direkt in R-Shiny erzeugt. Ergänzt wird Leaflet durch **sf** zur Verarbeitung der Bezirks-Geodaten sowie durch Funktionen wie ```colorNumeric()```, mit denen eine aussagekräftige Farbskala erzeugt wird. Die Leaflet-Karte verknüpft also zwei Datenquellen:
+Die Leaflet-Karte verknüpft also zwei Datenquellen:
 die **räumliche Geometrie** der Berliner Bezirke und die **berechneten Kennzahlen** aus seinem Datensatz (insbesondere die Anzahl der Bäume sowie den Anteil der bewässerten Bäume pro Bezirk).
+
+Das bestehdende Dashboard soll um eine **Karte der Berliner Bezirke** erweitert werden. Nachdem die Startseite bereits erste Kennzahlen sichtbar macht, werden Sie mittels kartenbasierte Visualisierung, regionale Muster zum Gießverhalten in Berlin sichtbar machen
+
+Für diese Aufgabe nutzen Sie das Paket **Leaflet**, das interaktive Karten direkt in R-Shiny erzeugt. Ergänzt wird Leaflet durch **sf** zur Verarbeitung der Bezirks-Geodaten sowie durch Funktionen wie ```colorNumeric()```, mit denen eine aussagekräftige Farbskala erzeugt wird.
 
 ````{margin}
 ```{admonition} Dashboard erkunden
@@ -45,7 +55,7 @@ name: Dashboard Karte
 alt: Ein Screenshot, der zeigt Dashboard Karte
 width: 450px
 ---
-Zweiter Reiter des Dashboards - Karte: Die Abbildung zeigt eine Karte aller Berliner Bezirke. Die Farbsättigung eines Bezirks entspricht dem prozentualen Anteil der gegossenen Bäume an der Gesamtzahl der Bäume im jeweiligen Bezirk. Die genaue Zuordnung der Farbskala ist in der Legende erläutert.  (Quelle: eigene Ausarbeitung)
+Zweiter Reiter des Dashboards - Karte: Die Abbildung zeigt eine Karte aller Berliner Bezirke. Die Farbsättigung eines Bezirks entspricht dem prozentualen Anteil der gegossenen Bäume an der Gesamtzahl der Bäume im jeweiligen Bezirk. Dunkle Schattierungen signalisieren in unserem Beispiel hohe Bewässerungsraten, helle Bereiche niedrigere Werte.  (Quelle: eigene Ausarbeitung)
 ``` 
 
 ```{admonition} Die Karte erfüllt mehrere Ziele gleichzeitig:
@@ -74,7 +84,7 @@ Technisch nutzen Sie dafür ein Zusammenspiel aus:
 
 Durch diese Kombination entsteht eine leicht verständliche Darstellung. Nutzer:innen können sofort erkennen, wie die Bewässerungsaktivität räumlich verteilt ist und welche Bezirke, im positiven oder negativen Sinne, auffallen.
 
-## Benutzeroberfläche (UI)
+## Erweiterung der Benutzeroberfläche (UI)
 
 Da Sie die Grundstruktur der Benutzeroberfläche bereits in der vorherigen Übung aufgebaut haben, erweitern Sie diese nun lediglich um die Elemente für die Leaflet-Karte. Sie ergänzen:  
 - die **Seitenleiste** (`sidebarMenu`) um einen neuen Navigationspunkt für die Leaflet-Karte.
@@ -129,6 +139,8 @@ Idealerweise stellen Sie die Leaflet-Karte zentral dar, sodass diese sofort ins 
 
 
 ## Server
+
+Was ein Server in diesem Kontext ist, wurde bereits in [diesem Kapitel](vergleich) behandelt.
 
 ### Bewässerungsstatistik pro Bezirk berechnen
 
@@ -385,7 +397,7 @@ shinyApp(ui = ui, server = server)
 
 ## Reflexion
 
-Die Leitfrage, in welchem Berliner Bezirk die höchsten Ausprägungen des Bürger:innenengagements bei der Bewässerung städtischer Bäume festzustellen sind, wurde bereits in Kapitel 5.2 beantwortet. Allerdings ist es mit der in Kapitel 5.2. gewählten Darstellungsform etwas umständlich das Ergebnis herauszubekommen, da alle Bezirke einzeln durchgeklickt werden müssen.  
+Die Leitfrage, in welchem Berliner Bezirk die höchsten Ausprägungen des Bürger:innenengagements bei der Bewässerung städtischer Bäume festzustellen sind, wurde bereits in [Kapitel 5.2](landing-page) beantwortet. Allerdings ist es mit der in Kapitel 5.2. gewählten Darstellungsform etwas umständlich das Ergebnis herauszubekommen, da alle Bezirke einzeln durchgeklickt werden müssen.  
 Durch die in diesem Kapitel ergänzend gestaltete Choroplethenarte der Bezirke entsteht nun **erstmals ein räumlicher Gesamtüberblick** über die Verteilung der Bewässerungsaktivitäten innerhalb Berlins. Die Visualisierung bestätigt die bisherigen Ergebnisse und zeigt, dass **Friedrichshain-Kreuzberg**, gefolgt von **Tempelhof-Schöneberg** und **Mitte**, die höchsten Anteile bewässerter Bäume aufweisen.
 
 
