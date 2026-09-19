@@ -371,7 +371,7 @@ Die Dateigröße ist wesentlich **kleiner und kompakter** als bei einer herkömm
 # RDS speichern (wird im Dashboard später verwendet)
 saveRDS(df_final, "data/df_merged_final.rds")
 
-# Optional: Als CSV speichern (menschenlesbar, in Excel öffnbar, aber langsamer zu laden)
+# Optional: Als CSV speichern (menschenlesbar, in Excel öffenbar, aber langsamer zu laden)
 write.csv2(df_final, "data/df_merged_final.csv", row.names = FALSE, fileEncoding = "UTF-8")
 
 # Kontrolle: Daten kurz anschauen
