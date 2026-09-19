@@ -38,7 +38,7 @@
   <schema:AlignmentObject rdf:about="https://quadriga-dk.github.io/Tabelle-Fallstudie-3/#chapter_3_objective_1">
     <schema:educationalFramework>QUADRIGA Competency Framework</schema:educationalFramework>
     <schema:targetDescription>Competency: 4.2 Visualisierung | Bloom's: 3 Anwenden | Data Flow: 4 Analyse</schema:targetDescription>
-    <schema:targetName>Sie können ein einfaches Dashboard mit wesentlichen Komponenten (z. B. Startseite und Zeiterlauf) erstellen.</schema:targetName>
+    <schema:targetName>Sie können ein einfaches Dashboard mit wesentlichen Komponenten (z. B. Startseite und Zeitverlauf) erstellen.</schema:targetName>
   </schema:AlignmentObject>
   <schema:Book rdf:about="https://quadriga-dk.github.io/Tabelle-Fallstudie-3/">
     <dc:type>Jupyter Book</dc:type>

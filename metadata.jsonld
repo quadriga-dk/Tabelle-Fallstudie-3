@@ -372,7 +372,7 @@
         },
         {
           "@type": "AlignmentObject",
-          "targetName": "Sie können ein einfaches Dashboard mit wesentlichen Komponenten (z. B. Startseite und Zeiterlauf) erstellen.",
+          "targetName": "Sie können ein einfaches Dashboard mit wesentlichen Komponenten (z. B. Startseite und Zeitverlauf) erstellen.",
           "educationalFramework": "QUADRIGA Competency Framework",
           "targetDescription": "Competency: 4.2 Visualisierung | Bloom's: 3 Anwenden | Data Flow: 4 Analyse"
         }
