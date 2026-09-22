@@ -40,7 +40,7 @@ Der 4. von 4 Abschnitten dieser Fallstudie.
 ```
 
 Bevor die einzelnen Elemente dem Dashboard zugefügt werden, geht der erste Abschnitt auf einige [Grundlagen der Datenvisualisierung](datenvisualisierung-methoden-werkzeuge) ein.  
-Anschließend wird eine [Startseite gestaltet](landing-page) und dem Dashboard weitere Elemente hinzugefügt: eine [Karte](map), ein [Zeitverlauf](zeitverlauf), eine [Baumstatistik](trees) und eine [Bewässerungsanalyse](watering).
+Anschließend wird eine [Startseite gestaltet](landing-page) und es werden dem Dashboard weitere Elemente hinzugefügt: eine [Karte](map), ein [Zeitverlauf](zeitverlauf), eine [Baumstatistik](trees) und eine [Bewässerungsanalyse](watering).
 
 
 ```{admonition} Bearbeitungszeit

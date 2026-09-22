@@ -46,9 +46,11 @@ Da es bereits einige Lernressourcen zum Thema Datenvisualisierung gibt, finden S
 
 ```{admonition} Weitere Einblicke
 :class: seealso
-- Die Webseite <a href="https://ourworldindata.org/" class="external-link" target="_blank">Our World in Data</a> (englisch) bietet zu zahlreichen Themen, die aus werwaltungswissenschaftlicher Sicht interessant sind, visualisierte Daten an. Ein Browsen lohnt sich allein wegen der Fülle der gezeigten Darstellungsformen.
+- Die Webseite <a href="https://ourworldindata.org/" class="external-link" target="_blank">Our World in Data</a> (englisch) bietet zu zahlreichen Themen, die aus verwaltungswissenschaftlicher Sicht interessant sind, visualisierte Daten an. Ein Browsen lohnt sich allein wegen der Fülle der gezeigten Darstellungsformen.
 - Im Rahmen von <a href="https://www.quadriga-dk.de/de/" class="external-link" target="_blank">Quadriga</a> wurde in einer anderen Fallstudie über Studentische Filme bereits ein <a href="https://quadriga-dk.github.io/Bewegtes-Bild-Fallstudie-2/auswertung/visualisierung.html" class="external-link" target="_blank">Kapitel über Visualisierung</a> kreiert, in das ein Blick auch aus Perspektive der Verwaltung(swissenschaft) lohnt.
 - Auf der Webseite von <a href="https://lisacharlottemuth.com/articles" class="external-link" target="_blank">Lisa Charlotte Muth</a> finden Sie viele Beiträge und Wissenswertes rund um das Thema Datenvisualisierungen (auf Englisch).
+- Die <a href="https://r-graph-gallery.com/ggplot2-package.html" class="external-link" target="_blank">R Graph Gallery – ggplot2</a> bietet zahlreiche Beispiele für Visualisierungen mit <code>ggplot2</code>. Sie eignet sich besonders, um verschiedene Diagrammtypen und deren Umsetzung in R anhand konkreter Beispiele kennenzulernen. 
+- Das frei verfügbare Buch <a href="https://r4ds.hadley.nz/" class="external-link" target="_blank">R for Data Science</a> ist eine umfassende Ressource für die Arbeit mit R. Es behandelt unter anderem die Datenvisualisierung mit <code>ggplot2</code> und bietet sich daher sowohl für den Einstieg in R als auch zur Vertiefung der Arbeit mit Visualisierungen an.
 ```
 
 
