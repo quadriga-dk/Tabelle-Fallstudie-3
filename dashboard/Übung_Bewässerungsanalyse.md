@@ -391,7 +391,7 @@ Bei der **Gesamtbewässerungsmenge** liegen nun **Mitte**, **Charlottenburg-Wilm
 Betrachtet man jedoch die **durchschnittliche Bewässerungsmenge pro Baum**, verschiebt sich das Bild: Hier tritt **Friedrichshain-Kreuzberg** am weitesten hervor.
 
 **Das zeigt klar**:
-Die Wahl der Messgröße, also „Wie viel Wasser insgesamt?“ vs. „Wie viel Wasser pro Baum?“, beeinflusst die Interpretation des Engagements wesentlich. Unterschiedliche Kennzahlen können *unterschiedliche Geschichten* erzählen, auch sie auf denselben Rohdaten basieren.
+Die Wahl der Messgröße, also „Wie viel Wasser insgesamt?“ vs. „Wie viel Wasser pro Baum?“, beeinflusst die Interpretation des Engagements wesentlich. Unterschiedliche Kennzahlen können *unterschiedliche Geschichten* erzählen, auch wenn sie auf denselben Rohdaten basieren.
 
 Damit wird ein zentrales analytisches Prinzip deutlich:
 **Daten sind nicht neutral. Die Art ihrer Aufbereitung formt das Narrativ.**

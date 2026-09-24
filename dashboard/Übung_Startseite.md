@@ -227,7 +227,7 @@ Diese Filterauswahl wird im Server verarbeitet und bestimmt, welche Daten für d
 ````
 
 
-Mit diesem Aufbau haben Sie die **Struktur** seiner Startseite definiert:
+Mit diesem Aufbau haben Sie die **Struktur** der Startseite definiert:
 - Eine klare Navigation über die Seitenleiste
 - Zwei zentrale Kennzahlen in prominenter Position
 - Ein Filter zur Eingrenzung nach Bezirken
