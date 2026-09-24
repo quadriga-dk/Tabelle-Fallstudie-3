@@ -5,6 +5,11 @@ lang: de-DE
 (intro)=
 # Visualisierung in der Verwaltung: Ein Dashboard für Baum- und Bewässerungsdaten
 
+```{admonition} Hinweis
+class: hinweis
+Ein Jupyter Book ist ein Open-Source-Tool, das Text und Codeblöcke darstellen kann. Dazu werden aus Markdown- und Jupyter-Notebook-Dateien HTML-Seiten erstellt. Der Code und dessen Ausgaben sind direkt eingebettet und kann über Integrationen wie Binder oder Google Colab auch interaktiv ausgeführt werden.
+```
+
 ````{margin}
 ```{admonition} Fragen oder Feedback 
 :class: frage-feedback
@@ -32,7 +37,7 @@ Walter, P., Plomin, J., Schmeling, J., Dakruni, S. & Bingöl, C. (2026). _Visual
 ````
 `````
 
-In dieser Open Educational Resource (OER) wird ein Forschungsverlauf im Bereich der Verwaltungswissenschaft mithilfe eines <a href="https://jupyterbook.org/en/stable/intro.html" class="external-link" target="_blank">JupyterBooks</a> nachgezeichnet. Anhand einer wissenschaftlichen Leitfrage wird mit der Applikation <a href="https://shiny.posit.co/" class="external-link" target="_blank">R Shiny</a> ein Dashboard gebaut. In den einzelnen Kapiteln wird erläutert, welche Daten zur Lösung der Leitfrage und zum Bau des Dashboards benötigt und wie sie bearbeitet und visualisiert werden. Dabei werden Kompetenzen wie Datenvisualisierung und Kommunikation von Forschungsergebnissen behandelt.
+In dieser Open Educational Resource (OER) wird ein Forschungsverlauf im Bereich der Verwaltungswissenschaft mithilfe eines <a href="https://jupyterbook.org/en/stable/intro.html" class="external-link" target="_blank">Jupyter Books</a> nachgezeichnet. Anhand einer wissenschaftlichen Leitfrage wird mit der Applikation <a href="https://shiny.posit.co/" class="external-link" target="_blank">R Shiny</a> ein Dashboard gebaut. In den einzelnen Kapiteln wird erläutert, welche Daten zur Lösung der Leitfrage und zum Bau des Dashboards benötigt und wie sie bearbeitet und visualisiert werden. Dabei werden Kompetenzen wie Datenvisualisierung und Kommunikation von Forschungsergebnissen behandelt.
 
 
 
@@ -74,10 +79,8 @@ Dashboards sind eine gute Möglichkeit, Daten des öffentlichen Sektors (Public 
 
 ## Zielgruppe
 
-Grundsätzlich steht das Angebot allen Interessierten offen.  
-Aufgrund der Details in Bezug auf das Bauen eines Dashboards mit R Shiny, eignet sich diese OER besonders für technisch interessierte bzw. versierte Personen.  
-Thematisch richtet sich das Lernangebot vorwiegend an Verwaltungswissenschaftler:innen und alle Personen, die an digitaler Verwaltung interessiert sind, da das Fallbeispiel und die Datengrundlage aus dieser Disziplin stammen.
-
+Für diese OER werden Kenntnisse in der Programmiersprache R benötigt. Aufgrund der Details in Bezug auf das Bauen eines Dashboards mit R Shiny eignet sich diese OER besonders für technisch versierte Personen.  
+Thematisch richtet sich das Lernangebot vorwiegend an Verwaltungswissenschaftler:innen und alle Personen, die an digitaler Verwaltung interessiert sind, da das Fallbeispiel und die Datengrundlage aus dieser Disziplin stammen.  
 Die Zielgruppe sind zudem promovierende und promovierte Wissenschaftler:innen, aber auch Lehrende, die das Angebot für die eigene Lehre nachnutzen wollen.
 
 ## Struktur der Fallstudie
