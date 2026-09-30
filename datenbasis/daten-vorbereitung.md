@@ -154,6 +154,18 @@ if (!dir.exists("data")) dir.create("data")
 write.csv2(df_merged, "data/df_merged_final.csv", row.names = FALSE, fileEncoding = "UTF-8")
 ```
 
+*10. Ergebnis kontrollieren**
+
+Zum Abschluss können Sie einige Kennzahlen ausgeben, um zu überprüfen, ob die Daten erfolgreich zusammengeführt und gespeichert wurden.
+
+```r
+# 10. Kontrolle: Anzahl der Zeilen und Bewässerungsdaten
+
+cat("Anzahl Bäume nach Merge:", nrow(df_merged), "\n")
+cat("Anzahl eindeutiger Bäume (pitid):", n_distinct(df_merged$pitid), "\n")
+cat("Anzahl Bäume mit Bewässerungsdaten:", sum(!is.na(df_merged$bewaesserungsmenge_in_liter)), "\n")
+```
+
 Wenn Sie möchten, schauen Sie sich den gesamten Code als einen Block an, bevor Sie Baumdaten den Berliner Bezirken zuordnen:
 
 ````{admonition} Gesamter Code
