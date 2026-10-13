@@ -64,7 +64,7 @@ Die Berliner Baumdaten beziehen Sie über eine WFS-Schnittstelle (Web Feature Se
 ```r
 #0 CSV File lokalisieren bzw. laden
 
-local_path <- "Data/giessdenkiez_bewässerungsdaten.csv"
+local_path <- "data/giessdenkiez_bewässerungsdaten.csv"
 url_path <- "https://raw.githubusercontent.com/technologiestiftung/giessdenkiez-de-opendata/main/daten/giessdenkiez_bew%C3%A4sserungsdaten.csv"
 
 if (file.exists(local_path)) {
@@ -154,7 +154,7 @@ if (!dir.exists("data")) dir.create("data")
 write.csv2(df_merged, "data/df_merged_final.csv", row.names = FALSE, fileEncoding = "UTF-8")
 ```
 
-*10. Ergebnis kontrollieren**
+**10. Ergebnis kontrollieren**
 
 Zum Abschluss können Sie einige Kennzahlen ausgeben, um zu überprüfen, ob die Daten erfolgreich zusammengeführt und gespeichert wurden.
 
@@ -179,7 +179,7 @@ library(stringr)
 
 #0 CSV File lokalisieren bzw. laden
 
-local_path <- "Data/giessdenkiez_bewässerungsdaten.csv"
+local_path <- "data/giessdenkiez_bewässerungsdaten.csv"
 url_path <- "https://raw.githubusercontent.com/technologiestiftung/giessdenkiez-de-opendata/main/daten/giessdenkiez_bew%C3%A4sserungsdaten.csv"
 
 if (file.exists(local_path)) {
@@ -228,7 +228,7 @@ df_merged <- df_merged %>%
 if (!dir.exists("data")) dir.create("data")
 write.csv2(df_merged, "data/df_merged_final.csv", row.names = FALSE, fileEncoding = "UTF-8")
 
-# 10. Kontrolle: Anzahl der Zeilen
+# 10. Kontrolle: Anzahl der Zeilen und Bewässerungsdaten
 cat("Anzahl Bäume nach Merge:", nrow(df_merged), "\n")
 cat("Anzahl eindeutiger Bäume (pitid):", n_distinct(df_merged$pitid), "\n")
 cat("Anzahl Bäume mit Bewässerungsdaten:", sum(!is.na(df_merged$bewaesserungsmenge_in_liter)), "\n")
