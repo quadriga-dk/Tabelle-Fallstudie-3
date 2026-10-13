@@ -312,30 +312,6 @@ Sie müssen den Filtercode nur einmal schreiben. Alle Visualisierungen und Kennz
 
 ````
 
-### Praktisches Beispiel für das Dashboard
-
-````{dropdown} Code
-```r
-output$dynamic_tree_box <- renderUI({
-  if ("Baumbestand Stand 2025" %in% input$start_year) {
-    valueBoxOutput("total_trees")
-  } else {
-    valueBoxOutput("total_tree_watered")
-  }
-})
-```
-````
-````{admonition} Erklärung des Codes
-:class: hinweis, dropdown
-
-- ``renderUI(...)``: erzeugt dynamische Elemente und erlaubt es, UI-Elemente zur Laufzeit zu verändern – je nach Nutzereingabe.
-- Abhängig von der Auswahl (``input$start_year``) wird eine andere Kennzahl angezeigt.
-
-**Beispiel:**  
-Wird nur „2020–2024“ ausgewählt, zeigt dynamic_tree_box nur gegossene Bäume an.
-
-````
-
 ### ValueBoxes: Kennzahlen anzeigen
 
 Nun können Sie die Kennzahlen mit Inhalten füllen. In der UI wurden diese bereits als Label `textOutput("total_trees_label")` und zwei Kacheln `valueBoxOutput("total_trees_filtered")` und `valueBoxOutput("total_tree_watered")` angelegt. Nun definieren Sie, was darin erscheinen soll.

@@ -321,7 +321,6 @@ Mit den aggregierten Daten erstellen Sie nun das gestapelte Balkendiagramm, das 
                                      levels = c(top_genera, "Sonstige"))
     
     # "Sonstige" bekommt Grau; Rest aus globaler Palette
-    n_gen <- input$top_n_species
     fill_vals <- c(colorRampPalette(GDK_PALETTE_BASE)(n_gen), "#D3D3D3")
     names(fill_vals) <- c(top_genera, "Sonstige")
     
@@ -345,8 +344,6 @@ Mit den aggregierten Daten erstellen Sie nun das gestapelte Balkendiagramm, das 
       <p>Diese Grafik zeigt die <strong>Gesamtanzahl und Zusammensetzung der Bäume</strong> in jedem Berliner Bezirk nach Gattung.</p>
       <ul>
         <li>Jeder Balken zeigt die Gesamtzahl der Bäume im Bezirk</li>
-        <li>Die Farben zeigen die verschiedenen Baumgattungen (z.B. LINDE, AHORN, EICHE)</li>
-        <li>Seltene Gattungen werden als 'Sonstige' zusammengefasst</li>
         <li>Nutzen Sie den Slider, um mehr oder weniger Gattungen anzuzeigen</li>
       </ul>
     "),
@@ -433,8 +430,6 @@ Das Kreisdiagramm soll die prozentuale Zusammensetzung der Baumgattungen zeigen,
       <p>Diese Grafik zeigt die <strong>prozentuale Verteilung der Baumgattungen</strong>.</p>
       <ul>
         <li>Zeigt die 10 meistgegossenen Baumgattungen (z.B. LINDE, AHORN, EICHE)</li>
-        <li>Alle anderen Gattungen werden als 'Sonstige' zusammengefasst</li>
-        <li>Kann auf einzelne Bezirke gefiltert werden</li>
         <li>Hilft zu verstehen, welche Gattungen in Berlin dominieren</li>
       </ul>
     "),
@@ -576,7 +571,7 @@ Diese Visualisierung zeigt, welche Baumgattungen am häufigsten gegossen wurden.
     
     df_agg <- filtered_data %>%
       filter(!is.na(gattung_deutsch)) %>%   
-      group_by(gattunTop 10g_deutsch) %>%
+      group_by(gattung_deutsch) %>%
       summarise(
         count = n(),
         total_water = sum(bewaesserungsmenge_in_liter, na.rm = TRUE)
@@ -805,7 +800,7 @@ server <- function(input, output, session) {
                                      levels = c(top_genera, "Sonstige"))
     
     # "Sonstige" bekommt Grau; Rest aus globaler Palette
-    fill_vals <- c(colorRampPalette(GDK_PALETTE_BASE)(input$top_n_species), "#D3D3D3")
+    fill_vals <- c(colorRampPalette(GDK_PALETTE_BASE)(n_gen), "#D3D3D3")
     names(fill_vals) <- c(top_genera, "Sonstige")
     
     ggplot(df_agg, aes(x = reorder(bezirk, count, sum), y = count, fill = gattung_grouped)) +

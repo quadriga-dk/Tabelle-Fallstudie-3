@@ -319,7 +319,7 @@ Der Info-Button im Diagramm-Titel öffnet ein erläuterndes Pop-up-Fenster, das 
         <li>Bewegen Sie die Maus über die Punkte für Details</li>
         <li>Mehrere Bezirke können gleichzeitig ausgewählt werden</li>
       </ul>
-      <p><strong>Ergebnis:</strong> Die Daten zeigen keine wesentlichen Auffälligkeiten. Das Pflanzjahr scheint kein entscheidender Faktor für das Bewässerungsengagement zu sein.</p>
+      <p><strong>Ergebnis:</strong> Die Daten zeigen keine wesentlichen Auffälligkeiten - das Pflanzjahr scheint kein entscheidender Faktor für das Bewässerungsengagement zu sein.</p>
     "),
       easyClose = TRUE,
       footer = modalButton("Schließen")
