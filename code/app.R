@@ -567,7 +567,32 @@ server <- function(input, output, session) {
 
   
   # ------------ 5.5 ------------
-  
+
+  # ---- Automatisches Abwählen von Bezirken im Zeitverlauf ----
+  prev_trend_bezirk <- reactiveVal("Alle Bezirke")
+
+  observeEvent(input$trend_bezirk_pj, {
+    if (is.null(input$trend_bezirk_pj)) {
+      updateSelectInput(session, "trend_bezirk_pj", selected = "Alle Bezirke")
+      prev_trend_bezirk("Alle Bezirke")
+      return()
+    }
+
+    curr_trend_bezirk <- input$trend_bezirk_pj
+    prev <- prev_trend_bezirk()
+
+    if ("Alle Bezirke" %in% curr_trend_bezirk && !("Alle Bezirke" %in% prev)) {
+      updateSelectInput(session, "trend_bezirk_pj", selected = "Alle Bezirke")
+      prev_trend_bezirk("Alle Bezirke")
+    } else if ("Alle Bezirke" %in% curr_trend_bezirk && length(curr_trend_bezirk) > 1) {
+      new_selection <- curr_trend_bezirk[curr_trend_bezirk != "Alle Bezirke"]
+      updateSelectInput(session, "trend_bezirk_pj", selected = new_selection)
+      prev_trend_bezirk(new_selection)
+    } else {
+      prev_trend_bezirk(curr_trend_bezirk)
+    }
+  }, ignoreNULL = FALSE, ignoreInit = TRUE)
+
   # Trend: Bewässerung nach Pflanzjahr
   output$trend_water <- renderPlotly({
     req(input$sidebarMenu == "stats") 
