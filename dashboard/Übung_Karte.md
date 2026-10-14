@@ -144,7 +144,7 @@ Was ein Server in diesem Kontext ist, wurde bereits in [diesem Kapitel](vergleic
 
 ````{margin}
 ```{admonition} Wichtige Voraussetzung!
-:class: hinweis
+:class: caution
 
 Ohne die Objekte `berlin_bezirke_sf` und `df_merged` bricht R mit einem Fehler ab (*object not found*). Stellen Sie sicher, dass Sie diese Daten wie in [Kapitel 4.3](dashboard-vorbereitung) beschrieben am Anfang Ihrer `app.R` geladen haben.
 ```

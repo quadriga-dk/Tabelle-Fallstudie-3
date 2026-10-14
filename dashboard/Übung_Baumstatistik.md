@@ -247,6 +247,14 @@ Diese Struktur ermöglicht den Nutzer:innen interaktive Ansichten und ein klares
 
 Das erste Diagramm soll zeigen, wie viele Bäume in jedem Bezirk stehen und welche Gattungen dort dominieren. Um die Visualisierung übersichtlich zu halten, konzentrieren Sie sich auf **die häufigsten Baumgattungen.** Alle anderen fassen Sie unter "Sonstige" zusammen.
 
+````{margin}
+```{admonition} Wichtige Voraussetzung!
+:class: caution
+
+Die Diagramme in diesem Kapitel verwenden die globale Farbpalette `GDK_PALETTE_BASE` und das Datenobjekt `df_merged`. Ohne diese Definitionen kann R beim Erstellen der Diagramme mit einem Fehler abbrechen. Stellen Sie sicher, dass Sie die Daten wie in [Kapitel 4.3](globale-farbpalette) beschrieben am Anfang Ihrer `app.R` geladen beziehungsweise definiert haben.
+```
+````
+
 ````{dropdown} Code
 ```r  
 # 1. Stacked Bar Chart - Baumverteilung mit Gattungen
@@ -363,7 +371,7 @@ Mit den aggregierten Daten erstellen Sie nun das gestapelte Balkendiagramm, das 
 - `reorder(bezirk, count, sum)` – sortiert Bezirke nach Gesamtanzahl der Bäume
 - `geom_bar(stat = "identity", position = "stack")` – erstellt gestapelte Balken
 - `fill = gattung_grouped` – färbt die Segmente nach Gattungsgruppe
-- `scale_fill_brewer(palette = "Set3")` – verwendet eine farblich abgestimmte Palette
+- `scale_fill_manual(values = fill_vals, name = "Baumgattung")` – verwendet die globale Farbpalette und hebt "Sonstige" grau hervor
 
 **Was zeigt der Plot?**
 - Welche Gattungen in welchem Bezirk dominieren
