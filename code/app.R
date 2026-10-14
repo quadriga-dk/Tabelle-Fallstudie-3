@@ -450,6 +450,7 @@ server <- function(input, output, session) {
            unit)
   }
   
+  # Plot: Bewässerung pro Bezirk
   output$hist_bewaesserung_pro_bezirk <- renderPlot({
     req(input$sidebarMenu == "analysis")
     
@@ -467,6 +468,7 @@ server <- function(input, output, session) {
         unit = sapply(converted, `[[`, "unit")  
       )
     
+    # Create plot
     ggplot(df_agg, aes(x = reorder(bezirk, -value), y = value, fill = bezirk)) +
       geom_bar(stat = "identity", color = "white", alpha = 0.7, width = 0.8) +
       labs(
@@ -484,6 +486,7 @@ server <- function(input, output, session) {
       scale_fill_discrete(name = "Bezirk")
   })
   
+  # Info button observer
   observeEvent(input$info_btn_hbpb, {
     showModal(modalDialog(
       title = "Information: Bewässerung pro Bezirk",
@@ -539,6 +542,7 @@ server <- function(input, output, session) {
       scale_fill_discrete()
   })
     
+  # Info button observer
   observeEvent(input$info_btn_hbpb2, {
     showModal(modalDialog(
       title = "Information: Bewässerung pro gegossenem Baum",
