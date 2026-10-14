@@ -74,7 +74,7 @@ Ebenso dient die Zuordnung als Grundlage für Visualisierungen und statistische 
 ```{figure} /assets/ODIS_Screenshot_20260324.png
 ---
 align: center
-width: 100%
+width: 75%
 name: Berliner Bezirksgrenzen 
 alt: Einfache Visualisierung der Bezirksgrenzen in Berlin.
 ---
