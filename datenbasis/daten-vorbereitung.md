@@ -13,24 +13,51 @@ Dr. Amir Weber möchte sich zunächst einen schnellen Überblick verschaffen: Wi
 Bei seiner Recherche nimmt er erneut die Plattform <a href="https://www.giessdenkiez.de/stats?lang=de" class="external-link" target="_blank">Gieß den Kiez</a> genauer unter die Lupe. Besonders beeindruckt ihn, wie anschaulich die Daten dort visualisiert sind (s. {numref}`Dashboard Gieß den Kiez` in Kapitel 5.1). Die Mischung aus Angaben zu Bäumen und Gießenden, Karten und Zeitverläufen inspirieren ihn so sehr, dass er sie für seine eigene R-Shiny-Anwendung übernehmen möchte. Dazu benötigt er aber erst einmal Daten, welche dann zwecksgemäß bereinigt werden müssen.
 ```
 
+### Projektstruktur und Skript vorbereiten
 
-## Daten laden, aggregieren und vorbereiten
+Bevor Sie mit der Datenaufbereitung beginnen, schaffen wir eine saubere Struktur in Ihrem Projektverzeichnis.
+
+In [Kapitel 1.2](technische_voraussetzungen) haben Sie Ihr Projektverzeichnis für die Shiny-App angelegt (in dem sich Ihre Datei `app.R` befindet). In [Kapitel 3.1](datenbasis) haben Sie zudem den Unterordner `data/` erstellt und die beiden Datensätze (Bewässerungsdaten als CSV und Bezirksgrenzen als GeoJSON) darin abgelegt.
+
+Für die Vorbereitung und Bereinigung der Daten erstellen wir nun ein **eigenständiges R-Skript** (z. B. `preprocessing.R`), anstatt den Code direkt in die `app.R` einzufügen:
+
+1. Öffnen Sie RStudio mit Ihrem Projekt.
+2. Erstellen Sie ein neues R-Skript über **File** $\rightarrow$ **New File** $\rightarrow$ **R Script** (oder per Tastenkürzel `Strg + Umschalt + N` bzw. macOS: `Cmd + Shift + N`).
+3. Speichern Sie dieses Skript direkt auf der obersten Ebene Ihres Projektordners (neben `app.R`) unter dem Namen `preprocessing.R`.
+
+Ihre Projektstruktur sollte zu Beginn dieses Kapitels wie folgt aussehen:
+
+```text
+shiny-projekt-name/
+│
+├── app.R                                  # Ihre Shiny-Web-App (aus Kapitel 1.2)
+├── preprocessing.R                        # Neues R-Skript für die Datenaufbereitung
+└── data/                                  # Datenordner (aus Kapitel 3.1)
+    ├── giessdenkiez_bewässerungsdaten.csv # Heruntergeladene Bewässerungsdaten (CSV)
+    └── bezirksgrenzen.geojson             # Heruntergeladene Bezirksgrenzen (GeoJSON)
+```
 
 ````{margin}
 ```{admonition} Hinweis
 :class: hinweis
 
-Der Code ist am Ende jedes Unterkapitels in einer eingeklappten Box 'Gesamter Code' zusammengefasst. So haben Sie die Wahl, ob Sie den Code Stück für Stück oder in ganzen Blöcken eingeben. Geben Sie in jedem Fall Code in der Konsole ein oder erstellen Sie ein neues normales R-Script, welches Sie anschließend ausführen können. Fügen Sie den Code bitte *nicht* in das R-Shiny-Script ein.
-
+Der Code ist am Ende jedes Unterabschnitts in einer eingeklappten Box 'Gesamter Code' zusammengefasst. So haben Sie die Wahl, ob Sie den Code Schritt für Schritt in Ihr Skript `preprocessing.R` übertragen und zeilenweise ausführen oder als ganzen Block laufen lassen.
 ```
 ````
+
+```{admonition} Wohin gehen die bereinigten Daten?
+:class: question
+Durch die Ausführung der Schritte in `preprocessing.R` wird am Ende dieses Kapitels die aufbereitete Datei `df_merged_final.rds` automatisch im Unterordner `data/` gespeichert. Ihre `app.R` kann später direkt auf diese fertige Datei zugreifen.
+```
+
+(arbeitsverzeichnis-setzen)=
 **Arbeitsverzeichnis setzen**
 
-Damit die eingegebenen Kommandos im richtigen Verzeichnis ausgeführt werden, müssen Sie zunächst das Arbeitsverzeichnis korrekt setzen: 
+Damit relative Pfadangaben wie `"data/..."` im Skript reibungslos funktionieren, muss RStudio als Arbeitsverzeichnis den Ordner verwenden, in dem Ihre Skripte liegen: 
 
-1. Rufen Sie (wenn nicht schon aufgerufen) den Ordner auf, in dem Ihr R-Shiny-Script gespeichert ist.
-2. Unter *Session* finden Sie den Reiter *Set Working Directory*.
-3. Klicken Sie auf *To Source File Location* .
+1. Öffnen Sie die soeben erstellte Datei `preprocessing.R` in RStudio.
+2. Wählen Sie im oberen Menü unter **Session** den Punkt **Set Working Directory**.
+3. Klicken Sie auf **To Source File Location**.
 
 ```{figure} ../assets/R_Studio_Arbeitsverzeichnis.png
 ---
@@ -46,7 +73,7 @@ Bevor Sie die Daten einlesen können, müssen Sie folgende Bibliotheken (und, so
 
 
 ```r
-# --- PAKETE: ---
+# --- PAKETE (einmalig installieren, falls noch nicht vorhanden): ---
 install.packages("sf")
 install.packages("tidyverse")
 
@@ -169,7 +196,7 @@ cat("Anzahl Bäume mit Bewässerungsdaten:", sum(!is.na(df_merged$bewaesserungsm
 Wenn Sie möchten, schauen Sie sich den gesamten Code als einen Block an, bevor Sie Baumdaten den Berliner Bezirken zuordnen:
 
 ````{admonition} Gesamter Code
-:class: hinweis, dropdown
+:class: solution, dropdown
 
 ```r
 library(sf)
@@ -383,7 +410,7 @@ Die Dateigröße ist wesentlich **kleiner und kompakter** als bei einer herkömm
 # RDS speichern (wird im Dashboard später verwendet)
 saveRDS(df_final, "data/df_merged_final.rds")
 
-# Optional: Als CSV speichern (menschenlesbar, in Excel öffenbar, aber langsamer zu laden)
+# Optional: Als CSV speichern (menschenlesbar, in Excel öffnbar, aber langsamer zu laden)
 write.csv2(df_final, "data/df_merged_final.csv", row.names = FALSE, fileEncoding = "UTF-8")
 
 # Kontrolle: Daten kurz anschauen
@@ -404,7 +431,7 @@ View(df_check)  # Öffnet die Tabelle in R Studio
 Am Ende haben Sie wieder die Möglichkeit, sich den gesamten Code anzusehen, bevor Sie im nächsten Kapitel die Entwicklungsumgebung auf den Bau des Dashboards vorbereiten.
 
 ````{admonition} Gesamter Code
-:class: hinweis, dropdown
+:class: solution, dropdown
 
 ```r
 library(sf)
@@ -476,14 +503,39 @@ df_final <- df_baeume_final %>%
 # RDS speichern (wird im Dashboard später verwendet)
 saveRDS(df_final, "data/df_merged_final.rds")
 
-# Optional: Als CSV speichern
+# Optional: Als CSV speichern (menschenlesbar, in Excel öffnbar, aber langsamer zu laden)
 write.csv2(df_final, "data/df_merged_final.csv", row.names = FALSE, fileEncoding = "UTF-8")
 
+# Kontrolle: Daten kurz anschauen
 cat("Fertig! Zeilen:", nrow(df_final), "| Spalten:", ncol(df_final), "\n")
 
-# Um die RDS-Datei später zu inspizieren:
+# Um die RDS-Datei später zu inspizieren, nutzen Sie:
 df_check <- readRDS("data/df_merged_final.rds")
-View(df_check)
+View(df_check)  # Öffnet die Tabelle in R Studio
 ```
 
 ````
+
+### Vorher-Nachher-Vergleich des Datensatzes
+
+Um das Ergebnis der Datenaufbereitung zu überprüfen, vergleichen Sie Ihre Tabellenansicht mit den beiden folgenden Abbildungen:
+
+```{figure} ../assets/data-before.png
+---
+name: screenshot-data-before
+alt: Tabelle der Bewässerungsdaten vor der Aufbereitung
+width: 100%
+align: center
+---
+**Vorher:** Der Rohdatensatz vor der Bereinigung – unvollständige Bezirksangaben, uneinheitliche Gattungsbezeichnungen und viele nicht benötigte Attribute.
+```
+
+```{figure} ../assets/data-after.png
+---
+name: screenshot-data-after
+alt: Tabelle des aufbereiteten Datensatzes in RStudio
+width: 100%
+align: center
+---
+**Nachher:** Der finale Datensatz (`df_merged_final`) in RStudio – reduziert auf die 7 relevanten Spalten, mit bereinigten Attributen und vollständig zugeordneten Berliner Bezirken.
+```

@@ -36,7 +36,7 @@ Dabei handelt es sich um drei zentrale Datenquellen:
 ````{margin}
 ```{admonition} Hinweis
 :class: hinweis
-WFS steht für Web Feature Service, also einen Zugriff auf Geo-Objekte über eine definierte Schnittstelle. Dabei werden in der Regel Vektordaten mit Sachinformationen abgefragt (s. beispielsweise den entsprechenden <a href="https://de.wikipedia.org/wiki/Web_Feature_Service" class="external-link" target="_blank">Wikipedia-Artikel</a> oder die Anleitung von <a href="https://offenedaten-koeln.de/blog/anleitung-zur-nutzung-von-geodatendiensten-wie-wms-und-wfs" class="external-link" target="_blank">Open Data Köln</a>).
+WFS steht für Web Feature Service, also einen Zugriff auf Geo-Objekte über eine definierte Schnittstelle. Dabei werden in der Regel Vektordaten mit Sachinformationen abgefragt (s. beispielsweise den entsprechenden <a href="https://de.wikipedia.org/wiki/Web_Feature_Service" class="external-link" target="_blank">Wikipedia-Artikel</a>).
 ```
 ````
 Die Baumbestandsdaten stammen aus dem <a href="https://daten.berlin.de/" class="external-link" target="_blank">Berliner Open-Data-Portal</a> und umfassen sowohl Straßenbäume als auch Anlagenbäume. Die Daten liegen im WFS-Format vor. 
@@ -85,7 +85,7 @@ Screenshot der Visualisierung der Berliner Bezirksgrenzen auf der Seite des Date
 ```{admonition} Daten herunterladen
 :class: hinweis
 
-Speichern Sie die Daten in Ihrem, in Kapitel 1.2 erstellten, Projektverzeichnis im Unterordner `data/` (erstellen Sie diesen, falls noch nicht vorhanden):  
+Speichern Sie die Daten in Ihrem, in [Kapitel 1.2](technische_voraussetzungen) erstellten, Projektverzeichnis im Unterordner `data/` (erstellen Sie diesen, falls noch nicht vorhanden):  
 *Tipp: Machen Sie einen Rechtsklick auf den Link und wählen Sie "Link speichern unter..." (oder "Ziel speichern unter..."), um die Datei direkt herunterzuladen.*  
 **Bewässerungsdaten (CSV)**  
 <a href="https://raw.githubusercontent.com/technologiestiftung/giessdenkiez-de-opendata/main/daten/giessdenkiez_bew%C3%A4sserungsdaten.csv" class="download-link" target='_blank'>🔗 Quelle</a> | <a href="https://raw.githubusercontent.com/quadriga-dk/Tabelle-Fallstudie-3/refs/heads/main/data/giessdenkiez_bew%C3%A4sserungsdaten.csv" class="download-link" target='_blank'>Backup</a>  

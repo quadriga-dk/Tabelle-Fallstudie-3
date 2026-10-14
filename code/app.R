@@ -281,31 +281,6 @@ server <- function(input, output, session) {
   
   # ------------ 5.2 ------------
   
-  # ---- Automatisches Abwwählen ----
-  prev_bezirk <- reactiveVal("Alle Bezirke")
-  
-  observeEvent(input$bezirk, {
-    if (is.null(input$bezirk)) {
-      updateSelectInput(session, "bezirk", selected = "Alle Bezirke")
-      prev_bezirk("Alle Bezirke")
-      return()
-    }
-    
-    curr_bezirk <- input$bezirk
-    prev <- prev_bezirk()
-    
-    if ("Alle Bezirke" %in% curr_bezirk && !("Alle Bezirke" %in% prev)) {
-      updateSelectInput(session, "bezirk", selected = "Alle Bezirke")
-      prev_bezirk("Alle Bezirke")
-    } else if ("Alle Bezirke" %in% curr_bezirk && length(curr_bezirk) > 1) {
-      new_selection <- curr_bezirk[curr_bezirk != "Alle Bezirke"]
-      updateSelectInput(session, "bezirk", selected = new_selection)
-      prev_bezirk(new_selection)
-    } else {
-      prev_bezirk(curr_bezirk)
-    }
-  }, ignoreNULL = FALSE, ignoreInit = TRUE)
-  
   # ---- Gefilterte Daten ----
   filteredData <- reactive({
     req(input$bezirk)
@@ -348,6 +323,31 @@ server <- function(input, output, session) {
     )
   })
   
+  # ---- Automatisches Abwählen von Bezirken ----
+  prev_bezirk <- reactiveVal("Alle Bezirke")
+  
+  observeEvent(input$bezirk, {
+    if (is.null(input$bezirk)) {
+      updateSelectInput(session, "bezirk", selected = "Alle Bezirke")
+      prev_bezirk("Alle Bezirke")
+      return()
+    }
+    
+    curr_bezirk <- input$bezirk
+    prev <- prev_bezirk()
+    
+    if ("Alle Bezirke" %in% curr_bezirk && !("Alle Bezirke" %in% prev)) {
+      updateSelectInput(session, "bezirk", selected = "Alle Bezirke")
+      prev_bezirk("Alle Bezirke")
+    } else if ("Alle Bezirke" %in% curr_bezirk && length(curr_bezirk) > 1) {
+      new_selection <- curr_bezirk[curr_bezirk != "Alle Bezirke"]
+      updateSelectInput(session, "bezirk", selected = new_selection)
+      prev_bezirk(new_selection)
+    } else {
+      prev_bezirk(curr_bezirk)
+    }
+  }, ignoreNULL = FALSE, ignoreInit = TRUE)
+  
   
   # ------------ 5.3 ------------
   
@@ -386,7 +386,7 @@ server <- function(input, output, session) {
     
     # Baue Karte: Basiskarte + Bezirkspolygone + Legende
     leaflet(map_data) %>%
-      addProviderTiles(providers$CartoDB.Positron) %>%
+      addProviderTiles(providers$Esri.WorldGrayCanvas) %>%
       addPolygons(
         fillColor = ~pal(pct_watered),  # Färbe Bezirke nach Bewässerungsanteil
         weight = 1,

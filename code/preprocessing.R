@@ -1,12 +1,17 @@
 ## Code for 3.2. Vorbereitung der Daten: Einlesen und Bereinigung
 ## Creates the df_merged_final.rds file needed for the dashboard
 
+# --- PAKETE (einmalig installieren, falls noch nicht vorhanden): ---
+# install.packages("sf")
+# install.packages("tidyverse")
+
+# --- BIBLIOTHEKEN: ---
 library(sf)
 library(dplyr)
 library(tidyr)
 library(stringr)
 
-#0 CSV File lokalisieren bzw. laden
+# 0. CSV File lokalisieren bzw. laden
 local_path <- "data/giessdenkiez_bewässerungsdaten.csv"
 url_path <- "https://raw.githubusercontent.com/technologiestiftung/giessdenkiez-de-opendata/main/daten/giessdenkiez_bew%C3%A4sserungsdaten.csv"
 
@@ -56,7 +61,7 @@ df_merged <- df_merged %>%
 if (!dir.exists("data")) dir.create("data")
 write.csv2(df_merged, "data/df_merged_final.csv", row.names = FALSE, fileEncoding = "UTF-8")
 
-# 10. Kontrolle: Anzahl der Zeilen
+# 10. Kontrolle: Anzahl der Zeilen und Bewässerungsdaten
 cat("Anzahl Bäume nach Merge:", nrow(df_merged), "\n")
 cat("Anzahl eindeutiger Bäume (pitid):", n_distinct(df_merged$pitid), "\n")
 cat("Anzahl Bäume mit Bewässerungsdaten:", sum(!is.na(df_merged$bewaesserungsmenge_in_liter)), "\n")

@@ -142,6 +142,14 @@ Idealerweise stellen Sie die Leaflet-Karte zentral dar, sodass diese sofort ins 
 
 Was ein Server in diesem Kontext ist, wurde bereits in [diesem Kapitel](vergleich) behandelt.
 
+````{margin}
+```{admonition} Wichtige Voraussetzung!
+:class: hinweis
+
+Ohne die Objekte `berlin_bezirke_sf` und `df_merged` bricht R mit einem Fehler ab (*object not found*). Stellen Sie sicher, dass Sie diese Daten wie in [Kapitel 4.3](dashboard-vorbereitung) beschrieben am Anfang Ihrer `app.R` geladen haben.
+```
+````
+
 ### Bewässerungsstatistik pro Bezirk berechnen
 
 Bevor die Karte gezeichnet werden kann, müssen Sie für jeden Berliner Bezirk die relevanten Kennzahlen berechnen: Wie viele Bäume stehen dort insgesamt? Wie viele davon wurden gegossen? Und welcher Anteil wurde bewässert?
@@ -202,7 +210,7 @@ Jetzt entsteht die eigentliche Karte. Jeden Berliner Bezirk gestalten Sie farbli
     
     # Baue Karte: Basiskarte + Bezirkspolygone + Legende
     leaflet(map_data) %>%
-      addProviderTiles(providers$CartoDB.Positron) %>%
+      addProviderTiles(providers$Esri.WorldGrayCanvas) %>%
       addPolygons(
         fillColor = ~pal(pct_watered),  # Färbe Bezirke nach Bewässerungsanteil
         weight = 1,
@@ -255,7 +263,7 @@ Jetzt entsteht die eigentliche Karte. Jeden Berliner Bezirk gestalten Sie farbli
 - ``mutate(...)`` + ``replace_na(...)``: Stellt sicher, dass fehlende Werte (``NA``) durch 0 ersetzt werden, damit später keine Fehlfarben entstehen.
 - ``colorNumeric(...)``: Erstellt eine Farbskala („Blues“), die zur Einfärbung der Bezirke verwendet wird. Höherer Anteil bewässerter Bäume = dunklere Farbe.
 - ``leaflet(map_data)``: Startet eine Leaflet-Karte mit den verknüpften Bezirksdaten.
-- ``addProviderTiles(providers$CartoDB.Positron)``: Fügt eine helle, übersichtliche Hintergrundkarte hinzu.
+- ``addProviderTiles(providers$Esri.WorldGrayCanvas)``: Fügt eine helle, unaufdringliche Hintergrundkarte hinzu.
 - ``addPolygons(...)``: Zeichnet die Bezirksgrenzen.
 - Wichtige Parameter:
   - ``fillColor = ~pal(pct_watered)`` → Färbt Bezirke je nach Anteil bewässerter Bäume
@@ -349,7 +357,7 @@ server <- function(input, output, session) {
     
     # Baue Karte: Basiskarte + Bezirkspolygone + Legende
     leaflet(map_data) %>%
-      addProviderTiles(providers$CartoDB.Positron) %>%
+      addProviderTiles(providers$Esri.WorldGrayCanvas) %>%
       addPolygons(
         fillColor = ~pal(pct_watered),  # Färbe Bezirke nach Bewässerungsanteil
         weight = 1,
