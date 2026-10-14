@@ -79,9 +79,13 @@ Dashboards sind eine gute Möglichkeit, Daten des öffentlichen Sektors (Public 
 
 ## Zielgruppe
 
-Für diese OER werden Kenntnisse in der Programmiersprache R benötigt. Aufgrund der Details in Bezug auf das Bauen eines Dashboards mit R Shiny eignet sich diese OER besonders für technisch versierte Personen.  
+Die Zielgruppen dieser OER sind promovierende und promovierte Wissenschaftler:innen, aber auch Lehrende, die das Angebot für die eigene Lehre nachnutzen wollen.  
+
+Für diese OER werden Kenntnisse in der Programmiersprache R benötigt. Aufgrund der Details in Bezug auf das Bauen eines Dashboards mit R Shiny eignet sich diese OER nur für technisch versierte Personen. Eine Eführung in R bietet z. B. der Kurs <a href="https://intro2r.com/" class="external-link" target="_blank">An Introduction to R</a> von Alex Douglas, Deon Roos, Francesca Mancini, Ana Couto & David Lusseau (2026).  
+
 Thematisch richtet sich das Lernangebot vorwiegend an Verwaltungswissenschaftler:innen und alle Personen, die an digitaler Verwaltung interessiert sind, da das Fallbeispiel und die Datengrundlage aus dieser Disziplin stammen.  
-Die Zielgruppe sind zudem promovierende und promovierte Wissenschaftler:innen, aber auch Lehrende, die das Angebot für die eigene Lehre nachnutzen wollen.
+
+
 
 ## Struktur der Fallstudie
 
