@@ -301,7 +301,7 @@
       "educationalAlignment": [
         {
           "@type": "AlignmentObject",
-          "targetName": "Sie können die Entwicklung einer Fragestellung am Beispiel der Ausprägungen des Engagements von Bürger:innen erläutern.",
+          "targetName": "Die Lernenden können die Entwicklung einer Fragestellung am Beispiel der Ausprägungen des Engagements von Bürger:innen erläutern.",
           "educationalFramework": "QUADRIGA Competency Framework",
           "targetDescription": "Competency: nicht anwendbar | Bloom's: 2 Verstehen | Data Flow: nicht anwendbar"
         }
@@ -313,21 +313,13 @@
       "description": "Dieses Kapitel widmet sich der Datengrundlage der Untersuchung.",
       "url": "https://quadriga-dk.github.io/Tabelle-Fallstudie-3/datenbasis/datenbasis-einleitung.html",
       "timeRequired": "TODO",
-      "teaches": "Laden von Datensätzen in R Shiny",
+      "teaches": "Bearbeiten von Datensätzen mit R Shiny",
       "educationalAlignment": [
         {
           "@type": "AlignmentObject",
-          "targetName": "Sie können Datensätze in R Shiny laden.",
+          "targetName": "Die Lernenden können Datensätze in R Shiny verändern.",
           "educationalFramework": "QUADRIGA Competency Framework",
-          "targetDescription": "Competency: 2.1 Erhebung | Bloom's: 3 Anwenden | Data Flow: 2 Erhebung und Aufbereitung",
-          "lrmi:assesses": "keins"
-        },
-        {
-          "@type": "AlignmentObject",
-          "targetName": "Sie können geladene Datensätze in R Shiny verändern.",
-          "educationalFramework": "QUADRIGA Competency Framework",
-          "targetDescription": "Competency: 2.3 Aufbereitung | Bloom's: 3 Anwenden | Data Flow: 2 Erhebung und Aufbereitung",
-          "lrmi:assesses": "keins"
+          "targetDescription": "Competency: 2.3 Aufbereitung | Bloom's: 3 Anwenden | Data Flow: 2 Erhebung und Aufbereitung"
         }
       ]
     },
@@ -337,21 +329,19 @@
       "description": "Dieses Kapitel widmet sich der Vorbereitung des Dashboards.",
       "url": "https://quadriga-dk.github.io/Tabelle-Fallstudie-3/4_dash-prep/4.0_intro.html",
       "timeRequired": "TODO",
-      "teaches": "Dashboards für Visualisierung und Kommunikation von Daten",
+      "teaches": "Verwenden von Dashboards für Visualisierung und Kommunikation von Daten",
       "educationalAlignment": [
         {
           "@type": "AlignmentObject",
-          "targetName": "Sie können grundlegende Aspekte der Datenvisualisierung benennen.",
+          "targetName": "Die Lernenden können grundlegende Aspekte der Datenvisualisierung benennen.",
           "educationalFramework": "QUADRIGA Competency Framework",
-          "targetDescription": "Competency: 4.2 Visualisierung | Bloom's: 1 Erinnern | Data Flow: 4 Analyse",
-          "lrmi:assesses": "keins"
+          "targetDescription": "Competency: 4.2 Visualisierung | Bloom's: 1 Erinnern | Data Flow: 4 Analyse"
         },
         {
           "@type": "AlignmentObject",
-          "targetName": "Sie können die Bedeutung von Dashboards für die Datenkommunikation erläutern.",
+          "targetName": "Die Lernenden können die Bedeutung von Dashboards für die Datenkommunikation erläutern.",
           "educationalFramework": "QUADRIGA Competency Framework",
-          "targetDescription": "Competency: 5.3 Kommunikation | Bloom's: 2 Verstehen | Data Flow: 5 Publikation und Nachnutzung",
-          "lrmi:assesses": "keins"
+          "targetDescription": "Competency: 5.3 Kommunikation | Bloom's: 2 Verstehen | Data Flow: 5 Publikation und Nachnutzung"
         }
       ]
     },
@@ -361,18 +351,17 @@
       "description": "Dieses Kapitel widmet sich dem Aufbau eines Dashboards mit R Shiny.",
       "url": "https://quadriga-dk.github.io/Tabelle-Fallstudie-3/dashboard/Dashboard.html",
       "timeRequired": "TODO",
-      "teaches": "Aufbau eines Dashboards",
+      "teaches": "Erstellen eines Dashboards",
       "educationalAlignment": [
         {
           "@type": "AlignmentObject",
-          "targetName": "Sie können den Aufbau und die Gliederung eines Dashboards erklären.",
+          "targetName": "Die Lernenden können den Aufbau und die Gliederung eines Dashboards erklären.",
           "educationalFramework": "QUADRIGA Competency Framework",
-          "targetDescription": "Competency: 4.2 Visualisierung | Bloom's: 2 Verstehen | Data Flow: 4 Analyse",
-          "lrmi:assesses": "keins"
+          "targetDescription": "Competency: 4.2 Visualisierung | Bloom's: 2 Verstehen | Data Flow: 4 Analyse"
         },
         {
           "@type": "AlignmentObject",
-          "targetName": "Sie können ein einfaches Dashboard mit wesentlichen Komponenten (z. B. Startseite und Zeitverlauf) erstellen.",
+          "targetName": "Die Lernenden können ein einfaches Dashboard mit wesentlichen Komponenten (z. B. Startseite und Zeitverlauf) erstellen.",
           "educationalFramework": "QUADRIGA Competency Framework",
           "targetDescription": "Competency: 4.2 Visualisierung | Bloom's: 3 Anwenden | Data Flow: 4 Analyse"
         }

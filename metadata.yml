@@ -148,61 +148,54 @@ chapters:
   learning-goal: Formulieren der Leitfrage und Operationalisieren des Verfahrens
   time-required: TODO
   learning-objectives:
-  - learning-objective: Sie können die Entwicklung einer Fragestellung am Beispiel
-      der Ausprägungen des Engagements von Bürger:innen erläutern.
+  - learning-objective: Die Lernenden können die Entwicklung einer Fragestellung am
+      Beispiel der Ausprägungen des Engagements von Bürger:innen erläutern.
     competency: nicht anwendbar
     data-flow: nicht anwendbar
     blooms-category: 2 Verstehen
 - title: Datenbasis
   description: Dieses Kapitel widmet sich der Datengrundlage der Untersuchung.
   url: https://quadriga-dk.github.io/Tabelle-Fallstudie-3/datenbasis/datenbasis-einleitung.html
-  learning-goal: Laden von Datensätzen in R Shiny
+  learning-goal: Bearbeiten von Datensätzen mit R Shiny
   time-required: TODO
   learning-objectives:
-  - learning-objective: Sie können Datensätze in R Shiny laden.
-    competency: 2.1 Erhebung
-    data-flow: 2 Erhebung und Aufbereitung
-    blooms-category: 3 Anwenden
-    assessment: keins
-  - learning-objective: Sie können geladene Datensätze in R Shiny verändern.
+  - learning-objective: Die Lernenden können Datensätze in R Shiny verändern.
     competency: 2.3 Aufbereitung
     data-flow: 2 Erhebung und Aufbereitung
     blooms-category: 3 Anwenden
-    assessment: keins
   supplemented-by:
   - https://raw.githubusercontent.com/technologiestiftung/giessdenkiez-de-opendata/main/daten/giessdenkiez_bew%C3%A4sserungsdaten.csv
   - https://tsb-opendata.s3.eu-central-1.amazonaws.com/bezirksgrenzen/bezirksgrenzen.geojson
 - title: Dashboard - Vorbereitung
   description: Dieses Kapitel widmet sich der Vorbereitung des Dashboards.
   url: https://quadriga-dk.github.io/Tabelle-Fallstudie-3/4_dash-prep/4.0_intro.html
-  learning-goal: Dashboards für Visualisierung und Kommunikation von Daten
+  learning-goal: Verwenden von Dashboards für Visualisierung und Kommunikation von
+    Daten
   time-required: TODO
   learning-objectives:
-  - learning-objective: Sie können grundlegende Aspekte der Datenvisualisierung benennen.
+  - learning-objective: Die Lernenden können grundlegende Aspekte der Datenvisualisierung
+      benennen.
     competency: 4.2 Visualisierung
     data-flow: 4 Analyse
     blooms-category: 1 Erinnern
-    assessment: keins
-  - learning-objective: Sie können die Bedeutung von Dashboards für die Datenkommunikation
-      erläutern.
+  - learning-objective: Die Lernenden können die Bedeutung von Dashboards für die
+      Datenkommunikation erläutern.
     competency: 5.3 Kommunikation
     data-flow: 5 Publikation und Nachnutzung
     blooms-category: 2 Verstehen
-    assessment: keins
 - title: Dashboard - Einzelelemente
   description: Dieses Kapitel widmet sich dem Aufbau eines Dashboards mit R Shiny.
   url: https://quadriga-dk.github.io/Tabelle-Fallstudie-3/dashboard/Dashboard.html
-  learning-goal: Aufbau eines Dashboards
+  learning-goal: Erstellen eines Dashboards
   time-required: TODO
   learning-objectives:
-  - learning-objective: Sie können den Aufbau und die Gliederung eines Dashboards
+  - learning-objective: Die Lernenden können den Aufbau und die Gliederung eines Dashboards
       erklären.
     competency: 4.2 Visualisierung
     data-flow: 4 Analyse
     blooms-category: 2 Verstehen
-    assessment: keins
-  - learning-objective: Sie können ein einfaches Dashboard mit wesentlichen Komponenten
-      (z. B. Startseite und Zeitverlauf) erstellen.
+  - learning-objective: Die Lernenden können ein einfaches Dashboard mit wesentlichen
+      Komponenten (z. B. Startseite und Zeitverlauf) erstellen.
     competency: 4.2 Visualisierung
     data-flow: 4 Analyse
     blooms-category: 3 Anwenden
