@@ -2,7 +2,7 @@
 # Learn more at https://jupyterbook.org/customize/config.html
 
 title: "Visualisierung in der Verwaltung: Ein Dashboard für Baum- und Bewässerungsdaten. QUADRIGA Open Educational Resources: Tabelle 3"
-author: Jana Plomin, Paul Walter, Juliane Schmeling, Sami Dakruni, Cemre Bingöl
+author: Paul Walter, Jana Plomin, Juliane Schmeling, Sami Dakruni, Cemre Bingöl
 logo: assets/logoTabelle3.png
 copyright: "2024, QUADRIGA"
 exclude_patterns: [_build, Thumbs.db, .DS_Store, conda, venv, README.md, LICENSE.md, .github, Checkliste_Finalisierung.md]

@@ -5,11 +5,6 @@ lang: de-DE
 (intro)=
 # Visualisierung in der Verwaltung: Ein Dashboard für Baum- und Bewässerungsdaten
 
-```{admonition} Hinweis
-class: hinweis
-Ein Jupyter Book ist ein Open-Source-Tool, das Text und Codeblöcke darstellen kann. Dazu werden aus Markdown- und Jupyter-Notebook-Dateien HTML-Seiten erstellt. Der Code und dessen Ausgaben sind direkt eingebettet und kann über Integrationen wie Binder oder Google Colab auch interaktiv ausgeführt werden.
-```
-
 ````{margin}
 ```{admonition} Fragen oder Feedback 
 :class: frage-feedback
@@ -37,8 +32,7 @@ Walter, P., Plomin, J., Schmeling, J., Dakruni, S. & Bingöl, C. (2026). _Visual
 ````
 `````
 
-In dieser Open Educational Resource (OER) wird ein Forschungsverlauf im Bereich der Verwaltungswissenschaft mithilfe eines <a href="https://jupyterbook.org/en/stable/intro.html" class="external-link" target="_blank">Jupyter Books</a> nachgezeichnet. Anhand einer wissenschaftlichen Leitfrage wird mit der Applikation <a href="https://shiny.posit.co/" class="external-link" target="_blank">R Shiny</a> ein Dashboard gebaut. In den einzelnen Kapiteln wird erläutert, welche Daten zur Lösung der Leitfrage und zum Bau des Dashboards benötigt und wie sie bearbeitet und visualisiert werden. Dabei werden Kompetenzen wie Datenvisualisierung und Kommunikation von Forschungsergebnissen behandelt.
-
+In dieser Open Educational Resource (OER) wird ein Forschungsverlauf im Bereich der Verwaltungswissenschaft nachgezeichnet. Anhand einer wissenschaftlichen Leitfrage wird mit der Applikation <a href="https://shiny.posit.co/" class="external-link" target="_blank">R Shiny</a> ein Dashboard gebaut. In den einzelnen Kapiteln wird erläutert, welche Daten zur Lösung der Leitfrage und zum Bau des Dashboards benötigt und wie sie bearbeitet und visualisiert werden. Dabei werden Kompetenzen wie Datenvisualisierung und Kommunikation von Forschungsergebnissen behandelt.
 
 
 ```{figure} assets/intro-collage.png
@@ -59,20 +53,19 @@ Sie finden alle Open Educational Resources (OER) bzw. Fallstudien des Datenkompe
 ```{admonition} Die Forschung von Dr. Amir Weber
 :class: story
 Dr. Amir Weber, ein Verwaltungswissenschaftler mit Interesse an kommunalen Daten und Bürgerbeteiligung, möchte ein Dashboard zur Visualisierung des Bewässerungsverhaltens von Bürger:innen erstellen, das auf offenen Datensätzen basiert.  
-In einer anderen <a href="https://quadriga-dk.github.io/Tabelle-Fallstudie-2/Titelseite.html" class="external-link" target="_blank">Open Educational Resource</a> des Projekts QUADRIGA hat er exemplarisch aufgezeigt, wie geeignete Datensätze identifiziert und erschlossen werden können. Auf Grundlage von Datensätzen aus dem Bundesland Berlin möchte er nun eine ergebnisoffene, explorative Analyse durchführen, um darin enthaltende Erkenntnispotenziale zu identifizieren. Die gewonnenen Befunde werden in dieser Fallstudie parallel in Form eines Dashboards aufbereitet, um die Daten für Bürger:innen und politische Entscheidungsträger:innen nachvollziehbar darzustellen.  
-Hierzu soll insbesondere das Ausmaß sowie die räumliche Verteilung der Bürgerbeteiligung sichtbar gemacht werden. 
-Sie werden Dr. Weber mit der Erstellung eines solchen Dashboards helfen.
+In einer weiteren <a href="https://quadriga-dk.github.io/Tabelle-Fallstudie-2/Titelseite.html" class="external-link" target="_blank">Open Educational Resource</a> des Projekts QUADRIGA hat er exemplarisch aufgezeigt, wie geeignete Datensätze identifiziert und erschlossen werden können. Auf Grundlage von Datensätzen aus dem Bundesland Berlin möchte er nun eine ergebnisoffene, explorative Analyse durchführen, um das darin enthaltende Erkenntnispotenzial zu identifizieren. Die gewonnenen Befunde werden in dieser Fallstudie parallel in Form eines Dashboards aufbereitet, um die Daten für Bürger:innen und politische Entscheidungsträger:innen nachvollziehbar darzustellen.  
+Hierzu soll insbesondere das Ausmaß sowie die räumliche Verteilung der Bürgerbeteiligung sichtbar gemacht werden.  
+In dieser OER werden Sie Dr. Weber mit der Erstellung eines solchen Dashboards helfen.
 
 Er orientiert er sich an folgender Leitfrage: 
 ```
-
 
 ```{admonition} Leitfrage
 :class: keypoint
 Wo lassen sich die höchsten Ausprägungen des Engagements von Bürger:innen bei der Bewässerung städtischer Bäume in Berlin feststellen?
 ```
 
-## Bedeutung dieses Lehrbuchs für die Verwaltungswissenschaft
+## Bedeutung dieser OER für die Verwaltungswissenschaft
 
 Dashboards sind eine gute Möglichkeit, Daten des öffentlichen Sektors (Public Sector) übersichtlich darzustellen. Immer mehr Kommunen und Behörden arbeiten die von ihnen erhobenen oder verwalteten Daten auf, um eine anschauliche Übersicht über ihre Arbeit zu vermitteln. Dadurch können für Bürger:innen Mehrwerte entstehen, zum Beispiel wenn sie Informationen über die Auslastung von Straßen erhalten. Mit Visualisierungen wie sie für Dashboards verwendet werden, können umfangreiche Datenbestände zusammengefasst und transparent gemacht sowie Probleme erkannt und Trends nachvollzogen werden (s. auch [Kap. 4.1](dashboard_theorie)).
 
@@ -81,15 +74,16 @@ Dashboards sind eine gute Möglichkeit, Daten des öffentlichen Sektors (Public 
 
 Die Zielgruppen dieser OER sind promovierende und promovierte Wissenschaftler:innen, aber auch Lehrende, die das Angebot für die eigene Lehre nachnutzen wollen.  
 
-Für diese OER werden Kenntnisse in der Programmiersprache R benötigt. Aufgrund der Details in Bezug auf das Bauen eines Dashboards mit R Shiny eignet sich diese OER nur für technisch versierte Personen. Eine Eführung in R bietet z. B. der Kurs <a href="https://intro2r.com/" class="external-link" target="_blank">An Introduction to R</a> von Alex Douglas, Deon Roos, Francesca Mancini, Ana Couto & David Lusseau (2026).  
+Für diese OER werden Kenntnisse in der Programmiersprache R benötigt. Aufgrund der Details in Bezug auf das Bauen eines Dashboards mit R Shiny eignet sich diese OER nur für technisch versierte Personen.  
+Eine Einführung in R bietet z. B. der Kurs <a href="https://intro2r.com/" class="external-link" target="_blank">An Introduction to R</a> von Alex Douglas, Deon Roos, Francesca Mancini, Ana Couto & David Lusseau (2026).  
 
 Thematisch richtet sich das Lernangebot vorwiegend an Verwaltungswissenschaftler:innen und alle Personen, die an digitaler Verwaltung interessiert sind, da das Fallbeispiel und die Datengrundlage aus dieser Disziplin stammen.  
 
 
 
-## Struktur der Fallstudie
+## Struktur der OER
 
-Die Fallstudie ist in 4 Schritte aufgeteilt, die den Kapiteln entsprechen (s. {numref}`steps of casestudy`). 
+Die OER ist in 4 Schritte aufgeteilt, die den Kapiteln entsprechen (s. {numref}`steps of casestudy`). 
 
 ```{figure} /assets/steps_cs3.png
 ---
