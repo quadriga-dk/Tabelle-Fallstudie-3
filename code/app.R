@@ -2,6 +2,9 @@
 ## Contains the complete code for the Shiny Dashboard
 ## including UI and Server components from chapter 5.2 to 5.6
 
+# Installieren Sie die benötigten Pakete nur einaml, falls sie noch nicht installiert sind
+#install.packages(c("shiny", "shinydashboard", "leaflet", "dplyr", "htmltools", "stringr", "sf", "tidyr", "ggplot2", "plotly", "leaflet.extras"))
+
 library(shiny)
 library(shinydashboard)
 library(leaflet)
@@ -281,31 +284,6 @@ server <- function(input, output, session) {
   
   # ------------ 5.2 ------------
   
-  # ---- Automatisches Abwwählen ----
-  prev_bezirk <- reactiveVal("Alle Bezirke")
-  
-  observeEvent(input$bezirk, {
-    if (is.null(input$bezirk)) {
-      updateSelectInput(session, "bezirk", selected = "Alle Bezirke")
-      prev_bezirk("Alle Bezirke")
-      return()
-    }
-    
-    curr_bezirk <- input$bezirk
-    prev <- prev_bezirk()
-    
-    if ("Alle Bezirke" %in% curr_bezirk && !("Alle Bezirke" %in% prev)) {
-      updateSelectInput(session, "bezirk", selected = "Alle Bezirke")
-      prev_bezirk("Alle Bezirke")
-    } else if ("Alle Bezirke" %in% curr_bezirk && length(curr_bezirk) > 1) {
-      new_selection <- curr_bezirk[curr_bezirk != "Alle Bezirke"]
-      updateSelectInput(session, "bezirk", selected = new_selection)
-      prev_bezirk(new_selection)
-    } else {
-      prev_bezirk(curr_bezirk)
-    }
-  }, ignoreNULL = FALSE, ignoreInit = TRUE)
-  
   # ---- Gefilterte Daten ----
   filteredData <- reactive({
     req(input$bezirk)
@@ -348,6 +326,31 @@ server <- function(input, output, session) {
     )
   })
   
+  # ---- Automatisches Abwählen von Bezirken ----
+  prev_bezirk <- reactiveVal("Alle Bezirke")
+  
+  observeEvent(input$bezirk, {
+    if (is.null(input$bezirk)) {
+      updateSelectInput(session, "bezirk", selected = "Alle Bezirke")
+      prev_bezirk("Alle Bezirke")
+      return()
+    }
+    
+    curr_bezirk <- input$bezirk
+    prev <- prev_bezirk()
+    
+    if ("Alle Bezirke" %in% curr_bezirk && !("Alle Bezirke" %in% prev)) {
+      updateSelectInput(session, "bezirk", selected = "Alle Bezirke")
+      prev_bezirk("Alle Bezirke")
+    } else if ("Alle Bezirke" %in% curr_bezirk && length(curr_bezirk) > 1) {
+      new_selection <- curr_bezirk[curr_bezirk != "Alle Bezirke"]
+      updateSelectInput(session, "bezirk", selected = new_selection)
+      prev_bezirk(new_selection)
+    } else {
+      prev_bezirk(curr_bezirk)
+    }
+  }, ignoreNULL = FALSE, ignoreInit = TRUE)
+  
   
   # ------------ 5.3 ------------
   
@@ -386,7 +389,7 @@ server <- function(input, output, session) {
     
     # Baue Karte: Basiskarte + Bezirkspolygone + Legende
     leaflet(map_data) %>%
-      addProviderTiles(providers$CartoDB.Positron) %>%
+      addProviderTiles(providers$Esri.WorldGrayCanvas) %>%
       addPolygons(
         fillColor = ~pal(pct_watered),  # Färbe Bezirke nach Bewässerungsanteil
         weight = 1,
@@ -450,6 +453,7 @@ server <- function(input, output, session) {
            unit)
   }
   
+  # Plot: Bewässerung pro Bezirk
   output$hist_bewaesserung_pro_bezirk <- renderPlot({
     req(input$sidebarMenu == "analysis")
     
@@ -467,6 +471,7 @@ server <- function(input, output, session) {
         unit = sapply(converted, `[[`, "unit")  
       )
     
+    # Create plot
     ggplot(df_agg, aes(x = reorder(bezirk, -value), y = value, fill = bezirk)) +
       geom_bar(stat = "identity", color = "white", alpha = 0.7, width = 0.8) +
       labs(
@@ -484,6 +489,7 @@ server <- function(input, output, session) {
       scale_fill_discrete(name = "Bezirk")
   })
   
+  # Info button observer
   observeEvent(input$info_btn_hbpb, {
     showModal(modalDialog(
       title = "Information: Bewässerung pro Bezirk",
@@ -539,6 +545,7 @@ server <- function(input, output, session) {
       scale_fill_discrete()
   })
     
+  # Info button observer
   observeEvent(input$info_btn_hbpb2, {
     showModal(modalDialog(
       title = "Information: Bewässerung pro gegossenem Baum",
@@ -563,7 +570,32 @@ server <- function(input, output, session) {
 
   
   # ------------ 5.5 ------------
-  
+
+  # ---- Automatisches Abwählen von Bezirken im Zeitverlauf ----
+  prev_trend_bezirk <- reactiveVal("Alle Bezirke")
+
+  observeEvent(input$trend_bezirk_pj, {
+    if (is.null(input$trend_bezirk_pj)) {
+      updateSelectInput(session, "trend_bezirk_pj", selected = "Alle Bezirke")
+      prev_trend_bezirk("Alle Bezirke")
+      return()
+    }
+
+    curr_trend_bezirk <- input$trend_bezirk_pj
+    prev <- prev_trend_bezirk()
+
+    if ("Alle Bezirke" %in% curr_trend_bezirk && !("Alle Bezirke" %in% prev)) {
+      updateSelectInput(session, "trend_bezirk_pj", selected = "Alle Bezirke")
+      prev_trend_bezirk("Alle Bezirke")
+    } else if ("Alle Bezirke" %in% curr_trend_bezirk && length(curr_trend_bezirk) > 1) {
+      new_selection <- curr_trend_bezirk[curr_trend_bezirk != "Alle Bezirke"]
+      updateSelectInput(session, "trend_bezirk_pj", selected = new_selection)
+      prev_trend_bezirk(new_selection)
+    } else {
+      prev_trend_bezirk(curr_trend_bezirk)
+    }
+  }, ignoreNULL = FALSE, ignoreInit = TRUE)
+
   # Trend: Bewässerung nach Pflanzjahr
   output$trend_water <- renderPlotly({
     req(input$sidebarMenu == "stats") 

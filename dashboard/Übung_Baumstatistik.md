@@ -247,6 +247,14 @@ Diese Struktur ermöglicht den Nutzer:innen interaktive Ansichten und ein klares
 
 Das erste Diagramm soll zeigen, wie viele Bäume in jedem Bezirk stehen und welche Gattungen dort dominieren. Um die Visualisierung übersichtlich zu halten, konzentrieren Sie sich auf **die häufigsten Baumgattungen.** Alle anderen fassen Sie unter "Sonstige" zusammen.
 
+````{margin}
+```{admonition} Wichtige Voraussetzung!
+:class: caution
+
+Die Diagramme in diesem Kapitel verwenden die globale Farbpalette `GDK_PALETTE_BASE` und das Datenobjekt `df_merged`. Ohne diese Definitionen kann R beim Erstellen der Diagramme mit einem Fehler abbrechen. Stellen Sie sicher, dass Sie die Daten wie in [Kapitel 4.3](globale-farbpalette) beschrieben am Anfang Ihrer `app.R` geladen beziehungsweise definiert haben.
+```
+````
+
 ````{dropdown} Code
 ```r  
 # 1. Stacked Bar Chart - Baumverteilung mit Gattungen
@@ -321,7 +329,6 @@ Mit den aggregierten Daten erstellen Sie nun das gestapelte Balkendiagramm, das 
                                      levels = c(top_genera, "Sonstige"))
     
     # "Sonstige" bekommt Grau; Rest aus globaler Palette
-    n_gen <- input$top_n_species
     fill_vals <- c(colorRampPalette(GDK_PALETTE_BASE)(n_gen), "#D3D3D3")
     names(fill_vals) <- c(top_genera, "Sonstige")
     
@@ -345,8 +352,6 @@ Mit den aggregierten Daten erstellen Sie nun das gestapelte Balkendiagramm, das 
       <p>Diese Grafik zeigt die <strong>Gesamtanzahl und Zusammensetzung der Bäume</strong> in jedem Berliner Bezirk nach Gattung.</p>
       <ul>
         <li>Jeder Balken zeigt die Gesamtzahl der Bäume im Bezirk</li>
-        <li>Die Farben zeigen die verschiedenen Baumgattungen (z.B. LINDE, AHORN, EICHE)</li>
-        <li>Seltene Gattungen werden als 'Sonstige' zusammengefasst</li>
         <li>Nutzen Sie den Slider, um mehr oder weniger Gattungen anzuzeigen</li>
       </ul>
     "),
@@ -366,7 +371,7 @@ Mit den aggregierten Daten erstellen Sie nun das gestapelte Balkendiagramm, das 
 - `reorder(bezirk, count, sum)` – sortiert Bezirke nach Gesamtanzahl der Bäume
 - `geom_bar(stat = "identity", position = "stack")` – erstellt gestapelte Balken
 - `fill = gattung_grouped` – färbt die Segmente nach Gattungsgruppe
-- `scale_fill_brewer(palette = "Set3")` – verwendet eine farblich abgestimmte Palette
+- `scale_fill_manual(values = fill_vals, name = "Baumgattung")` – verwendet die globale Farbpalette und hebt "Sonstige" grau hervor
 
 **Was zeigt der Plot?**
 - Welche Gattungen in welchem Bezirk dominieren
@@ -433,8 +438,6 @@ Das Kreisdiagramm soll die prozentuale Zusammensetzung der Baumgattungen zeigen,
       <p>Diese Grafik zeigt die <strong>prozentuale Verteilung der Baumgattungen</strong>.</p>
       <ul>
         <li>Zeigt die 10 meistgegossenen Baumgattungen (z.B. LINDE, AHORN, EICHE)</li>
-        <li>Alle anderen Gattungen werden als 'Sonstige' zusammengefasst</li>
-        <li>Kann auf einzelne Bezirke gefiltert werden</li>
         <li>Hilft zu verstehen, welche Gattungen in Berlin dominieren</li>
       </ul>
     "),
@@ -576,7 +579,7 @@ Diese Visualisierung zeigt, welche Baumgattungen am häufigsten gegossen wurden.
     
     df_agg <- filtered_data %>%
       filter(!is.na(gattung_deutsch)) %>%   
-      group_by(gattunTop 10g_deutsch) %>%
+      group_by(gattung_deutsch) %>%
       summarise(
         count = n(),
         total_water = sum(bewaesserungsmenge_in_liter, na.rm = TRUE)
@@ -805,7 +808,7 @@ server <- function(input, output, session) {
                                      levels = c(top_genera, "Sonstige"))
     
     # "Sonstige" bekommt Grau; Rest aus globaler Palette
-    fill_vals <- c(colorRampPalette(GDK_PALETTE_BASE)(input$top_n_species), "#D3D3D3")
+    fill_vals <- c(colorRampPalette(GDK_PALETTE_BASE)(n_gen), "#D3D3D3")
     names(fill_vals) <- c(top_genera, "Sonstige")
     
     ggplot(df_agg, aes(x = reorder(bezirk, count, sum), y = count, fill = gattung_grouped)) +

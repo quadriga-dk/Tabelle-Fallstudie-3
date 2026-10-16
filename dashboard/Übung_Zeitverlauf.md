@@ -169,6 +169,48 @@ Diese Struktur gibt Nutzer:innen volle Kontrolle: Sie können sowohl den Zeitrau
 
 ## Server
 
+### Bezirksauswahl konsistent halten
+
+Da „Alle Bezirke“ eine Auswahl aller Bezirke repräsentiert, soll diese Option nicht gleichzeitig mit einzelnen Bezirken ausgewählt sein. Der folgende Observer sorgt dafür, dass die Auswahl im Dropdown eindeutig bleibt:
+
+````{dropdown} Code
+```r
+# ---- Automatisches Abwählen von Bezirken im Zeitverlauf ----
+prev_trend_bezirk <- reactiveVal("Alle Bezirke")
+
+observeEvent(input$trend_bezirk_pj, {
+  if (is.null(input$trend_bezirk_pj)) {
+    updateSelectInput(session, "trend_bezirk_pj", selected = "Alle Bezirke")
+    prev_trend_bezirk("Alle Bezirke")
+    return()
+  }
+
+  curr_trend_bezirk <- input$trend_bezirk_pj
+  prev <- prev_trend_bezirk()
+
+  if ("Alle Bezirke" %in% curr_trend_bezirk && !("Alle Bezirke" %in% prev)) {
+    updateSelectInput(session, "trend_bezirk_pj", selected = "Alle Bezirke")
+    prev_trend_bezirk("Alle Bezirke")
+  } else if ("Alle Bezirke" %in% curr_trend_bezirk && length(curr_trend_bezirk) > 1) {
+    new_selection <- curr_trend_bezirk[curr_trend_bezirk != "Alle Bezirke"]
+    updateSelectInput(session, "trend_bezirk_pj", selected = new_selection)
+    prev_trend_bezirk(new_selection)
+  } else {
+    prev_trend_bezirk(curr_trend_bezirk)
+  }
+}, ignoreNULL = FALSE, ignoreInit = TRUE)
+```
+````
+
+````{admonition} Erklärung des Codes
+:class: hinweis, dropdown
+
+- Wird „Alle Bezirke“ ausgewählt, werden zuvor ausgewählte einzelne Bezirke entfernt.
+- Wird ein einzelner Bezirk ausgewählt, wird „Alle Bezirke“ entfernt.
+- `prev_trend_bezirk` speichert die vorherige Auswahl, damit neue Auswahländerungen korrekt erkannt werden.
+
+````
+
 ### Daten vorbereiten und filtern
 
 Zunächst müssen Sie die Rohdaten so vorbereiten, dass nur relevante Einträge berücksichtigt werden. In diesem Fall Bäume, die tatsächlich gegossen wurden und für die ein Pflanzjahr bekannt ist.
@@ -319,7 +361,7 @@ Der Info-Button im Diagramm-Titel öffnet ein erläuterndes Pop-up-Fenster, das 
         <li>Bewegen Sie die Maus über die Punkte für Details</li>
         <li>Mehrere Bezirke können gleichzeitig ausgewählt werden</li>
       </ul>
-      <p><strong>Ergebnis:</strong> Die Daten zeigen keine wesentlichen Auffälligkeiten. Das Pflanzjahr scheint kein entscheidender Faktor für das Bewässerungsengagement zu sein.</p>
+      <p><strong>Ergebnis:</strong> Die Daten zeigen keine wesentlichen Auffälligkeiten - das Pflanzjahr scheint kein entscheidender Faktor für das Bewässerungsengagement zu sein.</p>
     "),
       easyClose = TRUE,
       footer = modalButton("Schließen")
@@ -434,8 +476,33 @@ ui <- dashboardPage(
 server <- function(input, output, session) {
   
   # ... Code aus Startseite, Karte & Bewässerungsanalyse (Hilfsfunktionen, filteredData, Leaflet, hist_bewaesserung etc.) ...
-  
-  # NEU: Trend: Bewässerung nach Pflanzjahr
+
+  # ---- Automatisches Abwählen von Bezirken im Zeitverlauf ----
+  prev_trend_bezirk <- reactiveVal("Alle Bezirke")
+
+  observeEvent(input$trend_bezirk_pj, {
+    if (is.null(input$trend_bezirk_pj)) {
+      updateSelectInput(session, "trend_bezirk_pj", selected = "Alle Bezirke")
+      prev_trend_bezirk("Alle Bezirke")
+      return()
+    }
+
+    curr_trend_bezirk <- input$trend_bezirk_pj
+    prev <- prev_trend_bezirk()
+
+    if ("Alle Bezirke" %in% curr_trend_bezirk && !("Alle Bezirke" %in% prev)) {
+      updateSelectInput(session, "trend_bezirk_pj", selected = "Alle Bezirke")
+      prev_trend_bezirk("Alle Bezirke")
+    } else if ("Alle Bezirke" %in% curr_trend_bezirk && length(curr_trend_bezirk) > 1) {
+      new_selection <- curr_trend_bezirk[curr_trend_bezirk != "Alle Bezirke"]
+      updateSelectInput(session, "trend_bezirk_pj", selected = new_selection)
+      prev_trend_bezirk(new_selection)
+    } else {
+      prev_trend_bezirk(curr_trend_bezirk)
+    }
+  }, ignoreNULL = FALSE, ignoreInit = TRUE)
+
+  # Trend: Bewässerung nach Pflanzjahr
   output$trend_water <- renderPlotly({
     req(input$sidebarMenu == "stats") 
     filtered_data <- df_merged %>%

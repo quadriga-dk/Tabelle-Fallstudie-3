@@ -242,7 +242,7 @@ Was noch fehlt, ist die Intelligenz: Die tatsächliche Berechnung der Kennzahlen
 Alle in diesem Abschnitt folgenden Code-Bausteine für den Server gehören in die `server`-Funktion, die Sie in den Vorbereitungen definiert haben:
 
 ```r
-server <- function(input, output) { 
+server <- function(input, output, session) { 
   # Hier folgt der R-Code zur Datenverarbeitung...
 }
 ```
@@ -309,30 +309,6 @@ Diese Bedingung implementiert die eigentliche Filterung:
 
 **Warum ist diese Struktur wichtig?**  
 Sie müssen den Filtercode nur einmal schreiben. Alle Visualisierungen und Kennzahlen, die `filteredData()` verwenden, greifen automatisch auf die aktuell gefilterte Version der Daten zu. Das vermeidet Redundanz und macht den Code wartbar.
-
-````
-
-### Praktisches Beispiel für das Dashboard
-
-````{dropdown} Code
-```r
-output$dynamic_tree_box <- renderUI({
-  if ("Baumbestand Stand 2025" %in% input$start_year) {
-    valueBoxOutput("total_trees")
-  } else {
-    valueBoxOutput("total_tree_watered")
-  }
-})
-```
-````
-````{admonition} Erklärung des Codes
-:class: hinweis, dropdown
-
-- ``renderUI(...)``: erzeugt dynamische Elemente und erlaubt es, UI-Elemente zur Laufzeit zu verändern – je nach Nutzereingabe.
-- Abhängig von der Auswahl (``input$start_year``) wird eine andere Kennzahl angezeigt.
-
-**Beispiel:**  
-Wird nur „2020–2024“ ausgewählt, zeigt dynamic_tree_box nur gegossene Bäume an.
 
 ````
 
@@ -544,31 +520,6 @@ ui <- dashboardPage(
 # Server-Logik
 server <- function(input, output, session) {
   
-  # --- Reaktive Bezirksauswahl ---
-  prev_bezirk <- reactiveVal("Alle Bezirke")
-  
-  observeEvent(input$bezirk, {
-    if (is.null(input$bezirk)) {
-      updateSelectInput(session, "bezirk", selected = "Alle Bezirke")
-      prev_bezirk("Alle Bezirke")
-      return()
-    }
-    
-    curr_bezirk <- input$bezirk
-    prev <- prev_bezirk()
-    
-    if ("Alle Bezirke" %in% curr_bezirk && !("Alle Bezirke" %in% prev)) {
-      updateSelectInput(session, "bezirk", selected = "Alle Bezirke")
-      prev_bezirk("Alle Bezirke")
-    } else if ("Alle Bezirke" %in% curr_bezirk && length(curr_bezirk) > 1) {
-      new_selection <- curr_bezirk[curr_bezirk != "Alle Bezirke"]
-      updateSelectInput(session, "bezirk", selected = new_selection)
-      prev_bezirk(new_selection)
-    } else {
-      prev_bezirk(curr_bezirk)
-    }
-  }, ignoreNULL = FALSE, ignoreInit = TRUE)
-  
   # ---- Gefilterte Daten ----
   filteredData <- reactive({
     req(input$bezirk)
@@ -610,6 +561,31 @@ server <- function(input, output, session) {
       color = "blue"
     )
   })
+  
+  # --- Automatisches Abwählen von Bezirken ---
+  prev_bezirk <- reactiveVal("Alle Bezirke")
+  
+  observeEvent(input$bezirk, {
+    if (is.null(input$bezirk)) {
+      updateSelectInput(session, "bezirk", selected = "Alle Bezirke")
+      prev_bezirk("Alle Bezirke")
+      return()
+    }
+    
+    curr_bezirk <- input$bezirk
+    prev <- prev_bezirk()
+    
+    if ("Alle Bezirke" %in% curr_bezirk && !("Alle Bezirke" %in% prev)) {
+      updateSelectInput(session, "bezirk", selected = "Alle Bezirke")
+      prev_bezirk("Alle Bezirke")
+    } else if ("Alle Bezirke" %in% curr_bezirk && length(curr_bezirk) > 1) {
+      new_selection <- curr_bezirk[curr_bezirk != "Alle Bezirke"]
+      updateSelectInput(session, "bezirk", selected = new_selection)
+      prev_bezirk(new_selection)
+    } else {
+      prev_bezirk(curr_bezirk)
+    }
+  }, ignoreNULL = FALSE, ignoreInit = TRUE)
 }
 
 shinyApp(ui = ui, server = server)
@@ -653,7 +629,7 @@ Für eine abschließende Beantwortung der Leitfrage reicht diese Betrachtung jed
 ```{admonition} Hinweis
 :class: hinweis
 
-Vergessen Sie nicht, wie bereits in vorherigen Kapiteln gezeigt, das [Arbeitsverzeichnis korrekt zu setzen](daten-vorbereitung) und die bereinigten Daten aus dem Datenverzeichnis auszulesen.
+Vergessen Sie nicht, wie bereits in vorherigen Kapiteln gezeigt, das [Arbeitsverzeichnis korrekt zu setzen](arbeitsverzeichnis-setzen) und die bereinigten Daten aus dem Datenverzeichnis auszulesen.
 
 ```
 ````

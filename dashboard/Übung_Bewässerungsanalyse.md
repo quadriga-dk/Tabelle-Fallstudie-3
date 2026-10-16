@@ -158,13 +158,6 @@ Von Vorteil wäre es, wenn das Dashboard automatisch in sinnvolle Einheiten umre
              "m³" = "Kubikmeter",
              unit)
     }
-    
-    df_agg <- df_agg %>%
-      mutate(
-        converted = purrr::map(total_water, convert_units), 
-        value = sapply(converted, `[[`, "value"),  
-        unit = sapply(converted, `[[`, "unit")  
-      )
 ```
 ````
 
@@ -194,6 +187,7 @@ Im ersten Teil des Codes, der die **durchschnittliche Bewässerung pro Bezirk** 
 
 ````{dropdown} Code
 ```r
+  # Plot: Bewässerung pro Bezirk
   output$hist_bewaesserung_pro_bezirk <- renderPlot({
     req(input$sidebarMenu == "analysis")
     df_agg <- df_merged %>%
@@ -202,6 +196,13 @@ Im ersten Teil des Codes, der die **durchschnittliche Bewässerung pro Bezirk** 
       summarise(total_water = sum(bewaesserungsmenge_in_liter, na.rm = TRUE)) %>%
       ungroup() %>%
       arrange(desc(total_water))
+
+    df_agg <- df_agg %>%
+      mutate(
+        converted = purrr::map(total_water, convert_units),
+        value = sapply(converted, `[[`, "value"),
+        unit = sapply(converted, `[[`, "unit")
+      )
 ```
 ````
 
@@ -497,6 +498,7 @@ server <- function(input, output, session) {
            unit)
   }
   
+  # Plot: Bewässerung pro Bezirk
   output$hist_bewaesserung_pro_bezirk <- renderPlot({
     req(input$sidebarMenu == "analysis")
     
@@ -531,6 +533,7 @@ server <- function(input, output, session) {
       scale_fill_discrete(name = "Bezirk")
   })
   
+  # Info button observer
   observeEvent(input$info_btn_hbpb, {
     showModal(modalDialog(
       title = "Information: Bewässerung pro Bezirk",
@@ -586,6 +589,7 @@ server <- function(input, output, session) {
       scale_fill_discrete()
   })
   
+  # Info button observer
   observeEvent(input$info_btn_hbpb2, {
     showModal(modalDialog(
       title = "Information: Bewässerung pro gegossenem Baum",
