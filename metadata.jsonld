@@ -296,7 +296,7 @@
       "name": "Fragestellung und Operationalisierung",
       "description": "In diesem einführenden Kapitel wird das Erkenntnisinteresse formuliert.",
       "url": "https://quadriga-dk.github.io/Tabelle-Fallstudie-3/operationalisierung/fragestellung-operationalisierung.html",
-      "timeRequired": "TODO",
+      "timeRequired": "PT5M",
       "teaches": "Formulieren der Leitfrage und Operationalisieren des Verfahrens",
       "educationalAlignment": [
         {
@@ -312,7 +312,7 @@
       "name": "Datenbasis",
       "description": "Dieses Kapitel widmet sich der Datengrundlage der Untersuchung.",
       "url": "https://quadriga-dk.github.io/Tabelle-Fallstudie-3/datenbasis/datenbasis-einleitung.html",
-      "timeRequired": "TODO",
+      "timeRequired": "PT15M",
       "teaches": "Bearbeiten von Datensätzen mit R Shiny",
       "educationalAlignment": [
         {

@@ -231,7 +231,7 @@ Förderkennzeichen: 16DKZ2034</schema:funding>
         <schema:educationalAlignment rdf:resource="https://quadriga-dk.github.io/Tabelle-Fallstudie-3/#chapter_0_objective_0" />
         <schema:name>Fragestellung und Operationalisierung</schema:name>
         <schema:teaches>Formulieren der Leitfrage und Operationalisieren des Verfahrens</schema:teaches>
-        <schema:timeRequired>TODO</schema:timeRequired>
+        <schema:timeRequired>PT5M</schema:timeRequired>
         <schema:url rdf:resource="https://quadriga-dk.github.io/Tabelle-Fallstudie-3/operationalisierung/fragestellung-operationalisierung.html" />
       </schema:LearningResource>
     </schema:hasPart>
@@ -241,7 +241,7 @@ Förderkennzeichen: 16DKZ2034</schema:funding>
         <schema:educationalAlignment rdf:resource="https://quadriga-dk.github.io/Tabelle-Fallstudie-3/#chapter_1_objective_0" />
         <schema:name>Datenbasis</schema:name>
         <schema:teaches>Bearbeiten von Datensätzen mit R Shiny</schema:teaches>
-        <schema:timeRequired>TODO</schema:timeRequired>
+        <schema:timeRequired>PT15M</schema:timeRequired>
         <schema:url rdf:resource="https://quadriga-dk.github.io/Tabelle-Fallstudie-3/datenbasis/datenbasis-einleitung.html" />
       </schema:LearningResource>
     </schema:hasPart>
