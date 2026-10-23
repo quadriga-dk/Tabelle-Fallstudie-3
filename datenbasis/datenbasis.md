@@ -28,7 +28,7 @@ In welchen Bezirken lassen sich die höchsten Ausprägungen des Engagements von 
 
 Dabei handelt es sich um drei zentrale Datenquellen: 
 - **Baumbestandsdaten** (Zugriff über WFS-Schnittstelle)
-- **Bezirksgrenzen** (GeoJSON-Format)
+- **Bezirksgrenzen** (<a href="https://de.wikipedia.org/wiki/GeoJSON" class="external-link" target="_blank">GeoJson-Format</a>)
 - **Bewässerungsdaten** des Projekts <a href="https://citylab-berlin.org/projekte/giess-den-kiez/" class="external-link" target="_blank">Gieß den Kiez</a> (CSV-Format)
 
 ## Baumbestandsdaten (Berlin Open Data)
@@ -62,7 +62,7 @@ Screenshot des WFSExplorers der Open Data Informationsstelle mit <a href="https:
 
 ## Bezirksgrenzen (Berlin Open Data)
 
-Für die geografische Einordnung des Baumbestands wurde zusätzlich der Datensatz zu den <a href="https://daten.odis-berlin.de/de/dataset/bezirksgrenzen/" class="external-link" target="_blank">Berliner Bezirksgrenzen</a> genutzt. Dieser enthält die polygonalen Abgrenzungen aller Berliner Bezirke u. a. im <a href="https://de.wikipedia.org/wiki/GeoJSON" class="external-link" target="_blank">GeoJson-Format</a> und ermöglicht damit eine präzise räumliche Zuordnung von Punktdaten. Enthalten sind zudem folgende Attribute:
+Für die geografische Einordnung des Baumbestands wurde zusätzlich der Datensatz zu den <a href="https://daten.odis-berlin.de/de/dataset/bezirksgrenzen/" class="external-link" target="_blank">Berliner Bezirksgrenzen</a> genutzt. Dieser enthält die polygonalen Abgrenzungen aller Berliner Bezirke u. a. im GeoJson-Format und ermöglicht damit eine präzise räumliche Zuordnung von Punktdaten. Enthalten sind zudem folgende Attribute:
 - ``Gemeinde_name``: Name des Bezirks (z. B. Reinickendorf)
 - ``Gemeinde_schluessel``: Dreistelliger Schlüssel des Bezirks
 - ``Land_name`` und ``Land_schluessel``: Verwaltungszuordnung zu Berlin
@@ -85,7 +85,8 @@ Screenshot der Visualisierung der Berliner Bezirksgrenzen auf der Seite des Date
 ```{admonition} Daten herunterladen
 :class: hinweis
 
-Speichern Sie die Daten in Ihrem, in [Kapitel 1.2](technische_voraussetzungen) erstellten, Projektverzeichnis im Unterordner `data/` (erstellen Sie diesen, falls noch nicht vorhanden):  
+In [Kapitel 1.2](technische_voraussetzungen) haben Sie Ihr Projektverzeichnis für die Shiny-App angelegt (in dem sich Ihre Datei `app.R` befindet). Speichern Sie die Daten nun in einem neuen Unterordner `data/` in diesem Projektverzeichnis:  
+
 *Tipp: Machen Sie einen Rechtsklick auf den Link und wählen Sie "Link speichern unter..." (oder "Ziel speichern unter..."), um die Datei direkt herunterzuladen.*  
 **Bewässerungsdaten (CSV)**  
 <a href="https://raw.githubusercontent.com/technologiestiftung/giessdenkiez-de-opendata/main/daten/giessdenkiez_bew%C3%A4sserungsdaten.csv" class="download-link" target='_blank'>🔗 Quelle</a> | <a href="https://raw.githubusercontent.com/quadriga-dk/Tabelle-Fallstudie-3/refs/heads/main/data/giessdenkiez_bew%C3%A4sserungsdaten.csv" class="download-link" target='_blank'>Backup</a>  
@@ -107,6 +108,6 @@ Jeder Eintrag ist einem bestimmten Baum zugeordnet (zu erkennen an der ID) und u
 - Zeitpunkt der letzten Bewässerung: ``timestamp`` 
 - Menge der Bewässerung in Litern: ``bewaesserungsmenge_in_liter``
 
-Zum Zeitpunkt der Erstellung dieses Dashboards, ergeben die Daten Rückschlüsse auf Muster im Gießverhalten der Bevölkerung in dem Zeitraum 2020-03/2024 und ermöglichen die Gestaltung von Visualisierungen aus räumlich und zeitlich differenzierten Informationen zur städtischen Baumbewässerung. Wenn Sie die Bewässerungsdaten direkt von der Quelle herunterladen, sind diese womöglich aktualisiert, weswegen Ihre Ergebnisse von den Ergebnissen in der Fallstudie abweichen könnten. Wenn Sie ein Dashboard mit den aktuellsten Daten erstellen möchten, sollten Sie die Daten direkt von der Quelle beziehen. Wenn Sie Ihre Ergebnisse jedoch auf Korrektheit abgleichen möchten, laden Sie bitte die Daten vom Backup-Server herunter. Auf diese Weise können Sie nachvollziehen, ob Sie den nachfolgenden Schritten richtig gefolgt sind.
+Zum Zeitpunkt der Erstellung dieses Dashboards, ergeben die Daten Rückschlüsse auf Muster im Gießverhalten der Bevölkerung in dem Zeitraum 2020-03/2024 und ermöglichen die Gestaltung von Visualisierungen aus räumlich und zeitlich differenzierten Informationen zur städtischen Baumbewässerung. Wenn Sie die Bewässerungsdaten direkt von der Quelle herunterladen, sind diese wahrscheinlich aktualisiert, weswegen Ihre Ergebnisse von den Ergebnissen in der Fallstudie abweichen können. Wenn Sie ein Dashboard mit den aktuellsten Daten erstellen möchten, sollten Sie die Daten direkt von der Quelle beziehen. Wenn Sie Ihre Ergebnisse jedoch auf Korrektheit abgleichen möchten, laden Sie bitte die Daten vom Backup-Server herunter. Auf diese Weise können Sie nachvollziehen, ob Sie den nachfolgenden Schritten richtig gefolgt sind.
 
 

@@ -146,7 +146,7 @@ chapters:
   description: In diesem einführenden Kapitel wird das Erkenntnisinteresse formuliert.
   url: https://quadriga-dk.github.io/Tabelle-Fallstudie-3/operationalisierung/fragestellung-operationalisierung.html
   learning-goal: Formulieren der Leitfrage und Operationalisieren des Verfahrens
-  time-required: TODO
+  time-required: PT5M
   learning-objectives:
   - learning-objective: Die Lernenden können die Entwicklung einer Fragestellung am
       Beispiel der Ausprägungen des Engagements von Bürger:innen erläutern.
@@ -157,7 +157,7 @@ chapters:
   description: Dieses Kapitel widmet sich der Datengrundlage der Untersuchung.
   url: https://quadriga-dk.github.io/Tabelle-Fallstudie-3/datenbasis/datenbasis-einleitung.html
   learning-goal: Bearbeiten von Datensätzen mit R Shiny
-  time-required: TODO
+  time-required: PT15M
   learning-objectives:
   - learning-objective: Die Lernenden können Datensätze in R Shiny verändern.
     competency: 2.3 Aufbereitung

@@ -10,7 +10,7 @@ Bevor Sie mit dem Bau eines Dashboards mit R Shiny beginnen können, müssen Sie
 ```{admonition} Story
 :class: story
 Dr. Amir Weber möchte sich zunächst einen schnellen Überblick verschaffen: Wie werden Bäume in Berlin gegossen und wie engagieren sich die Bürger:innen dabei? 
-Bei seiner Recherche nimmt er erneut die Plattform <a href="https://www.giessdenkiez.de/stats?lang=de" class="external-link" target="_blank">Gieß den Kiez</a> genauer unter die Lupe. Besonders beeindruckt ihn, wie anschaulich die Daten dort visualisiert sind (s. {numref}`Dashboard Gieß den Kiez` in Kapitel 5.1). Die Mischung aus Angaben zu Bäumen und Gießenden, Karten und Zeitverläufen inspirieren ihn so sehr, dass er sie für seine eigene R-Shiny-Anwendung übernehmen möchte. Dazu benötigt er aber erst einmal Daten, welche dann zwecksgemäß bereinigt werden müssen.
+Bei seiner Recherche nimmt er erneut die Plattform <a href="https://www.giessdenkiez.de/stats?lang=de" class="external-link" target="_blank">Gieß den Kiez</a> genauer unter die Lupe. Besonders beeindruckt ihn, wie anschaulich die Daten dort visualisiert sind (s. {numref}`Dashboard Gieß den Kiez` in Kapitel 5.1). Die Mischung aus Angaben zu Bäumen und Gießenden, Karten und Zeitverläufen inspirieren ihn so sehr, dass er sie für seine eigene R-Shiny-Anwendung übernehmen möchte. Dazu benötigt er aber erst einmal Daten, die dann entsprechend bereinigt werden müssen.
 ```
 
 ### Projektstruktur und Skript vorbereiten
@@ -110,7 +110,7 @@ strassenbaeume <- st_read("WFS:https://gdi.berlin.de/services/wfs/baumbestand", 
 Die Gießdaten stammen aus einer CSV-Datei des Projekts „Gieß den Kiez“. Sie lesen diese erst ein und anschließend bereinigen Sie sie, d. h.:
 
 - Sie entfernen ungültige oder fehlende Koordinaten (Längen-/Breitengrad).
-- Sie schließen Datensätze ohne Straßenname oder mit fehlerhaften Gattungsbezeichnungen (z. B. numerische Werte) aus.
+- Sie schließen Datensätze ohne Straßennamen oder mit fehlerhaften Gattungsbezeichnungen (z. B. numerische Werte) aus.
 
 ```r
 # 2. Bewässerungsdaten laden und bereinigen
