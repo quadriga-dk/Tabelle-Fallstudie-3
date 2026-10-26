@@ -15,12 +15,12 @@ chapters:
       - file: 2_operationalisierung/2.1_fragestellung
       - file: 2_operationalisierung/2.2_operationalisierung
       - file: 2_operationalisierung/2.3_resümee
-  - file: datenbasis/3.0_datenbasis-intro
+  - file: 3_datenbasis/3.0_datenbasis-intro
     sections:
-      - file: datenbasis/datenbasis
-      - file: datenbasis/daten-vorbereitung
-      - file: datenbasis/3.3_resumee
-      - file: datenbasis/assessment
+      - file: 3_datenbasis/3.1_datenbasis
+      - file: 3_datenbasis/3.2_daten-vorbereitung
+      - file: 3_datenbasis/3.3_resumee
+      - file: 3_datenbasis/3.4_assessment
   - file: 4_dash-prep/4.0_intro
     sections:
       - file: 4_dash-prep/4.1_dashboard
