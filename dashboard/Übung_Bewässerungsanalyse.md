@@ -180,7 +180,7 @@ Große Zahlen wie „2.500.000 L“ sind im Dashboard auf einen Blick schwer erf
 
 ### Berechnung der Bewässerung
 
-Im ersten Diagramm wird die **gesamte Bewässerungsmenge pro Bezirk** berechnet. Dafür beginnt der Code mit dem zusammengeführten Datensatz `df_merged` und fasst die Wassermengen nach Bezirk zusammen.
+Im ersten Diagramm wird die gesamte Bewässerungsmenge pro Bezirk berechnet. Dafür verwendet der Code den Datensatz `df_merged`, den Sie zu Beginn der Dashboard-Vorbereitung in [Kapitel 4.3](daten-laden) geladen haben. Anschließend fasst der Code die Wassermengen für jeden Bezirk zusammen.
 
 ````{dropdown} Code
 ```r
