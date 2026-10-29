@@ -164,26 +164,23 @@ Von Vorteil wäre es, wenn das Dashboard automatisch in sinnvolle Einheiten umre
 ````{admonition} Erklärung des Codes
 :class: hinweis, dropdown
 
-**1. Die Hilfsfunktionen erstellen:**
-*   **`convert_units(liters)`**: Nimmt einen Wert in Litern entgegen und entscheidet anhand der Größenordnung über die Einheit:
-    *   `if (liters >= 1e6)` – 1.000.000 Liter oder mehr werden zu Megaliter (ML).
-    *   `else if (liters >= 1e3)` – 1.000 Liter oder mehr werden zu Kubikmeter (m³).
-    *   `else` – Kleinere Mengen bleiben Liter (L).
-    *   Die Funktion gibt eine Liste mit dem gerundeten Wert (`value`) und der Einheit (`unit`) zurück.
-*   **`full_unit(unit)`**: Wandelt Kurzformen (wie "ML") mithilfe von `switch()` in ausgeschriebene Bezeichnungen ("Mega Liter") um, falls dies später für die Anzeige benötigt wird.
+**`convert_units(liters)`** nimmt eine Literzahl entgegen und wählt anhand ihrer Größe eine Einheit:  
+  - `if (liters >= 1e6)` – 1.000.000 Liter oder mehr werden zu Megaliter (ML).
+  - `else if (liters >= 1e3)` – 1.000 Liter oder mehr werden zu Kubikmeter (m³).
+  - `else` – Kleinere Mengen bleiben Liter (L).
 
-**2. Auf den Datensatz anwenden:**
-*   **`purrr::map(total_water, convert_units)`**: Wendet die gerade erstellte Funktion `convert_units` auf jede Zeile der Spalte `total_water` an. Das Ergebnis ist eine neue Spalte `converted`, die aus Listen besteht.
-*   **`sapply(converted, `[[`, "value")`**: Extrahiert gezielt den numerischen Wert aus diesen Listen und speichert ihn in der neuen Spalte `value`.
-*   **`sapply(converted, `[[`, "unit")`**: Extrahiert analog dazu die berechnete Einheit und speichert sie in der Spalte `unit`.
+Die Funktion gibt eine Liste mit zwei Angaben zurück: dem gerundeten Zahlenwert (`value`) und der zugehörigen Einheit (`unit`).
+
+- **`full_unit(unit)`**: 
+  Wandelt Kurzformen (wie `"ML"`) mithilfe von `switch()` in ausgeschriebene Bezeichnungen (`"Mega Liter"`) um, falls dies für Tooltips oder Textanzeigen gebraucht wird.
 
 **Warum ist das wichtig?**  
-Ohne Umrechnung wären große Zahlen wie "2.500.000 L" im Dashboard schwer zu erfassen. Durch diese Kombination aus Hilfsfunktion und `mutate` wird daraus automatisch ein übersichtliches "2,5 ML".
+Große Zahlen wie „2.500.000 L“ sind im Dashboard auf einen Blick schwer erfassbar. Durch die Umrechnung wird daraus ein kompaktes und leicht lesbares „2,5 ML“.
 ````
 
 ### Berechnung der Bewässerung
 
-Im ersten Teil des Codes, der die **durchschnittliche Bewässerung pro Bezirk** darstellt, berechnen Sie, wie viel Wasser insgesamt in jedem Bezirk verbraucht wurde.
+Im ersten Diagramm wird die gesamte Bewässerungsmenge pro Bezirk berechnet. Dafür verwendet der Code den Datensatz `df_merged`, den Sie zu Beginn der Dashboard-Vorbereitung in [Kapitel 4.3](daten-laden) geladen haben. Anschließend fasst der Code die Wassermengen für jeden Bezirk zusammen.
 
 ````{dropdown} Code
 ```r
@@ -209,16 +206,55 @@ Im ersten Teil des Codes, der die **durchschnittliche Bewässerung pro Bezirk** 
 ````{admonition} Erklärung des Codes
 :class: hinweis, dropdown
 
-**Daten aggregieren:**
+:class: hinweis, dropdown
 
-- `req(input$sidebarMenu == "analysis")` – rendert den Plot nur, wenn der Tab aktiv ist
-- `filter(!is.na(bezirk))` – entfernt Einträge ohne Bezirksangabe
-- `group_by(bezirk)` – gruppiert alle Bäume nach Bezirk
-- `summarise(total_water = sum(...))` – berechnet die Gesamtwassermenge pro Bezirk
-- `ungroup()` – löst die Gruppierung auf
-- `arrange(desc(total_water))` – sortiert Bezirke absteigend nach Wassermenge
+**1. Daten nach Bezirk zusammenfassen**
 
-Durch diese Aggregation wird sichtbar, welche Bezirke absolut gesehen die meisten Liter Wasser auf ihre Bäume gegossen haben.
+- `req(input$sidebarMenu == "analysis")` – der Plot wird nur berechnet, wenn der Tab „Bewässerungsanalyse“ aktiv ist.
+- `filter(!is.na(bezirk))` – entfernt Zeilen ohne Bezirksangabe.
+- `group_by(bezirk)` – ordnet die Zeilen nach Bezirk zu Gruppen.
+- `summarise(total_water = sum(...))` – addiert die Wassermengen jeder Gruppe und speichert die Summe in `total_water`.
+- `ungroup()` – hebt die Gruppierung auf.
+- `arrange(desc(total_water))` – sortiert die Bezirke nach Gesamtwassermenge, von groß nach klein.
+
+Nach `summarise()` enthält `df_agg` eine Zeile pro Bezirk. Für dieses Diagramm hat die Tabelle zunächst zwei Spalten: `bezirk` und `total_water`.
+
+**Vereinfachtes Beispiel** (die Zahlen dienen nur der Erklärung):
+
+Auszug aus `df_merged`:
+
+| `bezirk` | `bewaesserungsmenge_in_liter` |
+|---|---:|
+| Mitte | 10 |
+| Mitte | 5 |
+| Pankow | 20 |
+| Mitte | 3 |
+
+Nach dem Filtern und Zusammenfassen:
+
+| `bezirk` | `total_water` |
+|---|---:|
+| Pankow | 20 |
+| Mitte | 18 |
+
+Die drei Zeilen für Mitte werden also zu einer Zeile mit der Summe 18. Die Zeile ohne Bezirksangabe wird vorher entfernt.
+
+**2. Umrechnung mit `mutate()`**
+
+Anschließend ergänzt `mutate()` weitere Spalten, ohne die Bezirke zu neuen Gruppen zusammenzufassen oder Zeilen zu entfernen:
+
+- `purrr::map(total_water, convert_units)` wendet `convert_units()` auf jeden Wert in `total_water` an. Das Ergebnis wird in `converted` gespeichert. Diese Spalte enthält pro Zeile eine Liste mit `value` und `unit`.
+- `sapply(converted, `[[`, "value")` liest den Zahlenwert aus jeder Liste aus und speichert ihn in `value`.
+- `sapply(converted, `[[`, "unit")` liest die Einheit aus und speichert sie in `unit`.
+
+Damit enthält `df_agg` nun zusätzlich die Spalten `converted`, `value` und `unit`. `value` wird später für die Balkenhöhe verwendet; `unit` wird für die Beschriftung der y-Achse benötigt.
+
+| `bezirk` | `total_water` (Liter) | `converted` | `value` | `unit` |
+|:---|---:|:---|---:|:---|
+| Mitte | 2.500.000 | `list(value = 2.5, unit = "ML")` | 2,5 | ML |
+| Pankow | 12.000 | `list(value = 12, unit = "m³")` | 12 | m³ |
+
+*Die Bezirksnamen und Zahlen sind nur Beispiele zur Erklärung und keine tatsächlichen Ergebnisse aus dem Datensatz.*
 ````
 
 ### Balkendiagramm erstellen
@@ -366,13 +402,20 @@ Das zweite Diagramm zeigt eine andere Perspektive: Statt der Gesamtmenge wird hi
 ````{admonition} Erklärung des Codes
 :class: hinweis, dropdown
 
-Die Struktur ist ähnlich wie beim ersten Diagramm, mit einigen wichtigen Unterschieden:
+Auch in diesem `renderPlot()`-Block wird `df_agg` neu aus `df_merged` erstellt. Es handelt sich also nicht um die Tabelle aus dem ersten Diagramm.
 
-**Zusätzliche Kennzahlen:**
+**Berechnung der Kennzahl:**
 
-- `total_water = sum(...)` – Gesamtwassermenge pro Bezirk
-- `trees_watered = n_distinct(gml_id)` – zählt, wie viele unterschiedliche Bäume gegossen wurden
-- `mutate(water_per_tree = total_water / trees_watered)` – berechnet den Durchschnitt: Gesamtwasser geteilt durch Anzahl gegossener Bäume
+- `total_water = sum(...)` – addiert die Wassermengen pro Bezirk.
+- `trees_watered = n_distinct(gml_id)` – zählt die unterschiedlichen Werte in der Spalte `gml_id` pro Bezirk.
+- `mutate(water_per_tree = total_water / trees_watered)` – teilt die Gesamtwassermenge durch diese Anzahl und speichert das Ergebnis in `water_per_tree`.
+
+**Vereinfachtes Beispiel** (die Zahlen dienen nur der Erklärung):
+
+| `bezirk` | `total_water` (Liter) | `trees_watered` | `water_per_tree` (Liter) |
+|:---|---:|---:|---:|
+| Mitte | 12.000 | 4 | 3.000 |
+| Pankow | 5.000 | 10 | 500 |
 
 **Einheitenumrechnung:**
 

@@ -696,6 +696,12 @@ top_bezirk <- df_merged %>%
 # 3. Ergebnis anzeigen
 print(top_bezirk)
 ```
+
+**Erklärung des Codes:**
+- `group_by(bezirk)`: Gruppiert die Daten nach Bezirken, damit die anschließende Berechnung für jeden Bezirk separat erfolgt.
+- `summarise(...)`: Fasst die Daten pro Bezirk zusammen und berechnet hier die Quote (`ratio`), indem die Anzahl der eindeutig gegossenen Bäume (`n_distinct(gisid[!is.na(timestamp)])`) durch alle erfassten Bäume des Bezirks (`n_distinct(gisid)`) geteilt wird.
+- `slice_max(ratio, n = 1)`: Filtert die Zeile mit dem höchsten Wert der berechneten Quote heraus.
+
 **Hinweis:** Sofern Sie bisher mit den Datensätzen gearbeitet haben, welche in [Kapitel 3.1.3](datenbasis) zur Verfügung gestellt wurden, wird mit einem Wert von **0.0326** (bzw. **3,26 %**) Friedrichshain-Kreuzberg als der Bezirk mit der höchsten Gieß-Quote ausgegeben werden. Dieser Wert bedeutet, dass 3,26 % aller verzeichneten Bäume in diesem Bezirk mindestens einmal gegossen wurden. Sollten Sie die aktuellen Datensätze heruntergeladen haben, kann dieser Wert abweichen.
 ````
 

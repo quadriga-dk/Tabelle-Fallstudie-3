@@ -3,7 +3,7 @@
 ## including UI and Server components from chapter 5.2 to 5.6
 
 # Installieren Sie die benötigten Pakete nur einaml, falls sie noch nicht installiert sind
-#install.packages(c("shiny", "shinydashboard", "leaflet", "dplyr", "htmltools", "stringr", "sf", "tidyr", "ggplot2", "plotly", "leaflet.extras"))
+#install.packages(c("shiny", "shinydashboard", "leaflet", "dplyr", "htmltools", "stringr", "sf", "tidyr", "ggplot2", "plotly"))
 
 library(shiny)
 library(shinydashboard)
