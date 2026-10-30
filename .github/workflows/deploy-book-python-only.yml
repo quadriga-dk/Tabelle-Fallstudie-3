@@ -30,7 +30,7 @@ jobs:
     - name: Install Python dependencies
       run: |
         pip install -r requirements.txt
-    
+
     - name: Log all available kernels
       run: |
         jupyter kernelspec list
@@ -48,8 +48,19 @@ jobs:
       run: |
         jupyter-book build .
 
+    - name: Inject all metadata into HTML
+      run: |
+        python -m quadriga.metadata.inject_all_metadata
+        echo "Injected all metadata (OpenGraph, JSON-LD, and RDF links) into HTML head"
+
+    - name: Copy metadata files to build directory
+      run: |
+        cp quadriga-metadata.jsonld _build/html/quadriga-metadata.jsonld
+        cp quadriga-metadata.rdf _build/html/quadriga-metadata.rdf
+        echo "Copied metadata files to _build/html for discovery"
+
     - name: Upload book artifact
-      uses: actions/upload-pages-artifact@v3
+      uses: actions/upload-pages-artifact@v5.0.0
       with:
         path: "_build/html"
 
