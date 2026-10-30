@@ -1,0 +1,218 @@
+# yaml-language-server: $schema=https://quadriga-dk.github.io/quadriga-schema/v2.0.0/schema.json
+title: 'Visualisierung in der Verwaltung: Ein Dashboard für Baum- und Bewässerungsdaten.
+  QUADRIGA Open Educational Resources: Tabelle 3'
+authorLIST:
+- familyName: Walter
+  givenName: Paul
+  orcid: https://orcid.org/0000-0002-9236-3268
+  affiliation: Fachhochschule Potsdam
+  creditLIST:
+  - Data curation
+  - Methodology
+  - Validation
+  - Writing – original draft
+  - Writing – review & editing
+- familyName: Plomin
+  givenName: Jana
+  orcid: https://orcid.org/0000-0003-0127-7493
+  affiliation: Fraunhofer-Institut für Offene Kommunikationssysteme FOKUS
+  creditLIST:
+  - Methodology
+  - Validation
+  - Writing – original draft
+  - Writing – review & editing
+- familyName: Schmeling
+  givenName: Juliane
+  orcid: https://orcid.org/0009-0005-9814-1139
+  affiliation: Fraunhofer-Institut für Offene Kommunikationssysteme FOKUS
+  creditLIST:
+  - Conceptualization
+  - Methodology
+  - Project administration
+- familyName: Dakruni
+  givenName: Sami
+  orcid: https://orcid.org/0009-0009-8541-6358
+  affiliation: Fraunhofer-Institut für Offene Kommunikationssysteme FOKUS
+  creditLIST:
+  - Investigation
+  - Software
+  - Visualization
+  - Writing – original draft
+- familyName: Bingöl
+  givenName: Cemre
+  orcid: https://orcid.org/0009-0009-2345-4973
+  affiliation: Fraunhofer-Institut für Offene Kommunikationssysteme FOKUS
+  creditLIST:
+  - Software
+  - Visualization
+  - Writing – original draft
+keywordLIST:
+- de: Verwaltung
+- de: Verwaltungswissenschaft
+- en: Public Sector
+- de: Tabelle
+- de: Lerneinheit
+- en: Open Educational Resource
+- en: Dashboard
+- de: Datenvisualisierung
+- de: Datenkommunikation
+description: In dieser Open Educational Resource wird mit der Applikation R Shiny
+  ein Dashboard gebaut, das das Engagement der Bürger:innen in Bezug auf die Bewässerung
+  städtischer Bäumen visualisiert. Dabei werden Kompetenzen im Bereich Visualisierung
+  und Kommunikation von Daten vermittelt.
+tableOfContents: '- Einstieg
+
+  - Fragestellung und Operationalisierung
+
+  - Datenbasis
+
+  - Dashboard - Vorbereitung
+
+  - Dashboard - Einzelelemente
+
+  - Zusammenfassung und Reflexion
+
+  - Abschluss'
+disciplineLIST:
+- Verwaltungswissenschaften
+- Informationswissenschaft
+researchObjectTypeLIST:
+- Tabelle
+targetGroupLIST:
+- Forschende (PostDoc)
+- Forschende (Projektleitung)
+- Promovierende
+- Hochschullehrende
+timeRequired: TODO
+language: de
+contributorLIST:
+- familyName: Schnaitter
+  givenName: Hannes
+  orcid: https://orcid.org/0000-0002-1602-6032
+  affiliation: Humboldt-Universität zu Berlin, Institut für Bibliotheks- und Informationswissenschaft
+  creditLIST:
+  - Software
+  - Validation
+  - Writing – review & editing
+- familyName: Samoilova
+  givenName: Evgenia
+  orcid: https://orcid.org/0000-0003-3858-901X
+  affiliation: Universität Potsdam
+  creditLIST:
+  - Methodology
+  - Validation
+  - Writing – review & editing
+- familyName: Islam
+  givenName: Lamia
+  orcid: https://orcid.org/0009-0001-1879-9880
+  affiliation: Universität Potsdam
+  creditLIST:
+  - Investigation
+  - Software
+  - Visualization
+- familyName: Porębski
+  givenName: Ralf
+  affiliation: Fraunhofer-Institut für Offene Kommunikationssysteme FOKUS
+  creditLIST:
+  - Software
+  - Visualization
+  - Writing – review & editing
+- familyName: Petras
+  givenName: Vivien
+  orcid: https://orcid.org/0000-0002-8113-1509
+  affiliation: Humboldt-Universität zu Berlin, Institut für Bibliotheks- und Informationswissenschaft
+  creditLIST:
+  - Funding acquisition
+- familyName: Neuroth
+  givenName: Heike
+  orcid: https://orcid.org/0000-0002-3637-3154
+  affiliation: Fachhochschule Potsdam
+  creditLIST:
+  - Funding acquisition
+identifier: https://doi.org/10.5281/zenodo.TODOTODO
+identifierGit: https://github.com/quadriga-dk/Tabelle-Fallstudie-3/
+identifierOER: https://quadriga-dk.github.io/Tabelle-Fallstudie-3/
+prerequisiteLIST:
+- allgemeines Verständnis von / Interesse an Struktur von Datensätzen
+- Verständnis für Statistik und statistische Software bzw. für das Programmieren empfohlen
+- Grundlegende Kenntnisse in R und RStudio empfohlen
+usedToolLIST:
+- name: R (Programmiersprache)
+  url: https://cran.rstudio.com/
+- name: RStudio
+  url: https://posit.co/download/rstudio-desktop/
+chapterLIST:
+- title: Fragestellung und Operationalisierung
+  description: In diesem einführenden Kapitel wird das Erkenntnisinteresse formuliert.
+  url: https://quadriga-dk.github.io/Tabelle-Fallstudie-3/operationalisierung/fragestellung-operationalisierung.html
+  timeRequired: PT5M
+  learningGoal: Formulieren der Leitfrage und Operationalisieren des Verfahrens
+  learningObjectiveLIST:
+  - description: Die Lernenden können die Entwicklung einer Fragestellung am Beispiel
+      der Ausprägungen des Engagements von Bürger:innen erläutern.
+    competency: nicht anwendbar
+    dataFlow: nicht anwendbar
+    bloomsCategory: 2 Verstehen
+- title: Datenbasis
+  description: Dieses Kapitel widmet sich der Datengrundlage der Untersuchung.
+  url: https://quadriga-dk.github.io/Tabelle-Fallstudie-3/datenbasis/datenbasis-einleitung.html
+  timeRequired: PT15M
+  learningGoal: Bearbeiten von Datensätzen mit R Shiny
+  learningObjectiveLIST:
+  - description: Die Lernenden können Datensätze in R Shiny verändern.
+    competency: 2.3 Aufbereitung
+    dataFlow: 2 Erhebung und Aufbereitung
+    bloomsCategory: 3 Anwenden
+  supplementalMaterialLIST:
+  - url: https://raw.githubusercontent.com/technologiestiftung/giessdenkiez-de-opendata/main/daten/giessdenkiez_bew%C3%A4sserungsdaten.csv
+    title: TODO
+  - url: https://tsb-opendata.s3.eu-central-1.amazonaws.com/bezirksgrenzen/bezirksgrenzen.geojson
+    title: TODO
+- title: Dashboard - Vorbereitung
+  description: Dieses Kapitel widmet sich der Vorbereitung des Dashboards.
+  url: https://quadriga-dk.github.io/Tabelle-Fallstudie-3/4_dash-prep/4.0_intro.html
+  timeRequired: TODO
+  learningGoal: Verwenden von Dashboards für Visualisierung und Kommunikation von
+    Daten
+  learningObjectiveLIST:
+  - description: Die Lernenden können grundlegende Aspekte der Datenvisualisierung
+      benennen.
+    competency: 4.2 Visualisierung
+    dataFlow: 4 Analyse
+    bloomsCategory: 1 Erinnern
+  - description: Die Lernenden können die Bedeutung von Dashboards für die Datenkommunikation
+      erläutern.
+    competency: 5.3 Kommunikation
+    dataFlow: 5 Publikation und Nachnutzung
+    bloomsCategory: 2 Verstehen
+- title: Dashboard - Einzelelemente
+  description: Dieses Kapitel widmet sich dem Aufbau eines Dashboards mit R Shiny.
+  url: https://quadriga-dk.github.io/Tabelle-Fallstudie-3/dashboard/Dashboard.html
+  timeRequired: TODO
+  learningGoal: Erstellen eines Dashboards
+  learningObjectiveLIST:
+  - description: Die Lernenden können den Aufbau und die Gliederung eines Dashboards
+      erklären.
+    competency: 4.2 Visualisierung
+    dataFlow: 4 Analyse
+    bloomsCategory: 2 Verstehen
+  - description: Die Lernenden können ein einfaches Dashboard mit wesentlichen Komponenten
+      (z. B. Startseite und Zeitverlauf) erstellen.
+    competency: 4.2 Visualisierung
+    dataFlow: 4 Analyse
+    bloomsCategory: 3 Anwenden
+dateIssued: '2025-03-21'
+dateModified: '2026-06-26'
+version: 0.0.1
+contextOfCreation: 'Die vorliegenden Open Educational Resources wurden durch das Datenkompetenzzentrum
+  QUADRIGA erstellt.
+
+
+  Förderkennzeichen: 16DKZ2034'
+qualityAssurance:
+  description: https://doi.org/10.5281/zenodo.18953896
+  date: '2026-11-14'
+learningResourceType: Jupyter Book
+schemaVersion: 2.0.0
+license: https://creativecommons.org/licenses/by/4.0/
+licenseCode: https://opensource.org/licenses/MIT
