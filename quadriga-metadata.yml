@@ -1,6 +1,6 @@
 # yaml-language-server: $schema=https://quadriga-dk.github.io/quadriga-schema/v2.0.0/schema.json
-title: 'Visualisierung in der Verwaltung: Ein Dashboard für Baum- und Bewässerungsdaten. QUADRIGA Open
-  Educational Resources: Tabelle 3'
+title: 'Visualisierung in der Verwaltung: Ein Dashboard für Baum- und Bewässerungsdaten.
+  QUADRIGA Open Educational Resources: Tabelle 3'
 authorLIST:
 - familyName: Walter
   givenName: Paul
@@ -56,17 +56,23 @@ keywordLIST:
 - en: Dashboard
 - de: Datenvisualisierung
 - de: Datenkommunikation
-description: In dieser Open Educational Resource wird mit der Applikation R Shiny ein Dashboard gebaut,
-  das das Engagement der Bürger:innen in Bezug auf die Bewässerung städtischer Bäumen visualisiert. Dabei
-  werden Kompetenzen im Bereich Visualisierung und Kommunikation von Daten vermittelt.
-tableOfContents: |-
-  - Einstieg
+description: In dieser Open Educational Resource wird mit der Applikation R Shiny
+  ein Dashboard gebaut, das das Engagement der Bürger:innen in Bezug auf die Bewässerung
+  städtischer Bäumen visualisiert. Dabei werden Kompetenzen im Bereich Visualisierung
+  und Kommunikation von Daten vermittelt.
+tableOfContents: '- Einstieg
+
   - Fragestellung und Operationalisierung
+
   - Datenbasis
+
   - Dashboard - Vorbereitung
+
   - Dashboard - Einzelelemente
+
   - Zusammenfassung und Reflexion
-  - Abschluss
+
+  - Abschluss'
 disciplineLIST:
 - Verwaltungswissenschaften
 - Informationswissenschaft
@@ -142,8 +148,8 @@ chapterLIST:
   timeRequired: PT5M
   learningGoal: Formulieren der Leitfrage und Operationalisieren des Verfahrens
   learningObjectiveLIST:
-  - description: Die Lernenden können die Entwicklung einer Fragestellung am Beispiel der Ausprägungen
-      des Engagements von Bürger:innen erläutern.
+  - description: Die Lernenden können die Entwicklung einer Fragestellung am Beispiel
+      der Ausprägungen des Engagements von Bürger:innen erläutern.
     competency: nicht anwendbar
     dataFlow: nicht anwendbar
     bloomsCategory: 2 Verstehen
@@ -158,21 +164,24 @@ chapterLIST:
     dataFlow: 2 Erhebung und Aufbereitung
     bloomsCategory: 3 Anwenden
   supplementalMaterialLIST:
-    - url: https://raw.githubusercontent.com/technologiestiftung/giessdenkiez-de-opendata/main/daten/giessdenkiez_bew%C3%A4sserungsdaten.csv
-      title: TODO
-    - url: https://tsb-opendata.s3.eu-central-1.amazonaws.com/bezirksgrenzen/bezirksgrenzen.geojson
-      title: TODO
+  - url: https://raw.githubusercontent.com/technologiestiftung/giessdenkiez-de-opendata/main/daten/giessdenkiez_bew%C3%A4sserungsdaten.csv
+    title: TODO
+  - url: https://tsb-opendata.s3.eu-central-1.amazonaws.com/bezirksgrenzen/bezirksgrenzen.geojson
+    title: TODO
 - title: Dashboard - Vorbereitung
   description: Dieses Kapitel widmet sich der Vorbereitung des Dashboards.
   url: https://quadriga-dk.github.io/Tabelle-Fallstudie-3/4_dash-prep/4.0_intro.html
   timeRequired: TODO
-  learningGoal: Verwenden von Dashboards für Visualisierung und Kommunikation von Daten
+  learningGoal: Verwenden von Dashboards für Visualisierung und Kommunikation von
+    Daten
   learningObjectiveLIST:
-  - description: Die Lernenden können grundlegende Aspekte der Datenvisualisierung benennen.
+  - description: Die Lernenden können grundlegende Aspekte der Datenvisualisierung
+      benennen.
     competency: 4.2 Visualisierung
     dataFlow: 4 Analyse
     bloomsCategory: 1 Erinnern
-  - description: Die Lernenden können die Bedeutung von Dashboards für die Datenkommunikation erläutern.
+  - description: Die Lernenden können die Bedeutung von Dashboards für die Datenkommunikation
+      erläutern.
     competency: 5.3 Kommunikation
     dataFlow: 5 Publikation und Nachnutzung
     bloomsCategory: 2 Verstehen
@@ -182,22 +191,24 @@ chapterLIST:
   timeRequired: TODO
   learningGoal: Erstellen eines Dashboards
   learningObjectiveLIST:
-  - description: Die Lernenden können den Aufbau und die Gliederung eines Dashboards erklären.
+  - description: Die Lernenden können den Aufbau und die Gliederung eines Dashboards
+      erklären.
     competency: 4.2 Visualisierung
     dataFlow: 4 Analyse
     bloomsCategory: 2 Verstehen
-  - description: Die Lernenden können ein einfaches Dashboard mit wesentlichen Komponenten (z. B. Startseite
-      und Zeitverlauf) erstellen.
+  - description: Die Lernenden können ein einfaches Dashboard mit wesentlichen Komponenten
+      (z. B. Startseite und Zeitverlauf) erstellen.
     competency: 4.2 Visualisierung
     dataFlow: 4 Analyse
     bloomsCategory: 3 Anwenden
 dateIssued: '2025-03-21'
 dateModified: '2026-06-26'
 version: 0.0.1
-contextOfCreation: |-
-  Die vorliegenden Open Educational Resources wurden durch das Datenkompetenzzentrum QUADRIGA erstellt.
+contextOfCreation: 'Die vorliegenden Open Educational Resources wurden durch das Datenkompetenzzentrum
+  QUADRIGA erstellt.
 
-  Förderkennzeichen: 16DKZ2034
+
+  Förderkennzeichen: 16DKZ2034'
 qualityAssurance:
   description: https://doi.org/10.5281/zenodo.18953896
   date: '2026-11-14'
