@@ -27,7 +27,7 @@ chapters:
       - file: 4_dash-prep/4.2_tools
       - file: 4_dash-prep/4.3_preparation
       - file: 4_dash-prep/4.4_resumee
-      - file: 4_dash-prep/assessment
+      - file: 4_dash-prep/4.5_assessment
   - file: dashboard/Dashboard
     sections:
       - file: dashboard/Datenvisualisierung-Grundlagen
