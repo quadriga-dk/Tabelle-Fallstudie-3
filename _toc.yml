@@ -28,16 +28,16 @@ chapters:
       - file: 4_dash-prep/4.3_preparation
       - file: 4_dash-prep/4.4_resumee
       - file: 4_dash-prep/4.5_assessment
-  - file: dashboard/Dashboard
+  - file: 5_dashboard/5.0_intro
     sections:
-      - file: dashboard/Datenvisualisierung-Grundlagen
-      - file: dashboard/Übung_Startseite
-      - file: dashboard/Übung_Karte
-      - file: dashboard/Übung_Bewässerungsanalyse
-      - file: dashboard/Übung_Zeitverlauf
-      - file: dashboard/Übung_Baumstatistik
-      - file: dashboard/resumee
-      - file: dashboard/assessment
+      - file: 5_dashboard/5.1_datenvisualisierung-grundlagen
+      - file: 5_dashboard/5.2_übung-startseite
+      - file: 5_dashboard/5.3_übung-karte
+      - file: 5_dashboard/5.4_übung-bewässerungsanalyse
+      - file: 5_dashboard/5.5_übung-zeitverlauf
+      - file: 5_dashboard/5.6_übung-baumstatistik
+      - file: 5_dashboard/5.7_resumee
+      - file: 5_dashboard/5.8_assessment
   - file: Zusammenfassung
   - file: 7_abschluss/7.0_einleitung
     sections:
