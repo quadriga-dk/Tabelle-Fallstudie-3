@@ -19,10 +19,10 @@ jobs:
     if: ${{ github.event.workflow_run.conclusion == 'success' }}
     steps:
     - name: Checkout repository
-      uses: actions/checkout@v4
+      uses: actions/checkout@v7
 
-    - name: Set up Python 3.11
-      uses: actions/setup-python@v5
+    - name: Set up Python
+      uses: actions/setup-python@v7
       with:
         python-version: 3.11
         cache: pip
@@ -39,7 +39,7 @@ jobs:
     # execute:
     #   execute_notebooks: cache
     - name: Cache executed notebooks
-      uses: actions/cache@v3
+      uses: actions/cache@v6
       with:
         path: _build/.jupyter_cache
         key: jupyter-book-cache-${{ hashFiles('requirements.txt') }}
@@ -60,10 +60,10 @@ jobs:
         echo "Copied metadata files to _build/html for discovery"
 
     - name: Upload book artifact
-      uses: actions/upload-pages-artifact@v5.0.0
+      uses: actions/upload-pages-artifact@v5
       with:
         path: "_build/html"
 
     - name: Deploy to GitHub Pages
       id: deployment
-      uses: actions/deploy-pages@v4
+      uses: actions/deploy-pages@v5
