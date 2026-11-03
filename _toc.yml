@@ -28,7 +28,7 @@ chapters:
       - file: 4_dash-prep/4.3_preparation
       - file: 4_dash-prep/4.4_resumee
       - file: 4_dash-prep/4.5_assessment
-  - file: 5_dashboard/5.0_intro
+  - file: 5_dashboard/5.0_dashboard-intro
     sections:
       - file: 5_dashboard/5.1_datenvisualisierung-grundlagen
       - file: 5_dashboard/5.2_übung-startseite
