@@ -22,7 +22,7 @@
     "codeRepository": "https://github.com/quadriga-dk/Tabelle-Fallstudie-3/"
   },
   "datePublished": "2025-03-21",
-  "dateModified": "2026-06-26",
+  "dateModified": "2026-11-04",
   "author": [
     {
       "@type": "Person",
@@ -103,6 +103,32 @@
         "@type": "Organization",
         "name": "Fraunhofer-Institut für Offene Kommunikationssysteme FOKUS"
       }
+    },
+    {
+      "@type": "Person",
+      "givenName": "Ralf-Gabriel",
+      "familyName": "Porębski",
+      "name": "Ralf-Gabriel Porębski",
+      "affiliation": {
+        "@type": "Organization",
+        "name": "Fraunhofer-Institut für Offene Kommunikationssysteme FOKUS"
+      }
+    },
+    {
+      "@type": "Person",
+      "givenName": "Lamia",
+      "familyName": "Islam",
+      "name": "Lamia Islam",
+      "identifier": {
+        "@type": "PropertyValue",
+        "propertyID": "ORCID",
+        "value": "0009-0001-1879-9880",
+        "url": "https://orcid.org/0009-0001-1879-9880"
+      },
+      "affiliation": {
+        "@type": "Organization",
+        "name": "Universität Potsdam"
+      }
     }
   ],
   "contributor": [
@@ -140,14 +166,14 @@
     },
     {
       "@type": "Person",
-      "givenName": "Lamia",
-      "familyName": "Islam",
-      "name": "Lamia Islam",
+      "givenName": "Daniil",
+      "familyName": "Skorinkin",
+      "name": "Daniil Skorinkin",
       "identifier": {
         "@type": "PropertyValue",
         "propertyID": "ORCID",
-        "value": "0009-0001-1879-9880",
-        "url": "https://orcid.org/0009-0001-1879-9880"
+        "value": "0000-0002-1845-9974",
+        "url": "https://orcid.org/0000-0002-1845-9974"
       },
       "affiliation": {
         "@type": "Organization",
@@ -156,12 +182,34 @@
     },
     {
       "@type": "Person",
-      "givenName": "Ralf",
-      "familyName": "Porębski",
-      "name": "Ralf Porębski",
+      "givenName": "Stefan",
+      "familyName": "Lindow",
+      "name": "Stefan Lindow",
+      "identifier": {
+        "@type": "PropertyValue",
+        "propertyID": "ORCID",
+        "value": "0000-0002-7870-0934",
+        "url": "https://orcid.org/0000-0002-7870-0934"
+      },
       "affiliation": {
         "@type": "Organization",
-        "name": "Fraunhofer-Institut für Offene Kommunikationssysteme FOKUS"
+        "name": "Universität Potsdam"
+      }
+    },
+    {
+      "@type": "Person",
+      "givenName": "Sophia",
+      "familyName": "Dörner",
+      "name": "Sophia Dörner",
+      "identifier": {
+        "@type": "PropertyValue",
+        "propertyID": "ORCID",
+        "value": "0000-0001-8747-3422",
+        "url": "https://orcid.org/0000-0001-8747-3422"
+      },
+      "affiliation": {
+        "@type": "Organization",
+        "name": "Niedersächsische Staats- und Universitätsbibliothek Göttingen"
       }
     },
     {
@@ -277,7 +325,7 @@
       "audienceType": "Hochschullehrende"
     }
   ],
-  "timeRequired": "TODO",
+  "timeRequired": "PT3H15M",
   "license": [
     {
       "@type": "CreativeWork",
@@ -312,7 +360,7 @@
       "name": "Datenbasis",
       "description": "Dieses Kapitel widmet sich der Datengrundlage der Untersuchung.",
       "url": "https://quadriga-dk.github.io/Tabelle-Fallstudie-3/datenbasis/datenbasis-einleitung.html",
-      "timeRequired": "PT15M",
+      "timeRequired": "PT30M",
       "teaches": "Bearbeiten von Datensätzen mit R Shiny",
       "educationalAlignment": [
         {
@@ -328,7 +376,7 @@
       "name": "Dashboard - Vorbereitung",
       "description": "Dieses Kapitel widmet sich der Vorbereitung des Dashboards.",
       "url": "https://quadriga-dk.github.io/Tabelle-Fallstudie-3/4_dash-prep/4.0_intro.html",
-      "timeRequired": "TODO",
+      "timeRequired": "PT40M",
       "teaches": "Verwenden von Dashboards für Visualisierung und Kommunikation von Daten",
       "educationalAlignment": [
         {
@@ -350,7 +398,7 @@
       "name": "Dashboard - Einzelelemente",
       "description": "Dieses Kapitel widmet sich dem Aufbau eines Dashboards mit R Shiny.",
       "url": "https://quadriga-dk.github.io/Tabelle-Fallstudie-3/dashboard/Dashboard.html",
-      "timeRequired": "TODO",
+      "timeRequired": "PT2H",
       "teaches": "Erstellen eines Dashboards",
       "educationalAlignment": [
         {

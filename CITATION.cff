@@ -30,6 +30,13 @@ authors: &id001
   family-names: Bingöl
   orcid: https://orcid.org/0009-0009-2345-4973
   affiliation: Fraunhofer-Institut für Offene Kommunikationssysteme FOKUS
+- given-names: Ralf-Gabriel
+  family-names: Porębski
+  affiliation: Fraunhofer-Institut für Offene Kommunikationssysteme FOKUS
+- given-names: Lamia
+  family-names: Islam
+  orcid: https://orcid.org/0009-0001-1879-9880
+  affiliation: Universität Potsdam
 repository-code: https://github.com/quadriga-dk/Tabelle-Fallstudie-3/
 url: https://quadriga-dk.github.io/Tabelle-Fallstudie-3/
 keywords: &id002

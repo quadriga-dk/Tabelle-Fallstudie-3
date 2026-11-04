@@ -166,6 +166,23 @@
         <schema:name>Cemre Bingöl</schema:name>
       </schema:Person>
     </schema:author>
+    <schema:author>
+      <schema:Person rdf:about="https://quadriga-dk.github.io/Tabelle-Fallstudie-3/#author_5">
+        <schema:affiliation rdf:resource="https://quadriga-dk.github.io/Tabelle-Fallstudie-3/#author_5_org" />
+        <schema:familyName>Porębski</schema:familyName>
+        <schema:givenName>Ralf-Gabriel</schema:givenName>
+        <schema:name>Ralf-Gabriel Porębski</schema:name>
+      </schema:Person>
+    </schema:author>
+    <schema:author>
+      <schema:Person rdf:about="https://quadriga-dk.github.io/Tabelle-Fallstudie-3/#author_6">
+        <schema:affiliation rdf:resource="https://quadriga-dk.github.io/Tabelle-Fallstudie-3/#author_6_org" />
+        <schema:familyName>Islam</schema:familyName>
+        <schema:givenName>Lamia</schema:givenName>
+        <schema:identifier rdf:resource="https://quadriga-dk.github.io/Tabelle-Fallstudie-3/#author_6_orcid" />
+        <schema:name>Lamia Islam</schema:name>
+      </schema:Person>
+    </schema:author>
     <schema:contributor>
       <schema:Person rdf:about="https://quadriga-dk.github.io/Tabelle-Fallstudie-3/#contributor_0">
         <schema:affiliation rdf:resource="https://quadriga-dk.github.io/Tabelle-Fallstudie-3/#contributor_0_org" />
@@ -187,39 +204,49 @@
     <schema:contributor>
       <schema:Person rdf:about="https://quadriga-dk.github.io/Tabelle-Fallstudie-3/#contributor_2">
         <schema:affiliation rdf:resource="https://quadriga-dk.github.io/Tabelle-Fallstudie-3/#contributor_2_org" />
-        <schema:familyName>Islam</schema:familyName>
-        <schema:givenName>Lamia</schema:givenName>
+        <schema:familyName>Skorinkin</schema:familyName>
+        <schema:givenName>Daniil</schema:givenName>
         <schema:identifier rdf:resource="https://quadriga-dk.github.io/Tabelle-Fallstudie-3/#contributor_2_orcid" />
-        <schema:name>Lamia Islam</schema:name>
+        <schema:name>Daniil Skorinkin</schema:name>
       </schema:Person>
     </schema:contributor>
     <schema:contributor>
       <schema:Person rdf:about="https://quadriga-dk.github.io/Tabelle-Fallstudie-3/#contributor_3">
         <schema:affiliation rdf:resource="https://quadriga-dk.github.io/Tabelle-Fallstudie-3/#contributor_3_org" />
-        <schema:familyName>Porębski</schema:familyName>
-        <schema:givenName>Ralf</schema:givenName>
-        <schema:name>Ralf Porębski</schema:name>
+        <schema:familyName>Lindow</schema:familyName>
+        <schema:givenName>Stefan</schema:givenName>
+        <schema:identifier rdf:resource="https://quadriga-dk.github.io/Tabelle-Fallstudie-3/#contributor_3_orcid" />
+        <schema:name>Stefan Lindow</schema:name>
       </schema:Person>
     </schema:contributor>
     <schema:contributor>
       <schema:Person rdf:about="https://quadriga-dk.github.io/Tabelle-Fallstudie-3/#contributor_4">
         <schema:affiliation rdf:resource="https://quadriga-dk.github.io/Tabelle-Fallstudie-3/#contributor_4_org" />
-        <schema:familyName>Petras</schema:familyName>
-        <schema:givenName>Vivien</schema:givenName>
+        <schema:familyName>Dörner</schema:familyName>
+        <schema:givenName>Sophia</schema:givenName>
         <schema:identifier rdf:resource="https://quadriga-dk.github.io/Tabelle-Fallstudie-3/#contributor_4_orcid" />
-        <schema:name>Vivien Petras</schema:name>
+        <schema:name>Sophia Dörner</schema:name>
       </schema:Person>
     </schema:contributor>
     <schema:contributor>
       <schema:Person rdf:about="https://quadriga-dk.github.io/Tabelle-Fallstudie-3/#contributor_5">
         <schema:affiliation rdf:resource="https://quadriga-dk.github.io/Tabelle-Fallstudie-3/#contributor_5_org" />
+        <schema:familyName>Petras</schema:familyName>
+        <schema:givenName>Vivien</schema:givenName>
+        <schema:identifier rdf:resource="https://quadriga-dk.github.io/Tabelle-Fallstudie-3/#contributor_5_orcid" />
+        <schema:name>Vivien Petras</schema:name>
+      </schema:Person>
+    </schema:contributor>
+    <schema:contributor>
+      <schema:Person rdf:about="https://quadriga-dk.github.io/Tabelle-Fallstudie-3/#contributor_6">
+        <schema:affiliation rdf:resource="https://quadriga-dk.github.io/Tabelle-Fallstudie-3/#contributor_6_org" />
         <schema:familyName>Neuroth</schema:familyName>
         <schema:givenName>Heike</schema:givenName>
-        <schema:identifier rdf:resource="https://quadriga-dk.github.io/Tabelle-Fallstudie-3/#contributor_5_orcid" />
+        <schema:identifier rdf:resource="https://quadriga-dk.github.io/Tabelle-Fallstudie-3/#contributor_6_orcid" />
         <schema:name>Heike Neuroth</schema:name>
       </schema:Person>
     </schema:contributor>
-    <schema:dateModified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2026-06-26</schema:dateModified>
+    <schema:dateModified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2026-11-04</schema:dateModified>
     <schema:datePublished rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2025-03-21</schema:datePublished>
     <schema:description>In dieser Open Educational Resource wird mit der Applikation R Shiny ein Dashboard gebaut, das das Engagement der Bürger:innen in Bezug auf die Bewässerung städtischer Bäumen visualisiert. Dabei werden Kompetenzen im Bereich Visualisierung und Kommunikation von Daten vermittelt.</schema:description>
     <schema:funding>Die vorliegenden Open Educational Resources wurden durch das Datenkompetenzzentrum QUADRIGA erstellt.
@@ -241,7 +268,7 @@ Förderkennzeichen: 16DKZ2034</schema:funding>
         <schema:educationalAlignment rdf:resource="https://quadriga-dk.github.io/Tabelle-Fallstudie-3/#chapter_1_objective_0" />
         <schema:name>Datenbasis</schema:name>
         <schema:teaches>Bearbeiten von Datensätzen mit R Shiny</schema:teaches>
-        <schema:timeRequired>PT15M</schema:timeRequired>
+        <schema:timeRequired>PT30M</schema:timeRequired>
         <schema:url rdf:resource="https://quadriga-dk.github.io/Tabelle-Fallstudie-3/datenbasis/datenbasis-einleitung.html" />
       </schema:LearningResource>
     </schema:hasPart>
@@ -252,7 +279,7 @@ Förderkennzeichen: 16DKZ2034</schema:funding>
         <schema:educationalAlignment rdf:resource="https://quadriga-dk.github.io/Tabelle-Fallstudie-3/#chapter_2_objective_1" />
         <schema:name>Dashboard - Vorbereitung</schema:name>
         <schema:teaches>Verwenden von Dashboards für Visualisierung und Kommunikation von Daten</schema:teaches>
-        <schema:timeRequired>TODO</schema:timeRequired>
+        <schema:timeRequired>PT40M</schema:timeRequired>
         <schema:url rdf:resource="https://quadriga-dk.github.io/Tabelle-Fallstudie-3/4_dash-prep/4.0_intro.html" />
       </schema:LearningResource>
     </schema:hasPart>
@@ -263,7 +290,7 @@ Förderkennzeichen: 16DKZ2034</schema:funding>
         <schema:educationalAlignment rdf:resource="https://quadriga-dk.github.io/Tabelle-Fallstudie-3/#chapter_3_objective_1" />
         <schema:name>Dashboard - Einzelelemente</schema:name>
         <schema:teaches>Erstellen eines Dashboards</schema:teaches>
-        <schema:timeRequired>TODO</schema:timeRequired>
+        <schema:timeRequired>PT2H</schema:timeRequired>
         <schema:url rdf:resource="https://quadriga-dk.github.io/Tabelle-Fallstudie-3/dashboard/Dashboard.html" />
       </schema:LearningResource>
     </schema:hasPart>
@@ -292,7 +319,7 @@ Förderkennzeichen: 16DKZ2034</schema:funding>
     </schema:license>
     <schema:name>Visualisierung in der Verwaltung: Ein Dashboard für Baum- und Bewässerungsdaten. QUADRIGA Open Educational Resources: Tabelle 3</schema:name>
     <schema:schemaVersion>2.0.0</schema:schemaVersion>
-    <schema:timeRequired>TODO</schema:timeRequired>
+    <schema:timeRequired>PT3H15M</schema:timeRequired>
     <schema:url rdf:resource="https://quadriga-dk.github.io/Tabelle-Fallstudie-3/" />
     <schema:version>0.0.1</schema:version>
     <schema:workExample>
@@ -318,6 +345,12 @@ Förderkennzeichen: 16DKZ2034</schema:funding>
   <schema:Organization rdf:about="https://quadriga-dk.github.io/Tabelle-Fallstudie-3/#author_4_org">
     <schema:name>Fraunhofer-Institut für Offene Kommunikationssysteme FOKUS</schema:name>
   </schema:Organization>
+  <schema:Organization rdf:about="https://quadriga-dk.github.io/Tabelle-Fallstudie-3/#author_5_org">
+    <schema:name>Fraunhofer-Institut für Offene Kommunikationssysteme FOKUS</schema:name>
+  </schema:Organization>
+  <schema:Organization rdf:about="https://quadriga-dk.github.io/Tabelle-Fallstudie-3/#author_6_org">
+    <schema:name>Universität Potsdam</schema:name>
+  </schema:Organization>
   <schema:Organization rdf:about="https://quadriga-dk.github.io/Tabelle-Fallstudie-3/#contributor_0_org">
     <schema:name>Humboldt-Universität zu Berlin, Institut für Bibliotheks- und Informationswissenschaft</schema:name>
   </schema:Organization>
@@ -328,12 +361,15 @@ Förderkennzeichen: 16DKZ2034</schema:funding>
     <schema:name>Universität Potsdam</schema:name>
   </schema:Organization>
   <schema:Organization rdf:about="https://quadriga-dk.github.io/Tabelle-Fallstudie-3/#contributor_3_org">
-    <schema:name>Fraunhofer-Institut für Offene Kommunikationssysteme FOKUS</schema:name>
+    <schema:name>Universität Potsdam</schema:name>
   </schema:Organization>
   <schema:Organization rdf:about="https://quadriga-dk.github.io/Tabelle-Fallstudie-3/#contributor_4_org">
-    <schema:name>Humboldt-Universität zu Berlin, Institut für Bibliotheks- und Informationswissenschaft</schema:name>
+    <schema:name>Niedersächsische Staats- und Universitätsbibliothek Göttingen</schema:name>
   </schema:Organization>
   <schema:Organization rdf:about="https://quadriga-dk.github.io/Tabelle-Fallstudie-3/#contributor_5_org">
+    <schema:name>Humboldt-Universität zu Berlin, Institut für Bibliotheks- und Informationswissenschaft</schema:name>
+  </schema:Organization>
+  <schema:Organization rdf:about="https://quadriga-dk.github.io/Tabelle-Fallstudie-3/#contributor_6_org">
     <schema:name>Fachhochschule Potsdam</schema:name>
   </schema:Organization>
   <schema:PropertyValue rdf:about="https://quadriga-dk.github.io/Tabelle-Fallstudie-3/#author_0_orcid">
@@ -361,6 +397,11 @@ Förderkennzeichen: 16DKZ2034</schema:funding>
     <schema:url rdf:resource="https://orcid.org/0009-0009-2345-4973" />
     <schema:value>0009-0009-2345-4973</schema:value>
   </schema:PropertyValue>
+  <schema:PropertyValue rdf:about="https://quadriga-dk.github.io/Tabelle-Fallstudie-3/#author_6_orcid">
+    <schema:propertyID>ORCID</schema:propertyID>
+    <schema:url rdf:resource="https://orcid.org/0009-0001-1879-9880" />
+    <schema:value>0009-0001-1879-9880</schema:value>
+  </schema:PropertyValue>
   <schema:PropertyValue rdf:about="https://quadriga-dk.github.io/Tabelle-Fallstudie-3/#contributor_0_orcid">
     <schema:propertyID>ORCID</schema:propertyID>
     <schema:url rdf:resource="https://orcid.org/0000-0002-1602-6032" />
@@ -373,15 +414,25 @@ Förderkennzeichen: 16DKZ2034</schema:funding>
   </schema:PropertyValue>
   <schema:PropertyValue rdf:about="https://quadriga-dk.github.io/Tabelle-Fallstudie-3/#contributor_2_orcid">
     <schema:propertyID>ORCID</schema:propertyID>
-    <schema:url rdf:resource="https://orcid.org/0009-0001-1879-9880" />
-    <schema:value>0009-0001-1879-9880</schema:value>
+    <schema:url rdf:resource="https://orcid.org/0000-0002-1845-9974" />
+    <schema:value>0000-0002-1845-9974</schema:value>
+  </schema:PropertyValue>
+  <schema:PropertyValue rdf:about="https://quadriga-dk.github.io/Tabelle-Fallstudie-3/#contributor_3_orcid">
+    <schema:propertyID>ORCID</schema:propertyID>
+    <schema:url rdf:resource="https://orcid.org/0000-0002-7870-0934" />
+    <schema:value>0000-0002-7870-0934</schema:value>
   </schema:PropertyValue>
   <schema:PropertyValue rdf:about="https://quadriga-dk.github.io/Tabelle-Fallstudie-3/#contributor_4_orcid">
+    <schema:propertyID>ORCID</schema:propertyID>
+    <schema:url rdf:resource="https://orcid.org/0000-0001-8747-3422" />
+    <schema:value>0000-0001-8747-3422</schema:value>
+  </schema:PropertyValue>
+  <schema:PropertyValue rdf:about="https://quadriga-dk.github.io/Tabelle-Fallstudie-3/#contributor_5_orcid">
     <schema:propertyID>ORCID</schema:propertyID>
     <schema:url rdf:resource="https://orcid.org/0000-0002-8113-1509" />
     <schema:value>0000-0002-8113-1509</schema:value>
   </schema:PropertyValue>
-  <schema:PropertyValue rdf:about="https://quadriga-dk.github.io/Tabelle-Fallstudie-3/#contributor_5_orcid">
+  <schema:PropertyValue rdf:about="https://quadriga-dk.github.io/Tabelle-Fallstudie-3/#contributor_6_orcid">
     <schema:propertyID>ORCID</schema:propertyID>
     <schema:url rdf:resource="https://orcid.org/0000-0002-3637-3154" />
     <schema:value>0000-0002-3637-3154</schema:value>
