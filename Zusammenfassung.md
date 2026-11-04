@@ -8,7 +8,7 @@ lang: de-DE
 In dieser Fallstudie wurde im Rahmen einer Persona-Story um den Forscher Dr. Amir Weber ein Dashboard gebaut. Im Mittelpunkt stand dabei die Leitfrage:
 **In welchen Bezirken lassen sich die höchsten Ausprägungen des Engagements von Bürger:innen bei der Bewässerung städtischer Bäume in Berlin feststellen?** Dabei wurde deutlich, dass die Antwort maßgeblich von der gewählten Operationalisierung abhängt.
 
-**Vom Absoluten zum Relativen:** Ein erster Blick auf die absoluten Zahlen der Startseite sah den Bezirk Mitte an der Spitze. Da dies jedoch die unterschiedliche Größe der Bezirke ignoriert, ermöglichte erst die Normalisierung einen fairen Vergleich. Hier verschob sich das Ergebnis: Friedrichshain-Kreuzberg weist den höchsten prozentualen Anteil bewässerter Bäume auf.
+**Vom Absoluten zum Relativen:** Ein erster Blick auf die absoluten Zahlen der Startseite sah den Bezirk Mitte an der Spitze. Da dies jedoch die unterschiedliche Größe der Bezirke ignoriert, ermöglichte erst die Normalisierung einen direkten Vergleich. Dadurch verschob sich das Ergebnis: Friedrichshain-Kreuzberg weist den höchsten prozentualen Anteil bewässerter Bäume auf.
 
 **Masse vs. Intensität:** Ein weiterer Perspektivwechsel erfolgte durch die Analyse der Wassermengen. Während der Bezirk Mitte bei der Gesamtmenge (m³) führt, offenbarte die Kennzahl „Liter pro Baum“, dass die Pflegeintensität in Friedrichshain-Kreuzberg am höchsten ist. Die Wahl der Messgröße (Baumanzahl vs. Volumen) formt somit aktiv das Narrativ der Daten.
 
@@ -16,9 +16,9 @@ In dieser Fallstudie wurde im Rahmen einer Persona-Story um den Forscher Dr. Ami
 ## Gelerntes
 Mit dem Durchlaufen dieser Fallstudie wurden zentrale Datenkompetenzen erworben:
 
-- Operationalisierung: Die Fähigkeit, ein abstraktes Konzept wie „Bürgerengagement“ in messbare Kennzahlen zu übersetzen und die Auswirkungen dieser Wahl auf das Analyseergebnis kritisch zu hinterfragen.
+- Operationalisierung: Die Fähigkeit, ein abstraktes Konzept wie „Bürger:innenengagement“ in messbare Kennzahlen zu übersetzen und die Auswirkungen dieser Wahl auf das Analyseergebnis kritisch zu hinterfragen.
 - Datenverarbeitung: Das Einlesen, Bereinigen und Zusammenführen heterogener Datensätze (WFS, CSV, GeoJSON) sowie die Durchführung räumlicher Verschneidungen („Spatial Joins“) in R.
-- Visualisierungskompetenz: Der Aufbau eines Dashboards mit R Shiny sowie die Erstellung interaktiver Karten (Leaflet), Balkendiagramme (ggplot2) und Liniendiagramme (Plotly) zur Kommunikation von Forschungsergebnissen.
+- Visualisierung: Der Aufbau eines Dashboards mit R Shiny sowie die Erstellung interaktiver Karten (Leaflet), Balkendiagramme (ggplot2) und Liniendiagramme (Plotly) zur Kommunikation von Forschungsergebnissen.
 - Kritische Reflexion: Das Erkennen von Verzerrungen in Darstellungen, wie etwa dem „Area Bias“ bei Choroplethenkarten.
 
 
@@ -43,6 +43,6 @@ Diese Fallstudie beantwortet die Leitfrage mittels explorativer Analyse, d. h. d
 Sowohl die Art der gewählten Visualisierung als auch die Skalierung der Achsen, die Farbwahl und die Messgrößen beeinflussen die Lesbarkeit, das Verständnis und die Interpretation von Darstellungen. Vor allem in Bezug auf Datenvisualisierungen sollten sich sowohl Gestaltende als auch Nutzende der Möglichkeit von Verzerrungen oder Missinterpretationen bewusst sein.
 
 **Technische Grenzen des Dashboards**
-Das erstellte Dashboard bietet eine interaktive Informationsgrundlage, ist jedoch aufgrund des Lernszenarios technisch begrenzt. Eine aktive Einbindung von Nutzer:innen, die Daten direkt im System pflegen können, wäre eine logische Erweiterung, die jedoch die Möglichkeiten dieser Fallstudie übersteigt.
+Das erstellte Dashboard bietet eine interaktive Informationsgrundlage, ist jedoch aufgrund des Lernszenarios technisch begrenzt. Eine aktive Einbindung von Nutzer:innen, die Daten direkt im System pflegen können, wäre eine logische Erweiterung, die jedoch die Möglichkeiten dieser Lerneinheit übersteigt.
 
-Die Fallstudie demonstriert, dass Daten nicht neutral sind. Je nach Operationalisierung fällt die Antwort auf die Leitfrage unterschiedlich aus. Die Erstellung verschiedener Visualisierungen bricht ein eindimensionales Bild auf und macht die multidimensionale Natur des bürgerschaftlichen Engagements sichtbar.
+Die Fallstudie demonstriert, dass Datenvisualisierungen nicht neutral sind. Je nach Operationalisierung fällt die Antwort auf die Leitfrage unterschiedlich aus. Die Erstellung verschiedener Visualisierungen bricht ein eindimensionales Bild auf und macht die multidimensionale Natur des bürgerschaftlichen Engagements sichtbar.
