@@ -46,6 +46,21 @@ authorLIST:
   - Software
   - Visualization
   - Writing – original draft
+- familyName: Porębski
+  givenName: Ralf-Gabriel
+  affiliation: Fraunhofer-Institut für Offene Kommunikationssysteme FOKUS
+  creditLIST:
+  - Software
+  - Visualization
+  - Writing – original draft
+- familyName: Islam
+  givenName: Lamia
+  orcid: https://orcid.org/0009-0001-1879-9880
+  affiliation: Universität Potsdam
+  creditLIST:
+  - Data curation
+  - Software
+  - Visualization
 keywordLIST:
 - de: Verwaltung
 - de: Verwaltungswissenschaft
@@ -83,7 +98,7 @@ targetGroupLIST:
 - Forschende (Projektleitung)
 - Promovierende
 - Hochschullehrende
-timeRequired: TODO
+timeRequired: PT3H15M
 language: de
 contributorLIST:
 - familyName: Schnaitter
@@ -102,20 +117,23 @@ contributorLIST:
   - Methodology
   - Validation
   - Writing – review & editing
-- familyName: Islam
-  givenName: Lamia
-  orcid: https://orcid.org/0009-0001-1879-9880
+- familyName: Skorinkin
+  givenName: Daniil
+  orcid: https://orcid.org/0000-0002-1845-9974
   affiliation: Universität Potsdam
   creditLIST:
-  - Investigation
-  - Software
-  - Visualization
-- familyName: Porębski
-  givenName: Ralf
-  affiliation: Fraunhofer-Institut für Offene Kommunikationssysteme FOKUS
+  - Writing – review & editing
+- familyName: Lindow
+  givenName: Stefan
+  orcid: https://orcid.org/0000-0002-7870-0934
+  affiliation: Universität Potsdam
   creditLIST:
-  - Software
-  - Visualization
+  - Writing – review & editing
+- familyName: Dörner
+  givenName: Sophia
+  orcid: https://orcid.org/0000-0001-8747-3422
+  affiliation: Niedersächsische Staats- und Universitätsbibliothek Göttingen
+  creditLIST:
   - Writing – review & editing
 - familyName: Petras
   givenName: Vivien
@@ -156,7 +174,7 @@ chapterLIST:
 - title: Datenbasis
   description: Dieses Kapitel widmet sich der Datengrundlage der Untersuchung.
   url: https://quadriga-dk.github.io/Tabelle-Fallstudie-3/datenbasis/datenbasis-einleitung.html
-  timeRequired: PT15M
+  timeRequired: PT30M
   learningGoal: Bearbeiten von Datensätzen mit R Shiny
   learningObjectiveLIST:
   - description: Die Lernenden können Datensätze in R Shiny verändern.
@@ -165,13 +183,13 @@ chapterLIST:
     bloomsCategory: 3 Anwenden
   supplementalMaterialLIST:
   - url: https://raw.githubusercontent.com/technologiestiftung/giessdenkiez-de-opendata/main/daten/giessdenkiez_bew%C3%A4sserungsdaten.csv
-    title: TODO
+    title: Bewässerungsdaten
   - url: https://tsb-opendata.s3.eu-central-1.amazonaws.com/bezirksgrenzen/bezirksgrenzen.geojson
-    title: TODO
+    title: Bezirksgrenzen
 - title: Dashboard - Vorbereitung
   description: Dieses Kapitel widmet sich der Vorbereitung des Dashboards.
   url: https://quadriga-dk.github.io/Tabelle-Fallstudie-3/4_dash-prep/4.0_intro.html
-  timeRequired: TODO
+  timeRequired: PT40M
   learningGoal: Verwenden von Dashboards für Visualisierung und Kommunikation von
     Daten
   learningObjectiveLIST:
@@ -188,7 +206,7 @@ chapterLIST:
 - title: Dashboard - Einzelelemente
   description: Dieses Kapitel widmet sich dem Aufbau eines Dashboards mit R Shiny.
   url: https://quadriga-dk.github.io/Tabelle-Fallstudie-3/dashboard/Dashboard.html
-  timeRequired: TODO
+  timeRequired: PT2H
   learningGoal: Erstellen eines Dashboards
   learningObjectiveLIST:
   - description: Die Lernenden können den Aufbau und die Gliederung eines Dashboards
@@ -202,7 +220,7 @@ chapterLIST:
     dataFlow: 4 Analyse
     bloomsCategory: 3 Anwenden
 dateIssued: '2025-03-21'
-dateModified: '2026-06-26'
+dateModified: '2026-11-04'
 version: 0.0.1
 contextOfCreation: 'Die vorliegenden Open Educational Resources wurden durch das Datenkompetenzzentrum
   QUADRIGA erstellt.
@@ -211,7 +229,7 @@ contextOfCreation: 'Die vorliegenden Open Educational Resources wurden durch das
   Förderkennzeichen: 16DKZ2034'
 qualityAssurance:
   description: https://doi.org/10.5281/zenodo.18953896
-  date: '2026-11-14'
+  date: '2026-11-04'
 learningResourceType: Jupyter Book
 schemaVersion: 2.0.0
 license: https://creativecommons.org/licenses/by/4.0/
