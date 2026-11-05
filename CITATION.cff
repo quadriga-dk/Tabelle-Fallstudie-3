@@ -37,6 +37,10 @@ authors: &id001
   family-names: Islam
   orcid: https://orcid.org/0009-0001-1879-9880
   affiliation: Universität Potsdam
+identifiers:
+- type: doi
+  value: 10.5281/zenodo.23973571
+  description: Zenodo
 repository-code: https://github.com/quadriga-dk/Tabelle-Fallstudie-3/
 url: https://quadriga-dk.github.io/Tabelle-Fallstudie-3/
 keywords: &id002
@@ -62,6 +66,7 @@ preferred-citation:
   title: 'Visualisierung in der Verwaltung: Ein Dashboard für Baum- und Bewässerungsdaten.
     QUADRIGA Open Educational Resources: Tabelle 3'
   type: book
+  doi: 10.5281/zenodo.23973571
   url: https://quadriga-dk.github.io/Tabelle-Fallstudie-3/
   repository-code: https://github.com/quadriga-dk/Tabelle-Fallstudie-3/
   license: CC-BY-4.0

@@ -27,7 +27,7 @@ Mit Ihren Rückmeldungen können wir unser interaktives Lehrbuch gezielt an Ihre
 ```{literalinclude} /CITATION.bib
 :language: bibtex
 ```
-Walter, P., Plomin, J., Schmeling, J., Dakruni, S., Bingöl, C., Porębski, R.-G. & Islam, L. (2026). _Visualisierung in der Verwaltung: Ein Dashboard für Baum- und Bewässerungsdaten. QUADRIGA Open Educational Resources: Tabelle 3_
+Walter, P., Plomin, J., Schmeling, J., Dakruni, S., Bingöl, C., Porębski, R.-G. & Islam, L. (2026). _Visualisierung in der Verwaltung: Ein Dashboard für Baum- und Bewässerungsdaten. QUADRIGA Open Educational Resources: Tabelle 3_ https://doi.org/10.5281/zenodo.23973571
 
 ````
 `````
