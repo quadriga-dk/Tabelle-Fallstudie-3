@@ -13,7 +13,7 @@
   ],
   "name": "Visualisierung in der Verwaltung: Ein Dashboard für Baum- und Bewässerungsdaten. QUADRIGA Open Educational Resources: Tabelle 3",
   "description": "In dieser Open Educational Resource wird mit der Applikation R Shiny ein Dashboard gebaut, das das Engagement der Bürger:innen in Bezug auf die Bewässerung städtischer Bäumen visualisiert. Dabei werden Kompetenzen im Bereich Visualisierung und Kommunikation von Daten vermittelt.",
-  "version": "0.0.1",
+  "version": "1.0.0-beta",
   "schemaVersion": "2.0.0",
   "url": "https://quadriga-dk.github.io/Tabelle-Fallstudie-3/",
   "workExample": {
@@ -22,7 +22,7 @@
     "codeRepository": "https://github.com/quadriga-dk/Tabelle-Fallstudie-3/"
   },
   "datePublished": "2025-03-21",
-  "dateModified": "2026-11-04",
+  "dateModified": "2026-11-05",
   "author": [
     {
       "@type": "Person",

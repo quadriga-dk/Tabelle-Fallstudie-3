@@ -246,7 +246,7 @@
         <schema:name>Heike Neuroth</schema:name>
       </schema:Person>
     </schema:contributor>
-    <schema:dateModified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2026-11-04</schema:dateModified>
+    <schema:dateModified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2026-11-05</schema:dateModified>
     <schema:datePublished rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2025-03-21</schema:datePublished>
     <schema:description>In dieser Open Educational Resource wird mit der Applikation R Shiny ein Dashboard gebaut, das das Engagement der Bürger:innen in Bezug auf die Bewässerung städtischer Bäumen visualisiert. Dabei werden Kompetenzen im Bereich Visualisierung und Kommunikation von Daten vermittelt.</schema:description>
     <schema:funding>Die vorliegenden Open Educational Resources wurden durch das Datenkompetenzzentrum QUADRIGA erstellt.
@@ -321,7 +321,7 @@ Förderkennzeichen: 16DKZ2034</schema:funding>
     <schema:schemaVersion>2.0.0</schema:schemaVersion>
     <schema:timeRequired>PT3H15M</schema:timeRequired>
     <schema:url rdf:resource="https://quadriga-dk.github.io/Tabelle-Fallstudie-3/" />
-    <schema:version>0.0.1</schema:version>
+    <schema:version>1.0.0-beta</schema:version>
     <schema:workExample>
       <schema:SoftwareSourceCode rdf:about="https://quadriga-dk.github.io/Tabelle-Fallstudie-3/#repository">
         <schema:codeRepository rdf:resource="https://github.com/quadriga-dk/Tabelle-Fallstudie-3/" />
