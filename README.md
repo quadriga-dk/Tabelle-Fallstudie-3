@@ -2,9 +2,7 @@
 
 Dieses interaktive Lehrbuch ist im Rahmen des Projekts <a href="https://www.quadriga-dk.de" class="external-link" target="_blank">QUADRIGA</a> als 3. Open Educational Resource (OER) des Datentyps Tabelle entstanden. Sie wurde unter folgendem DOI veröffentlicht:
 
-[![DOI](https://zenodo.org/badge/796588109.svg)](https://doi.org/10.5281/zenodo.14970672)
-
-<span style="color: red">Der DOI muss noch ersetzt werden!</span>
+[![DOI](https://zenodo.org/badge/952407913.svg)](https://doi.org/10.5281/zenodo.23973571)
 
 ## Datenkompetenzzentrum QUADRIGA
 
