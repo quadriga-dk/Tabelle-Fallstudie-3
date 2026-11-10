@@ -55,6 +55,8 @@ html:
   use_multitoc_numbering: false
 
 sphinx:
+  extra_extensions:
+    - sphinx_apa_references
   config:
     language: de
     numfig: true
