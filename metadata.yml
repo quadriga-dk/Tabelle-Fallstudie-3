@@ -1,219 +1,163 @@
-# yaml-language-server: $schema=https://quadriga-dk.github.io/quadriga-schema/v1.0.0/schema.json
-title: 'Visualisierung in der Verwaltung: Ein Dashboard für Baum- und Bewässerungsdaten.
+# Generated from quadriga-metadata.yml by quadriga/metadata/create_oersi_metadata.py. Do not edit manually.
+'@context': https://schema.org/
+creativeWorkStatus: Published
+type: LearningResource
+name: 'Visualisierung in der Verwaltung: Ein Dashboard für Baum- und Bewässerungsdaten.
   QUADRIGA Open Educational Resources: Tabelle 3'
-authors:
-- family-names: Walter
-  given-names: Paul
-  orcid: https://orcid.org/0000-0002-9236-3268
-  credit:
-  - Data curation
-  - Methodology
-  - Validation
-  - Writing – original draft
-  - Writing – review & editing
-  affiliation: Fachhochschule Potsdam
-- family-names: Plomin
-  given-names: Jana
-  orcid: https://orcid.org/0000-0003-0127-7493
-  credit:
-  - Methodology
-  - Validation
-  - Writing – original draft
-  - Writing – review & editing
-  affiliation: Fraunhofer-Institut für Offene Kommunikationssysteme FOKUS
-- family-names: Schmeling
-  given-names: Juliane
-  orcid: https://orcid.org/0009-0005-9814-1139
-  credit:
-  - Conceptualization
-  - Methodology
-  - Project administration
-  affiliation: Fraunhofer-Institut für Offene Kommunikationssysteme FOKUS
-- family-names: Dakruni
-  given-names: Sami
-  orcid: https://orcid.org/0009-0009-8541-6358
-  credit:
-  - Investigation
-  - Software
-  - Visualization
-  - Writing – original draft
-  affiliation: Fraunhofer-Institut für Offene Kommunikationssysteme FOKUS
-- family-names: Bingöl
-  given-names: Cemre
-  orcid: https://orcid.org/0009-0009-2345-4973
-  credit:
-  - Software
-  - Visualization
-  - Writing – original draft
-  affiliation: Fraunhofer-Institut für Offene Kommunikationssysteme FOKUS
-keywords:
-- de: Verwaltung
-- de: Verwaltungswissenschaft
-- en: Public Sector
-- de: Tabelle
-- de: Lerneinheit
-- en: Open Educational Resource
-- en: Dashboard
-- de: Datenvisualisierung
-- de: Datenkommunikation
 description: In dieser Open Educational Resource wird mit der Applikation R Shiny
   ein Dashboard gebaut, das das Engagement der Bürger:innen in Bezug auf die Bewässerung
   städtischer Bäumen visualisiert. Dabei werden Kompetenzen im Bereich Visualisierung
   und Kommunikation von Daten vermittelt.
-table-of-contents: '- Einstieg
-
-  - Fragestellung und Operationalisierung
-
-  - Datenbasis
-
-  - Dashboard - Vorbereitung
-
-  - Dashboard - Einzelelemente
-
-  - Zusammenfassung und Reflexion
-
-  - Abschluss'
-discipline:
-- Verwaltungswissenschaften
-- Informationswissenschaft
-research-object-type:
+license: https://creativecommons.org/licenses/by/4.0/
+id: https://quadriga-dk.github.io/Tabelle-Fallstudie-3/
+creator:
+- givenName: Paul
+  familyName: Walter
+  name: Paul Walter
+  id: https://orcid.org/0000-0002-9236-3268
+  type: Person
+  affiliation:
+    name: Fachhochschule Potsdam
+    id: https://ror.org/012m9bp23
+    type: Organization
+- givenName: Jana
+  familyName: Plomin
+  name: Jana Plomin
+  id: https://orcid.org/0000-0003-0127-7493
+  type: Person
+  affiliation:
+    name: Fraunhofer-Institut für Offene Kommunikationssysteme FOKUS
+    id: https://ror.org/00px80p03
+    type: Organization
+- givenName: Juliane
+  familyName: Schmeling
+  name: Juliane Schmeling
+  id: https://orcid.org/0009-0005-9814-1139
+  type: Person
+  affiliation:
+    name: Fraunhofer-Institut für Offene Kommunikationssysteme FOKUS
+    id: https://ror.org/00px80p03
+    type: Organization
+- givenName: Sami
+  familyName: Dakruni
+  name: Sami Dakruni
+  id: https://orcid.org/0009-0009-8541-6358
+  type: Person
+  affiliation:
+    name: Fraunhofer-Institut für Offene Kommunikationssysteme FOKUS
+    id: https://ror.org/00px80p03
+    type: Organization
+- givenName: Cemre
+  familyName: Bingöl
+  name: Cemre Bingöl
+  id: https://orcid.org/0009-0009-2345-4973
+  type: Person
+  affiliation:
+    name: Fraunhofer-Institut für Offene Kommunikationssysteme FOKUS
+    id: https://ror.org/00px80p03
+    type: Organization
+- givenName: Ralf-Gabriel
+  familyName: Porębski
+  name: Ralf-Gabriel Porębski
+  type: Person
+  affiliation:
+    name: Fraunhofer-Institut für Offene Kommunikationssysteme FOKUS
+    id: https://ror.org/00px80p03
+    type: Organization
+- givenName: Lamia
+  familyName: Islam
+  name: Lamia Islam
+  id: https://orcid.org/0009-0001-1879-9880
+  type: Person
+  affiliation:
+    name: Universität Potsdam
+    id: https://ror.org/03bnmw459
+    type: Organization
+contributor:
+- givenName: Hannes
+  familyName: Schnaitter
+  name: Hannes Schnaitter
+  id: https://orcid.org/0000-0002-1602-6032
+  type: Person
+  affiliation:
+    name: Humboldt-Universität zu Berlin
+    id: https://ror.org/01hcx6992
+    type: Organization
+- givenName: Evgenia
+  familyName: Samoilova
+  name: Evgenia Samoilova
+  id: https://orcid.org/0000-0003-3858-901X
+  type: Person
+  affiliation:
+    name: Universität Potsdam
+    id: https://ror.org/03bnmw459
+    type: Organization
+- givenName: Daniil
+  familyName: Skorinkin
+  name: Daniil Skorinkin
+  id: https://orcid.org/0000-0002-1845-9974
+  type: Person
+  affiliation:
+    name: Universität Potsdam
+    id: https://ror.org/03bnmw459
+    type: Organization
+- givenName: Stefan
+  familyName: Lindow
+  name: Stefan Lindow
+  id: https://orcid.org/0000-0002-7870-0934
+  type: Person
+  affiliation:
+    name: Universität Potsdam
+    id: https://ror.org/03bnmw459
+    type: Organization
+- givenName: Sophia
+  familyName: Dörner
+  name: Sophia Dörner
+  id: https://orcid.org/0000-0001-8747-3422
+  type: Person
+  affiliation:
+    name: Niedersächsische Staats- und Universitätsbibliothek Göttingen
+    type: Organization
+- givenName: Vivien
+  familyName: Petras
+  name: Vivien Petras
+  id: https://orcid.org/0000-0002-8113-1509
+  type: Person
+  affiliation:
+    name: Humboldt-Universität zu Berlin
+    id: https://ror.org/01hcx6992
+    type: Organization
+- givenName: Heike
+  familyName: Neuroth
+  name: Heike Neuroth
+  id: https://orcid.org/0000-0002-3637-3154
+  type: Person
+  affiliation:
+    name: Fachhochschule Potsdam
+    id: https://ror.org/012m9bp23
+    type: Organization
+keywords:
+- Verwaltung
+- Verwaltungswissenschaft
+- Public Sector
 - Tabelle
-target-group:
-- Forschende (PostDoc)
-- Forschende (Projektleitung)
-- Promovierende
-- Hochschullehrende
-time-required: TODO
-language: de
-contributors:
-- family-names: Schnaitter
-  given-names: Hannes
-  orcid: https://orcid.org/0000-0002-1602-6032
-  credit:
-  - Software
-  - Validation
-  - Writing – review & editing
-  affiliation: Humboldt-Universität zu Berlin, Institut für Bibliotheks- und Informationswissenschaft
-- family-names: Samoilova
-  given-names: Evgenia
-  orcid: https://orcid.org/0000-0003-3858-901X
-  credit:
-  - Methodology
-  - Validation
-  - Writing – review & editing
-  affiliation: Universität Potsdam
-- family-names: Islam
-  given-names: Lamia
-  orcid: https://orcid.org/0009-0001-1879-9880
-  credit:
-  - Investigation
-  - Software
-  - Visualization
-  affiliation: Universität Potsdam
-- family-names: Porębski
-  given-names: Ralf
-  credit:
-  - Software
-  - Visualization
-  - Writing – review & editing
-  affiliation: Fraunhofer-Institut für Offene Kommunikationssysteme FOKUS
-- given-names: Vivien
-  family-names: Petras
-  orcid: https://orcid.org/0000-0002-8113-1509
-  credit:
-  - Funding acquisition
-  affiliation: Humboldt-Universität zu Berlin, Institut für Bibliotheks- und Informationswissenschaft
-- given-names: Heike
-  family-names: Neuroth
-  orcid: https://orcid.org/0000-0002-3637-3154
-  credit:
-  - Funding acquisition
-  affiliation: Fachhochschule Potsdam
-identifier: https://doi.org/10.5281/zenodo.TODOTODO
-git: https://github.com/quadriga-dk/Tabelle-Fallstudie-3/
-url: https://quadriga-dk.github.io/Tabelle-Fallstudie-3/
-prerequisites:
-- allgemeines Verständnis von / Interesse an Struktur von Datensätzen
-- Verständnis für Statistik und statistische Software bzw. für das Programmieren empfohlen
-- Grundlegende Kenntnisse in R und RStudio empfohlen
-used-tools:
-- name: R (Programmiersprache)
-  url: https://cran.rstudio.com/
-- name: RStudio
-  url: https://posit.co/download/rstudio-desktop/
-chapters:
-- title: Fragestellung und Operationalisierung
-  description: In diesem einführenden Kapitel wird das Erkenntnisinteresse formuliert.
-  url: https://quadriga-dk.github.io/Tabelle-Fallstudie-3/operationalisierung/fragestellung-operationalisierung.html
-  learning-goal: Formulieren der Leitfrage und Operationalisieren des Verfahrens
-  time-required: PT5M
-  learning-objectives:
-  - learning-objective: Die Lernenden können die Entwicklung einer Fragestellung am
-      Beispiel der Ausprägungen des Engagements von Bürger:innen erläutern.
-    competency: nicht anwendbar
-    data-flow: nicht anwendbar
-    blooms-category: 2 Verstehen
-- title: Datenbasis
-  description: Dieses Kapitel widmet sich der Datengrundlage der Untersuchung.
-  url: https://quadriga-dk.github.io/Tabelle-Fallstudie-3/datenbasis/datenbasis-einleitung.html
-  learning-goal: Bearbeiten von Datensätzen mit R Shiny
-  time-required: PT15M
-  learning-objectives:
-  - learning-objective: Die Lernenden können Datensätze in R Shiny verändern.
-    competency: 2.3 Aufbereitung
-    data-flow: 2 Erhebung und Aufbereitung
-    blooms-category: 3 Anwenden
-  supplemented-by:
-  - https://raw.githubusercontent.com/technologiestiftung/giessdenkiez-de-opendata/main/daten/giessdenkiez_bew%C3%A4sserungsdaten.csv
-  - https://tsb-opendata.s3.eu-central-1.amazonaws.com/bezirksgrenzen/bezirksgrenzen.geojson
-- title: Dashboard - Vorbereitung
-  description: Dieses Kapitel widmet sich der Vorbereitung des Dashboards.
-  url: https://quadriga-dk.github.io/Tabelle-Fallstudie-3/4_dash-prep/4.0_intro.html
-  learning-goal: Verwenden von Dashboards für Visualisierung und Kommunikation von
-    Daten
-  time-required: TODO
-  learning-objectives:
-  - learning-objective: Die Lernenden können grundlegende Aspekte der Datenvisualisierung
-      benennen.
-    competency: 4.2 Visualisierung
-    data-flow: 4 Analyse
-    blooms-category: 1 Erinnern
-  - learning-objective: Die Lernenden können die Bedeutung von Dashboards für die
-      Datenkommunikation erläutern.
-    competency: 5.3 Kommunikation
-    data-flow: 5 Publikation und Nachnutzung
-    blooms-category: 2 Verstehen
-- title: Dashboard - Einzelelemente
-  description: Dieses Kapitel widmet sich dem Aufbau eines Dashboards mit R Shiny.
-  url: https://quadriga-dk.github.io/Tabelle-Fallstudie-3/dashboard/Dashboard.html
-  learning-goal: Erstellen eines Dashboards
-  time-required: TODO
-  learning-objectives:
-  - learning-objective: Die Lernenden können den Aufbau und die Gliederung eines Dashboards
-      erklären.
-    competency: 4.2 Visualisierung
-    data-flow: 4 Analyse
-    blooms-category: 2 Verstehen
-  - learning-objective: Die Lernenden können ein einfaches Dashboard mit wesentlichen
-      Komponenten (z. B. Startseite und Zeitverlauf) erstellen.
-    competency: 4.2 Visualisierung
-    data-flow: 4 Analyse
-    blooms-category: 3 Anwenden
-date-issued: '2025-03-21'
-date-modified: '2026-06-26'
-version: 0.0.1
-context-of-creation: 'Die vorliegenden Open Educational Resources wurden durch das
-  Datenkompetenzzentrum QUADRIGA erstellt.
-
-
-  Förderkennzeichen: 16DKZ2034'
-quality-assurance:
-  description: https://doi.org/10.5281/zenodo.18953896
-  date: '2026-11-14'
-learning-resource-type: Jupyter Book
-schema-version: 1.0.0
-license:
-  content:
-    url: https://creativecommons.org/licenses/by/4.0/
-    name: CC-BY-4.0
-  code: https://opensource.org/licenses/MIT
+- Lerneinheit
+- Open Educational Resource
+- Dashboard
+- Datenvisualisierung
+- Datenkommunikation
+inLanguage:
+- de
+about:
+- https://w3id.org/kim/hochschulfaechersystematik/n29
+- https://w3id.org/kim/hochschulfaechersystematik/n06
+educationalLevel:
+- https://w3id.org/kim/educationalLevel/level_8
+- https://w3id.org/kim/educationalLevel/level_A
+learningResourceType:
+- https://w3id.org/kim/hcrt/textbook
+duration: PT3H15M
+version: 1.0.0
+datePublished: '2025-03-21'
+dateModified: '2026-11-05'
+identifier: https://doi.org/10.5281/zenodo.23973571
