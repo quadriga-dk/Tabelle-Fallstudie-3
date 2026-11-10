@@ -5,7 +5,7 @@ title: "Visualisierung in der Verwaltung: Ein Dashboard für Baum- und Bewässer
 author: Paul Walter, Jana Plomin, Juliane Schmeling, Sami Dakruni, Cemre Bingöl, Ralf-Gabriel Porębski, Lamia Islam
 logo: assets/logoTabelle3.png
 copyright: "2024, QUADRIGA"
-exclude_patterns: [_build, Thumbs.db, .DS_Store, conda, venv, README.md, LICENSE.md, .github, Checkliste_Finalisierung.md]
+exclude_patterns: [_build, Thumbs.db, .DS_Store, conda, venv, .venv, README.md, LICENSE.md, .github, Checkliste_Finalisierung.md]
 
 # Force re-execution of notebooks on each build.
 # See https://jupyterbook.org/content/execute.html
