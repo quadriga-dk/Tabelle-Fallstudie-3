@@ -7,7 +7,7 @@ alt: Liniendiagramm zur Gesamtbewässerung je Pflanzjahr von 1900 bis 1920, mit 
 ---
 Ein Jahrhundert alt und kaum bewässert: Warum Berlins älteste Bäume austrocknen.
 ```
-Bereits für die Bäume, die zu Beginn des 20. Jahrhunderts gepflanzt wurden, wurde offensichtlich nur wenig Wasser zugeführt. Die Visualisierung zeigt die Gesamtbewässerung je Pflanzjahr von 1900 bis 1920, und zwischen diesen Jahren ist der Wasserverbrauch konstant niedrig. Ein einzelner Ausreißer um das Jahr 1917 zeigt eine kurze Phase höherer Bewässerung. Dies lässt vermuten, dass viele Stadtbäume aus einer Generation stammen, die über Jahrzehnten hinweg kaum gepflegt wurden und auf sich allein gestellt waren.
+Bereits für die Bäume, die zu Beginn des 20. Jahrhunderts gepflanzt wurden, wurde offensichtlich nur wenig Wasser zugeführt. Die Visualisierung zeigt die Gesamtbewässerung je Pflanzjahr von 1900 bis 1920, und zwischen diesen Jahren ist der Wasserverbrauch konstant niedrig. Ein einzelner Ausreißer um das Jahr 1917 zeigt eine kurze Phase höherer Bewässerung. Dies lässt vermuten, dass viele Stadtbäume aus einer Generation stammen, die über Jahrzehnte hinweg kaum gepflegt wurden und auf sich allein gestellt waren.
 
 ```{figure} ../assets/DS_02.png
 ---
