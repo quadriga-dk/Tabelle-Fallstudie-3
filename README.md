@@ -36,4 +36,4 @@ QUADRIGA ist ein Verbundprojekt mehrerer Institutionen, das von der Universität
 
 <a href="https://quadriga-dk.github.io/Tabelle-Fallstudie-3/7_abschluss/7.1_fragen-feedback.html" class="external-link" target="_blank">Fragen und Feedback</a> zu dieser OER können Sie uns sowohl über GitHub Issues als auch per Email zukommen lassen.  
 
-Bei Fragen zum Projekt wenden Sie sich gerne an die [Projektkoordination](mailto:quadriga-helpdesk@listserv.dfn.de?subject=[GitHub]%20Tabelle-Fallstudie-1). 
+Bei Fragen zum Projekt wenden Sie sich gerne an die [Projektkoordination](mailto:quadriga-helpdesk@listserv.dfn.de?subject=[GitHub]%20Tabelle-Fallstudie-3). 
