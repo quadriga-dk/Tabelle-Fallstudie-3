@@ -30,14 +30,14 @@ Die Leitfrage konnte gemäß der vorgenommenen Operationalisierung beantwortet w
 Die Fallstudie betrachtete die Berliner Bezirke als räumliche Einheiten, ohne deren heterogene städtische Beschaffenheit zu berücksichtigen. Faktoren wie Bevölkerungszahl und -dichte, Baumdichte, Verhältnis von Bäumen zu Einwohner:innen, Nähe zu Gewässern sowie Wetter-, Klima- und Emissionsdaten blieben unbeachtet. Dadurch lassen sich die Ergebnisse kaum einordnen oder Handlungsoptionen ableiten.
 
 **Operationalisierung als Narrativ**  
-Die gewählte Operationalisierung ist wie jede wissenschafliche Operationalisierung diskutabel. 
+Die gewählte Operationalisierung ist wie jede wissenschaftliche Operationalisierung diskutabel. 
 Ein zentraler Befund der Fallstudie ist somit, dass die Wahl der Messgröße das „Narrativ“ der Daten bestimmt. Während die absolute Anzahl gegossener Bäume den Bezirk Mitte als Spitzenreiter ausweist, verschiebt sich das Bild bei einer relativen Betrachtung (Anteil am Gesamtbestand) oder der Gießintensität („Liter pro Baum“) zugunsten von Friedrichshain-Kreuzberg. Dies belegt das Prinzip, dass Daten nicht neutral sind und ihre Aufbereitung die Interpretation des Engagements steuert.
 
 **Datengrundlage und Reliabilität**
 Die Nachnutzung der Daten von Gieß den Kiez ermöglichte eine explorative Analyse, birgt jedoch Unsicherheiten bezüglich der Datenqualität: Da es sich um Selbstangaben der Bürger:innen handelt, bleibt die Reliabilität der Gießmengen schwer überprüfbar. Zudem fehlen in der Fallstudie Kontextdaten wie Wetter- oder Bodenfeuchtewerte, um das Engagement dem tatsächlichen ökologischen Bedarf gegenüberzustellen.
 
 **Methodik der explorativen Untersuchung**
-Diese Fallstudie beantwortet die Leitfrage mittels explorativer Analyse, d. h. der Erkennung von Mustern in Visualisierungen. Dieser Ansatz dient einer Sichtung des Datenmaterials und einem Erkennen von Trends. Für einen tiefergehende Analyse sollte eine andere Methodik gewählt werden.
+Diese Fallstudie beantwortet die Leitfrage mittels explorativer Analyse, d. h. der Erkennung von Mustern in Visualisierungen. Dieser Ansatz dient einer Sichtung des Datenmaterials und einem Erkennen von Trends. Für eine tiefergehende Analyse sollte eine andere Methodik gewählt werden.
 
 **Wirkung von Visualisierungen**
 Sowohl die Art der gewählten Visualisierung als auch die Skalierung der Achsen, die Farbwahl und die Messgrößen beeinflussen die Lesbarkeit, das Verständnis und die Interpretation von Darstellungen. Vor allem in Bezug auf Datenvisualisierungen sollten sich sowohl Gestaltende als auch Nutzende der Möglichkeit von Verzerrungen oder Missinterpretationen bewusst sein.
