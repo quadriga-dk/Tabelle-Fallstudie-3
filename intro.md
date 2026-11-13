@@ -53,11 +53,11 @@ Sie finden alle Open Educational Resources (OER) bzw. Fallstudien des Datenkompe
 ```{admonition} Die Forschung von Dr. Amir Weber
 :class: story
 Dr. Amir Weber, ein Verwaltungswissenschaftler mit Interesse an kommunalen Daten und Bürgerbeteiligung, möchte ein Dashboard zur Visualisierung des Bewässerungsverhaltens von Bürger:innen erstellen, das auf offenen Datensätzen basiert.  
-In einer weiteren <a href="https://quadriga-dk.github.io/Tabelle-Fallstudie-2/Titelseite.html" class="external-link" target="_blank">Open Educational Resource</a> des Projekts QUADRIGA hat er exemplarisch aufgezeigt, wie geeignete Datensätze identifiziert und erschlossen werden können. Auf Grundlage von Datensätzen aus dem Bundesland Berlin möchte er nun eine ergebnisoffene, explorative Analyse durchführen, um das darin enthaltende Erkenntnispotenzial zu identifizieren. Die gewonnenen Befunde werden in dieser Fallstudie parallel in Form eines Dashboards aufbereitet, um die Daten für Bürger:innen und politische Entscheidungsträger:innen nachvollziehbar darzustellen.  
+In einer weiteren <a href="https://quadriga-dk.github.io/Tabelle-Fallstudie-2/Titelseite.html" class="external-link" target="_blank">Open Educational Resource</a> des Projekts QUADRIGA hat er exemplarisch aufgezeigt, wie geeignete Datensätze identifiziert und erschlossen werden können. Auf Grundlage von Datensätzen aus dem Bundesland Berlin möchte er nun eine ergebnisoffene, explorative Analyse durchführen, um das darin enthaltene Erkenntnispotenzial zu identifizieren. Die gewonnenen Befunde werden in dieser Fallstudie parallel in Form eines Dashboards aufbereitet, um die Daten für Bürger:innen und politische Entscheidungsträger:innen nachvollziehbar darzustellen.  
 Hierzu soll insbesondere das Ausmaß sowie die räumliche Verteilung der Bürgerbeteiligung sichtbar gemacht werden.  
 In dieser OER werden Sie Dr. Weber mit der Erstellung eines solchen Dashboards helfen.
 
-Er orientiert er sich an folgender Leitfrage: 
+Er orientiert sich an folgender Leitfrage: 
 ```
 
 ```{admonition} Leitfrage
